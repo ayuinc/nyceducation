@@ -15,6 +15,11 @@ body{
 	border-bottom: 1px solid #000000;
 }
 
+.sub a { 
+	color:#000000;
+	line-height: 125%;
+}
+
 .header {
 	background-color: #FFBE00;	
 	/*box-shadow: 0px 1px 5px #888;
@@ -363,6 +368,17 @@ body{
 	width: 15px;
 	background-size: 15px 15px;
 	left: 18.9rem;
+}
+
+.info-perfil {
+	background-image: url('../img/info.png');
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 0.8rem;
+	height: 15px;
+	width: 15px;
+	background-size: 15px 15px;
+	left: 9.5rem;
 }
 
 .detalle{
