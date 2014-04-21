@@ -6,17 +6,17 @@
             {
                 "id": 1,
                 "dbn": "03M485",
-                "name": "Fiorello H. LaGuardia High School of Music & Art and Performing Arts",
+                "name": "Fiorello H. LaGuardia High School",
                 "website": "http://www.laguardiahs.org",
                 "type": "High school",
                 "grades_served": "09,10,11,12",
                 "opening_date": "Jul 1 1984",
                 "building_usage": "not co-located",
-                "street_address": "100 AMSTERDAM AVENUE",
+                "street_address": "Evergreen Terrace",
                 "city": "MANHATTAN",
                 "state_code": "NY",
                 "zip": "10023",
-                "principal_name": "Dr. Lisa Mars",
+                "principal_name": "Dr. Homer Simpson",
                 "principal_email": "lmars@schools.nyc.gov",
                 "phone_number": "212-496-0700",
                 "district": "3"
@@ -43,7 +43,7 @@
 
         findById = function(id) {
             var school = null,
-            school = schools[0];
+            school = schools[id - 1];
             return school;
         };
 

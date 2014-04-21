@@ -12,11 +12,10 @@
     <div class="small-12 medium-12 large-12 columns">
             <div class="row collapse">
                 <div class="small-12 columns">
-                    <form class="search-form" action="#" ng-submit="searchSchool()">
-                        <input type="search" placeholder="School Name / Address" ng-model="school.searchField">
+                    <form class="search-form" ng-submit="go('/school/' + school.searchField)">
+                        <input type="search" placeholder="School Name / Address" autofocus="autofocus" ng-model="school.searchField" required>
                         <img src="img/search.png" alt="">
-                        <button type="submit" ng-click="go('/school/1')" class="button expand bottones-search">Search</button>
-                        {{ school.searchField }}
+                        <button type="submit" class="button expand bottones-search">Search</button>
                     </form>
                 </div>
             </div>

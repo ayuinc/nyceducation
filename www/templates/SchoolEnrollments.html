@@ -1,0 +1,93 @@
+<div class="off-canvas-wrap">
+  <div class="inner-wrap">
+    <nav class="tab-bar header">
+      <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+      </section>
+
+      <section class="right tab-bar-section">
+        <h1 class="title">{{ school.name }}</h1>
+      </section>
+    </nav>
+
+    <div ng-include src="'templates/sidebar.html'"></div>
+
+    <!--CONTENIDO-->
+    <section class="main-section">
+    
+    <div class="row menu-header">   
+        <div class="small-6 small-centered medium-6 large-6 columns">
+            <h3 class="text-center">Enrollment</h3>
+        </div>  
+        <div class="small-10 small-centered medium-10 large-10 columns">        
+            <div class="row">
+                <div class="small-4 small-centered medium-6 large-6 columns">
+                    <div class="text-center">
+                    <a href="#" data-dropdown="drop1" class="button dropdown small bg-dropdown">Year</a><br>
+                    <ul id="drop1" data-dropdown-content class="f-dropdown">
+                      <li><a href="#">2014</a></li>
+                      <li><a href="#">2013</a></li>
+                      <li><a href="#">2012</a></li>
+                    </ul>
+                    </div>
+                </div>      
+            </div>
+        </div>          
+    </div>      
+    
+    <div class="row">
+        <div class="small-12 medium-12 large-12 columns">   
+            <table>
+              <thead>
+                <tr>
+                  <th width="50%">Grades</th>
+                  <th width="50%">No. Students</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>K</td>
+                  <td>100</td>
+                </tr>
+                <tr>
+                  <td>1st</td>
+                  <td>72</td>
+                </tr>       
+                <tr>
+                  <td>2nd</td>
+                  <td>56</td>
+                </tr>   
+                <tr>
+                  <td>3rd</td>
+                  <td>34</td>
+                </tr>   
+                <tr>
+                  <td>4th</td>
+                  <td>79</td>
+                </tr>   
+                <tr>
+                  <td>5th</td>
+                  <td>45</td>
+                </tr>                                                           
+              </tbody>
+            </table>
+        </div>
+    </div>  
+    
+    <div class="row independent-stat">
+        <div class="small-12 medium-12 large-12 columns">
+            <div class="democracy color-principal" style="width:30%;">
+                <p>30%</p>
+                <itemsurvey><span>Attendance Rate</span></itemsurvey>
+            </div>
+        </div>
+    </div>
+    
+    
+    </section>
+    <!--END.CONTENIDO-->
+
+  <a class="exit-off-canvas"></a>
+
+  </div>
+</div>  

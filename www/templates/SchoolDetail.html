@@ -10,131 +10,9 @@
       </section>
     </nav>
 
-    <aside class="left-off-canvas-menu">
-      <ul class="off-canvas-list">
-        <li><label>Menu</label></li>
-        <li>
-        	<a href="index.html">
-        	<div class="row">
-        		<div class="small-2  columns">
-					<img src="img/search_menu.png">	
-        		</div>	
-				<div class="small-10 columns menu-alinear-texto">	
-					 Search
-        		</div>
-        	</div>
-        	</a>
-        </li>
-        <li>
-        	<a href="profile.html">
-        	<div class="row">
-        		<div class="small-2  columns">
-					<img src="img/profile_menu.png">	
-        		</div>	
-				<div class="small-10 columns menu-alinear-texto">	
-					 Profile
-        		</div>
-        	</div>
-        	</a>
-        </li>
-        <li>
-        	<a href="demographics.html">
-        	<div class="row">
-        		<div class="small-2  columns">
-					<img src="img/demographics_menu.png">	
-        		</div>	
-				<div class="small-10 columns menu-alinear-texto">	
-					 Demographics
-        		</div>
-        	</div>
-        	</a>	        
-        </li>
-        <li>
-        	<a href="enrollment.html">
-        	<div class="row">
-        		<div class="small-2  columns">
-					<img src="img/enrollment_menu.png">	
-        		</div>	
-				<div class="small-10 columns menu-alinear-texto">	
-					 Enrollment
-        		</div>
-        	</div>
-        	</a>	        
-        </li>
-        <li>
-        	<a href="admissions.html">
-        	<div class="row">
-        		<div class="small-2  columns">
-					<img src="img/admissions_menu.png">	
-        		</div>	
-				<div class="small-10 columns menu-alinear-texto">	
-					 Admissions
-        		</div>
-        	</div>
-        	</a>	           
-        </li>
-        <li>
-        	<a href="test-scores.html">
-        	<div class="row">
-        		<div class="small-2  columns">
-					<img src="img/testscores_menu.png">	
-        		</div>	
-				<div class="small-10 columns menu-alinear-texto">	
-					 Test Scores
-        		</div>
-        	</div>
-        	</a>	        
-        </li>
-        <li>
-        	<a href="evaluations.html">
-        	<div class="row">
-        		<div class="small-2  columns">
-					<img src="img/evaluations_menu.png">	
-        		</div>	
-				<div class="small-10 columns menu-alinear-texto">	
-					 Evaluations
-        		</div>
-        	</div>
-        	</a>	        
-        </li>
-        <li>
-        	<a href="survey-result.html">
-        	<div class="row">
-        		<div class="small-2  columns">
-					<img src="img/surveyresults_menu.png">	
-        		</div>	
-				<div class="small-10 columns menu-alinear-texto">	
-					 Survey Results
-        		</div>
-        	</div>
-        	</a>	        
-        </li>
-        <li>
-        	<a href="college.html">
-        	<div class="row">
-        		<div class="small-2  columns">
-					<img src="img/college_menu.png">	
-        		</div>	
-				<div class="small-10 columns menu-alinear-texto">	
-					 College & Career
-        		</div>
-        	</div>
-        	</a>	        
-        </li>
-        <li>
-        	<a href="glosary.html">
-        	<div class="row">
-        		<div class="small-2  columns">
-					<img src="img/glosary_menu.png">	
-        		</div>	
-				<div class="small-10 columns menu-alinear-texto">	
-					 Glosary of Terms
-        		</div>
-        	</div>
-        	</a>
-        </li>        
-      </ul>
-    </aside>
+	<div ng-include src="'templates/sidebar.html'"></div>
+	
+	<a ng-click="back()">Back</a>
 
 	<!--CONTENIDO-->
     <section class="main-section">
@@ -175,7 +53,7 @@
 				</div>
 				<div class="small-7 columns">
 					<div class="profile_info">
-						<span class="sub"><a href="http://maps.google.com/?q=116th w street, New York, NY 10027" target="_blank">{{ school.address }}</a></span>
+						<span class="sub"><a href="http://maps.google.com/?q=116th w street, New York, NY 10027" target="_blank">{{ school.street_address }}</a></span>
 					</div>
 				</div>
 			</div>
@@ -187,7 +65,7 @@
 				</div>
 				<div class="small-7 columns">
 					<div class="profile_info">
-						<span>{{ school.grade_served }}</span>
+						<span>{{ school.grades_served }}</span>
 						<a href="glosary.html"><div class="info-perfil"></div></a>
 					</div>
 				</div>
@@ -200,7 +78,7 @@
 				</div>
 				<div class="small-7 columns">
 					<div class="profile_info">
-						<span class="sub">{{ school.phone }}</span>
+						<span class="sub">{{ school.phone_number }}</span>
 					</div>
 				</div>
 			</div>
