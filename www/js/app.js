@@ -54,8 +54,9 @@ app.config(function($routeProvider) {
     $routeProvider.otherwise({ redirect_to: "/" });
 });
 
-app.controller("MainController", ['$scope', '$rootScope', '$window', '$location', function($scope, $rootScope, $window, $location) {
+app.controller("MainController", ['$scope', '$rootScope', '$window', '$location', '$http', function($scope, $rootScope, $window, $location, $http) {
     $scope.header = { title: "Welcome"};
+    $scope.schools = null;
     $scope.slide = '';
     $rootScope.back = function() {
         $scope.slide = 'slide-right';
@@ -67,6 +68,11 @@ app.controller("MainController", ['$scope', '$rootScope', '$window', '$location'
         console.log('path ' + path);
         $location.url(path);
     };
+
+    $http.get('http://162.243.110.154/api/v1/school')
+        .success(function(data){
+            $scope.schools = data.schools;
+        });
 }]);
 
 app.controller('SchoolController', ['$scope', '$routeParams', 'School', function ($scope, $routeParams, School) {
