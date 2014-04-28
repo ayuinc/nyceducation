@@ -22,9 +22,5 @@
         </form>  
     </div>
 
-    <div class="small-12 medium-12 large-12 columns">
-        <ul>
-            <li ng-repeat="school in schools | filter:school.searchField"> {{ school.name }} </li>
-        </ul>
-    </div>
+    <autocomplete ng-model="yourchoice" data="movies" on-type="updateMovies"></autocomplete>
 </div>
