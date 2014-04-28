@@ -1,4 +1,6 @@
-var app = angular.module("nyce", ["ngRoute", "ngAnimate", "ngTouch", "nyce.memoryServices"]);
+var app = angular.module("nyce", ["mm.foundation","ngRoute", "ngAnimate", "ngTouch", "nyce.memoryServices"]);
+
+//angular.module('nyce', ['mm.foundation']);
 
 app.config(function($routeProvider) {
     $routeProvider.when("/", {
@@ -85,3 +87,29 @@ app.controller('SchoolController', ['$scope', '$routeParams', 'School', function
         console.log(this.text);
     });
 }]);*/
+
+function DropdownCtrl($scope) {
+  $scope.items = [{texto:"2011", enlace:"www.google.com"},{texto:"2012", enlace:"www.youtube.com"}];
+}
+
+function AccordionDemoCtrl($scope) {
+  $scope.oneAtATime = true;
+
+  $scope.groups = [
+    {
+      title: "Dynamic Group Header - 1",
+      content: "Dynamic Group Body - 1"
+    },
+    {
+      title: "Dynamic Group Header - 2",
+      content: "Dynamic Group Body - 2"
+    }
+  ];
+
+  $scope.items = ['Item 1', 'Item 2', 'Item 3'];
+
+  $scope.addItem = function() {
+    var newItemNo = $scope.items.length + 1;
+    $scope.items.push('Item ' + newItemNo);
+  };
+}

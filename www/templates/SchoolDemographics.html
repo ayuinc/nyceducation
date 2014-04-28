@@ -24,11 +24,159 @@
     </div>      
     
     <div class="row">
+
+
+
+
+
+<div ng-controller="AccordionDemoCtrl">
+  <!--<label class="checkbox">
+    <input type="checkbox" ng-model="oneAtATime">
+    Open only one at a time
+  </label>-->
+
+  <accordion close-others="oneAtATime">
+    <accordion-group heading="Gender" is-open="true">
+        <div class="row">
+                        <div class="small-12 medium-12 large-12 columns">
+                            <div class="democracy color1" style="width:35%;">
+                                <p>35%</p>
+                                <itemsurvey><span>Black</span></itemsurvey>
+                            </div>
+                        </div>
+                        <div class="small-12 medium-12 large-12 columns">
+                            <div class="democracy color2" style="width:50%;">
+                                <p>50%</p>
+                                <itemsurvey><span>White</span></itemsurvey>
+                            </div>
+                        </div>
+                        <div class="small-12 medium-12 large-12 columns">
+                            <div class="democracy color3" style="width:12%;">
+                                <p>12%</p>
+                                <itemsurvey><span>Hispanic</span></itemsurvey>
+                            </div>
+                        </div>  
+                        <div class="small-12 medium-12 large-12 columns">
+                            <div class="democracy color4" style="width:23%;">
+                                <p>23%</p>
+                                <itemsurvey><span>Asian</span></itemsurvey>
+                            </div>
+                        </div>  
+                        <div class="small-12 medium-12 large-12 columns">
+                            <div class="democracy color5" style="width:14%;">
+                                <p>14%</p>
+                                <itemsurvey><span>Other</span></itemsurvey>
+                            </div>
+                        </div>
+        </div>
+        
+    </accordion-group>
+
+<accordion-group heading="Ethnicity" is-open="true">
+        <div class="row">
+                        <div class="small-12 medium-12 large-12 columns">
+                            <div class="democracy color1" style="width:35%;">
+                                <p>35%</p>
+                                <itemsurvey><span>Black</span></itemsurvey>
+                            </div>
+                        </div>
+                        <div class="small-12 medium-12 large-12 columns">
+                            <div class="democracy color2" style="width:50%;">
+                                <p>50%</p>
+                                <itemsurvey><span>White</span></itemsurvey>
+                            </div>
+                        </div>
+                        <div class="small-12 medium-12 large-12 columns">
+                            <div class="democracy color3" style="width:12%;">
+                                <p>12%</p>
+                                <itemsurvey><span>Hispanic</span></itemsurvey>
+                            </div>
+                        </div>  
+                        <div class="small-12 medium-12 large-12 columns">
+                            <div class="democracy color4" style="width:23%;">
+                                <p>23%</p>
+                                <itemsurvey><span>Asian</span></itemsurvey>
+                            </div>
+                        </div>  
+                        <div class="small-12 medium-12 large-12 columns">
+                            <div class="democracy color5" style="width:14%;">
+                                <p>14%</p>
+                                <itemsurvey><span>Other</span></itemsurvey>
+                            </div>
+                        </div>
+        </div>
+        
+    </accordion-group>
+
+
+<accordion-group heading="Status" is-open="true">
+        <div class="row">
+                        <div class="small-12 medium-12 large-12 columns">
+                            <div class="democracy color1" style="width:35%;">
+                                <p>35%</p>
+                                <itemsurvey><span>Black</span></itemsurvey>
+                            </div>
+                        </div>
+                        <div class="small-12 medium-12 large-12 columns">
+                            <div class="democracy color2" style="width:50%;">
+                                <p>50%</p>
+                                <itemsurvey><span>White</span></itemsurvey>
+                            </div>
+                        </div>
+                        <div class="small-12 medium-12 large-12 columns">
+                            <div class="democracy color3" style="width:12%;">
+                                <p>12%</p>
+                                <itemsurvey><span>Hispanic</span></itemsurvey>
+                            </div>
+                        </div>  
+                        <div class="small-12 medium-12 large-12 columns">
+                            <div class="democracy color4" style="width:23%;">
+                                <p>23%</p>
+                                <itemsurvey><span>Asian</span></itemsurvey>
+                            </div>
+                        </div>  
+                        <div class="small-12 medium-12 large-12 columns">
+                            <div class="democracy color5" style="width:14%;">
+                                <p>14%</p>
+                                <itemsurvey><span>Other</span></itemsurvey>
+                            </div>
+                        </div>
+        </div>
+        
+    </accordion-group>
+
+
+<!--
+
+    <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+      {{group.content}}
+    </accordion-group>
+    <accordion-group heading="Dynamic Body Content">
+      <p>The body of the accordion group grows to fit the contents</p>
+        <button class="button small" ng-click="addItem()">Add Item</button>
+        <div ng-repeat="item in items">{{item}}</div>
+    </accordion-group>
+    <accordion-group is-open="isopen">
+        <accordion-heading>
+            I can have markup, too! <i class="right" ng-class="{'fa fa-chevron-down': isopen, 'fa fa-chevron-right': !isopen}"></i>
+        </accordion-heading>
+        This is just some content to illustrate fancy headings.
+    </accordion-group>
+  </accordion>-->
+</div>
+
+
+
+
+
+
+
+<!--
         <div class="small-12 medium-12 large-12 columns">   
-            <dl class="accordion" data-accordion>
+            <dl class="accordion" data-accordion ng-model="accordion">
               <dd>
-                <a href="#panel1">Gender <img src="img/arrow-down.png" class="right"></a>
-                <div id="panel1" class="content active">
+                <a ng-click="accordion = 'panel1'"> Gender <img src="img/arrow-down.png" class="right"></a>
+                <div  class="content" ng-class="{'active': accordion == 'panel1'}">
                     <div class="row">
                         <div class="small-12 medium-12 large-12 columns">
                             <div class="democracy color1" style="width:35%;">
@@ -64,8 +212,8 @@
                 </div>
               </dd>
               <dd>
-                <a href="#panel2">Ethnicity <img src="img/arrow-down.png" class="right"></a>            
-                <div id="panel2" class="content">
+                <a  ng-click="accordion = 'panel2'">Ethnicity <img src="img/arrow-down.png" class="right"></a>            
+                <div  class="content" ng-class="{'active': accordion == 'panel2'}">
                     <div class="row">
                         <div class="small-12 medium-12 large-12 columns">
                             <div class="democracy color1" style="width:35%;">
@@ -101,8 +249,8 @@
                 </div>
               </dd>
               <dd>
-                <a href="#panel3">Status <img src="img/arrow-down.png" class="right"></a>           
-                <div id="panel3" class="content">
+                <a ng-click="accordion = 'panel3'">Status <img src="img/arrow-down.png" class="right"></a>           
+                <div ng-class="{'active': accordion == 'panel3'}" class="content">
                     <div class="row">
                         <div class="small-12 medium-12 large-12 columns">
                             <div class="democracy color1" style="width:35%;">
@@ -138,7 +286,11 @@
                 </div>
               </dd>       
             </dl>
-        </div>
+        </div>  -->
+
+
+
+
     </div>  
     </section>
     <!--END.CONTENIDO-->
