@@ -1,4 +1,4 @@
-var app = angular.module("nyce", ["ngRoute", "ngAnimate", "ngTouch"]);
+var app = angular.module("nyce", ["ngRoute", "ngAnimate", "ngTouch", "autocomplete"]);
 
 //angular.module('nyce', ['mm.foundation']);
 
@@ -56,9 +56,11 @@ app.config(function($routeProvider) {
     $routeProvider.otherwise({ redirect_to: "/" });
 });
 
-app.controller("MainController", ['$scope', '$rootScope', '$window', '$location', function($scope, $rootScope, $window, $location) {
+app.controller("MainController", ['$scope', '$rootScope', '$window', '$location', '$http', 'MovieRetriever', function($scope, $rootScope, $window, $location, $http, MovieRetriever) {
     $scope.header = { title: "Welcome"};
     $scope.slide = '';
+    $scope.schools = [];
+
     $rootScope.back = function() {
         $scope.slide = 'slide-right';
         $window.history.back();
@@ -69,6 +71,15 @@ app.controller("MainController", ['$scope', '$rootScope', '$window', '$location'
         console.log('path ' + path);
         $location.url(path);
     };
+
+    $http.get('http://162.243.110.154/api/v1/school')
+        .success(function(data){
+            /*data.schools.forEach(function(elem) {
+                if(elem.id < 100)
+                    $scope.schools.push(elem.dbn+' '+elem.name);
+            });*/
+            $scope.schools = data.schools.slice(0, 150);
+        })
 
     $scope.movies = ["Lord of the Rings",
                     "Drive",
@@ -87,14 +98,19 @@ app.controller("MainController", ['$scope', '$rootScope', '$window', '$location'
     }
 }]);
 
-/*app.controller('SchoolController', ['$scope', '$routeParams', 'School', function ($scope, $routeParams, School) {
-   $scope.school = School.get({schoolId: $routeParams.schoolId});
-}]);*/
+app.controller('SchoolController', ['$scope', '$routeParams', '$http', function ($scope, $routeParams, $http) {
+    $http.get('http://162.243.110.154/api/v1/school/' + $routeParams.schoolId)
+        .success(function(data){
+            console.log(data);
+            $scope.school = data.profile[3];
+            $scope.school.name = data.schools[0].name;
+        });;
+}]);
 
 
 
 
-app.controller("SchoolController", function ($scope, $http, $routeParams) {
+/*app.controller("SchoolController", function ($scope, $http, $routeParams) {
     var urlBase = 'http://162.243.110.154/api/v1/school';
 
     $http.get(urlBase+'/'+ $routeParams.schoolId).
@@ -103,7 +119,7 @@ app.controller("SchoolController", function ($scope, $http, $routeParams) {
     });
 
    // console.log($scope.school);
-});
+});*/
 
 
 

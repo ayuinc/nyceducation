@@ -11,8 +11,6 @@
     </nav>
 
 	<div ng-include src="'templates/sidebar.html'"></div>
-	
-	<a ng-click="back()">Back</a>
 
 	<!--CONTENIDO-->
     <section class="main-section">
@@ -53,7 +51,7 @@
 				</div>
 				<div class="small-7 columns">
 					<div class="profile_info">
-						<span class="sub"><a href="http://maps.google.com/?q=116th w street, New York, NY 10027" target="_blank">{{ school.street_address }}</a></span>
+						<span class="sub"><a href="http://maps.google.com/?q=116th w street, New York, NY 10027" target="_blank">{{ school.primary_address }}</a></span>
 					</div>
 				</div>
 			</div>
@@ -114,7 +112,7 @@
 				</div>
 				<div class="small-7 columns">
 					<div class="profile_info">
-						<span>{{ school.opening_date }}</span>
+						<span>{{ school.year_opened }}</span>
 					</div>
 				</div>
 			</div>

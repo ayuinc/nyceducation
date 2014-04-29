@@ -12,7 +12,7 @@ app.directive('autocomplete', function(){
       suggestions: '=data',
       onType: '=onType'
     },
-    controller: function($scope, $element, $attrs){
+    controller: function($scope, $element, $attrs, $location){
       $scope.searchParam;
 
       // with the searchFilter the suggestions get filtered
@@ -83,8 +83,11 @@ app.directive('autocomplete', function(){
       // selecting a suggestion with RIGHT ARROW or ENTER
       $scope.select = function(suggestion){
         if(suggestion){
-          $scope.searchParam = suggestion;
-          $scope.searchFilter = suggestion;
+          /*$scope.searchParam = suggestion;
+          $scope.searchFilter = suggestion;*/
+          console.log("suggestion===="+suggestion.name);
+          $location.path("/school/" + suggestion.id);
+          $scope.$apply(function() { $location.path("/school/" + suggestion.id); });
         }
         watching = false;
         $scope.completing = false;
@@ -229,7 +232,7 @@ app.directive('autocomplete', function(){
                   'index="{{$index}}" val="{{suggestion}}" ng-class="{active: '+
                   '($index == selectedIndex)}" ng-click="select(suggestion)" '+
                   'ng-bind-html="suggestion | highlight:searchParam">'+
-                    '{{suggestion}}' +
+                    '{{suggestion.dbn}} {{suggestion.name}}' +
                   '</li>'+
                 '</ul>'+
               '</div>'

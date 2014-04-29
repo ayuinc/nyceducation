@@ -12,8 +12,8 @@
     <div class="small-12 medium-12 large-12 columns">
             <div class="row collapse">
                 <div class="small-12 columns">
-                    <form class="search-form" ng-submit="go('/school/' + school.searchField)">
-                        <input type="search" placeholder="School Name / Address" autofocus="autofocus" ng-model="school.searchField" required>
+                    <form class="search-form" ng-submit="go('/school/' + school.name)">
+                        <input type="search" placeholder="School Name / Address" autofocus="autofocus" ng-model="school.name" required>
                         <img src="img/search.png" alt="">
                         <button type="submit" class="button expand bottones-search">Search</button>
                     </form>
@@ -22,5 +22,6 @@
         </form>  
     </div>
 
-    <autocomplete ng-model="yourchoice" data="movies" on-type="updateMovies"></autocomplete>
+    <autocomplete ng-model="yourchoice" data="schools" on-type="updateMovies"></autocomplete>
+
 </div>
