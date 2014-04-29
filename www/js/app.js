@@ -13,6 +13,11 @@ app.config(function($routeProvider) {
         controller: "SchoolController"
     });
 
+    $routeProvider.when("/school/:schoolId/menu", {
+        templateUrl: "templates/SchoolMenu.html",
+        controller: "SchoolController"
+    });
+
     $routeProvider.when("/school/:schoolId/enrollments", {
         templateUrl: "templates/SchoolEnrollments.html",
         controller: "SchoolController"
@@ -48,7 +53,7 @@ app.config(function($routeProvider) {
         controller: "SchoolController"
     });
 
-    $routeProvider.when("/school/:schoolId/glossary", {
+    $routeProvider.when("/school/glossary", {
         templateUrl: "templates/SchoolGlossary.html",
         controller: "SchoolController"
     });
@@ -104,6 +109,7 @@ app.controller('SchoolController', ['$scope', '$routeParams', '$http', function 
             console.log(data);
             $scope.school = data.profile[3];
             $scope.school.name = data.schools[0].name;
+            $scope.school.id = data.schools[0].id;
         });;
 }]);
 

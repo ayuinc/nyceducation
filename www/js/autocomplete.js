@@ -86,7 +86,7 @@ app.directive('autocomplete', function(){
           /*$scope.searchParam = suggestion;
           $scope.searchFilter = suggestion;*/
           console.log("suggestion===="+suggestion.name);
-          $location.path("/school/" + suggestion.id);
+          $location.path("/school/" + suggestion.id + "/menu");
           $scope.$apply(function() { $location.path("/school/" + suggestion.id); });
         }
         watching = false;
