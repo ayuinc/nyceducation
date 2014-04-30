@@ -26,10 +26,10 @@
 
 
 <div ng-controller="DropdownCtrl" class="text-center">
-  <a dropdown-toggle="#dropdown-example-1" class="button dropdown small bg-dropdown">Year</a>
-  <ul id="dropdown-example-1" class="f-dropdown">
-    <li ng-repeat="choice in items">
-      <a href="{{choice.enlace}}">{{choice.texto}}</a>
+  <a dropdown-toggle="#dropdown-example-1" class="button dropdown small bg-dropdown">{{selectedyear}}</a>
+  <ul id="dropdown-example-1" class="f-dropdown" style="width:100px">
+    <li ng-repeat="item in items">
+      <a ng-click="changeyear(item.indice)">{{item.texto}}</a>
     </li>
   </ul>
   <br>
@@ -63,28 +63,57 @@
               <tbody>
                 <tr>
                   <td>K</td>
-                  <td>100</td>
+                  <td>{{enrollment.kinder}}</td>
                 </tr>
                 <tr>
                   <td>1st</td>
-                  <td>72</td>
+                  <td>{{enrollment.grade1}}</td>
                 </tr>       
                 <tr>
                   <td>2nd</td>
-                  <td>56</td>
+                  <td>{{enrollment.grade2}}</td>
                 </tr>   
                 <tr>
                   <td>3rd</td>
-                  <td>34</td>
+                  <td>{{enrollment.grade3}}</td>
                 </tr>   
                 <tr>
                   <td>4th</td>
-                  <td>79</td>
+                  <td>{{enrollment.grade4}}</td>
                 </tr>   
                 <tr>
                   <td>5th</td>
-                  <td>45</td>
-                </tr>                                                           
+                  <td>{{enrollment.grade5}}</td>
+                </tr>
+                <tr>
+                  <td>6th</td>
+                  <td>{{enrollment.grade6}}</td>
+                </tr>
+                <tr>
+                  <td>7th</td>
+                  <td>{{enrollment.grade7}}</td>
+                </tr>
+                <tr>
+                  <td>8th</td>
+                  <td>{{enrollment.grade8}}</td>
+                </tr>
+                <tr>
+                  <td>9th</td>
+                  <td>{{enrollment.grade9}}</td>
+                </tr>
+                <tr>
+                  <td>10th</td>
+                  <td>{{enrollment.grade10}}</td>
+                </tr>
+                <tr>
+                  <td>11th</td>
+                  <td>{{enrollment.grade11}}</td>
+                </tr>
+                <tr>
+                  <td>12th</td>
+                  <td>{{enrollment.grade12}}</td>
+                </tr>
+
               </tbody>
             </table>
         </div>
@@ -92,9 +121,18 @@
     
     <div class="row independent-stat">
         <div class="small-12 medium-12 large-12 columns">
-            <div class="democracy color-principal" style="width:30%;">
-                <p>30%</p>
-                <itemsurvey><span>Attendance Rate</span></itemsurvey>
+            <div class="democracy color-principal" style="width:{{enrollment.attendance_es_ms_k8_ec}}%;">
+                <p>{{enrollment.attendance_es_ms_k8_ec}}%</p>
+                <itemsurvey><span>Attendance Rate K-8</span></itemsurvey>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row independent-stat">
+        <div class="small-12 medium-12 large-12 columns">
+            <div class="democracy color-principal" style="width:{{enrollment.attendance_hs_transfer_hs}}%;">
+                <p>{{enrollment.attendance_hs_transfer_hs}}%</p>
+                <itemsurvey><span>Attendance Rate 9-12</span></itemsurvey>
             </div>
         </div>
     </div>

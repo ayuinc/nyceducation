@@ -1,4 +1,4 @@
-var app = angular.module("nyce", ["ngRoute", "ngAnimate", "ngTouch", "autocomplete"]);
+var app = angular.module("nyce", ["mm.foundation","ngRoute", "ngAnimate", "ngTouch", "autocomplete"]);
 
 //angular.module('nyce', ['mm.foundation']);
 
@@ -103,13 +103,18 @@ app.controller("MainController", ['$scope', '$rootScope', '$window', '$location'
     }
 }]);
 
-app.controller('SchoolController', ['$scope', '$routeParams', '$http', function ($scope, $routeParams, $http) {
+app.controller('SchoolController', ['$scope', '$rootScope', '$routeParams', '$http', 'DatosDropDown', function ($scope, $rootScope ,$routeParams, $http, DatosDropDown) {
     $http.get('http://162.243.110.154/api/v1/school/' + $routeParams.schoolId)
         .success(function(data){
-            console.log(data);
+            $scope.enrollments = data.enrollment;
+            $scope.demographic = data.demographic[3];
             $scope.school = data.profile[3];
             $scope.school.name = data.schools[0].name;
             $scope.school.id = data.schools[0].id;
+            
+            DatosDropDown.data.enrollments = $scope.enrollments;
+            $rootScope.enrollment=DatosDropDown.data.enrollments[3];
+            $scope.escuela.enrollment=$rootScope.enrollment;
         });;
 }]);
 
@@ -171,3 +176,27 @@ app.factory('MovieRetriever', function($http, $q, $timeout){
 
   return MovieRetriever;
 });
+
+// controles y frabrica---
+
+app.controller("DropdownCtrl" ,[ '$scope', 'DatosDropDown', '$rootScope',function ($scope, DatosDropDown, $rootScope) {
+
+  $scope.selectedyear= "2014";
+  $scope.items = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"},{texto:"2014",indice:"3"}];
+  $scope.changeyear = function(indice) {$scope.selectedyear = $scope.items[indice].texto;  $rootScope.enrollment=DatosDropDown.data.enrollments[indice]; };
+
+
+}]);
+
+function AccordionDemoCtrl($scope) {
+  $scope.oneAtATime = true;
+}
+
+app.factory('DatosDropDown',function(){
+
+      return {
+    data: {ind: 3}
+  };
+});
+
+//--
