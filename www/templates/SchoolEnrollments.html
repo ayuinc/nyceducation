@@ -25,9 +25,9 @@
 
 
 
-<div ng-controller="DropdownCtrl" class="text-center">
-  <a dropdown-toggle="#dropdown-example-1" class="button dropdown small bg-dropdown">{{selectedyear}}</a>
-  <ul id="dropdown-example-1" class="f-dropdown" style="width:100px">
+<div ng-controller="EnrollmentDropdownCtrl" class="text-center">
+  <a dropdown-toggle="#dropdown" class="button dropdown small bg-dropdown">{{selectedyear}}</a>
+  <ul id="dropdown" class="f-dropdown" style="width:100px">
     <li ng-repeat="item in items">
       <a ng-click="changeyear(item.indice)">{{item.texto}}</a>
     </li>
