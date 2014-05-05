@@ -232,7 +232,8 @@ app.directive('autocomplete', function(){
                   'index="{{$index}}" val="{{suggestion}}" ng-class="{active: '+
                   '($index == selectedIndex)}" ng-click="select(suggestion)" '+
                   'ng-bind-html="suggestion | highlight:searchParam">'+
-                    '{{suggestion.dbn}} {{suggestion.name}}' +
+                    '<span class="school-name">{{suggestion.name}} <span class="school-dbn">[{{suggestion.dbn}}]</span></span>' +
+                    '<span class="school-address">{{suggestion.primary_address}}</span>' +
                   '</li>'+
                 '</ul>'+
               '</div>'

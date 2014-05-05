@@ -520,3 +520,19 @@ itemsurvey {
     -webkit-transform: translateX(100%);
     transform: translateX(100%);
 }
+
+.enrollment-table {
+	border-spacing: 0;
+}
+
+.enrollment-table tr.even {
+	background: #81CAD1;
+}
+
+.enrollment-table tr.odd {
+	background: #9AE3E9;
+}
+
+.enrollment-table td, .enrollment-table th {
+	color: #222;
+}

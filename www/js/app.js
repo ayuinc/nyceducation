@@ -83,7 +83,7 @@ app.controller("MainController", ['$scope', '$rootScope', '$window', '$location'
         $location.url(path);
     };
 
-    $http.get('http://162.243.110.154/api/v1/school')
+    $http.get('http://162.243.110.154/api/v1/schools')
         .success(function(data){
             $scope.schools = data.schools.slice(0, 150);
         })
@@ -127,17 +127,18 @@ app.controller('SchoolController', ['$scope', '$rootScope', '$routeParams', '$ht
 
 app.controller("EnrollmentDropdownCtrl" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
-  $scope.selectedyear= "2014";
-  $scope.items = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"},{texto:"2014",indice:"3"}];
-  $scope.changeyear = function(indice) {$scope.selectedyear = $scope.items[indice].texto;  $rootScope.enrollment=DatosSchool.datos.enrollments[indice]; };
+  $scope.selectedyearEnrollment= "2014";
+  $scope.itemsddEnrollment = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"},{texto:"2014",indice:"3"}];
+  $scope.changeyear = function(indice) {$scope.selectedyearEnrollment = $scope.itemsddEnrollment[indice].texto;  $rootScope.enrollment=DatosSchool.datos.enrollments[indice]; };
+
 
 }]);
 
 app.controller("DemographicsDropdownCtrl" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
-  $scope.selectedyear= "2014";
-  $scope.items = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"},{texto:"2014",indice:"3"}];
-  $scope.changeyear = function(indice) {$scope.selectedyear = $scope.items[indice].texto;  $rootScope.demographic=DatosSchool.datos.demographics[indice]; };
+  $scope.selectedyearDemographics= "2014";
+  $scope.itemsddDemographics = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"},{texto:"2014",indice:"3"}];
+  $scope.changeyear = function(indice) {$scope.selectedyearDemographics = $scope.itemsddDemographics[indice].texto;  $rootScope.demographic=DatosSchool.datos.demographics[indice]; };
 
 }]);
 

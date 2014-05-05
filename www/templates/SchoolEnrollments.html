@@ -26,9 +26,9 @@
 
 
 <div ng-controller="EnrollmentDropdownCtrl" class="text-center">
-  <a dropdown-toggle="#dropdown" class="button dropdown small bg-dropdown">{{selectedyear}}</a>
-  <ul id="dropdown" class="f-dropdown" style="width:100px">
-    <li ng-repeat="item in items">
+  <a dropdown-toggle="#dropdown-enrollment" class="button dropdown small bg-dropdown">{{selectedyearEnrollment}}</a>
+  <ul id="dropdown-enrollment" class="f-dropdown" style="width:100px">
+    <li ng-repeat="item in itemsddEnrollment">
       <a ng-click="changeyear(item.indice)">{{item.texto}}</a>
     </li>
   </ul>
@@ -53,63 +53,63 @@
     
     <div class="row">
         <div class="small-12 medium-12 large-12 columns">   
-            <table>
+            <table class="enrollment-table">
               <thead>
-                <tr>
+                <tr class="odd">
                   <th width="50%">Grades</th>
                   <th width="50%">No. Students</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr class="even">
                   <td>K</td>
                   <td>{{enrollment.kinder}}</td>
                 </tr>
-                <tr>
+                <tr class="odd">
                   <td>1st</td>
                   <td>{{enrollment.grade1}}</td>
                 </tr>       
-                <tr>
+                <tr class="even">
                   <td>2nd</td>
                   <td>{{enrollment.grade2}}</td>
                 </tr>   
-                <tr>
+                <tr class="odd">
                   <td>3rd</td>
                   <td>{{enrollment.grade3}}</td>
                 </tr>   
-                <tr>
+                <tr class="even">
                   <td>4th</td>
                   <td>{{enrollment.grade4}}</td>
                 </tr>   
-                <tr>
+                <tr class="odd">
                   <td>5th</td>
                   <td>{{enrollment.grade5}}</td>
                 </tr>
-                <tr>
+                <tr class="even">
                   <td>6th</td>
                   <td>{{enrollment.grade6}}</td>
                 </tr>
-                <tr>
+                <tr class="odd">
                   <td>7th</td>
                   <td>{{enrollment.grade7}}</td>
                 </tr>
-                <tr>
+                <tr class="even">
                   <td>8th</td>
                   <td>{{enrollment.grade8}}</td>
                 </tr>
-                <tr>
+                <tr class="odd">
                   <td>9th</td>
                   <td>{{enrollment.grade9}}</td>
                 </tr>
-                <tr>
+                <tr class="even">
                   <td>10th</td>
                   <td>{{enrollment.grade10}}</td>
                 </tr>
-                <tr>
+                <tr class="odd">
                   <td>11th</td>
                   <td>{{enrollment.grade11}}</td>
                 </tr>
-                <tr>
+                <tr class="even">
                   <td>12th</td>
                   <td>{{enrollment.grade12}}</td>
                 </tr>

@@ -35,6 +35,24 @@
   background-color: #4bf;
 }
 
+.autocomplete span.school-name {
+  display: block;
+  font-weight: 300;
+  color: #888;
+}
+
+.autocomplete span.school-dbn {
+  font-weight: 600;
+  color: #888;
+}
+
+.autocomplete span.school-address {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
 .autocomplete .highlight {
   background-color: #E2E2E2;
 }
