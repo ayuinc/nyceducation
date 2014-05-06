@@ -1,0 +1,139 @@
+<div class="off-canvas-wrap">
+  <div class="inner-wrap">
+    <nav class="tab-bar header">
+      <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+      </section>
+
+      <section class="right tab-bar-section">
+        <h1 class="title">{{ profile.name }}</h1>
+      </section>
+    </nav>
+
+	<div ng-include src="'templates/sidebar.html'"></div>
+
+	<!--CONTENIDO-->
+    <section class="main-section">
+			<div class="row menu-header">
+				<div class="small-offset-5 small-7 medium-7 large-7 columns">
+					<h3>Profile</h3>
+				</div>	
+			</div> 	 
+			<div class="row profile_item">
+				<div class="small-5 columns">
+					<div class="profile_label">
+						<span>Principal</span>
+					</div>
+				</div>
+				<div class="small-7 columns">
+					<div class="profile_info">
+						<span>{{ profile.principal_name }}</span>
+					</div>
+				</div>
+			</div>
+			<div class="row profile_item">
+				<div class="small-5 columns">
+					<div class="profile_label">
+						<span>District</span>
+						<a ng-href="/profile/glossary"><div class="info-perfil"></div></a>
+					</div>
+				</div>
+				<div class="small-7 columns">
+					<div class="profile_info">
+						<span>{{ profile.district }}</span>
+					</div>
+				</div>
+			</div>
+			<div class="row profile_item">
+				<div class="small-5 columns">
+					<div class="profile_label">
+						<span>Grade Served</span>
+					</div>
+				</div>
+				<div class="small-7 columns">
+					<div class="profile_info">
+						<span>{{ profile.grades_served }}</span>
+					</div>
+				</div>
+			</div>
+			<div class="row profile_item">
+				<div class="small-5 columns">
+					<div class="profile_label">
+						<span>Total Enrollment</span>
+						<a ng-href="/school/glossary"><div class="info-perfil"></div></a>
+					</div>
+				</div>
+				<div class="small-7 columns">
+					<div class="profile_info">
+						<span>{{ profile.total_enrollment }}</span>
+					</div>
+				</div>
+			</div>
+			<div class="row profile_item">
+				<div class="small-5 columns">
+					<div class="profile_label">
+						<span>Year Opened</span>
+						<a ng-href="/school/glossary"><div class="info-perfil"></div></a>
+					</div>
+				</div>
+				<div class="small-7 columns">
+					<div class="profile_info">
+						<span>{{ profile.year_opened }}</span>
+					</div>
+				</div>
+			</div>
+			<div class="row profile_item">
+				<div class="small-5 columns">
+					<div class="profile_label">
+						<span>Shared Site</span>
+					</div>
+				</div>
+				<div class="small-7 columns">
+					<div class="profile_info">
+						<span>{{ profile.shared_site }}</span>
+					</div>
+				</div>
+			</div>
+			<div class="row profile_item">
+				<div class="small-5 columns">
+					<div class="profile_label">
+						<span>Address</span>
+					</div>
+				</div>
+				<div class="small-7 columns">
+					<div class="profile_info">
+						<span class="sub"><a href="http://maps.google.com/?q={{ profile.primary_address }}" target="_blank">{{ profile.primary_address }}</a></span>
+					</div>
+				</div>
+			</div>
+			<div class="row profile_item">
+				<div class="small-5 columns">
+					<div class="profile_label">
+						<span>Phone</span>
+					</div>
+				</div>
+				<div class="small-7 columns">
+					<div class="profile_info">
+						<span class="sub">{{ profile.phone_number }}</span>
+					</div>
+				</div>
+			</div>
+			<div class="row profile_item">
+				<div class="small-5 columns">
+					<div class="profile_label">
+						<span>Website</span>
+					</div>
+				</div>
+				<div class="small-7 columns">
+					<div class="profile_info">
+						<span class="sub"><a href="{{ profile.website }}">{{ profile.website }}</a></span>
+					</div>
+				</div>
+			</div>
+    </section>
+    <!--END.CONTENIDO-->
+
+  <a class="exit-off-canvas"></a>
+
+  </div>
+</div>

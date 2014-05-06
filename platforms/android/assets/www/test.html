@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test</title>
+</head>
+<body>
+	<div id="test"></div>
+	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script>
+		var request = $.ajax({
+		  url: "http://162.243.110.154/api/v1/profile/EAST",
+		});
+
+		request.done(function( msg ) {
+		  $( "#test" ).html( JSON.stringify(msg) );
+		});
+		 
+	</script>
+</body>
+</html>

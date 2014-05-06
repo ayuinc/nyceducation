@@ -1,0 +1,136 @@
+<div class="off-canvas-wrap">
+  <div class="inner-wrap">
+    <nav class="tab-bar header">
+      <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+      </section>
+
+      <section class="right tab-bar-section">
+        <h1 class="title">{{ school.name }}</h1>
+      </section>
+    </nav>
+
+    <div ng-include src="'templates/sidebar.html'"></div>
+    
+    <!--CONTENIDO-->
+    <section class="main-section">
+    
+    <div class="row menu-header">   
+        <div class="small-6 small-centered medium-6 large-6 columns">
+            <h3 class="text-center">Demographics</h3>
+        </div> 
+
+        <div class="small-4 small-centered medium-6 large-6 columns">    
+        <div ng-controller="DemographicsDropdownCtrl" class="text-center">
+          <a dropdown-toggle="#dropdown-demographics" class="button dropdown small bg-dropdown">{{selectedyearDemographics}}</a>
+              <ul id="dropdown-demographics" class="f-dropdown" style="width:100px">
+                <li ng-repeat="item in itemsddDemographics">
+                  <a ng-click="changeyear(item.indice)">{{item.texto}}</a>
+                </li>
+              </ul>
+        </div>
+        </div>   
+
+
+    </div>      
+    
+    <div class="row">
+
+    
+
+<div ng-controller="AccordionDemoCtrl">
+  <!--<label class="checkbox">
+    <input type="checkbox" ng-model="oneAtATime">
+    Open only one at a time
+  </label>-->
+
+  <accordion close-others="oneAtATime">
+    <accordion-group heading="Gender" is-open="true">
+        <div class="row">
+                        <div class="small-12 medium-12 large-12 columns">
+                            <div class="democracy color1" style="width:{{demographic.female}}%;">
+                                <p>{{demographic.female | number:1}}%</p>
+                                <itemsurvey><span>Female</span></itemsurvey>
+                            </div>
+                        </div>
+                        <div class="small-12 medium-12 large-12 columns">
+                            <div class="democracy color2" style="width:{{demographic.male}}%;">
+                                <p>{{demographic.male | number:1}}%</p>
+                                <itemsurvey><span>Male</span></itemsurvey>
+                            </div>
+                        </div>
+                        
+        </div>
+        
+    </accordion-group>
+
+<accordion-group heading="Ethnicity" is-open="true">
+        <div class="row">
+                        <div class="small-12 medium-12 large-12 columns">
+                            <div class="democracy color1" style="width:{{demographic.asian}}%;">
+                                <p>{{demographic.asian | number:1}}%</p>
+                                <itemsurvey><span>Asian</span></itemsurvey>
+                            </div>
+                        </div>
+                        <div class="small-12 medium-12 large-12 columns">
+                            <div class="democracy color2" style="width:{{demographic.black}}%;">
+                                <p>{{demographic.black | number:1}}%</p>
+                                <itemsurvey><span>Black</span></itemsurvey>
+                            </div>
+                        </div>
+                        <div class="small-12 medium-12 large-12 columns">
+                            <div class="democracy color3" style="width:{{demographic.latino}}%;">
+                                <p>{{demographic.latino | number:1}}%</p>
+                                <itemsurvey><span>Latino</span></itemsurvey>
+                            </div>
+                        </div>  
+                        <div class="small-12 medium-12 large-12 columns">
+                            <div class="democracy color4" style="width:{{demographic.white}}%;">
+                                <p>{{demographic.white | number:1}}%</p>
+                                <itemsurvey><span>White</span></itemsurvey>
+                            </div>
+                        </div>  
+                        <div class="small-12 medium-12 large-12 columns">
+                            <div class="democracy color5" style="width:{{demographic.other}}%;">
+                                <p>{{demographic.other | number:1}}%</p>
+                                <itemsurvey><span>Other</span></itemsurvey>
+                            </div>
+                        </div>
+        </div>
+        
+    </accordion-group>
+
+
+<accordion-group heading="Status" is-open="true">
+        <div class="row">
+                        <div class="small-12 medium-12 large-12 columns">
+                            <div class="democracy color1" style="width:{{demographic.free_reduced_price_lunch}}%;">
+                                <p>{{demographic.free_reduced_price_lunch | number:1}}%</p>
+                                <itemsurvey><span>Free / Reduced Lunch</span></itemsurvey>
+                            </div>
+                        </div>
+                        <div class="small-12 medium-12 large-12 columns">
+                            <div class="democracy color2" style="width:{{demographic.whith_disabilities}}%;">
+                                <p>{{demographic.whith_disabilities | number:1}}%</p>
+                                <itemsurvey><span>Students with Disabilities</span></itemsurvey>
+                            </div>
+                        </div>
+        </div>
+        
+    </accordion-group>
+</accordion>
+
+</div>
+
+
+
+
+
+    </div>  
+    </section>
+    <!--END.CONTENIDO-->
+
+  <a class="exit-off-canvas"></a>
+
+  </div>
+</div>

@@ -1,0 +1,152 @@
+<div class="off-canvas-wrap">
+  <div class="inner-wrap">
+    <nav class="tab-bar header">
+      <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+      </section>
+
+      <section class="right tab-bar-section">
+        <h1 class="title">{{ school.name }}</h1>
+      </section>
+    </nav>
+
+    <div ng-include src="'templates/sidebar.html'"></div>
+    
+	<!--CONTENIDO-->
+    <section class="main-section">
+    
+	<div class="row menu-header">	
+		<div class="small-6 small-centered medium-6 large-6 columns">
+			<h3 class="text-center">Evaluations</h3>
+		</div>	
+		<div class="small-10 small-centered medium-10 large-10 columns">		
+			<div class="row">
+				<div class="small-6 small-centered  medium-6 large-6 columns">
+					<div class="text-center">
+					<a href="#" data-dropdown="drop2" class="button dropdown small bg-dropdown">Year</a><br>
+					<ul id="drop2" data-dropdown-content class="f-dropdown">
+					  <li><a href="#">2010</a></li>
+					  <li><a href="#">2011</a></li>
+					  <li><a href="#">2012</a></li>
+					  <li><a href="#">2013</a></li>
+					  <li><a href="#">2014</a></li>
+					</ul>
+					</div>
+				</div>			
+			</div>
+		</div>	
+	</div>		
+	
+	<div class="row">
+		<div class="small-12 medium-12 large-12 columns">	
+			<dl class="accordion" data-accordion>
+			  <dd>
+			    <a href="#panel1">Progress Report <img src="img/arrow-down.png" class="right"></a>
+			    <div id="panel1" class="content active">
+			    	<div class="row">
+			    		<div class="small-12 medium-12 large-12 columns barra-blanca">
+			    			<div class="porcentaje" style="width:60%;">
+			    				<p><b>C</b></p>
+			    				<itemsurvey><span>Overall</span></itemsurvey>
+			    			</div>
+			    			<div class="metrics">
+								<div class="average" style="width:50%;">
+				    				<small>City Average: 50%</small>
+								</div>			    			
+				    			<div class="rank">
+				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+				    			</div>
+			    			</div>
+			    		</div>
+			    		<div class="small-12 medium-12 large-12 columns barra-blanca">
+			    			<div class="porcentaje" style="width:34%;">
+			    				<p>45<small>/50</small></p>
+			    				<itemsurvey><span>Progress</span></itemsurvey>
+			    			</div>
+			    			<div class="metrics">
+								<div class="average" style="width:50%;">
+				    				<small>City Average: 50%</small>
+								</div>			    			
+				    			<div class="rank">
+				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+				    			</div>
+				    			<a href="glosary.html"><div class="info"></div></a>
+			    			</div>
+			    		</div>	
+			    		<div class="small-12 medium-12 large-12 columns barra-blanca">
+			    			<div class="porcentaje" style="width:70%;">
+			    				<p>20<small>/25</small></p>
+			    				<itemsurvey><span>Performance</span></itemsurvey>
+			    			</div>
+			    			<div class="metrics">
+								<div class="average" style="width:50%;">
+				    				<small>City Average: 50%</small>
+								</div>			    			
+				    			<div class="rank">
+				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+				    			</div>
+			    			</div>
+			    		</div>				    			    				    		
+			    	</div>
+			    </div>
+			  </dd>
+			  <dd>
+			    <a href="#panel2">Quality Review <img src="img/arrow-down.png" class="right"></a>		    
+			    <div id="panel2" class="content">
+			    	<div class="row">
+			    		<div class="small-12 medium-12 large-12 columns barra-blanca">
+			    			<div class="porcentaje" style="width:60%;">
+			    				<p>60%</p>
+			    				<itemsurvey><span>Overall</span></itemsurvey>
+			    			</div>
+			    			<div class="metrics">
+								<div class="average" style="width:50%;">
+				    				<small>City Average: 50%</small>
+								</div>			    			
+				    			<div class="rank">
+				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+				    			</div>
+			    			</div>
+			    		</div>
+			    		<div class="small-12 medium-12 large-12 columns barra-blanca">
+			    			<div class="porcentaje" style="width:34%;">
+			    				<p>34%</p>
+			    				<itemsurvey><span>Curriculum</span></itemsurvey>
+			    			</div>
+			    			<div class="metrics">
+								<div class="average" style="width:50%;">
+				    				<small>City Average: 50%</small>
+								</div>			    			
+				    			<div class="rank">
+				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+				    			</div>
+				    			<a href="glosary.html"><div class="info"></div></a>
+			    			</div>
+			    		</div>	
+			    		<div class="small-12 medium-12 large-12 columns barra-blanca">
+			    			<div class="porcentaje" style="width:70%;">
+			    				<p>70%</p>
+			    				<itemsurvey><span>Pedagogy</span></itemsurvey>
+			    			</div>
+			    			<div class="metrics">
+								<div class="average" style="width:50%;">
+				    				<small>City Average: 50%</small>
+								</div>			    			
+				    			<div class="rank">
+				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+				    			</div>
+				    			<a href="glosary.html"><div class="info"></div></a>
+			    			</div>
+			    		</div>					    					    					    					    					    	</div>
+			    </div>
+			  </dd>	  
+			</dl>
+		</div>
+	</div>	
+    </section>
+    <!--END.CONTENIDO-->
+
+  <a class="exit-off-canvas"></a>
+
+  </div>
+</div>

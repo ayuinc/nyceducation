@@ -15,6 +15,11 @@ body{
 	border-bottom: 1px solid #000000;
 }
 
+.sub a { 
+	color:#000000;
+	line-height: 125%;
+}
+
 .header {
 	background-color: #FFBE00;	
 	/*box-shadow: 0px 1px 5px #888;
@@ -365,6 +370,17 @@ body{
 	left: 18.9rem;
 }
 
+.info-perfil {
+	background-image: url('../img/info.png');
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 0.8rem;
+	height: 15px;
+	width: 15px;
+	background-size: 15px 15px;
+	left: 9.5rem;
+}
+
 .detalle{
 	/*background-image: url('../img/detail.png');
 	background-repeat: no-repeat;*/
@@ -448,3 +464,75 @@ itemsurvey {
 	border-top:7px solid #FFF;
 }
 
+.slide-left.ng-enter,
+.slide-left.ng-leave,
+.slide-right.ng-enter,
+.slide-right.ng-leave {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: inherit;
+    -ms-transition: .25s ease-in-out;
+    -webkit-transition: .25s ease-in-out;
+    transition:  .25s ease-in-out;
+}
+
+
+.slide-left.ng-enter {
+    z-index: 101;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+}
+
+.slide-left.ng-enter.ng-enter-active {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.slide-left.ng-leave {
+    z-index: 100;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.slide-left.ng-leave.ng-leave-active {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+
+.slide-right.ng-enter {
+    z-index: 100;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+
+.slide-right.ng-enter.ng-enter-active {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.slide-right.ng-leave {
+    z-index: 101;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.slide-right.ng-leave.ng-leave-active {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+}
+
+.enrollment-table {
+	border-spacing: 0;
+}
+
+.enrollment-table tr.even {
+	background: #81CAD1;
+}
+
+.enrollment-table tr.odd {
+	background: #9AE3E9;
+}
+
+.enrollment-table td, .enrollment-table th {
+	color: #222;
+}
