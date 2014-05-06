@@ -21,16 +21,13 @@
         </div> 
 
         <div class="small-4 small-centered medium-6 large-6 columns">    
-
         <div ng-controller="DemographicsDropdownCtrl" class="text-center">
-          <a dropdown-toggle="#dropdown" class="button dropdown small bg-dropdown">{{selectedyear}}</a>
-              <ul id="dropdown" class="f-dropdown" style="width:100px">
-                <li ng-repeat="item in items">
+          <a dropdown-toggle="#dropdown-demographics" class="button dropdown small bg-dropdown">{{selectedyearDemographics}}</a>
+              <ul id="dropdown-demographics" class="f-dropdown" style="width:100px">
+                <li ng-repeat="item in itemsddDemographics">
                   <a ng-click="changeyear(item.indice)">{{item.texto}}</a>
                 </li>
               </ul>
-          <br>
-          <br>
         </div>
         </div>   
 

@@ -21,32 +21,79 @@
 		</div>	
 		<div class="small-10 small-centered medium-10 large-10 columns">		
 			<div class="row">
-				<div class="small-6 medium-6 large-6 columns">
-					<div class="text-center">
-					<a href="#" data-dropdown="drop1" class="button dropdown expand small bg-dropdown">Grade</a><br>
-					<ul id="drop1" data-dropdown-content class="f-dropdown">
-					  <li><a href="#">k</a></li>
-					  <li><a href="#">1st</a></li>
-					  <li><a href="#">2nd</a></li>
-					</ul>
+				<div class="small-6  medium-6 large-6 columns">
+					<div ng-controller="TestScoreYearddCtrl" class="text-center">
+					  <a dropdown-toggle="#dropdown-year" class="button dropdown small bg-dropdown">{{selectedyear}}</a>
+					  <ul id="dropdown-year" class="f-dropdown" style="width:100px">
+					    <li ng-repeat="item in itemsYears">
+					      <a ng-click="changeyear(item.indice)">{{item.texto}}</a>
+					    </li>
+					  </ul>
+					  <br>
 					</div>
 				</div>
+
 				<div class="small-6  medium-6 large-6 columns">
-					<div class="text-center">
-					<a href="#" data-dropdown="drop2" class="button dropdown expand small bg-dropdown">Year</a><br>
-					<ul id="drop2" data-dropdown-content class="f-dropdown">
-					  <li><a href="#">2010</a></li>
-					  <li><a href="#">2011</a></li>
-					  <li><a href="#">2012</a></li>
-					  <li><a href="#">2013</a></li>
-					  <li><a href="#">2014</a></li>
-					</ul>
+					<div ng-controller="TestScoreGradeddCtrl" class="text-center">
+					  <a dropdown-toggle="#dropdown-grade" class="button dropdown small bg-dropdown">{{selectedgrade}}</a>
+					  <ul id="dropdown-grade" class="f-dropdown" style="width:100px">
+					    <li ng-repeat="item in itemsGrades">
+					      <a ng-click="changegrade(item.indice)">{{item.texto}}</a>
+					    </li>
+					  </ul>
+					  <br>
 					</div>
-				</div>			
+				</div>	
+
 			</div>
 		</div>	
 	</div>		
 	
+	<div class="row">
+
+<div ng-controller="AccordionDemoCtrl">
+  <!--<label class="checkbox">
+    <input type="checkbox" ng-model="oneAtATime">
+    Open only one at a time
+  </label>-->
+
+  <accordion close-others="oneAtATime">
+    <accordion-group heading="ELA Scores" is-open="true">      
+
+		<!-- MATH -->
+		<div class="row">
+			<div ng-repeat="(key_ela,val_ela) in testScore_ela" class="small-12 medium-12 large-12 columns barra-blanca">
+    			<div class="porcentaje" style="width:{{val_ela}}%;">
+    				<p>{{val_ela}}%</p>
+    				<itemsurvey><span>{{key_ela | GeneraNombreTestScore}}</span></itemsurvey>
+    			</div>
+
+    		</div>
+    	</div>
+
+	</accordion-group>
+
+	<accordion-group heading="Math Scores" is-open="true">
+
+		<!-- ELA -->
+		<div class="row">
+			<div ng-repeat="(key_math,val_math) in testScore_math" class="small-12 medium-12 large-12 columns barra-blanca">
+    			<div class="porcentaje" style="width:{{val_math}}%;">
+    				<p>{{val_math}}%</p>
+    				<itemsurvey><span>{{key_math | GeneraNombreTestScore}}</span></itemsurvey>
+    			</div>
+    			
+    		</div>
+    	</div>
+    </accordion-group>
+
+</accordion>
+
+</div> <!-- acordion -->
+
+</div> <!-- row -->
+
+	<!--
 	<div class="row">
 		<div class="small-12 medium-12 large-12 columns">	
 			<dl class="accordion" data-accordion>
@@ -299,7 +346,12 @@
 			  </dd>		  
 			</dl>
 		</div>
-	</div>	
+	</div>	-->
+
+
+
+
+
     </section>
     <!--END.CONTENIDO-->
 
