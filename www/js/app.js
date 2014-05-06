@@ -253,7 +253,7 @@ app.controller("MainController", ['$scope', '$rootScope', '$window', '$location'
     };
 
     //$http.get('http://localhost/nyeducation_api/public/index.php/api/v1/school/')
-    $http.get('http://162.243.110.154/api/v1/school')
+    $http.get('http://162.243.110.154/api/v1/schools')
         .success(function(data){
             $scope.schools = data.schools.slice(0, 150);
         })
