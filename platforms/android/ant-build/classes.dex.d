@@ -1,9 +1,9 @@
-/Users/rdiaz/Sites/nyceducation/platforms/android/ant-build/classes.dex : \
-/Users/rdiaz/Sites/nyceducation/platforms/android/ant-build/classes/com/ayuinc/nyceducation/BuildConfig.class \
-/Users/rdiaz/Sites/nyceducation/platforms/android/ant-build/classes/com/ayuinc/nyceducation/NYCEducation.class \
-/Users/rdiaz/Sites/nyceducation/platforms/android/ant-build/classes/com/ayuinc/nyceducation/R$attr.class \
-/Users/rdiaz/Sites/nyceducation/platforms/android/ant-build/classes/com/ayuinc/nyceducation/R$drawable.class \
-/Users/rdiaz/Sites/nyceducation/platforms/android/ant-build/classes/com/ayuinc/nyceducation/R$string.class \
-/Users/rdiaz/Sites/nyceducation/platforms/android/ant-build/classes/com/ayuinc/nyceducation/R$xml.class \
-/Users/rdiaz/Sites/nyceducation/platforms/android/ant-build/classes/com/ayuinc/nyceducation/R.class \
-/Users/rdiaz/Sites/nyceducation/platforms/android/ant-build/dexedLibs/classes-6e2d23a87beac1df785baa80494f8582.jar \
+c:\xampp\htdocs\nyceducation\platforms\android\ant-build\classes.dex : \
+c:\xampp\htdocs\nyceducation\platforms\android\ant-build\classes\com\ayuinc\nyceducation\BuildConfig.class \
+c:\xampp\htdocs\nyceducation\platforms\android\ant-build\classes\com\ayuinc\nyceducation\NYCEducation.class \
+c:\xampp\htdocs\nyceducation\platforms\android\ant-build\classes\com\ayuinc\nyceducation\R$attr.class \
+c:\xampp\htdocs\nyceducation\platforms\android\ant-build\classes\com\ayuinc\nyceducation\R$drawable.class \
+c:\xampp\htdocs\nyceducation\platforms\android\ant-build\classes\com\ayuinc\nyceducation\R$string.class \
+c:\xampp\htdocs\nyceducation\platforms\android\ant-build\classes\com\ayuinc\nyceducation\R$xml.class \
+c:\xampp\htdocs\nyceducation\platforms\android\ant-build\classes\com\ayuinc\nyceducation\R.class \
+c:\xampp\htdocs\nyceducation\platforms\android\ant-build\dexedLibs\classes-8dcecdcb379e42b012aa1b0fa81a3fef.jar \

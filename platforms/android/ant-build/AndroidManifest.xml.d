@@ -1,2 +1,2 @@
-/Users/rdiaz/Sites/nyceducation/platforms/android/ant-build/AndroidManifest.xml : \
-/Users/rdiaz/Sites/nyceducation/platforms/android/AndroidManifest.xml \
+c:\xampp\htdocs\nyceducation\platforms\android\ant-build\AndroidManifest.xml : \
+c:\xampp\htdocs\nyceducation\platforms\android\AndroidManifest.xml \
