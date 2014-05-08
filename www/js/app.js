@@ -238,7 +238,7 @@ app.factory('DatosSchool',function($rootScope){
     };
 });
 
-app.controller("MainController", ['$scope', '$rootScope', '$window', '$location', '$http', function($scope, $rootScope, $window, $location, $http) {
+app.controller("MainController", ['$scope', '$rootScope', '$window', '$location', '$http', 'SchoolRetriever', function($scope, $rootScope, $window, $location, $http, SchoolRetriever) {
     $scope.header = { title: "Welcome"};
     $scope.slide = '';
     $scope.schools = [];
@@ -255,10 +255,48 @@ app.controller("MainController", ['$scope', '$rootScope', '$window', '$location'
     };
 
     //$http.get('http://localhost/nyeducation_api/public/index.php/api/v1/school/')
-    $http.get('http://162.243.110.154/api/v1/school')
+    /*$http.get('http://162.243.110.154/api/v1/schools')
         .success(function(data){
             $scope.schools = data.schools.slice(0, 150);
-        })
+        })*/
+    $scope.schools = SchoolRetriever.getSchools();
+    $scope.schools.then(function(data){
+        $scope.schools = data.profiles;
+    });
+
+    $scope.getSchools = function() {
+        return $scope.schools;
+    }
+
+    $scope.updateSchools = function(typed) {
+        $scope.newSchools = SchoolRetriever.getSchools(typed);
+        $scope.newSchools.then(function(data) {
+            $scope.schools = data.profiles;
+        });
+    }
+
+
+
+/*app.controller('MyCtrl', function($scope, MovieRetriever){
+
+  $scope.movies = MovieRetriever.getmovies("...");
+  $scope.movies.then(function(data){
+    $scope.movies = data;
+  });
+
+  $scope.getmovies = function(){
+    return $scope.movies;
+  }
+
+  $scope.doSomething = function(typedthings){
+    console.log("Do something like reload data with this: " + typedthings );
+    $scope.newmovies = MovieRetriever.getmovies(typedthings);
+    $scope.newmovies.then(function(data){
+      $scope.movies = data.profiles;
+    });
+  }
+
+});*/
 
 }]);
 
@@ -578,5 +616,24 @@ app.filter("filtraGrado", function( $rootScope ){
     }
 })
 
+//-----------------------------------------
 
-//--
+app.factory('SchoolRetriever', function($http, $q, $timeout) {
+    var getSchools = function(query) {
+        var deferred = $q.defer();
+
+        $http.get('http://162.243.110.154/api/v1/schools/' + query)
+        .success(function(data) {
+            deferred.resolve(data);
+        })
+        .error(function(reason) {
+            deferred.reject(reason);
+        });
+
+        return deferred.promise;
+    }
+
+    return {
+        getSchools: getSchools
+    };
+});
