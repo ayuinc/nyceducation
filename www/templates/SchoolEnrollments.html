@@ -53,63 +53,63 @@
     
     <div class="row">
         <div class="small-12 medium-12 large-12 columns">   
-            <table class="enrollment-table">
+            <table>
               <thead>
-                <tr class="odd">
+                <tr>
                   <th width="50%">Grades</th>
                   <th width="50%">No. Students</th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="even">
+                <tr class="{{enrollment.kinder | filtraCeros}}">
                   <td>K</td>
                   <td>{{enrollment.kinder}}</td>
                 </tr>
-                <tr class="odd">
+                <tr class="{{enrollment.grade1 | filtraCeros}}">
                   <td>1st</td>
                   <td>{{enrollment.grade1}}</td>
                 </tr>       
-                <tr class="even">
+                <tr class="{{enrollment.grade2 | filtraCeros}}">
                   <td>2nd</td>
                   <td>{{enrollment.grade2}}</td>
                 </tr>   
-                <tr class="odd">
+                <tr class="{{enrollment.grade3 | filtraCeros}}">
                   <td>3rd</td>
                   <td>{{enrollment.grade3}}</td>
                 </tr>   
-                <tr class="even">
+                <tr class="{{enrollment.grade4 | filtraCeros}}">
                   <td>4th</td>
                   <td>{{enrollment.grade4}}</td>
                 </tr>   
-                <tr class="odd">
+                <tr class="{{enrollment.grade5 | filtraCeros}}">
                   <td>5th</td>
                   <td>{{enrollment.grade5}}</td>
                 </tr>
-                <tr class="even">
+                <tr class="{{enrollment.grade6 | filtraCeros}}">
                   <td>6th</td>
                   <td>{{enrollment.grade6}}</td>
                 </tr>
-                <tr class="odd">
+                <tr class="{{enrollment.grade7 | filtraCeros}}">
                   <td>7th</td>
                   <td>{{enrollment.grade7}}</td>
                 </tr>
-                <tr class="even">
+                <tr class="{{enrollment.grade8 | filtraCeros}}">
                   <td>8th</td>
                   <td>{{enrollment.grade8}}</td>
                 </tr>
-                <tr class="odd">
+                <tr class="{{enrollment.grade9 | filtraCeros}}">
                   <td>9th</td>
                   <td>{{enrollment.grade9}}</td>
                 </tr>
-                <tr class="even">
+                <tr class="{{enrollment.grade10 | filtraCeros}}">
                   <td>10th</td>
                   <td>{{enrollment.grade10}}</td>
                 </tr>
-                <tr class="odd">
+                <tr class="{{enrollment.grade11 | filtraCeros}}">
                   <td>11th</td>
                   <td>{{enrollment.grade11}}</td>
                 </tr>
-                <tr class="even">
+                <tr class="{{enrollment.grade12 | filtraCeros}}">
                   <td>12th</td>
                   <td>{{enrollment.grade12}}</td>
                 </tr>
@@ -121,19 +121,37 @@
     
     <div class="row independent-stat">
         <div class="small-12 medium-12 large-12 columns">
-            <div class="democracy color-principal" style="width:{{enrollment.attendance_es_ms_k8_ec}}%;">
+            <div class="democracy color-principal {{enrollment.attendance_es_ms_k8_ec | filtraCeros}}" style="width:{{enrollment.attendance_es_ms_k8_ec}}%;">
                 <p>{{enrollment.attendance_es_ms_k8_ec}}%</p>
                 <itemsurvey><span>Attendance Rate K-8</span></itemsurvey>
+                
             </div>
         </div>
     </div>
+
+    <div class="row independent-stat">
+        <div class="small-12 medium-12 large-12 columns">
+          <div class="average {{proficiency_ratings.attendance_es_ms_k8_ec_pr | filtraCeros}}" style="width:{{proficiency_ratings.attendance_es_ms_k8_ec_pr}}%;">
+              <p>City Average: {{proficiency_ratings.attendance_es_ms_k8_ec_pr}}%</p>
+          </div>
+        </div>
+    </div>
+
     <br>
     <div class="row independent-stat">
         <div class="small-12 medium-12 large-12 columns">
-            <div class="democracy color-principal" style="width:{{enrollment.attendance_hs_transfer_hs}}%;">
+            <div class="democracy color-principal {{enrollment.attendance_hs_transfer_hs | filtraCeros}} " style="width:{{enrollment.attendance_hs_transfer_hs}}%;">
                 <p>{{enrollment.attendance_hs_transfer_hs}}%</p>
                 <itemsurvey><span>Attendance Rate 9-12</span></itemsurvey>
             </div>
+        </div>
+    </div>
+
+    <div class="row independent-stat">
+        <div class="small-12 medium-12 large-12 columns">
+          <div class="average {{proficiency_ratings.attendance_hs_pr | filtraCeros}}" style="width:{{proficiency_ratings.attendance_hs_pr}}%;">
+              <p>City Average: {{proficiency_ratings.attendance_hs_pr}}%</p>
+          </div>
         </div>
     </div>
     

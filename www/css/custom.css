@@ -536,3 +536,7 @@ itemsurvey {
 .enrollment-table td, .enrollment-table th {
 	color: #222;
 }
+
+.borrar {
+	display: none;
+}

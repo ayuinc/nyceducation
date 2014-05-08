@@ -3,12 +3,6 @@
 .autocomplete{
   width: 100%;
   position: relative;
-  top: 0;
-  -webkit-transition: 0.5s ease all;
-}
-
-.autocomplete.focus {
-  top: -12rem;
 }
 
 .autocomplete input{

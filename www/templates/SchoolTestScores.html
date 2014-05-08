@@ -13,7 +13,7 @@
     <div ng-include src="'templates/sidebar.html'"></div>
     
 	<!--CONTENIDO-->
-    <section class="main-section">
+    <section class="main-section" style="min-height:350px">
     
 	<div class="row menu-header">	
 		<div class="small-6 small-centered medium-6 large-6 columns">
@@ -25,8 +25,8 @@
 					<div ng-controller="TestScoreYearddCtrl" class="text-center">
 					  <a dropdown-toggle="#dropdown-year" class="button dropdown small bg-dropdown">{{selectedyear}}</a>
 					  <ul id="dropdown-year" class="f-dropdown" style="width:100px">
-					    <li ng-repeat="item in itemsYears">
-					      <a ng-click="changeyear(item.indice)">{{item.texto}}</a>
+					    <li ng-repeat="itemy in itemsYears">
+					      <a ng-click="changeyear(itemy.indice)">{{itemy.texto}}</a>
 					    </li>
 					  </ul>
 					  <br>
@@ -37,8 +37,8 @@
 					<div ng-controller="TestScoreGradeddCtrl" class="text-center">
 					  <a dropdown-toggle="#dropdown-grade" class="button dropdown small bg-dropdown">{{selectedgrade}}</a>
 					  <ul id="dropdown-grade" class="f-dropdown" style="width:100px">
-					    <li ng-repeat="item in itemsGrades">
-					      <a ng-click="changegrade(item.indice)">{{item.texto}}</a>
+					    <li ng-repeat="itemg in itemsGrades">
+					      <a ng-click="changegrade(itemg.indice)">{{itemg.texto}}</a>
 					    </li>
 					  </ul>
 					  <br>
@@ -52,40 +52,944 @@
 	<div class="row">
 
 <div ng-controller="AccordionDemoCtrl">
-  <!--<label class="checkbox">
+
+  <label class="checkbox">
     <input type="checkbox" ng-model="oneAtATime">
     Open only one at a time
-  </label>-->
+  </label>
 
   <accordion close-others="oneAtATime">
     <accordion-group heading="ELA Scores" is-open="true">      
 
-		<!-- MATH -->
+		<!-- ELA -->
 		<div class="row">
-			<div ng-repeat="(key_ela,val_ela) in testScore_ela" class="small-12 medium-12 large-12 columns barra-blanca">
-    			<div class="porcentaje" style="width:{{val_ela}}%;">
-    				<p>{{val_ela}}%</p>
-    				<itemsurvey><span>{{key_ela | GeneraNombreTestScore}}</span></itemsurvey>
+
+			<!-- 3rd Grado-->
+			<div class ="{{ 3 | filtraGrado}}">
+
+			<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.3rd_pr_s_level1_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.3rd_pr_s_level1_ela}}%;">
+    				<p>{{evaluation_ela.3rd_pr_s_level1_ela}}%</p>
+    				<itemsurvey><span> 3rd - Level 1</span></itemsurvey>
     			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.3rd_pr_s_level2_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.3rd_pr_s_level2_ela}}%;">
+    				<p>{{evaluation_ela.3rd_pr_s_level2_ela}}%</p>
+    				<itemsurvey><span> 3rd - Level 2</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.3rd_pr_s_level3_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.3rd_pr_s_level3_ela}}%;">
+    				<p>{{evaluation_ela.3rd_pr_s_level3_ela}}%</p>
+    				<itemsurvey><span> 3rd - Level 3</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.3rd_pr_s_level4_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.3rd_pr_s_level4_ela}}%;">
+    				<p>{{evaluation_ela.3rd_pr_s_level4_ela}}%</p>
+    				<itemsurvey><span> 3rd - Level 4</span></itemsurvey>
+    			</div>
+    		</div>
 
     		</div>
+
+    		<!-- 4rd Grado-->
+    		<div class ="{{ 4 | filtraGrado}}">
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.4rd_pr_s_level1_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.4rd_pr_s_level1_ela}}%;">
+    				<p>{{evaluation_ela.4rd_pr_s_level1_ela}}%</p>
+    				<itemsurvey><span> 4rd - Level 1</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.4rd_pr_s_level2_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.4rd_pr_s_level2_ela}}%;">
+    				<p>{{evaluation_ela.4rd_pr_s_level2_ela}}%</p>
+    				<itemsurvey><span> 4rd - Level 2</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.4rd_pr_s_level3_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.4rd_pr_s_level3_ela}}%;">
+    				<p>{{evaluation_ela.4rd_pr_s_level3_ela}}%</p>
+    				<itemsurvey><span> 4rd - Level 3</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.4rd_pr_s_level4_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.4rd_pr_s_level4_ela}}%;">
+    				<p>{{evaluation_ela.4rd_pr_s_level4_ela}}%</p>
+    				<itemsurvey><span> 4rd - Level 4</span></itemsurvey>
+    			</div>
+    		</div>
+    		</div>
+
+    		<!-- 5rd Grado-->
+    		<div class ="{{ 5 | filtraGrado}}">
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.5rd_pr_s_level1_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.5rd_pr_s_level1_ela}}%;">
+    				<p>{{evaluation_ela.5rd_pr_s_level1_ela}}%</p>
+    				<itemsurvey><span> 5rd - Level 1</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.5rd_pr_s_level2_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.5rd_pr_s_level2_ela}}%;">
+    				<p>{{evaluation_ela.5rd_pr_s_level2_ela}}%</p>
+    				<itemsurvey><span> 5rd - Level 2</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.5rd_pr_s_level3_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.5rd_pr_s_level3_ela}}%;">
+    				<p>{{evaluation_ela.5rd_pr_s_level3_ela}}%</p>
+    				<itemsurvey><span> 5rd - Level 3</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.5rd_pr_s_level4_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.5rd_pr_s_level4_ela}}%;">
+    				<p>{{evaluation_ela.5rd_pr_s_level4_ela}}%</p>
+    				<itemsurvey><span> 5rd - Level 4</span></itemsurvey>
+    			</div>
+    		</div>
+    		</div>
+
+    		<!-- 6rd Grado-->
+    		<div class ="{{ 6 | filtraGrado}}">
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.6rd_pr_s_level1_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.6rd_pr_s_level1_ela}}%;">
+    				<p>{{evaluation_ela.6rd_pr_s_level1_ela}}%</p>
+    				<itemsurvey><span> 6rd - Level 1</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.6rd_pr_s_level2_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.6rd_pr_s_level2_ela}}%;">
+    				<p>{{evaluation_ela.6rd_pr_s_level2_ela}}%</p>
+    				<itemsurvey><span> 6rd - Level 2</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.6rd_pr_s_level3_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.6rd_pr_s_level3_ela}}%;">
+    				<p>{{evaluation_ela.6rd_pr_s_level3_ela}}%</p>
+    				<itemsurvey><span> 6rd - Level 3</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.6rd_pr_s_level4_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.6rd_pr_s_level4_ela}}%;">
+    				<p>{{evaluation_ela.6rd_pr_s_level4_ela}}%</p>
+    				<itemsurvey><span> 6rd - Level 4</span></itemsurvey>
+    			</div>
+    		</div>
+    		</div>
+
+    		<!-- 7rd Grado-->
+    		<div class ="{{ 7 | filtraGrado}}">
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.7rd_pr_s_level1_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.7rd_pr_s_level1_ela}}%;">
+    				<p>{{evaluation_ela.7rd_pr_s_level1_ela}}%</p>
+    				<itemsurvey><span> 7rd - Level 1</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.7rd_pr_s_level2_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.7rd_pr_s_level2_ela}}%;">
+    				<p>{{evaluation_ela.7rd_pr_s_level2_ela}}%</p>
+    				<itemsurvey><span> 7rd - Level 2</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.7rd_pr_s_level3_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.7rd_pr_s_level3_ela}}%;">
+    				<p>{{evaluation_ela.7rd_pr_s_level3_ela}}%</p>
+    				<itemsurvey><span> 7rd - Level 3</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.7rd_pr_s_level4_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.7rd_pr_s_level4_ela}}%;">
+    				<p>{{evaluation_ela.7rd_pr_s_level4_ela}}%</p>
+    				<itemsurvey><span> 7rd - Level 4</span></itemsurvey>
+    			</div>
+    		</div>
+    		</div>
+
+    		<!-- 8rd Grado-->
+    		<div class ="{{ 8 | filtraGrado}}">
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.8rd_pr_s_level1_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.8rd_pr_s_level1_ela}}%;">
+    				<p>{{evaluation_ela.8rd_pr_s_level1_ela}}%</p>
+    				<itemsurvey><span> 8rd - Level 1</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.8rd_pr_s_level2_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.8rd_pr_s_level2_ela}}%;">
+    				<p>{{evaluation_ela.8rd_pr_s_level2_ela}}%</p>
+    				<itemsurvey><span> 8rd - Level 2</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.8rd_pr_s_level3_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.8rd_pr_s_level3_ela}}%;">
+    				<p>{{evaluation_ela.8rd_pr_s_level3_ela}}%</p>
+    				<itemsurvey><span> 8rd - Level 3</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.8rd_pr_s_level4_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.8rd_pr_s_level4_ela}}%;">
+    				<p>{{evaluation_ela.8rd_pr_s_level4_ela}}%</p>
+    				<itemsurvey><span> 8rd - Level 4</span></itemsurvey>
+    			</div>
+    		</div>
+    		</div>
+
+
     	</div>
 
 	</accordion-group>
 
 	<accordion-group heading="Math Scores" is-open="true">
 
-		<!-- ELA -->
+		<!-- MATH -->
 		<div class="row">
-			<div ng-repeat="(key_math,val_math) in testScore_math" class="small-12 medium-12 large-12 columns barra-blanca">
-    			<div class="porcentaje" style="width:{{val_math}}%;">
-    				<p>{{val_math}}%</p>
-    				<itemsurvey><span>{{key_math | GeneraNombreTestScore}}</span></itemsurvey>
+
+			<!-- 3rd Grado-->
+			<div class ="{{ 3 | filtraGrado}}">
+			<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.3rd_pr_s_level1_math | filtraCeros}}">
+    			<div class="porcentaje" style="width: {{evaluation_math.3rd_pr_s_level1_math}}%;">
+    				<p> {{evaluation_math.3rd_pr_s_level1_math}}% </p>
+    				<itemsurvey><span> 3rd - Level 1</span></itemsurvey>
     			</div>
-    			
     		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.3rd_pr_s_level2_math | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_math.3rd_pr_s_level2_math}}%;">
+    				<p> {{evaluation_math.3rd_pr_s_level2_math}}% </p>
+    				<itemsurvey><span> 3rd - Level 2</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.3rd_pr_s_level3_math | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_math.3rd_pr_s_level3_math}}%;">
+    				<p> {{evaluation_math.3rd_pr_s_level3_math}}% </p>
+    				<itemsurvey><span> 3rd - Level 3</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.3rd_pr_s_level4_math | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_math.3rd_pr_s_level4_math}}%;">
+    				<p> {{evaluation_math.3rd_pr_s_level4_math}}% </p>
+    				<itemsurvey><span> 3rd - Level 4</span></itemsurvey>
+    			</div>
+    		</div>
+    		</div>
+
+
+    		<!-- 4rd Grado-->
+    		<div class ="{{ 4 | filtraGrado}}">
+			<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.4rd_pr_s_level1_math | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_math.4rd_pr_s_level1_math}}%;">
+    				<p>{{evaluation_math.4rd_pr_s_level1_math}}%</p>
+    				<itemsurvey><span> 4rd - Level 1</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.4rd_pr_s_level2_math | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_math.4rd_pr_s_level2_math}}%;">
+    				<p>{{evaluation_math.4rd_pr_s_level2_math}}%</p>
+    				<itemsurvey><span> 4rd - Level 2</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.4rd_pr_s_level3_math | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_math.4rd_pr_s_level3_math}}%;">
+    				<p>{{evaluation_math.4rd_pr_s_level3_math}}%</p>
+    				<itemsurvey><span> 4rd - Level 3</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.4rd_pr_s_level4_math | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_math.4rd_pr_s_level4_math}}%;">
+    				<p>{{evaluation_math.4rd_pr_s_level4_math}}%</p>
+    				<itemsurvey><span> 4rd - Level 4</span></itemsurvey>
+    			</div>
+    		</div>
+    		</div>
+    		 <!-- 5rd Grado-->
+    		<div class ="{{ 5 | filtraGrado}}">
+			<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.5rd_pr_s_level1_math | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_math.5rd_pr_s_level1_math}}%;">
+    				<p>{{evaluation_math.5rd_pr_s_level1_math}}%</p>
+    				<itemsurvey><span> 5rd - Level 1</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.5rd_pr_s_level2_math | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_math.5rd_pr_s_level2_math}}%;">
+    				<p>{{evaluation_math.5rd_pr_s_level2_math}}%</p>
+    				<itemsurvey><span> 5rd - Level 2</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.5rd_pr_s_level3_math | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_math.5rd_pr_s_level3_math}}%;">
+    				<p>{{evaluation_math.5rd_pr_s_level3_math}}%</p>
+    				<itemsurvey><span> 5rd - Level 3</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.5rd_pr_s_level4_math | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_math.5rd_pr_s_level4_math}}%;">
+    				<p>{{evaluation_math.5rd_pr_s_level4_math}}%</p>
+    				<itemsurvey><span> 5rd - Level 4</span></itemsurvey>
+    			</div>
+    		</div>
+    		</div>
+
+    		<!-- 6rd Grado-->
+    		<div class ="{{ 6 | filtraGrado}}">
+			<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.6rd_pr_s_level1_math | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_math.6rd_pr_s_level1_math}}%;">
+    				<p>{{evaluation_math.6rd_pr_s_level1_math}}%</p>
+    				<itemsurvey><span> 6rd - Level 1</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.6rd_pr_s_level2_math | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_math.6rd_pr_s_level2_math}}%;">
+    				<p>{{evaluation_math.6rd_pr_s_level2_math}}%</p>
+    				<itemsurvey><span> 6rd - Level 2</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.6rd_pr_s_level3_math | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_math.6rd_pr_s_level3_math}}%;">
+    				<p>{{evaluation_math.6rd_pr_s_level3_math}}%</p>
+    				<itemsurvey><span> 6rd - Level 3</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.6rd_pr_s_level4_math | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_math.6rd_pr_s_level4_math}}%;">
+    				<p>{{evaluation_math.6rd_pr_s_level4_math}}%</p>
+    				<itemsurvey><span> 6rd - Level 4</span></itemsurvey>
+    			</div>
+    		</div>
+    		</div>
+
+    		<!-- 7rd Grado-->
+    		<div class ="{{ 7 | filtraGrado}}">
+			<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.7rd_pr_s_level1_math | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_math.7rd_pr_s_level1_math}}%;">
+    				<p>{{evaluation_math.7rd_pr_s_level1_math}}%</p>
+    				<itemsurvey><span> 7rd - Level 1</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.7rd_pr_s_level2_math | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_math.7rd_pr_s_level2_math}}%;">
+    				<p>{{evaluation_math.7rd_pr_s_level2_math}}%</p>
+    				<itemsurvey><span> 7rd - Level 2</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.7rd_pr_s_level3_math | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_math.7rd_pr_s_level3_math}}%;">
+    				<p>{{evaluation_math.7rd_pr_s_level3_math}}%</p>
+    				<itemsurvey><span> 7rd - Level 3</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.7rd_pr_s_level4_math | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_math.7rd_pr_s_level4_math}}%;">
+    				<p>{{evaluation_math.7rd_pr_s_level4_math}}%</p>
+    				<itemsurvey><span> 7rd - Level 4</span></itemsurvey>
+    			</div>
+    		</div>
+    		</div>
+
+    		<!-- 8rd Grado-->
+    		<div class ="{{ 8 | filtraGrado}}">
+			<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.8rd_pr_s_level1_math | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_math.8rd_pr_s_level1_math}}%;">
+    				<p>{{evaluation_math.8rd_pr_s_level1_math}}%</p>
+    				<itemsurvey><span> 8rd - Level 1</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.8rd_pr_s_level2_math | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_math.8rd_pr_s_level2_math}}%;">
+    				<p>{{evaluation_math.8rd_pr_s_level2_math}}%</p>
+    				<itemsurvey><span> 8rd - Level 2</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.8rd_pr_s_level3_math | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_math.8rd_pr_s_level3_math}}%;">
+    				<p>{{evaluation_math.8rd_pr_s_level3_math}}%</p>
+    				<itemsurvey><span> 8rd - Level 3</span></itemsurvey>
+    			</div>
+    		</div>
+
+    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.8rd_pr_s_level4_math | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_math.8rd_pr_s_level4_math}}%;">
+    				<p>{{evaluation_math.8rd_pr_s_level4_math}}%</p>
+    				<itemsurvey><span> 8rd - Level 4</span></itemsurvey>
+    			</div>
+    		</div>
+    		</div>
+
+
     	</div>
     </accordion-group>
+
+
+
+
+    	<accordion-group heading="Average Proficiecy Score - ELA" is-open="true">
+
+		 <!--AVERANGE ELA -->
+		<div class="row">
+			<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ela.av_proficiency_rating_ela | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_ela.av_proficiency_rating_ela}}%;">
+    				<p>{{evaluation_ela.av_proficiency_rating_ela}}%</p>
+    				<itemsurvey><span> 3rd - Level 1</span></itemsurvey>
+    			</div>
+		<div class="metrics {{city_average.AverageProficiencyRatingOverallELA | filtraCeros}}">
+			<div class="average" style="width:{{city_average.AverageProficiencyRatingOverallELA}}%;">
+				<p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallELA}}%</p>
+			</div>			    			
+			<div class="rank">
+				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+			</div>
+			<a href="glosary.html"><div class="info"></div></a>
+		</div>
+
+    		</div>
+
+
+
+
+    	</div>
+
+    </accordion-group>
+
+
+        <accordion-group heading="Average Proficiecy Score - Math" is-open="true">
+
+		 <!--AVERANGE MATH-->
+		<div class="row">
+			<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_math.av_proficiency_rating_math | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_math.av_proficiency_rating_math}}%;">
+    				<p>{{evaluation_math.av_proficiency_rating_math}}%</p>
+    				<itemsurvey><span> 3rd - Level 1</span></itemsurvey>
+    			</div>
+   		<div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+			<div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+				<p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+			</div>			    			
+			<div class="rank">
+				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+			</div>
+			<a href="glosary.html"><div class="info"></div></a>
+		</div>
+
+   		</div>
+
+
+
+    	</div>
+    </accordion-group>
+
+     <accordion-group heading="SAT" is-open="true">
+
+		 <!--SAT-->
+		<div class="row">
+
+
+		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_average_score.sat_a_total_s | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_average_score.sat_a_total_s}}%;">
+    				<p>{{evaluation_average_score.sat_a_total_s}}</p>
+    				<itemsurvey><span> Overall</span></itemsurvey>
+    			</div>
+
+		   		<div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+					<div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+						<p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+					</div>			    			
+					<div class="rank">
+						<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+					</div>
+					<a href="glosary.html"><div class="info"></div></a>
+				</div>
+
+   			</div>
+
+
+			<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_average_score.sat_a_cr_s | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_average_score.sat_a_cr_s}}%;">
+    				<p>{{evaluation_average_score.sat_a_cr_s}}</p>
+    				<itemsurvey><span>Critial Reasoning</span></itemsurvey>
+    			</div>
+
+		   		<div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+					<div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+						<p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+					</div>			    			
+					<div class="rank">
+						<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+					</div>
+					<a href="glosary.html"><div class="info"></div></a>
+				</div>
+
+   			</div>
+
+
+			<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_average_score.sat_a_math_s | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_average_score.sat_a_math_s}}%;">
+    				<p>{{evaluation_average_score.sat_a_math_s}}</p>
+    				<itemsurvey><span>Math</span></itemsurvey>
+    			</div>
+
+		   		<div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+					<div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+						<p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+					</div>			    			
+					<div class="rank">
+						<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+					</div>
+					<a href="glosary.html"><div class="info"></div></a>
+				</div>
+
+   			</div>
+
+
+			<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_average_score.sat_a_writing_s | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{evaluation_average_score.sat_a_writing_s}}%;">
+    				<p>{{evaluation_average_score.sat_a_writing_s}}</p>
+    				<itemsurvey><span>Writing</span></itemsurvey>
+    			</div>
+
+		   		<div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+					<div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+						<p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+					</div>			    			
+					<div class="rank">
+						<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+					</div>
+					<a href="glosary.html"><div class="info"></div></a>
+				</div>
+
+   			</div>
+
+
+    	</div>
+    </accordion-group>
+
+
+
+     <accordion-group heading="Regents Pass Rate" is-open="true">
+
+         <!-- Regents Pass Rate-->
+        <div class="row">
+
+
+        <div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_regents.pp_r_english | filtraCeros}}">
+                <div class="porcentaje" style="width:{{evaluation_regents.pp_r_english}}%;">
+                    <p>{{evaluation_regents.pp_r_english}}%</p>
+                    <itemsurvey><span> English</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+                    </div>                          
+                    <div class="rank">
+                        <p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+                    </div>
+                    <a href="glosary.html"><div class="info"></div></a>
+                </div>
+
+        </div>
+
+        <div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_regents.pp_r_us_history | filtraCeros}}">
+                <div class="porcentaje" style="width:{{evaluation_regents.pp_r_us_history}}%;">
+                    <p>{{evaluation_regents.pp_r_us_history}}%</p>
+                    <itemsurvey><span> U.S. History</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+                    </div>                          
+                    <div class="rank">
+                        <p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+                    </div>
+                    <a href="glosary.html"><div class="info"></div></a>
+                </div>
+
+            </div>
+
+        <div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_regents.pp_r_global_history | filtraCeros}}">
+                <div class="porcentaje" style="width:{{evaluation_regents.pp_r_global_history}}%;">
+                    <p>{{evaluation_regents.pp_r_global_history}}%</p>
+                    <itemsurvey><span> Global History</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+                    </div>                          
+                    <div class="rank">
+                        <p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+                    </div>
+                    <a href="glosary.html"><div class="info"></div></a>
+                </div>
+
+            </div>
+
+    <div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_regents.pp_r_living_environment | filtraCeros}}">
+                <div class="porcentaje" style="width:{{evaluation_regents.pp_r_living_environment}}%;">
+                    <p>{{evaluation_regents.pp_r_living_environment}}%</p>
+                    <itemsurvey><span> Living Environment</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+                    </div>                          
+                    <div class="rank">
+                        <p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+                    </div>
+                    <a href="glosary.html"><div class="info"></div></a>
+                </div>
+
+            </div>
+
+        <div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_regents.pp_r_earth_science | filtraCeros}}">
+                <div class="porcentaje" style="width:{{evaluation_regents.pp_r_earth_science}}%;">
+                    <p>{{evaluation_regents.pp_r_earth_science}}%</p>
+                    <itemsurvey><span> Earth Science</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+                    </div>                          
+                    <div class="rank">
+                        <p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+                    </div>
+                    <a href="glosary.html"><div class="info"></div></a>
+                </div>
+
+            </div>
+
+        <div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_regents.pp_r_chemistry | filtraCeros}}">
+                <div class="porcentaje" style="width:{{evaluation_regents.pp_r_chemistry}}%;">
+                    <p>{{evaluation_regents.pp_r_chemistry}}%</p>
+                    <itemsurvey><span> Chemistry</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+                    </div>                          
+                    <div class="rank">
+                        <p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+                    </div>
+                    <a href="glosary.html"><div class="info"></div></a>
+                </div>
+
+            </div>
+
+        <div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_regents.pp_r_physics | filtraCeros}}">
+                <div class="porcentaje" style="width:{{evaluation_regents.pp_r_physics}}%;">
+                    <p>{{evaluation_regents.pp_r_physics}}%</p>
+                    <itemsurvey><span> Physics</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+                    </div>                          
+                    <div class="rank">
+                        <p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+                    </div>
+                    <a href="glosary.html"><div class="info"></div></a>
+                </div>
+
+            </div>
+
+    <div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_regents.pp_r_integrated_algebra | filtraCeros}}">
+                <div class="porcentaje" style="width:{{evaluation_regents.pp_r_integrated_algebra}}%;">
+                    <p>{{evaluation_regents.pp_r_integrated_algebra}}%</p>
+                    <itemsurvey><span> Integrated Algebra</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+                    </div>                          
+                    <div class="rank">
+                        <p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+                    </div>
+                    <a href="glosary.html"><div class="info"></div></a>
+                </div>
+
+            </div>
+
+        <div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_regents.pp_r_geometry | filtraCeros}}">
+                <div class="porcentaje" style="width:{{evaluation_regents.pp_r_geometry}}%;">
+                    <p>{{evaluation_regents.pp_r_geometry}}%</p>
+                    <itemsurvey><span> Geometry</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+                    </div>                          
+                    <div class="rank">
+                        <p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+                    </div>
+                    <a href="glosary.html"><div class="info"></div></a>
+                </div>
+
+            </div>                                                                                                
+
+
+        <div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_regents.pp_r_algebraii | filtraCeros}}">
+                <div class="porcentaje" style="width:{{evaluation_regents.pp_r_algebraii}}%;">
+                    <p>{{evaluation_regents.pp_r_algebraii}}%</p>
+                    <itemsurvey><span> Algebra II</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+                    </div>                          
+                    <div class="rank">
+                        <p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+                    </div>
+                    <a href="glosary.html"><div class="info"></div></a>
+                </div>
+
+            </div>                                                                                                
+
+        </div>        
+
+
+    </accordion-group>            
+
+
+
+     <accordion-group heading="Regents College Ready" is-open="true">
+
+         <!-- Regents College Ready-->
+        <div class="row">
+
+
+        <div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_regents.as_r_english | filtraCeros}}">
+                <div class="porcentaje" style="width:{{evaluation_regents.as_r_english}}%;">
+                    <p>{{evaluation_regents.as_r_english}}%</p>
+                    <itemsurvey><span> English</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+                    </div>                          
+                    <div class="rank">
+                        <p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+                    </div>
+                    <a href="glosary.html"><div class="info"></div></a>
+                </div>
+
+        </div>
+
+        <div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_regents.as_r_us_history | filtraCeros}}">
+                <div class="porcentaje" style="width:{{evaluation_regents.as_r_us_history}}%;">
+                    <p>{{evaluation_regents.as_r_us_history}}%</p>
+                    <itemsurvey><span> U.S. History</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+                    </div>                          
+                    <div class="rank">
+                        <p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+                    </div>
+                    <a href="glosary.html"><div class="info"></div></a>
+                </div>
+
+            </div>
+
+        <div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_regents.as_r_global_history | filtraCeros}}">
+                <div class="porcentaje" style="width:{{evaluation_regents.as_r_global_history}}%;">
+                    <p>{{evaluation_regents.as_r_global_history}}%</p>
+                    <itemsurvey><span> Global History</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+                    </div>                          
+                    <div class="rank">
+                        <p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+                    </div>
+                    <a href="glosary.html"><div class="info"></div></a>
+                </div>
+
+            </div>
+
+    <div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_regents.as_r_living_environment | filtraCeros}}">
+                <div class="porcentaje" style="width:{{evaluation_regents.as_r_living_environment}}%;">
+                    <p>{{evaluation_regents.as_r_living_environment}}%</p>
+                    <itemsurvey><span> Living Environment</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+                    </div>                          
+                    <div class="rank">
+                        <p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+                    </div>
+                    <a href="glosary.html"><div class="info"></div></a>
+                </div>
+
+            </div>
+
+        <div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_regents.as_r_earth_science | filtraCeros}}">
+                <div class="porcentaje" style="width:{{evaluation_regents.as_r_earth_science}}%;">
+                    <p>{{evaluation_regents.as_r_earth_science}}%</p>
+                    <itemsurvey><span> Earth Science</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+                    </div>                          
+                    <div class="rank">
+                        <p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+                    </div>
+                    <a href="glosary.html"><div class="info"></div></a>
+                </div>
+
+            </div>
+
+        <div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_regents.as_r_chemistry | filtraCeros}}">
+                <div class="porcentaje" style="width:{{evaluation_regents.as_r_chemistry}}%;">
+                    <p>{{evaluation_regents.as_r_chemistry}}%</p>
+                    <itemsurvey><span> Chemistry</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+                    </div>                          
+                    <div class="rank">
+                        <p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+                    </div>
+                    <a href="glosary.html"><div class="info"></div></a>
+                </div>
+
+            </div>
+
+        <div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_regents.as_r_physics | filtraCeros}}">
+                <div class="porcentaje" style="width:{{evaluation_regents.as_r_physics}}%;">
+                    <p>{{evaluation_regents.as_r_physics}}%</p>
+                    <itemsurvey><span> Physics</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+                    </div>                          
+                    <div class="rank">
+                        <p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+                    </div>
+                    <a href="glosary.html"><div class="info"></div></a>
+                </div>
+
+            </div>
+
+    <div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_regents.as_r_integrated_algebra | filtraCeros}}">
+                <div class="porcentaje" style="width:{{evaluation_regents.as_r_integrated_algebra}}%;">
+                    <p>{{evaluation_regents.as_r_integrated_algebra}}%</p>
+                    <itemsurvey><span> Integrated Algebra</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+                    </div>                          
+                    <div class="rank">
+                        <p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+                    </div>
+                    <a href="glosary.html"><div class="info"></div></a>
+                </div>
+
+            </div>
+
+        <div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_regents.as_r_geometry | filtraCeros}}">
+                <div class="porcentaje" style="width:{{evaluation_regents.as_r_geometry}}%;">
+                    <p>{{evaluation_regents.as_r_geometry}}%</p>
+                    <itemsurvey><span> Geometry</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+                    </div>                          
+                    <div class="rank">
+                        <p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+                    </div>
+                    <a href="glosary.html"><div class="info"></div></a>
+                </div>
+
+            </div>                                                                                                
+
+
+        <div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_regents.as_r_algebraii | filtraCeros}}">
+                <div class="porcentaje" style="width:{{evaluation_regents.as_r_algebraii}}%;">
+                    <p>{{evaluation_regents.as_r_algebraii}}%</p>
+                    <itemsurvey><span> Algebra II</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+                    </div>                          
+                    <div class="rank">
+                        <p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+                    </div>
+                    <a href="glosary.html"><div class="info"></div></a>
+                </div>
+
+            </div>                                                                                                
+
+        </div>        
+
+
+    </accordion-group>    
+
+
+
+
+
+
+
+
 
 </accordion>
 
