@@ -12,7 +12,7 @@
 
     <div ng-include src="'templates/sidebar.html'"></div>
     
-    <section class="main-section">
+    <section class="main-section" style="min-height:350px">
     
 	<div class="row menu-header">	
 		<div class="small-6 small-centered medium-6 large-6 columns">
@@ -21,36 +21,60 @@
 		<div class="small-10 small-centered medium-10 large-10 columns">		
 			<div class="row">
 				<div class="small-4 small-centered medium-6 large-6 columns">
-					<div class="text-center">
-					<a href="#" data-dropdown="drop2" class="button dropdown small bg-dropdown">Year</a><br>
-					<ul id="drop2" data-dropdown-content class="f-dropdown">
-					  <li><a href="#">2010</a></li>
-					  <li><a href="#">2011</a></li>
-					  <li><a href="#">2012</a></li>
-					  <li><a href="#">2013</a></li>
-					  <li><a href="#">2014</a></li>
-					</ul>
-					</div>
+
+
+			<div ng-controller="CollegeCarrerDropdownCtrl" class="text-center">
+			  <a dropdown-toggle="#dropdown-CollegeCarrer" class="button dropdown small bg-dropdown">{{selectedyearCollegeCarrer}}</a>
+			  <ul id="dropdown-CollegeCarrer" class="f-dropdown" style="width:100px">
+			    <li ng-repeat="item in itemsddCollegeCarrer">
+			      <a ng-click="changeyear(item.indice)">{{item.texto}}</a>
+			    </li>
+			  </ul>
+			  <br>
+			  <br>
+			</div>
+
 				</div>			
 			</div>
 		</div>		
 	</div>		
 	
 	<div class="row">
-		<div class="small-12 medium-12 large-12 columns">	
-			<dl class="accordion" data-accordion>
-			  <dd>
-			    <a href="#panel1">Readiness <img src="img/arrow-down.png" class="right"></a>
-			    <div id="panel1" class="content active">
+
+		<div ng-controller="AccordionDemoCtrl">
+
+		  <accordion close-others="oneAtATime">
+
+		    <accordion-group heading="Readiness" is-open="true">  
+
 			    	<div class="row">
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca">
-			    			<div class="porcentaje" style="width:67%;">
-			    				<p>67<small>/100</small></p>
-			    				<itemsurvey><span>Credit Acumulation</span></itemsurvey>
+
+	<div class="small-12 medium-12 large-12 columns barra-blanca {{college_career.postsecondary_enrollment_rate_6months | filtraCeros}}">
+			    			<div class="porcentaje" style="width:{{college_career.postsecondary_enrollment_rate_6months}}%;">
+			    				<p>{{college_career.postsecondary_enrollment_rate_6months}}%</p>
+			    				<itemsurvey><span>Enrollment Rate</span></itemsurvey>
 			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50%;">
-				    				<small>City Average: 50%</small>
+
+			<div class="metrics {{city_average.Post_SecondaryEnrollmentRate | filtraCeros}}">
+				<div class="average " style="width:{{city_average.Post_SecondaryEnrollmentRate}}%;">
+    				<p style="padding-left:25px">City Average:{{city_average.Post_SecondaryEnrollmentRate}}%</p>
+				</div>	
+						    			
+		    			<div class="rank">
+		    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+		    			</div>
+    			<a href="glosary.html"><div class="info"></div></a>
+			</div>
+	</div>
+
+			    		<div class="small-12 medium-12 large-12 columns barra-blanca {{college_career.4year_non_remediation_rate | filtraCeros}}">
+			    			<div class="porcentaje" style="width:{{college_career.4year_non_remediation_rate}}%;">
+			    				<p>{{college_career.4year_non_remediation_rate}}%</p>
+			    				<itemsurvey><span>Non-Remediation Rate</span></itemsurvey>
+			    			</div>
+			    			<div class="metrics {{city_average.Four_YearNon_RemediationRate | filtraCeros}}">
+								<div class="average" style="width:{{city_average.Four_YearNon_RemediationRate}}%;">
+				    				<p style="padding-left:25px">City Average:{{city_average.Four_YearNon_RemediationRate}}%</p>
 								</div>			    			
 				    			<div class="rank">
 				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
@@ -58,36 +82,15 @@
 				    			<a href="glosary.html"><div class="info"></div></a>
 			    			</div>
 			    		</div>	
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca">
-			    			<div class="porcentaje" style="width:45%;">
-			    				<p>45<small>/50</small></p>
-			    				<itemsurvey><span>4-year Graduation Rate</span></itemsurvey>
+
+			    		<div class="small-12 medium-12 large-12 columns barra-blanca {{college_career.cc_preparatory_course_index | filtraCeros}}">
+			    			<div class="porcentaje" style="width:{{college_career.cc_preparatory_course_index}}%;">
+			    				<p>{{college_career.cc_preparatory_course_index}}%</p>
+			    				<itemsurvey><span>Prep Course Index</span></itemsurvey>
 			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50%;">
-				    				<small>City Average: 50%</small>
-								</div>			    			
-				    			<div class="rank">
-				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
-				    			</div>
-				    			<a href="glosary.html"><div class="info"></div></a>
-			    			</div>
-			    		</div>				    		
-			    	</div>
-			    </div>
-			  </dd>
-			  <dd>
-			    <a href="#panel2">Graduation <img src="img/arrow-down.png" class="right"></a>		    
-			    <div id="panel2" class="content">
-			    	<div class="row">
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca">
-			    			<div class="porcentaje" style="width:70%;">
-			    				<p>20<small>/25</small></p>
-			    				<itemsurvey><span>Performance</span></itemsurvey>
-			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50%;">
-				    				<small>City Average: 50%</small>
+			    			<div class="metrics {{city_average.CollegeandCareerPreparatoryCourseIndex | filtraCeros}}">
+								<div class="average" style="width:{{city_average.CollegeandCareerPreparatoryCourseIndex}}%;">
+				    				<p style="padding-left:25px">City Average:{{city_average.CollegeandCareerPreparatoryCourseIndex}}%</p>
 								</div>			    			
 				    			<div class="rank">
 				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
@@ -95,12 +98,73 @@
 				    			<a href="glosary.html"><div class="info"></div></a>
 			    			</div>
 			    		</div>	
+
+
+			    		<div class="small-12 medium-12 large-12 columns barra-blanca {{college_career.c_readiness_r_including_p | filtraCeros}}">
+			    			<div class="porcentaje" style="width:{{college_career.c_readiness_r_including_p}}%;">
+			    				<p>{{college_career.c_readiness_r_including_p}}%</p>
+			    				<itemsurvey><span>Readiness Rate</span></itemsurvey>
+			    			</div>
+			    			<div class="metrics {{city_average.CollegeReadinessRateIncludingPersistence | filtraCeros}}">
+								<div class="average" style="width:{{city_average.CollegeReadinessRateIncludingPersistence}}%;">
+				    				<p style="padding-left:25px">City Average:{{city_average.CollegeReadinessRateIncludingPersistence}}%</p>
+								</div>			    			
+				    			<div class="rank">
+				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+				    			</div>
+				    			<a href="glosary.html"><div class="info"></div></a>
+			    			</div>
+			    		</div>
+
 			    	</div>
-			    </div>
-			  </dd>  
-			</dl>
-		</div>
-	</div>	
+			    </accordion-group>
+
+
+			    <accordion-group heading="Graduation" is-open="true">  
+
+
+
+			    	<div class="row">
+			    		<div class="small-12 medium-12 large-12 columns barra-blanca {{college_career.4y_g_r | filtraCeros}}">
+			    			<div class="porcentaje" style="width:{{college_career.4y_g_r}}%;">
+			    				<p>{{college_career.4y_g_r}}%</p>
+			    				<itemsurvey><span>4 year Graduation Rate</span></itemsurvey>
+			    			</div>
+			    			<div class="metrics {{city_average.4YearGraduationRate | filtraCeros}}">
+								<div class="average" style="width:{{city_average.4YearGraduationRate}}%;">
+				   					<p style="padding-left:25px">City Average: {{city_average.4YearGraduationRate}}%</p>
+								</div>			    			
+				    			<div class="rank">
+				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+				    			</div>
+				    			<a href="glosary.html"><div class="info"></div></a>
+			    			</div>
+			    		</div>
+
+			    		<div class="small-12 medium-12 large-12 columns barra-blanca {{college_career.6y_g_r | filtraCeros}}">
+			    			<div class="porcentaje" style="width:{{college_career.6y_g_r}}%;">
+			    				<p>{{college_career.6y_g_r}}%</p>
+			    				<itemsurvey><span>6 year Graduation Rate</span></itemsurvey>
+			    			</div>
+			    			<div class="metrics {{city_average.6YearGraduationRate | filtraCeros}}">
+								<div class="average" style="width:{{city_average.6YearGraduationRate}}%;">
+				    				<p style="padding-left:25px">City Average: {{city_average.6YearGraduationRate}}%</p>
+								</div>			    			
+				    			<div class="rank">
+				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+				    			</div>
+				    			<a href="glosary.html"><div class="info"></div></a>
+			    			</div>
+			    		</div>		
+			    	</div>
+
+			    </accordion-group>
+
+
+
+	</accordion>
+	</div>
+	</div>	<!-- row -->
     </section>
     
   <a class="exit-off-canvas"></a>
