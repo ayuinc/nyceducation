@@ -568,12 +568,41 @@ app.filter("filtraCeros", function(){
 
 app.filter("filtraGrado", function( $rootScope ){
 
-    console.log($rootScope.testScore_grade);
     return function(text) {
 
         if ( text != $rootScope.testScore_grade){ return "borrar";}
 
 
+
+    }
+})
+
+
+app.filter("filtraTestScore", function( $rootScope, DatosSchool ){
+
+
+    return function(text) {
+
+
+    var elementaryS = "";
+    var highS = "";
+
+    elementaryS = elementaryS.concat(DatosSchool.datos.evaluations[0].es_ms_k8_ecpr_s_type);
+    elementaryS = elementaryS.concat(DatosSchool.datos.evaluations[1].es_ms_k8_ecpr_s_type);
+    elementaryS = elementaryS.concat(DatosSchool.datos.evaluations[2].es_ms_k8_ecpr_s_type);
+    elementaryS = elementaryS.concat(DatosSchool.datos.evaluations[3].es_ms_k8_ecpr_s_type);
+
+    highS = highS.concat(DatosSchool.datos.evaluations[0].hs_t_hs_o_pr_s_type);
+    highS = highS.concat(DatosSchool.datos.evaluations[1].hs_t_hs_o_pr_s_type);
+    highS = highS.concat(DatosSchool.datos.evaluations[2].hs_t_hs_o_pr_s_type);
+    highS = highS.concat(DatosSchool.datos.evaluations[3].hs_t_hs_o_pr_s_type);
+
+
+    $rootScope.evaluation=DatosSchool.datos.evaluations[3];
+
+
+        if ( (elementaryS == "") && (text == "elementary")){ return "borrar";}
+        if ( (highS == "") && (text == "high")){ return "borrar";}
 
     }
 })
