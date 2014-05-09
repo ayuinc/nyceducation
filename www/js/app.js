@@ -632,7 +632,11 @@ app.factory('SchoolRetriever', function($http, $q, $timeout) {
         return deferred.promise;
     }
 
-<<<<<<< HEAD
+    return {
+        getSchools: getSchools
+    };
+});
+
 app.filter("filtraTestScore", function( $rootScope, DatosSchool ){
 
 
@@ -660,13 +664,4 @@ app.filter("filtraTestScore", function( $rootScope, DatosSchool ){
         if ( (highS == "") && (text == "high")){ return "borrar";}
 
     }
-})
-
-
-//--
-=======
-    return {
-        getSchools: getSchools
-    };
 });
->>>>>>> df2a885423b78ba9d02f13ffbfe848ccc732dd45
