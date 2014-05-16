@@ -275,6 +275,13 @@ app.controller("MainController", ['$scope', '$rootScope', '$window', '$location'
         });
     }
 
+    $scope.searchAdvanced = function(query) {
+        $http.get('http://schools.nyc.gov/schoolsearch/services/schoolrpc.ashx/findAddress?address=' + encodeURI(query))
+            .success(function(data) {
+                console.log("response + " + data)
+            });
+    }
+
 
 
 /*app.controller('MyCtrl', function($scope, MovieRetriever){
