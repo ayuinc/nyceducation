@@ -53,6 +53,11 @@ app.config(function($routeProvider) {
         controller: "SchoolController"
     });
 
+    $routeProvider.when("/school/:schoolId/surveyDetail", {
+        templateUrl: "templates/SchoolSurveyDetail.html",
+        controller: "SchoolController"
+    });
+
     $routeProvider.when("/school/glossary", {
         templateUrl: "templates/SchoolGlossary.html",
         controller: "SchoolController"
@@ -275,13 +280,6 @@ app.controller("MainController", ['$scope', '$rootScope', '$window', '$location'
         });
     }
 
-    $scope.searchAdvanced = function(query) {
-        $http.get('http://schools.nyc.gov/schoolsearch/services/schoolrpc.ashx/findAddress?address=' + encodeURI(query))
-            .success(function(data) {
-                console.log("response + " + data)
-            });
-    }
-
 
 
 /*app.controller('MyCtrl', function($scope, MovieRetriever){
@@ -361,10 +359,21 @@ app.controller('SelectSchoolController', ['$scope', '$rootScope', '$routeParams'
             DatosSchool.datos.proficiency_rating = data.proficiency_ratings;
             $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[3];
 
+            DatosSchool.datos.es_admission = data.es_admissions;
+            $rootScope.es_admissions=DatosSchool.datos.es_admission[0];
+
+            DatosSchool.datos.ms_admission = data.ms_admissions;
+            $rootScope.ms_admissions=DatosSchool.datos.ms_admission[0];
+
+            DatosSchool.datos.hs_admission = data.hs_admissions;
+            $rootScope.hs_admissions=DatosSchool.datos.hs_admission[0];
+
             DatosSchool.datos.city_averages = data.city_average;
             $rootScope.city_average=DatosSchool.datos.city_averages[3];
 
             $rootScope.testScore_grade = 3;
+
+            $rootScope.survey_var = 0;
 
             
         });;
@@ -459,7 +468,7 @@ app.controller("CollegeCarrerDropdownCtrl" ,[ '$scope', 'DatosSchool', '$rootSco
     $rootScope.city_average=DatosSchool.datos.city_averages[0];
 
   $scope.selectedyearCollegeCarrer= "2011";
-  $scope.itemsddCollegeCarrer = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"},{texto:"2014",indice:"3"}];
+  $scope.itemsddCollegeCarrer = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"}];
   $scope.changeyear = function(indice) {$scope.selectedyearCollegeCarrer = $scope.itemsddCollegeCarrer[indice].texto;  $rootScope.college_career=DatosSchool.datos.college_careers[indice]; $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice]; $rootScope.city_average=DatosSchool.datos.city_averages[indice]; };
 
 
@@ -475,7 +484,7 @@ app.controller("EvaluationsDropdownCtrl" ,[ '$scope', 'DatosSchool', '$rootScope
     //console.log($rootScope.evaluation_ratings.ri_11);
 
   $scope.selectedyearEvaluations= "2011";
-  $scope.itemsddEvaluations = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"},{texto:"2014",indice:"3"}];
+  $scope.itemsddEvaluations = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"}];
   $scope.changeyear = function(indice) {$scope.selectedyearEvaluations = $scope.itemsddEvaluations[indice].texto;     $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[indice]; $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice] };
 
 
@@ -525,23 +534,21 @@ app.controller("TestScoreYearddCtrl" ,[ '$scope', 'DatosSchool', '$rootScope',fu
     $rootScope.city_average=DatosSchool.datos.city_averages[0];
     $rootScope.evaluation_average_score=DatosSchool.datos.evaluations_average_score[0];
     $rootScope.evaluation_regents=DatosSchool.datos.evaluations_regents[0];
+    $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[0];
 
 
     $scope.selectedyear= "2011";
-    $scope.itemsYears = [{texto:"2011",indice:0},{texto:"2012",indice:1},{texto:"2013",indice:2},{texto:"2014",indice:3}];
+    $scope.itemsYears = [{texto:"2011",indice:0},{texto:"2012",indice:1},{texto:"2013",indice:2}];
     $scope.changeyear = function(indice_year) {$scope.selectedyear = $scope.itemsYears[indice_year].texto; 
         $rootScope.evaluation_ela=DatosSchool.datos.evaluations_ela[indice_year]; 
         $rootScope.evaluation_math=DatosSchool.datos.evaluations_math[indice_year]; 
         $rootScope.city_average=DatosSchool.datos.city_averages[indice_year];
         $rootScope.evaluation_average_score=DatosSchool.datos.evaluations_average_score[indice_year];
         $rootScope.evaluation_regents=DatosSchool.datos.evaluations_regents[indice_year];
+        $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice_year];
         console.log(indice_year);
 
-
-
-/*
-
-        $rootScope.oneAtATime = true;
+        /*$rootScope.oneAtATime = true;
 
         $rootScope.oneAtATime = false;*/
     };
@@ -560,7 +567,135 @@ app.controller("TestScoreGradeddCtrl" ,[ '$scope', 'DatosSchool', '$rootScope',f
 }]);
 
 
-///////// -------
+// CONTROLADORES ADMISSIONS
+
+
+app.controller("AdmissionsMSctrl" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
+
+    middle = DatosSchool.datos.ms_admission;
+
+    if ((middle.length != 0) ){
+
+        var cods =[];
+
+    for (var i = 0; i < middle.length; i++) {
+    cods.push(DatosSchool.datos.ms_admission[i].program_code);
+    }
+
+        var items = "[";
+    for (var i = 0; i < cods.length; i++){
+
+        items = items.concat('{"texto":"'+cods[i]+'","indice":"'+i+'"},');
+
+    }
+    items = items.substring(0,items.length-1);
+    items = items.concat("]");
+    var todos = JSON.parse(items);
+
+    $rootScope.itemsaddMS = todos;
+   
+//$rootScope.itemsaddMS
+//$scope.itemsAddMs = [{texto:"3th",indice:"0"},{texto:"4th",indice:"1"},{texto:"5th",indice:"2"},{texto:"6th",indice:"3"},{texto:"7th",indice:"4"},{texto:"8th",indice:"5"}];    
+    $scope.progSelected= $rootScope.itemsaddMS[0].texto;
+    }
+
+    //console.log($rootScope.evaluation_ratings.ri_11);
+
+  
+  //$scope.itemsddEvaluations = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"},{texto:"2014",indice:"3"}];
+  $scope.changeprog = function(indice) {$scope.progSelected = $rootScope.itemsaddMS[indice].texto; 
+      $rootScope.ms_admissions=DatosSchool.datos.ms_admission[indice];
+      //$rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice] 
+  };
+
+
+}]);
+
+app.controller("AdmissionsHSctrl" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
+
+    high = DatosSchool.datos.hs_admission;
+
+    if ((high.length != 0) ){
+
+        var cods_hs =[];
+
+    for (var i = 0; i < high.length; i++) {
+    cods_hs.push(DatosSchool.datos.hs_admission[i].program_name);
+    }
+
+        var items = "[";
+    for (var i = 0; i < cods_hs.length; i++){
+
+        items = items.concat('{"texto":"'+cods_hs[i]+'","indice":"'+i+'"},');
+
+    }
+    items = items.substring(0,items.length-1);
+    items = items.concat("]");
+    var todos = JSON.parse(items);
+
+    $rootScope.itemsaddHS = todos;
+   
+//$rootScope.itemsaddMS
+//$scope.itemsAddMs = [{texto:"3th",indice:"0"},{texto:"4th",indice:"1"},{texto:"5th",indice:"2"},{texto:"6th",indice:"3"},{texto:"7th",indice:"4"},{texto:"8th",indice:"5"}];    
+    $scope.progSelected_hs= $rootScope.itemsaddHS[0].texto;
+    }
+
+    //console.log($rootScope.evaluation_ratings.ri_11);
+
+  
+  //$scope.itemsddEvaluations = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"},{texto:"2014",indice:"3"}];
+  $scope.changeprog_hs = function(indice_hs) {$scope.progSelected_hs = $rootScope.itemsaddHS[indice_hs].texto; 
+      $rootScope.hs_admissions=DatosSchool.datos.hs_admission[indice_hs];
+      //$rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice] 
+  };
+
+
+}]);
+
+
+// CONTROLADORES SURVEY SCHOOL
+
+
+app.controller("SurveyYearCtrl" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
+    
+
+    //$rootScope.testScore_grade = 3;
+
+    $rootScope.survey_results=DatosSchool.datos.survey_result[0];
+    $rootScope.city_average=DatosSchool.datos.city_averages[0];
+    $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[0];
+
+
+    $scope.selectedyear= "2011";
+    $scope.itemsYears = [{texto:"2011",indice:0},{texto:"2012",indice:1},{texto:"2013",indice:2}];
+    $scope.changeyear = function(indice_year) {
+    $scope.selectedyear = $scope.itemsYears[indice_year].texto; 
+    $rootScope.survey_results=DatosSchool.datos.survey_result[indice_year];
+    $rootScope.city_average=DatosSchool.datos.city_averages[indice_year];
+    $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice_year];
+        //console.log(indice_year);
+
+        /*$rootScope.oneAtATime = true;
+
+        $rootScope.oneAtATime = false;*/
+    };
+    
+
+
+}]);
+
+app.controller("SurveyRespCtrl" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
+
+    $scope.selectedgrade= "Parents";
+    $scope.itemsGrades = [{texto:"Parents",indice:"0"},{texto:"Teachers",indice:"1"},{texto:"Students",indice:"2"}];
+    $scope.changegrade = function(indice_grade) {$scope.selectedgrade = $scope.itemsGrades[indice_grade].texto;  
+        $rootScope.survey_var=parseInt(indice_grade);};
+
+
+}]);
+
+// FIN CONTROLADORES SURVEY
+
 
 function AccordionDemoCtrl($scope , $rootScope) {
   $rootScope.oneAtATime = true;
@@ -664,11 +799,111 @@ app.filter("filtraTestScore", function( $rootScope, DatosSchool ){
     highS = highS.concat(DatosSchool.datos.evaluations[3].hs_t_hs_o_pr_s_type);
 
 
-    $rootScope.evaluation=DatosSchool.datos.evaluations[3];
+    //$rootScope.evaluation=DatosSchool.datos.evaluations[3];
 
 
         if ( (elementaryS == "") && (text == "elementary")){ return "borrar";}
         if ( (highS == "") && (text == "high")){ return "borrar";}
+
+    }
+});
+
+
+app.filter("filtraRank", function( $rootScope, DatosSchool ){
+
+
+    return function(text) {
+
+
+        if ( (text > 1) && (text < 25 )){ return '25';}
+        else if ( (text >= 25) && (text < 50 )){ return '50';}
+        else if ( (text >= 50) && (text < 75 )){ return '75';}
+        else if ( (text >= 75) && (text <= 100 )){ return "100";}
+        else { return "n";}
+
+        //console.log( text);
+
+        //if ( (highS == "") && (text == "high")){ return "borrar";}
+
+    }
+});
+
+app.filter("filtraAdmissions", function( $rootScope, DatosSchool ){
+    return function(text) {
+
+    elementary = DatosSchool.datos.es_admission.length;
+    middle = DatosSchool.datos.ms_admission.length;
+    high = DatosSchool.datos.hs_admission.length;
+
+console.log(elementary+" "+middle+" "+high);
+
+    switch (text) {
+
+    case "ms":
+
+    if ((middle == 0) ){ return "borrar";}
+    break;
+
+    case "hs":
+
+    if ((high == 0)){ return "borrar";}
+    break;
+
+    case "es":
+
+    if ((elementary == 0) ){ return "borrar";}
+    break;
+
+} 
+
+/*
+if ((elementary == 0) && (text == 'es')){ return "borrar";}
+else if ((middle == 0) && (text == 'ms')){ return "borrar";}
+else if ((high == 0) && (text == 'hs')){ return "borrar"; }
+*/
+
+    }
+});
+
+
+app.filter("filtraSurvey", function( $rootScope, DatosSchool ){
+
+
+    return function(text) {
+
+    var who = $rootScope.survey_var
+
+
+    if ( (text == "parents") && (who != 0) ){ return "borrar";}
+    else if ( (text == "teachers") && (who != 1)){ return "borrar";} 
+    else if ( (text == "students") && (who != 2)){ return "borrar";}        
+/*
+        if ( (text > 1) && (text < 25 )){ return '25';}
+        else if ( (text >= 25) && (text < 50 )){ return '50';}
+        else if ( (text >= 50) && (text < 75 )){ return '75';}
+        else if ( (text >= 75) && (text <= 100 )){ return "100";}
+        else { return "";}
+
+        console.log( text); */
+
+        //if ( (highS == "") && (text == "high")){ return "borrar";}
+
+    }
+});
+
+
+app.filter("filtraOverallEvaluations", function(){
+    return function(text) {
+
+var num = parseInt(text);
+
+if ((num > 0) && (num <= 49)){ return "F";}
+else if ((num > 50) && (num <= 59)){ return "E";}
+else if ((num > 60) && (num <= 69)){ return "D";}
+else if ((num > 70) && (num <= 79)){ return "C";}
+else if ((num > 80) && (num <= 89)){ return "B";}
+else if ((num > 90) && (num <= 100)){ return "A";}
+else {return "C";}
 
     }
 });
