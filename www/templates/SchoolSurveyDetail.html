@@ -1,0 +1,782 @@
+<div class="off-canvas-wrap">
+  <div class="inner-wrap">
+    <nav class="tab-bar header">
+      <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+      </section>
+
+      <section class="right tab-bar-section">
+        <h1 class="title">{{ school.name }}</h1>
+      </section>
+    </nav>
+
+    <div ng-include src="'templates/sidebar.html'"></div>
+    
+	<!--CONTENIDO-->
+    <section class="main-section">
+    
+	<div class="row menu-header">	
+		<div class="small-6 small-centered medium-6 large-6 columns">
+			<h3 class="text-center">Survey Detail</h3>
+		</div>	
+		<div class="small-10 small-centered medium-10 large-10 columns">		
+			<div class="row">
+
+
+				<div class="small-6  medium-6 large-6 columns">
+					<div ng-controller="SurveyYearCtrl" class="text-center">
+					  <a dropdown-toggle="#dropdown-year_dsr" class="button dropdown small bg-dropdown">{{selectedyear}}</a>
+					  <ul id="dropdown-year_dsr" class="f-dropdown" style="width:100px">
+					    <li ng-repeat="itemy in itemsYears">
+					      <a ng-click="changeyear(itemy.indice)">{{itemy.texto}}</a>
+					    </li>
+					  </ul>
+					  <br>
+					</div>
+				</div>
+
+				<div class="small-6  medium-6 large-6 columns ">
+					<div ng-controller="SurveyRespCtrl" class="text-center">
+					  <a dropdown-toggle="#dropdown-grade_dsr" class="button dropdown small bg-dropdown">{{selectedgrade}}</a>
+					  <ul id="dropdown-grade_dsr" class="f-dropdown" style="width:100px">
+					    <li ng-repeat="itemg in itemsGrades">
+					      <a ng-click="changegrade(itemg.indice)">{{itemg.texto}}</a>
+					    </li>
+					  </ul>
+					  <br>
+					</div>
+				</div>	
+
+
+
+			</div>
+		</div>		
+	</div>		
+
+<div class="row {{ 'students' | filtraSurvey }}">  <!-- 1re -->
+
+<div ng-controller="AccordionDemoCtrl">
+
+<!--
+  <label class="checkbox">
+    <input type="checkbox" ng-model="oneAtATime">
+    Open only one at a time
+  </label>
+-->  
+
+  <accordion close-others="oneAtATime">
+
+    <accordion-group heading="Q 1F: Most of the teaching staff at my school make me excited about learning. (s)" is-open="true">      
+
+		<div class="row">
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.s_q1f_agree | filtraCeros}}">
+            <div class="porcentaje" style="width:{{survey_results.s_q1f_agree}}%;">
+            	<p>{{survey_results.s_q1f_agree | number:1}}%</p>
+            	<itemsurvey><span>Agree</span></itemsurvey>
+            </div>
+
+            <div class="metrics {{city_average.SchoolSurvey_Students_Q1FAgree | filtraCeros}}">
+                <div class="average" style="width:{{city_average.SchoolSurvey_Students_Q1FAgree}}%;">
+                    <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Students_Q1FAgree}}%</p>
+                </div>                          
+                <div class="rank">
+                <p><img ng-src="img/{{ proficiency_ratings.s_q1f_agree_pr | filtraRank }}.png" ></p>
+                </div>
+                
+            </div>
+            </div>
+
+
+			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.s_q1f_strongly_agree | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{survey_results.s_q1f_strongly_agree}}%;">
+    				<p>{{survey_results.s_q1f_strongly_agree | number:1}}%</p>
+    				<itemsurvey><span>Strongly agree</span></itemsurvey>
+    			</div>
+
+                <div class="metrics {{city_average.SchoolSurvey_Students_Q1FStronglyAgree | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurvey_Students_Q1FStronglyAgree}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Students_Q1FStronglyAgree}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.s_q1f_strongly_agree_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+    		</div>
+
+
+		</div>
+	</accordion-group>
+
+
+        <accordion-group heading="Q 2B: Most adults at my school care about me. (s)" is-open="true">      
+
+        <div class="row">
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.s_q2b_agree | filtraCeros}}">
+            <div class="porcentaje" style="width:{{survey_results.s_q2b_agree}}%;">
+                <p>{{survey_results.s_q2b_agree | number:1}}%</p>
+                <itemsurvey><span>Agree</span></itemsurvey>
+            </div>
+
+            <div class="metrics {{city_average.SchoolSurvey_Students_Q2bAgree | filtraCeros}}">
+                <div class="average" style="width:{{city_average.SchoolSurvey_Students_Q2bAgree}}%;">
+                    <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Students_Q2bAgree}}%</p>
+                </div>                          
+                <div class="rank">
+                <p><img ng-src="img/{{ proficiency_ratings.s_q2b_agree_pr | filtraRank }}.png" ></p>
+                </div>
+                
+            </div>
+            </div>
+
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.s_q2b_strongly_agree | filtraCeros}}">
+                <div class="porcentaje" style="width:{{survey_results.s_q2b_strongly_agree}}%;">
+                    <p>{{survey_results.s_q2b_strongly_agree | number:1}}%</p>
+                    <itemsurvey><span>Strongly agree</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.SchoolSurvey_Students_Q2bStronglyAgree | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurvey_Students_Q2bStronglyAgree}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Students_Q2bStronglyAgree}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.s_q2b_strongly_agree_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+        </div>
+    </accordion-group>  		
+
+
+        <accordion-group heading="Q 4E: I feel welcome at my school. (s)" is-open="true">      
+
+        <div class="row">
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.s_q4e_agree | filtraCeros}}">
+            <div class="porcentaje" style="width:{{survey_results.s_q4e_agree}}%;">
+                <p>{{survey_results.s_q4e_agree | number:1}}%</p>
+                <itemsurvey><span>Agree</span></itemsurvey>
+            </div>
+
+            <div class="metrics {{city_average.SchoolSurvey_Students_Q4eAgree | filtraCeros}}">
+                <div class="average" style="width:{{city_average.SchoolSurvey_Students_Q4eAgree}}%;">
+                    <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Students_Q4eAgree}}%</p>
+                </div>                          
+                <div class="rank">
+                <p><img ng-src="img/{{ proficiency_ratings.s_q4e_agree_pr | filtraRank }}.png" ></p>
+                </div>
+                
+            </div>
+            </div>
+
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.s_q4e_strongly_agree | filtraCeros}}">
+                <div class="porcentaje" style="width:{{survey_results.s_q4e_strongly_agree}}%;">
+                    <p>{{survey_results.s_q4e_strongly_agree | number:1}}%</p>
+                    <itemsurvey><span>Strongly agree</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.SchoolSurvey_Students_Q4eStronglyAgree | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurvey_Students_Q4eStronglyAgree}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Students_Q4eStronglyAgree}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.s_q4e_strongly_agree_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+        </div>
+    </accordion-group>  
+
+
+        <accordion-group heading="Q 4G: At my school, I am safe in the hallways, bathrooms, locker rooms, and cafeteria. (s)" is-open="true">      
+
+        <div class="row">
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.s_q4g_agree | filtraCeros}}">
+            <div class="porcentaje" style="width:{{survey_results.s_q4g_agree}}%;">
+                <p>{{survey_results.s_q4g_agree | number:1}}%</p>
+                <itemsurvey><span>Agree</span></itemsurvey>
+            </div>
+
+            <div class="metrics {{city_average.SchoolSurvey_Students_Q4GAgree | filtraCeros}}">
+                <div class="average" style="width:{{city_average.SchoolSurvey_Students_Q4GAgree}}%;">
+                    <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Students_Q4GAgree}}%</p>
+                </div>                          
+                <div class="rank">
+                <p><img ng-src="img/{{ proficiency_ratings.s_q4g_agree_pr | filtraRank }}.png" ></p>
+                </div>
+                
+            </div>
+            </div>
+
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.s_q4g_strongly_agree | filtraCeros}}">
+                <div class="porcentaje" style="width:{{survey_results.s_q4g_strongly_agree}}%;">
+                    <p>{{survey_results.s_q4g_strongly_agree | number:1}}%</p>
+                    <itemsurvey><span>Strongly agree</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.SchoolSurvey_Students_Q4GStronglyAgree | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurvey_Students_Q4GStronglyAgree}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Students_Q4GStronglyAgree}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.s_q4g_strongly_agree_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+        </div>
+    </accordion-group>     
+
+
+        <accordion-group heading="Q 6C: Most students at my school respect students who get good grades. (s)" is-open="true">      
+
+        <div class="row">
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.s_q6c_agree | filtraCeros}}">
+            <div class="porcentaje" style="width:{{survey_results.s_q6c_agree}}%;">
+                <p>{{survey_results.s_q6c_agree | number:1}}%</p>
+                <itemsurvey><span>Agree</span></itemsurvey>
+            </div>
+
+            <div class="metrics {{city_average.SchoolSurvey_Students_Q6cAgree | filtraCeros}}">
+                <div class="average" style="width:{{city_average.SchoolSurvey_Students_Q6cAgree}}%;">
+                    <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Students_Q6cAgree}}%</p>
+                </div>                          
+                <div class="rank">
+                <p><img ng-src="img/{{ proficiency_ratings.s_q6c_agree_pr | filtraRank }}.png" ></p>
+                </div>
+                
+            </div>
+            </div>
+
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.s_q6c_strongly_agree | filtraCeros}}">
+                <div class="porcentaje" style="width:{{survey_results.s_q6c_strongly_agree}}%;">
+                    <p>{{survey_results.s_q6c_strongly_agree | number:1}}%</p>
+                    <itemsurvey><span>Strongly agree</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.SchoolSurvey_Students_Q6cStronglyAgree | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurvey_Students_Q6cStronglyAgree}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Students_Q6cStronglyAgree}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.s_q6c_strongly_agree_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+        </div>
+    </accordion-group>       
+
+
+</accordion>
+</div> <!-- Control accordion -->
+
+</div>	
+
+
+
+<div class="row {{ 'teachers' | filtraSurvey }}">  <!-- 2do -->
+
+<div ng-controller="AccordionDemoCtrl">
+
+<!--
+  <label class="checkbox">
+    <input type="checkbox" ng-model="oneAtATime">
+    Open only one at a time
+  </label>
+-->  
+
+  <accordion close-others="oneAtATime">
+
+    <accordion-group heading="Q 3D: School leaders place a high priority on the quality of teaching. (t) " is-open="true">      
+
+        <div class="row">
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.t_q3d_agree | filtraCeros}}">
+            <div class="porcentaje" style="width:{{survey_results.t_q3d_agree}}%;">
+                <p>{{survey_results.t_q3d_agree | number:1}}%</p>
+                <itemsurvey><span>Agree</span></itemsurvey>
+            </div>
+
+            <div class="metrics {{city_average.SchoolSurvey_Teachers_Q3DAgree | filtraCeros}}">
+                <div class="average" style="width:{{city_average.SchoolSurvey_Teachers_Q3DAgree}}%;">
+                    <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Teachers_Q3DAgree}}%</p>
+                </div>                          
+                <div class="rank">
+                <p><img ng-src="img/{{ proficiency_ratings.t_q3d_agree_pr | filtraRank }}.png" ></p>
+                </div>
+                
+            </div>
+            </div>
+
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.t_q3d_strongly_agree | filtraCeros}}">
+                <div class="porcentaje" style="width:{{survey_results.t_q3d_strongly_agree}}%;">
+                    <p>{{survey_results.t_q3d_strongly_agree | number:1}}%</p>
+                    <itemsurvey><span>Strongly agree</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.SchoolSurvey_Teachers_Q3DStronglyAgree | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurvey_Teachers_Q3DStronglyAgree}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Teachers_Q3DStronglyAgree}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.t_q3d_strongly_agree_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+        </div>
+    </accordion-group>
+
+
+        <accordion-group heading="Q 8C: I would recommend my school to parents seeking a place for their child. (t)" is-open="true">      
+
+        <div class="row">
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.t_q8c_agree | filtraCeros}}">
+            <div class="porcentaje" style="width:{{survey_results.t_q8c_agree}}%;">
+                <p>{{survey_results.t_q8c_agree | number:1}}%</p>
+                <itemsurvey><span>Agree</span></itemsurvey>
+            </div>
+
+            <div class="metrics {{city_average.SchoolSurvey_Teachers_Q8CAgree | filtraCeros}}">
+                <div class="average" style="width:{{city_average.SchoolSurvey_Teachers_Q8CAgree}}%;">
+                    <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Teachers_Q8CAgree}}%</p>
+                </div>                          
+                <div class="rank">
+                <p><img ng-src="img/{{ proficiency_ratings.t_q8c_agree_pr | filtraRank }}.png" ></p>
+                </div>
+                
+            </div>
+            </div>
+
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.t_q8c_strongly_agree | filtraCeros}}">
+                <div class="porcentaje" style="width:{{survey_results.t_q8c_strongly_agree}}%;">
+                    <p>{{survey_results.t_q8c_strongly_agree | number:1}}%</p>
+                    <itemsurvey><span>Strongly agree</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.SchoolSurvey_Teachers_Q8CStronglyAgree | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurvey_Teachers_Q8CStronglyAgree}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Teachers_Q8CStronglyAgree}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.t_q8c_strongly_agree_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+        </div>
+    </accordion-group>          
+
+
+        <accordion-group heading="Q 10C: My school communicates effectively with parents about their child’s progress. (t)" is-open="true">      
+
+        <div class="row">
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.t_q10c_agree | filtraCeros}}">
+            <div class="porcentaje" style="width:{{survey_results.t_q10c_agree}}%;">
+                <p>{{survey_results.t_q10c_agree | number:1}}%</p>
+                <itemsurvey><span>Agree</span></itemsurvey>
+            </div>
+
+            <div class="metrics {{city_average.SchoolSurvey_Teachers_Q10CAgree | filtraCeros}}">
+                <div class="average" style="width:{{city_average.SchoolSurvey_Teachers_Q10CAgree}}%;">
+                    <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Teachers_Q10CAgree}}%</p>
+                </div>                          
+                <div class="rank">
+                <p><img ng-src="img/{{ proficiency_ratings.t_q10c_agree_pr | filtraRank }}.png" ></p>
+                </div>
+                
+            </div>
+            </div>
+
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.t_q10c_strongly_agree | filtraCeros}}">
+                <div class="porcentaje" style="width:{{survey_results.t_q10c_strongly_agree}}%;">
+                    <p>{{survey_results.t_q10c_strongly_agree | number:1}}%</p>
+                    <itemsurvey><span>Strongly agree</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.SchoolSurvey_Teachers_Q10CStronglyAgree | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurvey_Teachers_Q10CStronglyAgree}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Teachers_Q10CStronglyAgree}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.t_q10c_strongly_agree_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+        </div>
+    </accordion-group>  
+
+
+        <accordion-group heading="Q 11E: Students are often harassed or bullied in school. (t)" is-open="true">      
+
+        <div class="row">
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.t_q11e_disagree | filtraCeros}}">
+            <div class="porcentaje" style="width:{{survey_results.t_q11e_disagree}}%;">
+                <p>{{survey_results.t_q11e_disagree | number:1}}%</p>
+                <itemsurvey><span>Disagree</span></itemsurvey>
+            </div>
+
+            <div class="metrics {{city_average.SchoolSurvey_Teachers_Q11EDisagree | filtraCeros}}">
+                <div class="average" style="width:{{city_average.SchoolSurvey_Teachers_Q11EDisagree}}%;">
+                    <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Teachers_Q11EDisagree}}%</p>
+                </div>                          
+                <div class="rank">
+                <p><img ng-src="img/{{ proficiency_ratings.t_q11e_disagree_pr | filtraRank }}.png" ></p>
+                </div>
+                
+            </div>
+            </div>
+
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.t_q11e_strongly_disagree | filtraCeros}}">
+                <div class="porcentaje" style="width:{{survey_results.t_q11e_strongly_disagree}}%;">
+                    <p>{{survey_results.t_q11e_strongly_disagree | number:1}}%</p>
+                    <itemsurvey><span>Strongly disagree</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.SchoolSurvey_Teachers_Q11EStronglyDisagree | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurvey_Teachers_Q11EStronglyDisagree}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Teachers_Q11EStronglyDisagree}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.t_q11e_strongly_disagree_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+        </div>
+    </accordion-group>     
+
+
+        <accordion-group heading="Q 11F: At my school, adults treat students with respect. (t) " is-open="true">      
+
+        <div class="row">
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.t_q11f_agree | filtraCeros}}">
+            <div class="porcentaje" style="width:{{survey_results.t_q11f_agree}}%;">
+                <p>{{survey_results.t_q11f_agree | number:1}}%</p>
+                <itemsurvey><span>Agree</span></itemsurvey>
+            </div>
+
+            <div class="metrics {{city_average.SchoolSurvey_Teachers_Q11FAgree | filtraCeros}}">
+                <div class="average" style="width:{{city_average.SchoolSurvey_Teachers_Q11FAgree}}%;">
+                    <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Teachers_Q11FAgree}}%</p>
+                </div>                          
+                <div class="rank">
+                <p><img ng-src="img/{{ proficiency_ratings.t_q11f_agree_pr | filtraRank }}.png" ></p>
+                </div>
+                
+            </div>
+            </div>
+
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.t_q11f_strongly_agree | filtraCeros}}">
+                <div class="porcentaje" style="width:{{survey_results.t_q11f_strongly_agree}}%;">
+                    <p>{{survey_results.t_q11f_strongly_agree | number:1}}%</p>
+                    <itemsurvey><span>Strongly agree</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.SchoolSurvey_Teachers_Q11FStronglyAgree | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurvey_Teachers_Q11FStronglyAgree}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Teachers_Q11FStronglyAgree}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.t_q11f_strongly_agree_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+        </div>
+    </accordion-group>       
+
+
+</accordion>
+</div> <!-- Control accordion -->
+
+</div>  
+
+
+
+
+<div class="row {{ 'parents' | filtraSurvey }}">  <!-- 3ro -->
+
+<div ng-controller="AccordionDemoCtrl">
+
+<!--
+  <label class="checkbox">
+    <input type="checkbox" ng-model="oneAtATime">
+    Open only one at a time
+  </label>
+-->  
+
+  <accordion close-others="oneAtATime">
+
+    <accordion-group heading="Q 1A: My child’s school keeps me informed about my child’s academic progress. (p)" is-open="true">      
+
+        <div class="row">
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.p_q1a_agree | filtraCeros}}">
+            <div class="porcentaje" style="width:{{survey_results.p_q1a_agree}}%;">
+                <p>{{survey_results.p_q1a_agree | number:1}}%</p>
+                <itemsurvey><span>Agree</span></itemsurvey>
+            </div>
+
+            <div class="metrics {{city_average.SchoolSurvey_Parents_Q1aAgree | filtraCeros}}">
+                <div class="average" style="width:{{city_average.SchoolSurvey_Parents_Q1aAgree}}%;">
+                    <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Parents_Q1aAgree}}%</p>
+                </div>                          
+                <div class="rank">
+                <p><img ng-src="img/{{ proficiency_ratings.p_q1a_agree_pr | filtraRank }}.png" ></p>
+                </div>
+                
+            </div>
+            </div>
+
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.p_q1a_strongly_agree | filtraCeros}}">
+                <div class="porcentaje" style="width:{{survey_results.p_q1a_strongly_agree}}%;">
+                    <p>{{survey_results.p_q1a_strongly_agree | number:1}}%</p>
+                    <itemsurvey><span>Strongly agree</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.SchoolSurvey_Parents_Q1aStronglyAgree | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurvey_Parents_Q1aStronglyAgree}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Parents_Q1aStronglyAgree}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.p_q1a_strongly_agree_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+        </div>
+    </accordion-group>
+
+
+        <accordion-group heading="Q 1G: My child’s school is responsive to parent feedback. (p)" is-open="true">      
+
+        <div class="row">
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.p_q1g_agree | filtraCeros}}">
+            <div class="porcentaje" style="width:{{survey_results.p_q1g_agree}}%;">
+                <p>{{survey_results.p_q1g_agree | number:1}}%</p>
+                <itemsurvey><span>Agree</span></itemsurvey>
+            </div>
+
+            <div class="metrics {{city_average.SchoolSurvey_Parents_Q1GAgree | filtraCeros}}">
+                <div class="average" style="width:{{city_average.SchoolSurvey_Parents_Q1GAgree}}%;">
+                    <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Parents_Q1GAgree}}%</p>
+                </div>                          
+                <div class="rank">
+                <p><img ng-src="img/{{ proficiency_ratings.p_q1g_agree_pr | filtraRank }}.png" ></p>
+                </div>
+                
+            </div>
+            </div>
+
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.p_q1g_strongly_agree | filtraCeros}}">
+                <div class="porcentaje" style="width:{{survey_results.p_q1g_strongly_agree}}%;">
+                    <p>{{survey_results.p_q1g_strongly_agree | number:1}}%</p>
+                    <itemsurvey><span>Strongly agree</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.SchoolSurvey_Parents_Q1GStronglyAgree | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurvey_Parents_Q1GStronglyAgree}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Parents_Q1GStronglyAgree}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.p_q1g_strongly_agree_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+        </div>
+    </accordion-group>          
+
+
+        <accordion-group heading="Q 2A: My child is safe at school. (p)  " is-open="true">      
+
+        <div class="row">
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.p_q2a_agree | filtraCeros}}">
+            <div class="porcentaje" style="width:{{survey_results.p_q2a_agree}}%;">
+                <p>{{survey_results.p_q2a_agree | number:1}}%</p>
+                <itemsurvey><span>Agree</span></itemsurvey>
+            </div>
+
+            <div class="metrics {{city_average.SchoolSurvey_Parents_Q2aAgree | filtraCeros}}">
+                <div class="average" style="width:{{city_average.SchoolSurvey_Parents_Q2aAgree}}%;">
+                    <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Parents_Q2aAgree}}%</p>
+                </div>                          
+                <div class="rank">
+                <p><img ng-src="img/{{ proficiency_ratings.p_q2a_agree_pr | filtraRank }}.png" ></p>
+                </div>
+                
+            </div>
+            </div>
+
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.p_q2a_strongly_agree | filtraCeros}}">
+                <div class="porcentaje" style="width:{{survey_results.p_q2a_strongly_agree}}%;">
+                    <p>{{survey_results.p_q2a_strongly_agree | number:1}}%</p>
+                    <itemsurvey><span>Strongly agree</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.SchoolSurvey_Parents_Q2aStronglyAgree | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurvey_Parents_Q2aStronglyAgree}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Parents_Q2aStronglyAgree}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.p_q2a_strongly_agree_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+        </div>
+    </accordion-group>  
+
+
+        <accordion-group heading="Q 3A: I would recommend this school to other parents. (p)" is-open="true">      
+
+        <div class="row">
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.p_q3a_agree | filtraCeros}}">
+            <div class="porcentaje" style="width:{{survey_results.p_q3a_agree}}%;">
+                <p>{{survey_results.p_q3a_agree | number:1}}%</p>
+                <itemsurvey><span>Agree</span></itemsurvey>
+            </div>
+
+            <div class="metrics {{city_average.SchoolSurvey_Parents_Q3aAgree | filtraCeros}}">
+                <div class="average" style="width:{{city_average.SchoolSurvey_Parents_Q3aAgree}}%;">
+                    <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Parents_Q3aAgree}}%</p>
+                </div>                          
+                <div class="rank">
+                <p><img ng-src="img/{{ proficiency_ratings.p_q3a_agree_pr | filtraRank }}.png" ></p>
+                </div>
+                
+            </div>
+            </div>
+
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.p_q3a_strongly_agree | filtraCeros}}">
+                <div class="porcentaje" style="width:{{survey_results.p_q3a_strongly_agree}}%;">
+                    <p>{{survey_results.p_q3a_strongly_agree | number:1}}%</p>
+                    <itemsurvey><span>Strongly agree</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.SchoolSurvey_Parents_Q3aStronglyAgree | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurvey_Parents_Q3aStronglyAgree}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Parents_Q3aStronglyAgree}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.p_q3a_strongly_agree_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+        </div>
+    </accordion-group>     
+
+
+        <accordion-group heading="Q 5B: I am satisfied or very satisfied with the education my child has received this year. (p)" is-open="true">      
+
+        <div class="row">
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.p_q5b_satisfied | filtraCeros}}">
+            <div class="porcentaje" style="width:{{survey_results.p_q5b_satisfied}}%;">
+                <p>{{survey_results.p_q5b_satisfied | number:1}}%</p>
+                <itemsurvey><span>Satisfied</span></itemsurvey>
+            </div>
+
+            <div class="metrics {{city_average.SchoolSurvey_Parents_Q5BSatisfied | filtraCeros}}">
+                <div class="average" style="width:{{city_average.SchoolSurvey_Parents_Q5BSatisfied}}%;">
+                    <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Parents_Q5BSatisfied}}%</p>
+                </div>                          
+                <div class="rank">
+                <p><img ng-src="img/{{ proficiency_ratings.p_q5b_satisfied_pr | filtraRank }}.png" ></p>
+                </div>
+                
+            </div>
+            </div>
+
+
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.p_q5b_very_satisfied | filtraCeros}}">
+                <div class="porcentaje" style="width:{{survey_results.p_q5b_very_satisfied}}%;">
+                    <p>{{survey_results.p_q5b_very_satisfied | number:1}}%</p>
+                    <itemsurvey><span>Very satisfied</span></itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.SchoolSurvey_Parents_Q5BVerySatisfied | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurvey_Parents_Q5BVerySatisfied}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Parents_Q5BVerySatisfied}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.p_q5b_very_satisfied_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+        </div>
+    </accordion-group>       
+
+
+</accordion>
+</div> <!-- Control accordion -->
+
+</div> 
+
+
+    </section>
+    <!--END.CONTENIDO-->
+
+  <a class="exit-off-canvas"></a>
+
+  </div>
+</div>

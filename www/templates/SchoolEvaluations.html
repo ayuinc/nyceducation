@@ -44,70 +44,70 @@
 
 		  <accordion close-others="oneAtATime">
 
-		    <accordion-group heading="Progress Report" is-open="true">  
+		    <accordion-grouptwo heading="Progress Report" is-open="true">  
 
 			    	<div class="row">
 
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca {{proficiency_ratings.es_ms_k8_ec_overal_pr_pr | filtraCeros}}">
-			    			<div class="porcentaje " style="width:{{proficiency_ratings.es_ms_k8_ec_overal_pr_pr}}%;">
-			    				<p><b>{{proficiency_ratings.es_ms_k8_ec_overal_pr_pr}}%  - C</b></p>
-			    				<itemsurvey><span>Overall</span></itemsurvey>
-			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50%;">
-				    				<small>City Average: 50%</small>
-								</div>			    			
-				    			<div class="rank">
-				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
-				    			</div>
-			    			</div>
-			    		</div>
+	<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{proficiency_ratings.es_ms_k8_ec_overal_pr_pr | filtraCeros}}">
+    			<div class="porcentaje " style="width:{{proficiency_ratings.es_ms_k8_ec_overal_pr_pr}}%;">
+    				<p><b>{{proficiency_ratings.es_ms_k8_ec_overal_pr_pr | filtraOverallEvaluations}} </b></p>
+    				<itemsurvey><span>Overall</span></itemsurvey>
+    			</div>
+    		<!--	<div class="metrics">
+					<div class="average" style="width:50%;">
+	    				<small>City Average: 50%</small>
+					</div>			    			
+	    			<div class="rank">
+	    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+	    			</div>
+    			</div> -->
+	</div>
 
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca {{proficiency_ratings.es_ms_k8_ec_student_performance_pr_pr | filtraCeros}}">
-			    	<div class="porcentaje " style="width:{{proficiency_ratings.es_ms_k8_ec_student_performance_pr_pr}}%;">
-			    				<p>{{proficiency_ratings.es_ms_k8_ec_student_performance_pr_pr}}%</p>
-			    				<itemsurvey><span>Performance</span></itemsurvey>
-			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50%;">
-				    				<small>City Average: 50%</small>
-								</div>			    			
-				    			<div class="rank">
-				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
-				    			</div>
-				    			<a href="glosary.html"><div class="info"></div></a>
-			    			</div>
-			    		</div>	
+	<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{proficiency_ratings.es_ms_k8_ec_student_performance_pr_pr | filtraCeros}}">
+		    	<div class="porcentaje " style="width:{{proficiency_ratings.es_ms_k8_ec_student_performance_pr_pr}}%;">
+		    				<p>{{proficiency_ratings.es_ms_k8_ec_student_performance_pr_pr | number:1}}%</p>
+		    				<itemsurvey><span>Performance</span></itemsurvey>
+    			</div>
+    	<!--		<div class="metrics">
+					<div class="average" style="width:50%;">
+	    				<small>City Average: 50%</small>
+					</div>			    			
+	    			<div class="rank">
+	    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+	    			</div>
+	    			<a href="glosary.html"><div class="info"></div></a>
+    			</div> -->
+	</div>	
 
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca {{proficiency_ratings.es_ms_k8_ec_student_progress_pr_score_pr | filtraCeros}}">
+			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{proficiency_ratings.es_ms_k8_ec_student_progress_pr_score_pr | filtraCeros}}">
 			    <div class="porcentaje " style="width:{{proficiency_ratings.es_ms_k8_ec_student_progress_pr_score_pr}}%;">
-			    				<p>{{proficiency_ratings.es_ms_k8_ec_student_progress_pr_score_pr}}%</p>
+			    				<p>{{proficiency_ratings.es_ms_k8_ec_student_progress_pr_score_pr | number:1}}%</p>
 			    				<itemsurvey><span>Progress</span></itemsurvey>
 			    			</div>
-			    			<div class="metrics">
+			    	<!--		<div class="metrics">
 								<div class="average" style="width:50%;">
 				    				<small>City Average: 50%</small>
 								</div>			    			
 				    			<div class="rank">
 				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
 				    			</div>
-			    			</div>
-			    		</div>
+			    			</div>-->
+			    		</div> 
 
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca {{proficiency_ratings.es_ms_k8_ec_scholl_environment_pr_pr | filtraCeros}}">
+			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{proficiency_ratings.es_ms_k8_ec_scholl_environment_pr_pr | filtraCeros}}">
 			   <div class="porcentaje " style="width:{{proficiency_ratings.es_ms_k8_ec_scholl_environment_pr_pr}}%;">
-			    				<p>{{proficiency_ratings.es_ms_k8_ec_scholl_environment_pr_pr}}%</p>
+			    				<p>{{proficiency_ratings.es_ms_k8_ec_scholl_environment_pr_pr | number:1}}%</p>
 			    				<itemsurvey><span>Environment</span></itemsurvey>
 			    			</div>
-			    			<div class="metrics">
+			  <!--  			<div class="metrics">
 								<div class="average" style="width:50%;">
 				    				<small>City Average: 50%</small>
 								</div>			    			
 				    			<div class="rank">
 				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
 				    			</div>
-			    			</div>
-			    		</div>
+			    			</div>-->
+			    		</div> 
 
 			    	
 
@@ -115,129 +115,129 @@
 
 			    <!--Inicio HS -->
 
-			    <div class="small-12 medium-12 large-12 columns barra-blanca {{proficiency_ratings.hs_t_hs_overall_pr_pr | filtraCeros}}">
+			    <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{proficiency_ratings.hs_t_hs_overall_pr_pr | filtraCeros}}">
 			   <div class="porcentaje " style="width:{{proficiency_ratings.hs_t_hs_overall_pr_pr}}%;">
-			    				<p>{{proficiency_ratings.hs_t_hs_overall_pr_pr}}%</p>
+			    				<p>{{proficiency_ratings.hs_t_hs_overall_pr_pr | number:1}}%</p>
 			    				<itemsurvey><span>Overall - HS</span></itemsurvey>
 			    			</div>
-			    			<div class="metrics">
+			    	<!--		<div class="metrics">
 								<div class="average" style="width:50%;">
 				    				<small>City Average: 50%</small>
 								</div>			    			
 				    			<div class="rank">
 				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
 				    			</div>
-			    			</div>
+			    			</div> -->
 			    		</div>
 
-			    <div class="small-12 medium-12 large-12 columns barra-blanca {{proficiency_ratings.hs_t_hs_student_performance_pr_pr | filtraCeros}}">
+			    <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{proficiency_ratings.hs_t_hs_student_performance_pr_pr | filtraCeros}}">
 			   <div class="porcentaje " style="width:{{proficiency_ratings.hs_t_hs_student_performance_pr_pr}}%;">
-			    				<p>{{proficiency_ratings.hs_t_hs_student_performance_pr_pr}}%</p>
+			    				<p>{{proficiency_ratings.hs_t_hs_student_performance_pr_pr | number:1}}%</p>
 			    				<itemsurvey><span>Performance - HS</span></itemsurvey>
 			    			</div>
-			    			<div class="metrics">
+			    <!--			<div class="metrics">
 								<div class="average" style="width:50%;">
 				    				<small>City Average: 50%</small>
 								</div>			    			
 				    			<div class="rank">
 				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
 				    			</div>
-			    			</div>
+			    			</div> -->
 			    		</div>
 
-			    <div class="small-12 medium-12 large-12 columns barra-blanca {{proficiency_ratings.hs_t_hs_student_progress_pr_pr | filtraCeros}}">
+			    <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{proficiency_ratings.hs_t_hs_student_progress_pr_pr | filtraCeros}}">
 			   <div class="porcentaje " style="width:{{proficiency_ratings.hs_t_hs_student_progress_pr_pr}}%;">
-			    				<p>{{proficiency_ratings.hs_t_hs_student_progress_pr_pr}}%</p>
+			    				<p>{{proficiency_ratings.hs_t_hs_student_progress_pr_pr | number:1}}%</p>
 			    				<itemsurvey><span>Progress - HS</span></itemsurvey>
 			    			</div>
-			    			<div class="metrics">
+			    <!--			<div class="metrics">
 								<div class="average" style="width:50%;">
 				    				<small>City Average: 50%</small>
 								</div>			    			
 				    			<div class="rank">
 				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
 				    			</div>
-			    			</div>
+			    			</div> -->
 			    		</div>
 
-			    <div class="small-12 medium-12 large-12 columns barra-blanca {{proficiency_ratings.hs_t_hs_school_environment_pr_pr | filtraCeros}}">
+			    <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{proficiency_ratings.hs_t_hs_school_environment_pr_pr | filtraCeros}}">
 			   <div class="porcentaje " style="width:{{proficiency_ratings.hs_t_hs_school_environment_pr_pr}}%;">
-			    				<p>{{proficiency_ratings.hs_t_hs_school_environment_pr_pr}}%</p>
+			    				<p>{{proficiency_ratings.hs_t_hs_school_environment_pr_pr | number:1}}%</p>
 			    				<itemsurvey><span>Environment - HS</span></itemsurvey>
 			    			</div>
-			    			<div class="metrics">
+			    <!--			<div class="metrics">
 								<div class="average" style="width:50%;">
 				    				<small>City Average: 50%</small>
 								</div>			    			
 				    			<div class="rank">
 				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
 				    			</div>
-			    			</div>
+			    			</div> -->
 			    		</div>
 
-			    <div class="small-12 medium-12 large-12 columns barra-blanca {{proficiency_ratings.hs_t_hs_college_carrer_pr_pr | filtraCeros}}">
+			    <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{proficiency_ratings.hs_t_hs_college_carrer_pr_pr | filtraCeros}}">
 			   <div class="porcentaje " style="width:{{proficiency_ratings.hs_t_hs_college_carrer_pr_pr}}%;">
-			    				<p>{{proficiency_ratings.hs_t_hs_college_carrer_pr_pr}}%</p>
+			    				<p>{{proficiency_ratings.hs_t_hs_college_carrer_pr_pr | number:1}}%</p>
 			    				<itemsurvey><span>Career Readiness -HS</span></itemsurvey>
 			    			</div>
-			    			<div class="metrics">
+			 <!--   			<div class="metrics">
 								<div class="average" style="width:50%;">
 				    				<small>City Average: 50%</small>
 								</div>			    			
 				    			<div class="rank">
 				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
 				    			</div>
-			    			</div>
+			    			</div>-->
 			    		</div>
 
 			</div>
 
-			    </accordion-group>
+			    </accordion-grouptwo>
 
 
-			    <accordion-group heading="Quality Review" is-open="true">  
+			    <accordion-grouptwo heading="Quality Review" is-open="true">  
 
 			    	<div class="row">
 
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ratings.quality_review_rating | filtraCeros}}">
+			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ratings.quality_review_rating | filtraCeros}}">
 			    			<div class="porcentaje" style="width:50%;">
 			    				<p>{{evaluation_ratings.quality_review_rating}}</p>
 			    				<itemsurvey><span>Quality Review Rating</span></itemsurvey>
 			    			</div>
 			    		</div>
 
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ratings.ri_11 | filtraCeros}}">
+			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ratings.ri_11 | filtraCeros}}">
 			    			<div class="porcentaje" style="width:50%;">
 			    				<p>{{evaluation_ratings.ri_11}}</p>
-			    				<itemsurvey><span>Indicator 1.1</span></itemsurvey>
+			    				<itemsurvey><span>Curriculum</span></itemsurvey>
 			    			</div>
 			    		</div>
 
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ratings.ri_12 | filtraCeros}}">
+			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ratings.ri_12 | filtraCeros}}">
 			    			<div class="porcentaje" style="width:50%;">
 			    				<p>{{evaluation_ratings.ri_12}}</p>
-			    				<itemsurvey><span>Indicator 1.2</span></itemsurvey>
+			    				<itemsurvey><span>Pedagogy</span></itemsurvey>
 			    			</div>
 			    		</div>	
 
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ratings.ri_14 | filtraCeros}}">
+			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ratings.ri_14 | filtraCeros}}">
 			    			<div class="porcentaje" style="width:50%;">
 			    				<p>{{evaluation_ratings.ri_14}}</p>
-			    				<itemsurvey><span>Indicator 1.4</span></itemsurvey>
+			    				<itemsurvey><span>Positive Learning Environment</span></itemsurvey>
 			    			</div>
 			    		</div>
 
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca {{evaluation_ratings.ri_34 | filtraCeros}}">
+			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ratings.ri_34 | filtraCeros}}">
 			    			<div class="porcentaje" style="width:50%;">
 			    				<p>{{evaluation_ratings.ri_34}}</p>
-			    				<itemsurvey><span>Indicator 1.4</span></itemsurvey>
+			    				<itemsurvey><span>High expectations</span></itemsurvey>
 			    			</div>
 			    		</div>
 
 
 			    	</div>
 
-			    	</accordion-group>
+			    	</accordion-grouptwo>
 			    </accordion>
 	
 			</div>		

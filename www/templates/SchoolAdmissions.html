@@ -14,74 +14,232 @@
     
     <section class="main-section">
     
+    <div class="{{ 'es' | filtraAdmissions}}"> <!--ES ADMISSION-->
+
+
+	<div class="row menu-header">	
+		<div class="small-6 small-centered medium-6 large-6 columns">
+			<h3 class="text-center">Admissions</h3>
+		</div>	
+	</div>	
+
+			<div class="row profile_item">
+				<div class="small-5 columns">
+					<div class="profile_label">
+						<span>Program</span>
+						<a href="glosary.html"><div class="info-perfil"></div></a>
+					</div>
+				</div>
+				<div class="small-7 columns">
+					<div class="profile_info">
+						<span>{{ school.name }}</span>
+					</div>
+				</div>
+			</div>	
+
+			<div class="row profile_item">
+				<div class="small-5 columns">
+					<div class="profile_label">
+						<span>Method</span>
+						<a href="glosary.html"><div class="info-perfil"></div></a>
+					</div>
+				</div>
+				<div class="small-7 columns">
+					<div class="profile_info">
+						<span>{{es_admissions.admissions_method}}</span>
+					</div>
+				</div>
+			</div>
+
+<div ng-controller="AccordionDemoCtrl">
+
+
+  	<accordion close-others="oneAtATime">
+
+
+    	<accordion-group heading="Priorities" is-open="true" >
+
+		 <!--AVERANGE ELA -->
+<div class="row">
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority1 | filtraCeros}}">
+		<div class="priority">
+			<p><b>Priority 1.</b></p>
+			<p>{{es_admissions.priority1}}</p>
+		</div>
+	</div>
+
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority2 | filtraCeros}}">
+		<div class="priority">
+			<p><b>Priority 2.</b></p>
+			<p>{{es_admissions.priority2}}</p>
+		</div>
+	</div>
+
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority3 | filtraCeros}}">
+		<div class="priority">
+			<p><b>Priority 3.</b></p>
+			<p>{{es_admissions.priority3}}</p>
+		</div>
+	</div>
+
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority4 | filtraCeros}}">
+		<div class="priority">
+			<p><b>Priority 4.</b></p>
+			<p>{{es_admissions.priority4}}</p>
+		</div>
+	</div>
+
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority5 | filtraCeros}}">
+		<div class="priority">
+			<p><b>Priority 5.</b></p>
+			<p>{{es_admissions.priority5}}</p>
+		</div>
+	</div>	
+
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority6 | filtraCeros}}">
+		<div class="priority">
+			<p><b>Priority 6.</b></p>
+			<p>{{es_admissions.priority6}}</p>
+		</div>
+	</div>			
+
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority7 | filtraCeros}}">
+		<div class="priority">
+			<p><b>Priority 7.</b></p>
+			<p>{{es_admissions.priority7}}</p>
+		</div>
+	</div>	
+
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority8 | filtraCeros}}">
+		<div class="priority">
+			<p><b>Priority 8.</b></p>
+			<p>{{es_admissions.priority8}}</p>
+		</div>
+	</div>	
+
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority9 | filtraCeros}}">
+		<div class="priority">
+			<p><b>Priority 9.</b></p>
+			<p>{{es_admissions.priority9}}</p>
+		</div>
+	</div>	
+
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority10 | filtraCeros}}">
+		<div class="priority">
+			<p><b>Priority 10.</b></p>
+			<p>{{es_admissions.priority10}}</p>
+		</div>
+	</div>		
+
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority11 | filtraCeros}}">
+		<div class="priority">
+			<p><b>Priority 11.</b></p>
+			<p>{{es_admissions.priority11}}</p>
+		</div>
+	</div>	
+
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority12 | filtraCeros}}">
+		<div class="priority">
+			<p><b>Priority 12.</b></p>
+			<p>{{es_admissions.priority12}}</p>
+		</div>
+	</div>	
+
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority13 | filtraCeros}}">
+		<div class="priority">
+			<p><b>Priority 13.</b></p>
+			<p>{{es_admissions.priority13}}</p>
+		</div>
+	</div>	
+
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority14 | filtraCeros}}">
+		<div class="priority">
+			<p><b>Priority 14.</b></p>
+			<p>{{es_admissions.priority14}}</p>
+		</div>
+	</div>	
+
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority15 | filtraCeros}}">
+		<div class="priority">
+			<p><b>Priority 15.</b></p>
+			<p>{{es_admissions.priority15}}</p>
+		</div>
+	</div>	
+
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority16 | filtraCeros}}">
+		<div class="priority">
+			<p><b>Priority 16.</b></p>
+			<p>{{es_admissions.priority16}}</p>
+		</div>
+	</div>	
+
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority17 | filtraCeros}}">
+		<div class="priority">
+			<p><b>Priority 17.</b></p>
+			<p>{{es_admissions.priority17}}</p>
+		</div>
+	</div>	
+
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority18 | filtraCeros}}">
+		<div class="priority">
+			<p><b>Priority 18.</b></p>
+			<p>{{es_admissions.priority18}}</p>
+		</div>
+	</div>	
+									
+</div>
+
+    	</accordion-group>	
+
+	</accordion>
+
+
+		</div>
+			</div> <!-- FIN ES-->
+
+
+     <div class="{{ 'ms' | filtraAdmissions}}"> <!--MS ADMISSION-->
+
+
+
 	<div class="row menu-header">	
 		<div class="small-6 small-centered medium-6 large-6 columns">
 			<h3 class="text-center">Admissions</h3>
 		</div>	
 		<div class="small-9 small-centered medium-10 large-10 columns">		
-			<div class="row">
-				<div class="small-10 small-centered medium-6 large-6 columns">
-					<div class="text-center">
-					<a href="#" data-dropdown="drop1" class="button dropdown small bg-dropdown">Select a Program</a><br>
-					<ul id="drop1" data-dropdown-content class="f-dropdown">
-					  <li><a href="#">Program A</a></li>
-					  <li><a href="#">Program B</a></li>
-					  <li><a href="#">Program C</a></li>
-					</ul>
-					</div>
-				</div>						
-			</div>
+
+
+            <div class="row">
+
+                <div class="small-6 small-centered medium-6 large-6 columns">
+                    <div ng-controller="AdmissionsMSctrl" class="text-center">
+                      <a dropdown-toggle="#dropdown-year_h" class="button dropdown small bg-dropdown">{{progSelected}}</a>
+                      <ul id="dropdown-year_h" class="f-dropdown" style="width:100px">
+                        <li ng-repeat="itemy in itemsaddMS">
+                          <a ng-click="changeprog(itemy.indice)">{{itemy.texto}}</a>
+                        </li>
+                      </ul>
+                      <br>
+                    </div>
+                </div>
+
+            </div>
+
+
 		</div>			
-	</div>		
-	
-    <section class="main-section">	
+	</div>	
+
 			<div class="row profile_item">
 				<div class="small-5 columns">
 					<div class="profile_label">
 						<span>Program</span>
+						<a ng-href="/profile/glossary"><div class="info-perfil"></div></a>
 					</div>
 				</div>
 				<div class="small-7 columns">
 					<div class="profile_info">
-						<span>Program A</span>
-					</div>
-				</div>
-			</div>
-			<div class="row profile_item">
-				<div class="small-5 columns">
-					<div class="profile_label">
-						<span>School Type</span>
-					</div>
-				</div>
-				<div class="small-7 columns">
-					<div class="profile_info">
-						<span>District</span>
-					</div>
-				</div>
-			</div>
-			<div class="row profile_item">
-				<div class="small-5 columns">
-					<div class="profile_label">
-						<span>Method</span>
-					</div>
-				</div>
-				<div class="small-7 columns">
-					<div class="profile_info">
-						<span>Limited Unscreened</span>
-						<a href="glosary.html"><div class="info-perfil"></div></a>
-					</div>
-				</div>
-			</div>
-			<div class="row profile_item">
-				<div class="small-5 columns">
-					<div class="profile_label">
-						<span>Priority</span>
-					</div>
-				</div>
-				<div class="small-7 columns">
-					<div class="profile_info">
-						<span>Zoned students whose verified sibilings will be enrolled in grades K-5 in September 2014</span>
-						<a href="glosary.html"><div class="info-perfil"></div></a>
+						<span>{{ms_admissions.program_name}}</span>
+						<a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a>
 					</div>
 				</div>
 			</div>
@@ -89,36 +247,211 @@
 				<div class="small-5 columns">
 					<div class="profile_label">
 						<span>Interest Area</span>
+						<a ng-href="/profile/glossary"><div class="info-perfil"></div></a>
 					</div>
 				</div>
 				<div class="small-7 columns">
 					<div class="profile_info">
-						<span class="sub">New York</span>
+						<span>{{ms_admissions.program_focus}}</span>
+					</div>
+				</div>
+			</div>			
+			<div class="row profile_item">
+				<div class="small-5 columns">
+					<div class="profile_label">
+						<span>Method</span>
+						<a ng-href="/profile/glossary"><div class="info-perfil"></div></a>
+					</div>
+				</div>
+				<div class="small-7 columns">
+					<div class="profile_info">
+						<span>{{ms_admissions.admissions_method}}</span>
 					</div>
 				</div>
 			</div>
-			
-	<div class="row space-top">
-		<div class="small-12 medium-12 large-12 columns">	
-			<table>
-			  <thead>
-			    <tr>
-			      <th width="33%">Seats</th>
-			      <th width="33%">Applications</th>
-			      <th width="33%">Acc. Rate</th>
-			    </tr>
-			  </thead>
-			  <tbody>
-			    <tr>
-			      <td>30</td>
-			      <td>300</td>
-			      <td>30%</td>
-			    </tr>		    		    		    		    	    
-			  </tbody>
-			</table>
-		</div>
-	</div>				
-			
+
+
+			<div class="row profile_item">
+				<div class="small-12 medium-12 large-12 columns">
+					<div class="profile_label">
+						<span>Priorities</span>
+					</div>
+				</div>
+			</div>
+			<div class="row profile_item">
+				<div class="small-12 medium-12 large-12 columns">
+					<div class="profile_info">
+						<span>{{ms_admissions.admissions_priority}}</span>
+						<a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="row profile_item">
+				<div class="small-5 columns">
+					<div class="profile_label">
+						<span>Seats</span>
+						<a ng-href="/profile/glossary"><div class="info-perfil"></div></a>
+					</div>
+				</div>
+				<div class="small-7 columns">
+					<div class="profile_info">
+						<span>{{ms_admissions.number_seats}}</span>
+					</div>
+				</div>
+			</div>	
+
+			<div class="row profile_item">
+				<div class="small-5 columns">
+					<div class="profile_label">
+						<span>Applicant</span>
+						<a ng-href="/profile/glossary"><div class="info-perfil"></div></a>
+					</div>
+				</div>
+				<div class="small-7 columns">
+					<div class="profile_info">
+						<span>{{ms_admissions.number_applicant}}</span>
+					</div>
+				</div>
+			</div>									
+
+
+			</div> <!-- FIN MS-->			
+
+
+
+     <div class="{{ 'hs' | filtraAdmissions}}"> <!--HS ADMISSION-->
+
+
+	<div class="row menu-header">	
+		<div class="small-6 small-centered medium-6 large-6 columns">
+			<h3 class="text-center">Admissions</h3>
+		</div>	
+		<div class="small-9 small-centered medium-10 large-10 columns">		
+
+
+            <div class="row">
+
+                <div class="small-6 small-centered medium-6 large-6 columns">
+                    <div ng-controller="AdmissionsHSctrl" class="text-center">
+                      <a dropdown-toggle="#dropdown_prog_hs" class="button dropdown small bg-dropdown">{{progSelected_hs}}</a>
+                      <ul id="dropdown_prog_hs" class="f-dropdown" style="width:300px">
+                        <li ng-repeat="item_hs in itemsaddHS">
+                          <a ng-click="changeprog_hs(item_hs.indice)">{{item_hs.texto}}</a>
+                        </li>
+                      </ul>
+                      <br>
+                    </div>
+                </div>
+
+            </div>
+
+
+		</div>			
+	</div>
+
+
+			<div class="row profile_item">
+				<div class="small-5 columns">
+					<div class="profile_label">
+						<span>Program</span>
+						<a ng-href="/profile/glossary"><div class="info-perfil"></div></a>
+					</div>
+				</div>
+				<div class="small-7 columns">
+					<div class="profile_info">
+						<span>{{hs_admissions.program_name}}</span>
+						<a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a>
+					</div>
+				</div>
+			</div>
+			<div class="row profile_item">
+				<div class="small-5 columns">
+					<div class="profile_label">
+						<span>Intesest Area</span>
+						<a ng-href="/profile/glossary"><div class="info-perfil"></div></a>
+					</div>
+				</div>
+				<div class="small-7 columns">
+					<div class="profile_info">
+						<span>{{hs_admissions.program_interest}}</span>
+					</div>
+				</div>
+			</div>		
+			<div class="row profile_item">
+				<div class="small-5 columns">
+					<div class="profile_label">
+						<span>Method</span>
+						<a ng-href="/profile/glossary"><div class="info-perfil"></div></a>
+					</div>
+				</div>
+				<div class="small-7 columns">
+					<div class="profile_info">
+						<span>{{hs_admissions.admissions_method}}</span>
+					</div>
+				</div>
+			</div>					
+			<div class="row profile_item">
+				<div class="small-5 columns">
+					<div class="profile_label">
+						<span>Description</span>
+						<a ng-href="/profile/glossary"><div class="info-perfil"></div></a>
+					</div>
+				</div>
+				<div class="small-7 columns">
+					<div class="profile_info">
+						<span>{{hs_admissions.program_description}}</span>
+					</div>
+				</div>
+			</div>					
+			<div class="row profile_item">
+				<div class="small-12 medium-12 large-12 columns">
+					<div class="profile_label">
+						<span>Priorities</span>
+					</div>
+				</div>
+			</div>
+			<div class="row profile_item">
+				<div class="small-12 medium-12 large-12 columns">
+					<div class="profile_info">
+						<span>{{hs_admissions.admision_priority}}</span>
+						<a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="row profile_item">
+				<div class="small-5 columns">
+					<div class="profile_label">
+						<span>Seats</span>
+						<a ng-href="/profile/glossary"><div class="info-perfil"></div></a>
+					</div>
+				</div>
+				<div class="small-7 columns">
+					<div class="profile_info">
+						<span>{{hs_admissions.9th_grade_seats_in_program}}</span>
+					</div>
+				</div>
+			</div>	
+
+			<div class="row profile_item">
+				<div class="small-5 columns">
+					<div class="profile_label">
+						<span>Applicant</span>
+						<a ng-href="/profile/glossary"><div class="info-perfil"></div></a>
+					</div>
+				</div>
+				<div class="small-7 columns">
+					<div class="profile_info">
+						<span>{{hs_admissions.9th_grade_applicants_in_program}}</span>
+					</div>
+				</div>
+			</div>									
+
+
+			</div> <!-- FIN HS-->			
+
+
 			
     </section>
 

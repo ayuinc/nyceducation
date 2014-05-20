@@ -21,43 +21,363 @@
 		</div>	
 		<div class="small-10 small-centered medium-10 large-10 columns">		
 			<div class="row">
-				<div class="small-6 medium-6 large-6 columns">
-					<div class="text-center">
-					<a href="#" data-dropdown="drop1" class="button dropdown expand small bg-dropdown">Respondent</a><br>
-					<ul id="drop1" data-dropdown-content class="f-dropdown">
-					  <li><a href="#">Parents</a></li>
-					  <li><a href="#">Teachers</a></li>
-					  <li><a href="#">Students</a></li>
-					</ul>
+
+
+				<div class="small-6  medium-6 large-6 columns">
+					<div ng-controller="SurveyYearCtrl" class="text-center">
+					  <a dropdown-toggle="#dropdown-year_sr" class="button dropdown small bg-dropdown">{{selectedyear}}</a>
+					  <ul id="dropdown-year_sr" class="f-dropdown" style="width:100px">
+					    <li ng-repeat="itemy in itemsYears">
+					      <a ng-click="changeyear(itemy.indice)">{{itemy.texto}}</a>
+					    </li>
+					  </ul>
+					  <br>
 					</div>
 				</div>
-				<div class="small-6 medium-6 large-6 columns">
-					<div class="text-center">
-					<a href="#" data-dropdown="drop2" class="button dropdown expand small bg-dropdown">Year</a><br>
-					<ul id="drop2" data-dropdown-content class="f-dropdown">
-					  <li><a href="#">2010</a></li>
-					  <li><a href="#">2011</a></li>
-					  <li><a href="#">2012</a></li>
-					  <li><a href="#">2013</a></li>
-					  <li><a href="#">2014</a></li>
-					</ul>
+
+				<div class="small-6  medium-6 large-6 columns ">
+					<div ng-controller="SurveyRespCtrl" class="text-center">
+					  <a dropdown-toggle="#dropdown-grade_sr" class="button dropdown small bg-dropdown">{{selectedgrade}}</a>
+					  <ul id="dropdown-grade_sr" class="f-dropdown" style="width:100px">
+					    <li ng-repeat="itemg in itemsGrades">
+					      <a ng-click="changegrade(itemg.indice)">{{itemg.texto}}</a>
+					    </li>
+					  </ul>
+					  <br>
 					</div>
-				</div>			
+				</div>	
+
+
+
 			</div>
-		</div>	
-		<div class="small-10 small-centered medium-10 large-10 columns data">		
-			<p class="text-center">Response Rate: %55</p>
 		</div>		
 	</div>		
-	
+
 	<div class="row">
+
+
+<div ng-controller="AccordionDemoCtrl">
+
+<!--
+  <label class="checkbox">
+    <input type="checkbox" ng-model="oneAtATime">
+    Open only one at a time
+  </label>
+-->  
+
+  <accordion close-others="oneAtATime">
+
+<div class="">
+
+    <div class="icon-arrow-down2"></div>
+    <accordion-grouptwo heading="Safety and Respect" is-open="true">      
+
+		<!-- Safety and Respect -->
+		<div class="row">
+
+			<!-- Parents -->
+			<div class ="{{ 'parents' | filtraSurvey }}">
+
+			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.p_safety_respect_rs | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{survey_results.p_safety_respect_rs}}%;">
+    				<p>{{survey_results.p_safety_respect_rs | number:1}}%</p>
+
+                    <itemsurvey><button type="button" class="button button-white  [tiny small large]" ng-model="singleModel" ng-click="go('/school/' +  school.id + '/surveyDetail')" ng-href="#/school/{{school.id}}/surveyDetail">Detail</button></itemsurvey>
+
+    				<!--<itemsurvey><span>Parents</span></itemsurvey>-->
+    			</div>
+
+                <div class="metrics {{city_average.SchoolSurveyParents_Safety_RespectRawScore | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurveyParents_Safety_RespectRawScore}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyParents_Safety_RespectRawScore}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.p_safety_respect_rs_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+    		</div>
+			</div>
+
+
+			<div class ="{{ 'teachers' | filtraSurvey }}">
+
+			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.t_safety_respect_rs | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{survey_results.t_safety_respect_rs}}%;">
+    				<p>{{survey_results.t_safety_respect_rs | number:1}}%</p>
+    				<itemsurvey><button type="button" class="button button-white  [tiny small large]" ng-model="singleModel" ng-click="go('/school/' +  school.id + '/surveyDetail')" ng-href="#/school/{{school.id}}/surveyDetail">Detail</button></itemsurvey>
+    			</div>
+
+                <div class="metrics {{city_average.SchoolSurveyTeachers_Safety_RespectRawScore | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurveyTeachers_Safety_RespectRawScore}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyTeachers_Safety_RespectRawScore}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.t_safety_respect_rs_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+    		</div>
+			</div>			
+
+
+			<div class ="{{ 'students' | filtraSurvey }}">
+
+			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.s_safety_respect_rs | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{survey_results.s_safety_respect_rs}}%;">
+    				<p>{{survey_results.s_safety_respect_rs | number:1}}%</p>
+    				<itemsurvey><button type="button" class="button button-white  [tiny small large]" ng-model="singleModel" ng-click="go('/school/' +  school.id + '/surveyDetail')" ng-href="#/school/{{school.id}}/surveyDetail">Detail</button></itemsurvey>
+    			</div>
+
+                <div class="metrics {{city_average.SchoolSurveyStudents_Safety_RespectRawScore | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurveyStudents_Safety_RespectRawScore}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyStudents_Safety_RespectRawScore}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.s_safety_respect_rs_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+    		</div>
+			</div>	
+
+		</div>
+	</accordion-grouptwo>
+
+    <div class="icon-arrow-down2"></div>
+    <accordion-grouptwo heading="Engagement" is-open="true">      
+
+		<!-- Safety and Respect -->
+		<div class="row">
+
+			<!-- Parents -->
+			<div class ="{{ 'parents' | filtraSurvey }}">
+
+			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.p_engagement_rs | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{survey_results.p_engagement_rs}}%;">
+    				<p>{{survey_results.p_engagement_rs | number:1}}%</p>
+    				<itemsurvey><button type="button" class="button button-white   [tiny small large] " ng-model="singleModel" ng-click="go('/school/' +  school.id + '/surveyDetail')" ng-href="#/school/{{school.id}}/surveyDetail">Detail</button></itemsurvey>
+    			</div>
+
+                <div class="metrics {{city_average.SchoolSurveyParents_EngagementRawScore | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurveyParents_EngagementRawScore}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyParents_EngagementRawScore}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.p_engagement_rs_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+    		</div>
+			</div>
+
+
+			<div class ="{{ 'teachers' | filtraSurvey }}">
+
+			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.t_engagement_rs | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{survey_results.t_engagement_rs}}%;">
+    				<p>{{survey_results.t_engagement_rs | number:1}}%</p>
+    				<itemsurvey><button type="button" class="button button-white   [tiny small large] " ng-model="singleModel" ng-click="go('/school/' +  school.id + '/surveyDetail')" ng-href="#/school/{{school.id}}/surveyDetail">Detail</button></itemsurvey>
+    			</div>
+
+                <div class="metrics {{city_average.SchoolSurveyTeachers_EngagementRawScore | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurveyTeachers_EngagementRawScore}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyTeachers_EngagementRawScore}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.t_engagement_rs_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+    		</div>
+			</div>			
+
+
+			<div class ="{{ 'students' | filtraSurvey }}">
+
+			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.s_engagement_rs | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{survey_results.s_engagement_rs}}%;">
+    				<p>{{survey_results.s_engagement_rs | number:1}}%</p>
+    				<itemsurvey><button type="button" class="button button-white   [tiny small large] " ng-model="singleModel" ng-click="go('/school/' +  school.id + '/surveyDetail')" ng-href="#/school/{{school.id}}/surveyDetail">Detail</button></itemsurvey>
+    			</div>
+
+                <div class="metrics {{city_average.SchoolSurveyStudents_EngagementRawScore | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurveyStudents_EngagementRawScore}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyStudents_EngagementRawScore}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.s_engagement_rs_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+    		</div>
+			</div>	
+
+		</div>
+	</accordion-grouptwo>
+
+
+
+    <div class="icon-arrow-down2"></div>
+    <accordion-grouptwo heading="Communications" is-open="true">      
+
+		<!-- Safety and Respect -->
+		<div class="row">
+
+			<!-- Parents -->
+			<div class ="{{ 'parents' | filtraSurvey }}">
+
+			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.p_communication_rs | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{survey_results.p_communication_rs}}%;">
+    				<p>{{survey_results.p_communication_rs | number:1}}%</p>
+    				<itemsurvey><button type="button" class="button button-white  [tiny small large]" ng-model="singleModel" ng-click="go('/school/' +  school.id + '/surveyDetail')" ng-href="#/school/{{school.id}}/surveyDetail">Detail</button></itemsurvey>
+    			</div>
+
+                <div class="metrics {{city_average.SchoolSurveyParents_CommunicationRawScore | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurveyParents_CommunicationRawScore}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyParents_CommunicationRawScore}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.p_communication_rs_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+    		</div>
+			</div>
+
+
+			<div class ="{{ 'teachers' | filtraSurvey }}">
+
+			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.t_communication_rs | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{survey_results.t_communication_rs}}%;">
+    				<p>{{survey_results.t_communication_rs | number:1}}%</p>
+    				<itemsurvey><button type="button" class="button button-white  [tiny small large]" ng-model="singleModel" ng-click="go('/school/' +  school.id + '/surveyDetail')" ng-href="#/school/{{school.id}}/surveyDetail">Detail</button></itemsurvey>
+    			</div>
+
+                <div class="metrics {{city_average.SchoolSurveyTeachers_CommunicationRawScore | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurveyTeachers_CommunicationRawScore}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyTeachers_CommunicationRawScore}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.t_communication_rs_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+    		</div>
+			</div>			
+
+
+			<div class ="{{ 'students' | filtraSurvey }}">
+
+			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.s_communication_rs | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{survey_results.s_communication_rs}}%;">
+    				<p>{{survey_results.s_communication_rs | number:1}}%</p>
+    				<itemsurvey><button type="button" class="button button-white  [tiny small large]" ng-model="singleModel" ng-click="go('/school/' +  school.id + '/surveyDetail')" ng-href="#/school/{{school.id}}/surveyDetail">Detail</button></itemsurvey>
+    			</div>
+
+                <div class="metrics {{city_average.SchoolSurveyStudents_CommunicationRawScore | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurveyStudents_CommunicationRawScore}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyStudents_CommunicationRawScore}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.s_communication_rs_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+    		</div>
+			</div>	
+
+		</div>
+	</accordion-grouptwo>	
+
+
+    <div class="icon-arrow-down2"></div>
+    <accordion-grouptwo heading="Academic Expectations" is-open="true">      
+
+		<!-- Safety and Respect -->
+		<div class="row">
+
+			<!-- Parents -->
+			<div class ="{{ 'parents' | filtraSurvey }}">
+
+			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.p_academic_expectations_rs | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{survey_results.p_academic_expectations_rs}}%;">
+    				<p>{{survey_results.p_academic_expectations_rs | number:1}}%</p>
+    				<itemsurvey><button type="button" class="button button-white  [tiny small large]" ng-model="singleModel" ng-click="go('/school/' +  school.id + '/surveyDetail')" ng-href="#/school/{{school.id}}/surveyDetail">Detail</button></itemsurvey>
+    			</div>
+
+                <div class="metrics {{city_average.SchoolSurveyParents_AcademicExpectationsRawScore | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurveyParents_AcademicExpectationsRawScore}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyParents_AcademicExpectationsRawScore}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.p_academic_expectations_rs_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+    		</div>
+			</div>
+
+
+			<div class ="{{ 'teachers' | filtraSurvey }}">
+
+			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.t_academic_expectations_rs | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{survey_results.t_academic_expectations_rs}}%;">
+    				<p>{{survey_results.t_academic_expectations_rs | number:1}}%</p>
+    				<itemsurvey><button type="button" class="button button-white  [tiny small large]" ng-model="singleModel" ng-click="go('/school/' +  school.id + '/surveyDetail')" ng-href="#/school/{{school.id}}/surveyDetail">Detail</button></itemsurvey>
+    			</div>
+
+                <div class="metrics {{city_average.SchoolSurveyTeachers_AcademicExpectationsRawScore | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurveyTeachers_AcademicExpectationsRawScore}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyTeachers_AcademicExpectationsRawScore}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.t_academic_expectations_rs_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+    		</div>
+			</div>			
+
+
+			<div class ="{{ 'students' | filtraSurvey }}">
+
+			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{survey_results.s_academic_expectations_rs | filtraCeros}}">
+    			<div class="porcentaje" style="width:{{survey_results.s_academic_expectations_rs}}%;">
+    				<p>{{survey_results.s_academic_expectations_rs | number:1}}%</p>
+    				<itemsurvey><button type="button" class="button button-white  [tiny small large]" ng-model="singleModel" ng-click="go('/school/' +  school.id + '/surveyDetail')" ng-href="#/school/{{school.id}}/surveyDetail">Detail</button></itemsurvey>
+    			</div>
+
+                <div class="metrics {{city_average.SchoolSurveyStudents_AcademicExpectationsRawScore | filtraCeros}}">
+                    <div class="average" style="width:{{city_average.SchoolSurveyStudents_AcademicExpectationsRawScore}}%;">
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyStudents_AcademicExpectationsRawScore}}%</p>
+                    </div>                          
+                    <div class="rank">
+                    <p><img ng-src="img/{{ proficiency_ratings.s_academic_expectations_rs_pr | filtraRank }}.png" ></p>
+                    </div>
+                    
+                </div>
+    		</div>
+			</div>	
+
+		</div>
+	</accordion-grouptwo>		
+
+
+
+</div>
+</accordion>
+</div> <!-- Control accordion -->
+
+
+		<!--
 		<div class="small-12 medium-12 large-12 columns">	
 			<dl class="accordion" data-accordion>
 			  <dd>
 			    <a href="#panel1">Safety and Respect <img src="img/arrow-down.png" class="right"></a>
 			    <div id="panel1" class="content active">
 			    	<div class="row">
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca">
+			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
 			    			<div class="porcentaje" style="width:35%;">
 			    				<p>3.5<small>/10</small></p>
 			    				<itemsurvey><span>Performance</span></itemsurvey>
@@ -67,7 +387,7 @@
 				    				<small>City Average: 50%</small>
 								</div>			    			
 				    			<div class="rank">
-				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+				    				<p>◼︎◼︎◻︎◻︎</p>
 				    			</div>
 				    			<a href="survey-detail.html"><div class="detalle">Detalle ▸</div></a>
 			    			</div>
@@ -79,7 +399,7 @@
 			    <a href="#panel2">Engagement <img src="img/arrow-down.png" class="right"></a>		    
 			    <div id="panel2" class="content">
 			    	<div class="row">
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca">
+			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
 			    			<div class="porcentaje" style="width:70%;">
 			    				<p>20<small>/25</small></p>
 			    				<itemsurvey><span>Performance</span></itemsurvey>
@@ -89,7 +409,7 @@
 				    				<small>City Average: 50%</small>
 								</div>			    			
 				    			<div class="rank">
-				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+				    				<p>◼︎◼︎◻︎◻︎</p>
 				    			</div>
 				    			<a href="survey-detail.html"><div class="detalle">Detalle ▸</div></a>
 			    			</div>
@@ -101,7 +421,7 @@
 			    <a href="#panel3">Communications <img src="img/arrow-down.png" class="right"></a>			    
 			    <div id="panel3" class="content">
 			    	<div class="row">
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca">
+			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
 			    			<div class="porcentaje" style="width:70%;">
 			    				<p>20<small>/25</small></p>
 			    				<itemsurvey><span>Performance</span></itemsurvey>
@@ -111,7 +431,7 @@
 				    				<small>City Average: 50%</small>
 								</div>			    			
 				    			<div class="rank">
-				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+				    				<p>◼︎◼︎◻︎◻︎</p>
 				    			</div>
 				    			<a href="survey-detail.html"><div class="detalle">Detalle ▸</div></a>
 			    			</div>
@@ -123,7 +443,7 @@
 			    <a href="#panel4">Academic Expectation <img src="img/arrow-down.png" class="right"></a>			    
 			    <div id="panel4" class="content">
 			    	<div class="row">
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca">
+			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
 			    			<div class="porcentaje" style="width:70%;">
 			    				<p>20<small>/25</small></p>
 			    				<itemsurvey><span>Performance</span></itemsurvey>
@@ -133,7 +453,7 @@
 				    				<small>City Average: 50%</small>
 								</div>			    			
 				    			<div class="rank">
-				    				<p>Rank <barra>◼︎◼︎◻︎◻︎</barra> > Avg.</p>
+				    				<p>◼︎◼︎◻︎◻︎</p>
 				    			</div>
 				    			<a href="survey-detail.html"><div class="detalle">Detalle ▸</div></a>
 			    			</div>
@@ -142,7 +462,12 @@
 			    </div>
 			  </dd>			  
 			</dl>
-		</div>
+		</div> -->
+
+
+
+
+
 	</div>	
     </section>
     <!--END.CONTENIDO-->

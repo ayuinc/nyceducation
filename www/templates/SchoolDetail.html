@@ -6,7 +6,7 @@
       </section>
 
       <section class="right tab-bar-section">
-        <h1 class="title">{{ profile.name }}</h1>
+        <h1 class="title">{{ school.name }}</h1>
       </section>
     </nav>
 
@@ -102,7 +102,7 @@
 				</div>
 				<div class="small-7 columns">
 					<div class="profile_info">
-						<span class="sub"><a href="http://maps.google.com/?q={{ profile.primary_address }}" target="_blank">{{ profile.primary_address }}</a></span>
+						<span class="sub"><a href="http://maps.google.com/?q={{ profile.primary_address }}, {{ profile.city }} {{ profile.zip }}" target="_blank">{{ profile.primary_address }}, {{ profile.city }} {{ profile.zip }}</a></span>
 					</div>
 				</div>
 			</div>
