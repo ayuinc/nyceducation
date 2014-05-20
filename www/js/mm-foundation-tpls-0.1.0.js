@@ -6,7 +6,7 @@
  * License: MIT
  */
 angular.module("mm.foundation", ["mm.foundation.tpls", "mm.foundation.accordion","mm.foundation.alert","mm.foundation.bindHtml","mm.foundation.buttons","mm.foundation.position","mm.foundation.dropdownToggle","mm.foundation.transition","mm.foundation.modal","mm.foundation.pagination","mm.foundation.tooltip","mm.foundation.popover","mm.foundation.progressbar","mm.foundation.rating","mm.foundation.tabs","mm.foundation.tour","mm.foundation.typeahead"]);
-angular.module("mm.foundation.tpls", ["template/accordion/accordion-group.html","template/accordion/accordion.html","template/alert/alert.html","template/modal/backdrop.html","template/modal/window.html","template/pagination/pager.html","template/pagination/pagination.html","template/tooltip/tooltip-html-unsafe-popup.html","template/tooltip/tooltip-popup.html","template/popover/popover.html","template/progressbar/bar.html","template/progressbar/progress.html","template/progressbar/progressbar.html","template/rating/rating.html","template/tabs/tab.html","template/tabs/tabset.html","template/tour/tour.html","template/typeahead/typeahead-match.html","template/typeahead/typeahead-popup.html"]);
+angular.module("mm.foundation.tpls", ["template/accordion/accordion-group.html","template/accordion/accordion-grouptwo.html",,"template/accordion/accordion.html","template/alert/alert.html","template/modal/backdrop.html","template/modal/window.html","template/pagination/pager.html","template/pagination/pagination.html","template/tooltip/tooltip-html-unsafe-popup.html","template/tooltip/tooltip-popup.html","template/popover/popover.html","template/progressbar/bar.html","template/progressbar/progress.html","template/progressbar/progressbar.html","template/rating/rating.html","template/tabs/tab.html","template/tabs/tabset.html","template/tour/tour.html","template/typeahead/typeahead-match.html","template/typeahead/typeahead-popup.html"]);
 angular.module('mm.foundation.accordion', [])
 
 .constant('accordionConfig', {
@@ -70,6 +70,47 @@ angular.module('mm.foundation.accordion', [])
     transclude:true,              // It transcludes the contents of the directive into the template
     replace: true,                // The element containing the directive will be replaced with the template
     templateUrl:'template/accordion/accordion-group.html',
+    scope:{ heading:'@' },        // Create an isolated scope and interpolate the heading attribute onto this scope
+    controller: function() {
+      this.setHeading = function(element) {
+        this.heading = element;
+      };
+    },
+    link: function(scope, element, attrs, accordionCtrl) {
+      var getIsOpen, setIsOpen;
+
+      accordionCtrl.addGroup(scope);
+
+      scope.isOpen = false;
+      
+      if ( attrs.isOpen ) {
+        getIsOpen = $parse(attrs.isOpen);
+        setIsOpen = getIsOpen.assign;
+
+        scope.$parent.$watch(getIsOpen, function(value) {
+          scope.isOpen = !!value;
+        });
+      }
+
+      scope.$watch('isOpen', function(value) {
+        if ( value ) {
+          accordionCtrl.closeOthers(scope);
+        }
+        if ( setIsOpen ) {
+          setIsOpen(scope.$parent, value);
+        }
+      });
+    }
+  };
+}])
+
+.directive('accordionGrouptwo', ['$parse', function($parse) {
+  return {
+    require:'^accordion',         // We need this directive to be inside an accordion
+    restrict:'EA',
+    transclude:true,              // It transcludes the contents of the directive into the template
+    replace: true,                // The element containing the directive will be replaced with the template
+    templateUrl:'template/accordion/accordion-grouptwo.html',
     scope:{ heading:'@' },        // Create an isolated scope and interpolate the heading attribute onto this scope
     controller: function() {
       this.setHeading = function(element) {
@@ -2435,7 +2476,16 @@ angular.module('mm.foundation.typeahead', ['mm.foundation.position', 'mm.foundat
 angular.module("template/accordion/accordion-group.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("template/accordion/accordion-group.html",
     "<dd>\n" +
-    "  <a ng-click=\"isOpen = !isOpen\" accordion-transclude=\"heading\">{{heading}}</a>\n" +
+    "  <a ng-click=\"isOpen = !isOpen\" accordion-transclude=\"heading\" >{{heading}}</a>  \n" +
+    "  <div class=\"content\" ng-style=\"isOpen ? {display: 'block'} : {}\" ng-transclude></div>\n" +
+    "</dd>\n" +
+    "");
+}]);
+
+angular.module("template/accordion/accordion-grouptwo.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("template/accordion/accordion-grouptwo.html",
+    "<dd>\n" +
+    "  <a ng-click=\"isOpen = !isOpen\" accordion-transclude=\"heading\" >{{heading}} <div style='position:relative;top:-27px;left:17.5rem;height:0px;width:15px'><a href='/profile/glossary'><img src='img/info.png' width='15'></a></div> </a>  \n" +
     "  <div class=\"content\" ng-style=\"isOpen ? {display: 'block'} : {}\" ng-transclude></div>\n" +
     "</dd>\n" +
     "");
