@@ -58,7 +58,7 @@ app.config(function($routeProvider) {
         controller: "SchoolController"
     });
 
-    $routeProvider.when("/school/glossary", {
+    $routeProvider.when("/school/:schoolId/glossary", {
         templateUrl: "templates/SchoolGlossary.html",
         controller: "SchoolController"
     });
@@ -375,6 +375,7 @@ app.controller('SelectSchoolController', ['$scope', '$rootScope', '$routeParams'
 
             $rootScope.survey_var = 0;
 
+
             
         });;
 }]);
@@ -485,7 +486,9 @@ app.controller("EvaluationsDropdownCtrl" ,[ '$scope', 'DatosSchool', '$rootScope
 
   $scope.selectedyearEvaluations= "2011";
   $scope.itemsddEvaluations = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"}];
-  $scope.changeyear = function(indice) {$scope.selectedyearEvaluations = $scope.itemsddEvaluations[indice].texto;     $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[indice]; $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice] };
+  $scope.changeyear = function(indice) {$scope.selectedyearEvaluations = $scope.itemsddEvaluations[indice].texto;     
+    $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[indice]; 
+    $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice] };
 
 
 }]);
@@ -907,3 +910,8 @@ else {return "C";}
 
     }
 });
+
+var PopoverDemoCtrl = function ($scope) {
+  $scope.dynamicPopover = "Hello, World!";
+  $scope.dynamicPopoverTitle = "Title";
+};

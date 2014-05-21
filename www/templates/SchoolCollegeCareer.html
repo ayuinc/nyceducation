@@ -54,7 +54,10 @@
 	<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.postsecondary_enrollment_rate_6months | filtraCeros}}">
     			<div class="porcentaje" style="width:{{college_career.postsecondary_enrollment_rate_6months}}%;">
     				<p>{{college_career.postsecondary_enrollment_rate_6months | number:1}}%</p>
-    				<itemsurvey><span>Enrollment Rate <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
+    				<itemsurvey>
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Percentage of students who have graduated and enrolled in a two- or four-year college, vocational program, or public service within six months of their scheduled graduation date." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+		</div>		<span  class="con-info">Enrollment Rate</span></itemsurvey>
     			</div>
 
 			<div class="metrics {{city_average.Post_SecondaryEnrollmentRate | filtraCeros}}">
@@ -73,7 +76,11 @@
 			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.4year_non_remediation_rate | filtraCeros}}">
 			    			<div class="porcentaje" style="width:{{college_career.4year_non_remediation_rate}}%;">
 			    				<p>{{college_career.4year_non_remediation_rate | number:1}}%</p>
-			    				<itemsurvey><span>Non-Remediation Rate <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
+			    				<itemsurvey><span class="con-info">Non-Remediation Rate</span>
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Percentage  of students in the school’s four-year cohort who, by the August after their fourth year in high school, have graduated with a Regents Diploma and have met the City University of New York's (CUNY) standards for college readiness in English and Math." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			    				</itemsurvey>
 			    			</div>
 			    			<div class="metrics {{city_average.Four_YearNon_RemediationRate | filtraCeros}}">
 								<div class="average" style="width:{{city_average.Four_YearNon_RemediationRate}}%;">
@@ -89,7 +96,11 @@
 			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.cc_preparatory_course_index | filtraCeros}}">
 			    			<div class="porcentaje" style="width:{{college_career.cc_preparatory_course_index}}%;">
 			    				<p>{{college_career.cc_preparatory_course_index | number:1}}%</p>
-			    				<itemsurvey><span>Prep Course Index <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
+			    				<itemsurvey><span class="con-info">Prep Course Index </span>
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="The percentage of students in the school’s four-year cohort who have successfully completed approved rigorous courses and assessments after four years of high school." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			    				</itemsurvey>
 			    			</div>
 			    			<div class="metrics {{city_average.CollegeandCareerPreparatoryCourseIndex | filtraCeros}}">
 								<div class="average" style="width:{{city_average.CollegeandCareerPreparatoryCourseIndex}}%;">
@@ -106,7 +117,11 @@
 			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.c_readiness_r_including_p | filtraCeros}}">
 			    			<div class="porcentaje" style="width:{{college_career.c_readiness_r_including_p}}%;">
 			    				<p>{{college_career.c_readiness_r_including_p | number:1}}%</p>
-			    				<itemsurvey><span>Readiness Rate <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
+			    				<itemsurvey><span class="con-info">Readiness Rate</span>
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Percentage of students in the six-year cohort who 1) graduated with a Regents diploma and have met City University of New York's (CUNY) standards for English and mathematics, or 2) graduated, enrolled and persisted through 3 consecutive semesters of college within six years of graduating." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			    				</itemsurvey>
 			    			</div>
 			    			<div class="metrics {{city_average.CollegeReadinessRateIncludingPersistence | filtraCeros}}">
 								<div class="average" style="width:{{city_average.CollegeReadinessRateIncludingPersistence}}%;">
@@ -131,7 +146,11 @@
 			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.4y_g_r | filtraCeros}}">
 			    			<div class="porcentaje" style="width:{{college_career.4y_g_r}}%;">
 			    				<p>{{college_career.4y_g_r | number:1}}%</p>
-			    				<itemsurvey><span>4 year Graduation Rate <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
+			    				<itemsurvey><span class="con-info">4 year Graduation Rate</span>
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Percentage of students who graduated with a Regents or Local Diploma within four years of beginning high school, including August graduates.  Citywide graduation rates are as reported by New York State Department of Education while individual school graduation rates are as reported by NYC DOE." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			    				</itemsurvey>
 			    			</div>
 			    			<div class="metrics {{city_average.4YearGraduationRate | filtraCeros}}">
 								<div class="average" style="width:{{city_average.4YearGraduationRate}}%;">
@@ -147,7 +166,11 @@
 			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.6y_g_r | filtraCeros}}">
 			    			<div class="porcentaje" style="width:{{college_career.6y_g_r}}%;">
 			    				<p>{{college_career.6y_g_r | number:1}}%</p>
-			    				<itemsurvey><span>6 year Graduation Rate <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
+			    				<itemsurvey><span class="con-info">6 year Graduation Rate <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span>
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Percentage of students who graduated with a Regents or Local Diploma within six years of beginning high school, including August graduates. Citywide graduation rates are as reported by New York State Department of Education while individual school graduation rates are as reported by NYC DOE." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			    				</itemsurvey>
 			    			</div>
 			    			<div class="metrics {{city_average.6YearGraduationRate | filtraCeros}}">
 								<div class="average" style="width:{{city_average.6YearGraduationRate}}%;">

@@ -1,0 +1,235 @@
+<div class="off-canvas-wrap">
+  <div class="inner-wrap">
+    <nav class="tab-bar header">
+      <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+      </section>
+
+      <section class="right tab-bar-section">
+        <h1 class="title">{{ school.name }}</h1>
+      </section>
+    </nav>
+
+    <div ng-include src="'templates/sidebar.html'"></div>
+    
+	<!--CONTENIDO-->
+    <section class="main-section">
+			<div class="row menu-header">
+				<div class="small-offset-5 small-7 medium-7 large-7 columns">
+					<h3>Glosary</h3>
+				</div>					
+			</div> 	 
+			
+<div class="row">
+	<div ng-controller="AccordionDemoCtrl">
+
+	  	<accordion close-others="oneAtATime">
+
+		    <accordion-group heading="District" is-open="true">  
+			    	<div class="glossary">
+			    		<p>The geographic district in which the school is located.  Note that all charter schools are assigned to District 84 regardless of geographic location. </p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Total Enrollment" is-open="true">  
+			    	<div class="glossary">
+			    		<p>The total number of students who are enrolled in the school as of October 31 of the selected school year. </p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Shared Site" is-open="true">  
+			    	<div class="glossary">
+			    		<p>Whether the school is co-located with at least one other school in a shared building.</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Year Opened" is-open="true">  
+			    	<div class="glossary">
+			    		<p>The first school year that the school was open.</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Enrollment" is-open="true">  
+			    	<div class="glossary">
+			    		<p>The total number of students who are enrolled in each grade of the school as of October 31 of the current school year.</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Program" is-open="true">  
+			    	<div class="glossary">
+			    		<p>When applying to middle and high schools, students apply to programs within schools. Programs may have different interest or focus areas as well as admissions methods.</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Interest Area" is-open="true">  
+			    	<div class="glossary">
+			    		<p>A program’s interest area may indicate a general, comprehensive academic program (Humanities & Interdisciplinary or Zoned, for example), while other interest areas emphasize a particular industry (like Architecture or Engineering). Although every high school program is associated with a particular interest area, all New York City students are required to take a variety of courses in order to graduate.</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Program Focus" is-open="true">  
+			    	<div class="glossary">
+			    		<p>A program’s focus area may indicate a general, comprehensive academic program (Humanities & Interdisciplinary or Zoned, for example), while other interest areas emphasize a particular industry (like Architecture or Engineering). </p>
+			    	</div>
+			</accordion-group>						
+
+		    <accordion-group heading="Priority" is-open="true">  
+			    	<div class="glossary">
+			    		<p>The order in which applicants are considered for placement.</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Method" is-open="true">  
+			    	<div class="glossary">
+			    		<p>The way schools consider and admit applicants into a program.</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Seats" is-open="true">  
+			    	<div class="glossary">
+			    		<p>Number of seats in a program that were available to students applying for September of the selected year.</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Applicants" is-open="true">  
+			    	<div class="glossary">
+			    		<p>Total number of students who applied for admission to a program in the September of the selected year.</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Progress Report- Overall Grade" is-open="true">  
+			    	<div class="glossary">
+			    		<p>The Progress Report measures students’ year-to-year progress, compares the school to other schools with similar students, and rewards success in moving all children forward, especially those with the highest needs (i.e., students with disabilities, English language learners, students with the lowest third incoming proficiency citywide, and black and Hispanic males). Overall Progress Report grades, which range from A to F, are based on the scores of multiple sections.  In each section, a school's results are compared to the results of “peer” schools serving similar students and to all schools citywide.</p>
+			    	</div>
+			</accordion-group>												
+
+		    <accordion-group heading="Progress Report- Progress Subgrade (ES/MS)" is-open="true">  
+			    	<div class="glossary">
+			    		<p>Based on how much individual students improved on State tests in English Language Arts and Math compared to other students in the City.</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Progress Report- Progress Subgrade (HS)" is-open="true">  
+			    	<div class="glossary">
+			    		<p>Based on the annual progress students make toward meeting the State's graduation requirements by earning course credits and passing Regents exams.</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Progress Report- Performance Subgrade (ES/MS)" is-open="true">  
+			    	<div class="glossary">
+			    		<p>Based on student results on the State tests in English Language Arts and Math. Middle school scores also take students passing core courses into account.</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Progress Report- Performance Subgrade (HS)" is-open="true">  
+			    	<div class="glossary">
+			    		<p>Based on how many students graduated within 4 and 6 years of starting high school  and the types of diplomas they earned.</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Progress Report- Environment Subgrade" is-open="true">  
+			    	<div class="glossary">
+			    		<p>Based on student attendance and the results of the school's NYC School Survey.</p>
+			    	</div>
+			</accordion-group>												
+
+		    <accordion-group heading="Progress Report- College and Career Subgrade" is-open="true">  
+			    	<div class="glossary">
+			    		<p>Measures the ability of a school to prepare its students for success in college and career on the basis of passing advanced courses, meeting proficiency standards and enrolling in a post-secondary institution.</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Survey" is-open="true">  
+			    	<div class="glossary">
+			    		<p>The NYC School Survey is administered annually to all parents, all teachers, and students in grades 6 - 12.  Survey results provide insight into a school's learning environment and assess the community's opinions on academic expectations, communication, engagement, and safety and respect.</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Strongly Agree/Agree" is-open="true">  
+			    	<div class="glossary">
+			    		<p>Strongly Agree/Agree: Percentage of respondents who agree or strongly agree with this School Survey question.</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Strongly Disagree/Disagree" is-open="true">  
+			    	<div class="glossary">
+			    		<p>Strongly Disagree/Disagree:  Percentage of respondents who disagree or strongly disagree with this School Survey question.</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Response Rates" is-open="true">  
+			    	<div class="glossary">
+			    		<p>Percentage of eligible parents, teachers and students in grades 6-12 who responded to the NYC School Survey.</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Academic Expectations" is-open="true">  
+			    	<div class="glossary">
+			    		<p>Measures whether respondents feel that the school encourages students to do their best by developing rigorous and meaningful academic goals.</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Communication" is-open="true">  
+			    	<div class="glossary">
+			    		<p>Measures whether respondents feel that the school provides them with information about the school’s educational goals and offers appropriate feedback on each student’s learning outcomes. </p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Engagement" is-open="true">  
+			    	<div class="glossary">
+			    		<p>Measures whether respondents feel engaged in an active and vibrant partnership to promote student learning.</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Safety and Respect" is-open="true">  
+			    	<div class="glossary">
+			    		<p>Measures whether respondents feel that the school creates a physically and emotionally secure environment in which everyone can focus on student learning.</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Attendance Rate" is-open="true">  
+			    	<div class="glossary">
+			    		<p>Includes the attendance days for all students on a school’s register at any point during the regular school year (September through June). Calculated by adding the total number of days attended by all students and dividing it by the total number of days on register for all students.</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Quality Review" is-open="true">  
+			    	<div class="glossary">
+			    		<p>A two- or three-day school visit by an experienced educator to evaluate how well the school is organized to support student achievement. The overall rating is based on three major categories: instruction that prepares students for college and careers, school organization and management, and quality of the learning environment.</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Applicants" is-open="true">  
+			    	<div class="glossary">
+			    		<p>Total number of students who applied for admission to a program in the September of the selected year.</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group heading="Applicants" is-open="true">  
+			    	<div class="glossary">
+			    		<p>Total number of students who applied for admission to a program in the September of the selected year.</p>
+			    	</div>
+			</accordion-group>			
+
+		    <accordion-group heading="Applicants" is-open="true">  
+			    	<div class="glossary">
+			    		<p>Total number of students who applied for admission to a program in the September of the selected year.</p>
+			    	</div>
+			</accordion-group>
+
+
+
+
+
+
+		</accordion>
+	</div>
+</div>
+
+    </section>
+    <!--END.CONTENIDO-->
+
+  <a class="exit-off-canvas"></a>
+
+  </div>
+</div>

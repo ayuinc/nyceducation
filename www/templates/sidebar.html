@@ -38,6 +38,18 @@
         </a>            
     </li>
     <li>
+        <a ng-click="go('/school/' +  school.id + '/admissions')" ng-href="#/school/{{school.id}}/admissions">
+        <div class="row">
+            <div class="small-2  columns">
+                <img src="img/admissions_menu.png"> 
+            </div>  
+            <div class="small-10 columns menu-alinear-texto">   
+                 Admissions
+            </div>
+        </div>
+        </a>               
+    </li>    
+    <li>
         <a ng-click="go('/school/' +  school.id + '/enrollments')" ng-href="#/school/{{school.id}}/enrollments">
         <div class="row">
             <div class="small-2  columns">
@@ -49,18 +61,7 @@
         </div>
         </a>            
     </li>
-    <li>
-        <a ng-click="go('/school/' +  school.id + '/admissions')" ng-href="#/school/{{school.id}}/admissions">
-        <div class="row">
-            <div class="small-2  columns">
-                <img src="img/admissions_menu.png"> 
-            </div>  
-            <div class="small-10 columns menu-alinear-texto">   
-                 Admissions
-            </div>
-        </div>
-        </a>               
-    </li>
+
     <li>
         <a ng-click="go('/school/' +  school.id + '/testScores')" ng-href="#/school/{{school.id}}/testScores">
         <div class="row">
