@@ -10,18 +10,42 @@
         <h2 class="text-center">NYC</h2>
     </div>  
     <div class="small-12 medium-12 large-12 columns">
-            <div class="row collapse">
-                <div class="small-12 columns">
-                    <autocomplete ng-model="yourchoice" data="schools" on-type="updateSchools"></autocomplete>
-                    <button type="submit" class="button expand bottones-search">Search</button>
-                    <!-- <form class="search-form" ng-submit="go('/school/' + school.name)">
-                        <input type="search" placeholder="School Name / Address" autofocus="autofocus" ng-model="school.name" required>
-                        <img src="img/search.png" alt="">
-                        <button type="submit" class="button expand bottones-search">Search</button>
-                    </form> -->
+        <div class="row collapse">
+            <div class="small-12 columns">
+                <div class="text-center">
+                    <input type="radio" name="search" value="simple" id="simple" ng-model="value" ng-checked="'true'"><label for="simple">Simple</label>
+                    <input type="radio" name="search" value="advanced" id="advanced" ng-model="value"><label for="advanced">Advanced</label>
                 </div>
+
+                <div ng-switch on="value">
+                    <div ng-switch-when="simple">
+                        <autocomplete ng-model="yourchoice" data="schools" on-type="updateSchools"></autocomplete>
+                        <button type="submit" class="button expand bottones-search">Search Simple</button>
+                    </div>
+                    <div ng-switch-when="advanced">
+                        <form ng-submit="go('/school/query/' +  school.query)">
+                            <input type="text" placeholder="Search Advanced" ng-model="school.query">
+                            <button type="submit" class="button expand bottones-search">Search Advanced</button>
+                        </form>
+                        <ul>
+                            <li ng-repeat="sc in scs">{{ sc.name }}</li>
+                        </ul>
+                    </div>
+                    <div ng-switch-default>
+                        <autocomplete ng-model="yourchoice" data="schools" on-type="updateSchools"></autocomplete>
+                        <button type="submit" class="button expand bottones-search">Search Default</button>
+                    </div>
+                </div>
+               
+                <!-- <autocomplete ng-model="yourchoice" data="schools" on-type="updateSchools"></autocomplete>
+                <button type="submit" class="button expand bottones-search">Search</button> -->
+                <!-- <form class="search-form" ng-submit="go('/school/' + school.name)">
+                    <input type="search" placeholder="School Name / Address" autofocus="autofocus" ng-model="school.name" required>
+                    <img src="img/search.png" alt="">
+                    <button type="submit" class="button expand bottones-search">Search</button>
+                </form> -->
             </div>
-        </form>  
+        </div>
     </div>
 
 <!--     <autocomplete ng-model="yourchoice" data="schools" on-type="updateMovies"></autocomplete>

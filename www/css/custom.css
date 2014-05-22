@@ -811,3 +811,26 @@ span.joyride-nub.right {
 	padding: 0rem;
 	margin: 0;
 }
+
+.advanced-result-box {
+	background-color: #FFF;
+	padding: 0.7rem 2rem;
+}
+
+.advanced-result span.school-name {
+  display: block;
+  font-weight: 300;
+  color: #888;
+}
+
+.advanced-result span.school-dbn {
+  font-weight: 600;
+  color: #888;
+}
+
+.advanced-result span.school-address {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: #aaa;
+}
