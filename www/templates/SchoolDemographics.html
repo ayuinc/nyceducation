@@ -20,7 +20,7 @@
             <h3 class="text-center">Demographics</h3>
         </div> 
 
-        <div class="small-4 small-centered medium-6 large-6 columns">    
+        <div class="small-6 small-centered medium-6 large-6 columns">    
         <div ng-controller="DemographicsDropdownCtrl" class="text-center">
           <a dropdown-toggle="#dropdown-demographics" class="button dropdown small bg-dropdown">{{selectedyearDemographics}}</a>
               <ul id="dropdown-demographics" class="f-dropdown" style="width:100px">
@@ -45,8 +45,12 @@
   </label>-->
 
   <accordion close-others="oneAtATime">
-  	<div class="icon-arrow-down2"></div>
-    <accordion-group heading="Gender" is-open="true">
+  	
+    <accordion-group is-open="true">
+        <accordion-heading>
+            <div id="grilla_01_01_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Gender</div>
+            <div class="icon-arrow-down2 right uno" id="grilla_icon_01_01"></div> 
+        </accordion-heading>
         <div class="row">
 	        <div class="small-12 medium-12 large-12 columns bg-tablas-data">
 		        <div class="democracy color1" style="width:{{demographic.female}}%;">
@@ -63,8 +67,12 @@
         </div>
     </accordion-group>
 
-	<div class="icon-arrow-down2"></div>
+	
 	<accordion-group heading="Ethnicity" is-open="true">
+        <accordion-heading>
+            <div id="grilla_01_02_dw" class="grillaAcordion" onclick="rotarGrilla(this.id)">Ethnicity</div>
+            <div class="icon-arrow-down2 right uno" id="grilla_icon_01_02" style="-webkit-transform:rotate(180deg);left:-0.5rem"></div>
+        </accordion-heading>  
         <div class="row">
 	        <div class="small-12 medium-12 large-12 columns bg-tablas-data">
 		        <div class="democracy color1" style="width:{{demographic.asian}}%;">
@@ -99,8 +107,12 @@
         </div>
     </accordion-group>
 
-	<div class="icon-arrow-down2"></div>
+	
 	<accordion-group heading="Status" is-open="true">
+        <accordion-heading>
+            <div id="grilla_01_03_dw" class="grillaAcordion" onclick="rotarGrilla(this.id)">Status</div>
+            <div class="icon-arrow-down2 right uno"  id="grilla_icon_01_03" style="-webkit-transform:rotate(180deg);left:-0.5rem"></div>
+        </accordion-heading>  
         <div class="row">
         <div class="small-12 medium-12 large-12 columns bg-tablas-data">
 	        <div class="democracy color1" style="width:{{demographic.free_reduced_price_lunch}}%;">

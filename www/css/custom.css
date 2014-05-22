@@ -82,14 +82,14 @@
 }
 
 .accordion .icon-arrow-down2 {
-	position: relative;
+	margin-top: -0.8rem;
+	/*position: relative;
 	top: 1.3rem;
 	left: 17.85rem;
-	z-index: 9999999;
 	font-size: 1.3rem;
 	font-weight: 100;
 	color: #FFF;
-	line-height: 4%;
+	line-height: 4%; */
 }
 
 .accordion .icon-info {
@@ -629,6 +629,9 @@ itemsurvey {
 	background-color: #FFF;
 	border:1px solid #333;
 	color:#333 !important;
+	width: 130px;
+	margin: 0 0;
+	padding: 0 0;
 }
 
 .space-top {
@@ -810,4 +813,21 @@ span.joyride-nub.right {
 	font-size: 0.8rem; 
 	padding: 0rem;
 	margin: 0;
+}
+
+.grillaAcordion{
+	width:130%;
+	height:35px;
+	background-color:transparent;
+	position:relative;
+	top:-8px;
+	left:-14px;
+	margin-bottom:-20px;
+	padding:9px 9px; 
+}
+
+.icon-info-acordion{
+	position: relative;
+	top: -12px;
+	left: 30px;
 }

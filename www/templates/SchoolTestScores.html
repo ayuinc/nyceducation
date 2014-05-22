@@ -64,8 +64,15 @@
 -->
 <accordion close-others="oneAtATime">
 
-    <div class="icon-arrow-down2"></div>
-    <accordion-grouptwo heading="ELA Scores" is-open="true">      
+    
+    <accordion-group is-open="true"> 
+
+        <accordion-heading>
+            <div id="grilla_04_01_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">ELA Scores
+            <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
+            <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_01" ></div>
+        </accordion-heading>     
+
 		<!-- ELA -->
 		<div class="row">
 
@@ -476,10 +483,16 @@
 
     	</div>
 
-	</accordion-grouptwo>
+	</accordion-group>
 
-    <div class="icon-arrow-down2"></div>
-	<accordion-grouptwo heading="Math Scores" is-open="true">
+    
+	<accordion-group is-open="true">
+
+        <accordion-heading>
+            <div id="grilla_04_02_dw" class="grillaAcordion" onclick="rotarGrilla(this.id)">Math Scores
+            <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
+            <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_02" style="-webkit-transform:rotate(180deg);left:-0.5rem"></div>
+        </accordion-heading>     
 
 		<!-- MATH -->
 		<div class="row">
@@ -891,12 +904,18 @@
     		</div>
 
     	</div>
-    </accordion-grouptwo>
+    </accordion-group>
 
 
 
-    <div class="icon-arrow-down2"></div>
-    	<accordion-grouptwo heading="Average Proficiecy Score - ELA" is-open="true">
+    
+    	<accordion-group is-open="true">
+
+        <accordion-heading>
+            <div id="grilla_04_03_dw" class="grillaAcordion" onclick="rotarGrilla(this.id)">Average Proficiecy Score - ELA
+            <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
+            <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_03" style="-webkit-transform:rotate(180deg);left:-0.5rem"></div>
+        </accordion-heading>             
 
 		 <!--AVERANGE ELA -->
 		<div class="row">
@@ -921,10 +940,16 @@
 
     	</div>
 
-    </accordion-grouptwo>
+    </accordion-group>
 
-    <div class="icon-arrow-down2"></div>
-        <accordion-grouptwo heading="Average Proficiecy Score - Math" is-open="true">
+    
+        <accordion-group is-open="true">
+
+        <accordion-heading>
+            <div id="grilla_04_04_dw" class="grillaAcordion" onclick="rotarGrilla(this.id)">Average Proficiecy Score - Math
+            <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
+            <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_04" style="-webkit-transform:rotate(180deg);left:-0.5rem"></div>
+        </accordion-heading>         
 
 		 <!--AVERANGE MATH-->
 		<div class="row">
@@ -947,7 +972,7 @@
 
 
     	</div>
-    </accordion-grouptwo>
+    </accordion-group>
 
 
 </accordion>
@@ -996,8 +1021,15 @@
 
     <!-- HIGH -->
 
-    <div class="icon-arrow-down2"></div>
-     <accordion-grouptwo heading="SAT" is-open="true">
+    
+     <accordion-group is-open="true">
+
+        <accordion-heading>
+            <div id="grilla_04_05_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">SAT
+                <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a>
+            </div>
+            <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_05"></div>
+        </accordion-heading>      
 
 		 <!--SAT-->
 		<div class="row">
@@ -1076,11 +1108,17 @@
 
 
     	</div>
-    </accordion-grouptwo>
+    </accordion-group>
 
 
-    <div class="icon-arrow-down2"></div>
-     <accordion-grouptwo heading="Regents Pass Rate" is-open="true">
+    
+     <accordion-group is-open="true">
+
+        <accordion-heading>
+            <div id="grilla_04_06_dw" class="grillaAcordion" onclick="rotarGrilla(this.id)">Regents Pass Rate
+            <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
+            <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_06" style="-webkit-transform:rotate(180deg);left:-0.5rem"></div>
+        </accordion-heading>      
 
          <!-- Regents Pass Rate-->
         <div class="row">
@@ -1260,11 +1298,15 @@
         </div>        
 
 
-    </accordion-grouptwo>            
+    </accordion-group>            
 
+     <accordion-group is-open="true">
 
-    <div class="icon-arrow-down2"></div>
-     <accordion-grouptwo heading="Regents Average Score" is-open="true">
+        <accordion-heading>
+            <div id="grilla_04_07_dw" class="grillaAcordion" onclick="rotarGrilla(this.id)">Regents Average Score
+            <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
+            <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_07" style="-webkit-transform:rotate(180deg);left:-0.5rem"></div>
+        </accordion-heading>     
 
          <!-- Regents Average Score-->
         <div class="row">
@@ -1453,10 +1495,15 @@
         </div>        
 
 
-    </accordion-grouptwo>    
+    </accordion-group>    
 
-    <div class="icon-arrow-down2"></div>
-     <accordion-grouptwo heading="Regents College Ready" is-open="true">
+     <accordion-group  is-open="true">
+
+        <accordion-heading>
+            <div id="grilla_04_08_dw" class="grillaAcordion" onclick="rotarGrilla(this.id)">Regents College Ready
+            <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
+            <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_08" style="-webkit-transform:rotate(180deg);left:-0.5rem"></div>
+        </accordion-heading>       
 
          <!-- Regents College Ready-->
         <div class="row">
@@ -1515,7 +1562,7 @@
     </div>
 
 
-</accordion-grouptwo>    
+</accordion-group>    
 
 
 </accordion>

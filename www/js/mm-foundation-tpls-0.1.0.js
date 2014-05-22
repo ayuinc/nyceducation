@@ -2485,7 +2485,7 @@ angular.module("template/accordion/accordion-group.html", []).run(["$templateCac
 angular.module("template/accordion/accordion-grouptwo.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("template/accordion/accordion-grouptwo.html",
     "<dd>\n" +
-    "  <a ng-click=\"isOpen = !isOpen\" accordion-transclude=\"heading\" >{{heading}} <div style='position:relative;top:-27px;left:17.5rem;height:0px;width:15px'><a href='/profile/glossary'><img src='img/info.png' width='15'></a></div> </a>  \n" +
+    "  <a ng-click=\"isOpen = !isOpen\" accordion-transclude=\"heading\" >{{heading}} <div style='position:relative;top:-2rem;left:16rem;height:0px;width:15px'><a href='/profile/glossary'><img src='img/info.png' width='15'></a></div> </a>  \n" +
     "  <div class=\"content\" ng-style=\"isOpen ? {display: 'block'} : {}\" ng-transclude></div>\n" +
     "</dd>\n" +
     "");

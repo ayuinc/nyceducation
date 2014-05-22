@@ -447,7 +447,7 @@ app.controller("EnrollmentDropdownCtrl" ,[ '$scope', 'DatosSchool', '$rootScope'
     $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[3];
 
 
-  $scope.selectedyearEnrollment= "2014";
+  $scope.selectedyearEnrollment= "Select a Year";
   $scope.itemsddEnrollment = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"},{texto:"2014",indice:"3"}];
   $scope.changeyear = function(indice) {$scope.selectedyearEnrollment = $scope.itemsddEnrollment[indice].texto;  $rootScope.enrollment=DatosSchool.datos.enrollments[indice]; $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice] };
 
@@ -456,7 +456,7 @@ app.controller("EnrollmentDropdownCtrl" ,[ '$scope', 'DatosSchool', '$rootScope'
 
 app.controller("DemographicsDropdownCtrl" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
-  $scope.selectedyearDemographics= "2014";
+  $scope.selectedyearDemographics= "Select a Year";
   $scope.itemsddDemographics = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"},{texto:"2014",indice:"3"}];
   $scope.changeyear = function(indice) {$scope.selectedyearDemographics = $scope.itemsddDemographics[indice].texto;  $rootScope.demographic=DatosSchool.datos.demographics[indice]; };
 
@@ -468,7 +468,7 @@ app.controller("CollegeCarrerDropdownCtrl" ,[ '$scope', 'DatosSchool', '$rootSco
     $rootScope.college_career=DatosSchool.datos.college_careers[0];
     $rootScope.city_average=DatosSchool.datos.city_averages[0];
 
-  $scope.selectedyearCollegeCarrer= "2011";
+  $scope.selectedyearCollegeCarrer= "Select a Year";
   $scope.itemsddCollegeCarrer = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"}];
   $scope.changeyear = function(indice) {$scope.selectedyearCollegeCarrer = $scope.itemsddCollegeCarrer[indice].texto;  $rootScope.college_career=DatosSchool.datos.college_careers[indice]; $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice]; $rootScope.city_average=DatosSchool.datos.city_averages[indice]; };
 
@@ -484,7 +484,7 @@ app.controller("EvaluationsDropdownCtrl" ,[ '$scope', 'DatosSchool', '$rootScope
 
     //console.log($rootScope.evaluation_ratings.ri_11);
 
-  $scope.selectedyearEvaluations= "2011";
+  $scope.selectedyearEvaluations= "Select a Year";
   $scope.itemsddEvaluations = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"}];
   $scope.changeyear = function(indice) {$scope.selectedyearEvaluations = $scope.itemsddEvaluations[indice].texto;     
     $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[indice]; 
@@ -540,7 +540,7 @@ app.controller("TestScoreYearddCtrl" ,[ '$scope', 'DatosSchool', '$rootScope',fu
     $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[0];
 
 
-    $scope.selectedyear= "2011";
+    $scope.selectedyear= "Select a Year";
     $scope.itemsYears = [{texto:"2011",indice:0},{texto:"2012",indice:1},{texto:"2013",indice:2}];
     $scope.changeyear = function(indice_year) {$scope.selectedyear = $scope.itemsYears[indice_year].texto; 
         $rootScope.evaluation_ela=DatosSchool.datos.evaluations_ela[indice_year]; 
@@ -562,7 +562,7 @@ app.controller("TestScoreYearddCtrl" ,[ '$scope', 'DatosSchool', '$rootScope',fu
 
 app.controller("TestScoreGradeddCtrl" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
-    $scope.selectedgrade= "3th";
+    $scope.selectedgrade= "Select a Grade";
     $scope.itemsGrades = [{texto:"3th",indice:"0"},{texto:"4th",indice:"1"},{texto:"5th",indice:"2"},{texto:"6th",indice:"3"},{texto:"7th",indice:"4"},{texto:"8th",indice:"5"}];
     $scope.changegrade = function(indice_grade) {$scope.selectedgrade = $scope.itemsGrades[indice_grade].texto;  $rootScope.testScore_grade=parseInt(indice_grade)+3;};
 
@@ -599,7 +599,8 @@ app.controller("AdmissionsMSctrl" ,[ '$scope', 'DatosSchool', '$rootScope',funct
    
 //$rootScope.itemsaddMS
 //$scope.itemsAddMs = [{texto:"3th",indice:"0"},{texto:"4th",indice:"1"},{texto:"5th",indice:"2"},{texto:"6th",indice:"3"},{texto:"7th",indice:"4"},{texto:"8th",indice:"5"}];    
-    $scope.progSelected= $rootScope.itemsaddMS[0].texto;
+    //$scope.progSelected= $rootScope.itemsaddMS[0].texto;
+    $scope.progSelected= "Select a Program";
     }
 
     //console.log($rootScope.evaluation_ratings.ri_11);
@@ -640,7 +641,8 @@ app.controller("AdmissionsHSctrl" ,[ '$scope', 'DatosSchool', '$rootScope',funct
    
 //$rootScope.itemsaddMS
 //$scope.itemsAddMs = [{texto:"3th",indice:"0"},{texto:"4th",indice:"1"},{texto:"5th",indice:"2"},{texto:"6th",indice:"3"},{texto:"7th",indice:"4"},{texto:"8th",indice:"5"}];    
-    $scope.progSelected_hs= $rootScope.itemsaddHS[0].texto;
+    //$scope.progSelected_hs= $rootScope.itemsaddHS[0].texto;
+    $scope.progSelected_hs= "Select a Program";
     }
 
     //console.log($rootScope.evaluation_ratings.ri_11);
@@ -669,7 +671,7 @@ app.controller("SurveyYearCtrl" ,[ '$scope', 'DatosSchool', '$rootScope',functio
     $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[0];
 
 
-    $scope.selectedyear= "2011";
+    $scope.selectedyear= "Select a itemsYears";
     $scope.itemsYears = [{texto:"2011",indice:0},{texto:"2012",indice:1},{texto:"2013",indice:2}];
     $scope.changeyear = function(indice_year) {
     $scope.selectedyear = $scope.itemsYears[indice_year].texto; 
