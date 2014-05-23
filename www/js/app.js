@@ -346,10 +346,10 @@ app.controller('SelectSchoolController', ['$scope', '$rootScope', '$routeParams'
             $rootScope.profile=DatosSchool.datos.profiles[3];
 
             DatosSchool.datos.demographics = data.demographic;
-            $rootScope.demographic=DatosSchool.datos.demographics[3];
+            $rootScope.demographic=DatosSchool.datos.demographics[0];
             
             DatosSchool.datos.enrollments = data.enrollment;
-            $rootScope.enrollment=DatosSchool.datos.enrollments[1];
+            $rootScope.enrollment=DatosSchool.datos.enrollments[0];
 
             DatosSchool.datos.evaluations = data.evaluation;
             $rootScope.evaluation=DatosSchool.datos.evaluations[3];
@@ -462,8 +462,8 @@ app.controller('SchoolController', ['$scope', '$rootScope', '$routeParams', '$ht
 
 app.controller("EnrollmentDropdownCtrl" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
-    $rootScope.enrollment=DatosSchool.datos.enrollments[3]; 
-    $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[3];
+    $rootScope.enrollment=DatosSchool.datos.enrollments[0]; 
+    $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[0];
 
 
   $scope.selectedyearEnrollment= "Select a Year";
@@ -475,6 +475,7 @@ app.controller("EnrollmentDropdownCtrl" ,[ '$scope', 'DatosSchool', '$rootScope'
 
 app.controller("DemographicsDropdownCtrl" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
+    $rootScope.demographic=DatosSchool.datos.demographics[0];    
   $scope.selectedyearDemographics= "Select a Year";
   $scope.itemsddDemographics = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"},{texto:"2014",indice:"3"}];
   $scope.changeyear = function(indice) {$scope.selectedyearDemographics = $scope.itemsddDemographics[indice].texto;  $rootScope.demographic=DatosSchool.datos.demographics[indice]; };
@@ -690,7 +691,7 @@ app.controller("SurveyYearCtrl" ,[ '$scope', 'DatosSchool', '$rootScope',functio
     $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[0];
 
 
-    $scope.selectedyear= "Select a itemsYears";
+    $scope.selectedyear= "Select a Year";
     $scope.itemsYears = [{texto:"2011",indice:0},{texto:"2012",indice:1},{texto:"2013",indice:2}];
     $scope.changeyear = function(indice_year) {
     $scope.selectedyear = $scope.itemsYears[indice_year].texto; 

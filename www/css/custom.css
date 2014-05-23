@@ -99,6 +99,29 @@
 	color:#13688F;
 }
 
+.quality_review_rg .icon-info {
+	position: absolute;
+	top: 0.7rem;
+	right: 1.4rem;
+	color:#13688F;
+	font-size: 0.8rem;
+}
+
+.porcentaje .icon-info {
+	position: absolute;
+	top: 1rem;
+	right: 0rem;
+	color:#13688F;
+}
+
+.profile_info .icon-info {
+	position: absolute;
+	top: 1rem;
+	right: 0rem;
+	color:#13688F;
+}
+
+
 
 a{
 	-webkit-transition: 0.4s;
@@ -347,12 +370,65 @@ body{
 	text-align: right !important;
 }
 
+
+.quality_review{
+	width: 49%;
+	background-color: #99E5FF;
+	height: 3rem;
+	padding-top: 0.7rem;
+	display:inline-block;
+	vertical-align:top;
+}
+
+
+.quality_review p{
+	color: #333;
+	font-weight: 1rem;
+	font-height: 0.5rem;
+	font-size: 1rem;
+	padding: 0 2rem;
+	line-height: 1rem;
+
+}
+
+.quality_review_rg{
+	width: 49%;
+	height: 3rem;
+	padding-top: 0.2rem;
+	display:inline-block;
+	vertical-align:top;
+	padding: 0.5rem 0;
+	padding-right: 2.5rem;
+	text-align: right;
+
+
+}
+
+.quality_review_rg span{
+	color: #333;
+	font-weight: 1rem;
+	font-height: 0.5rem;
+	line-height: 1rem;
+	font-weight: 100;
+	font-size: 0.9rem;
+
+}
+
+/*
+.quality_review_rg span {
+	color: #333;
+	font-weight: 1rem;
+	font-height: 0.5rem;
+	font-size: 1rem;
+	padding: 0 2rem;
+} */
+
 .porcentaje {
 	background-color: #99E5FF;
 	height: 3rem;
 	padding-top: 0.2rem;
-	
 }
+
 .porcentaje p {
 	color: #333;
 	font-weight: 100;
@@ -440,6 +516,10 @@ body{
 	background-color:rgba(142,202,212,1) !important;
 }
 
+.color-barra {
+	background-color:rgba(153,229,255,1) !important;
+}
+
 
 .independent-stat {
 	background-color: #FFF;	
@@ -496,6 +576,20 @@ body{
 	position: relative;
 	top: -2.4rem;
 	left: 7rem;
+}
+
+.rank-s {
+	position: relative;
+	top: -1.6rem;
+	left: 7rem;
+}
+
+.rank-s p {
+	font-size: 0.6rem;
+	font-weight: 500;
+	line-height: 100%;
+	margin: 2px 0px 0px 0px;
+	position: absolute;
 }
 
 .average {
@@ -783,6 +877,20 @@ itemsurvey {
 	font-family: "museo-sans",sans-serif;
 }
 
+.quality_review_rg .joyride-content-wrapper{
+	text-align: left;
+}
+
+.quality_review_rg .joyride-content-wrapper p {
+	font-size: 0.7rem;
+	margin: 0 0;
+	padding: 4px 14px;
+	padding-right: 22px;
+	line-height: 0.8rem;
+	font-family: "museo-sans",sans-serif;
+	color: black;
+}
+
 .profile_info .joyride-tip-guide .joyride-content-wrapper p {
 	font-size: 0.7rem;
 	margin: 0 0;
@@ -791,7 +899,7 @@ itemsurvey {
 	padding-bottom: 0px;
 	line-height: 0.8rem;
 	font-family: "museo-sans",sans-serif;
-	color: black;
+	color: #333;
 }
 
 span.joyride-nub.right {
@@ -826,6 +934,18 @@ span.joyride-nub.right {
 	padding:9px 9px; 
 }
 
+.grillaAcordion_srd{
+	width:130%;
+	height:50px;
+	background-color:transparent;
+	position:relative;
+	top:-8px;
+	left:-14px;
+	margin-bottom:-20px;
+	padding:9px 9px; 
+	padding-right: 20%;
+}
+
 .icon-info-acordion{
 	position: relative;
 	top: -12px;
@@ -852,4 +972,9 @@ span.joyride-nub.right {
   font-weight: 300;
   font-size: 0.8rem;
   color: #aaa;
+}
+
+.accordion .accordion_label{
+	font-size: 0.7rem;
+	padding-left: 12px;
 }

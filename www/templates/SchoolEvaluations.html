@@ -44,14 +44,23 @@
 
 		  <accordion close-others="oneAtATime">
 
-		    <accordion-grouptwo heading="Progress Report" is-open="true">  
+		    <accordion-group is-open="true">  
+        <accordion-heading>
+            <div id="grilla_05_01_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Progress Report
+            <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
+            <div class="icon-arrow-down2 right cinco" id="grilla_icon_05_01" ></div>
+        </accordion-heading>   		    
 
 			    	<div class="row">
 
 	<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{proficiency_ratings.es_ms_k8_ec_overal_pr_pr | filtraCeros}}">
-    			<div class="porcentaje " style="width:{{proficiency_ratings.es_ms_k8_ec_overal_pr_pr}}%;">
+    			<div class="democracy color-barra " style="width:{{proficiency_ratings.es_ms_k8_ec_overal_pr_pr}}%;">
     				<p><b>{{proficiency_ratings.es_ms_k8_ec_overal_pr_pr | filtraOverallEvaluations}} </b></p>
-    				<itemsurvey><span>Overall</span></itemsurvey>
+    				<itemsurvey><span class="con-info">Overall</span>
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="The Progress Report measures students’ year-to-year progress, compares the school to other schools with similar students, and rewards success in moving all children forward, especially those with the highest needs (i.e., students with disabilities, English language learners, students with the lowest third incoming proficiency citywide, and black and Hispanic males). Overall Progress Report grades, which range from A to F, are based on the scores of multiple sections.  In each section, a school's results are compared to the results of “peer” schools serving similar students and to all schools citywide." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+    				</itemsurvey>
     			</div>
     		<!--	<div class="metrics">
 					<div class="average" style="width:50%;">
@@ -64,9 +73,13 @@
 	</div>
 
 	<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{proficiency_ratings.es_ms_k8_ec_student_performance_pr_pr | filtraCeros}}">
-		    	<div class="porcentaje " style="width:{{proficiency_ratings.es_ms_k8_ec_student_performance_pr_pr}}%;">
+		    	<div class="democracy color-barra " style="width:{{proficiency_ratings.es_ms_k8_ec_student_performance_pr_pr}}%;">
 		    				<p>{{proficiency_ratings.es_ms_k8_ec_student_performance_pr_pr | number:1}}%</p>
-		    				<itemsurvey><span>Performance</span></itemsurvey>
+		    				<itemsurvey><span class="con-info">Performance</span>
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Based on student results on the State tests in English Language Arts and Math. Middle school scores also take students passing core courses into account." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+		    				</itemsurvey>
     			</div>
     	<!--		<div class="metrics">
 					<div class="average" style="width:50%;">
@@ -80,9 +93,13 @@
 	</div>	
 
 			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{proficiency_ratings.es_ms_k8_ec_student_progress_pr_score_pr | filtraCeros}}">
-			    <div class="porcentaje " style="width:{{proficiency_ratings.es_ms_k8_ec_student_progress_pr_score_pr}}%;">
+			    <div class="democracy color-barra " style="width:{{proficiency_ratings.es_ms_k8_ec_student_progress_pr_score_pr}}%;">
 			    				<p>{{proficiency_ratings.es_ms_k8_ec_student_progress_pr_score_pr | number:1}}%</p>
-			    				<itemsurvey><span>Progress</span></itemsurvey>
+			    				<itemsurvey><span class="con-info">Progress</span>
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Based on how much individual students improved on State tests in English Language Arts and Math compared to other students in the City." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			    				</itemsurvey>
 			    			</div>
 			    	<!--		<div class="metrics">
 								<div class="average" style="width:50%;">
@@ -95,9 +112,13 @@
 			    		</div> 
 
 			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{proficiency_ratings.es_ms_k8_ec_scholl_environment_pr_pr | filtraCeros}}">
-			   <div class="porcentaje " style="width:{{proficiency_ratings.es_ms_k8_ec_scholl_environment_pr_pr}}%;">
+			   <div class="democracy color-barra " style="width:{{proficiency_ratings.es_ms_k8_ec_scholl_environment_pr_pr}}%;">
 			    				<p>{{proficiency_ratings.es_ms_k8_ec_scholl_environment_pr_pr | number:1}}%</p>
-			    				<itemsurvey><span>Environment</span></itemsurvey>
+			    				<itemsurvey><span class="con-info">Environment</span>
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			    				</itemsurvey>
 			    			</div>
 			  <!--  			<div class="metrics">
 								<div class="average" style="width:50%;">
@@ -116,9 +137,13 @@
 			    <!--Inicio HS -->
 
 			    <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{proficiency_ratings.hs_t_hs_overall_pr_pr | filtraCeros}}">
-			   <div class="porcentaje " style="width:{{proficiency_ratings.hs_t_hs_overall_pr_pr}}%;">
-			    				<p>{{proficiency_ratings.hs_t_hs_overall_pr_pr | number:1}}%</p>
-			    				<itemsurvey><span>Overall - HS</span></itemsurvey>
+			   <div class="democracy color-barra " style="width:{{proficiency_ratings.hs_t_hs_overall_pr_pr}}%;">
+			    				<p>{{proficiency_ratings.hs_t_hs_overall_pr_pr | filtraOverallEvaluations}}%</p>
+			    				<itemsurvey><span class="con-info">Overall</span>
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="The Progress Report measures students’ year-to-year progress, compares the school to other schools with similar students, and rewards success in moving all children forward, especially those with the highest needs (i.e., students with disabilities, English language learners, students with the lowest third incoming proficiency citywide, and black and Hispanic males). Overall Progress Report grades, which range from A to F, are based on the scores of multiple sections.  In each section, a school's results are compared to the results of “peer” schools serving similar students and to all schools citywide." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			    				</itemsurvey>
 			    			</div>
 			    	<!--		<div class="metrics">
 								<div class="average" style="width:50%;">
@@ -131,9 +156,13 @@
 			    		</div>
 
 			    <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{proficiency_ratings.hs_t_hs_student_performance_pr_pr | filtraCeros}}">
-			   <div class="porcentaje " style="width:{{proficiency_ratings.hs_t_hs_student_performance_pr_pr}}%;">
+			   <div class="democracy color-barra " style="width:{{proficiency_ratings.hs_t_hs_student_performance_pr_pr}}%;">
 			    				<p>{{proficiency_ratings.hs_t_hs_student_performance_pr_pr | number:1}}%</p>
-			    				<itemsurvey><span>Performance - HS</span></itemsurvey>
+			    				<itemsurvey><span class="con-info">Performance</span>
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Based on how many students graduated within 4 and 6 years of starting high school  and the types of diplomas they earned." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			    				</itemsurvey>
 			    			</div>
 			    <!--			<div class="metrics">
 								<div class="average" style="width:50%;">
@@ -146,9 +175,13 @@
 			    		</div>
 
 			    <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{proficiency_ratings.hs_t_hs_student_progress_pr_pr | filtraCeros}}">
-			   <div class="porcentaje " style="width:{{proficiency_ratings.hs_t_hs_student_progress_pr_pr}}%;">
+			   <div class="democracy color-barra " style="width:{{proficiency_ratings.hs_t_hs_student_progress_pr_pr}}%;">
 			    				<p>{{proficiency_ratings.hs_t_hs_student_progress_pr_pr | number:1}}%</p>
-			    				<itemsurvey><span>Progress - HS</span></itemsurvey>
+			    				<itemsurvey><span class="con-info">Progress</span>
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Based on the annual progress students make toward meeting the State's graduation requirements by earning course credits and passing Regents exams." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			    				</itemsurvey>
 			    			</div>
 			    <!--			<div class="metrics">
 								<div class="average" style="width:50%;">
@@ -161,9 +194,13 @@
 			    		</div>
 
 			    <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{proficiency_ratings.hs_t_hs_school_environment_pr_pr | filtraCeros}}">
-			   <div class="porcentaje " style="width:{{proficiency_ratings.hs_t_hs_school_environment_pr_pr}}%;">
+			   <div class="democracy color-barra " style="width:{{proficiency_ratings.hs_t_hs_school_environment_pr_pr}}%;">
 			    				<p>{{proficiency_ratings.hs_t_hs_school_environment_pr_pr | number:1}}%</p>
-			    				<itemsurvey><span>Environment - HS</span></itemsurvey>
+			    				<itemsurvey><span class="con-info">Environment</span>
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			    				</itemsurvey>
 			    			</div>
 			    <!--			<div class="metrics">
 								<div class="average" style="width:50%;">
@@ -174,11 +211,15 @@
 				    			</div>
 			    			</div> -->
 			    		</div>
-
+  
 			    <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{proficiency_ratings.hs_t_hs_college_carrer_pr_pr | filtraCeros}}">
-			   <div class="porcentaje " style="width:{{proficiency_ratings.hs_t_hs_college_carrer_pr_pr}}%;">
+			   <div class="democracy color-barra " style="width:{{proficiency_ratings.hs_t_hs_college_carrer_pr_pr}}%;">
 			    				<p>{{proficiency_ratings.hs_t_hs_college_carrer_pr_pr | number:1}}%</p>
-			    				<itemsurvey><span>Career Readiness -HS</span></itemsurvey>
+			    				<itemsurvey><span class="con-info">Career Readiness</span>
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Measures the ability of a school to prepare its students for success in college and career on the basis of passing advanced courses, meeting proficiency standards and enrolling in a post-secondary institution." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			    				</itemsurvey>
 			    			</div>
 			 <!--   			<div class="metrics">
 								<div class="average" style="width:50%;">
@@ -192,69 +233,83 @@
 
 			</div>
 
-			    </accordion-grouptwo>
+			    </accordion-group>
 
 
-			    <accordion-grouptwo heading="Quality Review" is-open="true">  
+			    <accordion-group is-open="true">
+        <accordion-heading>
+            <div id="grilla_05_02_dw" class="grillaAcordion" onclick="rotarGrilla(this.id)">Quality Review
+            <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
+            <div class="icon-arrow-down2 right cinco" id="grilla_icon_05_02" style="-webkit-transform:rotate(180deg);left:-0.5rem"></div>
+        </accordion-heading> 
 
 			    	<div class="row">
 
 			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ratings.quality_review_rating | filtraCeros}}">
-			    			<div class="porcentaje" style="width:50%;">
+			    			<div class="quality_review" >
 			    				<p>{{evaluation_ratings.quality_review_rating}}</p>
-			    				<itemsurvey><span>Quality Review Rating</span>
-			    				</itemsurvey>
 			    			</div>
+
+		    				<div class="quality_review_rg right">
+		    					<span>Quality Review Rating</span>
+		    				</div>			    			
 			    		</div>
 
 			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ratings.ri_11 | filtraCeros}}">
-			    			<div class="porcentaje" style="width:50%;">
+
+			    			<div class="quality_review" >
 			    				<p>{{evaluation_ratings.ri_11}}</p>
-			    				<itemsurvey>
+			    			</div>
+
+		    				<div class="quality_review_rg right">
 		<div ng-controller="PopoverDemoCtrl">
     <div Popover-animation="true" popover="Measures the rigor and coherence of school curricula in all subjects with a close examination of consistency and access for all students across grades and subject areas." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-		</div>
-			    				<span class="con-info">Curriculum</span></itemsurvey>
-			    			</div>
+		</div>			<span class="con-info">Curriculum</span>		    					
+		    				</div>	
+
+
 			    		</div>
 
 			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ratings.ri_12 | filtraCeros}}">
-			    			<div class="porcentaje" style="width:50%;">
+			    			<div class="quality_review">
 			    				<p>{{evaluation_ratings.ri_12}}</p>
-			    				<itemsurvey><span class="con-info">Pedagogy</span>
+							</div>			    				
+			    				<div class="quality_review_rg right">
 		<div ng-controller="PopoverDemoCtrl">
     <div Popover-animation="true" popover="Measures the effectiveness of instruction across classrooms by looking at the quality of student work products and student discussion." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-		</div>
-			    				</itemsurvey>
-			    			</div>
+		</div>			<span class="con-info">Pedagogy</span>
+			    				</div>
+			    			
 			    		</div>	
 
 			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ratings.ri_14 | filtraCeros}}">
-			    			<div class="porcentaje" style="width:50%;">
+			    			<div class="quality_review" >
 			    				<p>{{evaluation_ratings.ri_14}}</p>
-			    				<itemsurvey><span class="con-info">Positive Learning Environment</span>
+		    				</div>
+			    				<div class="quality_review_rg right">
 		<div ng-controller="PopoverDemoCtrl">
     <div Popover-animation="true" popover="Measures the quality of school culture and environment including safety, inclusiveness and other student success supports." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-		</div>
-			    				</itemsurvey>
-			    			</div>
+		</div>				<span class="con-info">Positive Learning Environment</span>
+			    				</div>
+			    			
 			    		</div>
 
 			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ratings.ri_34 | filtraCeros}}">
-			    			<div class="porcentaje" style="width:50%;">
+			    			<div class="quality_review">
 			    				<p>{{evaluation_ratings.ri_34}}</p>
-			    				<itemsurvey><span class="con-info">High expectations</span>
+		    				</div>
+			    				<div class="quality_review_rg right">
 		<div ng-controller="PopoverDemoCtrl">
     <div Popover-animation="true" popover="Measures how effectively the school establishes a culture for learning that communicates high expectations to students, families, and staff and provides support towards students’ next steps." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-		</div>
-			    				</itemsurvey>
-			    			</div>
+		</div>		<span class="con-info">High expectations</span>
+			    				</div>
+			    			
 			    		</div>
 
 
 			    	</div>
 
-			    	</accordion-grouptwo>
+			    	</accordion-group>
 			    </accordion>
 	
 			</div>		

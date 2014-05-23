@@ -27,7 +27,7 @@
 				<div class="small-5 columns">
 					<div class="profile_label">
 						<span>Program</span>
-						<a href="glosary.html"><div class="info-perfil"></div></a>
+						<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>
 					</div>
 				</div>
 				<div class="small-7 columns">
@@ -41,7 +41,7 @@
 				<div class="small-5 columns">
 					<div class="profile_label">
 						<span>Method</span>
-						<a href="glosary.html"><div class="info-perfil"></div></a>
+						<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>
 					</div>
 				</div>
 				<div class="small-7 columns">
@@ -63,126 +63,198 @@
 <div class="row">
 	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority1 | filtraCeros}}">
 		<div class="priority">
-			<h6>Priority 1. <div class="icon-info"></div></h6>
+			<h6>Priority 1.
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			</h6>
 			<p>{{es_admissions.priority1}}</p>
 		</div>
 	</div>
 
 	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority2 | filtraCeros}}">
 		<div class="priority color2">
-			<h6>Priority 2. <div class="icon-info"></div></h6>
+			<h6>Priority 2. 
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			</h6>
 			<p>{{es_admissions.priority2}}</p>
 		</div>
 	</div>
 
 	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority3 | filtraCeros}}">
 		<div class="priority">
-			<h6>Priority 3. <div class="icon-info"></div></h6>
+			<h6>Priority 3. 
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			</h6>
 			<p>{{es_admissions.priority3}}</p>
 		</div>
 	</div>
 
 	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority4 | filtraCeros}}">
 		<div class="priority color2">
-			<h6>Priority 4. <div class="icon-info"></div></h6>
+			<h6>Priority 4. 
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			</h6>
 			<p>{{es_admissions.priority4}}</p>
 		</div>
 	</div>
 
 	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority5 | filtraCeros}}">
 		<div class="priority">
-			<h6>Priority 5. <div class="icon-info"></div></h6>
+			<h6>Priority 5. 
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>				
+			</h6>
 			<p>{{es_admissions.priority5}}</p>
 		</div>
 	</div>	
 
 	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority6 | filtraCeros}}">
 		<div class="priority color2">
-			<h6>Priority 6. <div class="icon-info"></div></h6>
+			<h6>Priority 6. 
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			</h6>
 			<p>{{es_admissions.priority6}}</p>
 		</div>
 	</div>			
 
 	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority7 | filtraCeros}}">
 		<div class="priority">
-			<h6>Priority 7. <div class="icon-info"></div></h6>
+			<h6>Priority 7. 
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			</h6>
 			<p>{{es_admissions.priority7}}</p>
 		</div>
 	</div>	
 
 	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority8 | filtraCeros}}">
 		<div class="priority color2">
-			<h6>Priority 8. <div class="icon-info"></div></h6>
+			<h6>Priority 8. 
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			</h6>
 			<p>{{es_admissions.priority8}}</p>
 		</div>
 	</div>	
 
 	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority9 | filtraCeros}}">
 		<div class="priority">
-			<h6>Priority 9. <div class="icon-info"></div></h6>
+			<h6>Priority 9. 
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			</h6>
 			<p>{{es_admissions.priority9}}</p>
 		</div>
 	</div>	
 
 	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority10 | filtraCeros}}">
 		<div class="priority color2">
-			<h6>Priority 10. <div class="icon-info"></div></h6>
+			<h6>Priority 10. 
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			</h6>
 			<p>{{es_admissions.priority10}}</p>
 		</div>
 	</div>		
 
 	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority11 | filtraCeros}}">
 		<div class="priority">
-			<h6>Priority 11. <div class="icon-info"></div></h6>
+			<h6>Priority 11. 
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			</h6>
 			<p>{{es_admissions.priority11}}</p>
 		</div>
 	</div>	
 
 	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority12 | filtraCeros}}">
 		<div class="priority color2">
-			<h6>Priority 12. <div class="icon-info"></div></h6>
+			<h6>Priority 12. 
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			</h6>
 			<p>{{es_admissions.priority12}}</p>
 		</div>
 	</div>	
 
 	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority13 | filtraCeros}}">
 		<div class="priority">
-			<h6>Priority 13. <div class="icon-info"></div></h6>
+			<h6>Priority 13. 
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			</h6>
 			<p>{{es_admissions.priority13}}</p>
 		</div>
 	</div>	
 
 	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority14 | filtraCeros}}">
 		<div class="priority color2">
-			<h6>Priority 14. <div class="icon-info"></div></h6>
+			<h6>Priority 14. 
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			</h6>
 			<p>{{es_admissions.priority14}}</p>
 		</div>
 	</div>	
 
 	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority15 | filtraCeros}}">
 		<div class="priority">
-			<h6>Priority 15. <div class="icon-info"></div></h6>
+			<h6>Priority 15. 
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			</h6>
 			<p>{{es_admissions.priority15}}</p>
 		</div>
 	</div>	
 
 	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority16 | filtraCeros}}">
 		<div class="priority color2">
-			<h6>Priority 16. <div class="icon-info"></div></h6>
+			<h6>Priority 16. 
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			</h6>
 			<p>{{es_admissions.priority16}}</p>
 		</div>
 	</div>	
 
 	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority17 | filtraCeros}}">
 		<div class="priority">
-			<h6>Priority 17. <div class="icon-info"></div></h6>
+			<h6>Priority 17. 
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			</h6>
 			<p>{{es_admissions.priority17}}</p>
 		</div>
 	</div>	
 
 	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority18 | filtraCeros}}">
 		<div class="priority color2">
-			<h6>Priority 18. <div class="icon-info"></div></h6>
+			<h6>Priority 18. 
+		<div ng-controller="PopoverDemoCtrl">
+    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    	</div>
+			</h6>
 			<p>{{es_admissions.priority18}}</p>
 		</div>
 	</div>	
@@ -234,7 +306,7 @@
 				<div class="small-5 columns">
 					<div class="profile_label">
 						<span>Program</span>
-						<a ng-href="/profile/glossary"><div class="info-perfil"></div></a>
+						<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>
 					</div>
 				</div>
 				<div class="small-7 columns">
@@ -254,7 +326,7 @@
 				<div class="small-5 columns">
 					<div class="profile_label">
 						<span>Interest Area</span>
-						<a ng-href="/profile/glossary"><div class="info-perfil"></div></a>
+						<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>
 					</div>
 				</div>
 				<div class="small-7 columns">
@@ -267,7 +339,7 @@
 				<div class="small-5 columns">
 					<div class="profile_label">
 						<span>Method</span>
-						<a ng-href="/profile/glossary"><div class="info-perfil"></div></a>
+						<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>
 					</div>
 				</div>
 				<div class="small-7 columns">
@@ -300,7 +372,7 @@
 				<div class="small-5 columns">
 					<div class="profile_label">
 						<span>Seats</span>
-						<a ng-href="/profile/glossary"><div class="info-perfil"></div></a>
+						<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>
 					</div>
 				</div>
 				<div class="small-7 columns">
@@ -314,7 +386,7 @@
 				<div class="small-5 columns">
 					<div class="profile_label">
 						<span>Applicant</span>
-						<a ng-href="/profile/glossary"><div class="info-perfil"></div></a>
+						<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>
 					</div>
 				</div>
 				<div class="small-7 columns">
@@ -364,7 +436,7 @@
 				<div class="small-5 columns">
 					<div class="profile_label">
 						<span>Program</span>
-						<a ng-href="/profile/glossary"><div class="info-perfil"></div></a>
+						<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>
 					</div>
 				</div>
 				<div class="small-7 columns">
@@ -380,7 +452,7 @@
 				<div class="small-5 columns">
 					<div class="profile_label">
 						<span>Intesest Area</span>
-						<a ng-href="/profile/glossary"><div class="info-perfil"></div></a>
+						<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>
 					</div>
 				</div>
 				<div class="small-7 columns">
@@ -393,7 +465,7 @@
 				<div class="small-5 columns">
 					<div class="profile_label">
 						<span>Method</span>
-						<a ng-href="/profile/glossary"><div class="info-perfil"></div></a>
+						<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>
 					</div>
 				</div>
 				<div class="small-7 columns">
@@ -406,7 +478,7 @@
 				<div class="small-5 columns">
 					<div class="profile_label">
 						<span>Description</span>
-						<a ng-href="/profile/glossary"><div class="info-perfil"></div></a>
+						<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>
 					</div>
 				</div>
 				<div class="small-7 columns">
@@ -439,7 +511,7 @@
 				<div class="small-5 columns">
 					<div class="profile_label">
 						<span>Seats</span>
-						<a ng-href="/profile/glossary"><div class="info-perfil"></div></a>
+						<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>
 					</div>
 				</div>
 				<div class="small-7 columns">
@@ -453,7 +525,7 @@
 				<div class="small-5 columns">
 					<div class="profile_label">
 						<span>Applicant</span>
-						<a ng-href="/profile/glossary"><div class="info-perfil"></div></a>
+						<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>
 					</div>
 				</div>
 				<div class="small-7 columns">

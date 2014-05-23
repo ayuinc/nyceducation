@@ -20,7 +20,7 @@
 		</div>	
 		<div class="small-10 small-centered medium-10 large-10 columns">		
 			<div class="row">
-				<div class="small-4 small-centered medium-6 large-6 columns">
+				<div class="small-6 small-centered medium-6 large-6 columns">
 
 
 			<div ng-controller="CollegeCarrerDropdownCtrl" class="text-center">
@@ -46,13 +46,18 @@
   <accordion close-others="oneAtATime">
 
 
-  	<div class="icon-arrow-down2"></div>
-    <accordion-grouptwo heading="Readiness" is-open="true">  
+    <accordion-group is-open="true">  
+
+        <accordion-heading>
+            <div id="grilla_02_01_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Readiness
+            <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
+            <div class="icon-arrow-down2 right dos" id="grilla_icon_02_01" ></div>
+        </accordion-heading>        
 
     	<div class="row">
 
 	<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.postsecondary_enrollment_rate_6months | filtraCeros}}">
-    			<div class="porcentaje" style="width:{{college_career.postsecondary_enrollment_rate_6months}}%;">
+    			<div class="democracy color-barra" style="width:{{college_career.postsecondary_enrollment_rate_6months}}%;">
     				<p>{{college_career.postsecondary_enrollment_rate_6months | number:1}}%</p>
     				<itemsurvey>
 		<div ng-controller="PopoverDemoCtrl">
@@ -74,7 +79,7 @@
 	</div>
 
 			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.4year_non_remediation_rate | filtraCeros}}">
-			    			<div class="porcentaje" style="width:{{college_career.4year_non_remediation_rate}}%;">
+			    			<div class="democracy color-barra" style="width:{{college_career.4year_non_remediation_rate}}%;">
 			    				<p>{{college_career.4year_non_remediation_rate | number:1}}%</p>
 			    				<itemsurvey><span class="con-info">Non-Remediation Rate</span>
 		<div ng-controller="PopoverDemoCtrl">
@@ -94,7 +99,7 @@
 			    		</div>	
 
 			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.cc_preparatory_course_index | filtraCeros}}">
-			    			<div class="porcentaje" style="width:{{college_career.cc_preparatory_course_index}}%;">
+			    			<div class="democracy color-barra" style="width:{{college_career.cc_preparatory_course_index}}%;">
 			    				<p>{{college_career.cc_preparatory_course_index | number:1}}%</p>
 			    				<itemsurvey><span class="con-info">Prep Course Index </span>
 		<div ng-controller="PopoverDemoCtrl">
@@ -115,7 +120,7 @@
 
 
 			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.c_readiness_r_including_p | filtraCeros}}">
-			    			<div class="porcentaje" style="width:{{college_career.c_readiness_r_including_p}}%;">
+			    			<div class="democracy color-barra" style="width:{{college_career.c_readiness_r_including_p}}%;">
 			    				<p>{{college_career.c_readiness_r_including_p | number:1}}%</p>
 			    				<itemsurvey><span class="con-info">Readiness Rate</span>
 		<div ng-controller="PopoverDemoCtrl">
@@ -135,16 +140,18 @@
 			    		</div>
 
 			    	</div>
-			    </accordion-grouptwo>
+			    </accordion-group>
 
-			    <div class="icon-arrow-down2"></div>
-			    <accordion-group heading="Graduation" is-open="true">  
+			    <accordion-group is-open="true">  
 
-
+        <accordion-heading>
+            <div id="grilla_02_02_dw" class="grillaAcordion" onclick="rotarGrilla(this.id)">Graduation</div>
+            <div class="icon-arrow-down2 right dos"  id="grilla_icon_02_02" style="-webkit-transform:rotate(180deg);left:-0.5rem"></div>
+        </accordion-heading> 
 
 			    	<div class="row">
 			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.4y_g_r | filtraCeros}}">
-			    			<div class="porcentaje" style="width:{{college_career.4y_g_r}}%;">
+			    			<div class="democracy color-barra" style="width:{{college_career.4y_g_r}}%;">
 			    				<p>{{college_career.4y_g_r | number:1}}%</p>
 			    				<itemsurvey><span class="con-info">4 year Graduation Rate</span>
 		<div ng-controller="PopoverDemoCtrl">
@@ -164,7 +171,7 @@
 			    		</div>
 
 			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.6y_g_r | filtraCeros}}">
-			    			<div class="porcentaje" style="width:{{college_career.6y_g_r}}%;">
+			    			<div class="democracy color-barra" style="width:{{college_career.6y_g_r}}%;">
 			    				<p>{{college_career.6y_g_r | number:1}}%</p>
 			    				<itemsurvey><span class="con-info">6 year Graduation Rate <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span>
 		<div ng-controller="PopoverDemoCtrl">
