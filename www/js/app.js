@@ -63,6 +63,11 @@ app.config(function($routeProvider) {
         controller: "SchoolController"
     });
 
+    $routeProvider.when("/school/query/:query", {
+        templateUrl: "templates/SchoolList.html",
+        controller: "SchoolListController"
+    });
+
     $routeProvider.otherwise({ redirect_to: "/" });
 });
 
@@ -280,8 +285,6 @@ app.controller("MainController", ['$scope', '$rootScope', '$window', '$location'
         });
     }
 
-
-
 /*app.controller('MyCtrl', function($scope, MovieRetriever){
 
   $scope.movies = MovieRetriever.getmovies("...");
@@ -302,6 +305,22 @@ app.controller("MainController", ['$scope', '$rootScope', '$window', '$location'
   }
 
 });*/
+
+}]);
+
+
+app.controller("SchoolListController", ['$scope', '$http', '$routeParams', function($scope, $http ,$routeParams) {
+
+    $http.get('http://162.243.110.154/api/v1/schools/findByDistrict/' + encodeURI($routeParams.query))
+        .success(function(data) {
+            if(data.error) {
+                $scope.err = "Schools not found."
+                $scope.schools = null;
+            }
+            else {
+                $scope.schools = data.schools;
+            }
+        });
 
 }]);
 
