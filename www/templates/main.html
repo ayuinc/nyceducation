@@ -20,7 +20,7 @@
                 <div ng-switch on="value">
                     <div ng-switch-when="simple">
                         <autocomplete ng-model="yourchoice" data="schools" on-type="updateSchools"></autocomplete>
-                        <button type="submit" class="button expand bottones-search">Search Simple</button>
+                        <!-- <button type="submit" class="button expand bottones-search">Search Simple</button> -->
                     </div>
                     <div ng-switch-when="advanced">
                         <form ng-submit="go('/school/query/' +  school.query)">
