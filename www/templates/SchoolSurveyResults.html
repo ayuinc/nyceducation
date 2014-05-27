@@ -22,19 +22,6 @@
 		<div class="small-10 small-centered medium-10 large-10 columns">		
 			<div class="row">
 
-
-				<div class="small-6  medium-6 large-6 columns">
-					<div ng-controller="SurveyYearCtrl" class="text-center">
-					  <a dropdown-toggle="#dropdown-year_sr" class="button dropdown small bg-dropdown">{{selectedyear}}</a>
-					  <ul id="dropdown-year_sr" class="f-dropdown" style="width:100px">
-					    <li ng-repeat="itemy in itemsYears">
-					      <a ng-click="changeyear(itemy.indice)">{{itemy.texto}}</a>
-					    </li>
-					  </ul>
-					  <br>
-					</div>
-				</div>
-
 				<div class="small-6  medium-6 large-6 columns ">
 					<div ng-controller="SurveyRespCtrl" class="text-center">
 					  <a dropdown-toggle="#dropdown-grade_sr" class="button dropdown small bg-dropdown">{{selectedgrade}}</a>
@@ -47,7 +34,17 @@
 					</div>
 				</div>	
 
-
+                <div class="small-6  medium-6 large-6 columns">
+                    <div ng-controller="SurveyYearCtrl" class="text-center">
+                      <a dropdown-toggle="#dropdown-year_sr" class="button dropdown small bg-dropdown">{{selectedyear}}</a>
+                      <ul id="dropdown-year_sr" class="f-dropdown" style="width:100px">
+                        <li ng-repeat="itemy in itemsYears">
+                          <a ng-click="changeyear(itemy.indice)">{{itemy.texto}}</a>
+                        </li>
+                      </ul>
+                      <br>
+                    </div>
+                </div>
 
 			</div>
 		</div>		
@@ -389,104 +386,6 @@
 </div>
 </accordion>
 </div> <!-- Control accordion -->
-
-
-		<!--
-		<div class="small-12 medium-12 large-12 columns">	
-			<dl class="accordion" data-accordion>
-			  <dd>
-			    <a href="#panel1">Safety and Respect <img src="img/arrow-down.png" class="right"></a>
-			    <div id="panel1" class="content active">
-			    	<div class="row">
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-			    			<div class="porcentaje" style="width:35%;">
-			    				<p>3.5<small>/10</small></p>
-			    				<itemsurvey><span>Performance</span></itemsurvey>
-			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50%;">
-				    				<small>City Average: 50%</small>
-								</div>			    			
-				    			<div class="rank">
-				    				<p>◼︎◼︎◻︎◻︎</p>
-				    			</div>
-				    			<a href="survey-detail.html"><div class="detalle">Detalle ▸</div></a>
-			    			</div>
-			    		</div>	
-			    	</div>
-			    </div>
-			  </dd>
-			  <dd>
-			    <a href="#panel2">Engagement <img src="img/arrow-down.png" class="right"></a>		    
-			    <div id="panel2" class="content">
-			    	<div class="row">
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-			    			<div class="porcentaje" style="width:70%;">
-			    				<p>20<small>/25</small></p>
-			    				<itemsurvey><span>Performance</span></itemsurvey>
-			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50%;">
-				    				<small>City Average: 50%</small>
-								</div>			    			
-				    			<div class="rank">
-				    				<p>◼︎◼︎◻︎◻︎</p>
-				    			</div>
-				    			<a href="survey-detail.html"><div class="detalle">Detalle ▸</div></a>
-			    			</div>
-			    		</div>	
-			    	</div>
-			    </div>
-			  </dd>
-			  <dd>
-			    <a href="#panel3">Communications <img src="img/arrow-down.png" class="right"></a>			    
-			    <div id="panel3" class="content">
-			    	<div class="row">
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-			    			<div class="porcentaje" style="width:70%;">
-			    				<p>20<small>/25</small></p>
-			    				<itemsurvey><span>Performance</span></itemsurvey>
-			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50%;">
-				    				<small>City Average: 50%</small>
-								</div>			    			
-				    			<div class="rank">
-				    				<p>◼︎◼︎◻︎◻︎</p>
-				    			</div>
-				    			<a href="survey-detail.html"><div class="detalle">Detalle ▸</div></a>
-			    			</div>
-			    		</div>	
-			    	</div>
-			    </div>
-			  </dd>
-			  <dd>
-			    <a href="#panel4">Academic Expectation <img src="img/arrow-down.png" class="right"></a>			    
-			    <div id="panel4" class="content">
-			    	<div class="row">
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-			    			<div class="porcentaje" style="width:70%;">
-			    				<p>20<small>/25</small></p>
-			    				<itemsurvey><span>Performance</span></itemsurvey>
-			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50%;">
-				    				<small>City Average: 50%</small>
-								</div>			    			
-				    			<div class="rank">
-				    				<p>◼︎◼︎◻︎◻︎</p>
-				    			</div>
-				    			<a href="survey-detail.html"><div class="detalle">Detalle ▸</div></a>
-			    			</div>
-			    		</div>	
-			    	</div>
-			    </div>
-			  </dd>			  
-			</dl>
-		</div> -->
-
-
-
 
 
 	</div>	

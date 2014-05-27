@@ -14,14 +14,73 @@
     
     <section class="main-section">
 
-  	
-    
-    <div class="{{ 'es' | filtraAdmissions}}"> <!--ES ADMISSION-->
 
+    <div class="{{ 'nd' | filtraAdmissions}}"> <!--ES ADMISSION-->
 
 	<div class="row menu-header">	
 		<div class="small-6 small-centered medium-6 large-6 columns">
-			<h3 class="text-center">Elementary Admissions</h3>
+			<h3 class="text-center">Admissions</h3>
+		</div>	
+	</div>	
+
+		<div  class="no-data">NO DATA AVAILABLE</div>
+
+
+	</div>  
+
+
+<div class="{{ 'selectShoolEM' | filtraAdmissions}}"> <!--ES ADMISSION-->
+	<div class="row menu-header">	
+		<div class="small-10 small-centered medium-6 large-6 columns"><h3 class="text-center">Select Admissions</h3></div>	
+		<div class="small-10 small-centered medium-10 large-10 columns">		
+            <div class="row">
+                <div class="small-10 small-centered medium-6 large-6 columns">
+                    <div ng-controller="SelectAdmission" class="text-center">
+                      <a dropdown-toggle="#dropdown_select_admission" class="button dropdown small bg-dropdown" style="width:200px">Select Admission</a>
+                      <ul id="dropdown_select_admission" class="f-dropdown" style="width:300px">
+                        <li ng-repeat="item_select_admiss in itemsAdmission">
+                          <a ng-click="changeadmission(item_select_admiss.indice)">{{item_select_admiss.texto}}</a>
+                        </li>
+                      </ul>
+                      <br>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>  
+
+
+<div class="{{ 'selectShoolMH' | filtraAdmissions}}"> <!--ES ADMISSION-->
+	<div class="row menu-header">	
+		<div class="small-10 small-centered medium-6 large-6 columns"><h3 class="text-center">Select Admissions</h3></div>	
+		<div class="small-10 small-centered medium-10 large-10 columns">		
+            <div class="row">
+                <div class="small-10 small-centered medium-6 large-6 columns">
+                    <div ng-controller="SelectAdmission_mh" class="text-center">
+                      <a dropdown-toggle="#dropdown_select_admission_mh" class="button dropdown small bg-dropdown" style="width:200px">Select Admission</a>
+                      <ul id="dropdown_select_admission_mh" class="f-dropdown" style="width:300px">
+                        <li ng-repeat="item_select_admiss in itemsAdmission_mh">
+                          <a ng-click="changeadmission_mh(item_select_admiss.indice)">{{item_select_admiss.texto}}</a>
+                        </li>
+                      </ul>
+                      <br>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>  
+
+<div class="{{ 'all' | filtraAdmissions}} {{filtroAllS}}">
+
+    
+    <div class="{{ 'es' | filtraAdmissions}} {{filtroElementaryS}}"> <!--ES ADMISSION-->
+
+
+	<div class="row menu-header">	
+		<div class="small-10 small-centered medium-6 large-6 columns">
+			<h3 class="text-center">Elementary School Admissions</h3>
 		</div>	
 	</div>	
 
@@ -273,23 +332,23 @@
 			</div> <!-- FIN ES-->
 
 
-     <div class="{{ 'ms' | filtraAdmissions}}"> <!--MS ADMISSION-->
+     <div class="{{ 'ms' | filtraAdmissions}} {{filtroMiddleS}}"> <!--MS ADMISSION-->
 
 
 
 	<div class="row menu-header">	
-		<div class="small-6 small-centered medium-6 large-6 columns">
-			<h3 class="text-center">Middle Admissions</h3>
+		<div class="small-10 small-centered medium-6 large-6 columns">
+			<h3 class="text-center">Middle School Admissions</h3>
 		</div>	
-		<div class="small-9 small-centered medium-10 large-10 columns">		
+		<div class="small-10 small-centered medium-10 large-10 columns">		
 
 
             <div class="row">
 
-                <div class="small-6 small-centered medium-6 large-6 columns">
-                    <div ng-controller="AdmissionsMSctrl" class="text-center">
-                      <a dropdown-toggle="#dropdown-year_admissions_ms" class="button dropdown small bg-dropdown">{{progSelected}}</a>
-                      <ul id="dropdown-year_admissions_ms" class="f-dropdown" style="width:100px">
+                <div class="small-10 small-centered medium-6 large-6 columns">
+                    <div ng-controller="AdmissionsMSctrl" class="text-center" >
+                      <a style="width:200px !important" dropdown-toggle="#dropdown-year_admissions_ms" class="button dropdown small bg-dropdown">{{progSelected}}</a>
+                      <ul id="dropdown-year_admissions_ms" class="f-dropdown" style="width:200px">
                         <li ng-repeat="itemy in itemsaddMS">
                           <a ng-click="changeprog(itemy.indice)">{{itemy.texto}}</a>
                         </li>
@@ -403,21 +462,21 @@
 
 
 
-     <div class="{{ 'hs' | filtraAdmissions}}"> <!--HS ADMISSION-->
+     <div class="{{ 'hs' | filtraAdmissions}} {{filtroHighS}}"> <!--HS ADMISSION-->
 
 
 	<div class="row menu-header">	
-		<div class="small-6 small-centered medium-6 large-6 columns">
+		<div class="small-10 small-centered medium-6 large-6 columns">
 			<h3 class="text-center">High School Admissions</h3>
 		</div>	
-		<div class="small-9 small-centered medium-10 large-10 columns">		
+		<div class="small-10 small-centered medium-10 large-10 columns">		
 
 
             <div class="row">
 
-                <div class="small-6 small-centered medium-6 large-6 columns">
+                <div class="small-10 small-centered medium-6 large-6 columns">
                     <div ng-controller="AdmissionsHSctrl" class="text-center">
-                      <a dropdown-toggle="#dropdown_admissions_hs" class="button dropdown small bg-dropdown">{{progSelected_hs}}</a>
+                      <a dropdown-toggle="#dropdown_admissions_hs" class="button dropdown small bg-dropdown" style="width:200px">{{progSelected_hs}}</a>
                       <ul id="dropdown_admissions_hs" class="f-dropdown" style="width:300px">
                         <li ng-repeat="item_hs in itemsaddHS">
                           <a ng-click="changeprog_hs(item_hs.indice)">{{item_hs.texto}}</a>
@@ -476,7 +535,7 @@
 					</div>
 				</div>
 			</div>					
-			<div class="row profile_item">
+			<div class="row profile_item    {{hs_admissions.program_description | filtraCeros}}">
 				<div class="small-5 columns">
 					<div class="profile_label">
 						<span>Description</span>
@@ -540,19 +599,8 @@
 
 			</div> <!-- FIN HS-->			
 
-    <div class="{{ 'nd' | filtraAdmissions}}"> <!--ES ADMISSION-->
 
-	<div class="row menu-header">	
-		<div class="small-6 small-centered medium-6 large-6 columns">
-			<h3 class="text-center">Admissions</h3>
-		</div>	
-	</div>	
-
-		<div  class="no-data">NO DATA</div>
-
-
-	</div>  
-			
+</div> <!-- FIN ALL -->			
     </section>
 
   <a class="exit-off-canvas"></a>

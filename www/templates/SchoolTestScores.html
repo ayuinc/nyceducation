@@ -19,6 +19,27 @@
 	
 	<div class="row">
 
+<div class="{{ 'selectTestScore' | filtraTestScore}}"> <!--ES ADMISSION-->
+    <div class="row menu-header">   
+        <div class="small-10 small-centered medium-6 large-6 columns"><h3 class="text-center">Select Admissions</h3></div>  
+        <div class="small-10 small-centered medium-10 large-10 columns">        
+            <div class="row">
+                <div class="small-10 small-centered medium-6 large-6 columns">
+                    <div ng-controller="SelectTestScores" class="text-center">
+                      <a dropdown-toggle="#dropdown_select_testScore" class="button dropdown small bg-dropdown" style="width:200px">Select Admission</a>
+                      <ul id="dropdown_select_testScore" class="f-dropdown" style="width:300px">
+                        <li ng-repeat="item_select_TS in items_selec_testScore">
+                          <a ng-click="change_selec_testScore(item_select_TS.indice)">{{item_select_TS.texto}}</a>
+                        </li>
+                      </ul>
+                      <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+
 
     <div class="{{ 'nd' | filtraTestScore}}"> <!--ES ADMISSION-->
 
@@ -28,14 +49,14 @@
         </div>  
     </div>  
 
-            <div class="no-data">NO DATA</div>
+            <div class="no-data">NO DATA AVAILABLE</div>
     </div>  
 
-
-<div  class="{{ 'elementary' | filtraTestScore }}">   
+<div class=" {{ 'all' | filtraTestScore }} {{filtroTSAllS}}">
+<div  class="{{ 'elementary' | filtraTestScore }}  {{filtroTSelement}}">   
     <div class="row menu-header">   
         <div class="small-6 small-centered medium-6 large-6 columns">
-            <h3 class="text-center">Elementary Test Scores</h3>
+            <h3 class="text-center">k - 8 Test Scores</h3>
         </div>  
         <div class="small-10 small-centered medium-10 large-10 columns">        
             <div class="row {{ 'elementary' | filtraTestScore }}">
@@ -100,7 +121,7 @@
 
                 <div class="metrics {{city_average.3rdGradePercentscoringlevel1ELA | filtraCeros}}">
                     <div class="average" style="width:{{city_average.3rdGradePercentscoringlevel1ELA}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.3rdGradePercentscoringlevel1ELA}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.3rdGradePercentscoringlevel1ELA | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                     <p><img ng-src="img/{{ proficiency_ratings.3rd_pr_s_level1_ela_pr | filtraRank }}.png" ></p>
@@ -115,7 +136,7 @@
                 </div>
                 <div class="metrics {{city_average.3rdGradePercentscoringlevel2ELA | filtraCeros}}">
                     <div class="average" style="width:{{city_average.3rdGradePercentscoringlevel2ELA}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.3rdGradePercentscoringlevel2ELA}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.3rdGradePercentscoringlevel2ELA | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.3rd_pr_s_level2_ela_pr | filtraRank }}.png" ></p>
@@ -132,7 +153,7 @@
 
                 <div class="metrics {{city_average.3rdGradePercentscoringlevel3ELA | filtraCeros}}">
                     <div class="average" style="width:{{city_average.3rdGradePercentscoringlevel3ELA}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.3rdGradePercentscoringlevel3ELA}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.3rdGradePercentscoringlevel3ELA | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.3rd_pr_s_level3_ela_pr | filtraRank }}.png" ></p>
@@ -148,7 +169,7 @@
 
                 <div class="metrics {{city_average.3rdGradePercentscoringlevel4ELA | filtraCeros}}">
                     <div class="average" style="width:{{city_average.3rdGradePercentscoringlevel4ELA}}%;">
-                        <p style="padding-left:25px; min-with:200px">City Average: {{city_average.3rdGradePercentscoringlevel4ELA}}%</p>
+                        <p style="padding-left:25px; min-with:200px">City Average: {{city_average.3rdGradePercentscoringlevel4ELA | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.3rd_pr_s_level4_ela_pr | filtraRank }}.png" ></p>
@@ -168,7 +189,7 @@
 
                 <div class="metrics {{city_average.4thGradePercentscoringlevel1ELA | filtraCeros}}">
                     <div class="average" style="width:{{city_average.4thGradePercentscoringlevel1ELA}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.4thGradePercentscoringlevel1ELA}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.4thGradePercentscoringlevel1ELA | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.4rd_pr_s_level1_ela_pr | filtraRank }}.png" ></p>
@@ -184,7 +205,7 @@
 
                 <div class="metrics {{city_average.4thGradePercentscoringlevel2ELA | filtraCeros}}">
                     <div class="average" style="width:{{city_average.4thGradePercentscoringlevel2ELA}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.4thGradePercentscoringlevel2ELA}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.4thGradePercentscoringlevel2ELA | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.4rd_pr_s_level2_ela_pr | filtraRank }}.png" ></p>
@@ -200,7 +221,7 @@
 
                 <div class="metrics {{city_average.4thGradePercentscoringlevel3ELA | filtraCeros}}">
                     <div class="average" style="width:{{city_average.4thGradePercentscoringlevel3ELA}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.4thGradePercentscoringlevel3ELA}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.4thGradePercentscoringlevel3ELA | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.4rd_pr_s_level3_ela_pr | filtraRank }}.png" ></p>
@@ -216,7 +237,7 @@
 
                 <div class="metrics {{city_average.4thGradePercentscoringlevel4ELA | filtraCeros}}">
                     <div class="average" style="width:{{city_average.4thGradePercentscoringlevel4ELA}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.4thGradePercentscoringlevel4ELA}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.4thGradePercentscoringlevel4ELA | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.4rd_pr_s_level4_ela_pr | filtraRank }}.png" ></p>
@@ -235,7 +256,7 @@
 
                 <div class="metrics {{city_average.5thGradePercentscoringlevel1ELA | filtraCeros}}">
                     <div class="average" style="width:{{city_average.5thGradePercentscoringlevel1ELA}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.5thGradePercentscoringlevel1ELA}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.5thGradePercentscoringlevel1ELA | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.5rd_pr_s_level1_ela_pr | filtraRank }}.png" ></p>
@@ -251,7 +272,7 @@
 
                 <div class="metrics {{city_average.5thGradePercentscoringlevel2ELA | filtraCeros}}">
                     <div class="average" style="width:{{city_average.5thGradePercentscoringlevel2ELA}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.5thGradePercentscoringlevel2ELA}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.5thGradePercentscoringlevel2ELA | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.5rd_pr_s_level2_ela_pr | filtraRank }}.png" ></p>
@@ -267,7 +288,7 @@
 
                 <div class="metrics {{city_average.5thGradePercentscoringlevel3ELA | filtraCeros}}">
                     <div class="average" style="width:{{city_average.5thGradePercentscoringlevel3ELA}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.5thGradePercentscoringlevel3ELA}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.5thGradePercentscoringlevel3ELA | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.5rd_pr_s_level3_ela_pr | filtraRank }}.png" ></p>
@@ -283,7 +304,7 @@
 
                 <div class="metrics {{city_average.5thGradePercentscoringlevel4ELA | filtraCeros}}">
                     <div class="average" style="width:{{city_average.5thGradePercentscoringlevel4ELA}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.5thGradePercentscoringlevel4ELA}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.5thGradePercentscoringlevel4ELA | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.5rd_pr_s_level4_ela_pr | filtraRank }}.png" ></p>
@@ -302,7 +323,7 @@
 
                 <div class="metrics {{city_average.6thGradePercentscoringlevel1ELA | filtraCeros}}">
                     <div class="average" style="width:{{city_average.6thGradePercentscoringlevel1ELA}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.6thGradePercentscoringlevel1ELA}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.6thGradePercentscoringlevel1ELA | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.6rd_pr_s_level1_ela_pr | filtraRank }}.png" ></p>
@@ -318,7 +339,7 @@
 
                 <div class="metrics {{city_average.6thGradePercentscoringlevel2ELA | filtraCeros}}">
                     <div class="average" style="width:{{city_average.6thGradePercentscoringlevel2ELA}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.6thGradePercentscoringlevel2ELA}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.6thGradePercentscoringlevel2ELA | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.6rd_pr_s_level2_ela_pr | filtraRank }}.png" ></p>
@@ -334,7 +355,7 @@
 
                 <div class="metrics {{city_average.6thGradePercentscoringlevel3ELA | filtraCeros}}">
                     <div class="average" style="width:{{city_average.6thGradePercentscoringlevel3ELA}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.6thGradePercentscoringlevel3ELA}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.6thGradePercentscoringlevel3ELA | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.6rd_pr_s_level3_ela_pr | filtraRank }}.png" ></p>
@@ -350,7 +371,7 @@
 
                 <div class="metrics {{city_average.6thGradePercentscoringlevel4ELA | filtraCeros}}">
                     <div class="average" style="width:{{city_average.6thGradePercentscoringlevel4ELA}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.6thGradePercentscoringlevel4ELA}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.6thGradePercentscoringlevel4ELA | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.6rd_pr_s_level4_ela_pr | filtraRank }}.png" ></p>
@@ -369,7 +390,7 @@
 
                 <div class="metrics {{city_average.7thGradePercentscoringlevel1ELA | filtraCeros}}">
                     <div class="average" style="width:{{city_average.7thGradePercentscoringlevel1ELA}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.7thGradePercentscoringlevel1ELA}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.7thGradePercentscoringlevel1ELA | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.7rd_pr_s_level1_ela_pr | filtraRank }}.png" ></p>
@@ -385,7 +406,7 @@
 
                 <div class="metrics {{city_average.7thGradePercentscoringlevel2ELA | filtraCeros}}">
                     <div class="average" style="width:{{city_average.7thGradePercentscoringlevel2ELA}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.7thGradePercentscoringlevel2ELA}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.7thGradePercentscoringlevel2ELA | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.7rd_pr_s_level2_ela_pr | filtraRank }}.png" ></p>
@@ -401,7 +422,7 @@
 
                 <div class="metrics {{city_average.7thGradePercentscoringlevel3ELA | filtraCeros}}">
                     <div class="average" style="width:{{city_average.7thGradePercentscoringlevel3ELA}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.7thGradePercentscoringlevel3ELA}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.7thGradePercentscoringlevel3ELA | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.7rd_pr_s_level3_ela_pr | filtraRank }}.png" ></p>
@@ -417,7 +438,7 @@
 
                 <div class="metrics {{city_average.7thGradePercentscoringlevel4ELA | filtraCeros}}">
                     <div class="average" style="width:{{city_average.7thGradePercentscoringlevel4ELA}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.7thGradePercentscoringlevel4ELA}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.7thGradePercentscoringlevel4ELA | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.7rd_pr_s_level4_ela_pr | filtraRank }}.png" ></p>
@@ -436,7 +457,7 @@
 
                 <div class="metrics {{city_average.8thGradePercentscoringlevel1ELA | filtraCeros}}">
                     <div class="average" style="width:{{city_average.8thGradePercentscoringlevel1ELA}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.8thGradePercentscoringlevel1ELA}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.8thGradePercentscoringlevel1ELA | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.8rd_pr_s_level1_ela_pr | filtraRank }}.png" ></p>
@@ -452,7 +473,7 @@
 
                 <div class="metrics {{city_average.8thGradePercentscoringlevel2ELA | filtraCeros}}">
                     <div class="average" style="width:{{city_average.8thGradePercentscoringlevel2ELA}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.8thGradePercentscoringlevel2ELA}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.8thGradePercentscoringlevel2ELA | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.8rd_pr_s_level2_ela_pr | filtraRank }}.png" ></p>
@@ -468,7 +489,7 @@
 
                 <div class="metrics {{city_average.8thGradePercentscoringlevel3ELA | filtraCeros}}">
                     <div class="average" style="width:{{city_average.8thGradePercentscoringlevel3ELA}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.8thGradePercentscoringlevel3ELA}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.8thGradePercentscoringlevel3ELA | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.8rd_pr_s_level3_ela_pr | filtraRank }}.png" ></p>
@@ -484,7 +505,7 @@
 
                 <div class="metrics {{city_average.8thGradePercentscoringlevel4ELA | filtraCeros}}">
                     <div class="average" style="width:{{city_average.8thGradePercentscoringlevel4ELA}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.8thGradePercentscoringlevel4ELA}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.8thGradePercentscoringlevel4ELA | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.8rd_pr_s_level4_ela_pr | filtraRank }}.png" ></p>
@@ -520,7 +541,7 @@
 
                 <div class="metrics {{city_average.3rdGradePercentscoringlevel1Math | filtraCeros}}">
                     <div class="average" style="width:{{city_average.3rdGradePercentscoringlevel1Math}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.3rdGradePercentscoringlevel1Math}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.3rdGradePercentscoringlevel1Math | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.3rd_pr_s_level1_math_pr | filtraRank }}.png" ></p>
@@ -536,7 +557,7 @@
 
                 <div class="metrics {{city_average.3rdGradePercentscoringlevel2Math | filtraCeros}}">
                     <div class="average" style="width:{{city_average.3rdGradePercentscoringlevel2Math}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.3rdGradePercentscoringlevel2Math}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.3rdGradePercentscoringlevel2Math | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.3rd_pr_s_level2_math_pr | filtraRank }}.png" ></p>
@@ -552,7 +573,7 @@
 
                 <div class="metrics {{city_average.3rdGradePercentscoringlevel3Math | filtraCeros}}">
                     <div class="average" style="width:{{city_average.3rdGradePercentscoringlevel3Math}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.3rdGradePercentscoringlevel3Math}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.3rdGradePercentscoringlevel3Math | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.3rd_pr_s_level3_math_pr | filtraRank }}.png" ></p>
@@ -568,7 +589,7 @@
 
                 <div class="metrics {{city_average.3rdGradePercentscoringlevel4Math | filtraCeros}}">
                     <div class="average" style="width:{{city_average.3rdGradePercentscoringlevel4Math}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.3rdGradePercentscoringlevel4Math}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.3rdGradePercentscoringlevel4Math | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.3rd_pr_s_level4_math_pr | filtraRank }}.png" ></p>
@@ -587,7 +608,7 @@
 
                 <div class="metrics {{city_average.4thGradePercentscoringlevel1Math | filtraCeros}}">
                     <div class="average" style="width:{{city_average.4thGradePercentscoringlevel1Math}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.4thGradePercentscoringlevel1Math}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.4thGradePercentscoringlevel1Math | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.4rd_pr_s_level1_math_pr | filtraRank }}.png" ></p>
@@ -603,7 +624,7 @@
 
                 <div class="metrics {{city_average.4thGradePercentscoringlevel2Math | filtraCeros}}">
                     <div class="average" style="width:{{city_average.4thGradePercentscoringlevel2Math}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.4thGradePercentscoringlevel2Math}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.4thGradePercentscoringlevel2Math | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.4rd_pr_s_level2_math_pr | filtraRank }}.png" ></p>
@@ -619,7 +640,7 @@
 
                 <div class="metrics {{city_average.4thGradePercentscoringlevel3Math | filtraCeros}}">
                     <div class="average" style="width:{{city_average.4thGradePercentscoringlevel3Math}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.4thGradePercentscoringlevel3Math}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.4thGradePercentscoringlevel3Math | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.4rd_pr_s_level3_math_pr | filtraRank }}.png" ></p>
@@ -636,7 +657,7 @@
 
                 <div class="metrics {{city_average.4thGradePercentscoringlevel4Math | filtraCeros}}">
                     <div class="average" style="width:{{city_average.4thGradePercentscoringlevel4Math}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.4thGradePercentscoringlevel4Math}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.4thGradePercentscoringlevel4Math | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.4rd_pr_s_level4_math_pr | filtraRank }}.png" ></p>
@@ -655,7 +676,7 @@
 
                 <div class="metrics {{city_average.5thGradePercentscoringlevel1Math | filtraCeros}}">
                     <div class="average" style="width:{{city_average.5thGradePercentscoringlevel1Math}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.5thGradePercentscoringlevel1Math}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.5thGradePercentscoringlevel1Math | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.5rd_pr_s_level1_math_pr | filtraRank }}.png" ></p>
@@ -671,7 +692,7 @@
 
                 <div class="metrics {{city_average.5thGradePercentscoringlevel2Math | filtraCeros}}">
                     <div class="average" style="width:{{city_average.5thGradePercentscoringlevel2Math}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.5thGradePercentscoringlevel2Math}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.5thGradePercentscoringlevel2Math | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.5rd_pr_s_level2_math_pr | filtraRank }}.png" ></p>
@@ -688,7 +709,7 @@
 
                 <div class="metrics {{city_average.5thGradePercentscoringlevel3Math | filtraCeros}}">
                     <div class="average" style="width:{{city_average.5thGradePercentscoringlevel3Math}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.5thGradePercentscoringlevel3Math}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.5thGradePercentscoringlevel3Math | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.5rd_pr_s_level3_math_pr | filtraRank }}.png" ></p>
@@ -705,7 +726,7 @@
 
                 <div class="metrics {{city_average.5thGradePercentscoringlevel4Math | filtraCeros}}">
                     <div class="average" style="width:{{city_average.5thGradePercentscoringlevel4Math}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.5thGradePercentscoringlevel4Math}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.5thGradePercentscoringlevel4Math | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.5rd_pr_s_level4_math_pr | filtraRank }}.png" ></p>
@@ -724,7 +745,7 @@
 
                 <div class="metrics {{city_average.6thGradePercentscoringlevel1Math | filtraCeros}}">
                     <div class="average" style="width:{{city_average.6thGradePercentscoringlevel1Math}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.6thGradePercentscoringlevel1Math}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.6thGradePercentscoringlevel1Math | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.6rd_pr_s_level1_math_pr | filtraRank }}.png" ></p>
@@ -741,7 +762,7 @@
 
                 <div class="metrics {{city_average.6thGradePercentscoringlevel2Math | filtraCeros}}">
                     <div class="average" style="width:{{city_average.6thGradePercentscoringlevel2Math}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.6thGradePercentscoringlevel2Math}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.6thGradePercentscoringlevel2Math | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.6rd_pr_s_level2_math_pr | filtraRank }}.png" ></p>
@@ -757,7 +778,7 @@
 
                 <div class="metrics {{city_average.6thGradePercentscoringlevel3Math | filtraCeros}}">
                     <div class="average" style="width:{{city_average.6thGradePercentscoringlevel3Math}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.6thGradePercentscoringlevel3Math}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.6thGradePercentscoringlevel3Math | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.6rd_pr_s_level3_math_pr | filtraRank }}.png" ></p>
@@ -773,7 +794,7 @@
 
                 <div class="metrics {{city_average.6thGradePercentscoringlevel4Math | filtraCeros}}">
                     <div class="average" style="width:{{city_average.6thGradePercentscoringlevel4Math}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.6thGradePercentscoringlevel4Math}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.6thGradePercentscoringlevel4Math | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.6rd_pr_s_level4_math_pr | filtraRank }}.png" ></p>
@@ -792,7 +813,7 @@
 
                 <div class="metrics {{city_average.7thGradePercentscoringlevel1Math | filtraCeros}}">
                     <div class="average" style="width:{{city_average.7thGradePercentscoringlevel1Math}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.7thGradePercentscoringlevel1Math}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.7thGradePercentscoringlevel1Math | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.7rd_pr_s_level1_math_pr | filtraRank }}.png" ></p>
@@ -808,7 +829,7 @@
 
                 <div class="metrics {{city_average.7thGradePercentscoringlevel2Math | filtraCeros}}">
                     <div class="average" style="width:{{city_average.7thGradePercentscoringlevel2Math}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.7thGradePercentscoringlevel2Math}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.7thGradePercentscoringlevel2Math | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.7rd_pr_s_level2_math_pr | filtraRank }}.png" ></p>
@@ -824,7 +845,7 @@
 
                 <div class="metrics {{city_average.7thGradePercentscoringlevel3Math | filtraCeros}}">
                     <div class="average" style="width:{{city_average.7thGradePercentscoringlevel3Math}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.7thGradePercentscoringlevel3Math}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.7thGradePercentscoringlevel3Math | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.7rd_pr_s_level3_math_pr | filtraRank }}.png" ></p>
@@ -840,7 +861,7 @@
 
                 <div class="metrics {{city_average.7thGradePercentscoringlevel4Math | filtraCeros}}">
                     <div class="average" style="width:{{city_average.7thGradePercentscoringlevel4Math}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.7thGradePercentscoringlevel4Math}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.7thGradePercentscoringlevel4Math | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.7rd_pr_s_level4_math_pr | filtraRank }}.png" ></p>
@@ -859,7 +880,7 @@
 
                 <div class="metrics {{city_average.8thGradePercentscoringlevel1Math | filtraCeros}}">
                     <div class="average" style="width:{{city_average.8thGradePercentscoringlevel1Math}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.8thGradePercentscoringlevel1Math}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.8thGradePercentscoringlevel1Math | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.8rd_pr_s_level1_math_pr | filtraRank }}.png" ></p>
@@ -875,7 +896,7 @@
 
                 <div class="metrics {{city_average.8thGradePercentscoringlevel2Math | filtraCeros}}">
                     <div class="average" style="width:{{city_average.8thGradePercentscoringlevel2Math}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.8thGradePercentscoringlevel2Math}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.8thGradePercentscoringlevel2Math | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.8rd_pr_s_level2_math_pr | filtraRank }}.png" ></p>
@@ -891,7 +912,7 @@
 
                 <div class="metrics {{city_average.8thGradePercentscoringlevel3Math | filtraCeros}}">
                     <div class="average" style="width:{{city_average.8thGradePercentscoringlevel3Math}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.8thGradePercentscoringlevel3Math}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.8thGradePercentscoringlevel3Math | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.8rd_pr_s_level3_math_pr | filtraRank }}.png" ></p>
@@ -907,7 +928,7 @@
 
                 <div class="metrics {{city_average.8thGradePercentscoringlevel4Math | filtraCeros}}">
                     <div class="average" style="width:{{city_average.8thGradePercentscoringlevel4Math}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.8thGradePercentscoringlevel4Math}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.8thGradePercentscoringlevel4Math | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.8rd_pr_s_level4_math_pr | filtraRank }}.png" ></p>
@@ -936,7 +957,7 @@
     			</div>
 		<div class="metrics {{city_average.AverageProficiencyRatingOverallELA | filtraCeros}}">
 			<div class="average" style="width:{{city_average.AverageProficiencyRatingOverallELA}}%;">
-				<p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallELA}}%</p>
+				<p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallELA | number:1}}%</p>
 			</div>			    			
 			<div class="rank">
 				<p><img ng-src="img/{{ proficiency_ratings.av_proficiency_rating_ela_pr | filtraRank }}.png" ></p>
@@ -971,7 +992,7 @@
     			</div>
    		<div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
 			<div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
-				<p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath}}%</p>
+				<p style="padding-left:25px">City Average: {{city_average.AverageProficiencyRatingOverallMath | number:1}}%</p>
 			</div>			    			
 			<div class="rank">
 				<p><img ng-src="img/{{ proficiency_ratings.av_proficiency_rating_math_pr | filtraRank }}.png" ></p>
@@ -991,11 +1012,11 @@
 </div> <!-- FIN ACORDION ELEMENTARY -->
 </div> 
 
-<div class="{{ 'high' | filtraTestScore }}">
+<div class="{{ 'high' | filtraTestScore }}  {{filtroTShigh}}">
 
         <div class="row menu-header">   
         <div class="small-6 small-centered medium-6 large-6 columns">
-            <h3 class="text-center">High Test Scores</h3>
+            <h3 class="text-center">9 - 12 Test Scores</h3>
         </div>  
         <div class="small-10 small-centered medium-10 large-10 columns">        
 
@@ -1054,7 +1075,7 @@
 
 		   		<div class="metrics {{city_average.SAT_AverageTotalScore | filtraCeros}}">
 					<div class="average" style="width:{{city_average.SAT_AverageTotalScore}}%;">
-						<p style="padding-left:25px">City Average: {{city_average.SAT_AverageTotalScore}}</p>
+						<p style="padding-left:25px">City Average: {{city_average.SAT_AverageTotalScore | number:1}}</p>
 					</div>			    			
 					<div class="rank">
 						<p><img ng-src="img/{{ proficiency_ratings.sat_a_total_s_pr | filtraRank }}.png" ></p>
@@ -1072,7 +1093,7 @@
 
 		   		<div class="metrics {{city_average.SAT_AverageCRScore | filtraCeros}}">
 					<div class="average" style="width:{{city_average.SAT_AverageCRScore}}%;">
-						<p style="padding-left:25px">City Average: {{city_average.SAT_AverageCRScore}}</p>
+						<p style="padding-left:25px">City Average: {{city_average.SAT_AverageCRScore | number:1}}</p>
 					</div>			    			
 					<div class="rank">
 						<p><img ng-src="img/{{ proficiency_ratings.sat_a_cr_s_pr | filtraRank }}.png" ></p>
@@ -1090,7 +1111,7 @@
 
 		   		<div class="metrics {{city_average.SAT_AverageMathScore | filtraCeros}}">
 					<div class="average" style="width:{{city_average.SAT_AverageMathScore}}%;">
-						<p style="padding-left:25px">City Average: {{city_average.SAT_AverageMathScore}}</p>
+						<p style="padding-left:25px">City Average: {{city_average.SAT_AverageMathScore | number:1}}</p>
 					</div>			    			
 					<div class="rank">
 						<p><img ng-src="img/{{ proficiency_ratings.sat_a_math_s_pr | filtraRank }}.png" ></p>
@@ -1108,7 +1129,7 @@
 
 		   		<div class="metrics {{city_average.SAT_AverageWritingScore | filtraCeros}}">
 					<div class="average" style="width:{{city_average.SAT_AverageWritingScore}}%;">
-						<p style="padding-left:25px">City Average: {{city_average.SAT_AverageWritingScore}}</p>
+						<p style="padding-left:25px">City Average: {{city_average.SAT_AverageWritingScore | number:1}}</p>
 					</div>			    			
 					<div class="rank">
 						<p><img ng-src="img/{{ proficiency_ratings.sat_a_writing_s_pr | filtraRank }}.png" ></p>
@@ -1120,8 +1141,6 @@
 
     	</div>
     </accordion-group>
-
-
     
      <accordion-group is-open="true">
 
@@ -1143,7 +1162,7 @@
 
                 <div class="metrics {{city_average.Average_Regents_Pass_Rate_for_English | filtraCeros}}">
                     <div class="average" style="width:{{city_average.Average_Regents_Pass_Rate_for_English}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.Average_Regents_Pass_Rate_for_English}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.Average_Regents_Pass_Rate_for_English | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.pp_r_english_pr | filtraRank }}.png" ></p>
@@ -1160,7 +1179,7 @@
 
                 <div class="metrics {{city_average.Average_Regents_Pass_Rate_for_US_History | filtraCeros}}">
                     <div class="average" style="width:{{city_average.Average_Regents_Pass_Rate_for_US_History}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.Average_Regents_Pass_Rate_for_US_History}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.Average_Regents_Pass_Rate_for_US_History | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.pp_r_us_history_pr | filtraRank }}.png" ></p>
@@ -1177,7 +1196,7 @@
 
                 <div class="metrics {{city_average.Average_Regents_Pass_Rate_for_Global_History | filtraCeros}}">
                     <div class="average" style="width:{{city_average.Average_Regents_Pass_Rate_for_Global_History}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.Average_Regents_Pass_Rate_for_Global_History}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.Average_Regents_Pass_Rate_for_Global_History | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.pp_r_global_history_pr | filtraRank }}.png" ></p>
@@ -1194,7 +1213,7 @@
 
                 <div class="metrics {{city_average.Average_Regents_Pass_Rate_for_Living_Environment | filtraCeros}}">
                     <div class="average" style="width:{{city_average.Average_Regents_Pass_Rate_for_Living_Environment}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.Average_Regents_Pass_Rate_for_Living_Environment}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.Average_Regents_Pass_Rate_for_Living_Environment | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.pp_r_living_environment_pr | filtraRank }}.png" ></p>
@@ -1211,7 +1230,7 @@
 
                 <div class="metrics {{city_average.Average_Regents_Pass_Rate_for_Earth_Science | filtraCeros}}">
                     <div class="average" style="width:{{city_average.Average_Regents_Pass_Rate_for_Earth_Science}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.Average_Regents_Pass_Rate_for_Earth_Science}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.Average_Regents_Pass_Rate_for_Earth_Science | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.pp_r_earth_science_pr | filtraRank }}.png" ></p>
@@ -1228,7 +1247,7 @@
 
                 <div class="metrics {{city_average.Average_Regents_Pass_Rate_for_Chemistry | filtraCeros}}">
                     <div class="average" style="width:{{city_average.Average_Regents_Pass_Rate_for_Chemistry}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.Average_Regents_Pass_Rate_for_Chemistry}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.Average_Regents_Pass_Rate_for_Chemistry | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.pp_r_chemistry_pr | filtraRank }}.png" ></p>
@@ -1245,7 +1264,7 @@
 
                 <div class="metrics {{city_average.Average_Regents_Pass_Rate_for_Physics | filtraCeros}}">
                     <div class="average" style="width:{{city_average.Average_Regents_Pass_Rate_for_Physics}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.Average_Regents_Pass_Rate_for_Physics}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.Average_Regents_Pass_Rate_for_Physics | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.pp_r_physics_pr | filtraRank }}.png" ></p>
@@ -1262,7 +1281,7 @@
 
                 <div class="metrics {{city_average.Average_Regents_Pass_Rate_for_Integrated_Algebra | filtraCeros}}">
                     <div class="average" style="width:{{city_average.Average_Regents_Pass_Rate_for_Integrated_Algebra}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.Average_Regents_Pass_Rate_for_Integrated_Algebra}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.Average_Regents_Pass_Rate_for_Integrated_Algebra | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.pp_r_integrated_algebra_pr | filtraRank }}.png" ></p>
@@ -1279,7 +1298,7 @@
 
                 <div class="metrics {{city_average.Average_Regents_Pass_Rate_for_Geometry | filtraCeros}}">
                     <div class="average" style="width:{{city_average.Average_Regents_Pass_Rate_for_Geometry}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.Average_Regents_Pass_Rate_for_Geometry}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.Average_Regents_Pass_Rate_for_Geometry | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.pp_r_geometry_pr | filtraRank }}.png" ></p>
@@ -1297,7 +1316,7 @@
 
                 <div class="metrics {{city_average.Average_Regents_Pass_Rate_for_Algebra_ii | filtraCeros}}">
                     <div class="average" style="width:{{city_average.Average_Regents_Pass_Rate_for_Algebra_ii}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.Average_Regents_Pass_Rate_for_Algebra_ii}}%</p>
+                        <p style="padding-left:25px">City Average: {{city_average.Average_Regents_Pass_Rate_for_Algebra_ii | number:1}}%</p>
                     </div>                          
                     <div class="rank">
                         <p><img ng-src="img/{{ proficiency_ratings.pp_r_algebraii_pr | filtraRank }}.png" ></p>
@@ -1589,265 +1608,7 @@
 
 </div> <!-- row -->
 
-	<!--
-	<div class="row">
-		<div class="small-12 medium-12 large-12 columns">	
-			<dl class="accordion" data-accordion>
-			  <dd>
-			    <a href="#panel1">SAT <img src="img/arrow-down.png" class="right"></a>
-			    <div id="panel1" class="content active">
-			    	<div class="row">
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-			    			<div class="porcentaje" style="width:60%;">
-			    				<p>60%</p>
-			    				<itemsurvey><span>Overall</span></itemsurvey>
-			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50;">
-				    				<small>Number of Students: 50</small>
-								</div>			    			
-			    			</div>
-			    		</div>
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-			    			<div class="porcentaje" style="width:34%;">
-			    				<p>34%</p>
-			    				<itemsurvey><span>Math</span></itemsurvey>
-			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50;">
-				    				<small>Number of Students: 50</small>
-								</div>			    			
-			    			</div>
-			    		</div>	
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-			    			<div class="porcentaje" style="width:70%;">
-			    				<p>70%</p>
-			    				<itemsurvey><span>Reading</span></itemsurvey>
-			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50;">
-				    				<small>Number of Students: 50</small>
-								</div>			    			
-			    			</div>
-			    		</div>		
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-			    			<div class="porcentaje" style="width:60%;">
-			    				<p>60%</p>
-			    				<itemsurvey><span>Critial Reasoning</span></itemsurvey>
-			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50;">
-				    				<small>Number of Students: 50</small>
-								</div>			    			
-			    			</div>
-			    		</div>			    			    				    		
-			    	</div>
-			    </div>
-			  </dd>
-			  <dd>
-			    <a href="#panel2">Regents Pass Rate <img src="img/arrow-down.png" class="right"></a>		    
-			    <div id="panel2" class="content">
-			    	<div class="row">
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-			    			<div class="porcentaje" style="width:60%;">
-			    				<p>60%</p>
-			    				<itemsurvey><span>English</span></itemsurvey>
-			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50%;">
-				    				<small>City Average: 50%</small>
-								</div>			    			
-				    			<div class="rank">
-				    				<p><img ng-src="img/{{ proficiency_ratings.4rd_pr_s_level4_ela_pr | filtraRank }}.png" ></p>
-				    			</div>
-			    			</div>
-			    		</div>
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-			    			<div class="porcentaje" style="width:34%;">
-			    				<p>34%</p>
-			    				<itemsurvey><span>US Hisotry</span></itemsurvey>
-			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50%;">
-				    				<small>City Average: 50%</small>
-								</div>			    			
-				    			<div class="rank">
-				    				<p><img ng-src="img/{{ proficiency_ratings.4rd_pr_s_level4_ela_pr | filtraRank }}.png" ></p>
-				    			</div>
-			    			</div>
-			    		</div>	
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-			    			<div class="porcentaje" style="width:70%;">
-			    				<p>70%</p>
-			    				<itemsurvey><span>Living Environment</span></itemsurvey>
-			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50%;">
-				    				<small>City Average: 50%</small>
-								</div>			    			
-				    			<div class="rank">
-				    				<p><img ng-src="img/{{ proficiency_ratings.4rd_pr_s_level4_ela_pr | filtraRank }}.png" ></p>
-				    			</div>
-			    			</div>
-			    		</div>		
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-			    			<div class="porcentaje" style="width:60%;">
-			    				<p>60%</p>
-			    				<itemsurvey><span>Earth Science</span></itemsurvey>
-			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50%;">
-				    				<small>City Average: 50%</small>
-								</div>			    			
-				    			<div class="rank">
-				    				<p><img ng-src="img/{{ proficiency_ratings.4rd_pr_s_level4_ela_pr | filtraRank }}.png" ></p>
-				    			</div>
-			    			</div>
-			    		</div>	
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-			    			<div class="porcentaje" style="width:60%;">
-			    				<p>60%</p>
-			    				<itemsurvey><span>Chemistry</span></itemsurvey>
-			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50%;">
-				    				<small>City Average: 50%</small>
-								</div>			    			
-				    			<div class="rank">
-				    				<p><img ng-src="img/{{ proficiency_ratings.4rd_pr_s_level4_ela_pr | filtraRank }}.png" ></p>
-				    			</div>
-			    			</div>
-			    		</div>
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-			    			<div class="porcentaje" style="width:60%;">
-			    				<p>60%</p>
-			    				<itemsurvey><span>Physics</span></itemsurvey>
-			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50%;">
-				    				<small>City Average: 50%</small>
-								</div>			    			
-				    			<div class="rank">
-				    				<p><img ng-src="img/{{ proficiency_ratings.4rd_pr_s_level4_ela_pr | filtraRank }}.png" ></p>
-				    			</div>
-			    			</div>
-			    		</div>	
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-			    			<div class="porcentaje" style="width:60%;">
-			    				<p>60%</p>
-			    				<itemsurvey><span>Integrated Algebra</span></itemsurvey>
-			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50%;">
-				    				<small>City Average: 50%</small>
-								</div>			    			
-				    			<div class="rank">
-				    				<p><img ng-src="img/{{ proficiency_ratings.4rd_pr_s_level4_ela_pr | filtraRank }}.png" ></p>
-				    			</div>
-			    			</div>
-			    		</div>	
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-			    			<div class="porcentaje" style="width:60%;">
-			    				<p>60%</p>
-			    				<itemsurvey><span>Geometry</span></itemsurvey>
-			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50%;">
-				    				<small>City Average: 50%</small>
-								</div>			    			
-				    			<div class="rank">
-				    				<p><img ng-src="img/{{ proficiency_ratings.4rd_pr_s_level4_ela_pr | filtraRank }}.png" ></p>
-				    			</div>
-			    			</div>
-			    		</div>	
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-			    			<div class="porcentaje" style="width:60%;">
-			    				<p>60%</p>
-			    				<itemsurvey><span>Algebra II</span></itemsurvey>
-			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50%;">
-				    				<small>City Average: 50%</small>
-								</div>			    			
-				    			<div class="rank">
-				    				<p><img ng-src="img/{{ proficiency_ratings.4rd_pr_s_level4_ela_pr | filtraRank }}.png" ></p>
-				    			</div>
-			    			</div>
-			    		</div>				    					    					    					    			
-			    	</div>
-			    </div>
-			  </dd>
-			  <dd>
-			    <a href="#panel3">Regents Average <img src="img/arrow-down.png" class="right"></a>		    
-			    <div id="panel3" class="content">
-			    	<div class="row">
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-			    			<div class="porcentaje" style="width:60%;">
-			    				<p>60%</p>
-			    				<itemsurvey><span>Overall</span></itemsurvey>
-			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50%;">
-				    				<small>City Average: 50%</small>
-								</div>			    			
-				    			<div class="rank">
-				    				<p><img ng-src="img/{{ proficiency_ratings.4rd_pr_s_level4_ela_pr | filtraRank }}.png" ></p>
-				    			</div>
-			    			</div>
-			    		</div>
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-			    			<div class="porcentaje" style="width:34%;">
-			    				<p>34%</p>
-			    				<itemsurvey><span>Math</span></itemsurvey>
-			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50%;">
-				    				<small>City Average: 50%</small>
-								</div>			    			
-				    			<div class="rank">
-				    				<p><img ng-src="img/{{ proficiency_ratings.4rd_pr_s_level4_ela_pr | filtraRank }}.png" ></p>
-				    			</div>
-			    			</div>
-			    		</div>	
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-			    			<div class="porcentaje" style="width:70%;">
-			    				<p>70%</p>
-			    				<itemsurvey><span>Reading</span></itemsurvey>
-			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50%;">
-				    				<small>City Average: 50%</small>
-								</div>			    			
-				    			<div class="rank">
-				    				<p><img ng-src="img/{{ proficiency_ratings.4rd_pr_s_level4_ela_pr | filtraRank }}.png" ></p>
-				    			</div>
-			    			</div>
-			    		</div>		
-			    		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-			    			<div class="porcentaje" style="width:60%;">
-			    				<p>60%</p>
-			    				<itemsurvey><span>Critial Reasoning</span></itemsurvey>
-			    			</div>
-			    			<div class="metrics">
-								<div class="average" style="width:50%;">
-				    				<small>City Average: 50%</small>
-								</div>			    			
-				    			<div class="rank">
-				    				<p><img ng-src="img/{{ proficiency_ratings.4rd_pr_s_level4_ela_pr | filtraRank }}.png" ></p>
-				    			</div>
-			    			</div>
-			    		</div>	
-			    	</div>
-			    </div>
-			  </dd>		  
-			</dl>
-		</div>
-	</div>	-->
-
-
-
-
-
+<div> <!-- FIN ALL -->
     </section>
     <!--END.CONTENIDO-->
 

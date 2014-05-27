@@ -144,6 +144,61 @@
 
     }
 
+
+
+
+      function rotarGrilla_g( id ){
+      var prefijoIcon = "grilla_icon_";
+      var sufijoIconUp = "_up";
+      var sufijoIconDown = "_dw";
+      var michi = "#";
+      var nModulo = id.substring(7,9);
+      var nIndiceIcon = parseInt(id.substring(10,12)-1);
+
+      switch(nModulo){
+
+        case "10":
+        var elementsModulo = document.getElementsByClassName('diez');
+        break;
+                                             
+
+
+      }
+
+      var estadoIcon = id.substring(13,15);
+
+      if (estadoIcon == "up"){
+
+        var grillaIconId = prefijoIcon.concat(id.substring(7,12));
+        $(michi.concat(grillaIconId)).css('-webkit-transform','rotate(180deg)');
+        $(michi.concat(grillaIconId)).css('left','-0.5rem');
+
+        var elementGrilla=document.getElementById(id);
+
+        var one = id.substring(0,12);
+
+        var nuevIdGrilla = one.concat(sufijoIconDown);
+        elementGrilla.id = nuevIdGrilla;
+
+      }
+
+      if (estadoIcon == "dw"){
+
+        var grillaIconId = prefijoIcon.concat(id.substring(7,12));
+        $(michi.concat(grillaIconId)).css('-webkit-transform','rotate(0deg)');
+        $(michi.concat(grillaIconId)).css('left','17.85rem');
+
+        var elementGrilla=document.getElementById(id);
+
+        var one = id.substring(0,12);
+
+        var nuevIdGrilla = one.concat(sufijoIconUp);
+        elementGrilla.id = nuevIdGrilla;
+
+      }
+
+    }
+
     </script> 
 
     <link rel="stylesheet" href="css/foundation.css" />

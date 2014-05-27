@@ -240,8 +240,8 @@ app.factory('DatosSchool',function($rootScope){
            // $scope.itemsYears = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"},{texto:"2014",indice:"3"}];
            //$rootScope.testScore = JSON.parse(scopeCampos);
 
-            console.log($rootScope.testScore_ela);
-            console.log($rootScope.testScore_math);
+            //console.log($rootScope.testScore_ela);
+            //console.log($rootScope.testScore_math);
             //console.log($rootScope.testScore);
             //console.log($rootScope.testScore.length);
         }  
@@ -583,15 +583,99 @@ app.controller("TestScoreYearddCtrl" ,[ '$scope', 'DatosSchool', '$rootScope','$
 
 app.controller("TestScoreGradeddCtrl" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
-    $scope.selectedgrade= "Select a Grade";
+    $scope.selectedgrade= "Grade";
     $scope.itemsGrades = [{texto:"3th",indice:"0"},{texto:"4th",indice:"1"},{texto:"5th",indice:"2"},{texto:"6th",indice:"3"},{texto:"7th",indice:"4"},{texto:"8th",indice:"5"}];
     $scope.changegrade = function(indice_grade) {$scope.selectedgrade = $scope.itemsGrades[indice_grade].texto;  $rootScope.testScore_grade=parseInt(indice_grade)+3;};
 
 
 }]);
 
+app.controller("SelectTestScores" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
+
+  $scope.items_selec_testScore = [{texto:"K - 8 Test Score",indice:"0"},{texto:"9 - 12 Test Score",indice:"1"}];
+  $scope.change_selec_testScore = function(indice) {
+
+    if (indice==0){
+
+        $rootScope.filtroTSelement = "mostrar";
+        $rootScope.filtroTShigh = "borrar";
+        $rootScope.filtroTSAllS ="mostrar"
+    }
+
+    if (indice==1){
+
+        $rootScope.filtroTSelement = "borrar";
+        $rootScope.filtroTShigh = "mostrar";
+        $rootScope.filtroTSAllS ="mostrar"
+    }    
+
+/*
+    $rootScope.progSelected = $rootScope.itemsaddMS[indice].texto; 
+      $rootScope.ms_admissions=DatosSchool.datos.ms_admission[indice];*/
+      //$rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice] 
+  };
+
+
+}]);
+
 
 // CONTROLADORES ADMISSIONS
+app.controller("SelectAdmission" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
+
+  $scope.itemsAdmission = [{texto:"Elementary",indice:"0"},{texto:"Middle",indice:"1"}];
+  $scope.changeadmission = function(indice) {
+
+    if (indice==0){
+
+        $rootScope.filtroMiddleS = "borrar";
+        $rootScope.filtroElementaryS = "mostrar";
+        $rootScope.filtroAllS ="mostrar"
+    }
+
+    if (indice==1){
+
+        $rootScope.filtroElementaryS = "borrar";
+        $rootScope.filtroMiddleS = "mostrar";
+        $rootScope.filtroAllS ="mostrar"
+    }    
+
+/*
+    $rootScope.progSelected = $rootScope.itemsaddMS[indice].texto; 
+      $rootScope.ms_admissions=DatosSchool.datos.ms_admission[indice];*/
+      //$rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice] 
+  };
+
+
+}]);
+
+
+app.controller("SelectAdmission_mh" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
+
+  $scope.itemsAdmission_mh = [{texto:"Middle",indice:"0"},{texto:"High",indice:"1"}];
+  $scope.changeadmission_mh = function(indice) {
+
+    if (indice==0){
+
+        $rootScope.filtroHighS = "borrar";
+        $rootScope.filtroMiddleS = "mostrar";
+        $rootScope.filtroAllS ="mostrar";
+    }
+
+    if (indice==1){
+
+        $rootScope.filtroMiddleS = "borrar";
+        $rootScope.filtroHighS = "mostrar";
+        $rootScope.filtroAllS ="mostrar";
+    }    
+
+/*
+    $rootScope.progSelected = $rootScope.itemsaddMS[indice].texto; 
+      $rootScope.ms_admissions=DatosSchool.datos.ms_admission[indice];*/
+      //$rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice] 
+  };
+
+
+}]);
 
 
 app.controller("AdmissionsMSctrl" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
@@ -603,7 +687,7 @@ app.controller("AdmissionsMSctrl" ,[ '$scope', 'DatosSchool', '$rootScope',funct
         var cods =[];
 
     for (var i = 0; i < middle.length; i++) {
-    cods.push(DatosSchool.datos.ms_admission[i].program_code);
+    cods.push(DatosSchool.datos.ms_admission[i].program_name);
     }
 
         var items = "[";
@@ -621,7 +705,7 @@ app.controller("AdmissionsMSctrl" ,[ '$scope', 'DatosSchool', '$rootScope',funct
 //$rootScope.itemsaddMS
 //$scope.itemsAddMs = [{texto:"3th",indice:"0"},{texto:"4th",indice:"1"},{texto:"5th",indice:"2"},{texto:"6th",indice:"3"},{texto:"7th",indice:"4"},{texto:"8th",indice:"5"}];    
     //$scope.progSelected= $rootScope.itemsaddMS[0].texto;
-    $scope.progSelected= "Select a Program";
+    $scope.progSelected= "Program";
     }
 
     //console.log($rootScope.evaluation_ratings.ri_11);
@@ -663,7 +747,7 @@ app.controller("AdmissionsHSctrl" ,[ '$scope', 'DatosSchool', '$rootScope',funct
 //$rootScope.itemsaddMS
 //$scope.itemsAddMs = [{texto:"3th",indice:"0"},{texto:"4th",indice:"1"},{texto:"5th",indice:"2"},{texto:"6th",indice:"3"},{texto:"7th",indice:"4"},{texto:"8th",indice:"5"}];    
     //$scope.progSelected_hs= $rootScope.itemsaddHS[0].texto;
-    $scope.progSelected_hs= "Select a Program";
+    $scope.progSelected_hs= "Program";
     }
 
     //console.log($rootScope.evaluation_ratings.ri_11);
@@ -712,7 +796,7 @@ app.controller("SurveyYearCtrl" ,[ '$scope', 'DatosSchool', '$rootScope',functio
 
 app.controller("SurveyRespCtrl" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
-    $scope.selectedgrade= "Parents";
+    $scope.selectedgrade= "Respondent";
     $scope.itemsGrades = [{texto:"Parents",indice:"0"},{texto:"Teachers",indice:"1"},{texto:"Students",indice:"2"}];
     $scope.changegrade = function(indice_grade) {$scope.selectedgrade = $scope.itemsGrades[indice_grade].texto;  
         $rootScope.survey_var=parseInt(indice_grade);};
@@ -827,10 +911,42 @@ app.filter("filtraTestScore", function( $rootScope, DatosSchool ){
 
     //$rootScope.evaluation=DatosSchool.datos.evaluations[3];
 
+    switch (text) {
 
-        if ( (elementaryS == "") && (text == "elementary")){ return "borrar";}
+    case "elementary":
+
+    if ((elementaryS == "")){ return "borrar";}
+    break;  
+
+    case "high":
+
+    if ( (highS == "") ){ return "borrar";}
+    break;       
+
+    case "nd":
+
+    if ( ((highS != "")  || (elementaryS != "")) ){ return "borrar";}
+    break;  
+
+    case "selectTestScore":
+
+    if ( ((highS == "")  || (elementaryS == "")) ){ return "borrar";}
+    break; 
+
+    case "all":
+
+    if ( (elementaryS != "") && (highS != "") ){ return "borrar";}
+    break;   
+
+
+
+
+
+    }
+        
+        /*if ( (elementaryS == "") && (text == "elementary")){ return "borrar";}
         if ( (highS == "") && (text == "high")){ return "borrar";}
-        if ( (text == "nd") &&  ((highS != "")  || (elementaryS != ""))){ return "borrar";}
+        if ( (text == "nd") &&  ((highS != "")  || (elementaryS != ""))){ return "borrar";}*/
 
     }
 });
@@ -869,7 +985,12 @@ app.filter("filtraAdmissions", function( $rootScope, DatosSchool ){
     case "nd":
 
     if ((elementary != 0) || (middle != 0) || (high != 0)){ return "borrar";}
-    break;        
+    break;  
+
+    case "all":
+
+    if ( ((elementary != 0) && (middle != 0)) || ((middle != 0) &&(high != 0)) ){ return "borrar";}
+    break;      
 
     case "ms":
 
@@ -886,6 +1007,15 @@ app.filter("filtraAdmissions", function( $rootScope, DatosSchool ){
     if ((elementary == 0) ){ return "borrar";}
     break;
 
+    case "selectShoolEM":
+
+    if ((elementary == 0) || (middle == 0)){ return "borrar";}
+    break;
+
+    case "selectShoolMH":
+
+    if ((middle == 0) || (high == 0)){ return "borrar";}
+    break;    
 } 
 
 /*
@@ -940,7 +1070,33 @@ else {return "C";}
     }
 });
 
+
+app.filter("filtraqr", function(){
+    return function(text) {
+
+    switch (text) {
+
+    case "Proficient":
+    return "75";
+    break;  
+
+    case "Developing":
+    return "50";
+    break;      
+
+    case "Well Developed":
+    return "100";
+    break;
+
+    case "Underdevelop":
+    return "25";
+    break;    
+
+    }}
+});
+
 var PopoverDemoCtrl = function ($scope) {
   $scope.dynamicPopover = "Hello, World!";
   $scope.dynamicPopoverTitle = "Title";
 };
+
