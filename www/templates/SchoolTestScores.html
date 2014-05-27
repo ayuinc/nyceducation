@@ -19,6 +19,19 @@
 	
 	<div class="row">
 
+
+    <div class="{{ 'nd' | filtraTestScore}}"> <!--ES ADMISSION-->
+
+    <div class="row menu-header">   
+        <div class="small-6 small-centered medium-6 large-6 columns">
+            <h3 class="text-center">Test Scores</h3>
+        </div>  
+    </div>  
+
+            <div class="no-data">NO DATA</div>
+    </div>  
+
+
 <div  class="{{ 'elementary' | filtraTestScore }}">   
     <div class="row menu-header">   
         <div class="small-6 small-centered medium-6 large-6 columns">
@@ -81,7 +94,7 @@
 
 			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.3rd_pr_s_level1_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.3rd_pr_s_level1_ela}}%;">
-    				<p>{{evaluation_ela.3rd_pr_s_level1_ela | number:1}}%</p>
+    				<span><p>{{evaluation_ela.3rd_pr_s_level1_ela | number:1}}%</p></span>
     				<itemsurvey><span> 3rd - Level 1 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -97,7 +110,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.3rd_pr_s_level2_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.3rd_pr_s_level2_ela}}%;">
-    				<p>{{evaluation_ela.3rd_pr_s_level2_ela | number:1}}%</p>
+    				<span><p>{{evaluation_ela.3rd_pr_s_level2_ela | number:1}}%</p></span>
     				<itemsurvey><span> 3rd - Level 2 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
                 </div>
                 <div class="metrics {{city_average.3rdGradePercentscoringlevel2ELA | filtraCeros}}">
@@ -113,7 +126,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.3rd_pr_s_level3_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.3rd_pr_s_level3_ela}}%;">
-    				<p>{{evaluation_ela.3rd_pr_s_level3_ela | number:1}}%</p>
+    				<span><p>{{evaluation_ela.3rd_pr_s_level3_ela | number:1}}%</p></span>
     				<itemsurvey><span> 3rd - Level 3 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -129,7 +142,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.3rd_pr_s_level4_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.3rd_pr_s_level4_ela}}%;">
-    				<p>{{evaluation_ela.3rd_pr_s_level4_ela | number:1}}%</p>
+    				<span><p>{{evaluation_ela.3rd_pr_s_level4_ela | number:1}}%</p></span>
     				<itemsurvey><span> 3rd - Level 4 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -149,7 +162,7 @@
     		<div class ="{{ 4 | filtraGrado}}">
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.4rd_pr_s_level1_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.4rd_pr_s_level1_ela}}%;">
-    				<p>{{evaluation_ela.4rd_pr_s_level1_ela | number:1}}%</p>
+    				<span><p>{{evaluation_ela.4rd_pr_s_level1_ela | number:1}}%</p></span>
     				<itemsurvey><span> 4rd - Level 1 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -165,7 +178,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.4rd_pr_s_level2_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.4rd_pr_s_level2_ela}}%;">
-    				<p>{{evaluation_ela.4rd_pr_s_level2_ela}}%</p>
+    				<span><p>{{evaluation_ela.4rd_pr_s_level2_ela | number:1}}%</p></span>
     				<itemsurvey><span> 4rd - Level 2 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -181,7 +194,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.4rd_pr_s_level3_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.4rd_pr_s_level3_ela}}%;">
-    				<p>{{evaluation_ela.4rd_pr_s_level3_ela | number:1}}%</p>
+    				<span><p>{{evaluation_ela.4rd_pr_s_level3_ela | number:1}}%</p></span>
     				<itemsurvey><span> 4rd - Level 3 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -197,7 +210,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.4rd_pr_s_level4_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.4rd_pr_s_level4_ela}}%;">
-    				<p>{{evaluation_ela.4rd_pr_s_level4_ela | number:1}}%</p>
+    				<span><p>{{evaluation_ela.4rd_pr_s_level4_ela | number:1}}%</p></span>
     				<itemsurvey><span> 4rd - Level 4 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -216,7 +229,7 @@
     		<div class ="{{ 5 | filtraGrado}}">
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.5rd_pr_s_level1_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.5rd_pr_s_level1_ela}}%;">
-    				<p>{{evaluation_ela.5rd_pr_s_level1_ela | number:1}}%</p>
+    				<span><p>{{evaluation_ela.5rd_pr_s_level1_ela | number:1}}%</p></span>
     				<itemsurvey><span> 5rd - Level 1 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -232,7 +245,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.5rd_pr_s_level2_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.5rd_pr_s_level2_ela}}%;">
-    				<p>{{evaluation_ela.5rd_pr_s_level2_ela | number:1}}%</p>
+    				<span><p>{{evaluation_ela.5rd_pr_s_level2_ela | number:1}}%</p></span>
     				<itemsurvey><span> 5rd - Level 2 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -248,7 +261,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.5rd_pr_s_level3_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.5rd_pr_s_level3_ela}}%;">
-    				<p>{{evaluation_ela.5rd_pr_s_level3_ela | number:1}}%</p>
+    				<span><p>{{evaluation_ela.5rd_pr_s_level3_ela | number:1}}%</p></span>
     				<itemsurvey><span> 5rd - Level 3 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -264,7 +277,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.5rd_pr_s_level4_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.5rd_pr_s_level4_ela}}%;">
-    				<p>{{evaluation_ela.5rd_pr_s_level4_ela | number:1}}%</p>
+    				<span><p>{{evaluation_ela.5rd_pr_s_level4_ela | number:1}}%</p></span>
     				<itemsurvey><span> 5rd - Level 4 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -283,7 +296,7 @@
     		<div class ="{{ 6 | filtraGrado}}">
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.6rd_pr_s_level1_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.6rd_pr_s_level1_ela}}%;">
-    				<p>{{evaluation_ela.6rd_pr_s_level1_ela | number:1}}%</p>
+    				<span><p>{{evaluation_ela.6rd_pr_s_level1_ela | number:1}}%</p></span>
     				<itemsurvey><span> 6rd - Level 1 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -299,7 +312,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.6rd_pr_s_level2_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.6rd_pr_s_level2_ela}}%;">
-    				<p>{{evaluation_ela.6rd_pr_s_level2_ela | number:1}}%</p>
+    				<span><p>{{evaluation_ela.6rd_pr_s_level2_ela | number:1}}%</p></span>
     				<itemsurvey><span> 6rd - Level 2 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -315,7 +328,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.6rd_pr_s_level3_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.6rd_pr_s_level3_ela}}%;">
-    				<p>{{evaluation_ela.6rd_pr_s_level3_ela | number:1}}%</p>
+    				<span><p>{{evaluation_ela.6rd_pr_s_level3_ela | number:1}}%</p></span>
     				<itemsurvey><span> 6rd - Level 3 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -331,7 +344,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.6rd_pr_s_level4_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.6rd_pr_s_level4_ela}}%;">
-    				<p>{{evaluation_ela.6rd_pr_s_level4_ela | number:1}}%</p>
+    				<span><p>{{evaluation_ela.6rd_pr_s_level4_ela | number:1}}%</p></span>
     				<itemsurvey><span> 6rd - Level 4 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -350,7 +363,7 @@
     		<div class ="{{ 7 | filtraGrado}}">
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.7rd_pr_s_level1_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.7rd_pr_s_level1_ela}}%;">
-    				<p>{{evaluation_ela.7rd_pr_s_level1_ela | number:1}}%</p>
+    				<span><p>{{evaluation_ela.7rd_pr_s_level1_ela | number:1}}%</p></span>
     				<itemsurvey><span> 7rd - Level 1 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -366,7 +379,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.7rd_pr_s_level2_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.7rd_pr_s_level2_ela}}%;">
-    				<p>{{evaluation_ela.7rd_pr_s_level2_ela | number:1}}%</p>
+    				<span><p>{{evaluation_ela.7rd_pr_s_level2_ela | number:1}}%</p></span>
     				<itemsurvey><span> 7rd - Level 2 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -382,7 +395,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.7rd_pr_s_level3_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.7rd_pr_s_level3_ela}}%;">
-    				<p>{{evaluation_ela.7rd_pr_s_level3_ela | number:1}}%</p>
+    				<span><p>{{evaluation_ela.7rd_pr_s_level3_ela | number:1}}%</p></span>
     				<itemsurvey><span> 7rd - Level 3 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -398,7 +411,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.7rd_pr_s_level4_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.7rd_pr_s_level4_ela}}%;">
-    				<p>{{evaluation_ela.7rd_pr_s_level4_ela | number:1}}%</p>
+    				<span><p>{{evaluation_ela.7rd_pr_s_level4_ela | number:1}}%</p></span>
     				<itemsurvey><span> 7rd - Level 4 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -417,7 +430,7 @@
     		<div class ="{{ 8 | filtraGrado}}">
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.8rd_pr_s_level1_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.8rd_pr_s_level1_ela}}%;">
-    				<p>{{evaluation_ela.8rd_pr_s_level1_ela | number:1}}%</p>
+    				<span><p>{{evaluation_ela.8rd_pr_s_level1_ela | number:1}}%</p></span>
     				<itemsurvey><span> 8rd - Level 1 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -433,7 +446,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.8rd_pr_s_level2_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.8rd_pr_s_level2_ela}}%;">
-    				<p>{{evaluation_ela.8rd_pr_s_level2_ela | number:1}}%</p>
+    				<span><p>{{evaluation_ela.8rd_pr_s_level2_ela | number:1}}%</p></span>
     				<itemsurvey><span> 8rd - Level 2 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -449,7 +462,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.8rd_pr_s_level3_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.8rd_pr_s_level3_ela}}%;">
-    				<p>{{evaluation_ela.8rd_pr_s_level3_ela | number:1}}%</p>
+    				<span><p>{{evaluation_ela.8rd_pr_s_level3_ela | number:1}}%</p></span>
     				<itemsurvey><span> 8rd - Level 3 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -465,7 +478,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.8rd_pr_s_level4_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.8rd_pr_s_level4_ela}}%;">
-    				<p>{{evaluation_ela.8rd_pr_s_level4_ela | number:1}}%</p>
+    				<span><p>{{evaluation_ela.8rd_pr_s_level4_ela | number:1}}%</p></span>
     				<itemsurvey><span> 8rd - Level 4 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -489,9 +502,9 @@
 	<accordion-group is-open="true">
 
         <accordion-heading>
-            <div id="grilla_04_02_dw" class="grillaAcordion" onclick="rotarGrilla(this.id)">Math Scores
+            <div id="grilla_04_02_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Math Scores
             <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
-            <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_02" style="-webkit-transform:rotate(180deg);left:-0.5rem"></div>
+            <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_02" ></div>
         </accordion-heading>     
 
 		<!-- MATH -->
@@ -501,7 +514,7 @@
 			<div class ="{{ 3 | filtraGrado}}">
 			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.3rd_pr_s_level1_math | filtraCeros}}">
     			<div class="porcentaje" style="width: {{evaluation_math.3rd_pr_s_level1_math}}%;">
-    				<p> {{evaluation_math.3rd_pr_s_level1_math | number:1}}% </p>
+    				<span><p> {{evaluation_math.3rd_pr_s_level1_math | number:1}}% </p></span>
     				<itemsurvey><span> 3rd - Level 1 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -517,7 +530,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.3rd_pr_s_level2_math | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_math.3rd_pr_s_level2_math}}%;">
-    				<p> {{evaluation_math.3rd_pr_s_level2_math | number:1}}% </p>
+    				<span><p> {{evaluation_math.3rd_pr_s_level2_math | number:1}}% </p></span>
     				<itemsurvey><span> 3rd - Level 2 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -533,7 +546,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.3rd_pr_s_level3_math | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_math.3rd_pr_s_level3_math}}%;">
-    				<p> {{evaluation_math.3rd_pr_s_level3_math | number:1}}% </p>
+    				<span><p> {{evaluation_math.3rd_pr_s_level3_math | number:1}}% </p></span>
     				<itemsurvey><span> 3rd - Level 3 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -549,7 +562,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.3rd_pr_s_level4_math | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_math.3rd_pr_s_level4_math}}%;">
-    				<p> {{evaluation_math.3rd_pr_s_level4_math | number:1}}% </p>
+    				<span><p> {{evaluation_math.3rd_pr_s_level4_math | number:1}}% </p></span>
     				<itemsurvey><span> 3rd - Level 4 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -568,7 +581,7 @@
     		<div class ="{{ 4 | filtraGrado}}">
 			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.4rd_pr_s_level1_math | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_math.4rd_pr_s_level1_math}}%;">
-    				<p>{{evaluation_math.4rd_pr_s_level1_math | number:1}}%</p>
+    				<span><p>{{evaluation_math.4rd_pr_s_level1_math | number:1}}%</p></span>
     				<itemsurvey><span> 4rd - Level 1 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -584,7 +597,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.4rd_pr_s_level2_math | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_math.4rd_pr_s_level2_math}}%;">
-    				<p>{{evaluation_math.4rd_pr_s_level2_math | number:1}}%</p>
+    				<span><p>{{evaluation_math.4rd_pr_s_level2_math | number:1}}%</p></span>
     				<itemsurvey><span> 4rd - Level 2 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -600,7 +613,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.4rd_pr_s_level3_math | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_math.4rd_pr_s_level3_math}}%;">
-    				<p>{{evaluation_math.4rd_pr_s_level3_math | number:1}}%</p>
+    				<span><p>{{evaluation_math.4rd_pr_s_level3_math | number:1}}%</p></span>
     				<itemsurvey><span> 4rd - Level 3 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -617,7 +630,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.4rd_pr_s_level4_math | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_math.4rd_pr_s_level4_math}}%;">
-    				<p>{{evaluation_math.4rd_pr_s_level4_math | number:1}}%</p>
+    				<span><p>{{evaluation_math.4rd_pr_s_level4_math | number:1}}%</p></span>
     				<itemsurvey><span> 4rd - Level 4 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -636,7 +649,7 @@
     		<div class ="{{ 5 | filtraGrado}}">
 			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.5rd_pr_s_level1_math | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_math.5rd_pr_s_level1_math}}%;">
-    				<p>{{evaluation_math.5rd_pr_s_level1_math | number:1}}%</p>
+    				<span><p>{{evaluation_math.5rd_pr_s_level1_math | number:1}}%</p></span>
     				<itemsurvey><span> 5rd - Level 1 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -652,7 +665,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.5rd_pr_s_level2_math | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_math.5rd_pr_s_level2_math}}%;">
-    				<p>{{evaluation_math.5rd_pr_s_level2_math | number:1}}%</p>
+    				<span><p>{{evaluation_math.5rd_pr_s_level2_math | number:1}}%</p></span>
     				<itemsurvey><span> 5rd - Level 2 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -669,7 +682,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.5rd_pr_s_level3_math | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_math.5rd_pr_s_level3_math}}%;">
-    				<p>{{evaluation_math.5rd_pr_s_level3_math | number:1}}%</p>
+    				<span><p>{{evaluation_math.5rd_pr_s_level3_math | number:1}}%</p></span>
     				<itemsurvey><span> 5rd - Level 3 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -686,7 +699,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.5rd_pr_s_level4_math | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_math.5rd_pr_s_level4_math}}%;">
-    				<p>{{evaluation_math.5rd_pr_s_level4_math | number:1}}%</p>
+    				<span><p>{{evaluation_math.5rd_pr_s_level4_math | number:1}}%</p></span>
     				<itemsurvey><span> 5rd - Level 4 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -705,7 +718,7 @@
     		<div class ="{{ 6 | filtraGrado}}">
 			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.6rd_pr_s_level1_math | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_math.6rd_pr_s_level1_math}}%;">
-    				<p>{{evaluation_math.6rd_pr_s_level1_math | number:1}}%</p>
+    				<span><p>{{evaluation_math.6rd_pr_s_level1_math | number:1}}%</p></span>
     				<itemsurvey><span> 6rd - Level 1 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -722,7 +735,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.6rd_pr_s_level2_math | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_math.6rd_pr_s_level2_math}}%;">
-    				<p>{{evaluation_math.6rd_pr_s_level2_math | number:1}}%</p>
+    				<span><p>{{evaluation_math.6rd_pr_s_level2_math | number:1}}%</p></span>
     				<itemsurvey><span> 6rd - Level 2 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -738,7 +751,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.6rd_pr_s_level3_math | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_math.6rd_pr_s_level3_math}}%;">
-    				<p>{{evaluation_math.6rd_pr_s_level3_math | number:1}}%</p>
+    				<span><p>{{evaluation_math.6rd_pr_s_level3_math | number:1}}%</p></span>
     				<itemsurvey><span> 6rd - Level 3 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -754,7 +767,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.6rd_pr_s_level4_math | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_math.6rd_pr_s_level4_math}}%;">
-    				<p>{{evaluation_math.6rd_pr_s_level4_math | number:1}}%</p>
+    				<span><p>{{evaluation_math.6rd_pr_s_level4_math | number:1}}%</p></span>
     				<itemsurvey><span> 6rd - Level 4 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -773,7 +786,7 @@
     		<div class ="{{ 7 | filtraGrado}}">
 			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.7rd_pr_s_level1_math | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_math.7rd_pr_s_level1_math}}%;">
-    				<p>{{evaluation_math.7rd_pr_s_level1_math | number:1}}%</p>
+    				<span><p>{{evaluation_math.7rd_pr_s_level1_math | number:1}}%</p></span>
     				<itemsurvey><span> 7rd - Level 1 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -789,7 +802,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.7rd_pr_s_level2_math | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_math.7rd_pr_s_level2_math}}%;">
-    				<p>{{evaluation_math.7rd_pr_s_level2_math | number:1}}%</p>
+    				<span><p>{{evaluation_math.7rd_pr_s_level2_math | number:1}}%</p></span>
     				<itemsurvey><span> 7rd - Level 2 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -805,7 +818,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.7rd_pr_s_level3_math | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_math.7rd_pr_s_level3_math}}%;">
-    				<p>{{evaluation_math.7rd_pr_s_level3_math | number:1}}%</p>
+    				<span><p>{{evaluation_math.7rd_pr_s_level3_math | number:1}}%</p></span>
     				<itemsurvey><span> 7rd - Level 3 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -821,7 +834,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.7rd_pr_s_level4_math | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_math.7rd_pr_s_level4_math}}%;">
-    				<p>{{evaluation_math.7rd_pr_s_level4_math | number:1}}%</p>
+    				<span><p>{{evaluation_math.7rd_pr_s_level4_math | number:1}}%</p></span>
     				<itemsurvey><span> 7rd - Level 4 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -840,7 +853,7 @@
     		<div class ="{{ 8 | filtraGrado}}">
 			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.8rd_pr_s_level1_math | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_math.8rd_pr_s_level1_math}}%;">
-    				<p>{{evaluation_math.8rd_pr_s_level1_math | number:1}}%</p>
+    				<span><p>{{evaluation_math.8rd_pr_s_level1_math | number:1}}%</p></span>
     				<itemsurvey><span> 8rd - Level 1 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -856,7 +869,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.8rd_pr_s_level2_math | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_math.8rd_pr_s_level2_math}}%;">
-    				<p>{{evaluation_math.8rd_pr_s_level2_math | number:1}}%</p>
+    				<span><p>{{evaluation_math.8rd_pr_s_level2_math | number:1}}%</p></span>
     				<itemsurvey><span> 8rd - Level 2 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -872,7 +885,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.8rd_pr_s_level3_math | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_math.8rd_pr_s_level3_math}}%;">
-    				<p>{{evaluation_math.8rd_pr_s_level3_math | number:1}}%</p>
+    				<span><p>{{evaluation_math.8rd_pr_s_level3_math | number:1}}%</p></span>
     				<itemsurvey><span> 8rd - Level 3 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -888,7 +901,7 @@
 
     		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.8rd_pr_s_level4_math | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_math.8rd_pr_s_level4_math}}%;">
-    				<p>{{evaluation_math.8rd_pr_s_level4_math | number:1}}%</p>
+    				<span><p>{{evaluation_math.8rd_pr_s_level4_math | number:1}}%</p></span>
     				<itemsurvey><span> 8rd - Level 4 <a ng-href="/profile/glossary"><div class="info-perfil_azul"></div></a></span></itemsurvey>
     			</div>
 
@@ -905,24 +918,21 @@
 
     	</div>
     </accordion-group>
-
-
-
     
     	<accordion-group is-open="true">
 
         <accordion-heading>
-            <div id="grilla_04_03_dw" class="grillaAcordion" onclick="rotarGrilla(this.id)">Average Proficiecy Score - ELA
+            <div id="grilla_04_03_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Average Proficiecy Score - ELA
             <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
-            <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_03" style="-webkit-transform:rotate(180deg);left:-0.5rem"></div>
+            <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_03" ></div>
         </accordion-heading>             
 
 		 <!--AVERANGE ELA -->
 		<div class="row">
 			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_ela.av_proficiency_rating_ela | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_ela.av_proficiency_rating_ela}}%;">
-    				<p>{{evaluation_ela.av_proficiency_rating_ela | number:1}}%</p>
-    				<itemsurvey><span> 3rd - Level 1</span></itemsurvey>
+    				<span><p>{{evaluation_ela.av_proficiency_rating_ela | number:1}}%</p></span>
+    				<!--<itemsurvey><span class="pmizq"> 3rd - Level 1</span></itemsurvey>-->
     			</div>
 		<div class="metrics {{city_average.AverageProficiencyRatingOverallELA | filtraCeros}}">
 			<div class="average" style="width:{{city_average.AverageProficiencyRatingOverallELA}}%;">
@@ -946,17 +956,18 @@
         <accordion-group is-open="true">
 
         <accordion-heading>
-            <div id="grilla_04_04_dw" class="grillaAcordion" onclick="rotarGrilla(this.id)">Average Proficiecy Score - Math
+            <div id="grilla_04_04_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Average Proficiecy Score - Math
             <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
-            <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_04" style="-webkit-transform:rotate(180deg);left:-0.5rem"></div>
+            <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_04" ></div>
         </accordion-heading>         
 
 		 <!--AVERANGE MATH-->
 		<div class="row">
 			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_math.av_proficiency_rating_math | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_math.av_proficiency_rating_math}}%;">
-    				<p>{{evaluation_math.av_proficiency_rating_math | number:1}}%</p>
-    				<itemsurvey><span> 3rd - Level 1</span></itemsurvey>
+    				<span><p>{{evaluation_math.av_proficiency_rating_math | number:1}}%</p></span>
+    				
+                    <!--<itemsurvey><span  class="pmizq"> 3rd - Level 1</span></itemsurvey>-->
     			</div>
    		<div class="metrics {{city_average.AverageProficiencyRatingOverallMath | filtraCeros}}">
 			<div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath}}%;">
@@ -1037,8 +1048,8 @@
 
 		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_average_score.sat_a_total_s | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_average_score.sat_a_total_s}}%;">
-    				<p>{{evaluation_average_score.sat_a_total_s}}</p>
-    				<itemsurvey><span> Overall</span></itemsurvey>
+    				<span><p>{{evaluation_average_score.sat_a_total_s}}</p></span>
+    				<itemsurvey><span style="padding-right:12px"> Overall</span></itemsurvey>
     			</div>
 
 		   		<div class="metrics {{city_average.SAT_AverageTotalScore | filtraCeros}}">
@@ -1055,8 +1066,8 @@
 
 			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_average_score.sat_a_cr_s | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_average_score.sat_a_cr_s}}%;">
-    				<p>{{evaluation_average_score.sat_a_cr_s}}</p>
-    				<itemsurvey><span>Critial Reasoning</span></itemsurvey>
+    				<span><p>{{evaluation_average_score.sat_a_cr_s}}</p></span>
+    				<itemsurvey><span style="padding-right:12px">Critial Reasoning</span></itemsurvey>
     			</div>
 
 		   		<div class="metrics {{city_average.SAT_AverageCRScore | filtraCeros}}">
@@ -1073,8 +1084,8 @@
 
 			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_average_score.sat_a_math_s | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_average_score.sat_a_math_s}}%;">
-    				<p>{{evaluation_average_score.sat_a_math_s}}</p>
-    				<itemsurvey><span>Math</span></itemsurvey>
+    				<span><p>{{evaluation_average_score.sat_a_math_s}}</p></span>
+    				<itemsurvey><span style="padding-right:12px">Math</span></itemsurvey>
     			</div>
 
 		   		<div class="metrics {{city_average.SAT_AverageMathScore | filtraCeros}}">
@@ -1091,8 +1102,8 @@
 
 			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_average_score.sat_a_writing_s | filtraCeros}}">
     			<div class="porcentaje" style="width:{{evaluation_average_score.sat_a_writing_s}}%;">
-    				<p>{{evaluation_average_score.sat_a_writing_s}}</p>
-    				<itemsurvey><span>Writing</span></itemsurvey>
+    				<span><p>{{evaluation_average_score.sat_a_writing_s}}</p></span>
+    				<itemsurvey><span style="padding-right:12px">Writing</span></itemsurvey>
     			</div>
 
 		   		<div class="metrics {{city_average.SAT_AverageWritingScore | filtraCeros}}">
@@ -1115,9 +1126,9 @@
      <accordion-group is-open="true">
 
         <accordion-heading>
-            <div id="grilla_04_06_dw" class="grillaAcordion" onclick="rotarGrilla(this.id)">Regents Pass Rate
+            <div id="grilla_04_06_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Regents Pass Rate
             <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
-            <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_06" style="-webkit-transform:rotate(180deg);left:-0.5rem"></div>
+            <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_06" ></div>
         </accordion-heading>      
 
          <!-- Regents Pass Rate-->
@@ -1126,8 +1137,8 @@
 
         <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.pp_r_english | filtraCeros}}">
                 <div class="porcentaje" style="width:{{evaluation_regents.pp_r_english}}%;">
-                    <p>{{evaluation_regents.pp_r_english | number:1}}%</p>
-                    <itemsurvey><span> English</span></itemsurvey>
+                    <span><p>{{evaluation_regents.pp_r_english | number:1}}%</p></span>
+                    <itemsurvey><span style="padding-right:12px"> English</span></itemsurvey>
                 </div>
 
                 <div class="metrics {{city_average.Average_Regents_Pass_Rate_for_English | filtraCeros}}">
@@ -1143,8 +1154,8 @@
 
         <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.pp_r_us_history | filtraCeros}}">
                 <div class="porcentaje" style="width:{{evaluation_regents.pp_r_us_history}}%;">
-                    <p>{{evaluation_regents.pp_r_us_history | number:1}}%</p>
-                    <itemsurvey><span> U.S. History</span></itemsurvey>
+                    <span><p>{{evaluation_regents.pp_r_us_history | number:1}}%</p></span>
+                    <itemsurvey><span style="padding-right:12px"> U.S. History</span></itemsurvey>
                 </div>
 
                 <div class="metrics {{city_average.Average_Regents_Pass_Rate_for_US_History | filtraCeros}}">
@@ -1160,8 +1171,8 @@
 
         <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.pp_r_global_history | filtraCeros}}">
                 <div class="porcentaje" style="width:{{evaluation_regents.pp_r_global_history}}%;">
-                    <p>{{evaluation_regents.pp_r_global_history | number:1}}%</p>
-                    <itemsurvey><span> Global History</span></itemsurvey>
+                    <span><p>{{evaluation_regents.pp_r_global_history | number:1}}%</p></span>
+                    <itemsurvey><span style="padding-right:12px"> Global History</span></itemsurvey>
                 </div>
 
                 <div class="metrics {{city_average.Average_Regents_Pass_Rate_for_Global_History | filtraCeros}}">
@@ -1177,8 +1188,8 @@
 
     <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.pp_r_living_environment | filtraCeros}}">
                 <div class="porcentaje" style="width:{{evaluation_regents.pp_r_living_environment}}%;">
-                    <p>{{evaluation_regents.pp_r_living_environment | number:1}}%</p>
-                    <itemsurvey><span> Living Environment</span></itemsurvey>
+                    <span><p>{{evaluation_regents.pp_r_living_environment | number:1}}%</p></span>
+                    <itemsurvey><span style="padding-right:12px"> Living Environment</span></itemsurvey>
                 </div>
 
                 <div class="metrics {{city_average.Average_Regents_Pass_Rate_for_Living_Environment | filtraCeros}}">
@@ -1194,8 +1205,8 @@
 
         <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.pp_r_earth_science | filtraCeros}}">
                 <div class="porcentaje" style="width:{{evaluation_regents.pp_r_earth_science}}%;">
-                    <p>{{evaluation_regents.pp_r_earth_science | number:1}}%</p>
-                    <itemsurvey><span> Earth Science</span></itemsurvey>
+                    <span><p>{{evaluation_regents.pp_r_earth_science | number:1}}%</p></span>
+                    <itemsurvey><span style="padding-right:12px"> Earth Science</span></itemsurvey>
                 </div>
 
                 <div class="metrics {{city_average.Average_Regents_Pass_Rate_for_Earth_Science | filtraCeros}}">
@@ -1211,8 +1222,8 @@
 
         <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.pp_r_chemistry | filtraCeros}}">
                 <div class="porcentaje" style="width:{{evaluation_regents.pp_r_chemistry}}%;">
-                    <p>{{evaluation_regents.pp_r_chemistry | number:1}}%</p>
-                    <itemsurvey><span> Chemistry</span></itemsurvey>
+                    <span><p>{{evaluation_regents.pp_r_chemistry | number:1}}%</p></span>
+                    <itemsurvey><span style="padding-right:12px"> Chemistry</span></itemsurvey>
                 </div>
 
                 <div class="metrics {{city_average.Average_Regents_Pass_Rate_for_Chemistry | filtraCeros}}">
@@ -1228,8 +1239,8 @@
 
         <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.pp_r_physics | filtraCeros}}">
                 <div class="porcentaje" style="width:{{evaluation_regents.pp_r_physics}}%;">
-                    <p>{{evaluation_regents.pp_r_physics | number:1}}%</p>
-                    <itemsurvey><span> Physics</span></itemsurvey>
+                    <span><p>{{evaluation_regents.pp_r_physics | number:1}}%</p></span>
+                    <itemsurvey><span style="padding-right:12px"> Physics</span></itemsurvey>
                 </div>
 
                 <div class="metrics {{city_average.Average_Regents_Pass_Rate_for_Physics | filtraCeros}}">
@@ -1245,8 +1256,8 @@
 
     <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.pp_r_integrated_algebra | filtraCeros}}">
                 <div class="porcentaje" style="width:{{evaluation_regents.pp_r_integrated_algebra}}%;">
-                    <p>{{evaluation_regents.pp_r_integrated_algebra | number:1}}%</p>
-                    <itemsurvey><span> Integrated Algebra</span></itemsurvey>
+                    <span><p>{{evaluation_regents.pp_r_integrated_algebra | number:1}}%</p></span>
+                    <itemsurvey><span style="padding-right:12px"> Integrated Algebra</span></itemsurvey>
                 </div>
 
                 <div class="metrics {{city_average.Average_Regents_Pass_Rate_for_Integrated_Algebra | filtraCeros}}">
@@ -1262,8 +1273,8 @@
 
         <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.pp_r_geometry | filtraCeros}}">
                 <div class="porcentaje" style="width:{{evaluation_regents.pp_r_geometry}}%;">
-                    <p>{{evaluation_regents.pp_r_geometry | number:1}}%</p>
-                    <itemsurvey><span> Geometry</span></itemsurvey>
+                    <span><p>{{evaluation_regents.pp_r_geometry | number:1}}%</p></span>
+                    <itemsurvey><span style="padding-right:12px"> Geometry</span></itemsurvey>
                 </div>
 
                 <div class="metrics {{city_average.Average_Regents_Pass_Rate_for_Geometry | filtraCeros}}">
@@ -1280,8 +1291,8 @@
 
         <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.pp_r_algebraii | filtraCeros}}">
                 <div class="porcentaje" style="width:{{evaluation_regents.pp_r_algebraii}}%;">
-                    <p>{{evaluation_regents.pp_r_algebraii | number:1}}%</p>
-                    <itemsurvey><span> Algebra II</span></itemsurvey>
+                    <span><p>{{evaluation_regents.pp_r_algebraii | number:1}}%</p></span>
+                    <itemsurvey><span style="padding-right:12px"> Algebra II</span></itemsurvey>
                 </div>
 
                 <div class="metrics {{city_average.Average_Regents_Pass_Rate_for_Algebra_ii | filtraCeros}}">
@@ -1303,9 +1314,9 @@
      <accordion-group is-open="true">
 
         <accordion-heading>
-            <div id="grilla_04_07_dw" class="grillaAcordion" onclick="rotarGrilla(this.id)">Regents Average Score
+            <div id="grilla_04_07_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Regents Average Score
             <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
-            <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_07" style="-webkit-transform:rotate(180deg);left:-0.5rem"></div>
+            <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_07" ></div>
         </accordion-heading>     
 
          <!-- Regents Average Score-->
@@ -1314,8 +1325,8 @@
 
         <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.as_r_english | filtraCeros}}">
                 <div class="porcentaje" style="width:{{evaluation_regents.as_r_english}}%;">
-                    <p>{{evaluation_regents.as_r_english | number:1}}%</p>
-                    <itemsurvey><span> English</span></itemsurvey>
+                    <span><p>{{evaluation_regents.as_r_english | number:1}}%</p></span>
+                    <itemsurvey><span style="padding-right:12px"> English</span></itemsurvey>
                 </div>
             <div class="rank-s">
                     <p><img ng-src="img/{{ proficiency_ratings.as_r_english_pr | filtraRank }}.png" ></p>
@@ -1333,8 +1344,8 @@
 
         <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.as_r_us_history | filtraCeros}}">
                 <div class="porcentaje" style="width:{{evaluation_regents.as_r_us_history}}%;">
-                    <p>{{evaluation_regents.as_r_us_history | number:1}}%</p>
-                    <itemsurvey><span> U.S. History</span></itemsurvey>
+                    <span><p>{{evaluation_regents.as_r_us_history | number:1}}%</p></span>
+                    <itemsurvey><span style="padding-right:12px"> U.S. History</span></itemsurvey>
                 </div>
                 <div class="rank-s">
                     <p><img ng-src="img/{{ proficiency_ratings.as_r_us_history_pr | filtraRank }}.png" ></p>
@@ -1351,8 +1362,8 @@
 
         <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.as_r_global_history | filtraCeros}}">
                 <div class="porcentaje" style="width:{{evaluation_regents.as_r_global_history}}%;">
-                    <p>{{evaluation_regents.as_r_global_history | number:1}}%</p>
-                    <itemsurvey><span> Global History</span></itemsurvey>
+                    <span><p>{{evaluation_regents.as_r_global_history | number:1}}%</p></span>
+                    <itemsurvey><span style="padding-right:12px"> Global History</span></itemsurvey>
                 </div>
                 <div class="rank-s">
                 <p><img ng-src="img/{{ proficiency_ratings.as_r_global_history_pr | filtraRank }}.png" ></p>
@@ -1369,8 +1380,8 @@
 
     <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.as_r_living_environment | filtraCeros}}">
                 <div class="porcentaje" style="width:{{evaluation_regents.as_r_living_environment}}%;">
-                    <p>{{evaluation_regents.as_r_living_environment | number:1}}%</p>
-                    <itemsurvey><span> Living Environment</span></itemsurvey>
+                    <span><p>{{evaluation_regents.as_r_living_environment | number:1}}%</p></span>
+                    <itemsurvey><span style="padding-right:12px"> Living Environment</span></itemsurvey>
                 </div>
                 <div class="rank-s">
             <p><img ng-src="img/{{ proficiency_ratings.as_r_living_environment_pr | filtraRank }}.png" ></p>
@@ -1387,8 +1398,8 @@
 
         <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.as_r_earth_science | filtraCeros}}">
                 <div class="porcentaje" style="width:{{evaluation_regents.as_r_earth_science}}%;">
-                    <p>{{evaluation_regents.as_r_earth_science | number:1}}%</p>
-                    <itemsurvey><span> Earth Science</span></itemsurvey>
+                    <span><p>{{evaluation_regents.as_r_earth_science | number:1}}%</p></span>
+                    <itemsurvey><span style="padding-right:12px"> Earth Science</span></itemsurvey>
                 </div>
             <div class="rank-s">
                 <p><img ng-src="img/{{ proficiency_ratings.as_r_earth_science_pr | filtraRank }}.png" ></p>
@@ -1405,8 +1416,8 @@
 
         <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.as_r_chemistry | filtraCeros}}">
                 <div class="porcentaje" style="width:{{evaluation_regents.as_r_chemistry}}%;">
-                    <p>{{evaluation_regents.as_r_chemistry | number:1}}%</p>
-                    <itemsurvey><span> Chemistry</span></itemsurvey>
+                    <span><p>{{evaluation_regents.as_r_chemistry | number:1}}%</p></span>
+                    <itemsurvey><span style="padding-right:12px"> Chemistry</span></itemsurvey>
                 </div>
             <div class="rank-s">
                 <p><img ng-src="img/{{ proficiency_ratings.as_r_chemistry_pr | filtraRank }}.png" ></p>
@@ -1423,8 +1434,8 @@
 
         <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.as_r_physics | filtraCeros}}">
                 <div class="porcentaje" style="width:{{evaluation_regents.as_r_physics}}%;">
-                    <p>{{evaluation_regents.as_r_physics | number:1}}%</p>
-                    <itemsurvey><span> Physics</span></itemsurvey>
+                    <span><p>{{evaluation_regents.as_r_physics | number:1}}%</p></span>
+                    <itemsurvey><span style="padding-right:12px"> Physics</span></itemsurvey>
                 </div>
                 <div class="rank-s">
                     <p><img ng-src="img/{{ proficiency_ratings.as_r_physics_pr | filtraRank }}.png" ></p>
@@ -1440,8 +1451,8 @@
 
     <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.as_r_integrated_algebra | filtraCeros}}">
                 <div class="porcentaje" style="width:{{evaluation_regents.as_r_integrated_algebra}}%;">
-                    <p>{{evaluation_regents.as_r_integrated_algebra | number:1}}%</p>
-                    <itemsurvey><span> Integrated Algebra</span></itemsurvey>
+                    <span><p>{{evaluation_regents.as_r_integrated_algebra | number:1}}%</p></span>
+                    <itemsurvey><span style="padding-right:12px"> Integrated Algebra</span></itemsurvey>
                 </div>
             <div class="rank-s">
             <p><img ng-src="img/{{ proficiency_ratings.as_r_integrated_algebra_pr | filtraRank }}.png" ></p>
@@ -1458,8 +1469,8 @@
 
         <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.as_r_geometry | filtraCeros}}">
                 <div class="porcentaje" style="width:{{evaluation_regents.as_r_geometry}}%;">
-                    <p>{{evaluation_regents.as_r_geometry | number:1}}%</p>
-                    <itemsurvey><span> Geometry</span></itemsurvey>
+                    <span><p>{{evaluation_regents.as_r_geometry | number:1}}%</p></span>
+                    <itemsurvey><span style="padding-right:12px"> Geometry</span></itemsurvey>
                 </div>
             <div class="rank-s">
                 <p><img ng-src="img/{{ proficiency_ratings.as_r_geometry_pr | filtraRank }}.png" ></p>
@@ -1477,8 +1488,8 @@
 
         <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.as_r_algebraii | filtraCeros}}">
                 <div class="porcentaje" style="width:{{evaluation_regents.as_r_algebraii}}%;">
-                    <p>{{evaluation_regents.as_r_algebraii | number:1}}%</p>
-                    <itemsurvey><span> Algebra II</span></itemsurvey>
+                    <span><p>{{evaluation_regents.as_r_algebraii | number:1}}%</p></span>
+                    <itemsurvey><span style="padding-right:12px"> Algebra II</span></itemsurvey>
                 </div>
                 <div class="rank-s">
                     <p><img ng-src="img/{{ proficiency_ratings.as_r_algebraii_pr | filtraRank }}.png" ></p>
@@ -1501,9 +1512,9 @@
      <accordion-group  is-open="true">
 
         <accordion-heading>
-            <div id="grilla_04_08_dw" class="grillaAcordion" onclick="rotarGrilla(this.id)">Regents College Ready
+            <div id="grilla_04_08_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Regents College Ready
             <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
-            <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_08" style="-webkit-transform:rotate(180deg);left:-0.5rem"></div>
+            <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_08" ></div>
         </accordion-heading>       
 
          <!-- Regents College Ready-->
@@ -1512,8 +1523,8 @@
 
         <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.pcr_r_comprehensive_english | filtraCeros}}">
                 <div class="porcentaje" style="width:{{evaluation_regents.pcr_r_comprehensive_english}}%;">
-                    <p>{{evaluation_regents.pcr_r_comprehensive_english | number:1}}%</p>
-                    <itemsurvey><span> English</span></itemsurvey>
+                    <span><p>{{evaluation_regents.pcr_r_comprehensive_english | number:1}}%</p></span>
+                    <itemsurvey><span style="padding-right:12px"> English</span></itemsurvey>
                 </div>
 
                 <div class="rank-s">
@@ -1529,8 +1540,8 @@
 
         <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.pcr_r_integrated_algebra | filtraCeros}}">
                 <div class="porcentaje" style="width:{{evaluation_regents.pcr_r_integrated_algebra}}%;">
-                    <p>{{evaluation_regents.pcr_r_integrated_algebra | number:1}}%</p>
-                    <itemsurvey><span>Integrated Algebra</span></itemsurvey>
+                    <span><p>{{evaluation_regents.pcr_r_integrated_algebra | number:1}}%</p></span>
+                    <itemsurvey><span style="padding-right:12px">Integrated Algebra</span></itemsurvey>
                 </div>
 
                 <div class="rank-s">
@@ -1546,8 +1557,8 @@
 
         <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.pcr_r_algebraii | filtraCeros}}">
                 <div class="porcentaje" style="width:{{evaluation_regents.pcr_r_algebraii}}%;">
-                    <p>{{evaluation_regents.pcr_r_algebraii | number:1}}%</p>
-                    <itemsurvey><span>Algebra II</span></itemsurvey>
+                    <span><p>{{evaluation_regents.pcr_r_algebraii | number:1}}%</p></span>
+                    <itemsurvey><span style="padding-right:12px">Algebra II</span></itemsurvey>
                 </div>
 
                 <div class="rank-s">

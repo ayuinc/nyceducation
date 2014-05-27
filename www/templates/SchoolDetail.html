@@ -86,6 +86,7 @@
 				<div class="small-5 columns">
 					<div class="profile_label">
 						<span>Shared Site</span>
+						<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>
 					</div>
 				</div>
 				<div class="small-7 columns">
@@ -102,7 +103,7 @@
 				</div>
 				<div class="small-7 columns">
 					<div class="profile_info">
-						<span class="sub"><a href="http://maps.google.com/?q={{ profile.primary_address }}, {{ profile.city }} {{ profile.zip }}" target="_blank">{{ profile.primary_address }}, {{ profile.city }} {{ profile.zip }}</a></span>
+						<span class="sub" style="font-size:0.7rem;"><a  href="http://maps.google.com/?q={{ profile.primary_address }}, {{ profile.city }} {{ profile.zip }}" target="_blank">{{ profile.primary_address }}, {{ profile.city }} {{ profile.zip }}</a></span>
 					</div>
 				</div>
 			</div>
@@ -126,7 +127,7 @@
 				</div>
 				<div class="small-7 columns">
 					<div class="profile_info">
-						<span class="sub"><a href="{{ profile.website }}">{{ profile.website }}</a></span>
+						<span class="sub"><a style="font-size:0.7rem" href="{{ profile.website }}">Go</a></span>
 					</div>
 				</div>
 			</div>

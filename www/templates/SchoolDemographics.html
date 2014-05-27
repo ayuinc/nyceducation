@@ -6,7 +6,7 @@
       </section>
 
       <section class="right tab-bar-section">
-        <h1 class="title">{{ school.name }}</h1>
+        <span><h1 class="title">{{ school.name }}</h1></span>
       </section>
     </nav>
 
@@ -28,6 +28,8 @@
                   <a ng-click="changeyear(item.indice)">{{item.texto}}</a>
                 </li>
               </ul>
+
+              <br>
         </div>
         </div>   
 
@@ -70,8 +72,8 @@
 	
 	<accordion-group heading="Ethnicity" is-open="true">
         <accordion-heading>
-            <div id="grilla_01_02_dw" class="grillaAcordion" onclick="rotarGrilla(this.id)">Ethnicity</div>
-            <div class="icon-arrow-down2 right uno" id="grilla_icon_01_02" style="-webkit-transform:rotate(180deg);left:-0.5rem"></div>
+            <div id="grilla_01_02_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Ethnicity</div>
+            <div class="icon-arrow-down2 right uno" id="grilla_icon_01_02" ></div>
         </accordion-heading>  
         <div class="row">
 	        <div class="small-12 medium-12 large-12 columns bg-tablas-data">
@@ -110,8 +112,8 @@
 	
 	<accordion-group heading="Status" is-open="true">
         <accordion-heading>
-            <div id="grilla_01_03_dw" class="grillaAcordion" onclick="rotarGrilla(this.id)">Status</div>
-            <div class="icon-arrow-down2 right uno"  id="grilla_icon_01_03" style="-webkit-transform:rotate(180deg);left:-0.5rem"></div>
+            <div id="grilla_01_03_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Status</div>
+            <div class="icon-arrow-down2 right uno"  id="grilla_icon_01_03" ></div>
         </accordion-heading>  
         <div class="row">
         <div class="small-12 medium-12 large-12 columns bg-tablas-data">
@@ -141,7 +143,7 @@
 	        </div>
         </div>
         <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-	        <div class="democracy color1" style="width:{{demographic.whith_disabilities}}%;">
+	        <div class="democracy color1" style="width:{{demographic.english_language_learners}}%;">
 	        <p>{{demographic.english_language_learners | number:1}}%</p>
 	        <itemsurvey>
 
