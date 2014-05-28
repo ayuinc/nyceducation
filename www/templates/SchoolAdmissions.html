@@ -6,7 +6,7 @@
       </section>
 
       <section class="right tab-bar-section">
-        <h1 class="title">{{ school.name }}</h1>
+        <span><h1 class="title">{{ school.name }}</h1></span>
       </section>
     </nav>
 
@@ -23,7 +23,7 @@
 		</div>	
 	</div>	
 
-		<div  class="no-data">NO DATA AVAILABLE</div>
+		<div  class="no-data">DATA NO AVAILABLE</div>
 
 
 	</div>  
@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="small-10 small-centered medium-6 large-6 columns">
                     <div ng-controller="SelectAdmission" class="text-center">
-                      <a dropdown-toggle="#dropdown_select_admission" class="button dropdown small bg-dropdown" style="width:200px">Select Admission</a>
+                      <a dropdown-toggle="#dropdown_select_admission" class="button dropdown small bg-dropdown" style="width:200px">{{SelectAdmission_si}}</a>
                       <ul id="dropdown_select_admission" class="f-dropdown" style="width:300px">
                         <li ng-repeat="item_select_admiss in itemsAdmission">
                           <a ng-click="changeadmission(item_select_admiss.indice)">{{item_select_admiss.texto}}</a>
@@ -58,7 +58,7 @@
             <div class="row">
                 <div class="small-10 small-centered medium-6 large-6 columns">
                     <div ng-controller="SelectAdmission_mh" class="text-center">
-                      <a dropdown-toggle="#dropdown_select_admission_mh" class="button dropdown small bg-dropdown" style="width:200px">Select Admission</a>
+                      <a dropdown-toggle="#dropdown_select_admission_mh" class="button dropdown small bg-dropdown" style="width:200px">{{SelectAdmission_mh_si}}</a>
                       <ul id="dropdown_select_admission_mh" class="f-dropdown" style="width:300px">
                         <li ng-repeat="item_select_admiss in itemsAdmission_mh">
                           <a ng-click="changeadmission_mh(item_select_admiss.indice)">{{item_select_admiss.texto}}</a>
@@ -126,7 +126,7 @@
 		<div class="priority">
 			<h6>Priority 1.
 		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
     	</div>
 			</h6>
 			<p>{{es_admissions.priority1}}</p>
@@ -137,7 +137,7 @@
 		<div class="priority color2">
 			<h6>Priority 2. 
 		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
     	</div>
 			</h6>
 			<p>{{es_admissions.priority2}}</p>
@@ -148,7 +148,7 @@
 		<div class="priority">
 			<h6>Priority 3. 
 		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
     	</div>
 			</h6>
 			<p>{{es_admissions.priority3}}</p>
@@ -159,7 +159,7 @@
 		<div class="priority color2">
 			<h6>Priority 4. 
 		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
     	</div>
 			</h6>
 			<p>{{es_admissions.priority4}}</p>
@@ -170,7 +170,7 @@
 		<div class="priority">
 			<h6>Priority 5. 
 		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
     	</div>				
 			</h6>
 			<p>{{es_admissions.priority5}}</p>
@@ -181,7 +181,7 @@
 		<div class="priority color2">
 			<h6>Priority 6. 
 		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
     	</div>
 			</h6>
 			<p>{{es_admissions.priority6}}</p>
@@ -192,7 +192,7 @@
 		<div class="priority">
 			<h6>Priority 7. 
 		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
     	</div>
 			</h6>
 			<p>{{es_admissions.priority7}}</p>
@@ -203,7 +203,7 @@
 		<div class="priority color2">
 			<h6>Priority 8. 
 		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
     	</div>
 			</h6>
 			<p>{{es_admissions.priority8}}</p>
@@ -214,7 +214,7 @@
 		<div class="priority">
 			<h6>Priority 9. 
 		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
     	</div>
 			</h6>
 			<p>{{es_admissions.priority9}}</p>
@@ -225,7 +225,7 @@
 		<div class="priority color2">
 			<h6>Priority 10. 
 		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
     	</div>
 			</h6>
 			<p>{{es_admissions.priority10}}</p>
@@ -236,7 +236,7 @@
 		<div class="priority">
 			<h6>Priority 11. 
 		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
     	</div>
 			</h6>
 			<p>{{es_admissions.priority11}}</p>
@@ -247,7 +247,7 @@
 		<div class="priority color2">
 			<h6>Priority 12. 
 		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
     	</div>
 			</h6>
 			<p>{{es_admissions.priority12}}</p>
@@ -258,7 +258,7 @@
 		<div class="priority">
 			<h6>Priority 13. 
 		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
     	</div>
 			</h6>
 			<p>{{es_admissions.priority13}}</p>
@@ -269,7 +269,7 @@
 		<div class="priority color2">
 			<h6>Priority 14. 
 		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
     	</div>
 			</h6>
 			<p>{{es_admissions.priority14}}</p>
@@ -280,7 +280,7 @@
 		<div class="priority">
 			<h6>Priority 15. 
 		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
     	</div>
 			</h6>
 			<p>{{es_admissions.priority15}}</p>
@@ -291,7 +291,7 @@
 		<div class="priority color2">
 			<h6>Priority 16. 
 		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
     	</div>
 			</h6>
 			<p>{{es_admissions.priority16}}</p>
@@ -302,7 +302,7 @@
 		<div class="priority">
 			<h6>Priority 17. 
 		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
     	</div>
 			</h6>
 			<p>{{es_admissions.priority17}}</p>
@@ -313,7 +313,7 @@
 		<div class="priority color2">
 			<h6>Priority 18. 
 		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="true" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
     	</div>
 			</h6>
 			<p>{{es_admissions.priority18}}</p>
@@ -376,7 +376,7 @@
 		<span>{{ms_admissions.program_name}}</span>
 
 		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="true" popover="??????????????" popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="??????????????" popover-placement="left" class="icon-info" style="cursor:pointer"></div>
 		</div>
 
 
@@ -423,7 +423,7 @@
 					<div class="profile_info">
 						<span>{{ms_admissions.admissions_priority}}</span>
 		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="true" popover="The order in which applicants are considered for placement. " popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="The order in which applicants are considered for placement. " popover-placement="left" class="icon-info" style="cursor:pointer"></div>
 		</div>
 					</div>
 				</div>
@@ -504,7 +504,7 @@
 					<div class="profile_info">
 						<span>{{hs_admissions.program_name}}</span>
 		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="true" popover="??????????????" popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="??????????????" popover-placement="left" class="icon-info" style="cursor:pointer"></div>
 		</div>						
 					</div>
 				</div>
@@ -561,7 +561,7 @@
 						<span>{{hs_admissions.admision_priority}}</span>
 
 		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="true" popover="The order in which applicants are considered for placement. " popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="The order in which applicants are considered for placement. " popover-placement="left" class="icon-info" style="cursor:pointer"></div>
 		</div>						
 			
 					</div>

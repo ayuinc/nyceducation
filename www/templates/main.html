@@ -1,7 +1,6 @@
 <div class="row header">
-    <div class="small-12 medium-12 large-12 columns" style="padding-top:12px; height:50px">
-
-        <h1 class="text-center">{{ header.title}}</h1>
+    <div class="small-12 medium-12 large-12 columns" style="padding-top:12px;">
+        <span><h1 class="text-center">{{ header.title}}</h1></span>
     </div>
 </div>
 
@@ -14,8 +13,12 @@
         <div class="row collapse">
             <div class="small-12 columns">
                 <div class="text-center">
-                    <input type="radio" name="search" value="simple" id="simple" ng-model="value" ng-checked="'true'"><label for="simple">By Name</label>
-                    <input type="radio" name="search" value="advanced" id="advanced" ng-model="value"><label for="advanced">By Address</label>
+
+        <button type="button" class="button" ng-model="value" value="simple" btn-radio="'simple'" style="width:49%">SCHOOL SEARCH</button>
+        <button type="button" class="button" ng-model="value" value="advanced" btn-radio="'advanced'" style="width:49%">ADDRESS SEARCH</button>
+
+             <!--       <input type="radio" name="search" value="simple" id="simple" ng-model="value" ng-checked="'true'"><label for="simple">By Name</label>
+                    <input type="radio" name="search" value="advanced" id="advanced" ng-model="value"><label for="advanced">By Address</label> -->
                 </div>
 
                 <div ng-switch on="value">
