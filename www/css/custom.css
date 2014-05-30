@@ -1071,24 +1071,7 @@ a.left-off-canvas-toggle.menu-icon{
 	vertical-align:middle;
 }
 
-/*
-.header span h1{
-	text-align: center;
-}*/
 
-/*
-.joyride-tip-guide .joyride-nub.top{
-
-	border-top-style: solid;
-	border-color: #ccffff;
-	border-top-color: transparent !important;
-	border-left-color: transparent !important;
-	border-right-color: transparent !important;
-	top: -12px;
-	-webkit-transform: rotate(320deg);
-	left: -12px;
-
-}*/
 
 .joyride-tip-guide .joyride-nub.right{
 
@@ -1124,4 +1107,14 @@ top: -20px;
 
 .joyride-content-wrapper p {
 	color: black;
+}
+.middle-vertical {
+	display: table;
+	height: 100%;
+}
+
+.middle-vertical h1{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
 }

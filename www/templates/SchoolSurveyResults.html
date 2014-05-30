@@ -5,7 +5,7 @@
         <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
       </section>
 
-      <section class="right tab-bar-section">
+      <section class="right tab-bar-section middle-vertical">
         <h1 class="title">{{ school.name }}</h1>
       </section>
     </nav>
@@ -24,7 +24,7 @@
 
 				<div class="small-6  medium-6 large-6 columns ">
 					<div ng-controller="SurveyRespCtrl" class="text-center">
-					  <a dropdown-toggle="#dropdown-grade_sr" class="button dropdown small bg-dropdown">{{selectedgrade}}</a>
+					  <a dropdown-toggle="#dropdown-grade_sr" class="button dropdown small bg-dropdown"style="padding-left: 14px;">{{selectedgrade}}</a>
 					  <ul id="dropdown-grade_sr" class="f-dropdown" style="width:100px">
 					    <li ng-repeat="itemg in itemsGrades">
 					      <a ng-click="changegrade(itemg.indice)">{{itemg.texto}}</a>
