@@ -1044,9 +1044,13 @@ a.left-off-canvas-toggle.menu-icon{
 	vertical-align:middle;
 }
 
+.middle-vertical {
+	display: table;
+	height: 100%;
+}
 
-
-/*
-.header span h1{
+.middle-vertical h1{
+	display: table-cell;
+	vertical-align: middle;
 	text-align: center;
-}*/
+}
