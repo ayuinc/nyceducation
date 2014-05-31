@@ -83,7 +83,7 @@
 
 .accordion .icon-arrow-down2 {
 	font-size: 1.3rem;
-	margin-right: 1rem;
+	margin-right: 0rem;
 	margin-top: -0.63rem;
 	/*position: relative;
 	top: 1.3rem;
@@ -99,7 +99,7 @@
 	top: 1rem;
 	right: 0rem;
 	color:#13688F;
-	font-size: 1rem;
+	font-size: 1.1rem;
 	margin-right: -0.5rem;
 }
 
@@ -339,7 +339,7 @@ body{
 .profile_label span{
 	font-weight: 300;
 	color: #FFFFFF;
-	font-size: 0.8rem;
+	font-size: 0.85rem;
 }
 
 .profile_info{
@@ -615,6 +615,7 @@ body{
 .average {
 	background-color: #87C3DA;
 	height: 0.9rem;
+	padding-left: 0.5rem;
 }
 
 .average p, .rank p {
@@ -882,10 +883,17 @@ itemsurvey span .pmizq{
 	padding: 0 0;
 
 }
+.joyride-tip-guide[placement="top"]{
+left: 20% !important;
+margin-top: -5px;
+}
 
+.joyride-tip-guide[placement="bottom"]{
+left: 10% !important;
+margin-top: 20px;
+}
 .joyride-tip-guide{
 	background-color: transparent;
-
 	width: 240px;
 	/*max-height: 100px;
 	margin-bottom: 100px;*/
@@ -907,6 +915,7 @@ itemsurvey span .pmizq{
 -webkit-border-top-right-radius:10px;
 -webkit-border-bottom-left-radius:10px;
 -webkit-border-bottom-right-radius:10px;
+-webkit-box-shadow: 0 0 7px #bbb;
 	
 }
 
@@ -967,13 +976,13 @@ span.joyride-nub.right {
 
 .grillaAcordion{
 	width:130%;
-	height: 27px;
+	height: 30px;
 	background-color:transparent;
 	position:relative;
-	top:-8px;
-	left:-14px;
+	top: -8px;
+	left: -24px;
 	margin-bottom:-20px;
-	padding:3.4px 9px; 
+	padding: 6px 16px; 
 	margin-left: 11px;
 	font-size: 1rem;
 	font-weight: 100;
@@ -990,7 +999,7 @@ span.joyride-nub.right {
 	top:-8px;
 	left:-14px;
 	margin-bottom:-20px;
-	padding:9px 9px; 
+	padding:9px 16px; 
 	padding-right: 38%;
 	z-index: 0;
 	font-size: 1rem;
@@ -1004,7 +1013,7 @@ span.joyride-nub.right {
 	top:-8px;
 	left:-14px;
 	margin-bottom:-20px;
-	padding:9px 9px; 
+	padding:9px 16px; 
 	padding-right: 40%;
 	z-index: 1;
 	font-size: 1rem;
@@ -1084,24 +1093,38 @@ a.left-off-canvas-toggle.menu-icon{
 	left: auto;
 	height: 100%;
 	background-image: url('../img/flecha_r.png');
-	 background-position:  right;
-	 background-repeat: no-repeat;
+	background-position:  right;
+	background-repeat: no-repeat;
 
-	 margin-right: 10px;
-padding-right: 0;
-border-right: 0;
-
-	/*-webkit-transform: rotate(320deg);*/
+	margin-right: 10px;
+	padding-right: 0;
+	border-right: 0;
 
 }
 
-.joyride-tip-guide .joyride-nub.top {
-border-top-style: solid;
-border-color: #333333;
-border-top-color: transparent !important;
+.joyride-tip-guide .joyride-nub.top{
+
+	border-top-style: solid;
+	border-color: transparent;
+	border-top-color: transparent !important;
+	border-left-color: transparent !important;
+	border-right-color: transparent !important;	
+	background-image: url('../img/flecha_b.png');
+	background-position:  top;
+	background-repeat: no-repeat;
+	width: 100%;
+
+
+}
+
+.joyride-tip-guide .joyride-nub.bottom {
+border-bottom-style: solid;
+border-color: #CCFFFF !important;
+border-bottom-color: transparent !important;
 border-left-color: transparent !important;
 border-right-color: transparent !important;
-top: -20px;
+bottom: -20px;
+left: 105px;
 }
 
 
@@ -1117,4 +1140,12 @@ top: -20px;
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
+}
+
+.f-dropdown li a {
+font-size: 0.8rem;
+}
+
+.f-dropdown {
+	width: 130px;
 }

@@ -23,10 +23,10 @@
 			<div class="row">
 
 
-				<div class="small-6  medium-6 large-6 columns">
+				<div class="small-6  medium-6 large-6 columns " style="margin-left:-2px">
 					<div ng-controller="SurveyYearCtrl" class="text-center">
 					  <a dropdown-toggle="#dropdown-year_dsr" class="button dropdown small bg-dropdown">{{selectedyear}}</a>
-					  <ul id="dropdown-year_dsr" class="f-dropdown" style="width:100px">
+					  <ul id="dropdown-year_dsr" class="f-dropdown">
 					    <li ng-repeat="itemy in itemsYears">
 					      <a ng-click="changeyear(itemy.indice)">{{itemy.texto}}</a>
 					    </li>
@@ -35,10 +35,10 @@
 					</div>
 				</div>
 
-				<div class="small-6  medium-6 large-6 columns ">
+				<div class="small-6  medium-6 large-6 columns " style="margin-right:-8px">
 					<div ng-controller="SurveyRespCtrl" class="text-center">
-					  <a dropdown-toggle="#dropdown-grade_dsr" class="button dropdown small bg-dropdown" style="width:150px">{{selectedgrade}}</a>
-					  <ul id="dropdown-grade_dsr" class="f-dropdown" style="width:100px">
+					  <a dropdown-toggle="#dropdown-grade_dsr" class="button dropdown small bg-dropdown" style="padding-left: 17px;">{{selectedgrade}}</a>
+					  <ul id="dropdown-grade_dsr" class="f-dropdown">
 					    <li ng-repeat="itemg in itemsGrades">
 					      <a ng-click="changegrade(itemg.indice)">{{itemg.texto}}</a>
 					    </li>
@@ -66,7 +66,7 @@
 
   <accordion close-others="oneAtATime">
 
-    <accordion-group is-open="true">
+    <accordion-group is-open="false">
         <accordion-heading>
             <div id="grilla_07_01_up" class="grillaAcordion_srd_3" onclick="rotarGrilla(this.id)">Q 1F: Most of the teaching staff at my school make me excited about learning. (s)</div>
             <div class="icon-arrow-down2 right siete" id="grilla_icon_07_01"></div> 
@@ -114,7 +114,7 @@
 	</accordion-group>
 
 
-        <accordion-group is-open="true">
+        <accordion-group is-open="false">
 
 
         <accordion-heading>
@@ -164,7 +164,7 @@
         </div>
     </accordion-group>  		
 
-        <accordion-group is-open="true">   
+        <accordion-group is-open="false">   
 
         <accordion-heading>
             <div id="grilla_07_03_up" class="grillaAcordion_srd" onclick="rotarGrilla(this.id)">Q 4E: I feel welcome at my school. (s)</div>
@@ -213,7 +213,7 @@
     </accordion-group>  
 
 
-        <accordion-group is-open="true">      
+        <accordion-group is-open="false">      
 
         <accordion-heading>
             <div id="grilla_07_04_up" class="grillaAcordion_srd_3" onclick="rotarGrilla(this.id)">Q 4G: At my school, I am safe in the hallways, bathrooms, locker rooms, and cafeteria. (s)</div>
@@ -261,7 +261,7 @@
         </div>
     </accordion-group>     
 
-    <accordion-group is-open="true">   
+    <accordion-group is-open="false">   
 
         <accordion-heading>
             <div id="grilla_07_05_up" class="grillaAcordion_srd" onclick="rotarGrilla(this.id)">Q 6C: Most students at my school respect students who get good grades. (s)</div>
@@ -330,7 +330,7 @@
 
   <accordion close-others="oneAtATime">
 
-    <accordion-group is-open="true">
+    <accordion-group is-open="false">
 
         <accordion-heading>
             <div id="grilla_08_01_up" class="grillaAcordion_srd" onclick="rotarGrilla(this.id)">Q 3D: School leaders place a high priority on the quality of teaching. (t)</div>
@@ -378,7 +378,7 @@
         </div>
     </accordion-group>
 
-        <accordion-group is-open="true">      
+        <accordion-group is-open="false">      
 
         <accordion-heading>
             <div id="grilla_08_02_up" class="grillaAcordion_srd" onclick="rotarGrilla(this.id)">Q 8C: I would recommend my school to parents seeking a place for their child. (t)</div>
@@ -427,7 +427,7 @@
     </accordion-group>          
 
 
-        <accordion-group is-open="true">      
+        <accordion-group is-open="false">      
 
         <accordion-heading>
             <div id="grilla_08_03_up" class="grillaAcordion_srd_3" onclick="rotarGrilla(this.id)">Q 10C: My school communicates effectively with parents about their child’s progress. (t)</div>
@@ -476,7 +476,7 @@
     </accordion-group>  
 
 
-        <accordion-group is-open="true">      
+        <accordion-group is-open="false">      
 
         <accordion-heading>
             <div id="grilla_08_04_up" class="grillaAcordion_srd" onclick="rotarGrilla(this.id)">Q 11E: Students are often harassed or bullied in school. (t)</div>
@@ -525,7 +525,7 @@
     </accordion-group>     
 
 
-        <accordion-group is-open="true">    
+        <accordion-group is-open="false">    
 
         <accordion-heading>
             <div id="grilla_08_05_up" class="grillaAcordion_srd" onclick="rotarGrilla(this.id)">Q 11F: At my school, adults treat students with respect. (t)</div>
@@ -595,7 +595,7 @@
 
   <accordion close-others="oneAtATime">
 
-    <accordion-group is-open="true">      
+    <accordion-group is-open="false">      
 
         <accordion-heading>
             <div id="grilla_09_01_up" class="grillaAcordion_srd_3" onclick="rotarGrilla(this.id)">Q 1A: My child’s school keeps me informed about my child’s academic progress. (p)</div>
@@ -644,7 +644,7 @@
     </accordion-group>
 
 
-        <accordion-group is-open="true">  
+        <accordion-group is-open="false">  
 
         <accordion-heading>
             <div id="grilla_09_02_up" class="grillaAcordion_srd" onclick="rotarGrilla(this.id)">Q 1G: My child’s school is responsive to parent feedback. (p)</div>
@@ -693,7 +693,7 @@
     </accordion-group>          
 
 
-        <accordion-group is-open="true">   
+        <accordion-group is-open="false">   
 
         <accordion-heading>
             <div id="grilla_09_03_up" class="grillaAcordion_srd" onclick="rotarGrilla(this.id)">Q 2A: My child is safe at school. (p)</div>
@@ -742,7 +742,7 @@
     </accordion-group>  
 
 
-        <accordion-group is-open="true">  
+        <accordion-group is-open="false">  
 
         <accordion-heading>
             <div id="grilla_09_04_up" class="grillaAcordion_srd" onclick="rotarGrilla(this.id)">Q 3A: I would recommend this school to other parents. (p)</div>
@@ -791,7 +791,7 @@
     </accordion-group>     
 
 
-        <accordion-group is-open="true">    
+        <accordion-group is-open="false">    
 
         <accordion-heading>
             <div id="grilla_09_05_up" class="grillaAcordion_srd_3" onclick="rotarGrilla(this.id)">Q 5B: I am satisfied or very satisfied with the education my child has received this year. (p)</div>

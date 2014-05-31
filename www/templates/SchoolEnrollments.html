@@ -57,11 +57,11 @@
 
 <div class="">
 
-    <accordion-group is-open="true">
+        <div style="position:relative;z-index:5;top: 6px;left: 215px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="The total number of students who are enrolled in each grade of the school as of October 31 of the current school year." ><img style="position:absolute;" src='img/info.png' width='15'  onclick="quitaBurbuja(this)"></div>
+    <accordion-group is-open="false">
 
         <accordion-heading>
-            <div id="grilla_03_01_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Students Enrolled by Grade
-            <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
+            <div id="grilla_03_01_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Students Enrolled by Grade</div>
             <div class="icon-arrow-down2 right tres" id="grilla_icon_03_01" ></div>
         </accordion-heading>          
 
@@ -137,7 +137,7 @@
 
 
 
-<accordion-group  is-open="true">  
+<accordion-group  is-open="false">  
         <accordion-heading>
             <div id="grilla_03_02_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Attendance</div>
             <div class="icon-arrow-down2 right tres" id="grilla_icon_03_02"></div>

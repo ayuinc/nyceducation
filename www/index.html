@@ -17,6 +17,44 @@
 
     <script type="text/javascript">
 
+    function quitaBurbuja(){
+
+    var elementos = document.getElementsByClassName('joyride-tip-guide');
+
+
+     for (var i = 0; i < elementos.length; i++) {
+
+      //elementos[i].is-open="tt_isOpen";
+      elementos[i].style.display="none";
+      //elementos[i].style.display="block";
+      }
+    }
+
+    function mcolor( id ){
+
+      var michi = "#";
+
+      if ( id == "btn_simple"){
+        var btn_desactivar = document.getElementById("btn_simple");
+        var btn_activar = document.getElementById("btn_complicado"); 
+        btn_activar.style.background="#969DA1";
+        btn_desactivar.style.background="#ADB3B8";
+
+      }
+      if ( id == "btn_complicado"){
+        var btn_desactivar = document.getElementById("btn_complicado");
+        var btn_activar = document.getElementById("btn_simple"); 
+        btn_activar.style.background="#969DA1";
+        btn_desactivar.style.background="#ADB3B8";
+
+      }
+
+
+
+    }
+
+
+
     function rotarGrilla( id ){
       var prefijoIcon = "grilla_icon_";
       var sufijoIconUp = "_up";

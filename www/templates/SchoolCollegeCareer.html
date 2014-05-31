@@ -44,12 +44,12 @@
 
   <accordion close-others="oneAtATime">
 
+            <div style="position:relative;z-index:5;top: 8px;left: 110px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="Percentage of students in the six-year cohort who 1) graduated with a Regents diploma and have met City University of New York's (CUNY) standards for English and mathematics, or 2) graduated, enrolled and persisted through 3 consecutive semesters of college within six years of graduating." ><img style="position:absolute;" src='img/info.png' width='15'  onclick="quitaBurbuja(this)"></div>   
 
-    <accordion-group is-open="true">  
+    <accordion-group is-open="false">  
 
         <accordion-heading>
-            <div id="grilla_02_01_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Readiness
-            <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
+            <div id="grilla_02_01_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Readiness</div>
             <div class="icon-arrow-down2 right dos" id="grilla_icon_02_01" ></div>
         </accordion-heading>        
 
@@ -141,7 +141,7 @@
 			    	</div>
 			    </accordion-group>
 
-			    <accordion-group is-open="true">  
+			    <accordion-group is-open="false">  
 
         <accordion-heading>
             <div id="grilla_02_02_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Graduation</div>

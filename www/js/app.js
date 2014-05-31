@@ -497,7 +497,7 @@ app.controller("CollegeCarrerDropdownCtrl" ,[ '$scope', 'DatosSchool', '$rootSco
 
 app.controller("SelectEvaluations" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
-  $scope.SelectEvaluations_is = "Select Evaluation";
+  $scope.SelectEvaluations_is = "Select";
   $scope.itemsEvaluations = [{texto:"Elementary",indice:"0"},{texto:"High",indice:"1"}];
   $scope.changeEvaluations = function(indice) {
 
@@ -637,8 +637,8 @@ app.controller("TestScoreGradeddCtrl" ,[ '$scope', 'DatosSchool', '$rootScope',f
 
 app.controller("SelectTestScores" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
-    $scope.SelectTestScores_si= "Select Test Score";
-  $scope.items_selec_testScore = [{texto:"K - 8 Test Score",indice:"0"},{texto:"9 - 12 Test Score",indice:"1"}];
+    $scope.SelectTestScores_si= "Select";
+  $scope.items_selec_testScore = [{texto:"K - 8",indice:"0"},{texto:"9 - 12",indice:"1"}];
   $scope.change_selec_testScore = function(indice) {
 
     if (indice==0){
@@ -694,7 +694,7 @@ app.controller("SelectEvaluations" ,[ '$scope', 'DatosSchool', '$rootScope',func
 // CONTROLADORES ADMISSIONS
 app.controller("SelectAdmission" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
-    $scope.SelectAdmission_si="Select Admission";
+    $scope.SelectAdmission_si="Select";
   $scope.itemsAdmission = [{texto:"Elementary",indice:"0"},{texto:"Middle",indice:"1"}];
   $scope.changeadmission = function(indice) {
 
@@ -725,7 +725,7 @@ app.controller("SelectAdmission" ,[ '$scope', 'DatosSchool', '$rootScope',functi
 
 app.controller("SelectAdmission_mh" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
-  $scope.SelectAdmission_mh_si = "Select Admission"
+  $scope.SelectAdmission_mh_si = "Select"
   $scope.itemsAdmission_mh = [{texto:"Middle",indice:"0"},{texto:"High",indice:"1"}];
   $scope.changeadmission_mh = function(indice) {
 
@@ -852,7 +852,7 @@ app.controller("SurveyYearCtrl" ,[ '$scope', 'DatosSchool', '$rootScope',functio
     $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[0];
 
 
-    $scope.selectedyear= "Year";
+    $scope.selectedyear= "2011";
     $scope.itemsYears = [{texto:"2011",indice:0},{texto:"2012",indice:1},{texto:"2013",indice:2}];
     $scope.changeyear = function(indice_year) {
     $scope.selectedyear = $scope.itemsYears[indice_year].texto; 

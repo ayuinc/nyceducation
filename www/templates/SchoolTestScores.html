@@ -21,18 +21,17 @@
 
 <div class="{{ 'selectTestScore' | filtraTestScore}}"> <!--ES ADMISSION-->
     <div class="row menu-header">   
-        <div class="small-10 small-centered medium-6 large-6 columns"><h3 class="text-center">Select Admissions</h3></div>  
+        <div class="small-10 small-centered medium-6 large-6 columns"><h3 class="text-center">Select Test Score</h3></div>  
         <div class="small-10 small-centered medium-10 large-10 columns">        
             <div class="row">
                 <div class="small-10 small-centered medium-6 large-6 columns">
                     <div ng-controller="SelectTestScores" class="text-center">
-                      <a dropdown-toggle="#dropdown_select_testScore" class="button dropdown small bg-dropdown" style="width:200px">{{SelectTestScores_si}}</a>
-                      <ul id="dropdown_select_testScore" class="f-dropdown" style="width:300px">
+                      <a dropdown-toggle="#dropdown_select_testScore" class="button dropdown small bg-dropdown" >{{SelectTestScores_si}}</a>
+                      <ul id="dropdown_select_testScore" class="f-dropdown" >
                         <li ng-repeat="item_select_TS in items_selec_testScore">
                           <a ng-click="change_selec_testScore(item_select_TS.indice)">{{item_select_TS.texto}}</a>
                         </li>
                       </ul>
-                      <br>
                     </div>
                 </div>
             </div>
@@ -56,14 +55,14 @@
 <div  class="{{ 'elementary' | filtraTestScore }}  {{filtroTSelement}}">   
     <div class="row menu-header">   
         <div class="small-6 small-centered medium-6 large-6 columns">
-            <h3 class="text-center">k - 8 Test Scores</h3>
+            <h3 class="text-center">Test Scores</h3>
         </div>  
         <div class="small-10 small-centered medium-10 large-10 columns">        
             <div class="row {{ 'elementary' | filtraTestScore }}">
                 <div class="small-6  medium-6 large-6 columns">
                     <div ng-controller="TestScoreYearddCtrl" class="text-center">
                       <a dropdown-toggle="#dropdown-year_testScore" class="button dropdown small bg-dropdown">{{selectedyear}}</a>
-                      <ul id="dropdown-year_testScore" class="f-dropdown" style="width:100px">
+                      <ul id="dropdown-year_testScore" class="f-dropdown" >
                         <li ng-repeat="itemy in itemsYears">
                           <a ng-click="changeyear(itemy.indice)">{{itemy.texto}}</a>
                         </li>
@@ -75,7 +74,7 @@
                 <div class="small-6  medium-6 large-6 columns ">
                     <div ng-controller="TestScoreGradeddCtrl" class="text-center">
                       <a dropdown-toggle="#dropdown-grade_testScore" class="button dropdown small bg-dropdown">{{selectedgrade}}</a>
-                      <ul id="dropdown-grade_testScore" class="f-dropdown" style="width:100px">
+                      <ul id="dropdown-grade_testScore" class="f-dropdown" >
                         <li ng-repeat="itemg in itemsGrades">
                           <a ng-click="changegrade(itemg.indice)">{{itemg.texto}}</a>
                         </li>
@@ -98,12 +97,11 @@
 -->
 <accordion close-others="oneAtATime">
 
-    
-    <accordion-group is-open="true"> 
+        <div style="position:relative;z-index:5;top: 8px;left: 125px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="In Spring 2013, New York State administered the first set of tests designed to assess student performance in English Language Arts (Grades 3-8) in accordance with the instructional shifts required by the Common Core Learning Standards. New York State assigns performance levels 1 ,2, 3, and 4 to scale scores from the exams." ><img style="position:absolute;" src='img/info.png' width='15'  onclick="quitaBurbuja(this)"></div>    
+    <accordion-group is-open="false"> 
 
         <accordion-heading>
-            <div id="grilla_04_01_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">ELA Scores
-            <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
+            <div id="grilla_04_01_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">ELA Scores</div>
             <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_01" ></div>
         </accordion-heading>     
 
@@ -519,12 +517,12 @@
 
 	</accordion-group>
 
+        <div style="position:relative;z-index:5;top: 8px;left: 125px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="In Spring 2013, New York State administered the first set of tests designed to assess student performance in Math (Grades 3-8) in accordance with the instructional shifts required by the Common Core Learning Standards. New York State assigns performance levels 1, 2, 3, and 4 to scale scores from the exams." ><img style="position:absolute;" src='img/info.png' width='15'  onclick="quitaBurbuja(this)"></div>   
     
-	<accordion-group is-open="true">
+	<accordion-group is-open="false">
 
         <accordion-heading>
-            <div id="grilla_04_02_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Math Scores
-            <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
+            <div id="grilla_04_02_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Math Scores</div>
             <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_02" ></div>
         </accordion-heading>     
 
@@ -939,12 +937,12 @@
 
     	</div>
     </accordion-group>
+            <div style="position:relative;z-index:5;top: 8px;left: 250px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="Provides the average performance level on New York State ELA test of students who took the test at the school." ><img style="position:absolute;" src='img/info.png' width='15'  onclick="quitaBurbuja(this)"></div>        
     
-    	<accordion-group is-open="true">
+    	<accordion-group is-open="false">
 
         <accordion-heading>
-            <div id="grilla_04_03_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Average Proficiecy Score - ELA
-            <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
+            <div id="grilla_04_03_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Average Proficiecy Score - ELA</div>
             <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_03" ></div>
         </accordion-heading>             
 
@@ -973,12 +971,12 @@
 
     </accordion-group>
 
-    
-        <accordion-group is-open="true">
 
+            <div style="position:relative;z-index:5;top: 8px;left: 250px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="Provides the average performance level on New York State Math test of students who took the test at the school." ><img style="position:absolute;" src='img/info.png' width='15'  onclick="quitaBurbuja(this)"></div>       
+
+        <accordion-group is-open="false">
         <accordion-heading>
-            <div id="grilla_04_04_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Average Proficiecy Score - Math
-            <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
+            <div id="grilla_04_04_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Average Proficiecy Score - Math</div>
             <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_04" ></div>
         </accordion-heading>         
 
@@ -1016,7 +1014,7 @@
 
         <div class="row menu-header">   
         <div class="small-6 small-centered medium-6 large-6 columns">
-            <h3 class="text-center">9 - 12 Test Scores</h3>
+            <h3 class="text-center">Test Scores</h3>
         </div>  
         <div class="small-10 small-centered medium-10 large-10 columns">        
 
@@ -1026,7 +1024,7 @@
                 <div class="small-6 small-centered medium-6 large-6 columns">
                     <div ng-controller="TestScoreYearddCtrl" class="text-center">
                       <a dropdown-toggle="#dropdown-year_testScore_h" class="button dropdown small bg-dropdown">{{selectedyear}}</a>
-                      <ul id="dropdown-year_testScore_h" class="f-dropdown" style="width:100px">
+                      <ul id="dropdown-year_testScore_h" class="f-dropdown" >
                         <li ng-repeat="itemy in itemsYears">
                           <a ng-click="changeyear(itemy.indice)">{{itemy.texto}}</a>
                         </li>
@@ -1052,14 +1050,12 @@
   <accordion close-others="oneAtATime">
 
     <!-- HIGH -->
-
-    
-     <accordion-group is-open="true">
+            <div style="position:relative;z-index:5;top: 8px;left: 80px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="The number of students at the school who took the SAT at the school, a globally recognized college admission test that tests knowledge of critical  reading, writing and math. " ><img style="position:absolute;" src='img/info.png' width='15'  onclick="quitaBurbuja(this)"></div>   
+   
+     <accordion-group is-open="false">
 
         <accordion-heading>
-            <div id="grilla_04_05_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">SAT
-                <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a>
-            </div>
+            <div id="grilla_04_05_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">SAT</div>
             <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_05"></div>
         </accordion-heading>      
 
@@ -1141,12 +1137,14 @@
 
     	</div>
     </accordion-group>
+
+            <div style="position:relative;z-index:5;top: 8px;left: 200px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="Percentage of students passing the Regents Exam in the selected year." ><img style="position:absolute;" src='img/info.png' width='15'  onclick="quitaBurbuja(this)"></div>       
+  
     
-     <accordion-group is-open="true">
+     <accordion-group is-open="false">
 
         <accordion-heading>
-            <div id="grilla_04_06_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Regents Pass Rate
-            <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
+            <div id="grilla_04_06_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Regents Pass Rate</div>
             <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_06" ></div>
         </accordion-heading>      
 
@@ -1330,11 +1328,13 @@
 
     </accordion-group>            
 
-     <accordion-group is-open="true">
+            <div style="position:relative;z-index:5;top: 8px;left: 200px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="Average score of all students who took the Regents Exam in the selected year." ><img style="position:absolute;" src='img/info.png' width='15'  onclick="quitaBurbuja(this)"></div>   
+
+
+     <accordion-group is-open="false">
 
         <accordion-heading>
-            <div id="grilla_04_07_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Regents Average Score
-            <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
+            <div id="grilla_04_07_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Regents Average Score</div>
             <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_07" ></div>
         </accordion-heading>     
 
@@ -1528,11 +1528,12 @@
 
     </accordion-group>    
 
-     <accordion-group  is-open="true">
+            <div style="position:relative;z-index:5;top: 8px;left: 200px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="Percentage of students who scored at the college ready threshold for the Regents Exam in the selected year." ><img style="position:absolute;" src='img/info.png' width='15'  onclick="quitaBurbuja(this)"></div>       
+
+     <accordion-group  is-open="false">
 
         <accordion-heading>
-            <div id="grilla_04_08_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Regents College Ready
-            <a class="icon-info-acordion" ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><img src='img/info.png' width='15'></a></div>
+            <div id="grilla_04_08_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Regents College Ready</div>
             <div class="icon-arrow-down2 right cuatro" id="grilla_icon_04_08" ></div>
         </accordion-heading>       
 
