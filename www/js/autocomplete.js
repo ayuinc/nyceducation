@@ -49,7 +49,7 @@ app.directive('autocomplete', function(){
 
         if(watching && $scope.searchParam) {
           $scope.completing = true;
-          $scope.searchFilter = $scope.searchParam;
+          //$scope.searchFilter = $scope.searchParam;
           $scope.selectedIndex = -1;
         }
 
@@ -104,7 +104,7 @@ app.directive('autocomplete', function(){
 
       // Default atts
       scope.attrs = {
-        "placeholder": "start typing...",
+        "placeholder": "Type the school name or school DBN",
         "class": "",
         "id": "",
         "inputclass": "",
