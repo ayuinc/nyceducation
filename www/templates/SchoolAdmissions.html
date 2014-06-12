@@ -14,14 +14,16 @@
     
     <section class="main-section">
 
-
-    <div class="{{ 'nd' | filtraAdmissions}}"> <!--ES ADMISSION-->
-
-	<div class="row menu-header">	
+    		<div class="row menu-header">	
 		<div class="small-6 small-centered medium-6 large-6 columns">
 			<h3 class="text-center">Admissions</h3>
 		</div>	
 	</div>	
+
+
+    <div class="{{ 'nd' | filtraAdmissions}}"> <!--ES ADMISSION-->
+
+
 
 		<div  class="no-data"> NO DATA AVAILABLE</div>
 
@@ -30,8 +32,8 @@
 
 
 <div class="{{ 'selectShoolEM' | filtraAdmissions}}"> <!--ES ADMISSION-->
-	<div class="row menu-header">	
-		<div class="small-10 small-centered medium-6 large-6 columns"><h3 class="text-center">Select Admissions</h3></div>	
+	<div class="row menu-header"  style="padding-top:0 !important">	
+		
 		<div class="small-10 small-centered medium-10 large-10 columns">		
             <div class="row">
                 <div class="small-10 small-centered medium-6 large-6 columns">
@@ -51,11 +53,10 @@
 
 
 <div class="{{ 'selectShoolMH' | filtraAdmissions}}"> <!--ES ADMISSION-->
-	<div class="row menu-header">	
-		<div class="small-10 small-centered medium-6 large-6 columns"><h3 class="text-center">Select Admissions</h3></div>	
+	<div class="row menu-header"  style="padding-top:0 !important">	
 		<div class="small-10 small-centered medium-10 large-10 columns">		
             <div class="row">
-                <div class="small-10 small-centered medium-6 large-6 columns">
+                <div class="small-10 small-centered medium-6 large-6 columns" >
                     <div ng-controller="SelectAdmission_mh" class="text-center">
                       <a dropdown-toggle="#dropdown_select_admission_mh" class="button dropdown small bg-dropdown">{{SelectAdmission_mh_si}}</a>
                       <ul id="dropdown_select_admission_mh" class="f-dropdown" >
@@ -76,17 +77,11 @@
     <div class="{{ 'es' | filtraAdmissions}} {{filtroElementaryS}}"> <!--ES ADMISSION-->
 
 
-	<div class="row menu-header">	
-		<div class="small-10 small-centered medium-6 large-6 columns">
-			<h3 class="text-center">Admissions</h3>
-		</div>	
-	</div>	
-
 			<div class="row profile_item">
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>Program</span>
-		    <div style="position:relative;left:7.7rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="When applying to middle and high schools, students apply to programs within schools. Programs may have different interest or focus areas as well as admissions methods." ><img style="position:absolute;" src='img/info.png' width='15'></div>	
+		    <div style="position:relative;left:7.7rem;top:-13px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="When applying to middle and high schools, students apply to programs within schools. Programs may have different interest or focus areas as well as admissions methods." ><img style="position:absolute;" src='img/info.png' width='15' onclick="quitaBurbuja()"></div>	
 
 			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
 					</div>
@@ -102,7 +97,7 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>Method</span>
-		    <div style="position:relative;left:7.7rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="The way schools consider and admit applicants into a program." ><img style="position:absolute;" src='img/info.png' width='15'></div>							
+					
 			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
 					</div>
 				</div>
@@ -113,210 +108,134 @@
 				</div>
 			</div>
 
+			<div class="row profile_item {{ es_admissions.additional_programs | filtraCeros }}">
+				<div class="small-6 columns">
+					<div class="profile_label">
+						<span>Additional Programs</span>
+					</div>
+				</div>
+				<div class="small-6 columns">
+					<div class="profile_info">
+						<span>{{es_admissions.additional_programs}}</span>
+					</div>
+				</div>
+			</div>
+
 <div ng-controller="AccordionDemoCtrl">
 
 
   	<accordion close-others="oneAtATime">
 
+<div style="position:relative;z-index:5;top: 12px;left: 133px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="The order in which applicants are considered for placement. " ><img style="position:absolute;" src='img/info.png' width='15'  onclick="quitaBurbuja(this)"></div>   
 
-    	<accordion-group heading="Priorities" is-open="true" >
+    	<accordion-group heading="Priority" is-open="true" >
 
 		 <!--AVERANGE ELA -->
 <div class="row">
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority1 | filtraCeros}}">
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority1}}">
 		<div class="priority">
-			<h6>Priority 1.
-		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-    	</div>
-			</h6>
 			<p>{{es_admissions.priority1}}</p>
 		</div>
 	</div>
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority2 | filtraCeros}}">
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority2}}">
 		<div class="priority color2">
-			<h6>Priority 2. 
-		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-    	</div>
-			</h6>
 			<p>{{es_admissions.priority2}}</p>
 		</div>
 	</div>
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority3 | filtraCeros}}">
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority3}}">
 		<div class="priority">
-			<h6>Priority 3. 
-		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-    	</div>
-			</h6>
 			<p>{{es_admissions.priority3}}</p>
 		</div>
 	</div>
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority4 | filtraCeros}}">
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority4}}">
 		<div class="priority color2">
-			<h6>Priority 4. 
-		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-    	</div>
-			</h6>
 			<p>{{es_admissions.priority4}}</p>
 		</div>
 	</div>
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority5 | filtraCeros}}">
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority5}}">
 		<div class="priority">
-			<h6>Priority 5. 
-		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-    	</div>				
-			</h6>
 			<p>{{es_admissions.priority5}}</p>
 		</div>
 	</div>	
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority6 | filtraCeros}}">
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority6}}">
 		<div class="priority color2">
-			<h6>Priority 6. 
-		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-    	</div>
-			</h6>
 			<p>{{es_admissions.priority6}}</p>
 		</div>
 	</div>			
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority7 | filtraCeros}}">
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority7}}">
 		<div class="priority">
-			<h6>Priority 7. 
-		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-    	</div>
-			</h6>
 			<p>{{es_admissions.priority7}}</p>
 		</div>
 	</div>	
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority8 | filtraCeros}}">
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority8}}">
 		<div class="priority color2">
-			<h6>Priority 8. 
-		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-    	</div>
-			</h6>
 			<p>{{es_admissions.priority8}}</p>
 		</div>
 	</div>	
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority9 | filtraCeros}}">
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority9}}">
 		<div class="priority">
-			<h6>Priority 9. 
-		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-    	</div>
-			</h6>
 			<p>{{es_admissions.priority9}}</p>
 		</div>
 	</div>	
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority10 | filtraCeros}}">
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority10}}">
 		<div class="priority color2">
-			<h6>Priority 10. 
-		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-    	</div>
-			</h6>
 			<p>{{es_admissions.priority10}}</p>
 		</div>
 	</div>		
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority11 | filtraCeros}}">
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority11}}">
 		<div class="priority">
-			<h6>Priority 11. 
-		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-    	</div>
-			</h6>
 			<p>{{es_admissions.priority11}}</p>
 		</div>
 	</div>	
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority12 | filtraCeros}}">
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority12}}">
 		<div class="priority color2">
-			<h6>Priority 12. 
-		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-    	</div>
-			</h6>
 			<p>{{es_admissions.priority12}}</p>
 		</div>
 	</div>	
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority13 | filtraCeros}}">
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority13}}">
 		<div class="priority">
-			<h6>Priority 13. 
-		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-    	</div>
-			</h6>
 			<p>{{es_admissions.priority13}}</p>
 		</div>
 	</div>	
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority14 | filtraCeros}}">
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority14}}">
 		<div class="priority color2">
-			<h6>Priority 14. 
-		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-    	</div>
-			</h6>
 			<p>{{es_admissions.priority14}}</p>
 		</div>
 	</div>	
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority15 | filtraCeros}}">
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority15}}">
 		<div class="priority">
-			<h6>Priority 15. 
-		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-    	</div>
-			</h6>
 			<p>{{es_admissions.priority15}}</p>
 		</div>
 	</div>	
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority16 | filtraCeros}}">
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority16}}">
 		<div class="priority color2">
-			<h6>Priority 16. 
-		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-    	</div>
-			</h6>
 			<p>{{es_admissions.priority16}}</p>
 		</div>
 	</div>	
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority17 | filtraCeros}}">
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority17}}">
 		<div class="priority">
-			<h6>Priority 17. 
-		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-    	</div>
-			</h6>
 			<p>{{es_admissions.priority17}}</p>
 		</div>
 	</div>	
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority18 | filtraCeros}}">
+	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority18}}">
 		<div class="priority color2">
-			<h6>Priority 18. 
-		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-    	</div>
-			</h6>
 			<p>{{es_admissions.priority18}}</p>
 		</div>
 	</div>	
@@ -337,10 +256,8 @@
 
 
 
-	<div class="row menu-header">	
-		<div class="small-10 small-centered medium-6 large-6 columns">
-			<h3 class="text-center">Admissions</h3>
-		</div>	
+	<div class="row menu-header"  style="padding-top:0 !important">	
+
 		<div class="small-10 small-centered medium-10 large-10 columns">		
 
 
@@ -349,9 +266,9 @@
                 <div class="small-10 small-centered medium-6 large-6 columns">
                     <div ng-controller="AdmissionsMSctrl" class="text-center" >
                       <a dropdown-toggle="#dropdown-year_admissions_ms" class="button dropdown small bg-dropdown">{{progSelected}}</a>
-                      <ul id="dropdown-year_admissions_ms" class="f-dropdown">
+                      <ul id="dropdown-year_admissions_ms" class="f-dropdown" style="max-width:80% !important;left:34px !important;width:400px !important">
                         <li ng-repeat="itemy in itemsaddMS">
-                          <a ng-click="changeprog(itemy.indice)">{{itemy.texto}}</a>
+                          <a ng-click="changeprog(itemy.indice)" style="font-size: 0.6rem;">{{itemy.texto}}</a>
                         </li>
                       </ul>
                       <br>
@@ -368,18 +285,15 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>Program</span>
-		    <div style="position:relative;left:7.7rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="When applying to middle and high schools, students apply to programs within schools. Programs may have different interest or focus areas as well as admissions methods." ><img style="position:absolute;" src='img/info.png' width='15'></div>							
+		    <div style="position:relative;left:7.7rem;top:-13px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="When applying to middle and high schools, students apply to programs within schools. Programs may have different interest or focus areas as well as admissions methods." ><img style="position:absolute" src='img/info.png' width='15' onclick="quitaBurbuja()"></div>							
 		<!--				<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
 					</div>
 				</div>
 				<div class="small-6 columns">
 					<div class="profile_info">
 
-		<span style="padding-right:8px">{{ms_admissions.program_name}}</span>
-
-		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="No Data" popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-		</div>
+		
+    <div Popover-animation="false" popover="No Data" popover-placement="left" class="icon-info" style="cursor:pointer;top:19px;position: relative;" onclick="quitaBurbuja()"></div><span style="padding-right:8px">{{ms_admissions.program_name}}</span>
 
 
 					</div>
@@ -389,7 +303,7 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>Interest Area</span>
-		    <div style="position:relative;left:7.7rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="A program’s interest area may indicate a general, comprehensive academic program (Humanities & Interdisciplinary or Zoned, for example), while other interest areas emphasize a particular industry (like Architecture or Engineering). Although every high school program is associated with a particular interest area, all New York City students are required to take a variety of courses in order to graduate." ><img style="position:absolute;" src='img/info.png' width='15'></div>							
+		    <div style="position:relative;left:7.7rem;top:-13px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="A program’s interest area may indicate a general, comprehensive academic program (Humanities & Interdisciplinary or Zoned, for example), while other interest areas emphasize a particular industry (like Architecture or Engineering). Although every high school program is associated with a particular interest area, all New York City students are required to take a variety of courses in order to graduate." ><img style="position:absolute;" src='img/info.png' width='15' onclick="quitaBurbuja()"></div>							
 			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
 					</div>
 				</div>
@@ -403,7 +317,7 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>Method</span>
-		    <div style="position:relative;left:7.7rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="The way schools consider and admit applicants into a program." ><img style="position:absolute;" src='img/info.png' width='15'></div>								
+		    <div style="position:relative;left:7.7rem;top:-13px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="The way schools consider and admit applicants into a program." ><img style="position:absolute;" src='img/info.png' width='15' onclick="quitaBurbuja()"></div>								
 			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
 					</div>
 				</div>
@@ -418,17 +332,16 @@
 			<div class="row profile_item">
 				<div class="small-12 medium-12 large-12 columns">
 					<div class="profile_label">
-						<span>Priorities</span>
+						<span>Priority</span>
+		    <div style="position:relative;left:7.7rem;top:-13px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="The order in which applicants are considered for placement. " ><img style="position:absolute;" src='img/info.png' width='15' onclick="quitaBurbuja()"></div>							
 					</div>
 				</div>
 			</div>
 			<div class="row profile_item">
 				<div class="small-12 medium-12 large-12 columns">
 					<div class="profile_info">
+						
 						<span style="padding-right:1.8rem">{{ms_admissions.admissions_priority}}</span>
-		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="The order in which applicants are considered for placement. " popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-		</div>
 					</div>
 				</div>
 			</div>
@@ -437,7 +350,7 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>Seats</span>
-		    <div style="position:relative;left:7.7rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="Number of seats in a program that were available to students applying for September of the selected year." ><img style="position:absolute;" src='img/info.png' width='15'></div>								
+		    <div style="position:relative;left:7.7rem;top:-13px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="Number of seats in a program that were available to students applying for September of the selected year." ><img style="position:absolute;" src='img/info.png' width='15' onclick="quitaBurbuja()"></div>								
 			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
 					</div>
 				</div>
@@ -451,8 +364,8 @@
 			<div class="row profile_item">
 				<div class="small-6 columns">
 					<div class="profile_label">
-						<span>Applicant</span>
-		    <div style="position:relative;left:7.7rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="Total number of students who applied for admission to a program in the September of the selected year." ><img style="position:absolute;" src='img/info.png' width='15'></div>						
+						<span>Applicants</span>
+		    <div style="position:relative;left:7.7rem;top:-13px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="Total number of students who applied for admission to a program in the September of the selected year." ><img style="position:absolute;" src='img/info.png' width='15' onclick="quitaBurbuja()"></div>						
 			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
 					</div>
 				</div>
@@ -471,10 +384,8 @@
      <div class="{{ 'hs' | filtraAdmissions}} {{filtroHighS}}"> <!--HS ADMISSION-->
 
 
-	<div class="row menu-header">	
-		<div class="small-10 small-centered medium-6 large-6 columns">
-			<h3 class="text-center">Admissions</h3>
-		</div>	
+	<div class="row menu-header"  style="padding-top:0 !important">	
+
 		<div class="small-10 small-centered medium-10 large-10 columns">		
 
 
@@ -483,9 +394,9 @@
                 <div class="small-10 small-centered medium-6 large-6 columns">
                     <div ng-controller="AdmissionsHSctrl" class="text-center">
                       <a dropdown-toggle="#dropdown_admissions_hs" class="button dropdown small bg-dropdown">{{progSelected_hs}}</a>
-                      <ul id="dropdown_admissions_hs" class="f-dropdown" >
+                      <ul id="dropdown_admissions_hs" class="f-dropdown" style="max-width:80% !important;left:34px !important;width:400px !important" >
                         <li ng-repeat="item_hs in itemsaddHS">
-                          <a ng-click="changeprog_hs(item_hs.indice)">{{item_hs.texto}}</a>
+                          <a ng-click="changeprog_hs(item_hs.indice)" style="font-size: 0.6rem;">{{item_hs.texto}}</a>
                         </li>
                       </ul>
                       <br>
@@ -503,16 +414,16 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>Program</span>
-		    <div style="position:relative;left:7.7rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="When applying to middle and high schools, students apply to programs within schools. Programs may have different interest or focus areas as well as admissions methods." ><img style="position:absolute;" src='img/info.png' width='15'></div>								
+		    <div style="position:relative;left:7.7rem;top:-13px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="When applying to middle and high schools, students apply to programs within schools. Programs may have different interest or focus areas as well as admissions methods." ><img style="position:absolute;" src='img/info.png' width='15' onclick="quitaBurbuja()"></div>								
 			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
 					</div>
 				</div>
 				<div class="small-6 columns">
 					<div class="profile_info">
-						<span style="padding-right:8px">{{hs_admissions.program_name}}</span>
+						
 		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="??????????????" popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-		</div>						
+    <div Popover-animation="false" popover="??????????????" popover-placement="left" class="icon-info" style="cursor:pointer;top:19px;position: relative;" onclick="quitaBurbuja()"></div>
+		</div>			<span style="padding-right:8px">{{hs_admissions.program_name}}</span>			
 					</div>
 				</div>
 			</div>
@@ -520,7 +431,7 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>Intesest Area</span>
-		    <div style="position:relative;left:7.7rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="A program’s interest area may indicate a general, comprehensive academic program (Humanities & Interdisciplinary or Zoned, for example), while other interest areas emphasize a particular industry (like Architecture or Engineering). Although every high school program is associated with a particular interest area, all New York City students are required to take a variety of courses in order to graduate." ><img style="position:absolute;" src='img/info.png' width='15'></div>							
+		    <div style="position:relative;left:7.7rem;top:-13px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="A program’s interest area may indicate a general, comprehensive academic program (Humanities & Interdisciplinary or Zoned, for example), while other interest areas emphasize a particular industry (like Architecture or Engineering). Although every high school program is associated with a particular interest area, all New York City students are required to take a variety of courses in order to graduate." ><img style="position:absolute;" src='img/info.png' width='15' onclick="quitaBurbuja()"></div>							
 			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
 					</div>
 				</div>
@@ -534,7 +445,7 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>Method</span>
-		    <div style="position:relative;left:7.7rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="The way schools consider and admit applicants into a program." ><img style="position:absolute;" src='img/info.png' width='15'></div>							
+		    <div style="position:relative;left:7.7rem;top:-13px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="The way schools consider and admit applicants into a program." ><img style="position:absolute;" src='img/info.png' width='15' onclick="quitaBurbuja()"></div>							
 			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
 					</div>
 				</div>
@@ -548,7 +459,7 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>Description</span>
-		    <div style="position:relative;left:7.7rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="????????????????" ><img style="position:absolute;" src='img/info.png' width='15'></div>							
+		    <div style="position:relative;left:7.7rem;top:-13px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="????????????????" ><img style="position:absolute;" src='img/info.png' width='15' onclick="quitaBurbuja()"></div>							
 			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
 					</div>
 				</div>
@@ -561,19 +472,16 @@
 			<div class="row profile_item">
 				<div class="small-12 medium-12 large-12 columns">
 					<div class="profile_label">
-						<span>Priorities</span>
+						<span>Priority</span>
+		    <div style="position:relative;left:7.7rem;top:-13px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="The order in which applicants are considered for placement. " ><img style="position:absolute;" src='img/info.png' width='15' onclick="quitaBurbuja()"></div>							
 					</div>
 				</div>
 			</div>
 			<div class="row profile_item">
 				<div class="small-12 medium-12 large-12 columns">
 					<div class="profile_info" style="padding-right:1.8rem" >
+												
 						<span >{{hs_admissions.admision_priority}}</span>
-
-		<div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="The order in which applicants are considered for placement. " popover-placement="left" class="icon-info" style="cursor:pointer"></div>
-		</div>						
-			
 					</div>
 				</div>
 			</div>
@@ -582,7 +490,7 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>Seats</span>
-		    <div style="position:relative;left:7.7rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="Number of seats in a program that were available to students applying for September of the selected year." ><img style="position:absolute;" src='img/info.png' width='15'></div>							
+		    <div style="position:relative;left:7.7rem;top:-13px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="Number of seats in a program that were available to students applying for September of the selected year." ><img style="position:absolute;" src='img/info.png' width='15' onclick="quitaBurbuja()"></div>							
 			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
 					</div>
 				</div>
@@ -596,8 +504,8 @@
 			<div class="row profile_item">
 				<div class="small-6 columns">
 					<div class="profile_label">
-						<span>Applicant</span>
-		    <div style="position:relative;left:7.7rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="Total number of students who applied for admission to a program in the September of the selected year." ><img style="position:absolute;" src='img/info.png' width='15'></div>							
+						<span>Applicants</span>
+		    <div style="position:relative;left:7.7rem;top:-13px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="Total number of students who applied for admission to a program in the September of the selected year." ><img style="position:absolute;" src='img/info.png' width='15' onclick="quitaBurbuja()"></div>							
 			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
 					</div>
 				</div>

@@ -57,13 +57,13 @@
 	        <div class="small-12 medium-12 large-12 columns bg-tablas-data">
 		        <div class="democracy color1" style="width:{{demographic.female}}%;">
 		        <p>{{demographic.female | number:1}}%</p>
-		        <itemsurvey><span>Female</span></itemsurvey>
+		        <itemsurvey><span class="sin-i">Female</span></itemsurvey>
 		        </div>
 	        </div>
 	        <div class="small-12 medium-12 large-12 columns bg-tablas-data">
 		        <div class="democracy color2" style="width:{{demographic.male}}%;">
 		        <p>{{demographic.male | number:1}}%</p>
-		        <itemsurvey><span>Male</span></itemsurvey>
+		        <itemsurvey><span class="sin-i">Male</span></itemsurvey>
 		        </div>
 	        </div>      
         </div>
@@ -79,31 +79,31 @@
 	        <div class="small-12 medium-12 large-12 columns bg-tablas-data">
 		        <div class="democracy color1" style="width:{{demographic.asian}}%;">
 		        <p>{{demographic.asian | number:1}}%</p>
-		        <itemsurvey><span>Asian</span></itemsurvey>
+		        <itemsurvey><span class="sin-i">Asian</span></itemsurvey>
 		        </div>
 	        </div>
 	        <div class="small-12 medium-12 large-12 columns bg-tablas-data">
 		        <div class="democracy color2" style="width:{{demographic.black}}%;">
 		        <p>{{demographic.black | number:1}}%</p>
-		        <itemsurvey><span>Black</span></itemsurvey>
+		        <itemsurvey><span class="sin-i">Black</span></itemsurvey>
 		        </div>
 	        </div>
 	        <div class="small-12 medium-12 large-12 columns bg-tablas-data">
 		        <div class="democracy color1" style="width:{{demographic.latino}}%;">
 		        <p>{{demographic.latino | number:1}}%</p>
-		        <itemsurvey><span>Latino</span></itemsurvey>
+		        <itemsurvey><span class="sin-i">Latino</span></itemsurvey>
 		        </div>
 	        </div>  
 	        <div class="small-12 medium-12 large-12 columns bg-tablas-data">
 		        <div class="democracy color2" style="width:{{demographic.white}}%;">
 		        <p>{{demographic.white | number:1}}%</p>
-		        <itemsurvey><span>White</span></itemsurvey>
+		        <itemsurvey><span class="sin-i">White</span></itemsurvey>
 		        </div>
 	        </div>  
 	        <div class="small-12 medium-12 large-12 columns bg-tablas-data">
 		        <div class="democracy color1" style="width:{{demographic.other}}%;">
 		        <p>{{demographic.other | number:1}}%</p>
-		        <itemsurvey><span>Other</span></itemsurvey>
+		        <itemsurvey><span class="sin-i">Other</span></itemsurvey>
 		        </div>
 	        </div>
         </div>
@@ -119,40 +119,39 @@
         <div class="small-12 medium-12 large-12 columns bg-tablas-data">
 	        <div class="democracy color1" style="width:{{demographic.free_reduced_price_lunch}}%;">
 	        <p>{{demographic.free_reduced_price_lunch | number:1}}%</p>
-	        <itemsurvey>
+	        <itemsurvey><span class="con-info">Free / Reduced Lunch</span>
 
 <div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="Percentage of students with families who have qualified for the Free or Reduced-Price Lunch program or if the student is enrolled in a Universal Meal School (where all students automatically qualify)." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="Percentage of students with families who have qualified for the Free or Reduced-Price Lunch program or if the student is enrolled in a Universal Meal School (where all students automatically qualify)." popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
 </div>
 
 
-            <span class="con-info">Free / Reduced Lunch</span></itemsurvey>
+            </itemsurvey>
 	        </div>
         </div>
         <div class="small-12 medium-12 large-12 columns bg-tablas-data">
 	        <div class="democracy color2" style="width:{{demographic.whith_disabilities}}%;">
 	        <p>{{demographic.whith_disabilities | number:1}}%</p>
-	        <itemsurvey>
-
+	        <itemsurvey><span class="con-info">Students with Disabilities</span>
 <div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="Percentage of students receiving an Individualized Education Plan (IEP) as of the end of the school year." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="Percentage of students receiving an Individualized Education Plan (IEP) as of the end of the school year." popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
 </div>
 
 
-            <span class="con-info">Students with Disabilities</span></itemsurvey>
+            </itemsurvey>
 	        </div>
         </div>
         <div class="small-12 medium-12 large-12 columns bg-tablas-data">
 	        <div class="democracy color1" style="width:{{demographic.english_language_learners}}%;">
 	        <p>{{demographic.english_language_learners | number:1}}%</p>
-	        <itemsurvey>
+	        <itemsurvey><span class="con-info">English Language Learners</span>
 
 <div ng-controller="PopoverDemoCtrl">
-    <div Popover-animation="false" popover="Percent of students that have been identified based on an initial language assessment and who have not passed the New York State English as a Second Language Achievement Test (NYSESLAT)." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
+    <div Popover-animation="false" popover="Percent of students that have been identified based on an initial language assessment and who have not passed the New York State English as a Second Language Achievement Test (NYSESLAT)." popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
 </div>
             
 
-            <span class="con-info">English Language Learners</span></itemsurvey>
+            </itemsurvey>
 	        </div>
         </div>
         </div>

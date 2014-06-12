@@ -144,11 +144,15 @@
      // alert(id);
      // alert(estadoIcon);
 
+     /*z-index: 1;
+box-shadow: 0 12px 32px -4px #333; */
+
       if (estadoIcon == "up"){
 
         var grillaIconId = prefijoIcon.concat(id.substring(7,12));
         $(michi.concat(grillaIconId)).css('-webkit-transform','rotate(180deg)');
         $(michi.concat(grillaIconId)).css('left','-0.5rem');
+        $(michi.concat(id)).css('box-shadow','-15px 15px 7px -14px #333');
 
         var elementGrilla=document.getElementById(id);
 
@@ -165,6 +169,7 @@
         //alert(grillaIconId);
         $(michi.concat(grillaIconId)).css('-webkit-transform','rotate(0deg)');
         $(michi.concat(grillaIconId)).css('left','17.85rem');
+        $(michi.concat(id)).css('box-shadow','0 0 0 0');
 
         var elementGrilla=document.getElementById(id);
 
@@ -210,6 +215,7 @@
         var grillaIconId = prefijoIcon.concat(id.substring(7,12));
         $(michi.concat(grillaIconId)).css('-webkit-transform','rotate(180deg)');
         $(michi.concat(grillaIconId)).css('left','-0.5rem');
+        $(michi.concat(id)).css('box-shadow','-15px 15px 7px -14px #333');
 
         var elementGrilla=document.getElementById(id);
 
@@ -225,6 +231,7 @@
         var grillaIconId = prefijoIcon.concat(id.substring(7,12));
         $(michi.concat(grillaIconId)).css('-webkit-transform','rotate(0deg)');
         $(michi.concat(grillaIconId)).css('left','17.85rem');
+        $(michi.concat(id)).css('box-shadow','0 0 0 0');
 
         var elementGrilla=document.getElementById(id);
 

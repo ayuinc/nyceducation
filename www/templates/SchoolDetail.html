@@ -27,7 +27,7 @@
 				</div>
 				<div class="small-6 columns">
 					<div class="profile_info">
-						<span>{{ profile.principal_name }}</span>
+						<span style="text-transform:uppercase;">{{ profile.principal_name }}</span>
 					</div>
 				</div>
 			</div>
@@ -35,7 +35,7 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>District</span>
-		    <div style="position:relative;left:7.7rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="The geographic district in which the school is located. Note that all charter schools are assigned to District 84 regardless of geographic location." ><img style="position:absolute;" src='img/info.png' width='15'></div>
+		    <div style="position:relative;left:7.7rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="The geographic district in which the school is located. Note that all charter schools are assigned to District 84 regardless of geographic location." ><img style="position:absolute;" src='img/info.png' width='15'  onclick="quitaBurbuja()"></div>
 		    <!--
 						<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
 					</div>
@@ -62,7 +62,7 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>Total Enrollment</span>
-		    <div style="position:relative;left:7.7rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="The total number of students who are enrolled in the school as of October 31 of the selected school year." ><img style="position:absolute;" src='img/info.png' width='15'></div>						
+		    <div style="position:relative;left:7.7rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="The total number of students who are enrolled in the school as of October 31 of the selected school year." ><img style="position:absolute;" src='img/info.png' width='15'  onclick="quitaBurbuja()"></div>						
 			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
 					</div>
 				</div>
@@ -76,7 +76,7 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>Year Opened</span>
-		    <div style="position:relative;left:7.7rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="The first school year that the school was open." ><img style="position:absolute;" src='img/info.png' width='15'></div>							
+		    <div style="position:relative;left:7.7rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="The first school year that the school was open." ><img style="position:absolute;" src='img/info.png' width='15'  onclick="quitaBurbuja()"></div>							
 			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
 					</div>
 				</div>
@@ -91,7 +91,7 @@
 					<div class="profile_label">
 						<span>Shared Site</span>
 	
-		    <div style="position:relative;left:7.7rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="Whether the school is co-located with at least one other school in a shared building." ><img style="position:absolute;" src='img/info.png' width='15'></div>						
+		    <div style="position:relative;left:7.7rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="Whether the school is co-located with at least one other school in a shared building." ><img style="position:absolute;" src='img/info.png' width='15' onclick="quitaBurbuja()"></div>						
 					<!--	<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
 					</div>
 				</div>
@@ -121,7 +121,7 @@
 				</div>
 				<div class="small-6 columns">
 					<div class="profile_info">
-						<span class="sub">{{ profile.phone_number }}</span>
+						<span class="sub"><a href="tel:{{ profile.phone_number }}"> {{ profile.phone_number }}</a></span>
 					</div>
 				</div>
 			</div>
@@ -133,7 +133,7 @@
 				</div>
 				<div class="small-6 columns">
 					<div class="profile_info">
-						<span class="sub"><a style="font-size:0.7rem" href="{{ profile.website }}">Go</a></span>
+						<span class="sub"><a style="font-size:0.8rem" href="{{ profile.website }} " target="_blank">{{ profile.website }}</a></span>
 					</div>
 				</div>
 			</div>

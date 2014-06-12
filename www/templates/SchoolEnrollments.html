@@ -57,7 +57,7 @@
 
 <div class="">
 
-        <div style="position:relative;z-index:5;top: 6px;left: 215px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="The total number of students who are enrolled in each grade of the school as of October 31 of the current school year." ><img style="position:absolute;" src='img/info.png' width='15'  onclick="quitaBurbuja(this)"></div>
+        <div style="position:relative;z-index:5;top: 10px;left: 219px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="The total number of students who are enrolled in each grade of the school as of October 31 of the current school year." ><img style="position:absolute;" src='img/info.png' width='15'  onclick="quitaBurbuja(this)"></div>
     <accordion-group is-open="false">
 
         <accordion-heading>
@@ -70,60 +70,65 @@
             <table>
               <thead>
                 <tr>
-                  <th width="50%">Grades</th>
+                  <th width="50%">Grade</th>
                   <th width="50%">No. Students</th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="{{enrollment.kinder | filtraCeros}} color4">
+
+                <tr class="{{enrollment.pre_kinder | filtraCeros}} color4">
+                  <td>Pre - K</td>
+                  <td>{{enrollment.pre_kinder}}</td>
+                </tr>                
+                <tr class="{{enrollment.kinder | filtraCeros}} ">
                   <td>K</td>
                   <td>{{enrollment.kinder}}</td>
                 </tr>
-                <tr class="{{enrollment.grade1 | filtraCeros}}">
+                <tr class="{{enrollment.grade1 | filtraCeros}} color4">
                   <td>1st</td>
                   <td>{{enrollment.grade1}}</td>
                 </tr>       
-                <tr class="{{enrollment.grade2 | filtraCeros}} color4">
+                <tr class="{{enrollment.grade2 | filtraCeros}}">
                   <td>2nd</td>
                   <td>{{enrollment.grade2}}</td>
                 </tr>   
-                <tr class="{{enrollment.grade3 | filtraCeros}}">
+                <tr class="{{enrollment.grade3 | filtraCeros}} color4">
                   <td>3rd</td>
                   <td>{{enrollment.grade3}}</td>
                 </tr>   
-                <tr class="{{enrollment.grade4 | filtraCeros}} color4">
+                <tr class="{{enrollment.grade4 | filtraCeros}}">
                   <td>4th</td>
                   <td>{{enrollment.grade4}}</td>
                 </tr>   
-                <tr class="{{enrollment.grade5 | filtraCeros}}">
+                <tr class="{{enrollment.grade5 | filtraCeros}} color4">
                   <td>5th</td>
                   <td>{{enrollment.grade5}}</td>
                 </tr>
-                <tr class="{{enrollment.grade6 | filtraCeros}} color4">
+                <tr class="{{enrollment.grade6 | filtraCeros}}">
                   <td>6th</td>
                   <td>{{enrollment.grade6}}</td>
                 </tr>
-                <tr class="{{enrollment.grade7 | filtraCeros}}">
+                <tr class="{{enrollment.grade7 | filtraCeros}} color4">
                   <td>7th</td>
                   <td>{{enrollment.grade7}}</td>
                 </tr>
-                <tr class="{{enrollment.grade8 | filtraCeros}} color4">
+                <tr class="{{enrollment.grade8 | filtraCeros}}">
                   <td>8th</td>
                   <td>{{enrollment.grade8}}</td>
                 </tr>
-                <tr class="{{enrollment.grade9 | filtraCeros}}">
+                <tr class="{{enrollment.grade9 | filtraCeros}} color4">
                   <td>9th</td>
                   <td>{{enrollment.grade9}}</td>
                 </tr>
-                <tr class="{{enrollment.grade10 | filtraCeros}} color4">
+                <tr class="{{enrollment.grade10 | filtraCeros}}">
                   <td>10th</td>
                   <td>{{enrollment.grade10}}</td>
                 </tr>
-                <tr class="{{enrollment.grade11 | filtraCeros}}">
+                <tr class="{{enrollment.grade11 | filtraCeros}} color4">
                   <td>11th</td>
                   <td>{{enrollment.grade11}}</td>
                 </tr>
-                <tr class="{{enrollment.grade12 | filtraCeros}} color4">
+                <tr class="{{enrollment.grade12 | filtraCeros}}">
                   <td>12th</td>
                   <td>{{enrollment.grade12}}</td>
                 </tr>
@@ -144,23 +149,20 @@
         </accordion-heading> 
 
 <div class="row">
-      <div class="small-12 medium-12 large-12 columns bg-tablas-data" >
-        <div class="democracy color1 {{enrollment.attendance_es_ms_k8_ec | filtraCeros}}" style="width:{{enrollment.attendance_es_ms_k8_ec}}%;">
+      <div class="small-12 medium-12 large-12 columns barra-blanca-pq bg-tablas-data {{enrollment.attendance_es_ms_k8_ec | filtraCeros}}" >
+        <div class="democracy color-barra " style="width:{{enrollment.attendance_es_ms_k8_ec}}%; margin-left:-17px">
             <p>{{enrollment.attendance_es_ms_k8_ec | number:1}}%</p>
-            <itemsurvey><span>Attendance Rate K-8</span></itemsurvey>                
+            <itemsurvey><span  class="sin-i" style="margin-right: -28px;">Attendance Rate K-8</span></itemsurvey>                
         </div>
 
       </div>
 
 
 
-</div>    
-
-<div class="row">
-        <div class="small-12 medium-12 large-12 columns bg-tablas-data" >
-            <div class="democracy color1 {{enrollment.attendance_hs_transfer_hs | filtraCeros}} " style="width:{{enrollment.attendance_hs_transfer_hs}}%;">
+        <div class="small-12 medium-12 large-12 columns barra-blanca-pq bg-tablas-data {{enrollment.attendance_hs_transfer_hs | filtraCeros}}" >
+            <div class="democracy color-barra  " style="width:{{enrollment.attendance_hs_transfer_hs}}%;margin-left:-17px">
                 <p>{{enrollment.attendance_hs_transfer_hs | number:1}}%</p>
-                <itemsurvey><span>Attendance Rate 9-12</span></itemsurvey>
+                <itemsurvey><span  class="sin-i" style="margin-right: -28px;">Attendance Rate 9-12</span></itemsurvey>
             </div>
 
     </div>
