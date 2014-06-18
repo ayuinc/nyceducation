@@ -13,7 +13,20 @@
     <div ng-include src="'templates/sidebar.html'"></div>
     
     <section class="main-section" style="min-height:350px">
-    
+<div class="{{ 'k-8' | filtraCC }}">    
+	<div class="row menu-header">	
+		<div class="small-6 small-centered medium-6 large-6 columns">
+			<h3 class="text-center">College & Career</h3>
+		</div>	
+		<div class="small-12 small-centered medium-12 large-12 columns">		
+				<div class="row">
+					<div  class="no-data">NO DATA AVAILABLE</div>
+				</div>			
+		</div>		
+	</div>
+</div>	
+
+<div class="{{ '9-12' | filtraCC }}">    
 	<div class="row menu-header">	
 		<div class="small-6 small-centered medium-6 large-6 columns">
 			<h3 class="text-center">College & Career</h3>
@@ -265,6 +278,8 @@
 	</accordion>
 	</div>
 	</div>	<!-- row -->
+</div>	<!-- 9-12 -->
+
     </section>
     
   <a class="exit-off-canvas"></a>

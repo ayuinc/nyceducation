@@ -220,13 +220,27 @@ app.controller('SchoolController', ['$scope', '$rootScope', '$routeParams', '$ht
 
 app.controller("EnrollmentDropdownCtrl" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
-    $rootScope.enrollment=DatosSchool.datos.enrollments[3]; 
+    $rootScope.enrollment=DatosSchool.datos.enrollments[3];
     $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[3];
 
+    var Datos2011 = DatosSchool.datos.enrollments[0]["grade1"].substring(0,1)+DatosSchool.datos.enrollments[0]["grade2"].substring(0,1)+DatosSchool.datos.enrollments[0]["grade3"].substring(0,1)+DatosSchool.datos.enrollments[0]["grade4"].substring(0,1)+DatosSchool.datos.enrollments[0]["grade5"].substring(0,1)+DatosSchool.datos.enrollments[0]["grade6"].substring(0,1)+DatosSchool.datos.enrollments[0]["grade7"].substring(0,1)+DatosSchool.datos.enrollments[0]["grade8"].substring(0,1)+DatosSchool.datos.enrollments[0]["grade9"].substring(0,1)+DatosSchool.datos.enrollments[0]["grade10"].substring(0,1)+DatosSchool.datos.enrollments[0]["grade11"].substring(0,1)+DatosSchool.datos.enrollments[0]["grade12"].substring(0,1)+DatosSchool.datos.enrollments[0]["pre_kinder"].substring(0,1)+DatosSchool.datos.enrollments[0]["kinder"].substring(0,1);
+    console.log(Datos2011); 
+    // $rootScope.dat=Datos2011;
+    $rootScope.dat="borrar";
+     // console.log($rootScope.enrollment); 
+    // console.log($rootScope.enrollment["grade1"]); 
+    // console.log($rootScope.enrollment["grade2"]); 
 
   $scope.selectedyearEnrollment= "2014";
   $scope.itemsddEnrollment = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"},{texto:"2014",indice:"3"}];
-  $scope.changeyear = function(indice) {$scope.selectedyearEnrollment = $scope.itemsddEnrollment[indice].texto;  $rootScope.enrollment=DatosSchool.datos.enrollments[indice]; $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice] };
+  $scope.changeyear = function(indice) {
+    $scope.selectedyearEnrollment = $scope.itemsddEnrollment[indice].texto;  
+    $rootScope.enrollment=DatosSchool.datos.enrollments[indice]; 
+    $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice]; 
+    $rootScope.dat="borrar";
+    if(((indice=="0")||(indice=="1")) && (Datos2011=="00000000000000")){$rootScope.dat="mostrar";}
+
+};
 
 
 }]);
@@ -744,7 +758,7 @@ app.factory('SchoolRetriever', function($http, $q, $timeout) {
 });
 
 
-app.filter("filtraNivel", function( $rootScope, DatosSchool ){
+app.filter("filtraCC", function( DatosSchool ){
     return function(text) {
 
     var elementaryS = "";
@@ -760,30 +774,25 @@ app.filter("filtraNivel", function( $rootScope, DatosSchool ){
     highS = highS.concat(DatosSchool.datos.evaluations[2].hs_t_hs_o_pr_s_type);
     highS = highS.concat(DatosSchool.datos.evaluations[3].hs_t_hs_o_pr_s_type);
 
+    console.log(elementaryS);
+    console.log(highS);
 
-    //$rootScope.evaluation=DatosSchool.datos.evaluations[3];
-        console.log(elementaryS);
-    // console.log(highS);
+    switch (text) {
 
-    if ((text=="asd") && (elementaryS != "")) { return "borrar";}
+    case 'k-8':
+    if (elementaryS == "")
+        { return "borrar";
+        }
+         else if ((elementaryS != "") && (highS != "")) { return "borrar";} 
+    break;  
 
-    // switch (text) {
+    case '9-12':
+    if (highS == "")
+        { return "borrar";
+        }
+        else{return "mostrar";}
+    break;  }
 
-    // case 'asd':
-    // console.log(elementaryS);
-    // if (elementaryS !== "")
-    //     { return "borrar";
-    //         console.log(elementaryS);
-    //     }
-    // break;  
-
-    // case "elementary":
-
-    // if ( (highS != "") ){ return "borrar";}
-    // break;       
-
-    //     }
-        
     }
 });
 
@@ -863,7 +872,7 @@ app.filter("filtraEvaluation", function( $rootScope, DatosSchool ){
      + DatosSchool.datos.proficiency_rating[3].hs_t_hs_student_progress_pr_pr;
 
     //$rootScope.evaluation=DatosSchool.datos.evaluations[3];
-  console.log(elementarySE + "///"+ highSE);
+  // console.log(elementarySE + "///"+ highSE);
 
     switch (text) {
 
@@ -1087,6 +1096,31 @@ else {
     }
 });
 
+app.filter("redondea_sp_1", function(){
+    return function(text) {
+
+if (text == "0.00" || text == "0" || text == ""){
+    return "N/A";
+}
+else {
+    return parseFloat(text).toFixed(1);
+}
+
+    }
+});
+
+app.filter("redondea_entero", function(){
+    return function(text) {
+
+if (text == "0.00" || text == "0" || text == ""){
+    return "N/A";
+}
+else {
+    return parseFloat(text).toFixed(0);
+}
+
+    }
+});
 
 
 
@@ -1137,3 +1171,53 @@ app.filter("escala10", function(){
         return val;
     }
 });
+
+app.filter("filtraweb", function(){
+    return function(text) {
+
+        var str = text.substring(0,7);
+        console.log(str);
+
+        if (str != "http://") {
+
+            return "http://"+text;
+        }
+        else{
+            return text;
+        }
+    }
+});
+
+
+app.filter("admission_e", function(){
+    return function(text) {
+
+        if ((text.length == 1) || (text.length == 2)){
+            return text+".";    
+        }else{
+            if (text.substring(text.length-2,text.length-1)=="0"){
+            prioridad = text.substring(0,text.length-2);
+            return prioridad;                
+            }else{
+            prioridad = text.substring(0,text.length-1);
+            return prioridad;    
+            }
+
+            
+        }
+
+
+    }
+});
+
+
+// app.filter("filtraDat2011", function(){
+//     return function(text) {
+
+//         if ( text !="00000000000000"){
+//             return "borrar";  }
+            
+//         }
+
+// });
+
