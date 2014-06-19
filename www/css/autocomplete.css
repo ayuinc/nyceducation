@@ -26,8 +26,9 @@
   text-align: left;
   list-style:none;
   width: 100%;
-  padding:0.4em;
+  padding:0.6rem;
   background-color: #fff;
+  border-bottom: 1px solid #ddd;
 }
 
 .autocomplete li.active{
@@ -36,6 +37,7 @@
 }
 
 .autocomplete span.school-name {
+  font-size: 0.8rem;
   display: block;
   font-weight: 300;
   color: #888;

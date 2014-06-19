@@ -233,7 +233,7 @@ app.directive('autocomplete', function(){
                   '($index == selectedIndex)}" ng-click="select(suggestion)" '+
                   'ng-bind-html="suggestion | highlight:searchParam">'+
                     '<span class="school-name">{{suggestion.name}} <span class="school-dbn">[{{suggestion.dbn}}]</span></span>' +
-                    '<span class="school-address">{{suggestion.primary_address}}, {{suggestion.city}} {{suggestion.zip}}</span>' +
+                    /*'<span class="school-address">{{suggestion.primary_address}}, {{suggestion.city}} {{suggestion.zip}}</span>' +*/
                   '</li>'+
                 '</ul>'+
               '</div>'
