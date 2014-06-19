@@ -11,15 +11,6 @@
   padding:0.4em;
 }
 
-.autocomplete input:focus {
-  position: absolute;
-  top: -220px;
-}
-
-.autocomplete input:focus + ul {
-  top: -167px;
-}
-
 .autocomplete ul{
   position: absolute;
   top: 54px;
@@ -29,14 +20,13 @@
   border-right: 1px solid #888;
   border-bottom: 1px solid #888;
   z-index: 1;
-  transition: 0.3s ease;
 }
 
 .autocomplete li{
   text-align: left;
   list-style:none;
   width: 100%;
-  padding:0.6rem;
+  padding:0.4em;
   background-color: #fff;
   border-bottom: 1px solid #ddd;
 }
