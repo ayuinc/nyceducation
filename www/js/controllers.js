@@ -174,10 +174,37 @@ nyc_controllers.controller("DemographicsCtrlYear" ,[ '$scope', 'DatosSchool', '$
   $rootScope.valuesEthnicity = DatosSchool.SearchValuesEthnicity(indice);
   $rootScope.valuesStatus = DatosSchool.SearchValuesStatus(indice);
 
+    var vGender,vEthnicity,vStatus;
+    var availableYears = [];
+    var arrayAvailableYears = [];
+    var jsonAvaylableYears = "";
+    for (i = 0; i < 3; i++) { 
+    vGender = DatosSchool.SearchValuesGender(i);
+    vEthnicity = DatosSchool.SearchValuesEthnicity(i);
+    vStatus = DatosSchool.SearchValuesStatus(i);
+      if ( vGender || vEthnicity || vStatus ){
+        availableYears.push(i);
+      }
+    };
+
+    for (i = 0; i < availableYears.length; i++) {
+      var item = {
+        texto: (2011+availableYears[i]).toString(),    
+        indice: availableYears[i],
+        index: i
+      };
+    arrayAvailableYears.push(item);
+    };
+    jsonAvaylableYears = JSON.stringify(arrayAvailableYears);
+    $scope.itemsYearsDemographic = JSON.parse(jsonAvaylableYears);
+
+
+
 
   $scope.selectedyearDemographics= "2014";
-  $scope.itemsddDemographics = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"},{texto:"2014",indice:"3"}];
+  // $scope.itemsddDemographics = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"},{texto:"2014",indice:"3"}];
   $scope.changeyear = function(indice) {
+    $rootScope.selectedyear_demographics_year = $scope.itemsYearsDemographic[indice_year-(3-($scope.itemsYears.length))].texto;
     $scope.selectedyearDemographics = $scope.itemsddDemographics[indice].texto;  
     $rootScope.demographic=DatosSchool.datos.demographics[indice]; 
     
@@ -240,7 +267,7 @@ nyc_controllers.controller("SelectEvaluations" ,[ '$scope', 'DatosSchool', '$roo
 
 nyc_controllers.controller("EvaluationsCtrlYearElem" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
-var indice = 2;
+    var indice = 2;
 
     $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[indice];
     $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];

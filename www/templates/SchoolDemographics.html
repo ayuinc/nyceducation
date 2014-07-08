@@ -23,7 +23,7 @@
           <div ng-controller="DemographicsCtrlYear" class="text-center">
             <a dropdown-toggle="#dropdown-demographics" class="button dropdown small bg-dropdown">{{selectedyearDemographics}}</a>
             <ul id="dropdown-demographics" class="f-dropdown" style="width:100px">
-              <li ng-repeat="item in itemsddDemographics">
+              <li ng-repeat="item in itemsYearsDemographic">
                 <a ng-click="changeyear(item.indice)">{{item.texto}}</a>
               </li>
             </ul>

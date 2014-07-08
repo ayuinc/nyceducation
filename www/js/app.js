@@ -292,10 +292,10 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchValuesQualityReviewElem: function(indice){
           var ValuesQualityReview = [];
-          ValuesQualityReview.push(this.datos.evaluations[indice]['ri_11']);
-          ValuesQualityReview.push(this.datos.evaluations[indice]['ri_12']);
-          ValuesQualityReview.push(this.datos.evaluations[indice]['ri_14']);
-          ValuesQualityReview.push(this.datos.evaluations[indice]['ri_34']);
+          ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_11']);
+          ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_12']);
+          ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_14']);
+          ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_34']);
           if(GetUniqueElementsArray(ValuesQualityReview).length > 0)
             { return true }
           else{ return false }      
@@ -313,11 +313,11 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchValuesQualityReviewHigh: function(indice){
           var ValuesQualityReview = [];
-          ValuesQualityReview.push(this.datos.evaluations[indice]['quality_review_rating']);
-          ValuesQualityReview.push(this.datos.evaluations[indice]['ri_11']);
-          ValuesQualityReview.push(this.datos.evaluations[indice]['ri_12']);
-          ValuesQualityReview.push(this.datos.evaluations[indice]['ri_14']);
-          ValuesQualityReview.push(this.datos.evaluations[indice]['ri_34']);
+          ValuesQualityReview.push(this.datos.evaluation_rating[indice]['quality_review_rating']);
+          ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_11']);
+          ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_12']);
+          ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_14']);
+          ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_34']);
           if(GetUniqueElementsArray(ValuesQualityReview).length > 0)
             { return true }
           else{ return false }      
