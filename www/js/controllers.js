@@ -169,11 +169,22 @@ nyc_controllers.controller("DemographicsCtrlYear" ,[ '$scope', 'DatosSchool', '$
 
   var indice = 3
   $rootScope.demographic=DatosSchool.datos.demographics[indice];    
+
+  $rootScope.valuesGender = DatosSchool.SearchValuesGender(indice);
+  $rootScope.valuesEthnicity = DatosSchool.SearchValuesEthnicity(indice);
+  $rootScope.valuesStatus = DatosSchool.SearchValuesStatus(indice);
+
+
   $scope.selectedyearDemographics= "2014";
   $scope.itemsddDemographics = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"},{texto:"2014",indice:"3"}];
   $scope.changeyear = function(indice) {
     $scope.selectedyearDemographics = $scope.itemsddDemographics[indice].texto;  
     $rootScope.demographic=DatosSchool.datos.demographics[indice]; 
+    
+    $rootScope.valuesGender = DatosSchool.SearchValuesGender(indice);
+    $rootScope.valuesEthnicity = DatosSchool.SearchValuesEthnicity(indice);
+    $rootScope.valuesStatus = DatosSchool.SearchValuesStatus(indice);
+
   };
 }]);
 

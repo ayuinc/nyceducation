@@ -251,6 +251,34 @@ app.factory('DatosSchool',function($rootScope){
           if(GetUniqueElementsArray(ValuesAverageProficiencyScoreMath).length > 0)
             { return true }
           else{ return false }      
+        },
+        SearchValuesGender: function(indice){
+          var ValuesGender = [];
+          ValuesGender.push(this.datos.demographics[indice]['female']);
+          ValuesGender.push(this.datos.demographics[indice]['male']);
+          if(GetUniqueElementsArray(ValuesGender).length > 0)
+            { return true }
+          else{ return false }      
+        },
+        SearchValuesEthnicity: function(indice){
+          var ValuesEthnicity = [];
+          ValuesEthnicity.push(this.datos.demographics[indice]['asian']);
+          ValuesEthnicity.push(this.datos.demographics[indice]['black']);
+          ValuesEthnicity.push(this.datos.demographics[indice]['latino']);
+          ValuesEthnicity.push(this.datos.demographics[indice]['white']);
+          ValuesEthnicity.push(this.datos.demographics[indice]['other']);
+          if(GetUniqueElementsArray(ValuesEthnicity).length > 0)
+            { return true }
+          else{ return false }      
+        },
+        SearchValuesStatus: function(indice){
+          var ValuesStatus = [];
+          ValuesStatus.push(this.datos.demographics[indice]['free_reduced_price_lunch']);
+          ValuesStatus.push(this.datos.demographics[indice]['whith_disabilities']);
+          ValuesStatus.push(this.datos.demographics[indice]['english_language_learners']);
+          if(GetUniqueElementsArray(ValuesStatus).length > 0)
+            { return true }
+          else{ return false }      
         }
 
 
