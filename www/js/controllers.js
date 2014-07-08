@@ -227,11 +227,13 @@ nyc_controllers.controller("SelectEvaluations" ,[ '$scope', 'DatosSchool', '$roo
 }]);
 
 
-nyc_controllers.controller("EvaluationsDropdownCtrl" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
+nyc_controllers.controller("EvaluationsCtrlYear" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
-    $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[2];
-    $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[2];
-    $rootScope.evaluation=DatosSchool.datos.evaluations[2];
+var indice = 2;
+
+    $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[indice];
+    $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];
+    $rootScope.evaluation=DatosSchool.datos.evaluations[indice];
 
 
 
