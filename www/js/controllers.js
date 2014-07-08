@@ -227,7 +227,7 @@ nyc_controllers.controller("SelectEvaluations" ,[ '$scope', 'DatosSchool', '$roo
 }]);
 
 
-nyc_controllers.controller("EvaluationsCtrlYear" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
+nyc_controllers.controller("EvaluationsCtrlYearElem" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
 var indice = 2;
 
@@ -235,25 +235,34 @@ var indice = 2;
     $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];
     $rootScope.evaluation=DatosSchool.datos.evaluations[indice];
 
-
+    $rootScope.valuesProgressReportElem = DatosSchool.SearchValuesProgressReportElem(indice);
+    $rootScope.valuesQualityReviewElem = DatosSchool.SearchValuesQualityReviewElem(indice);
 
   $scope.selectedyearEvaluations= "2013";
   $scope.itemsddEvaluations = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"}];
   $scope.changeyear = function(indice) {$scope.selectedyearEvaluations = $scope.itemsddEvaluations[indice].texto;     
     $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[indice]; 
     $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];
-    $rootScope.evaluation=DatosSchool.datos.evaluations[indice] };
+    $rootScope.evaluation=DatosSchool.datos.evaluations[indice] 
+
+    $rootScope.valuesProgressReportElem = DatosSchool.SearchValuesProgressReportElem(indice);
+    $rootScope.valuesQualityReviewElem = DatosSchool.SearchValuesQualityReviewElem(indice);
+
+
+    };
 
 
 }]);
 
 
-nyc_controllers.controller("EvaluationsDropdownCtrl_hs" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
+nyc_controllers.controller("EvaluationsCtrlYearHigh" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
-    $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[2];
-    $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[2];
-    $rootScope.evaluation=DatosSchool.datos.evaluations[2];
-
+var indice = 2;
+    $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[indice];
+    $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];
+    $rootScope.evaluation=DatosSchool.datos.evaluations[indice];
+    $rootScope.valuesProgressReportHigh = DatosSchool.SearchValuesProgressReportHigh(indice);
+    $rootScope.valuesQualityReviewHigh = DatosSchool.SearchValuesQualityReviewHigh(indice);
 
     //console.log($rootScope.evaluation_ratings.ri_11);
 
@@ -262,7 +271,11 @@ nyc_controllers.controller("EvaluationsDropdownCtrl_hs" ,[ '$scope', 'DatosSchoo
   $scope.changeyear_hs = function(indice) {$scope.selectedyearEvaluations_hs = $scope.itemsddEvaluations_hs[indice].texto;     
     $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[indice]; 
     $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];
-    $rootScope.evaluation=DatosSchool.datos.evaluations[indice] };
+    $rootScope.evaluation=DatosSchool.datos.evaluations[indice];
+    $rootScope.valuesProgressReportHigh = DatosSchool.SearchValuesProgressReportHigh(indice);
+    $rootScope.valuesQualityReviewHigh = DatosSchool.SearchValuesQualityReviewHigh(indice);
+
+    };
 
 
 }]);
