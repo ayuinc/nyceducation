@@ -167,18 +167,14 @@ nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', 'DatosSchool', '$ro
 
 nyc_controllers.controller("DemographicsCtrlYear" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
-  var indice = 3
+  var indice = 3;
   $rootScope.demographic=DatosSchool.datos.demographics[indice];    
-
-  $rootScope.valuesGender = DatosSchool.SearchValuesGender(indice);
-  $rootScope.valuesEthnicity = DatosSchool.SearchValuesEthnicity(indice);
-  $rootScope.valuesStatus = DatosSchool.SearchValuesStatus(indice);
 
     var vGender,vEthnicity,vStatus;
     var availableYears = [];
     var arrayAvailableYears = [];
     var jsonAvaylableYears = "";
-    for (i = 0; i < 3; i++) { 
+    for (i = 0; i < 4; i++) { 
     vGender = DatosSchool.SearchValuesGender(i);
     vEthnicity = DatosSchool.SearchValuesEthnicity(i);
     vStatus = DatosSchool.SearchValuesStatus(i);
@@ -198,14 +194,14 @@ nyc_controllers.controller("DemographicsCtrlYear" ,[ '$scope', 'DatosSchool', '$
     jsonAvaylableYears = JSON.stringify(arrayAvailableYears);
     $scope.itemsYearsDemographic = JSON.parse(jsonAvaylableYears);
 
-
-
-
-  $scope.selectedyearDemographics= "2014";
+  $rootScope.selectedyearDemographics= "2014";
   // $scope.itemsddDemographics = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"},{texto:"2014",indice:"3"}];
+  $rootScope.valuesGender = DatosSchool.SearchValuesGender(indice);
+  $rootScope.valuesEthnicity = DatosSchool.SearchValuesEthnicity(indice);
+  $rootScope.valuesStatus = DatosSchool.SearchValuesStatus(indice);
   $scope.changeyear = function(indice) {
-    $rootScope.selectedyear_demographics_year = $scope.itemsYearsDemographic[indice_year-(3-($scope.itemsYears.length))].texto;
-    $scope.selectedyearDemographics = $scope.itemsddDemographics[indice].texto;  
+    $rootScope.selectedyearDemographics = $scope.itemsYearsDemographic[indice-(4-($scope.itemsYearsDemographic.length))].texto;
+    // $scope.selectedyearDemographics = $scope.itemsddDemographics[indice].texto;  
     $rootScope.demographic=DatosSchool.datos.demographics[indice]; 
     
     $rootScope.valuesGender = DatosSchool.SearchValuesGender(indice);
@@ -216,7 +212,7 @@ nyc_controllers.controller("DemographicsCtrlYear" ,[ '$scope', 'DatosSchool', '$
 }]);
 
 nyc_controllers.controller("CollegeCarrerCtrlYear" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
-  var indice = 2
+  var indice = 2;
   $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];
   $rootScope.college_career=DatosSchool.datos.college_careers[indice];
   $rootScope.city_average=DatosSchool.datos.city_averages[indice];

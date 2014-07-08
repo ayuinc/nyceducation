@@ -39,13 +39,16 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
     // console.log(elementaryS);
     // console.log(highS);
 
+    var tipoEscuela = $rootScope.tipoDeEscuela;        
+    // console.log(tipoEscuela.indexOf("High School"));    
+
     switch (text) {
 
     case 'k-8':
-    if (elementaryS == "")
-        { return "borrar";
-        }
-         else if ((elementaryS != "") && (highS != "")) { return "borrar";} 
+    if ((elementaryS == ""))
+        { return "borrar";}
+        else if (tipoEscuela.indexOf("K-3")) {return "mostrar";}
+        else if ((elementaryS != "") && (highS != "")) { return "borrar";} 
     break;  
 
     case '9-12':
