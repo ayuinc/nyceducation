@@ -91,7 +91,7 @@
 .accordion .icon-arrow-down2 {
 	font-size: 1.3rem;
 	margin-right: 0rem;
-	margin-top: -0.7rem;
+	margin-top: -0.63rem;
 	/*position: relative;
 	top: 1.3rem;
 	left: 17.85rem;
@@ -118,25 +118,6 @@
 	margin-top: 4px;
 }
 
-.accordion .icon-info-2 {
-background-image: url("../img/icon-info-azul.png");
-background-repeat: no-repeat;
-background-size: 16px 16px;
-width: 16px;
-height: 16px;
-margin-left: 88%;
-margin-top: -12px;
-}
-
-.accordion .icon-info-3 {
-background-image: url("../img/icon-info-azul.png");
-background-repeat: no-repeat;
-background-size: 16px 16px;
-width: 16px;
-height: 16px;
-margin-left: 97%;
-margin-top: -12px;
-}
 
 .quality_review_rg .icon-info {
 	/*position: absolute;
@@ -234,7 +215,7 @@ body{
 
 
 .switch1:hover, .switch2:hover{
-	/*background-color: #FFBE00;*/
+	background-color: #FFBE00;
 }
 
 .bg-letters {
@@ -428,7 +409,7 @@ position: relative;
 	color: #333;
 	/* font-weight: 100; */
 	font-size: 0.8rem; 
-	padding: 0 0.5rem;
+	padding: 0rem;
 	margin: 0;
 }
 
@@ -919,7 +900,7 @@ itemsurvey span .pmizq{
 }
 
 .borrar {
-	display: none !important;
+	display: none;
 }
 
 .mostrar {
@@ -997,17 +978,6 @@ margin-top: 20px;
 	padding-right: 22px;
 	line-height: 0.8rem;
 	font-family: "museo-sans",sans-serif;
-	padding-top: 12px;
-}
-
-itemsurvey .joyride-content-wrapper p {
-	font-size: 0.7rem;
-	margin: 0 0;
-	padding: 4px 14px;
-	padding-right: 22px;
-	line-height: 0.8rem;
-	font-family: "museo-sans",sans-serif;
-	padding-top: 0px;
 }
 
 .quality_review_rg .joyride-content-wrapper{
@@ -1081,9 +1051,9 @@ span.joyride-nub.right {
 	background-color:transparent;
 	position:relative;
 	top:-10.5px;
-	left:-16px;
+	left:-14px;
 	margin-bottom:-19.5px;
-	padding:8.5px 18px; 
+	padding:8.5px 16px; 
 	padding-right: 38%;
 	z-index: 1;
 	font-size: 1rem;
@@ -1097,9 +1067,9 @@ span.joyride-nub.right {
 	background-color:transparent;
 	position:relative;
 	top:-10.5px;
-	left:-16px;
+	left:-14px;
 	margin-bottom:-19.5px;
-	padding:8.5px 18px; 
+	padding:8.5px 16px; 
 	padding-right: 40%;
 	z-index: 1;
 	font-size: 1rem;
@@ -1116,11 +1086,9 @@ span.joyride-nub.right {
 .advanced-result-box {
 	background-color: #FFF;
 	padding: 0.7rem 2rem;
-	border-bottom: 1px solid #ddd;
 }
 
 .advanced-result span.school-name {
-	font-size: 0.8rem;
   display: block;
   font-weight: 300;
   color: #888;
@@ -1175,40 +1143,34 @@ a.left-off-canvas-toggle.menu-icon{
 .joyride-tip-guide .joyride-nub.right{
 
 	border-top-style: solid;
-	border-color: #CCFFFF;
-	border-left-color: #CCFFFF;
-	border-bottom-color: transparent !important;
+	border-color: transparent;
 	border-top-color: transparent !important;
-	
-/*	border-top-color: transparent !important;
 	border-left-color: transparent !important;
-	border-right-color: transparent !important;	*/
-	/*top: 6px;*/
+	border-right-color: transparent !important;	
+	top: 6px;
 	left: auto;
+	height: 100%;
+	background-image: url('../img/flecha_r.png');
+	background-position:  right;
+	background-repeat: no-repeat;
+
 	margin-right: 10px;
 	padding-right: 0;
 	border-right: 0;
-	/*margin-top: 1rem*/;
-
-
-		/*height: 100%;
-	background-image: url('../img/flecha_r.png');
-	background-position:  right;
-	background-repeat: no-repeat;*/
 
 }
 
 .joyride-tip-guide .joyride-nub.top{
 
 	border-top-style: solid;
-	border-color: #CCFFFF;
+	border-color: transparent;
 	border-top-color: transparent !important;
 	border-left-color: transparent !important;
 	border-right-color: transparent !important;	
-	/*background-image: url('../img/flecha_b.png');*/
+	background-image: url('../img/flecha_b.png');
 	background-position:  top;
 	background-repeat: no-repeat;
-	margin-left: 5rem;
+	width: 100%;
 
 
 }
@@ -1230,7 +1192,6 @@ left: 105px;
 .middle-vertical {
 	display: table;
 	height: 100%;
-	width: 86%;
 }
 
 .middle-vertical h1{
@@ -1268,7 +1229,6 @@ border-bottom: none;
 .n-student{
 background-color:#81CAD1;
 padding: 5px 0; 
-max-height: 1.7rem;
 }
 .ns-sat{
 padding-left: 3rem;
@@ -1278,23 +1238,9 @@ font-weight: 100;
 }
 .ns-sat-label{
 float: right;
-margin-right: 70px;
+margin-right: 45px;
 font-size: 0.9rem
 font-family: "museo-sans",sans-serif;
 font-weight: 100;
 
-}
-
-.total_dividendo{
-	font-size: 0.9rem !important;
-	color: #333;
-	font-weight: 100;
-	top: 0 !important;
-	right: 0 !important;
-}
-
-.btn_back{
-	color: #333 !important;
-	position: relative;
-	left: 1rem;
 }

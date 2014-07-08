@@ -1,0 +1,173 @@
+<div class="off-canvas-wrap">
+  <div class="inner-wrap">
+    <nav class="tab-bar header">
+      <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+      </section>
+
+      <section class="right tab-bar-section middle-vertical">
+        <h1 class="title">{{ school.name }}</h1>
+      </section>
+    </nav>
+
+    <div ng-include src="'templates/sidebar.html'"></div>
+    
+    <!--CONTENIDO-->
+    <section class="main-section">
+    
+    <div class="row menu-header">   
+        <div class="small-6 small-centered medium-6 large-6 columns">
+            <h3 class="text-center">Demographics</h3>
+        </div> 
+
+        <div class="small-6 small-centered medium-6 large-6 columns">    
+        <div ng-controller="DemographicsCtrlYear" class="text-center">
+          <a dropdown-toggle="#dropdown-demographics" class="button dropdown small bg-dropdown">{{selectedyearDemographics}}</a>
+              <ul id="dropdown-demographics" class="f-dropdown" style="width:100px">
+                <li ng-repeat="item in itemsddDemographics">
+                  <a ng-click="changeyear(item.indice)">{{item.texto}}</a>
+                </li>
+              </ul>
+
+              <br>
+        </div>
+        </div>   
+
+
+    </div>      
+    
+    <div class="row">
+
+    
+
+<div ng-controller="AccordionDemoCtrl">
+
+  <accordion close-others="oneAtATime">
+  	
+    <accordion-group is-open="false">
+        <accordion-heading>
+            <div id="grilla_01_01_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Gender</div>
+            <div class="icon-arrow-down2 right uno" id="grilla_icon_01_01"></div> 
+        </accordion-heading>
+        <div class="row">
+	        <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+		        <div class="democracy color1" style="width:{{demographic.female}}%;">
+		        <p>{{demographic.female | redondea}}</p>
+		        <itemsurvey><span class="sin-i">Female</span></itemsurvey>
+		        </div>
+	        </div>
+	        <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+		        <div class="democracy color2" style="width:{{demographic.male}}%;">
+		        <p>{{demographic.male | redondea}}</p>
+		        <itemsurvey><span class="sin-i">Male</span></itemsurvey>
+		        </div>
+	        </div>      
+        </div>
+    </accordion-group>
+
+	
+	<accordion-group heading="Ethnicity" is-open="false">
+        <accordion-heading>
+            <div id="grilla_01_02_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Ethnicity</div>
+            <div class="icon-arrow-down2 right uno" id="grilla_icon_01_02" ></div>
+        </accordion-heading>  
+        <div class="row">
+	        <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+		        <div class="democracy color1" style="width:{{demographic.asian}}%;">
+		        <p>{{demographic.asian | redondea}}</p>
+		        <itemsurvey><span class="sin-i">Asian</span></itemsurvey>
+		        </div>
+	        </div>
+	        <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+		        <div class="democracy color2" style="width:{{demographic.black}}%;">
+		        <p>{{demographic.black | redondea}}</p>
+		        <itemsurvey><span class="sin-i">Black</span></itemsurvey>
+		        </div>
+	        </div>
+	        <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+		        <div class="democracy color1" style="width:{{demographic.latino}}%;">
+		        <p>{{demographic.latino | redondea}}</p>
+		        <itemsurvey><span class="sin-i">Latino</span></itemsurvey>
+		        </div>
+	        </div>  
+	        <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+		        <div class="democracy color2" style="width:{{demographic.white}}%;">
+		        <p>{{demographic.white | redondea}}</p>
+		        <itemsurvey><span class="sin-i">White</span></itemsurvey>
+		        </div>
+	        </div>  
+	        <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+		        <div class="democracy color1" style="width:{{demographic.other}}%;">
+		        <p>{{demographic.other | redondea}}</p>
+		        <itemsurvey><span class="sin-i">Other</span></itemsurvey>
+		        </div>
+	        </div>
+        </div>
+    </accordion-group>
+
+	
+	<accordion-group heading="Status" is-open="false" >
+        <accordion-heading>
+            <div id="grilla_01_03_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Status</div>
+            <div class="icon-arrow-down2 right uno"  id="grilla_icon_01_03" ></div>
+        </accordion-heading>  
+        <div class="row">
+
+        <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+	        <div class="democracy color1" style="width:{{demographic.free_reduced_price_lunch}}%;">
+	        <p>{{demographic.free_reduced_price_lunch | redondea}}</p>
+	        <itemsurvey><span class="con-info">Free / Reduced Lunch</span>
+
+    <div Popover-animation="false" popover="Percentage of students with families who have qualified for the Free or Reduced-Price Lunch program or if the student is enrolled in a Universal Meal School (where all students automatically qualify)." popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+
+
+            </itemsurvey>
+	        </div>
+        </div>
+
+
+    <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+	        <div class="democracy color2" style="width:{{demographic.whith_disabilities}}%;">
+	        <p>{{demographic.whith_disabilities | redondea}}</p>
+	        <itemsurvey><span class="con-info">Students with Disabilities</span>
+
+    <div Popover-animation="false" popover="Percentage of students receiving an Individualized Education Plan (IEP) as of the end of the school year." popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+
+
+            </itemsurvey>
+	        </div>
+        </div> 
+
+        <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+	        <div class="democracy color1" style="width:{{demographic.english_language_learners}}%;">
+	        <p>{{demographic.english_language_learners | redondea}}</p>
+	        <itemsurvey><span class="con-info">English Language Learners</span>
+
+    <div Popover-animation="false" popover="Percent of students that have been identified based on an initial language assessment and who have not passed the New York State English as a Second Language Achievement Test (NYSESLAT)." popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+            
+
+            </itemsurvey>
+	        </div>
+        </div> 
+
+
+
+        </div>
+        
+    </accordion-group>
+</accordion>
+
+</div>
+
+
+
+
+
+    </div>  
+    </section>
+    <!--END.CONTENIDO-->
+
+  <a class="exit-off-canvas"></a>
+
+  </div>
+</div>
