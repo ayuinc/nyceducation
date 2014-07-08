@@ -224,7 +224,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesMathScores.push(this.datos.evaluations_math[indice]['8rd_pr_s_level4_math']);          
           if(GetUniqueElementsArray(ValuesMathScores).length > 0)
             { return true }
-          else{ return false }      
+          else{ return false }  
         },
         SearchValuesAverageProficiencyScoreELA: function(indice){
           var ValuesAverageProficiencyScoreELA = [];
@@ -278,12 +278,50 @@ app.factory('DatosSchool',function($rootScope){
           ValuesStatus.push(this.datos.demographics[indice]['english_language_learners']);
           if(GetUniqueElementsArray(ValuesStatus).length > 0)
             { return true }
+          else{ return false }
+        }, 
+        SearchValuesProgressReportElem: function(indice){
+          var ValuesProgressReport = [];
+          ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_pr_grade']);
+          ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_perf_pr_grade']);
+          ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_prog_grade']);
+          ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_enviro_pr_grade']);
+          if(GetUniqueElementsArray(ValuesProgressReport).length > 0)
+            { return true }
+          else{ return false }      
+        },
+        SearchValuesQualityReviewElem: function(indice){
+          var ValuesQualityReview = [];
+          ValuesQualityReview.push(this.datos.evaluations[indice]['ri_11']);
+          ValuesQualityReview.push(this.datos.evaluations[indice]['ri_12']);
+          ValuesQualityReview.push(this.datos.evaluations[indice]['ri_14']);
+          ValuesQualityReview.push(this.datos.evaluations[indice]['ri_34']);
+          if(GetUniqueElementsArray(ValuesQualityReview).length > 0)
+            { return true }
+          else{ return false }      
+        },
+        SearchValuesProgressReportHigh: function(indice){
+          var ValuesProgressReport = [];
+          ValuesProgressReport.push(this.datos.evaluations[indice]['hs_t_hs_o_pr_grade']);
+          ValuesProgressReport.push(this.datos.evaluations[indice]['hs_t_hs_sper_pr_grade']);
+          ValuesProgressReport.push(this.datos.evaluations[indice]['hs_t_hs_spro_pr_grade']);
+          ValuesProgressReport.push(this.datos.evaluations[indice]['hs_t_hs_se_pr_grade']);
+          ValuesProgressReport.push(this.datos.evaluations[indice]['hs_t_hs_o_cac_grade']);
+          if(GetUniqueElementsArray(ValuesProgressReport).length > 0)
+            { return true }
+          else{ return false }      
+        },
+        SearchValuesQualityReviewHigh: function(indice){
+          var ValuesQualityReview = [];
+          ValuesQualityReview.push(this.datos.evaluations[indice]['quality_review_rating']);
+          ValuesQualityReview.push(this.datos.evaluations[indice]['ri_11']);
+          ValuesQualityReview.push(this.datos.evaluations[indice]['ri_12']);
+          ValuesQualityReview.push(this.datos.evaluations[indice]['ri_14']);
+          ValuesQualityReview.push(this.datos.evaluations[indice]['ri_34']);
+          if(GetUniqueElementsArray(ValuesQualityReview).length > 0)
+            { return true }
           else{ return false }      
         }
-
-
-
-
     };
 });
 
