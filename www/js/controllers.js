@@ -236,24 +236,40 @@ nyc_controllers.controller("CollegeCarrerCtrlYear" ,[ '$scope', 'DatosSchool', '
 nyc_controllers.controller("SelectEvaluations" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
   $scope.SelectEvaluations_is = "Select";
-  $scope.itemsEvaluations = [{texto:"Elementary",indice:"0"},{texto:"High",indice:"1"}];
+  $scope.itemsEvaluations = [{texto:"Middle",indice:"0"},{texto:"High",indice:"1"}];
   $scope.changeEvaluations = function(indice) {
 
-    if (indice==0){
 
-        $rootScope.filtroHighSE = "borrar";
-        $rootScope.filtroElementarySE = "mostrar";
-        $rootScope.filtroAllSE ="mostrar"
-    }
+  if (indice==0){
 
-    if (indice==1){
+    $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[2]; 
+    $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[2];
+    $rootScope.evaluation=DatosSchool.datos.evaluations[2];
+    $rootScope.selectedyearEvaluations= "2013"; 
 
-        $rootScope.filtroElementarySE = "borrar";
-        $rootScope.filtroHighSE = "mostrar";
-        $rootScope.filtroAllSE ="mostrar"
-    }  
+      $('#elementary_eva').removeClass('borrar');
+      $('#elementary_eva').addClass('mostrar');
+      $('#all_eva').removeClass('borrar');
+      $('#all_eva').addClass('mostrar');
 
-    $scope.SelectEvaluations_is = $scope.itemsEvaluations[indice].texto;  
+      $('#high_eva').removeClass('mostrar');
+      $('#high_eva').addClass('borrar');    
+
+  }else if (indice==1){
+
+    $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[2]; 
+    $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[2];
+    $rootScope.evaluation=DatosSchool.datos.evaluations[2];
+    $rootScope.selectedyearEvaluations= "2013"; 
+
+      $('#high_eva').removeClass('borrar');
+      $('#high_eva').addClass('mostrar');
+      $('#all_eva').removeClass('borrar');
+      $('#all_eva').addClass('mostrar');
+
+      $('#elementary_eva').removeClass('mostrar');
+      $('#elementary_eva').addClass('borrar');
+  }
 
   };
 
@@ -272,9 +288,33 @@ nyc_controllers.controller("EvaluationsCtrlYearElem" ,[ '$scope', 'DatosSchool',
     $rootScope.valuesProgressReportElem = DatosSchool.SearchValuesProgressReportElem(indice);
     $rootScope.valuesQualityReviewElem = DatosSchool.SearchValuesQualityReviewElem(indice);
 
-  $scope.selectedyearEvaluations= "2013";
-  $scope.itemsddEvaluations = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"}];
-  $scope.changeyear = function(indice) {$scope.selectedyearEvaluations = $scope.itemsddEvaluations[indice].texto;     
+
+    var tipoEscuela = $rootScope.tipoDeEscuela; 
+
+    if ((tipoEscuela.indexOf("Elementary") != -1) && (tipoEscuela.length == 1) ){
+      $('#elementary_eva').removeClass('borrar');
+      $('#elementary_eva').addClass('mostrar');
+      $('#all_eva').removeClass('borrar');
+      $('#all_eva').addClass('mostrar');
+    }else if ((tipoEscuela.indexOf("Middle") != -1) && (tipoEscuela.length == 1) ){
+      $('#elementary_eva').removeClass('borrar');
+      $('#elementary_eva').addClass('mostrar');
+      $('#all_eva').removeClass('borrar');
+      $('#all_eva').addClass('mostrar');
+    }else if (((tipoEscuela.indexOf("High School Transfer") != -1) || (tipoEscuela.indexOf("High School") != -1)) && (tipoEscuela.length == 1) ){
+      $('#high_eva').removeClass('borrar');
+      $('#high_eva').addClass('mostrar');
+      $('#all_eva').removeClass('borrar');
+      $('#all_eva').addClass('mostrar');
+    }else if ((tipoEscuela.indexOf("High School") !== -1) && (tipoEscuela.indexOf("Middle") !== -1)){
+   $('#selectEvaluation_eva').removeClass('borrar');
+   $('#selectEvaluation_eva').addClass('mostrar');
+   };
+
+  $rootScope.selectedyearEvaluations= "2013";
+  $rootScope.itemsddEvaluations = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"}];
+  $scope.changeyear = function(indice) {
+    $rootScope.selectedyearEvaluations = $rootScope.itemsddEvaluations[indice].texto;     
     $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[indice]; 
     $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];
     $rootScope.evaluation=DatosSchool.datos.evaluations[indice] 
@@ -302,7 +342,8 @@ var indice = 2;
 
   $scope.selectedyearEvaluations_hs= "2013";
   $scope.itemsddEvaluations_hs = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"}];
-  $scope.changeyear_hs = function(indice) {$scope.selectedyearEvaluations_hs = $scope.itemsddEvaluations_hs[indice].texto;     
+  $scope.changeyear_hs = function(indice) {
+    $scope.selectedyearEvaluations_hs = $scope.itemsddEvaluations_hs[indice].texto;     
     $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[indice]; 
     $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];
     $rootScope.evaluation=DatosSchool.datos.evaluations[indice];

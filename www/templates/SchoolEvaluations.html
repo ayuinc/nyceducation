@@ -21,7 +21,7 @@
   
 
 
-		<div class="{{ 'selectEvaluation_eva' | filtraEvaluation}}"> <!--ES ADMISSION-->
+		<div id="selectEvaluation_eva" class="borrar"> <!--ES ADMISSION-->
 			<div class="row menu-header"  style="padding-top:0 !important">
 				<div class="small-10 small-centered medium-10 large-10 columns">		
 					<div class="row">
@@ -40,15 +40,15 @@
 			</div>
 		</div>     	
 
-		<div class="{{ 'nd_eva' | filtraEvaluation}} "> <!--ES ADMISSION-->
+		<div id="nd_eva" class="borrar"> <!--ES ADMISSION-->
 			<div  class="no-data"> NO DATA AVAILABLE</div>
 		</div>
 
 <!--INICIO ALL-->
-<div class="{{ 'all_eva' | filtraEvaluation}} {{filtroAllSE}}">
+<div id="all_eva" class="borrar">
 <!-- ES ES ES ES -->
 
-<div class="{{ 'elementary_eva' | filtraEvaluation}} {{filtroElementarySE}}">    	
+<div id="elementary_eva" class="borrar">    	
     
 			<div class="row menu-header"  style="padding-top:0 !important">	
 				<div class="small-10 small-centered medium-10 large-10 columns">		
@@ -119,18 +119,6 @@
 						</div>
 					</div> 
 
-<!-- 			    		<div class="small-12 medium-12 large-12 columns barra-blanca-pq bg-tablas-data  {{evaluation.es_ms_k8_ec_o_pr_score | filtraCeros}}">
-			   <div class="democracy color-barra " style="width:{{evaluation.es_ms_k8_ec_o_pr_score}}%;">
-			    				<p>{{evaluation.es_ms_k8_ec_o_pr_score | number:1}}</p>
-			    				<itemsurvey><span class="sin-i">Overall PR Score</span>
-			    				</itemsurvey>
-			    			</div>
-
-			    		</div>	 -->		    		
-
-			    	
-
-
 			</div>
 
 	    </accordion-group>
@@ -145,15 +133,6 @@
         </accordion-heading> 
 
 			    	<div class="row">
-
-
-<!-- 	<div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ratings.quality_review_rating | filtraCeros}}">
-		    	<div class="democracy color-barra " style="width:{{evaluation_ratings.quality_review_rating | filtraqr}}%;">
-		    				<p style="font-size:1.1rem">{{evaluation_ratings.quality_review_rating }}</p>
-		    				<itemsurvey style="width:40%;top:-0.4rem;text-align:right;"><span class="sin-i">Overall</span></itemsurvey>
-    			</div>
-	</div>	 -->
-
 
 				<div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ratings.ri_11 | filtraCeros}}">
 					<div class="democracy color-barra-2 " style="width:{{evaluation_ratings.ri_11 | filtraqr}}%;">
@@ -209,7 +188,7 @@
 
 <!-- HS HS HS HS -->
 
-	<div class="{{ 'high_eva' | filtraEvaluation}} {{filtroHighSE}}">    	  
+	<div id="high_eva" class="borrar">    	  
 			<div class="row menu-header" style="padding-top:0 !important">	
 				<div class="small-10 small-centered medium-10 large-10 columns">		
 					<div class="row">
@@ -289,16 +268,7 @@
 							<div Popover-animation="false" popover="Measures the ability of a school to prepare its students for success in college and career on the basis of passing advanced courses, meeting proficiency standards and enrolling in a post-secondary institution." popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
 							</itemsurvey>
 						</div>
-					</div>
-
-<!-- 			    <div class="small-12 medium-12 large-12 columns barra-blanca-pq bg-tablas-data  {{evaluation.hs_t_hs_o_pr_score | filtraCeros}}">
-			   <div class="democracy color-barra " style="width:{{evaluation.hs_t_hs_o_pr_score}}%;">
-			    				<p>{{evaluation.hs_t_hs_o_pr_score | number:1}}</p>
-			    				<itemsurvey><span class="sin-i">Overall PR Score</span>
-			    				</itemsurvey>
-			    			</div>
-
-			    		</div>	 -->		    		
+					</div>    		
 
 			</div>
 

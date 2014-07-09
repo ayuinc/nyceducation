@@ -141,6 +141,9 @@
             <p>{{enrollment.attendance_es_ms_k8_ec | number:1}}%</p>
             <itemsurvey><span  class="sin-i" style="margin-right: -28px;">Attendance Rate K-8</span></itemsurvey>                
         </div>
+        <div class="rank" style="top: -1.5rem;">
+          <p><img ng-src="img/{{ proficiency_ratings.attendance_es_ms_k8_ec_pr | filtraRank }}.png" ></p>
+        </div>
       </div>
 
       <div class="small-12 medium-12 large-12 columns barra-blanca-pq bg-tablas-data {{enrollment.attendance_hs_transfer_hs | filtraCeros}}" >
@@ -148,7 +151,12 @@
               <p>{{enrollment.attendance_hs_transfer_hs | number:1}}%</p>
               <itemsurvey><span  class="sin-i" style="margin-right: -28px;">Attendance Rate 9-12</span></itemsurvey>
         </div>
+        <div class="rank" style="top: -1.5rem;">
+          <p><img ng-src="img/{{ proficiency_ratings.attendance_hs_pr | filtraRank }}.png" ></p>
+        </div>
+     
       </div>
+
     </div>
   </accordion-group>                    
 
