@@ -114,6 +114,16 @@ app.factory('DatosSchool',function($rootScope){
             { return true }
           else{ return false }      
         },
+        SearchValuesCollegeCareerReadiness: function(indice){
+          var ValuesCollegeCareerReadiness = [];
+          ValuesCollegeCareerReadiness.push(this.datos.college_careers[indice]['p_s_earning10_credits_in1year']);
+          ValuesCollegeCareerReadiness.push(this.datos.college_careers[indice]['4year_non_remediation_rate']);
+          ValuesCollegeCareerReadiness.push(this.datos.college_careers[indice]['cc_preparatory_course_index']);
+          ValuesCollegeCareerReadiness.push(this.datos.college_careers[indice]['c_readiness_r_including_p']);
+          if(GetUniqueElementsArray(ValuesCollegeCareerReadiness).length > 0)
+            { return true }
+          else{ return false }      
+        },
         SearchValuesSat: function(indice){
           var ValuesSat = [];
           ValuesSat.push(this.datos.evaluations_average_score[indice]['sat_a_total_s']);

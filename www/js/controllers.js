@@ -218,6 +218,25 @@ nyc_controllers.controller("CollegeCarrerCtrlYear" ,[ '$scope', 'DatosSchool', '
   $rootScope.city_average=DatosSchool.datos.city_averages[indice];
 
   $rootScope.valuesGraduation = DatosSchool.SearchValuesGraduation(indice);
+  $rootScope.valuesGraduation = DatosSchool.SearchValuesCollegeCareerReadiness(indice);
+
+
+    var tipoEscuela = $rootScope.tipoDeEscuela; 
+
+    if ((tipoEscuela.indexOf("Elementary") != -1) && (tipoEscuela.length == 1) ){
+      $('#CC_K_8').removeClass('borrar');
+      $('#CC_K_8').addClass('mostrar');
+    }else if ((tipoEscuela.indexOf("Middle") != -1) && (tipoEscuela.length == 1) ){
+      $('#CC_K_8').removeClass('borrar');
+      $('#CC_K_8').addClass('mostrar');
+    }else if (((tipoEscuela.indexOf("High School Transfer") != -1) || (tipoEscuela.indexOf("High School") != -1)) && (tipoEscuela.length == 1) ){
+      $('#CC_9_12').removeClass('borrar');
+      $('#CC_9_12').addClass('mostrar');
+    }else if ((tipoEscuela.indexOf("High School") != -1) && (tipoEscuela.indexOf("Middle") !== -1)){
+      $('#CC_9_12').removeClass('borrar');
+      $('#CC_9_12').addClass('mostrar');
+   };
+  
 
   $scope.selectedyearCollegeCarrer= "2013";
   $scope.itemsddCollegeCarrer = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"}];
@@ -229,6 +248,7 @@ nyc_controllers.controller("CollegeCarrerCtrlYear" ,[ '$scope', 'DatosSchool', '
     $rootScope.city_average=DatosSchool.datos.city_averages[indice]; 
 
     $rootScope.valuesGraduation = DatosSchool.SearchValuesGraduation(indice);
+    $rootScope.valuesGraduation = DatosSchool.SearchValuesCollegeCareerReadiness(indice);
 
   };
 }]);
@@ -307,8 +327,8 @@ nyc_controllers.controller("EvaluationsCtrlYearElem" ,[ '$scope', 'DatosSchool',
       $('#all_eva').removeClass('borrar');
       $('#all_eva').addClass('mostrar');
     }else if ((tipoEscuela.indexOf("High School") !== -1) && (tipoEscuela.indexOf("Middle") !== -1)){
-   $('#selectEvaluation_eva').removeClass('borrar');
-   $('#selectEvaluation_eva').addClass('mostrar');
+      $('#selectEvaluation_eva').removeClass('borrar');
+      $('#selectEvaluation_eva').addClass('mostrar');
    };
 
   $rootScope.selectedyearEvaluations= "2013";
