@@ -27,7 +27,7 @@
 
 				<div class="small-6  medium-6 large-6 columns " style="">
 					<div ng-controller="SurveyYearCtrl" class="text-center">
-					  <a dropdown-toggle="#dropdown-year_dsr" class="button dropdown small bg-dropdown" style="margin-left: -3px;">{{selectedyear_sd}}</a>
+					  <a dropdown-toggle="#dropdown-year_dsr" class="button dropdown small bg-dropdown" style="margin-left: -3px;">{{selectedyear_survey}}</a>
 					  <ul id="dropdown-year_dsr" class="f-dropdown">
 					    <li ng-repeat="itemy in itemsYears">
 					      <a ng-click="changeyear(itemy.indice)">{{itemy.texto}}</a>
@@ -48,9 +48,6 @@
 					  <br>
 					</div>
 				</div>	
-
-
-
 			</div>
 		</div>		
 	</div>		
@@ -58,13 +55,6 @@
 <div class="row {{ 'students' | filtraSurvey }}">  <!-- 1re -->
 
 <div ng-controller="AccordionDemoCtrl">
-
-<!--
-  <label class="checkbox">
-    <input type="checkbox" ng-model="oneAtATime">
-    Open only one at a time
-  </label>
--->  
 
   <accordion close-others="oneAtATime">
 
@@ -76,22 +66,22 @@
 
 		<div class="row">
 
-            <div class="small-12 medium-12 large-12 columns  bg-tablas-data  {{survey_results.s_q1f_agree }}">
-            <div class="democracy color-barra" style="width:{{survey_results.s_q1f_agree}}%;">
-            	<p>{{survey_results.s_q1f_agree | redondea}}</p>
-            	<itemsurvey><span class="sin-i">Agree</span></itemsurvey>
-            </div>
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data  {{survey_results.s_q1f_agree }}">
+        <div class="democracy color-barra" style="width:{{survey_results.s_q1f_agree}}%;">
+          <p>{{survey_results.s_q1f_agree | redondea}}</p>
+          <itemsurvey><span class="sin-i">Agree</span></itemsurvey>
+        </div>
 
-<!--             <div class="metrics {{city_average.SchoolSurvey_Students_Q1FAgree }}">
-                <div class="average" style="width:{{city_average.SchoolSurvey_Students_Q1FAgree}}%;">
-                    <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Students_Q1FAgree | redondea}}</p>
-                </div>                          
-                <div class="rank">
-                <p><img ng-src="img/{{ proficiency_ratings.s_q1f_agree_pr | filtraRank }}.png" ></p>
-                </div>
-                
-            </div> -->
-            </div>
+      <!--             <div class="metrics {{city_average.SchoolSurvey_Students_Q1FAgree }}">
+      <div class="average" style="width:{{city_average.SchoolSurvey_Students_Q1FAgree}}%;">
+      <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Students_Q1FAgree | redondea}}</p>
+      </div>                          
+      <div class="rank">
+      <p><img ng-src="img/{{ proficiency_ratings.s_q1f_agree_pr | filtraRank }}.png" ></p>
+      </div>
+
+      </div> -->
+      </div>
 
 
 			<div class="small-12 medium-12 large-12 columns  bg-tablas-data  {{survey_results.s_q1f_strongly_agree }}">

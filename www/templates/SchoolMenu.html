@@ -91,7 +91,7 @@
             </div>
         </div>  
     </a>
-    <a ng-click="go('/school/' +  school.id + '/college')" ng-href="#/school/{{school.id}}/college">     
+    <a ng-hide="filtroCCmenu" ng-click="go('/school/' +  school.id + '/college')" ng-href="#/school/{{school.id}}/college">     
         <div class="row switch1">
             <div class="small-5 medium-5 large-5 columns">
                 <p class="text-center"><img src="img/college_menu.png"></p> 
@@ -102,7 +102,7 @@
         </div>
     </a>
     <a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"> 
-        <div class="row switch2">
+        <div class="row {{classGT}}">
             <div class="small-5 medium-5 large-5 columns">
                 <p class="text-center"><img src="img/glosary_menu.png"></p> 
             </div>

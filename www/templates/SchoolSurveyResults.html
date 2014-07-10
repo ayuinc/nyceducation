@@ -23,22 +23,22 @@
 		<div class="small-10 small-centered medium-10 large-10 columns">		
 			<div class="row">
 
-                <div class="small-6  medium-6 large-6 columns" style="margin-right:-2px">
-                    <div ng-controller="SurveyYearCtrl" class="text-center" style="">
-                      <a dropdown-toggle="#dropdown-year_sr" class="button dropdown small bg-dropdown" style="margin-left: -3px;">{{selectedyear_sd}}</a>
-                      <ul id="dropdown-year_sr" class="f-dropdown" style="width:100%">
-                        <li ng-repeat="itemy in itemsYears">
-                          <a ng-click="changeyear(itemy.indice)">{{itemy.texto}}</a>
-                        </li>
-                      </ul>
-                      <br>
-                    </div>
-                </div>
+        <div class="small-6  medium-6 large-6 columns" style="margin-right:-2px">
+            <div ng-controller="SurveyYearCtrl" class="text-center" style="">
+              <a dropdown-toggle="#dropdown-year_sr" class="button dropdown small bg-dropdown" style="margin-left: -3px;">{{selectedyear_survey}}</a>
+              <ul id="dropdown-year_sr" class="f-dropdown" >
+                <li ng-repeat="itemy in itemsYears">
+                  <a ng-click="changeyear(itemy.indice)">{{itemy.texto}}</a>
+                </li>
+              </ul>
+              <br>
+            </div>
+        </div>
 
 				<div class="small-6  medium-6 large-6 columns " style="margin-left:-3px">
 					<div ng-controller="SurveyRespCtrl" class="text-center">
 					  <a dropdown-toggle="#dropdown-grade_sr" class="button dropdown small bg-dropdown" style="margin-right: -3px;">{{selectedgrade}}</a>
-					  <ul id="dropdown-grade_sr" class="f-dropdown" style="width:100%">
+					  <ul id="dropdown-grade_sr" class="f-dropdown" >
 					    <li ng-repeat="itemg in itemsGrades">
 					      <a ng-click="changegrade(itemg.indice)">{{itemg.texto}}</a>
 					    </li>
@@ -107,7 +107,7 @@
             <div class ="{{ 'teachers' | filtraSurvey }}">
 
             <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
-                <div class="democracy color-barra" style="width:{{survey_results.t_total_response_rate | escala10}}%;">
+                <div class="democracy color-barra" style="width:{{survey_results.t_total_response_rate}}%;">
                     <p>{{survey_results.t_total_response_rate | redondea}}</p>
                     <itemsurvey><button type="button" class="button button-white  [tiny small large]" ng-model="singleModel" ng-click="go('/school/' +  school.id + '/surveyDetail')" ng-href="#/school/{{school.id}}/surveyDetail">Detail</button></itemsurvey>
                 </div>
@@ -128,7 +128,7 @@
             <div class ="{{ 'students' | filtraSurvey }}">
 
             <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
-                <div class="democracy color-barra" style="width:{{survey_results.s_total_response_rate | escala10}}%;">
+                <div class="democracy color-barra" style="width:{{survey_results.s_total_response_rate}}%;">
                     <p>{{survey_results.s_total_response_rate | redondea}}</p>
                     <itemsurvey><button type="button" class="button button-white  [tiny small large]" ng-model="singleModel" ng-click="go('/school/' +  school.id + '/surveyDetail')" ng-href="#/school/{{school.id}}/surveyDetail">Detail</button></itemsurvey>
                 </div>

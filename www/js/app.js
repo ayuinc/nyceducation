@@ -331,6 +331,62 @@ app.factory('DatosSchool',function($rootScope){
           if(GetUniqueElementsArray(ValuesQualityReview).length > 0)
             { return true }
           else{ return false }      
+        },
+        SearchValuesTotalResponseRate: function(indice){
+          var ValuesTotalResponseRate = [];
+          ValuesTotalResponseRate.push(this.datos.survey_result[indice]['p_total_response_rate']);
+          ValuesTotalResponseRate.push(this.datos.survey_result[indice]['t_total_response_rate']);
+          ValuesTotalResponseRate.push(this.datos.survey_result[indice]['s_total_response_rate']);
+          if(GetUniqueElementsArray(ValuesTotalResponseRate).length > 0)
+            { return true }
+          else{ return false }      
+        },
+        SearchValuesSafetyandRespect: function(indice){
+          var ValuesSafetyandRespect = [];
+          ValuesSafetyandRespect.push(this.datos.survey_result[indice]['p_safety_respect_rs']);
+          ValuesSafetyandRespect.push(this.datos.survey_result[indice]['t_safety_respect_rs']);
+          ValuesSafetyandRespect.push(this.datos.survey_result[indice]['s_safety_respect_rs']);
+          if(GetUniqueElementsArray(ValuesSafetyandRespect).length > 0)
+            { return true }
+          else{ return false }      
+        },
+        SearchValuesEngagement: function(indice){
+          var ValuesEngagement = [];
+          ValuesEngagement.push(this.datos.survey_result[indice]['p_engagement_rs']);
+          ValuesEngagement.push(this.datos.survey_result[indice]['t_engagement_rs']);
+          ValuesEngagement.push(this.datos.survey_result[indice]['s_engagement_rs']);
+          if(GetUniqueElementsArray(ValuesEngagement).length > 0)
+            { return true }
+          else{ return false }      
+        },
+        SearchValuesCommunication: function(indice){
+          var ValuesCommunication = [];
+          ValuesCommunication.push(this.datos.survey_result[indice]['p_communication_rs']);
+          ValuesCommunication.push(this.datos.survey_result[indice]['t_communication_rs']);
+          ValuesCommunication.push(this.datos.survey_result[indice]['s_communication_rs']);
+          if(GetUniqueElementsArray(ValuesCommunication).length > 0)
+            { return true }
+          else{ return false }      
+        },
+        SearchValuesAcademicExpectations: function(indice){
+          var ValuesAcademicExpectations = [];
+          ValuesAcademicExpectations.push(this.datos.survey_result[indice]['p_academic_expectations_rs']);
+          ValuesAcademicExpectations.push(this.datos.survey_result[indice]['t_academic_expectations_rs']);
+          ValuesAcademicExpectations.push(this.datos.survey_result[indice]['s_academic_expectations_rs']);
+          if(GetUniqueElementsArray(ValuesAcademicExpectations).length > 0)
+            { return true }
+          else{ return false }      
+        },
+        SearchValuesStudentsResp: function(indice){
+          var ValuesStudentsResp = [];
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['s_academic_expectations_rs']);
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['s_communication_rs']);
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['s_engagement_rs']);
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['s_safety_respect_rs']);
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['s_total_response_rate']);
+          if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
+            { return true }
+          else{ return false }      
         }
     };
 });

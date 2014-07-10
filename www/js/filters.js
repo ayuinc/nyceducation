@@ -501,7 +501,7 @@ if (text == "2011"){
 
         var num = parseInt(text);
 
-        var val = (num*100)/(1000);
+        var val = (num*100)/(2400);
         // console.log(val);
         return val;
     }
