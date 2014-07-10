@@ -238,7 +238,7 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchValuesAverageProficiencyScoreELA: function(indice){
           var ValuesAverageProficiencyScoreELA = [];
-          ValuesAverageProficiencyScoreELA.push(this.datos.evaluations_ela[indice]['av_proficiency_rating_ela']);
+          // ValuesAverageProficiencyScoreELA.push(this.datos.evaluations_ela[indice]['av_proficiency_rating_ela']);
           ValuesAverageProficiencyScoreELA.push(this.datos.evaluations_ela[indice]['3rd_a_p_r_ela']);
           ValuesAverageProficiencyScoreELA.push(this.datos.evaluations_ela[indice]['4rd_a_p_r_ela']);
           ValuesAverageProficiencyScoreELA.push(this.datos.evaluations_ela[indice]['5rd_a_p_r_ela']);
@@ -251,7 +251,7 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchValuesAverageProficiencyScoreMath: function(indice){
           var ValuesAverageProficiencyScoreMath = [];
-          ValuesAverageProficiencyScoreMath.push(this.datos.evaluations_math[indice]['av_proficiency_rating_math']);
+          // ValuesAverageProficiencyScoreMath.push(this.datos.evaluations_math[indice]['av_proficiency_rating_math']);
           ValuesAverageProficiencyScoreMath.push(this.datos.evaluations_math[indice]['3rd_a_p_r_math']);
           ValuesAverageProficiencyScoreMath.push(this.datos.evaluations_math[indice]['4rd_a_p_r_math']);
           ValuesAverageProficiencyScoreMath.push(this.datos.evaluations_math[indice]['5rd_a_p_r_math']);

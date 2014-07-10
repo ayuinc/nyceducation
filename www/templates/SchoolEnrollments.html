@@ -25,7 +25,7 @@
             <div ng-controller="EnrollmentCtrlYear" class="text-center">
               <a dropdown-toggle="#dropdown-enrollment" class="button dropdown small bg-dropdown">{{selectedyearEnrollment}}</a>
               <ul id="dropdown-enrollment" class="f-dropdown" style="width:100px">
-                <li ng-repeat="item in itemsddEnrollment">
+                <li ng-repeat="item in itemsYearEnrollment">
                   <a ng-click="changeyear(item.indice)">{{item.texto}}</a>
                 </li>
               </ul>
@@ -136,7 +136,7 @@
 
     <div class="row">
 
-      <div class="small-12 medium-12 large-12 columns barra-blanca-pq bg-tablas-data {{enrollment.attendance_es_ms_k8_ec | filtraCeros}}" >
+      <div class="small-12 medium-12 large-12 columns bg-tablas-data {{enrollment.attendance_es_ms_k8_ec | filtraCeros}}" >
         <div class="democracy color-barra " style="width:{{enrollment.attendance_es_ms_k8_ec}}%; margin-left:-17px">
             <p>{{enrollment.attendance_es_ms_k8_ec | number:1}}%</p>
             <itemsurvey><span  class="sin-i" style="margin-right: -28px;">Attendance Rate K-8</span></itemsurvey>                
@@ -146,7 +146,7 @@
         </div>
       </div>
 
-      <div class="small-12 medium-12 large-12 columns barra-blanca-pq bg-tablas-data {{enrollment.attendance_hs_transfer_hs | filtraCeros}}" >
+      <div class="small-12 medium-12 large-12 columns bg-tablas-data {{enrollment.attendance_hs_transfer_hs | filtraCeros}}" >
         <div class="democracy color-barra  " style="width:{{enrollment.attendance_hs_transfer_hs}}%;margin-left:-17px">
               <p>{{enrollment.attendance_hs_transfer_hs | number:1}}%</p>
               <itemsurvey><span  class="sin-i" style="margin-right: -28px;">Attendance Rate 9-12</span></itemsurvey>

@@ -143,44 +143,8 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
      + DatosSchool.datos.proficiency_rating[1].hs_t_hs_student_progress_pr_pr;
      + DatosSchool.datos.proficiency_rating[2].hs_t_hs_student_progress_pr_pr;
      + DatosSchool.datos.proficiency_rating[3].hs_t_hs_student_progress_pr_pr;
-   //  switch (text) {
 
-
-
-   //  // case "selectEvaluation_eva":
-
-   //  if ((tipoEscuela.indexOf("High School") !== -1) && (tipoEscuela.indexOf("Middle") !== -1)){
-   // $('#selectEvaluation_eva').removeClass('borrar');
-   // $('#selectEvaluation_eva').addClass('mostrar');
-   // }
-    // break; 
-
-    // case "nd_eva":
-
-    // if ((tipoEscuela.indexOf("High School") != -1) || (tipoEscuela.indexOf("High School Transfer") != -1) || (tipoEscuela.indexOf("Elementary") != -1) || (tipoEscuela.indexOf("Middle") != -1))
-    //   { return "borrar";}
-    // break;  
-
-    // case "all_eva":
-
-    // if ((tipoEscuela.indexOf("High School") != -1) || (tipoEscuela.indexOf("High School Transfer") != -1) || (tipoEscuela.indexOf("Elementary") != -1) || (tipoEscuela.indexOf("Middle") != -1))
-    //   { return "borrar";}
-    // break;   
-
-    // case "elementary_eva":
-
-    // if ((tipoEscuela.indexOf("Elementary") == -1) || (tipoEscuela.indexOf("Middle") == -1)){ return "borrar";}
-    // break;  
-
-    // case "high_eva":
-
-    // if ((tipoEscuela.indexOf("High School") == -1) || (tipoEscuela.indexOf("High School Transfer") == -1)){ return "borrar";}
-    // break;       
-
-
-        // }
-
-            switch (text) {
+    switch (text) {
 
     case "elementary_eva":
 

@@ -24,7 +24,7 @@
 
 			<div id="CC_9_12" class="borrar">    
 				<div class="row menu-header">	
-					<div class="small-6 small-centered medium-6 large-6 columns">
+					<div class="small-12 small-centered medium-12 large-12 columns">
 					<h3 class="text-center">College & Career</h3>
 					</div>	
 					<div class="small-10 small-centered medium-10 large-10 columns">		
@@ -33,7 +33,7 @@
 								<div ng-controller="CollegeCarrerCtrlYear" class="text-center">
 									<a dropdown-toggle="#dropdown-CollegeCarrer" class="button dropdown small bg-dropdown">{{selectedyearCollegeCarrer}}</a>
 									<ul id="dropdown-CollegeCarrer" class="f-dropdown" style="width:100px">
-									<li ng-repeat="item in itemsddCollegeCarrer">
+									<li ng-repeat="item in itemsYearsCollegeCarrer">
 									<a ng-click="changeyear(item.indice)">{{item.texto}}</a>
 									</li>
 									</ul>
