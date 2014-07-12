@@ -52,12 +52,6 @@
 		</div>		
 	</div>		
 
-
-
-
-
-  
-
 <div class="row {{ 'students' | filtraSurvey }}">  <!-- 1re -->
 
 <div ng-controller="AccordionDemoCtrl">
@@ -83,7 +77,7 @@
       <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Students_Q1FAgree | redondea}}</p>
       </div>                          
       <div class="rank">
-      <p><img ng-src="img/{{ proficiency_ratings.s_q1f_agree_pr | filtraRank }}.png" ></p>
+      <p>Rank <img ng-src="img/{{ proficiency_ratings.s_q1f_agree_pr | filtraRank }}.png" > >Avg. </p>
       </div>
 
       </div> -->
@@ -101,7 +95,7 @@
                         <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Students_Q1FStronglyAgree | redondea}}</p>
                     </div>                          
                     <div class="rank">
-                    <p><img ng-src="img/{{ proficiency_ratings.s_q1f_strongly_agree_pr | filtraRank }}.png" ></p>
+                    <p>Rank <img ng-src="img/{{ proficiency_ratings.s_q1f_strongly_agree_pr | filtraRank }}.png" > >Avg. </p>
                     </div>
                     
                 </div> -->
@@ -134,7 +128,7 @@
                     <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Students_Q2bAgree | redondea}}</p>
                 </div>                          
                 <div class="rank">
-                <p><img ng-src="img/{{ proficiency_ratings.s_q2b_agree_pr | filtraRank }}.png" ></p>
+                <p>Rank <img ng-src="img/{{ proficiency_ratings.s_q2b_agree_pr | filtraRank }}.png" > >Avg. </p>
                 </div>
                 
             </div> -->
@@ -152,7 +146,7 @@
                         <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Students_Q2bStronglyAgree | redondea}}</p>
                     </div>                          
                     <div class="rank">
-                    <p><img ng-src="img/{{ proficiency_ratings.s_q2b_strongly_agree_pr | filtraRank }}.png" ></p>
+                    <p>Rank <img ng-src="img/{{ proficiency_ratings.s_q2b_strongly_agree_pr | filtraRank }}.png" > >Avg. </p>
                     </div>
                     
                 </div> -->
@@ -182,7 +176,7 @@
                     <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Students_Q4eAgree | redondea}}</p>
                 </div>                          
                 <div class="rank">
-                <p><img ng-src="img/{{ proficiency_ratings.s_q4e_agree_pr | filtraRank }}.png" ></p>
+                <p>Rank <img ng-src="img/{{ proficiency_ratings.s_q4e_agree_pr | filtraRank }}.png" > >Avg. </p>
                 </div>
                 
             </div> -->
@@ -200,7 +194,7 @@
                         <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Students_Q4eStronglyAgree | redondea}}</p>
                     </div>                          
                     <div class="rank">
-                    <p><img ng-src="img/{{ proficiency_ratings.s_q4e_strongly_agree_pr | filtraRank }}.png" ></p>
+                    <p>Rank <img ng-src="img/{{ proficiency_ratings.s_q4e_strongly_agree_pr | filtraRank }}.png" > >Avg. </p>
                     </div>
                     
                 </div> -->
@@ -231,7 +225,7 @@
                     <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Students_Q4GAgree | redondea}}</p>
                 </div>                          
                 <div class="rank">
-                <p><img ng-src="img/{{ proficiency_ratings.s_q4g_agree_pr | filtraRank }}.png" ></p>
+                <p>Rank <img ng-src="img/{{ proficiency_ratings.s_q4g_agree_pr | filtraRank }}.png" > >Avg. </p>
                 </div>
                 
             </div> -->
@@ -249,7 +243,7 @@
                         <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Students_Q4GStronglyAgree | redondea}}</p>
                     </div>                          
                     <div class="rank">
-                    <p><img ng-src="img/{{ proficiency_ratings.s_q4g_strongly_agree_pr | filtraRank }}.png" ></p>
+                    <p>Rank <img ng-src="img/{{ proficiency_ratings.s_q4g_strongly_agree_pr | filtraRank }}.png" > >Avg. </p>
                     </div>
                     
                 </div> -->
@@ -279,7 +273,7 @@
                     <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Students_Q6cAgree | redondea}}</p>
                 </div>                          
                 <div class="rank">
-                <p><img ng-src="img/{{ proficiency_ratings.s_q6c_agree_pr | filtraRank }}.png" ></p>
+                <p>Rank <img ng-src="img/{{ proficiency_ratings.s_q6c_agree_pr | filtraRank }}.png" > >Avg. </p>
                 </div>
                 
             </div> -->
@@ -297,7 +291,7 @@
                         <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Students_Q6cStronglyAgree | redondea}}</p>
                     </div>                          
                     <div class="rank">
-                    <p><img ng-src="img/{{ proficiency_ratings.s_q6c_strongly_agree_pr | filtraRank }}.png" ></p>
+                    <p>Rank <img ng-src="img/{{ proficiency_ratings.s_q6c_strongly_agree_pr | filtraRank }}.png" > >Avg. </p>
                     </div>
                     
                 </div> -->
@@ -318,6 +312,13 @@
 <div class="row {{ 'teachers' | filtraSurvey }}">  <!-- 2do -->
 
 <div ng-controller="AccordionDemoCtrl">
+
+<!--
+  <label class="checkbox">
+    <input type="checkbox" ng-model="oneAtATime">
+    Open only one at a time
+  </label>
+-->  
 
   <accordion close-others="oneAtATime">
 
@@ -341,7 +342,7 @@
                     <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Teachers_Q3DAgree | redondea}}</p>
                 </div>                          
                 <div class="rank">
-                <p><img ng-src="img/{{ proficiency_ratings.t_q3d_agree_pr | filtraRank }}.png" ></p>
+                <p>Rank <img ng-src="img/{{ proficiency_ratings.t_q3d_agree_pr | filtraRank }}.png" > >Avg. </p>
                 </div>
                 
             </div> -->
@@ -359,7 +360,7 @@
                         <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Teachers_Q3DStronglyAgree | redondea}}</p>
                     </div>                          
                     <div class="rank">
-                    <p><img ng-src="img/{{ proficiency_ratings.t_q3d_strongly_agree_pr | filtraRank }}.png" ></p>
+                    <p>Rank <img ng-src="img/{{ proficiency_ratings.t_q3d_strongly_agree_pr | filtraRank }}.png" > >Avg. </p>
                     </div>
                     
                 </div> -->
@@ -389,7 +390,7 @@
                     <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Teachers_Q8CAgree | redondea}}</p>
                 </div>                          
                 <div class="rank">
-                <p><img ng-src="img/{{ proficiency_ratings.t_q8c_agree_pr | filtraRank }}.png" ></p>
+                <p>Rank <img ng-src="img/{{ proficiency_ratings.t_q8c_agree_pr | filtraRank }}.png" > >Avg. </p>
                 </div>
                 
             </div> -->
@@ -407,7 +408,7 @@
                         <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Teachers_Q8CStronglyAgree | redondea}}</p>
                     </div>                          
                     <div class="rank">
-                    <p><img ng-src="img/{{ proficiency_ratings.t_q8c_strongly_agree_pr | filtraRank }}.png" ></p>
+                    <p>Rank <img ng-src="img/{{ proficiency_ratings.t_q8c_strongly_agree_pr | filtraRank }}.png" > >Avg. </p>
                     </div>
                     
                 </div> -->
@@ -438,7 +439,7 @@
                     <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Teachers_Q10CAgree | redondea}}</p>
                 </div>                          
                 <div class="rank">
-                <p><img ng-src="img/{{ proficiency_ratings.t_q10c_agree_pr | filtraRank }}.png" ></p>
+                <p>Rank <img ng-src="img/{{ proficiency_ratings.t_q10c_agree_pr | filtraRank }}.png" > >Avg. </p>
                 </div>
                 
             </div> -->
@@ -456,7 +457,7 @@
                         <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Teachers_Q10CStronglyAgree | redondea}}</p>
                     </div>                          
                     <div class="rank">
-                    <p><img ng-src="img/{{ proficiency_ratings.t_q10c_strongly_agree_pr | filtraRank }}.png" ></p>
+                    <p>Rank <img ng-src="img/{{ proficiency_ratings.t_q10c_strongly_agree_pr | filtraRank }}.png" > >Avg. </p>
                     </div>
                     
                 </div> -->
@@ -487,7 +488,7 @@
                     <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Teachers_Q11EDisagree | redondea}}</p>
                 </div>                          
                 <div class="rank">
-                <p><img ng-src="img/{{ proficiency_ratings.t_q11e_disagree_pr | filtraRank }}.png" ></p>
+                <p>Rank <img ng-src="img/{{ proficiency_ratings.t_q11e_disagree_pr | filtraRank }}.png" > >Avg. </p>
                 </div>
                 
             </div> -->
@@ -505,7 +506,7 @@
                         <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Teachers_Q11EStronglyDisagree | redondea}}</p>
                     </div>                          
                     <div class="rank">
-                    <p><img ng-src="img/{{ proficiency_ratings.t_q11e_strongly_disagree_pr | filtraRank }}.png" ></p>
+                    <p>Rank <img ng-src="img/{{ proficiency_ratings.t_q11e_strongly_disagree_pr | filtraRank }}.png" > >Avg. </p>
                     </div>
                     
                 </div> -->
@@ -536,7 +537,7 @@
                     <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Teachers_Q11FAgree | redondea}}</p>
                 </div>                          
                 <div class="rank">
-                <p><img ng-src="img/{{ proficiency_ratings.t_q11f_agree_pr | filtraRank }}.png" ></p>
+                <p>Rank <img ng-src="img/{{ proficiency_ratings.t_q11f_agree_pr | filtraRank }}.png" > >Avg. </p>
                 </div>
                 
             </div> -->
@@ -554,7 +555,7 @@
                         <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Teachers_Q11FStronglyAgree | redondea}}</p>
                     </div>                          
                     <div class="rank">
-                    <p><img ng-src="img/{{ proficiency_ratings.t_q11f_strongly_agree_pr | filtraRank }}.png" ></p>
+                    <p>Rank <img ng-src="img/{{ proficiency_ratings.t_q11f_strongly_agree_pr | filtraRank }}.png" > >Avg. </p>
                     </div>
                     
                 </div> -->
@@ -576,6 +577,13 @@
 <div class="row {{ 'parents' | filtraSurvey }}">  <!-- 3ro -->
 
 <div ng-controller="AccordionDemoCtrl">
+
+<!--
+  <label class="checkbox">
+    <input type="checkbox" ng-model="oneAtATime">
+    Open only one at a time
+  </label>
+-->  
 
   <accordion close-others="oneAtATime">
 
@@ -599,7 +607,7 @@
                     <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Parents_Q1aAgree | redondea}}</p>
                 </div>                          
                 <div class="rank">
-                <p><img ng-src="img/{{ proficiency_ratings.p_q1a_agree_pr | filtraRank }}.png" ></p>
+                <p>Rank <img ng-src="img/{{ proficiency_ratings.p_q1a_agree_pr | filtraRank }}.png" > >Avg. </p>
                 </div>
                 
             </div> -->
@@ -617,7 +625,7 @@
                         <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Parents_Q1aStronglyAgree | redondea}}</p>
                     </div>                          
                     <div class="rank">
-                    <p><img ng-src="img/{{ proficiency_ratings.p_q1a_strongly_agree_pr | filtraRank }}.png" ></p>
+                    <p>Rank <img ng-src="img/{{ proficiency_ratings.p_q1a_strongly_agree_pr | filtraRank }}.png" > >Avg. </p>
                     </div>
                     
                 </div> -->
@@ -648,7 +656,7 @@
                     <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Parents_Q1GAgree | redondea}}</p>
                 </div>                          
                 <div class="rank">
-                <p><img ng-src="img/{{ proficiency_ratings.p_q1g_agree_pr | filtraRank }}.png" ></p>
+                <p>Rank <img ng-src="img/{{ proficiency_ratings.p_q1g_agree_pr | filtraRank }}.png" > >Avg. </p>
                 </div>
                 
             </div> -->
@@ -666,7 +674,7 @@
                         <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Parents_Q1GStronglyAgree | redondea}}</p>
                     </div>                          
                     <div class="rank">
-                    <p><img ng-src="img/{{ proficiency_ratings.p_q1g_strongly_agree_pr | filtraRank }}.png" ></p>
+                    <p>Rank <img ng-src="img/{{ proficiency_ratings.p_q1g_strongly_agree_pr | filtraRank }}.png" > >Avg. </p>
                     </div>
                     
                 </div> -->
@@ -697,7 +705,7 @@
                     <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Parents_Q2aAgree | redondea}}</p>
                 </div>                          
                 <div class="rank">
-                <p><img ng-src="img/{{ proficiency_ratings.p_q2a_agree_pr | filtraRank }}.png" ></p>
+                <p>Rank <img ng-src="img/{{ proficiency_ratings.p_q2a_agree_pr | filtraRank }}.png" > >Avg. </p>
                 </div>
                 
             </div> -->
@@ -715,7 +723,7 @@
                         <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Parents_Q2aStronglyAgree | redondea}}</p>
                     </div>                          
                     <div class="rank">
-                    <p><img ng-src="img/{{ proficiency_ratings.p_q2a_strongly_agree_pr | filtraRank }}.png" ></p>
+                    <p>Rank <img ng-src="img/{{ proficiency_ratings.p_q2a_strongly_agree_pr | filtraRank }}.png" > >Avg. </p>
                     </div>
                     
                 </div> -->
@@ -746,7 +754,7 @@
                     <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Parents_Q3aAgree | redondea}}</p>
                 </div>                          
                 <div class="rank">
-                <p><img ng-src="img/{{ proficiency_ratings.p_q3a_agree_pr | filtraRank }}.png" ></p>
+                <p>Rank <img ng-src="img/{{ proficiency_ratings.p_q3a_agree_pr | filtraRank }}.png" > >Avg. </p>
                 </div>
                 
             </div> -->
@@ -764,7 +772,7 @@
                         <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Parents_Q3aStronglyAgree | redondea}}</p>
                     </div>                          
                     <div class="rank">
-                    <p><img ng-src="img/{{ proficiency_ratings.p_q3a_strongly_agree_pr | filtraRank }}.png" ></p>
+                    <p>Rank <img ng-src="img/{{ proficiency_ratings.p_q3a_strongly_agree_pr | filtraRank }}.png" > >Avg. </p>
                     </div>
                     
                 </div> -->
@@ -795,7 +803,7 @@
                     <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Parents_Q5BSatisfied | redondea}}</p>
                 </div>                          
                 <div class="rank">
-                <p><img ng-src="img/{{ proficiency_ratings.p_q5b_satisfied_pr | filtraRank }}.png" ></p>
+                <p>Rank <img ng-src="img/{{ proficiency_ratings.p_q5b_satisfied_pr | filtraRank }}.png" > >Avg. </p>
                 </div>
                 
             </div> -->
@@ -813,7 +821,7 @@
                         <p style="padding-left:25px">City Average: {{city_average.SchoolSurvey_Parents_Q5BVerySatisfied | redondea}}</p>
                     </div>                          
                     <div class="rank">
-                    <p><img ng-src="img/{{ proficiency_ratings.p_q5b_very_satisfied_pr | filtraRank }}.png" ></p>
+                    <p>Rank <img ng-src="img/{{ proficiency_ratings.p_q5b_very_satisfied_pr | filtraRank }}.png" > >Avg. </p>
                     </div>
                     
                 </div> -->
@@ -825,34 +833,9 @@
 
 
 </accordion>
-
 </div> <!-- Control accordion -->
 
 </div> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     </section>

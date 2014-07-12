@@ -387,7 +387,146 @@ app.factory('DatosSchool',function($rootScope){
           if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
             { return true }
           else{ return false }      
-        }
+        },
+// FILTROS SURVEY QUESTIONS
+        SearchSurveyQuestionQ1F: function(indice){
+          var ValuesStudentsResp = [];
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['s_q1f_agree']);
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['s_q1f_strongly_agree']);
+          if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
+            { return true }
+          else{ return false }      
+        },
+        SearchSurveyQuestionQ2B: function(indice){
+          var ValuesStudentsResp = [];
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['s_q2b_agree']);
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['s_q2b_strongly_agree']);
+          if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
+            { return true }
+          else{ return false }      
+        },      
+        SearchSurveyQuestionQ4E: function(indice){
+          var ValuesStudentsResp = [];
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['s_q4e_agree']);
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['s_q4e_strongly_agree']);
+          if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
+            { return true }
+          else{ return false }      
+        },
+        SearchSurveyQuestionQ4G: function(indice){
+          var ValuesStudentsResp = [];
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['s_q4g_agree']);
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['s_q4g_strongly_agree']);
+          if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
+            { return true }
+          else{ return false }      
+        },       
+        SearchSurveyQuestionQ6C: function(indice){
+          var ValuesStudentsResp = [];
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['s_q6c_agree']);
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['s_q6c_strongly_agree']);
+          if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
+            { return true }
+          else{ return false }      
+        }, 
+
+        SearchSurveyQuestionQ3D: function(indice){
+          var ValuesStudentsResp = [];
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['t_q3d_agree']);
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['t_q3d_strongly_agree']);
+          if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
+            { return true }
+          else{ return false }      
+        }, 
+
+        SearchSurveyQuestionQ8C: function(indice){
+          var ValuesStudentsResp = [];
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['t_q8c_agree']);
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['t_q8c_strongly_agree']);
+          if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
+            { return true }
+          else{ return false }      
+        }, 
+
+        SearchSurveyQuestionQ10C: function(indice){
+          var ValuesStudentsResp = [];
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['t_q10c_agree']);
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['t_q10c_strongly_agree']);
+          if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
+            { return true }
+          else{ return false }      
+        },               
+
+        SearchSurveyQuestionQ11E: function(indice){
+          var ValuesStudentsResp = [];
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['t_q11e_disagree']);
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['t_q11e_strongly_disagree']);
+          if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
+            { return true }
+          else{ return false }      
+        },               
+
+
+        SearchSurveyQuestionQ11F: function(indice){
+          var ValuesStudentsResp = [];
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['t_q11f_agree']);
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['t_q11f_strongly_agree']);
+          if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
+            { return true }
+          else{ return false }      
+        },               
+
+
+        SearchSurveyQuestionQ1A: function(indice){
+          var ValuesStudentsResp = [];
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['p_q1a_agree']);
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['p_q1a_strongly_agree']);
+          if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
+            { return true }
+          else{ return false }      
+        },               
+
+
+        SearchSurveyQuestionQ1G: function(indice){
+          var ValuesStudentsResp = [];
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['p_q1g_agree']);
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['p_q1g_strongly_agree']);
+          if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
+            { return true }
+          else{ return false }      
+        },               
+
+        SearchSurveyQuestionQ2A: function(indice){
+          var ValuesStudentsResp = [];
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['p_q2a_agree']);
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['p_q2a_strongly_agree']);
+          if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
+            { return true }
+          else{ return false }      
+        },   
+
+        SearchSurveyQuestionQ3A: function(indice){
+          var ValuesStudentsResp = [];
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['p_q3a_agree']);
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['p_q3a_strongly_agree']);
+          if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
+            { return true }
+          else{ return false }      
+        },   
+
+        SearchSurveyQuestionQ1G: function(indice){
+          var ValuesStudentsResp = [];
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['p_q5b_satisfied']);
+          ValuesStudentsResp.push(this.datos.survey_result[indice]['p_q5b_very_satisfied']);
+          if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
+            { return true }
+          else{ return false }      
+        },   
+      
+
+
+
+
     };
 });
 

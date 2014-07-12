@@ -52,12 +52,6 @@
 		</div>		
 	</div>		
 
-
-
-
-
-  
-
 <div class="row {{ 'students' | filtraSurvey }}">  <!-- 1re -->
 
 <div ng-controller="AccordionDemoCtrl">
@@ -319,6 +313,13 @@
 
 <div ng-controller="AccordionDemoCtrl">
 
+<!--
+  <label class="checkbox">
+    <input type="checkbox" ng-model="oneAtATime">
+    Open only one at a time
+  </label>
+-->  
+
   <accordion close-others="oneAtATime">
 
     <accordion-group is-open="false">
@@ -577,6 +578,13 @@
 
 <div ng-controller="AccordionDemoCtrl">
 
+<!--
+  <label class="checkbox">
+    <input type="checkbox" ng-model="oneAtATime">
+    Open only one at a time
+  </label>
+-->  
+
   <accordion close-others="oneAtATime">
 
     <accordion-group is-open="false">      
@@ -825,34 +833,9 @@
 
 
 </accordion>
-
 </div> <!-- Control accordion -->
 
 </div> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     </section>

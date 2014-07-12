@@ -81,6 +81,9 @@
 .icon-arrow-down2:before {
 	content: "\e612";
 }
+.icon-arrow-down-srd:before {
+	content: "\e612";
+}
 .icon-twitter:before {
 	content: "\e607";
 }
@@ -101,6 +104,20 @@
 	line-height: 4%; */
 }
 
+
+.accordion .icon-arrow-down-srd {
+	font-size: 1.3rem;
+	margin-right: 0rem;
+	margin-top: -0.7rem;
+position: static;
+	/*	z-index: 99;*/
+	/*top: 1.3rem;
+	left: 17.85rem;
+	font-size: 1.3rem;
+	font-weight: 100;
+	color: #FFF;
+	line-height: 4%; */
+}
 .accordion .icon-info {
 	/*position: absolute;
 	top: 1rem;
@@ -660,7 +677,7 @@ position: relative;
 .rank {
 	position: relative;
 	top: -2.4rem;
-	left: 7rem;
+	left: 8rem;
 }
 
 .rank-s {
@@ -675,6 +692,7 @@ position: relative;
 	line-height: 100%;
 	margin: 2px 0px 0px 0px;
 	position: absolute;
+	top: 0.5rem;
 }
 
 .average {
@@ -689,6 +707,16 @@ position: relative;
 	line-height: 100%;
 	margin: 2px 0px 0px 0px;
 	position: absolute;
+
+}
+
+.rank p{
+font-size: 0.6rem;
+font-weight: 100;
+line-height: 100%;
+margin: 7px 0px 0px -17px;
+position: absolute;	
+
 }
 
 .average small {
@@ -1073,19 +1101,21 @@ span.joyride-nub.right {
 	border-bottom: none;
 
 }
-
+.sub-acordion .accordion dd > a{
+	background: none repeat scroll 0% 0% #138e51;
+}
 
 .grillaAcordion_srd{
 	width:130%;
 	height:50px;
-	background-color:transparent;
+	/*background-color:#138e51;*/
 	position:relative;
 	top:-10.5px;
 	left:-16px;
 	margin-bottom:-19.5px;
 	padding:8.5px 18px; 
 	padding-right: 38%;
-	z-index: 1;
+	z-index: 0;
 	font-size: 1rem;
 	border-bottom: 0;
 	border-bottom: none;
@@ -1094,14 +1124,14 @@ span.joyride-nub.right {
 .grillaAcordion_srd_3{
 	width:130%;
 	height:65px;
-	background-color:transparent;
+	/*background-color:#138e51;*/
 	position:relative;
 	top:-10.5px;
 	left:-16px;
 	margin-bottom:-19.5px;
 	padding:8.5px 18px; 
 	padding-right: 40%;
-	z-index: 1;
+	z-index: 0;
 	font-size: 1rem;
 	border-bottom: 0;
 	border-bottom: none;
@@ -1138,7 +1168,7 @@ span.joyride-nub.right {
   color: #aaa;
 }
 
-.accordion .accordion_label{
+.accordion .accordion_label,.accordion .accordion_label_srd{
 	font-size: 0.9rem;
 	padding-left: 12px;
 }
@@ -1265,17 +1295,28 @@ border-top: 1px solid #DFE5E9;
 border-bottom: none;
 /* box-shadow: -1px 2px 6px #555; */
 }
+
+.accordion dd > a.accordion_label_srd {
+border-bottom: 0;
+border-top: 1px solid #DFE5E9;
+border-bottom: none;
+background-color: #138e51;
+/* box-shadow: -1px 2px 6px #555; */
+}
+
 .n-student{
 background-color:#81CAD1;
 padding: 5px 0; 
 max-height: 1.7rem;
 }
+
 .ns-sat{
 padding-left: 3rem;
-font-size: 0.9rem
+font-size: 0.9rem;
 font-family: "museo-sans",sans-serif;
 font-weight: 100;
 }
+
 .ns-sat-label{
 float: right;
 margin-right: 70px;
@@ -1297,4 +1338,13 @@ font-weight: 100;
 	color: #333 !important;
 	position: relative;
 	left: 1rem;
+}
+
+.accordion dd img{
+
+	position: relative;
+left: 0rem;
+top: -0.1rem;
+margin-left: -0.3rem;
+margin-right: -0.3rem;
 }

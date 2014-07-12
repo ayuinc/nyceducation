@@ -247,7 +247,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
 
     return function(text) {
 
-    var who = $rootScope.survey_var
+    var who = $rootScope.survey_var;
 
 
     if ( (text == "parents") && (who != 0) ){ return "borrar";}
