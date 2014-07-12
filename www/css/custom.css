@@ -677,7 +677,7 @@ position: relative;
 .rank {
 	position: relative;
 	top: -2.4rem;
-	left: 8rem;
+	left: 7rem;
 }
 
 .rank-s {
@@ -692,7 +692,6 @@ position: relative;
 	line-height: 100%;
 	margin: 2px 0px 0px 0px;
 	position: absolute;
-	top: 0.5rem;
 }
 
 .average {
@@ -707,16 +706,6 @@ position: relative;
 	line-height: 100%;
 	margin: 2px 0px 0px 0px;
 	position: absolute;
-
-}
-
-.rank p{
-font-size: 0.6rem;
-font-weight: 100;
-line-height: 100%;
-margin: 7px 0px 0px -17px;
-position: absolute;	
-
 }
 
 .average small {
@@ -1338,13 +1327,4 @@ font-weight: 100;
 	color: #333 !important;
 	position: relative;
 	left: 1rem;
-}
-
-.accordion dd img{
-
-	position: relative;
-left: 0rem;
-top: -0.1rem;
-margin-left: -0.3rem;
-margin-right: -0.3rem;
 }
