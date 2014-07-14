@@ -134,7 +134,10 @@ nyc_controllers.controller('SelectSchoolController', ['$scope', '$rootScope', '$
             var arrayts = GetUniqueElementsArray(tipoEscuela);
             
 
-            if (((arrayts.indexOf("Elementary") != -1) || (arrayts.indexOf("Middle") != -1) || (arrayts.indexOf("K-8") != -1))&& (arrayts.length == 1) ){
+            if (((arrayts.indexOf("Elementary") != -1) || (arrayts.indexOf("Middle") != -1) || (arrayts.indexOf("K-8") != -1)|| (arrayts.indexOf("K-3") != -1)|| (arrayts.indexOf("K-2") != -1)) && (arrayts.length == 1) ){
+              $rootScope.filtroCCmenu = true;
+              $rootScope.classGT = "switch1";
+            }else if ( (arrayts.indexOf("K-3") !== -1) && (arrayts.indexOf("Elementary") !== -1) ){
               $rootScope.filtroCCmenu = true;
               $rootScope.classGT = "switch1";
             }else{
@@ -281,6 +284,9 @@ nyc_controllers.controller("CollegeCarrerCtrlYear" ,[ '$scope', 'DatosSchool', '
     }else if ((tipoEscuela.indexOf("High School") != -1) && (tipoEscuela.indexOf("Middle") !== -1)){
       $('#CC_9_12').removeClass('borrar');
       $('#CC_9_12').addClass('mostrar');
+   }else if ((tipoEscuela.indexOf("High School") != -1) && (tipoEscuela.indexOf("K-8") !== -1)){
+      $('#CC_9_12').removeClass('borrar');
+      $('#CC_9_12').addClass('mostrar');
    };
 
     var vGraduation,vCollegeCareerReadiness;
@@ -308,7 +314,7 @@ nyc_controllers.controller("CollegeCarrerCtrlYear" ,[ '$scope', 'DatosSchool', '
 
    
   $rootScope.valuesGraduation = DatosSchool.SearchValuesGraduation(indice);
-  $rootScope.valuesGraduation = DatosSchool.SearchValuesCollegeCareerReadiness(indice);
+  $rootScope.valuesCollegeCareerReadiness = DatosSchool.SearchValuesCollegeCareerReadiness(indice);
   
 
   $scope.selectedyearCollegeCarrer= "2013";
@@ -330,7 +336,7 @@ nyc_controllers.controller("CollegeCarrerCtrlYear" ,[ '$scope', 'DatosSchool', '
     $rootScope.city_average=DatosSchool.datos.city_averages[indice]; 
 
     $rootScope.valuesGraduation = DatosSchool.SearchValuesGraduation(indice);
-    $rootScope.valuesGraduation = DatosSchool.SearchValuesCollegeCareerReadiness(indice);
+    $rootScope.valuesCollegeCareerReadiness = DatosSchool.SearchValuesCollegeCareerReadiness(indice);
 
   };
 }]);
@@ -347,6 +353,8 @@ nyc_controllers.controller("SelectEvaluations" ,[ '$scope', 'DatosSchool', '$roo
     $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[2]; 
     $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[2];
     $rootScope.evaluation=DatosSchool.datos.evaluations[2];
+    $rootScope.valuesProgressReportElem = DatosSchool.SearchValuesProgressReportElem(2);
+    $rootScope.valuesQualityReviewElem = DatosSchool.SearchValuesQualityReviewElem(2);
     $rootScope.selectedyearEvaluationsElem= "2013"; 
 
       $('#elementary_eva').removeClass('borrar');
@@ -362,6 +370,8 @@ nyc_controllers.controller("SelectEvaluations" ,[ '$scope', 'DatosSchool', '$roo
     $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[2]; 
     $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[2];
     $rootScope.evaluation=DatosSchool.datos.evaluations[2];
+    $rootScope.valuesProgressReportHigh = DatosSchool.SearchValuesProgressReportHigh(2);
+    $rootScope.valuesQualityReviewHigh = DatosSchool.SearchValuesQualityReviewHigh(2);
     $rootScope.selectedyearEvaluationsHigh= "2013"; 
 
       $('#high_eva').removeClass('borrar');
@@ -417,17 +427,28 @@ nyc_controllers.controller("EvaluationsCtrlYearElem" ,[ '$scope', 'DatosSchool',
 
     var tipoEscuela = $rootScope.tipoDeEscuela; 
 
-    if (((tipoEscuela.indexOf("Elementary") != -1) || (tipoEscuela.indexOf("Middle") != -1) || (tipoEscuela.indexOf("K-8") != -1)) && (tipoEscuela.length == 1) ){
+    if (((tipoEscuela.indexOf("Elementary") !== -1) || (tipoEscuela.indexOf("Middle") !== -1) || (tipoEscuela.indexOf("K-8") !== -1)|| (tipoEscuela.indexOf("K-3") !== -1)|| (tipoEscuela.indexOf("K-3 ") !== -1)) && (tipoEscuela.length == 1) ){
       $('#elementary_eva').removeClass('borrar');
       $('#elementary_eva').addClass('mostrar');
       $('#all_eva').removeClass('borrar');
       $('#all_eva').addClass('mostrar');
-    }else if (((tipoEscuela.indexOf("High School Transfer") != -1) || (tipoEscuela.indexOf("High School") != -1)) && (tipoEscuela.length == 1) ){
+    }else if ( (tipoEscuela.indexOf("K-3") !== -1) && (tipoEscuela.indexOf("Elementary") !== -1) ){
+      $('#elementary_eva').removeClass('borrar');
+      $('#elementary_eva').addClass('mostrar');
+      $('#all_eva').removeClass('borrar');
+      $('#all_eva').addClass('mostrar');
+    }else if (((tipoEscuela.indexOf("High School Transfer") !== -1) || (tipoEscuela.indexOf("High School") !== -1)) && (tipoEscuela.length == 1) ){
       $('#high_eva').removeClass('borrar');
       $('#high_eva').addClass('mostrar');
       $('#all_eva').removeClass('borrar');
       $('#all_eva').addClass('mostrar');
+    }else if ( (tipoEscuela.indexOf("K-2") !== -1) && (tipoEscuela.length == 1) ){
+      $('#nd_eva').removeClass('borrar');
+      $('#nd_eva').addClass('mostrar');
     }else if ((tipoEscuela.indexOf("High School") !== -1) && (tipoEscuela.indexOf("Middle") !== -1)){
+      $('#selectEvaluation_eva').removeClass('borrar');
+      $('#selectEvaluation_eva').addClass('mostrar');
+   }else if ((tipoEscuela.indexOf("High School") !== -1) && (tipoEscuela.indexOf("K-8") !== -1)){
       $('#selectEvaluation_eva').removeClass('borrar');
       $('#selectEvaluation_eva').addClass('mostrar');
    };
@@ -510,6 +531,7 @@ var indice = 2;
     $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[indice]; 
     $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];
     $rootScope.evaluation=DatosSchool.datos.evaluations[indice];
+
     $rootScope.valuesProgressReportHigh = DatosSchool.SearchValuesProgressReportHigh(indice);
     $rootScope.valuesQualityReviewHigh = DatosSchool.SearchValuesQualityReviewHigh(indice);
 
@@ -522,6 +544,35 @@ var indice = 2;
 
 nyc_controllers.controller("TestScoreCtrlYearHs" ,[ '$scope', 'DatosSchool', '$rootScope','$location', '$routeParams', '$route',function ($scope, DatosSchool, $rootScope, $location, $routeParams, $route) {
     
+     var tipoEscuela = $rootScope.tipoDeEscuela; 
+
+    if (((tipoEscuela.indexOf("Elementary") !== -1) || (tipoEscuela.indexOf("Middle") !== -1) || (tipoEscuela.indexOf("K-8") !== -1)|| (tipoEscuela.indexOf("K-3") !== -1)) && (tipoEscuela.length == 1) ){
+      $('#testScore-all').removeClass('borrar');
+      $('#testScore-all').addClass('mostrar');
+      $('#testScore-elementary').removeClass('borrar');
+      $('#testScore-elementary').addClass('mostrar');
+    }else if ( (tipoEscuela.indexOf("K-3") !== -1) && (tipoEscuela.indexOf("Elementary") !== -1) ){
+      $('#testScore-all').removeClass('borrar');
+      $('#testScore-all').addClass('mostrar');
+      $('#testScore-elementary').removeClass('borrar');
+      $('#testScore-elementary').addClass('mostrar');
+    }else if (((tipoEscuela.indexOf("High School Transfer") !== -1) || (tipoEscuela.indexOf("High School") !== -1)) && (tipoEscuela.length == 1) ){
+      $('#testScore-all').removeClass('borrar');
+      $('#testScore-all').addClass('mostrar');
+      $('#testScore-high').removeClass('borrar');
+      $('#testScore-high').addClass('mostrar');
+    }else if ( (tipoEscuela.indexOf("K-2") !== -1) && (tipoEscuela.length == 1) ){
+      $('#testScore-nd').removeClass('borrar');
+      $('#testScore-nd').addClass('mostrar');
+    }else if ((tipoEscuela.indexOf("High School") !== -1) && (tipoEscuela.indexOf("Middle") !== -1)){
+      $('#selectTestScore').removeClass('borrar');
+      $('#selectTestScore').addClass('mostrar');
+    }else if ((tipoEscuela.indexOf("High School") !== -1) && (tipoEscuela.indexOf("K-8") !== -1)){
+      $('#selectTestScore').removeClass('borrar');
+      $('#selectTestScore').addClass('mostrar');
+    };
+
+
     var indice = 2;
     $rootScope.city_average=DatosSchool.datos.city_averages[indice];
     $rootScope.evaluation_average_score=DatosSchool.datos.evaluations_average_score[indice];
@@ -552,11 +603,6 @@ nyc_controllers.controller("TestScoreCtrlYearHs" ,[ '$scope', 'DatosSchool', '$r
     };
     jsonAvaylableYears = JSON.stringify(arrayAvailableYears);
     $scope.itemsYears = JSON.parse(jsonAvaylableYears);
-
-    // $scope.itemsYearsss = [{texto:"2012",indice:1},{texto:"2013",indice:2}];
-    // console.log($scope.itemsYearsss);
-
-    // console.log($scope.itemsYears);
 
     $rootScope.selectedyear_testScore_year_hs= "2013";
     $rootScope.valuesSat = DatosSchool.SearchValuesSat(indice);
@@ -662,7 +708,6 @@ nyc_controllers.controller("TestScoreCtrlYearEl" ,[ '$scope', 'DatosSchool', '$r
     };
     
 
-
 }]);
 
 nyc_controllers.controller("SelectTestScores" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
@@ -671,26 +716,28 @@ nyc_controllers.controller("SelectTestScores" ,[ '$scope', 'DatosSchool', '$root
   $scope.items_selec_testScore = [{texto:"Middle",indice:"0"},{texto:"High",indice:"1"}];
   $scope.change_selec_testScore = function(indice) {
 
-    if (indice==0){
-
-        $rootScope.filtroTSelement = "mostrar";
-        $rootScope.filtroTShigh = "borrar";
-        $rootScope.filtroTSAllS ="mostrar";
+  if (indice==0){
 
     var indice = 2;
     $rootScope.evaluation_ela=DatosSchool.datos.evaluations_ela[indice];   
     $rootScope.evaluation_math=DatosSchool.datos.evaluations_math[indice];
     $rootScope.city_average=DatosSchool.datos.city_averages[indice];
-    $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];
+    $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];    
+
+    $rootScope.valuesElaScores = DatosSchool.SearchValuesElaScores(indice);
+    $rootScope.valuesMathScores = DatosSchool.SearchValuesMathScores(indice);
+    $rootScope.valuesAverageProficiencyScoreELA = DatosSchool.SearchValuesAverageProficiencyScoreELA(indice);
+    $rootScope.valuesAverageProficiencyScoreMath = DatosSchool.SearchValuesAverageProficiencyScoreMath(indice);
     $rootScope.selectedyear_testScore_year_el= "2013";
 
-    }
+      $('#testScore-elementary').removeClass('borrar');
+      $('#testScore-elementary').addClass('mostrar');
+      $('#testScore-all').removeClass('borrar');
+      $('#testScore-all').addClass('mostrar');
+      $('#testScore-high').removeClass('mostrar');
+      $('#testScore-high').addClass('borrar');    
 
-    if (indice==1){
-
-        $rootScope.filtroTSelement = "borrar";
-        $rootScope.filtroTShigh = "mostrar";
-        $rootScope.filtroTSAllS ="mostrar";
+  }else if (indice==1){
 
     var indice = 2;
     $rootScope.city_average=DatosSchool.datos.city_averages[indice];
@@ -702,11 +749,15 @@ nyc_controllers.controller("SelectTestScores" ,[ '$scope', 'DatosSchool', '$root
     $rootScope.valuesRegentsPassRate = DatosSchool.SearchValuesRegentsPassRate(indice);
     $rootScope.valuesRegentsAverageScore = DatosSchool.SearchValuesRegentsAverageScore(indice);
     $rootScope.valuesRegentsRegentsCollegeReady = DatosSchool.SearchValuesRegentsRegentsCollegeReady(indice);
-
     $rootScope.selectedyear_testScore_year_hs= "2013";
 
-
-    }
+      $('#testScore-high').removeClass('borrar');
+      $('#testScore-high').addClass('mostrar');
+      $('#testScore-all').removeClass('borrar');
+      $('#testScore-all').addClass('mostrar');
+      $('#testScore-elementary').removeClass('mostrar');
+      $('#testScore-elementary').addClass('borrar');
+  }
 
     $scope.SelectTestScores_si = $scope.items_selec_testScore[indice].texto;    
 

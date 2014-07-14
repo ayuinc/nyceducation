@@ -15,257 +15,62 @@
       })(document);
     </script> 
 
-    <script type="text/javascript">
+  <script type="text/javascript">
 
 
     function GetUniqueElementsArray(inputArray)
     {
-        var outputArray = [];
-        
-        for (var i = 0; i < inputArray.length; i++)
+      var outputArray = [];
+      for (var i = 0; i < inputArray.length; i++)
+      {
+        if ((jQuery.inArray(inputArray[i], outputArray)) == -1)
         {
-            if ((jQuery.inArray(inputArray[i], outputArray)) == -1)
-            {
-              if ((inputArray[i] != "") && (inputArray[i] != "0.00") && (inputArray[i] != "0")) {
-                outputArray.push(inputArray[i]);
-              };
-                
-            }
+          if ((inputArray[i] != "") && (inputArray[i] != "0.00") && (inputArray[i] != "0")) {
+            outputArray.push(inputArray[i].trim());
+          };
         }
-       
-        return outputArray;
+      }     
+      return outputArray;
     }
 
-
-
     function quitaBurbuja(){
-
     var elementos = document.getElementsByClassName('joyride-tip-guide');
-
-
      for (var i = 0; i < elementos.length; i++) {
-
-      //elementos[i].is-open="tt_isOpen";
       elementos[i].style.display="none";
-      //elementos[i].style.display="block";
       }
     }
 
     function mcolor( id ){
-
       var michi = "#";
-
       if ( id == "btn_simple"){
         var btn_desactivar = document.getElementById("btn_simple");
         var btn_activar = document.getElementById("btn_complicado"); 
         btn_activar.style.background="#a6acb5";
         btn_desactivar.style.background="#969DA1";
-
       }
       if ( id == "btn_complicado"){
         var btn_desactivar = document.getElementById("btn_complicado");
         var btn_activar = document.getElementById("btn_simple"); 
         btn_activar.style.background="#a6acb5";
         btn_desactivar.style.background="#969DA1";
-
       }
+    }
 
+    function openCloseAccordion(e){
+      if($(e).hasClass("close")){
+        $(e).removeClass("close");
+        $(e).addClass("open");
+        $(e).css('box-shadow','0px 4px 3px 0px #8e8e8e');
+      }else if($(e).hasClass("open")){
+        $(e).removeClass("open");
+        $(e).addClass("close");
+        $(e).css('box-shadow','none');        
+      }
 
 
     }
 
-
-
-    function rotarGrilla( id ){
-      var prefijoIcon = "grilla_icon_";
-      var sufijoIconUp = "_up";
-      var sufijoIconDown = "_dw";
-      var michi = "#";
-      var nModulo = id.substring(7,9);
-      var nIndiceIcon = parseInt(id.substring(10,12)-1);
-
-      //alert(id);
-
-      switch(nModulo){
-
-        case "01":
-        var elementsModulo = document.getElementsByClassName('uno');
-        break;
-        case "02":
-        var elementsModulo = document.getElementsByClassName('dos');
-        break;
-        case "03":
-        var elementsModulo = document.getElementsByClassName('tres');
-        break;
-        case "04":
-        var elementsModulo = document.getElementsByClassName('cuatro');
-        break;
-        case "05":
-        var elementsModulo = document.getElementsByClassName('cinco');
-        break;
-        case "06":
-        var elementsModulo = document.getElementsByClassName('seis');
-        break;
-        case "07":
-        var elementsModulo = document.getElementsByClassName('siete');
-        break;
-        case "08":
-        var elementsModulo = document.getElementsByClassName('ocho');
-        break;  
-        case "09":
-        var elementsModulo = document.getElementsByClassName('nueve');
-        break;                                               
-
-
-      }
-/*
-      for (var i = 0; i < elementsModulo.length; i++) {
-
-        if (i !== nIndiceIcon){
-          
-
-          elementsModulo[i].style["-webkit-transform"]="rotate(180deg)";
-          elementsModulo[i].style["left"]="-0.5rem";
-
-          var item = i+1;
-          //alert(item);
-         
-          var idABC = "grilla_"+nModulo+"_0"+item+"_up";
-
-          if(document.getElementById(idABC)){
-
-            var idABCD= "grilla_"+nModulo+"_0"+item+"_dw";
-            var pchelement = document.getElementById(idABC);
-            pchelement.id=idABCD;   
-          }
-
-          //var pchelement = document.getElementById(idABC);
-
-          //alert(idABC);
-         // var idABCD= "grilla_"+nModulo+"_0"+item+"_dw";
-
-          
-          // pchelement.id=idABCD;          
-          // alert(idABCD);
-          //alert(elementsModulo[i].id.substring(15,17));
-          //alert(idABC);
-          }
-
-        else {}          
-      } */
-
-
-
-      //alert(elementsModulo.length);
-
-
-
-      var estadoIcon = id.substring(13,15);
-
-     // alert(id);
-     // alert(estadoIcon);
-
-     /*z-index: 1;
-box-shadow: 0 12px 32px -4px #333; */
-
-      if (estadoIcon == "up"){
-
-        var grillaIconId = prefijoIcon.concat(id.substring(7,12));
-        $(michi.concat(grillaIconId)).css('-webkit-transform','rotate(180deg)');
-        $(michi.concat(grillaIconId)).css('left','-0.5rem');
-        $(michi.concat(id)).css('box-shadow','-15px 15px 7px -14px #333');
-
-        var elementGrilla=document.getElementById(id);
-
-        var one = id.substring(0,12);
-
-        var nuevIdGrilla = one.concat(sufijoIconDown);
-        elementGrilla.id = nuevIdGrilla;
-
-      }
-
-      if (estadoIcon == "dw"){
-
-        var grillaIconId = prefijoIcon.concat(id.substring(7,12));
-        //alert(grillaIconId);
-        $(michi.concat(grillaIconId)).css('-webkit-transform','rotate(0deg)');
-        $(michi.concat(grillaIconId)).css('left','17.85rem');
-        $(michi.concat(id)).css('box-shadow','0 0 0 0');
-
-        var elementGrilla=document.getElementById(id);
-
-        var one = id.substring(0,12);
-
-        var nuevIdGrilla = one.concat(sufijoIconUp);
-        elementGrilla.id = nuevIdGrilla;
-
-      }
-
-
-      //$(grillaIconId).css('-webkit-transform','rotate(180deg)');
-      //var elementIcon=document.getElementById(grillaIconId);
-      //alert(grillaIconId);
-
-    }
-
-
-
-
-      function rotarGrilla_g( id ){
-      var prefijoIcon = "grilla_icon_";
-      var sufijoIconUp = "_up";
-      var sufijoIconDown = "_dw";
-      var michi = "#";
-      var nModulo = id.substring(7,9);
-      var nIndiceIcon = parseInt(id.substring(10,12)-1);
-
-      switch(nModulo){
-
-        case "10":
-        var elementsModulo = document.getElementsByClassName('diez');
-        break;
-                                             
-
-
-      }
-
-      var estadoIcon = id.substring(13,15);
-
-      if (estadoIcon == "up"){
-
-        var grillaIconId = prefijoIcon.concat(id.substring(7,12));
-        $(michi.concat(grillaIconId)).css('-webkit-transform','rotate(180deg)');
-        $(michi.concat(grillaIconId)).css('left','-0.5rem');
-        $(michi.concat(id)).css('box-shadow','-15px 15px 7px -14px #333');
-
-        var elementGrilla=document.getElementById(id);
-
-        var one = id.substring(0,12);
-
-        var nuevIdGrilla = one.concat(sufijoIconDown);
-        elementGrilla.id = nuevIdGrilla;
-
-      }
-
-      if (estadoIcon == "dw"){
-
-        var grillaIconId = prefijoIcon.concat(id.substring(7,12));
-        $(michi.concat(grillaIconId)).css('-webkit-transform','rotate(0deg)');
-        $(michi.concat(grillaIconId)).css('left','17.85rem');
-        $(michi.concat(id)).css('box-shadow','0 0 0 0');
-
-        var elementGrilla=document.getElementById(id);
-
-        var one = id.substring(0,12);
-
-        var nuevIdGrilla = one.concat(sufijoIconUp);
-        elementGrilla.id = nuevIdGrilla;
-
-      }
-
-    }
-
-    </script> 
+  </script> 
 
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/custom.css" />

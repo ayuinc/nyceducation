@@ -52,11 +52,10 @@
 
  <!--            <div style="position:relative;z-index:5;top: 8px;left: 110px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="Percentage of students in the six-year cohort who 1) graduated with a Regents diploma and have met City University of New York's (CUNY) standards for English and mathematics, or 2) graduated, enrolled and persisted through 3 consecutive semesters of college within six years of graduating." ><img style="position:absolute;" src='img/info.png' width='15'  onclick="quitaBurbuja()"></div>   --> 
 
-    	<accordion-group is-open="false">  
+    	<accordion-group is-open="false" ng-show="valuesCollegeCareerReadiness">  
 
         <accordion-heading>
-            <div id="grilla_02_01_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">College & Career Readiness</div>
-            <div class="icon-arrow-down2 right dos" id="grilla_icon_02_01" ></div>
+            <div>College & Career Readiness</div>
         </accordion-heading>        
 
     	<div class="row">
@@ -73,7 +72,7 @@
 							<p style="padding-left:25px">City Average:{{city_average.AttendanceRate | redondea}}</p>
 						</div>			    			
 						<div class="rank">
-							<p><img ng-src="img/{{ proficiency_ratings.p_s_earning10_credits_in1year_pr | filtraRank }}.png" ></p>
+							<p class="{{ proficiency_ratings.p_s_earning10_credits_in1year_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.p_s_earning10_credits_in1year_pr | filtraRank }}.png" > >Avg. </p>
 						</div>
 					</div>
 				</div>
@@ -90,7 +89,7 @@
 							<p style="padding-left:25px">City Average:{{city_average.Four_YearNon_RemediationRate | redondea}}</p>
 						</div>			    			
 						<div class="rank">
-							<p><img ng-src="img/{{ proficiency_ratings.4year_non_remediation_rate_pr | filtraRank }}.png" ></p>
+							<p class="{{ proficiency_ratings.4year_non_remediation_rate_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.4year_non_remediation_rate_pr | filtraRank }}.png" > >Avg. </p>
 						</div>
 					</div>
 				</div>	
@@ -107,7 +106,7 @@
 							<p style="padding-left:25px">City Average:{{city_average.CollegeandCareerPreparatoryCourseIndex | redondea}}</p>
 						</div>			    			
 						<div class="rank">
-							<p><img ng-src="img/{{ proficiency_ratings.cc_preparatory_course_index_pr | filtraRank }}.png" ></p>
+							<p class="{{ proficiency_ratings.cc_preparatory_course_index_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.cc_preparatory_course_index_pr | filtraRank }}.png" > >Avg. </p>
 						</div>
 					</div>
 				</div>	
@@ -125,7 +124,7 @@
 							<p style="padding-left:25px">City Average:{{city_average.CollegeReadinessRateIncludingPersistence | redondea}}</p>
 						</div>			    			
 						<div class="rank">
-							<p><img ng-src="img/{{ proficiency_ratings.c_readiness_r_including_p_pr | filtraRank }}.png" ></p>
+							<p class="{{ proficiency_ratings.c_readiness_r_including_p_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.c_readiness_r_including_p_pr | filtraRank }}.png" > >Avg. </p>
 						</div>
 					</div>
 				</div>
@@ -137,8 +136,7 @@
 	    <accordion-group is-open="false" ng-show="valuesGraduation">  
 
         <accordion-heading>
-            <div id="grilla_02_02_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Graduation</div>
-            <div class="icon-arrow-down2 right dos"  id="grilla_icon_02_02" ></div>
+            <div >Graduation</div>
         </accordion-heading> 
 
     	<div class="row">
@@ -148,8 +146,8 @@
 						<p>{{college_career.transfer_s_graduation_r | redondea}}</p>
 						<itemsurvey><span class="sin-i">Transfer School Graduation Rate</span></itemsurvey>
 					</div>
-					<div class="rank" style="top: 1.3rem;">
-						<p><img ng-src="img/{{ proficiency_ratings.transfer_s_graduation_r_pr | filtraRank }}.png" ></p>
+					<div class="rank-s">
+						<p class="{{ proficiency_ratings.transfer_s_graduation_r_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.transfer_s_graduation_r_pr | filtraRank }}.png" > >Avg. </p>
 					</div>
 				</div>
 
@@ -165,7 +163,7 @@
 							<p style="padding-left:25px">City Average: {{city_average.Post_SecondaryEnrollmentRate | redondea}}</p>
 						</div>			    			
 						<div class="rank">
-							<p><img ng-src="img/{{ proficiency_ratings.postsecondary_enrollment_rate_6months_pr | filtraRank }}.png" ></p>
+							<p class="{{ proficiency_ratings.postsecondary_enrollment_rate_6months_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.postsecondary_enrollment_rate_6months_pr | filtraRank }}.png" > >Avg. </p>
 						</div>
 					</div>
 				</div>
@@ -183,7 +181,7 @@
 							<p style="padding-left:25px">City Average: {{city_average.4YearGraduationRate | redondea}}</p>
 						</div>			    			
 						<div class="rank">
-							<p><img ng-src="img/{{ proficiency_ratings.4y_g_r_pr | filtraRank }}.png" ></p>
+							<p class="{{ proficiency_ratings.4y_g_r_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.4y_g_r_pr | filtraRank }}.png" > >Avg. </p>
 						</div>
 					</div>
 				</div>
@@ -200,7 +198,7 @@
 							<p style="padding-left:25px">City Average: {{city_average.6YearGraduationRate | redondea}}</p>
 						</div>			    			
 						<div class="rank">
-							<p><img ng-src="img/{{ proficiency_ratings.6y_g_r_pr | filtraRank }}.png" ></p>
+							<p class="{{ proficiency_ratings.6y_g_r_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.6y_g_r_pr | filtraRank }}.png" > >Avg. </p>
 						</div>
 					</div>
 				</div>				    		

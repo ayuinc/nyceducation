@@ -23,6 +23,12 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+@font-face {
+    font-family: "museo-sans";
+    src: url('../fonts/MuseoSans-100.otf') format("OpenType");
+
+}
+
 .icon-stack:before {
 	content: "\e60f";
 }
@@ -213,6 +219,9 @@ a{
 
 body{
 	background-color: #B4B9C1;
+	/*font-family: "MuseoSansLocal";*/
+	font-weight: normal;
+	font-style: normal;
 }
 
 .sub{
@@ -374,6 +383,7 @@ body{
 
 .switch1, .switch2 {
 	padding:0.6rem 0.5rem;
+	max-height: 2.8rem;
 }
 
 .switch1 a:active, .switch2 a:active {
@@ -686,14 +696,6 @@ position: relative;
 	left: 7rem;
 }
 
-.rank-s p {
-	font-size: 0.6rem;
-	font-weight: 100;
-	line-height: 100%;
-	margin: 2px 0px 0px 0px;
-	position: absolute;
-}
-
 .average {
 	background-color: #87C3DA;
 	height: 0.9rem;
@@ -705,6 +707,19 @@ position: relative;
 	font-weight: 100;
 	line-height: 100%;
 	margin: 2px 0px 0px 0px;
+	position: absolute;
+	color: #333333;
+}
+
+.rank p{
+	margin-top: 10px;
+}
+
+.rank-s p {
+	font-size: 0.6rem;
+	font-weight: 100;
+	line-height: 100%;
+	margin: 10px 0px 0px 0px;
 	position: absolute;
 }
 
@@ -942,9 +957,9 @@ itemsurvey span .pmizq{
 .mostrar {
 	display: inline !important;
 }
-.accordion dd > a {
+/*.accordion dd > a {
 	font-size: 0.85rem;
-}
+}*/
 
 .main-section {
 	min-height:400px;
@@ -1013,7 +1028,7 @@ margin-top: 20px;
 	padding: 4px 14px;
 	padding-right: 22px;
 	line-height: 0.8rem;
-	font-family: "museo-sans",sans-serif;
+	font-family: "MuseoSansLocal", "museo-sans",sans-serif;
 	padding-top: 12px;
 }
 
@@ -1023,7 +1038,7 @@ itemsurvey .joyride-content-wrapper p {
 	padding: 4px 14px;
 	padding-right: 22px;
 	line-height: 0.8rem;
-	font-family: "museo-sans",sans-serif;
+	font-family: "MuseoSansLocal", "museo-sans",sans-serif;
 	padding-top: 0px;
 }
 
@@ -1037,8 +1052,8 @@ itemsurvey .joyride-content-wrapper p {
 	padding: 4px 14px;
 	padding-right: 22px;
 	line-height: 0.8rem;
-	font-family: "museo-sans",sans-serif;
-	color: black;
+	font-family: "MuseoSansLocal", "museo-sans",sans-serif;
+	color: #333333;
 }
 
 .profile_info .joyride-tip-guide .joyride-content-wrapper p {
@@ -1048,7 +1063,7 @@ itemsurvey .joyride-content-wrapper p {
 	padding-right: 22px;
 	padding-bottom: 0px;
 	line-height: 0.8rem;
-	font-family: "museo-sans",sans-serif;
+	font-family: "MuseoSansLocal", "museo-sans",sans-serif;
 	color: #333;
 }
 
@@ -1090,6 +1105,25 @@ span.joyride-nub.right {
 	border-bottom: none;
 
 }
+
+.grillaAcordion{
+	width:130%;
+	height: 30px;
+	background-color:transparent;
+	position:relative;
+	top: -10.5px;
+	left: -24px;
+	margin-bottom:-20px;
+	padding: 8.5px 16px; 
+	margin-left: 11px;
+	font-size: 1rem;
+	font-weight: 100;
+	z-index: 1;
+	border-bottom: 0;
+	border-bottom: none;
+
+}
+
 .sub-acordion .accordion dd > a{
 	background: none repeat scroll 0% 0% #138e51;
 }
@@ -1244,7 +1278,7 @@ left: 105px;
 
 
 .joyride-content-wrapper p {
-	color: black;
+	color:  #333333;
 }
 .middle-vertical {
 	display: table;
@@ -1279,11 +1313,44 @@ width: 130px;
 }
 
 .accordion dd > a {
-border-bottom: 0;
-border-top: 1px solid #DFE5E9;
-border-bottom: none;
-/* box-shadow: -1px 2px 6px #555; */
+	border-top: 1px solid #DFE5E9;
+	border-bottom: none;
+	padding-left: 1rem !important;
+	padding-top: 0.4rem;
+	padding-bottom: 0.35rem;
+	font-size: 1rem !important;
+	position: relative;
+	z-index: 1;
+	padding-right: 3rem;
 }
+
+.close{
+
+  background: #13688F url('../img/close.png') !important;
+  background-repeat: no-repeat !important;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  background-size: 1.5rem !important;
+  -webkit-background-size: 1.5rem !important;
+  -moz-background-size: 1.5rem !important;
+  -o-background-size: 1.5rem !important;
+  background-position: 95% !important;
+
+}
+
+.open{
+
+  background: #13688F url('../img/open.png') !important;
+  background-repeat: no-repeat !important;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  background-size: 1.5rem !important;
+  -webkit-background-size: 1.5rem !important;
+  -moz-background-size: 1.5rem !important;
+  -o-background-size: 1.5rem !important;
+  background-position: 95%  !important;	
+}
+
 
 .accordion dd > a.accordion_label_srd {
 border-bottom: 0;
@@ -1302,7 +1369,7 @@ max-height: 1.7rem;
 .ns-sat{
 padding-left: 3rem;
 font-size: 0.9rem;
-font-family: "museo-sans",sans-serif;
+font-family: "MuseoSansLocal", "museo-sans",sans-serif;
 font-weight: 100;
 }
 
@@ -1310,7 +1377,7 @@ font-weight: 100;
 float: right;
 margin-right: 70px;
 font-size: 0.9rem
-font-family: "museo-sans",sans-serif;
+font-family: "MuseoSansLocal", "museo-sans",sans-serif;
 font-weight: 100;
 
 }
@@ -1327,4 +1394,28 @@ font-weight: 100;
 	color: #333 !important;
 	position: relative;
 	left: 1rem;
+}
+
+.accordion dd img{
+	position: relative;
+	left: 0rem;
+	top: -0.1rem;
+}
+
+.head-question-survey{
+	background-color: #81CAD1;
+	font-size: 0.8rem;
+	color: #fff;
+	padding: 0.3rem 0.8rem 0.4rem 1rem;
+	border: 1px solid #DEE4EA;
+}
+
+
+.something-semantic {
+   display: table;
+   width: 100%;
+}
+.something-else-semantic {
+   display: table-cell;
+   vertical-align: middle;
 }
