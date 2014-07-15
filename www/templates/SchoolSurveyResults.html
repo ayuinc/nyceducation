@@ -149,7 +149,7 @@
   <accordion-group is-open="false">
 
         <accordion-heading>
-            <div>Survey Questions</div>
+            <div>Survey Detail</div>
         </accordion-heading> 
 
 
@@ -515,7 +515,7 @@
 
         <div class="metrics {{city_average.SchoolSurveyParents_Safety_RespectRawScore | filtraCeros}}">
           <div class="average" style="width:{{city_average.SchoolSurveyParents_Safety_RespectRawScore | escala10}}%;">
-              <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyParents_Safety_RespectRawScore | redondea_sp_1}}</p>
+              <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyParents_Safety_RespectRawScore | redondea_sp_1}}/<span class="total_dividendo_caverage">10</span></p>
           </div>                          
           <div class="rank">
             <p class="{{ proficiency_ratings.p_safety_respect_rs_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.p_safety_respect_rs_pr | filtraRank }}.png" > >Avg. </p>
@@ -535,7 +535,7 @@
 
                 <div class="metrics {{city_average.SchoolSurveyTeachers_Safety_RespectRawScore | filtraCeros}}">
                     <div class="average" style="width:{{city_average.SchoolSurveyTeachers_Safety_RespectRawScore | escala10}}%;">
-                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyTeachers_Safety_RespectRawScore | redondea_sp_1}}</p>
+                        <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyTeachers_Safety_RespectRawScore | redondea_sp_1}}/<span class="total_dividendo_caverage">10</span></p>
                     </div>                          
                     <div class="rank">
                     <p class="{{ proficiency_ratings.t_safety_respect_rs_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.t_safety_respect_rs_pr | filtraRank }}.png" > >Avg. </p>
@@ -556,7 +556,7 @@
 
           <div class="metrics {{city_average.SchoolSurveyStudents_Safety_RespectRawScore | filtraCeros}}">
             <div class="average" style="width:{{city_average.SchoolSurveyStudents_Safety_RespectRawScore | escala10}}%;">
-                <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyStudents_Safety_RespectRawScore | redondea_sp_1}}</p>
+                <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyStudents_Safety_RespectRawScore | redondea_sp_1}}/<span class="total_dividendo_caverage">10</span></p>
             </div>                          
             <div class="rank {{survey_results.s_safety_respect_rs | filtraCeros}}">
               <p class="{{ proficiency_ratings.s_safety_respect_rs_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.s_safety_respect_rs_pr | filtraRank }}.png" > >Avg. </p>
@@ -587,7 +587,7 @@
       			</div>
             <div class="metrics {{city_average.SchoolSurveyParents_EngagementRawScore | filtraCeros}}">
               <div class="average" style="width:{{city_average.SchoolSurveyParents_EngagementRawScore | escala10}}%;">
-                  <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyParents_EngagementRawScore | redondea_sp_1}}</p>
+                  <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyParents_EngagementRawScore | redondea_sp_1}}/<span class="total_dividendo_caverage">10</span></p>
               </div>                          
               <div class="rank">
                 <p class="{{ proficiency_ratings.p_engagement_rs_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.p_engagement_rs_pr | filtraRank }}.png" > >Avg. </p>
@@ -605,7 +605,7 @@
     			</div>
           <div class="metrics {{city_average.SchoolSurveyTeachers_EngagementRawScore | filtraCeros}}">
             <div class="average" style="width:{{city_average.SchoolSurveyTeachers_EngagementRawScore | escala10}}%;">
-              <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyTeachers_EngagementRawScore | redondea_sp_1}}</p>
+              <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyTeachers_EngagementRawScore | redondea_sp_1}}/<span class="total_dividendo_caverage">10</span></p>
             </div>                          
             <div class="rank">
               <p class="{{ proficiency_ratings.t_engagement_rs_pr | filtraCeros}}">Rank <img ng-src="img/{{ proficiency_ratings.t_engagement_rs_pr | filtraRank }}.png" > >Avg. </p>
@@ -623,7 +623,7 @@
     			</div>
           <div class="metrics {{city_average.SchoolSurveyStudents_EngagementRawScore | filtraCeros}}">
             <div class="average" style="width:{{city_average.SchoolSurveyStudents_EngagementRawScore | escala10}}%;">
-                <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyStudents_EngagementRawScore | redondea_sp_1}}</p>
+                <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyStudents_EngagementRawScore | redondea_sp_1}}/<span class="total_dividendo_caverage">10</span></p>
             </div>                          
             <div class="rank">
               <p class="{{ proficiency_ratings.s_engagement_rs_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.s_engagement_rs_pr | filtraRank }}.png" > >Avg. </p>
@@ -655,7 +655,7 @@
     			</div>
           <div class="metrics {{city_average.SchoolSurveyParents_CommunicationRawScore | filtraCeros}}">
             <div class="average" style="width:{{city_average.SchoolSurveyParents_CommunicationRawScore | escala10}}%;">
-                <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyParents_CommunicationRawScore | redondea_sp_1}}</p>
+                <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyParents_CommunicationRawScore | redondea_sp_1}}/<span class="total_dividendo_caverage">10</span></p>
             </div>                          
             <div class="rank">
               <p class="{{ proficiency_ratings.p_communication_rs_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.p_communication_rs_pr | filtraRank }}.png" > >Avg. </p>
@@ -673,7 +673,7 @@
     			</div>
           <div class="metrics {{city_average.SchoolSurveyTeachers_CommunicationRawScore | filtraCeros}}">
             <div class="average" style="width:{{city_average.SchoolSurveyTeachers_CommunicationRawScore | escala10}}%;">
-              <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyTeachers_CommunicationRawScore | redondea_sp_1}}</p>
+              <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyTeachers_CommunicationRawScore | redondea_sp_1}}/<span class="total_dividendo_caverage">10</span></p>
             </div>                          
             <div class="rank">
               <p class="{{ proficiency_ratings.t_communication_rs_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.t_communication_rs_pr | filtraRank }}.png" > >Avg. </p>
@@ -691,7 +691,7 @@
     			</div>
           <div class="metrics {{city_average.SchoolSurveyStudents_CommunicationRawScore | filtraCeros}}">
             <div class="average" style="width:{{city_average.SchoolSurveyStudents_CommunicationRawScore | escala10}}%;">
-              <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyStudents_CommunicationRawScore | redondea_sp_1}}</p>
+              <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyStudents_CommunicationRawScore | redondea_sp_1}}/<span class="total_dividendo_caverage">10</span></p>
             </div>                          
             <div class="rank">
               <p class="{{ proficiency_ratings.s_communication_rs_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.s_communication_rs_pr | filtraRank }}.png" > >Avg. </p>
@@ -722,7 +722,7 @@
     			</div>
           <div class="metrics {{city_average.SchoolSurveyParents_AcademicExpectationsRawScore | filtraCeros}}">
             <div class="average" style="width:{{city_average.SchoolSurveyParents_AcademicExpectationsRawScore | escala10}}%;">
-              <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyParents_AcademicExpectationsRawScore | redondea_sp_1}}</p>
+              <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyParents_AcademicExpectationsRawScore | redondea_sp_1}}/<span class="total_dividendo_caverage">10</span></p>
             </div>                          
             <div class="rank">
               <p class="{{ proficiency_ratings.p_academic_expectations_rs_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.p_academic_expectations_rs_pr | filtraRank }}.png" > >Avg. </p>
@@ -740,7 +740,7 @@
     			</div>
           <div class="metrics {{city_average.SchoolSurveyTeachers_AcademicExpectationsRawScore | filtraCeros}}">
             <div class="average" style="width:{{city_average.SchoolSurveyTeachers_AcademicExpectationsRawScore | escala10}}%;">
-              <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyTeachers_AcademicExpectationsRawScore | redondea_sp_1}}</p>
+              <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyTeachers_AcademicExpectationsRawScore | redondea_sp_1}}/<span class="total_dividendo_caverage">10</span></p>
             </div>                          
             <div class="rank">
               <p class="{{ proficiency_ratings.t_academic_expectations_rs_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.t_academic_expectations_rs_pr | filtraRank }}.png" > >Avg. </p>
@@ -758,7 +758,7 @@
     			</div>
           <div class="metrics {{city_average.SchoolSurveyStudents_AcademicExpectationsRawScore | filtraCeros}}">
               <div class="average" style="width:{{city_average.SchoolSurveyStudents_AcademicExpectationsRawScore | escala10}}%;">
-                <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyStudents_AcademicExpectationsRawScore | redondea_sp_1}}</p>
+                <p style="padding-left:25px">City Average: {{city_average.SchoolSurveyStudents_AcademicExpectationsRawScore | redondea_sp_1}}/<span class="total_dividendo_caverage">10</span></p>
               </div>                          
               <div class="rank {{survey_results.s_academic_expectations_rs | filtraCeros}}">
                 <p class="{{ proficiency_ratings.s_academic_expectations_rs_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.s_academic_expectations_rs_pr | filtraRank }}.png" > >Avg. </p>

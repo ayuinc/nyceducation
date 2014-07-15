@@ -1390,6 +1390,14 @@ font-weight: 100;
 	right: 0 !important;
 }
 
+.total_dividendo_caverage{
+	font-size: 0.5rem !important;
+	color: #333;
+	font-weight: 100;
+	top: 0 !important;
+	right: 0 !important;
+}
+
 .btn_back{
 	color: #333 !important;
 	position: relative;
@@ -1403,11 +1411,11 @@ font-weight: 100;
 }
 
 .head-question-survey{
-	background-color: #81CAD1;
-	font-size: 0.8rem;
-	color: #fff;
-	padding: 0.3rem 0.8rem 0.4rem 1rem;
-	border: 1px solid #DEE4EA;
+background-color: #dcebf8;
+font-size: 0.8rem;
+color: #333333;
+padding: 0.3rem 0.8rem 0.4rem 1rem;
+border: 1px solid #FFFFFF;
 }
 
 
