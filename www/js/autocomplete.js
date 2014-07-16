@@ -104,7 +104,7 @@ app.directive('autocomplete', function(){
 
       // Default atts
       scope.attrs = {
-        "placeholder": "Type the school name or school DBN",
+        "placeholder": "School name or school DBN",
         "class": "",
         "id": "",
         "inputclass": "",

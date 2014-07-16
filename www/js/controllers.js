@@ -26,6 +26,7 @@ nyc_controllers.controller("MainController", ['$scope', '$rootScope', '$window',
     $scope.schools = SchoolRetriever.getSchools();
     $scope.schools.then(function(data){
         $scope.schools = data.profiles;
+        // $scope.schools = data;
     });
 
     $scope.getSchools = function() {
@@ -36,6 +37,8 @@ nyc_controllers.controller("MainController", ['$scope', '$rootScope', '$window',
         $scope.newSchools = SchoolRetriever.getSchools(typed);
         $scope.newSchools.then(function(data) {
             $scope.schools = data.profiles;
+            // $scope.schools = data;
+            // console.log(data);
         });
     }
 
@@ -902,6 +905,9 @@ nyc_controllers.controller("AdmissionsMSctrl" ,[ '$scope', 'DatosSchool', '$root
 
     $rootScope.itemsaddMS = todos;
    
+    if ($rootScope.itemsaddMS.length>1) {
+      $scope.showDropdownProgramsMs = true;
+    };   
 
     $scope.progSelected= "Program";
     }
@@ -936,7 +942,13 @@ nyc_controllers.controller("AdmissionsHSctrl" ,[ '$scope', 'DatosSchool', '$root
     var todos = JSON.parse(items);
 
     $rootScope.itemsaddHS = todos;
-   
+
+    // console.log($rootScope.itemsaddHS);
+    // console.log($rootScope.itemsaddHS.length);
+
+    if ($rootScope.itemsaddHS.length>1) {
+      $scope.showDropdownProgramsHs = true;
+    };   
 
     $scope.progSelected_hs= "Program";
     }

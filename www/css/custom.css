@@ -1312,6 +1312,14 @@ position: relative;
 width: 130px;
 }
 
+.dropdown.button.small, button.dropdown.small {
+padding-right: none !important;
+}
+
+.dropdown.button, button.dropdown {
+padding-right: 2.5rem !important;
+}
+
 .accordion dd > a {
 	border-top: 1px solid #DFE5E9;
 	border-bottom: none;
@@ -1328,13 +1336,13 @@ width: 130px;
 
   background: #13688F url('../img/close.png') !important;
   background-repeat: no-repeat !important;
-  min-width: 1.5rem;
-  min-height: 1.5rem;
-  background-size: 1.5rem !important;
-  -webkit-background-size: 1.5rem !important;
-  -moz-background-size: 1.5rem !important;
-  -o-background-size: 1.5rem !important;
-  background-position: 95% !important;
+  min-width: 1.2rem;
+  min-height: 1.2rem;
+  background-size: 1.2rem !important;
+  -webkit-background-size: 1.2rem !important;
+  -moz-background-size: 1.2rem !important;
+  -o-background-size: 1.2rem !important;
+  background-position: 94.7% 0.5rem !important;	
 
 }
 
@@ -1342,13 +1350,13 @@ width: 130px;
 
   background: #13688F url('../img/open.png') !important;
   background-repeat: no-repeat !important;
-  min-width: 1.5rem;
-  min-height: 1.5rem;
-  background-size: 1.5rem !important;
-  -webkit-background-size: 1.5rem !important;
-  -moz-background-size: 1.5rem !important;
-  -o-background-size: 1.5rem !important;
-  background-position: 95%  !important;	
+  min-width: 1.2rem;
+  min-height: 1.2rem;
+  background-size: 1.2rem !important;
+  -webkit-background-size: 1.2rem !important;
+  -moz-background-size: 1.2rem !important;
+  -o-background-size: 1.2rem !important;
+  background-position: 94.7% 0.5rem !important;	
 }
 
 

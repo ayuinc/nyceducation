@@ -545,6 +545,7 @@ app.factory('SchoolRetriever', function($http, $q, $timeout) {
         var deferred = $q.defer();
 
         $http.get('http://162.243.110.154/api/v1/schools/' + query)
+        // $http.get('http://nyc-education-data-service.herokuapp.com/api/v1/schools/search_by_name_or_dbn?name_or_dbn=' + query)
         .success(function(data) {
             deferred.resolve(data);
         })

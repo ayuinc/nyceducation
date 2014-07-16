@@ -285,13 +285,14 @@
 
                 <div class="small-10 small-centered medium-6 large-6 columns">
                     <div ng-controller="AdmissionsMSctrl" class="text-center" >
-                      <a dropdown-toggle="#dropdown-year_admissions_ms" class="button dropdown small bg-dropdown">{{progSelected}}</a>
+
+                      <a ng-show="showDropdownProgramsMs" dropdown-toggle="#dropdown-year_admissions_ms" class="button dropdown small bg-dropdown">{{progSelected}}</a>
                       <ul id="dropdown-year_admissions_ms" class="f-dropdown" style="max-width:80% !important;left:34px !important;width:400px !important">
                         <li ng-repeat="itemy in itemsaddMS">
                           <a ng-click="changeprog(itemy.indice)" style="font-size: 0.6rem;">{{itemy.texto}}</a>
                         </li>
                       </ul>
-                      <br>
+                      
                     </div>
                 </div>
 
@@ -414,13 +415,14 @@
 
                 <div class="small-10 small-centered medium-6 large-6 columns">
                     <div ng-controller="AdmissionsHSctrl" class="text-center">
-                      <a dropdown-toggle="#dropdown_admissions_hs" class="button dropdown small bg-dropdown">{{progSelected_hs}}</a>
+
+                      <a ng-show="showDropdownProgramsHs" dropdown-toggle="#dropdown_admissions_hs" class="button dropdown small bg-dropdown">{{progSelected_hs}}</a>
                       <ul id="dropdown_admissions_hs" class="f-dropdown" style="max-width:80% !important;left:34px !important;width:400px !important" >
                         <li ng-repeat="item_hs in itemsaddHS">
                           <a ng-click="changeprog_hs(item_hs.indice)" style="font-size: 0.6rem;">{{item_hs.texto}}</a>
                         </li>
                       </ul>
-                      <br>
+
                     </div>
                 </div>
 
