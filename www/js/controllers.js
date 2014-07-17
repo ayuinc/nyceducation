@@ -143,6 +143,9 @@ nyc_controllers.controller('SelectSchoolController', ['$scope', '$rootScope', '$
             }else if ( (arrayts.indexOf("K-3") !== -1) && (arrayts.indexOf("Elementary") !== -1) ){
               $rootScope.filtroCCmenu = true;
               $rootScope.classGT = "switch1";
+            }else if (arrayts.length == 0) {
+              $rootScope.filtroCCmenu = true;
+              $rootScope.classGT = "switch1";
             }else{
               $rootScope.filtroCCmenu = false;
               $rootScope.classGT = "switch2";
@@ -454,7 +457,10 @@ nyc_controllers.controller("EvaluationsCtrlYearElem" ,[ '$scope', 'DatosSchool',
    }else if ((tipoEscuela.indexOf("High School") !== -1) && (tipoEscuela.indexOf("K-8") !== -1)){
       $('#selectEvaluation_eva').removeClass('borrar');
       $('#selectEvaluation_eva').addClass('mostrar');
-   };
+   }else if (tipoEscuela.length== 0) {
+      $('#nd_eva').removeClass('borrar');
+      $('#nd_eva').addClass('mostrar');
+    };
 
   $scope.changeyear = function(indice) {
 
@@ -634,6 +640,9 @@ nyc_controllers.controller("TestScoreCtrlYearHs" ,[ '$scope', 'DatosSchool', '$r
     }else if ((tipoEscuela.indexOf("High School") !== -1) && (tipoEscuela.indexOf("K-8") !== -1)){
       $('#selectTestScore').removeClass('borrar');
       $('#selectTestScore').addClass('mostrar');
+    }else if (tipoEscuela.length== 0) {
+      $('#testScore-nd').removeClass('borrar');
+      $('#testScore-nd').addClass('mostrar');
     };
 
     $rootScope.selectedyear_testScore_year_hs= "2013";
@@ -1132,6 +1141,17 @@ nyc_controllers.controller("SurveyYearCtrl" ,[ '$scope', 'DatosSchool', '$rootSc
       };
     arrayAvailableYears.push(item);
     };
+
+    if(arrayAvailableYears.length == 0){
+      $('#survey_nd').removeClass("borrar");
+      $('#survey_nd').addClass("mostrar");
+    }else{
+      $('#survey_all').removeClass("borrar");
+      $('#survey_all').addClass("mostrar");
+    };
+
+
+
     jsonAvaylableYears = JSON.stringify(arrayAvailableYears);
     $scope.itemsYears = JSON.parse(jsonAvaylableYears);
 

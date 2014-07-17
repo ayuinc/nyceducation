@@ -13,13 +13,30 @@
     <div ng-include src="'templates/sidebar.html'"></div>
     
 	<!--CONTENIDO-->
-    <section class="main-section">
+
+
+    <section  class="main-section">
     
-    	<div class="row menu-header">	
-    		<div class="small-6 small-centered medium-6 large-6 columns">
-    			<h3 class="text-center">Survey</h3>
-          <!-- <div style="position:relative;left:7.7rem;top:-30px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="The NYC School Survey is administered annually to all parents, all teachers, and students in grades 6 - 12.  Survey results provide insight into a school's learning environment and assess the community's opinions on academic expectations, communication, engagement, and safety and respect." ><img style="position:absolute;" src='img/info_bk.png' width='15'  onclick="quitaBurbuja()"></div> -->
-    		</div>	
+    <!-- <div id="survey_nd" class="borrar" > -->
+      <div  class="row menu-header " style="margin-bottom: -0.9rem;"> 
+        <div class="small-6 small-centered medium-6 large-6 columns">
+          <h3 class="text-center">Survey</h3>
+        </div> 
+      </div>
+
+        <div  id="survey_nd" class="row  borrar"> 
+          <div   class="no-data"> NO DATA AVAILABLE</div>
+        </div>
+    <!-- </div> -->
+
+<!--         <div class="small-6 small-centered medium-6 large-6 columns">
+          <h3 class="text-center">Survey</h3>
+        </div> -->  
+
+      <div id="survey_all" class="borrar">
+      <div class="row menu-header" style="padding-top: 0 !important;"> 
+      <!-- <div  id="survey_nd" class="no-data borrar"> NO DATA AVAILABLE</div> -->
+
     		<div class="small-10 small-centered medium-10 large-10 columns">		
     			<div class="row">
 
@@ -778,6 +795,7 @@
 
 
 	</div>	
+  </div>
     </section>
     <!--END.CONTENIDO-->
 
