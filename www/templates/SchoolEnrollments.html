@@ -24,7 +24,7 @@
           <div class="small-6 small-centered medium-6 large-6 columns">
             <div ng-controller="EnrollmentCtrlYear" class="text-center">
               <a dropdown-toggle="#dropdown-enrollment" class="button dropdown small bg-dropdown">{{selectedyearEnrollment}}</a>
-              <ul id="dropdown-enrollment" class="f-dropdown" style="width:100px">
+              <ul id="dropdown-enrollment" class="f-dropdown" >
                 <li ng-repeat="item in itemsYearEnrollment">
                   <a ng-click="changeyear(item.indice)">{{item.texto}}</a>
                 </li>
