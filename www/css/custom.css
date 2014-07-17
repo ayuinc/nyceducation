@@ -962,7 +962,7 @@ itemsurvey span .pmizq{
 }*/
 
 .main-section {
-	min-height:400px;
+	min-height: 435px !important;
 }
 
 .button-white {
