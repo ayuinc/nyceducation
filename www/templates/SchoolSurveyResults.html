@@ -25,7 +25,7 @@
 
             <div class="small-6  medium-6 large-6 columns" style="margin-right:-2px">
                 <div ng-controller="SurveyYearCtrl" class="text-center" style="">
-                  <a dropdown-toggle="#dropdown-year_sr" class="button dropdown small bg-dropdown" style="margin-left: -3px;">{{selectedyear_survey}}</a>
+                  <a dropdown-toggle="#dropdown-year_sr" class="button dropdown small bg-dropdown" style="margin-left: -11px;">{{selectedyear_survey}}</a>
                   <ul id="dropdown-year_sr" class="f-dropdown" >
                     <li ng-repeat="itemy in itemsYears">
                       <a ng-click="changeyear(itemy.indice)">{{itemy.texto}}</a>
@@ -37,7 +37,7 @@
 
     				<div class="small-6  medium-6 large-6 columns " style="margin-left:-3px">
     					<div ng-controller="SurveyRespCtrl" class="text-center">
-    					  <a dropdown-toggle="#dropdown-grade_sr" class="button dropdown small bg-dropdown" style="margin-right: -3px;">{{selectedgrade}}</a>
+    					  <a dropdown-toggle="#dropdown-grade_sr" class="button dropdown small bg-dropdown" style="margin-right: -24px;">{{selectedgrade}}</a>
     					  <ul id="dropdown-grade_sr" class="f-dropdown" >
     					    <li ng-repeat="itemg in itemsGrades">
     					      <a ng-click="changegrade(itemg.indice)">{{itemg.texto}}</a>
@@ -144,7 +144,7 @@
 
   </accordion-group>
 
-      <div style="position:relative;z-index:5;top: 8px;left: 141px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="The NYC School Survey is administered annually to all parents, all teachers, and students in grades 6 - 12.  Survey results provide insight into a school's learning environment and assess the community's opinions on academic expectations, communication, engagement, and safety and respect." ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>   
+      <div style="position:relative;z-index:5;top: 8px;left: 109px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="The NYC School Survey is administered annually to all parents, all teachers, and students in grades 6 - 12.  Survey results provide insight into a school's learning environment and assess the community's opinions on academic expectations, communication, engagement, and safety and respect." ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>   
   
   <accordion-group is-open="false">
 
