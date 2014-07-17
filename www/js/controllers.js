@@ -350,7 +350,7 @@ nyc_controllers.controller("SelectEvaluations" ,[ '$scope', 'DatosSchool', '$roo
   $scope.itemsEvaluations = [{texto:"Middle",indice:"0"},{texto:"High",indice:"1"}];
   $scope.changeEvaluations = function(indice) {
 
-
+  $scope.SelectEvaluations_is = $scope.itemsEvaluations[indice].texto;
   if (indice==0){
 
     $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[2]; 
