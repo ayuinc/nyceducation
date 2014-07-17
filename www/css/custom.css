@@ -1349,7 +1349,7 @@ padding-right: 2.5rem !important;
   -webkit-background-size: 1.2rem !important;
   -moz-background-size: 1.2rem !important;
   -o-background-size: 1.2rem !important;
-  background-position: 94.7% 0.5rem !important;	
+  background-position: 95% 0% !important;
 
 }
 
@@ -1363,7 +1363,7 @@ padding-right: 2.5rem !important;
   -webkit-background-size: 1.2rem !important;
   -moz-background-size: 1.2rem !important;
   -o-background-size: 1.2rem !important;
-  background-position: 94.7% 0.5rem !important;	
+  background-position: 95% 0% !important;
 }
 
 
@@ -1390,7 +1390,7 @@ font-weight: 100;
 
 .ns-sat-label{
 float: right;
-margin-right: 70px;
+margin-right: 88px;
 font-size: 0.9rem
 font-family: "MuseoSansLocal", "museo-sans",sans-serif;
 font-weight: 100;
