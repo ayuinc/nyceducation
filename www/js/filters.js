@@ -72,13 +72,20 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
 
     case "selectShoolEM":
 
-    if ((elementary == 0) || (middle == 0)){ return "borrar";}
+    if (((elementary == 0) || (middle == 0) )|| ((middle != 0) && (high != 0) && (elementary != 0)) ){ return "borrar";}
     break;
 
     case "selectShoolMH":
 
-    if ((middle == 0) || (high == 0)){ return "borrar";}
+    if (((middle == 0) || (high == 0)) || ((middle != 0) && (high != 0) && (elementary != 0))  ){ return "borrar";}
     break;    
+
+    case "selectShoolEMH":
+    if ((middle == 0) || (high == 0) || (elementary == 0)){ 
+        // $rootScope.tAdmission="borrar";
+        return "borrar";}
+    break;    
+
 } 
 
     }

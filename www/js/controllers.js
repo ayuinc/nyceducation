@@ -881,6 +881,42 @@ nyc_controllers.controller("SelectAdmission_mh" ,[ '$scope', 'DatosSchool', '$ro
 }]);
 
 
+nyc_controllers.controller("SelectAdmission_emh" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
+
+  $scope.SelectAdmission_emh_si = "Select"
+  $scope.itemsAdmission_emh = [{texto:"Elementary",indice:"0"},{texto:"Middle",indice:"1"},{texto:"High",indice:"2"}];
+  $scope.changeadmission_emh = function(indice) {
+
+    if (indice==0){
+
+        $rootScope.filtroMiddleS = "borrar";
+        $rootScope.filtroHighS = "borrar";
+        $rootScope.filtroElementaryS = "mostrar";
+        $rootScope.filtroAllS ="mostrar";
+    }
+    if (indice==1){
+
+        $rootScope.filtroHighS = "borrar";
+        $rootScope.filtroElementaryS = "borrar";
+        $rootScope.filtroMiddleS = "mostrar";
+        $rootScope.filtroAllS ="mostrar";
+    }
+    if (indice==2){
+
+        $rootScope.filtroMiddleS = "borrar";
+        $rootScope.filtroElementaryS = "borrar";
+        $rootScope.filtroHighS = "mostrar";
+        $rootScope.filtroAllS ="mostrar";
+    }    
+
+    $scope.SelectAdmission_emh_si = $scope.itemsAdmission_emh[indice].texto;
+
+  };
+
+
+}]);
+
+
 nyc_controllers.controller("AdmissionsMSctrl" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
     middle = DatosSchool.datos.ms_admission;
