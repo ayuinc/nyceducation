@@ -36,60 +36,6 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
     }
 })
 
-.filter("filtraAdmissions", function( $rootScope, DatosSchool ){
-    return function(text) {
-
-    elementary = DatosSchool.datos.es_admission.length;
-    middle = DatosSchool.datos.ms_admission.length;
-    high = DatosSchool.datos.hs_admission.length;
-
-    switch (text) {
-
-    case "nd":
-
-    if ((elementary != 0) || (middle != 0) || (high != 0)){ return "borrar";}
-    break;  
-
-    case "all":
-
-    if ( ((elementary != 0) && (middle != 0)) || ((middle != 0) &&(high != 0)) ){ return "borrar";}
-    break;      
-
-    case "ms":
-
-    if ((middle == 0) ){ return "borrar";}
-    break;
-
-    case "hs":
-
-    if ((high == 0)){ return "borrar";}
-    break;
-
-    case "es":
-
-    if ((elementary == 0) ){ return "borrar";}
-    break;
-
-    case "selectShoolEM":
-
-    if (((elementary == 0) || (middle == 0) )|| ((middle != 0) && (high != 0) && (elementary != 0)) ){ return "borrar";}
-    break;
-
-    case "selectShoolMH":
-
-    if (((middle == 0) || (high == 0)) || ((middle != 0) && (high != 0) && (elementary != 0))  ){ return "borrar";}
-    break;    
-
-    case "selectShoolEMH":
-    if ((middle == 0) || (high == 0) || (elementary == 0)){ 
-        // $rootScope.tAdmission="borrar";
-        return "borrar";}
-    break;    
-
-} 
-
-    }
-})
 
 
 .filter("filtraSurvey", function( $rootScope, DatosSchool ){

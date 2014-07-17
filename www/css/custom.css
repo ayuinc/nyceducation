@@ -625,6 +625,10 @@ position: relative;
 	background-color:rgba(142,202,212,1) !important;
 }
 
+.color5 {
+	background-color:rgba(220,235,248,1) !important;
+}
+
 .color-barra {
 	background-color:rgba(153,229,255,1) !important;
 }
@@ -1419,9 +1423,9 @@ font-weight: 100;
 }
 
 .head-question-survey{
-background-color: #dcebf8;
+background-color:rgba(142,202,212,1) !important;
 font-size: 0.8rem;
-color: #333333;
+color: #fff;
 padding: 0.3rem 0.8rem 0.4rem 1rem;
 border: 1px solid #FFFFFF;
 }

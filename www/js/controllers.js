@@ -827,22 +827,64 @@ nyc_controllers.controller("TestScoreGradeddCtrl" ,[ '$scope', 'DatosSchool', '$
 // CONTROLADORES ADMISSIONS
 nyc_controllers.controller("SelectAdmission" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
-    $scope.SelectAdmission_si="Select";
+  elementary = DatosSchool.datos.es_admission.length;
+  middle = DatosSchool.datos.ms_admission.length;
+  high = DatosSchool.datos.hs_admission.length;
+
+  if (((elementary !== 0) && (middle !== 0)) && (high == 0)) {
+    $('#selectShoolEM').removeClass('borrar');
+    $('#selectShoolEM').addClass('mostrar');
+  }else if (((high !== 0) && (middle !== 0)) && (elementary == 0)) {
+    $('#selectShoolMH').removeClass('borrar');
+    $('#selectShoolMH').addClass('mostrar');
+  }else if ((high !== 0) && (middle !== 0) && (elementary !== 0)) {
+    $('#selectShoolEMH').removeClass('borrar');
+    $('#selectShoolEMH').addClass('mostrar');
+    console.log("here");
+  }else if (((elementary == 0) && (middle == 0)) && (high !== 0)) {
+    $('#admissionsAll').removeClass('borrar');
+    $('#admissionsAll').addClass('mostrar');
+    $('#admissionsHigh').removeClass('borrar');
+    $('#admissionsHigh').addClass('mostrar');  
+  }else if (((high == 0) && (middle == 0)) && (elementary !== 0)) {
+    $('#admissionsAll').removeClass('borrar');
+    $('#admissionsAll').addClass('mostrar');
+    $('#admissionsElementary').removeClass('borrar');
+    $('#admissionsElementary').addClass('mostrar');    
+  }else if (((high == 0) && (elementary == 0)) && (middle !== 0)) {
+    $('#admissionsAll').removeClass('borrar');
+    $('#admissionsAll').addClass('mostrar');
+    $('#admissionsMiddle').removeClass('borrar');
+    $('#admissionsMiddle').addClass('mostrar');    
+  }else{
+    $('#admissionsNd').removeClass('borrar');
+    $('#admissionsNd').addClass('mostrar');
+  };
+
+
+  $scope.SelectAdmission_si="Select";
   $scope.itemsAdmission = [{texto:"Elementary",indice:"0"},{texto:"Middle",indice:"1"}];
   $scope.changeadmission = function(indice) {
 
     if (indice==0){
 
-        $rootScope.filtroMiddleS = "borrar";
-        $rootScope.filtroElementaryS = "mostrar";
-        $rootScope.filtroAllS ="mostrar"
+    $('#admissionsAll').removeClass('borrar');
+    $('#admissionsAll').addClass('mostrar');
+    $('#admissionsElementary').removeClass('borrar');
+    $('#admissionsElementary').addClass('mostrar'); 
+
+    $('#admissionsMiddle').removeClass('mostrar');
+    $('#admissionsMiddle').addClass('borrar'); 
     }
 
     if (indice==1){
+    $('#admissionsAll').removeClass('borrar');
+    $('#admissionsAll').addClass('mostrar');
+    $('#admissionsMiddle').removeClass('borrar');
+    $('#admissionsMiddle').addClass('mostrar');   
 
-        $rootScope.filtroElementaryS = "borrar";
-        $rootScope.filtroMiddleS = "mostrar";
-        $rootScope.filtroAllS ="mostrar"
+    $('#admissionsElementary').removeClass('mostrar');
+    $('#admissionsElementary').addClass('borrar'); 
     }    
 
  $scope.SelectAdmission_si = $scope.itemsAdmission[indice].texto;
@@ -861,16 +903,24 @@ nyc_controllers.controller("SelectAdmission_mh" ,[ '$scope', 'DatosSchool', '$ro
 
     if (indice==0){
 
-        $rootScope.filtroHighS = "borrar";
-        $rootScope.filtroMiddleS = "mostrar";
-        $rootScope.filtroAllS ="mostrar";
+    $('#admissionsAll').removeClass('borrar');
+    $('#admissionsAll').addClass('mostrar');
+    $('#admissionsMiddle').removeClass('borrar');
+    $('#admissionsMiddle').addClass('mostrar');   
+
+    $('#admissionsHigh').removeClass('mostrar');
+    $('#admissionsHigh').addClass('borrar'); 
     }
 
     if (indice==1){
 
-        $rootScope.filtroMiddleS = "borrar";
-        $rootScope.filtroHighS = "mostrar";
-        $rootScope.filtroAllS ="mostrar";
+    $('#admissionsAll').removeClass('borrar');
+    $('#admissionsAll').addClass('mostrar');
+    $('#admissionsHigh').removeClass('borrar');
+    $('#admissionsHigh').addClass('mostrar');  
+
+    $('#admissionsMiddle').removeClass('mostrar');
+    $('#admissionsMiddle').addClass('borrar');      
     }    
 
     $scope.SelectAdmission_mh_si = $scope.itemsAdmission_mh[indice].texto;
@@ -889,24 +939,39 @@ nyc_controllers.controller("SelectAdmission_emh" ,[ '$scope', 'DatosSchool', '$r
 
     if (indice==0){
 
-        $rootScope.filtroMiddleS = "borrar";
-        $rootScope.filtroHighS = "borrar";
-        $rootScope.filtroElementaryS = "mostrar";
-        $rootScope.filtroAllS ="mostrar";
+      $('#admissionsAll').removeClass('borrar');
+      $('#admissionsAll').addClass('mostrar');
+      $('#admissionsElementary').removeClass('borrar');
+      $('#admissionsElementary').addClass('mostrar'); 
+
+      $('#admissionsMiddle').removeClass('mostrar');
+      $('#admissionsMiddle').addClass('borrar'); 
+      $('#admissionsHigh').removeClass('mostrar');
+      $('#admissionsHigh').addClass('borrar'); 
     }
     if (indice==1){
 
-        $rootScope.filtroHighS = "borrar";
-        $rootScope.filtroElementaryS = "borrar";
-        $rootScope.filtroMiddleS = "mostrar";
-        $rootScope.filtroAllS ="mostrar";
+      $('#admissionsAll').removeClass('borrar');
+      $('#admissionsAll').addClass('mostrar');
+      $('#admissionsMiddle').removeClass('borrar');
+      $('#admissionsMiddle').addClass('mostrar'); 
+
+      $('#admissionsElementary').removeClass('mostrar');
+      $('#admissionsElementary').addClass('borrar'); 
+      $('#admissionsHigh').removeClass('mostrar');
+      $('#admissionsHigh').addClass('borrar'); 
     }
     if (indice==2){
 
-        $rootScope.filtroMiddleS = "borrar";
-        $rootScope.filtroElementaryS = "borrar";
-        $rootScope.filtroHighS = "mostrar";
-        $rootScope.filtroAllS ="mostrar";
+      $('#admissionsAll').removeClass('borrar');
+      $('#admissionsAll').addClass('mostrar');
+      $('#admissionsHigh').removeClass('borrar');
+      $('#admissionsHigh').addClass('mostrar'); 
+
+      $('#admissionsMiddle').removeClass('mostrar');
+      $('#admissionsMiddle').addClass('borrar'); 
+      $('#admissionsElementary').removeClass('mostrar');
+      $('#admissionsElementary').addClass('borrar'); 
     }    
 
     $scope.SelectAdmission_emh_si = $scope.itemsAdmission_emh[indice].texto;
