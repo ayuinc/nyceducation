@@ -21,77 +21,78 @@
 	</div>	
 
 
-    <div class="{{ 'nd' | filtraAdmissions}}"> <!--ES ADMISSION-->
-
-
-
+  <div id="admissionsNd" class="borrar"> <!--ES ADMISSION-->
 		<div  class="no-data"> NO DATA AVAILABLE</div>
-
-
 	</div>  
 
 
-<div class="{{ 'selectShoolEM' | filtraAdmissions}}"> <!--ES ADMISSION-->
-	<div class="row menu-header"  style="padding-top:0 !important">	
-		
-		<div class="small-10 small-centered medium-10 large-10 columns">		
-            <div class="row">
-                <div class="small-10 small-centered medium-6 large-6 columns">
-                    <div ng-controller="SelectAdmission" class="text-center">
-                      <a dropdown-toggle="#dropdown_select_admission" class="button dropdown small bg-dropdown">{{SelectAdmission_si}}</a>
-                      <ul id="dropdown_select_admission" class="f-dropdown" >
-                        <li ng-repeat="item_select_admiss in itemsAdmission">
-                          <a ng-click="changeadmission(item_select_admiss.indice)">{{item_select_admiss.texto}}</a>
-                        </li>
-                      </ul>
-                    </div>
-                </div>
-            </div>
-		</div>
-	</div>
-</div>  
+			<div id="selectShoolEM" class="borrar"> <!--ES ADMISSION-->
+				<div class="row menu-header"  style="padding-top:0 !important">	
+					<div class="small-10 small-centered medium-10 large-10 columns">		
+			      <div class="row">
+			          <div class="small-10 small-centered medium-6 large-6 columns">
+			              <div ng-controller="SelectAdmission" class="text-center ">
+			                <a dropdown-toggle="#dropdown_select_admission" class="button dropdown small bg-dropdown">{{SelectAdmission_si}}</a>
+			                <ul id="dropdown_select_admission" class="f-dropdown" >
+			                  <li ng-repeat="item_select_admiss in itemsAdmission">
+			                    <a ng-click="changeadmission(item_select_admiss.indice)">{{item_select_admiss.texto}}</a>
+			                  </li>
+			                </ul>
+			              </div>
+			          </div>
+			      </div>
+					</div>
+				</div>
+			</div>  
 
 
-<div class="{{ 'selectShoolMH' | filtraAdmissions}}"> <!--ES ADMISSION-->
-	<div class="row menu-header"  style="padding-top:0 !important">	
-		<div class="small-10 small-centered medium-10 large-10 columns">		
+			<div id="selectShoolMH" class="borrar"> <!--ES ADMISSION-->
+				<div class="row menu-header"  style="padding-top:0 !important">	
+					<div class="small-10 small-centered medium-10 large-10 columns">		
+			      <div class="row">
+			          <div class="small-10 small-centered medium-6 large-6 columns" >
+			              <div ng-controller="SelectAdmission_mh" class="text-center ">
+			                <a dropdown-toggle="#dropdown_select_admission_mh" class="button dropdown small bg-dropdown">{{SelectAdmission_mh_si}}</a>
+			                <ul id="dropdown_select_admission_mh" class="f-dropdown" >
+			                  <li ng-repeat="item_select_admiss in itemsAdmission_mh">
+			                    <a ng-click="changeadmission_mh(item_select_admiss.indice)">{{item_select_admiss.texto}}</a>
+			                  </li>
+			                </ul>
+			              </div>
+			          </div>
+			      </div>
+					</div>
+				</div>
+			</div>  
+
+			<div id="selectShoolEMH" class="borrar"> <!--ES ADMISSION-->
+				<div class="row menu-header"  style="padding-top:0 !important">	
+					<div class="small-10 small-centered medium-10 large-10 columns">		
             <div class="row">
                 <div class="small-10 small-centered medium-6 large-6 columns" >
-                    <div ng-controller="SelectAdmission_mh" class="text-center">
-                      <a dropdown-toggle="#dropdown_select_admission_mh" class="button dropdown small bg-dropdown">{{SelectAdmission_mh_si}}</a>
-                      <ul id="dropdown_select_admission_mh" class="f-dropdown" >
-                        <li ng-repeat="item_select_admiss in itemsAdmission_mh">
-                          <a ng-click="changeadmission_mh(item_select_admiss.indice)">{{item_select_admiss.texto}}</a>
+                    <div ng-controller="SelectAdmission_emh" class="text-center">
+                      <a dropdown-toggle="#dropdown_select_admission_emh" class="button dropdown small bg-dropdown">{{SelectAdmission_emh_si}}</a>
+                      <ul id="dropdown_select_admission_emh" class="f-dropdown" >
+                        <li ng-repeat="item_select_admiss in itemsAdmission_emh">
+                          <a ng-click="changeadmission_emh(item_select_admiss.indice)">{{item_select_admiss.texto}}</a>
                         </li>
                       </ul>
                     </div>
                 </div>
             </div>
-		</div>
-	</div>
-</div>  
+					</div>
+				</div>
+			</div> 
 
-<div class="{{ 'all' | filtraAdmissions}} {{filtroAllS}}">
+<div id="admissionsAll" class="borrar">
 
     
-    <div class="{{ 'es' | filtraAdmissions}} {{filtroElementaryS}}"> <!--ES ADMISSION-->
+    <div id="admissionsElementary" class="borrar" > <!--ES ADMISSION-->
 
-
-<!-- 			<div class="row profile_item">
-				<div class="small-6 columns">
-					<div class="profile_label">
-						<span>Program</span>
-		    <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="When applying to middle and high schools, students apply to programs within schools. Programs may have different interest or focus areas as well as admissions methods." ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>	
-					</div>
-				</div>
-				<div class="small-6 columns">
-					<div class="profile_info">
-						<span>{{ school.name }}</span>
-					</div>
-				</div>
-			</div>	 -->
+    <div style="height: 15px;background-color:#DFE5E9"></div>
 
 			<div class="row profile_item">
+
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>Method</span>
@@ -119,186 +120,152 @@
 				</div>
 			</div>
 
-<div ng-controller="AccordionDemoCtrl">
-
-
-  	<accordion close-others="oneAtATime">
- 
-
-<!--         <div style="position:relative;z-index:5;top:8px;left: 125px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="The order in which applicants are considered for placement." ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>
-
-    	<accordion-group is-open="true" >
-
-        <accordion-heading>
-            <div id="grilla_10_55_up" class="grillaAcordion" onclick="rotarGrilla(this.id)">Priority</div>
-            <div class="icon-arrow-down2 right diez" id="grilla_icon_10_55" ></div>
-        </accordion-heading>   -->  
 
 			<div class="row profile_item">
 				<div class="small-12 medium-12 large-12 columns">
 					<div class="profile_label">
 						<span>Priority</span>
-		    <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="The order in which applicants are considered for placement. " ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>							
+		    <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="The order in which applicants are considered for placement." ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>							
 					</div>
 				</div>
 			</div>
 			<div class="row profile_item">
 				<div class="small-12 medium-12 large-12 columns">
-<!-- 					<div class="profile_info" style="padding-right:1.8rem" >
-												
-						<span >{{hs_admissions.admision_priority}}</span>
-					</div> -->
-<div class="row">
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority1 | filtraCeros}}">
-		<div class="priority">
-			<p>{{es_admissions.priority1+"1" | admission_e}}</p>
-		</div>
-	</div>
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority2 | filtraCeros}}">
-		<div class="priority color2">
-			<p>{{es_admissions.priority2+"2" | admission_e}}</p>
-		</div>
-	</div>
+					<div class="row">
+						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority1 | filtraCeros}}">
+							<div class="priority">
+								<p>{{es_admissions.priority1+"1" | admission_e}}</p>
+							</div>
+						</div>
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority3 | filtraCeros}}">
-		<div class="priority">
-			<p>{{es_admissions.priority3+"3" | admission_e}}</p>
-		</div>
-	</div>
+						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority2 | filtraCeros}}">
+							<div class="priority color2">
+								<p>{{es_admissions.priority2+"2" | admission_e}}</p>
+							</div>
+						</div>
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority4 | filtraCeros}}">
-		<div class="priority color2">
-			<p>{{es_admissions.priority4+"4" | admission_e}}</p>
-		</div>
-	</div>
+						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority3 | filtraCeros}}">
+							<div class="priority">
+								<p>{{es_admissions.priority3+"3" | admission_e}}</p>
+							</div>
+						</div>
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority5 | filtraCeros}}">
-		<div class="priority">
-			<p>{{es_admissions.priority5+"5" | admission_e}}</p>
-		</div>
-	</div>	
+						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority4 | filtraCeros}}">
+							<div class="priority color2">
+								<p>{{es_admissions.priority4+"4" | admission_e}}</p>
+							</div>
+						</div>
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority6 | filtraCeros}}">
-		<div class="priority color2">
-			<p>{{es_admissions.priority6+"6" | admission_e}}</p>
-		</div>
-	</div>			
+						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority5 | filtraCeros}}">
+							<div class="priority">
+								<p>{{es_admissions.priority5+"5" | admission_e}}</p>
+							</div>
+						</div>	
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority7 | filtraCeros}}">
-		<div class="priority">
-			<p>{{es_admissions.priority7+"7" | admission_e}}</p>
-		</div>
-	</div>	
+						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority6 | filtraCeros}}">
+							<div class="priority color2">
+								<p>{{es_admissions.priority6+"6" | admission_e}}</p>
+							</div>
+						</div>			
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority8 | filtraCeros}}">
-		<div class="priority color2">
-			<p>{{es_admissions.priority8+"8" | admission_e}}</p>
-		</div>
-	</div>	
+						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority7 | filtraCeros}}">
+							<div class="priority">
+								<p>{{es_admissions.priority7+"7" | admission_e}}</p>
+							</div>
+						</div>	
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority9 | filtraCeros}}">
-		<div class="priority">
-			<p>{{es_admissions.priority9+"9" | admission_e}}</p>
-		</div>
-	</div>	
+						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority8 | filtraCeros}}">
+							<div class="priority color2">
+								<p>{{es_admissions.priority8+"8" | admission_e}}</p>
+							</div>
+						</div>	
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority10 | filtraCeros}}">
-		<div class="priority color2">
-			<p>{{es_admissions.priority10+"10" | admission_e}}</p>
-		</div>
-	</div>		
+						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority9 | filtraCeros}}">
+							<div class="priority">
+								<p>{{es_admissions.priority9+"9" | admission_e}}</p>
+							</div>
+						</div>	
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority11 | filtraCeros}}">
-		<div class="priority">
-			<p>{{es_admissions.priority11+"11" | admission_e}}</p>
-		</div>
-	</div>	
+						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority10 | filtraCeros}}">
+							<div class="priority color2">
+								<p>{{es_admissions.priority10+"10" | admission_e}}</p>
+							</div>
+						</div>		
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority12 | filtraCeros}}">
-		<div class="priority color2">
-			<p>{{es_admissions.priority12+"12" | admission_e}}</p>
-		</div>
-	</div>	
+						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority11 | filtraCeros}}">
+							<div class="priority">
+								<p>{{es_admissions.priority11+"11" | admission_e}}</p>
+							</div>
+						</div>	
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority13 | filtraCeros}}">
-		<div class="priority">
-			<p>{{es_admissions.priority13+"13" | admission_e}}</p>
-		</div>
-	</div>	
+						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority12 | filtraCeros}}">
+							<div class="priority color2">
+								<p>{{es_admissions.priority12+"12" | admission_e}}</p>
+							</div>
+						</div>	
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority14 | filtraCeros}}">
-		<div class="priority color2">
-			<p>{{es_admissions.priority14+"14" | admission_e}}</p>
-		</div>
-	</div>	
+						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority13 | filtraCeros}}">
+							<div class="priority">
+								<p>{{es_admissions.priority13+"13" | admission_e}}</p>
+							</div>
+						</div>	
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority15 | filtraCeros}}">
-		<div class="priority">
-			<p>{{es_admissions.priority15+"15" | admission_e}}</p>
-		</div>
-	</div>	
+						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority14 | filtraCeros}}">
+							<div class="priority color2">
+								<p>{{es_admissions.priority14+"14" | admission_e}}</p>
+							</div>
+						</div>	
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority16 | filtraCeros}}">
-		<div class="priority color2">
-			<p>{{es_admissions.priority16+"16" | admission_e}}</p>
-		</div>
-	</div>	
+						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority15 | filtraCeros}}">
+							<div class="priority">
+								<p>{{es_admissions.priority15+"15" | admission_e}}</p>
+							</div>
+						</div>	
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority17 | filtraCeros}}">
-		<div class="priority">
-			<p>{{es_admissions.priority17+"17" | admission_e}}</p>
-		</div>
-	</div>	
+						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority16 | filtraCeros}}">
+							<div class="priority color2">
+								<p>{{es_admissions.priority16+"16" | admission_e}}</p>
+							</div>
+						</div>	
 
-	<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority18 | filtraCeros}}">
-		<div class="priority color2">
-			<p>{{es_admissions.priority18+"18" | admission_e}}</p>
-		</div>
-	</div>	
-									
-</div>					
+						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority17 | filtraCeros}}">
+							<div class="priority">
+								<p>{{es_admissions.priority17+"17" | admission_e}}</p>
+							</div>
+						</div>	
+
+						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority18 | filtraCeros}}">
+							<div class="priority color2">
+								<p>{{es_admissions.priority18+"18" | admission_e}}</p>
+							</div>
+						</div>	
+														
+					</div>					
 				</div>
 			</div>        	
 
 
-    	</accordion-group>	
 
-	</accordion>
-
-
-		</div>
-		<br>
-			</div> <!-- FIN ES-->
+		</div> <!-- FIN ES-->
 
 
-     <div class="{{ 'ms' | filtraAdmissions}} {{filtroMiddleS}}"> <!--MS ADMISSION-->
-
-
+ <div id="admissionsMiddle" class="borrar"> <!--MS ADMISSION-->
 
 	<div class="row menu-header"  style="padding-top:0 !important">	
-
 		<div class="small-10 small-centered medium-10 large-10 columns">		
-
-
-            <div class="row">
-
-                <div class="small-10 small-centered medium-6 large-6 columns">
-                    <div ng-controller="AdmissionsMSctrl" class="text-center" >
-
-                      <a ng-show="showDropdownProgramsMs" dropdown-toggle="#dropdown-year_admissions_ms" class="button dropdown small bg-dropdown">{{progSelected}}</a>
-                      <ul id="dropdown-year_admissions_ms" class="f-dropdown" style="max-width:80% !important;left:34px !important;width:400px !important">
-                        <li ng-repeat="itemy in itemsaddMS">
-                          <a ng-click="changeprog(itemy.indice)" style="font-size: 0.6rem;">{{itemy.texto}}</a>
-                        </li>
-                      </ul>
-                      
-                    </div>
-                </div>
-
-            </div>
-
-
+      <div class="row">
+        <div class="small-10 small-centered medium-6 large-6 columns">
+          <div ng-controller="AdmissionsMSctrl" class="text-center" >
+            <a ng-show="showDropdownProgramsMs" dropdown-toggle="#dropdown-year_admissions_ms" class="button dropdown small bg-dropdown">{{progSelected}}</a>
+            <ul id="dropdown-year_admissions_ms" class="f-dropdown" style="max-width:80% !important;left:34px !important;width:400px !important">
+              <li ng-repeat="itemy in itemsaddMS">
+                <a ng-click="changeprog(itemy.indice)" style="font-size: 0.6rem;">{{itemy.texto}}</a>
+              </li>
+            </ul>                    
+          </div>
+        </div>
+      </div>
 		</div>			
 	</div>	
 
@@ -313,7 +280,6 @@
 				<div class="small-6 columns">
 					<div class="profile_info">
 
-    <!-- <div Popover-animation="false" popover="No Data" popover-placement="left" class="icon-info" style="cursor:pointer;top:19px;position: relative;" onclick="quitaBurbuja()"></div> -->
     <span style="padding-right:8px">{{ms_admissions.program_name}}</span>
 
 
@@ -339,7 +305,7 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>Method</span>
-		    <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="The way schools consider and admit applicants into a program." ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>								
+		    <!-- <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="The way schools consider and admit applicants into a program." ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>	 -->							
 			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
 					</div>
 				</div>
@@ -399,11 +365,11 @@
 			</div>									
 
 
-			</div> <!-- FIN MS-->			
+</div> <!-- FIN MS-->			
 
 
 
-     <div class="{{ 'hs' | filtraAdmissions}} {{filtroHighS}}"> <!--HS ADMISSION-->
+<div id="admissionsHigh" class="borrar"> <!--HS ADMISSION-->
 
 
 	<div class="row menu-header"  style="padding-top:0 !important">	
@@ -466,7 +432,7 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>Method</span>
-		    <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="The way schools consider and admit applicants into a program." ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>							
+		    <!-- <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="The way schools consider and admit applicants into a program." ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>	 -->
 			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
 					</div>
 				</div>
@@ -480,7 +446,7 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>Description</span>
-		    <!-- <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="????????????????" ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>			 -->				
+			
 
 					</div>
 				</div>
@@ -542,7 +508,7 @@
 
 
 </div> <!-- FIN ALL -->			
-    </section>
+</section>
 
   <a class="exit-off-canvas"></a>
 
