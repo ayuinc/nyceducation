@@ -520,8 +520,138 @@ app.factory('DatosSchool',function($rootScope){
           ValuesStudentsResp.push(this.datos.survey_result[indice]['p_q5b_very_satisfied']);
           if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
             { return true }
-          else{ return false }      
-        },   
+          else{ return false }
+        },
+
+// SEARCH DATA BY GRADE ELA- TEST SCORE
+        
+        SearchTestScoreGrade3rdEla:function(indice){
+          var ValuesTestScoreGrade3rd = [];
+          ValuesTestScoreGrade3rd.push(this.datos.evaluations_ela[indice]['3rd_pr_s_level1_ela']);
+          ValuesTestScoreGrade3rd.push(this.datos.evaluations_ela[indice]['3rd_pr_s_level2_ela']);
+          ValuesTestScoreGrade3rd.push(this.datos.evaluations_ela[indice]['3rd_pr_s_level3_ela']);
+          ValuesTestScoreGrade3rd.push(this.datos.evaluations_ela[indice]['3rd_pr_s_level4_ela']);
+          if(GetUniqueElementsArray(ValuesTestScoreGrade3rd).length > 0)
+            { return true }
+          else{ return false }
+        },
+        SearchTestScoreGrade4thEla:function(indice){
+          var ValuesTestScoreGrade4th = [];
+          ValuesTestScoreGrade4th.push(this.datos.evaluations_ela[indice]['4rd_pr_s_level1_ela']);
+          ValuesTestScoreGrade4th.push(this.datos.evaluations_ela[indice]['4rd_pr_s_level2_ela']);
+          ValuesTestScoreGrade4th.push(this.datos.evaluations_ela[indice]['4rd_pr_s_level3_ela']);
+          ValuesTestScoreGrade4th.push(this.datos.evaluations_ela[indice]['4rd_pr_s_level4_ela']);
+          if(GetUniqueElementsArray(ValuesTestScoreGrade4th).length > 0)
+            { return true }
+          else{ return false }
+        },
+        SearchTestScoreGrade5thEla:function(indice){
+          var ValuesTestScoreGrade5th = [];
+          ValuesTestScoreGrade5th.push(this.datos.evaluations_ela[indice]['5rd_pr_s_level1_ela']);
+          ValuesTestScoreGrade5th.push(this.datos.evaluations_ela[indice]['5rd_pr_s_level2_ela']);
+          ValuesTestScoreGrade5th.push(this.datos.evaluations_ela[indice]['5rd_pr_s_level3_ela']);
+          ValuesTestScoreGrade5th.push(this.datos.evaluations_ela[indice]['5rd_pr_s_level4_ela']);
+          if(GetUniqueElementsArray(ValuesTestScoreGrade5th).length > 0)
+            { return true }
+          else{ return false }
+        },
+        SearchTestScoreGrade6thEla:function(indice){
+          var ValuesTestScoreGrade6th = [];
+          ValuesTestScoreGrade6th.push(this.datos.evaluations_ela[indice]['6rd_pr_s_level1_ela']);
+          ValuesTestScoreGrade6th.push(this.datos.evaluations_ela[indice]['6rd_pr_s_level2_ela']);
+          ValuesTestScoreGrade6th.push(this.datos.evaluations_ela[indice]['6rd_pr_s_level3_ela']);
+          ValuesTestScoreGrade6th.push(this.datos.evaluations_ela[indice]['6rd_pr_s_level4_ela']);
+          if(GetUniqueElementsArray(ValuesTestScoreGrade6th).length > 0)
+            { return true }
+          else{ return false }
+        },
+        SearchTestScoreGrade7thEla:function(indice){
+          var ValuesTestScoreGrade7th = [];
+          ValuesTestScoreGrade7th.push(this.datos.evaluations_ela[indice]['7rd_pr_s_level1_ela']);
+          ValuesTestScoreGrade7th.push(this.datos.evaluations_ela[indice]['7rd_pr_s_level2_ela']);
+          ValuesTestScoreGrade7th.push(this.datos.evaluations_ela[indice]['7rd_pr_s_level3_ela']);
+          ValuesTestScoreGrade7th.push(this.datos.evaluations_ela[indice]['7rd_pr_s_level4_ela']);
+          if(GetUniqueElementsArray(ValuesTestScoreGrade7th).length > 0)
+            { return true }
+          else{ return false }
+        },
+        SearchTestScoreGrade8thEla:function(indice){
+          var ValuesTestScoreGrade8th = [];
+          ValuesTestScoreGrade8th.push(this.datos.evaluations_ela[indice]['8rd_pr_s_level1_ela']);
+          ValuesTestScoreGrade8th.push(this.datos.evaluations_ela[indice]['8rd_pr_s_level2_ela']);
+          ValuesTestScoreGrade8th.push(this.datos.evaluations_ela[indice]['8rd_pr_s_level3_ela']);
+          ValuesTestScoreGrade8th.push(this.datos.evaluations_ela[indice]['8rd_pr_s_level4_ela']);
+          if(GetUniqueElementsArray(ValuesTestScoreGrade8th).length > 0)
+            { return true }
+          else{ return false }
+        },
+
+// SEARCH DATA BY GRADE MATH- TEST SCORE
+        
+        SearchTestScoreGrade3rdMath:function(indice){
+          var ValuesTestScoreGrade3rd = [];
+          ValuesTestScoreGrade3rd.push(this.datos.evaluations_math[indice]['3rd_pr_s_level1_math']);
+          ValuesTestScoreGrade3rd.push(this.datos.evaluations_math[indice]['3rd_pr_s_level2_math']);
+          ValuesTestScoreGrade3rd.push(this.datos.evaluations_math[indice]['3rd_pr_s_level3_math']);
+          ValuesTestScoreGrade3rd.push(this.datos.evaluations_math[indice]['3rd_pr_s_level4_math']);
+          if(GetUniqueElementsArray(ValuesTestScoreGrade3rd).length > 0)
+            { return true }
+          else{ return false }
+        },
+        SearchTestScoreGrade4thMath:function(indice){
+          var ValuesTestScoreGrade4th = [];
+          ValuesTestScoreGrade4th.push(this.datos.evaluations_math[indice]['4rd_pr_s_level1_math']);
+          ValuesTestScoreGrade4th.push(this.datos.evaluations_math[indice]['4rd_pr_s_level2_math']);
+          ValuesTestScoreGrade4th.push(this.datos.evaluations_math[indice]['4rd_pr_s_level3_math']);
+          ValuesTestScoreGrade4th.push(this.datos.evaluations_math[indice]['4rd_pr_s_level4_math']);
+          if(GetUniqueElementsArray(ValuesTestScoreGrade4th).length > 0)
+            { return true }
+          else{ return false }
+        },
+        SearchTestScoreGrade5thMath:function(indice){
+          var ValuesTestScoreGrade5th = [];
+          ValuesTestScoreGrade5th.push(this.datos.evaluations_math[indice]['5rd_pr_s_level1_math']);
+          ValuesTestScoreGrade5th.push(this.datos.evaluations_math[indice]['5rd_pr_s_level2_math']);
+          ValuesTestScoreGrade5th.push(this.datos.evaluations_math[indice]['5rd_pr_s_level3_math']);
+          ValuesTestScoreGrade5th.push(this.datos.evaluations_math[indice]['5rd_pr_s_level4_math']);
+          if(GetUniqueElementsArray(ValuesTestScoreGrade5th).length > 0)
+            { return true }
+          else{ return false }
+        },
+        SearchTestScoreGrade6thMath:function(indice){
+          var ValuesTestScoreGrade6th = [];
+          ValuesTestScoreGrade6th.push(this.datos.evaluations_math[indice]['6rd_pr_s_level1_math']);
+          ValuesTestScoreGrade6th.push(this.datos.evaluations_math[indice]['6rd_pr_s_level2_math']);
+          ValuesTestScoreGrade6th.push(this.datos.evaluations_math[indice]['6rd_pr_s_level3_math']);
+          ValuesTestScoreGrade6th.push(this.datos.evaluations_math[indice]['6rd_pr_s_level4_math']);
+          if(GetUniqueElementsArray(ValuesTestScoreGrade6th).length > 0)
+            { return true }
+          else{ return false }
+        },
+        SearchTestScoreGrade7thMath:function(indice){
+          var ValuesTestScoreGrade7th = [];
+          ValuesTestScoreGrade7th.push(this.datos.evaluations_math[indice]['7rd_pr_s_level1_math']);
+          ValuesTestScoreGrade7th.push(this.datos.evaluations_math[indice]['7rd_pr_s_level2_math']);
+          ValuesTestScoreGrade7th.push(this.datos.evaluations_math[indice]['7rd_pr_s_level3_math']);
+          ValuesTestScoreGrade7th.push(this.datos.evaluations_math[indice]['7rd_pr_s_level4_math']);
+          if(GetUniqueElementsArray(ValuesTestScoreGrade7th).length > 0)
+            { return true }
+          else{ return false }
+        },
+        SearchTestScoreGrade8thMath:function(indice){
+          var ValuesTestScoreGrade8th = [];
+          ValuesTestScoreGrade8th.push(this.datos.evaluations_math[indice]['8rd_pr_s_level1_math']);
+          ValuesTestScoreGrade8th.push(this.datos.evaluations_math[indice]['8rd_pr_s_level2_math']);
+          ValuesTestScoreGrade8th.push(this.datos.evaluations_math[indice]['8rd_pr_s_level3_math']);
+          ValuesTestScoreGrade8th.push(this.datos.evaluations_math[indice]['8rd_pr_s_level4_math']);
+          if(GetUniqueElementsArray(ValuesTestScoreGrade8th).length > 0)
+            { return true }
+          else{ return false }
+        }                        
+
+
+
+
       
 
 
