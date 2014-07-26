@@ -165,6 +165,7 @@ nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', 'DatosSchool', '$ro
 	var indice = 3
   $rootScope.enrollment=DatosSchool.datos.enrollments[indice];
   $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];
+  $rootScope.city_average=DatosSchool.datos.city_averages[indice];
 
     var vStudentsEnrolledGrade,vAttendance;
     var availableYears = [];
@@ -206,6 +207,7 @@ nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', 'DatosSchool', '$ro
     $scope.selectedyearEnrollment = $scope.itemsYearEnrollment[ind].texto;  
     $rootScope.enrollment=DatosSchool.datos.enrollments[indice]; 
     $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice]; 
+    $rootScope.city_average=DatosSchool.datos.city_averages[indice];
     
     $rootScope.valuesAttendance = DatosSchool.SearchValuesAttendance(indice);
     $rootScope.NAStudentsEnrolledGrade = DatosSchool.SearchValuesStudentsEnrolledGrade(indice);    
@@ -438,7 +440,7 @@ nyc_controllers.controller("EvaluationsCtrlYearElem" ,[ '$scope', 'DatosSchool',
       $('#elementary_eva').addClass('mostrar');
       $('#all_eva').removeClass('borrar');
       $('#all_eva').addClass('mostrar');
-    }else if ( (tipoEscuela.indexOf("K-3") !== -1) && (tipoEscuela.indexOf("Elementary") !== -1) ){
+    }else if ( ((tipoEscuela.indexOf("K-3") !== -1) && (tipoEscuela.indexOf("Elementary") !== -1)) || ((tipoEscuela.indexOf("K-8") !== -1) && (tipoEscuela.indexOf("Elementary") !== -1)) ){
       $('#elementary_eva').removeClass('borrar');
       $('#elementary_eva').addClass('mostrar');
       $('#all_eva').removeClass('borrar');
@@ -1316,7 +1318,7 @@ nyc_controllers.controller("SurveyYearCtrl" ,[ '$scope', 'DatosSchool', '$rootSc
     $rootScope.valuesSurveyQuestionQ1G = DatosSchool.SearchSurveyQuestionQ1G(indice);
     $rootScope.valuesSurveyQuestionQ2A = DatosSchool.SearchSurveyQuestionQ2A(indice);
     $rootScope.valuesSurveyQuestionQ3A = DatosSchool.SearchSurveyQuestionQ3A(indice);
-    $rootScope.valuesSurveyQuestionQ1G = DatosSchool.SearchSurveyQuestionQ1G(indice);
+    $rootScope.valuesSurveyQuestionQ5B = DatosSchool.SearchSurveyQuestionQ5B(indice);
 
 
     $rootScope.selectedyear_survey= "2013";
@@ -1357,7 +1359,7 @@ nyc_controllers.controller("SurveyYearCtrl" ,[ '$scope', 'DatosSchool', '$rootSc
     $rootScope.valuesSurveyQuestionQ1G = DatosSchool.SearchSurveyQuestionQ1G(indice_year);
     $rootScope.valuesSurveyQuestionQ2A = DatosSchool.SearchSurveyQuestionQ2A(indice_year);
     $rootScope.valuesSurveyQuestionQ3A = DatosSchool.SearchSurveyQuestionQ3A(indice_year);
-    $rootScope.valuesSurveyQuestionQ1G = DatosSchool.SearchSurveyQuestionQ1G(indice_year);
+    $rootScope.valuesSurveyQuestionQ5B = DatosSchool.SearchSurveyQuestionQ5B(indice_year);
 
     };
     

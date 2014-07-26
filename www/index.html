@@ -33,7 +33,20 @@
       return outputArray;
     }
 
-
+    function GetUniqueElementsArrayForELA(inputArray)
+    {
+      var outputArray = [];
+      for (var i = 0; i < inputArray.length; i++)
+      {
+        if ((jQuery.inArray(inputArray[i], outputArray)) == -1)
+        {
+          if ((inputArray[i] != "") && (inputArray[i] != null)) {
+            outputArray.push(inputArray[i]);
+          };
+        }
+      }     
+      return outputArray;
+    }
 
 
 
