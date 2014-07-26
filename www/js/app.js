@@ -245,7 +245,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesAverageProficiencyScoreELA.push(this.datos.evaluations_ela[indice]['6rd_a_p_r_ela']);
           ValuesAverageProficiencyScoreELA.push(this.datos.evaluations_ela[indice]['7rd_a_p_r_ela']);
           ValuesAverageProficiencyScoreELA.push(this.datos.evaluations_ela[indice]['8rd_a_p_r_ela']);
-          if(GetUniqueElementsArray(ValuesAverageProficiencyScoreELA).length > 0)
+          if(GetUniqueElementsArrayForELA(ValuesAverageProficiencyScoreELA).length > 0)
             { return true }
           else{ return false }      
         },
@@ -514,7 +514,7 @@ app.factory('DatosSchool',function($rootScope){
           else{ return false }      
         },   
 
-        SearchSurveyQuestionQ1G: function(indice){
+        SearchSurveyQuestionQ5B: function(indice){
           var ValuesStudentsResp = [];
           ValuesStudentsResp.push(this.datos.survey_result[indice]['p_q5b_satisfied']);
           ValuesStudentsResp.push(this.datos.survey_result[indice]['p_q5b_very_satisfied']);

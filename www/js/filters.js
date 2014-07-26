@@ -9,6 +9,13 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
     } 
 })
 
+.filter("filterNull", function(){
+    return function(text) { 
+
+        if (text == null){ return "borrar";}
+
+    } 
+})
 
 .filter("filtraGrado", function( $rootScope ){
 
@@ -119,6 +126,18 @@ else {
     }
 })
 
+.filter("redondea2", function(){
+    return function(text) {
+
+if (text == "0.00" || text == "0" || text == ""){
+    return "0.0%";
+}
+else {
+    return parseFloat(text).toFixed(1)+"%";
+}
+
+    }
+})
 
 .filter("redondea_sp", function(){
     return function(text) {
