@@ -202,7 +202,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesElaScores.push(this.datos.evaluations_ela[indice]['8rd_pr_s_level2_ela']);
           ValuesElaScores.push(this.datos.evaluations_ela[indice]['8rd_pr_s_level3_ela']);
           ValuesElaScores.push(this.datos.evaluations_ela[indice]['8rd_pr_s_level4_ela']);          
-          if(GetUniqueElementsArray(ValuesElaScores).length > 0)
+          if(GetUniqueElementsArrayForELA(ValuesElaScores).length > 0)
             { return true }
           else{ return false }      
         },
@@ -531,7 +531,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesTestScoreGrade3rd.push(this.datos.evaluations_ela[indice]['3rd_pr_s_level2_ela']);
           ValuesTestScoreGrade3rd.push(this.datos.evaluations_ela[indice]['3rd_pr_s_level3_ela']);
           ValuesTestScoreGrade3rd.push(this.datos.evaluations_ela[indice]['3rd_pr_s_level4_ela']);
-          if(GetUniqueElementsArray(ValuesTestScoreGrade3rd).length > 0)
+          if(GetUniqueElementsArrayForELA(ValuesTestScoreGrade3rd).length > 0)
             { return true }
           else{ return false }
         },
@@ -541,7 +541,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesTestScoreGrade4th.push(this.datos.evaluations_ela[indice]['4rd_pr_s_level2_ela']);
           ValuesTestScoreGrade4th.push(this.datos.evaluations_ela[indice]['4rd_pr_s_level3_ela']);
           ValuesTestScoreGrade4th.push(this.datos.evaluations_ela[indice]['4rd_pr_s_level4_ela']);
-          if(GetUniqueElementsArray(ValuesTestScoreGrade4th).length > 0)
+          if(GetUniqueElementsArrayForELA(ValuesTestScoreGrade4th).length > 0)
             { return true }
           else{ return false }
         },
@@ -551,7 +551,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesTestScoreGrade5th.push(this.datos.evaluations_ela[indice]['5rd_pr_s_level2_ela']);
           ValuesTestScoreGrade5th.push(this.datos.evaluations_ela[indice]['5rd_pr_s_level3_ela']);
           ValuesTestScoreGrade5th.push(this.datos.evaluations_ela[indice]['5rd_pr_s_level4_ela']);
-          if(GetUniqueElementsArray(ValuesTestScoreGrade5th).length > 0)
+          if(GetUniqueElementsArrayForELA(ValuesTestScoreGrade5th).length > 0)
             { return true }
           else{ return false }
         },
@@ -561,7 +561,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesTestScoreGrade6th.push(this.datos.evaluations_ela[indice]['6rd_pr_s_level2_ela']);
           ValuesTestScoreGrade6th.push(this.datos.evaluations_ela[indice]['6rd_pr_s_level3_ela']);
           ValuesTestScoreGrade6th.push(this.datos.evaluations_ela[indice]['6rd_pr_s_level4_ela']);
-          if(GetUniqueElementsArray(ValuesTestScoreGrade6th).length > 0)
+          if(GetUniqueElementsArrayForELA(ValuesTestScoreGrade6th).length > 0)
             { return true }
           else{ return false }
         },
@@ -571,7 +571,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesTestScoreGrade7th.push(this.datos.evaluations_ela[indice]['7rd_pr_s_level2_ela']);
           ValuesTestScoreGrade7th.push(this.datos.evaluations_ela[indice]['7rd_pr_s_level3_ela']);
           ValuesTestScoreGrade7th.push(this.datos.evaluations_ela[indice]['7rd_pr_s_level4_ela']);
-          if(GetUniqueElementsArray(ValuesTestScoreGrade7th).length > 0)
+          if(GetUniqueElementsArrayForELA(ValuesTestScoreGrade7th).length > 0)
             { return true }
           else{ return false }
         },
@@ -581,7 +581,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesTestScoreGrade8th.push(this.datos.evaluations_ela[indice]['8rd_pr_s_level2_ela']);
           ValuesTestScoreGrade8th.push(this.datos.evaluations_ela[indice]['8rd_pr_s_level3_ela']);
           ValuesTestScoreGrade8th.push(this.datos.evaluations_ela[indice]['8rd_pr_s_level4_ela']);
-          if(GetUniqueElementsArray(ValuesTestScoreGrade8th).length > 0)
+          if(GetUniqueElementsArrayForELA(ValuesTestScoreGrade8th).length > 0)
             { return true }
           else{ return false }
         },
