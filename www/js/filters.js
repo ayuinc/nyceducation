@@ -126,6 +126,18 @@ else {
     }
 })
 
+.filter("redondeaSinPorcentaje", function(){
+    return function(text) {
+
+if (text == "0.00" || text == "0" || text == ""){
+    return "N/A";
+}
+else {
+    return parseFloat(text).toFixed(1);
+}
+
+    }
+})
 .filter("redondea2", function(){
     return function(text) {
 
