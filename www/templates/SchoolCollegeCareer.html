@@ -67,9 +67,9 @@
 						<div Popover-animation="false" popover="Percentage of students who accumulate 10 or more academic credits in their first year of high school, with a particular focus on credits earned in English, math, science and social studies.  Credit accumulation is a strong indicator that a student is on track to graduation." popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
 						</itemsurvey>
 					</div>
-					<div class="metrics {{city_average.AttendanceRate | filtraCeros}}">
-						<div class="average" style="width:{{city_average.AttendanceRate}}%;">
-							<p style="padding-left:25px">City Average:{{city_average.AttendanceRate | redondea}}</p>
+					<div class="metrics {{city_average.Average_of_Percent_of_Students_Earning_10_Credits_in_1st_Year | filtraCeros}}">
+						<div class="average" style="width:{{city_average.Average_of_Percent_of_Students_Earning_10_Credits_in_1st_Year}}%;">
+							<p style="padding-left:25px">City Average:{{city_average.Average_of_Percent_of_Students_Earning_10_Credits_in_1st_Year | redondea}}</p>
 						</div>			    			
 						<div class="rank">
 							<p class="{{ proficiency_ratings.p_s_earning10_credits_in1year_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.p_s_earning10_credits_in1year_pr | filtraRank }}.png" > >Avg. </p>
