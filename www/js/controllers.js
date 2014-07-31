@@ -591,71 +591,93 @@ nyc_controllers.controller("TestScoreCtrlYearHs" ,[ '$scope', 'DatosSchool', '$r
 
      var tipoEscuela = $rootScope.tipoDeEscuela; 
 
-    if (((tipoEscuela.indexOf("Elementary") !== -1) || (tipoEscuela.indexOf("Middle") !== -1) || (tipoEscuela.indexOf("K-8") !== -1)|| (tipoEscuela.indexOf("K-3") !== -1)) && (tipoEscuela.length == 1) ){
+
+
+     if(($rootScope.arrayAvailableYearsTestScoreEs.length > 0) && ($rootScope.arrayAvailableYearsTestScoreHs.length == 0)){
       $('#testScore-all').removeClass('borrar');
       $('#testScore-all').addClass('mostrar');
       $('#testScore-elementary').removeClass('borrar');
       $('#testScore-elementary').addClass('mostrar');
-
-        if ($rootScope.arrayAvailableYearsTestScoreEs.length == 0) {
-          $('#testScore-all').removeClass('mostrar');
-          $('#testScore-all').addClass('borrar');
-          $('#testScore-nd').removeClass('borrar');
-          $('#testScore-nd').addClass('mostrar');
-          
-        };        
-    };
-    if ( 
-      (tipoEscuela.indexOf("K-3") !== -1) && (tipoEscuela.indexOf("Elementary") !== -1) ||
-      (tipoEscuela.indexOf("K-8") !== -1) && (tipoEscuela.indexOf("Elementary") !== -1) ||
-      (tipoEscuela.indexOf("K-8") !== -1) && (tipoEscuela.indexOf("Middle") !== -1)
-      ){
-      $('#testScore-all').removeClass('borrar');
-      $('#testScore-all').addClass('mostrar');
-      $('#testScore-elementary').removeClass('borrar');
-      $('#testScore-elementary').addClass('mostrar');
-
-        if ($rootScope.arrayAvailableYearsTestScoreEs.length == 0) {
-          $('#testScore-all').removeClass('mostrar');
-          $('#testScore-all').addClass('borrar');
-          $('#testScore-nd').removeClass('borrar');
-          $('#testScore-nd').addClass('mostrar');
-          
-        };     
-
-    };
-     if ( ((tipoEscuela.indexOf("High School Transfer") !== -1) || (tipoEscuela.indexOf("High School") !== -1)) && (tipoEscuela.length == 1) ){
+     }else if (($rootScope.arrayAvailableYearsTestScoreEs.length == 0) && ($rootScope.arrayAvailableYearsTestScoreHs.length > 0)){
       $('#testScore-all').removeClass('borrar');
       $('#testScore-all').addClass('mostrar');
       $('#testScore-high').removeClass('borrar');
       $('#testScore-high').addClass('mostrar');
-
-        if ($rootScope.arrayAvailableYearsTestScoreHs.length == 0) {
-          $('#testScore-all').removeClass('mostrar');
-          $('#testScore-all').addClass('borrar');
-          $('#testScore-nd').removeClass('borrar');
-          $('#testScore-nd').addClass('mostrar');
-        };
-
-    };
-     if ( (tipoEscuela.indexOf("K-2") !== -1) && (tipoEscuela.length == 1) ){
-      $('#testScore-nd').removeClass('borrar');
-      $('#testScore-nd').addClass('mostrar');
-    };
-     if ((tipoEscuela.indexOf("High School") !== -1) && (tipoEscuela.indexOf("Middle") !== -1)){
+    }else if (($rootScope.arrayAvailableYearsTestScoreEs.length > 0) && ($rootScope.arrayAvailableYearsTestScoreHs.length > 0)) {
       $('#selectTestScore').removeClass('borrar');
       $('#selectTestScore').addClass('mostrar');
-    };
-     if ((tipoEscuela.indexOf("High School") !== -1) && (tipoEscuela.indexOf("K-8") !== -1)){
-      // if ($rootScope.GradesAvailable) {
-        $('#selectTestScore').removeClass('borrar');
-        $('#selectTestScore').addClass('mostrar');
-      // };
-    };
-     if (tipoEscuela.length== 0) {
+    }else{
       $('#testScore-nd').removeClass('borrar');
       $('#testScore-nd').addClass('mostrar');
     };
+     // $rootScope.arrayAvailableYearsTestScoreHs
+
+
+    // if (((tipoEscuela.indexOf("Elementary") !== -1) || (tipoEscuela.indexOf("Middle") !== -1) || (tipoEscuela.indexOf("K-8") !== -1)|| (tipoEscuela.indexOf("K-3") !== -1)) && (tipoEscuela.length == 1) ){
+    //   $('#testScore-all').removeClass('borrar');
+    //   $('#testScore-all').addClass('mostrar');
+    //   $('#testScore-elementary').removeClass('borrar');
+    //   $('#testScore-elementary').addClass('mostrar');
+
+    //     if ($rootScope.arrayAvailableYearsTestScoreEs.length == 0) {
+    //       $('#testScore-all').removeClass('mostrar');
+    //       $('#testScore-all').addClass('borrar');
+    //       $('#testScore-nd').removeClass('borrar');
+    //       $('#testScore-nd').addClass('mostrar');
+          
+    //     };        
+    // };
+    // if ( 
+    //   (tipoEscuela.indexOf("K-3") !== -1) && (tipoEscuela.indexOf("Elementary") !== -1) ||
+    //   (tipoEscuela.indexOf("K-8") !== -1) && (tipoEscuela.indexOf("Elementary") !== -1) ||
+    //   (tipoEscuela.indexOf("K-8") !== -1) && (tipoEscuela.indexOf("Middle") !== -1)
+    //   ){
+    //   $('#testScore-all').removeClass('borrar');
+    //   $('#testScore-all').addClass('mostrar');
+    //   $('#testScore-elementary').removeClass('borrar');
+    //   $('#testScore-elementary').addClass('mostrar');
+
+    //     if ($rootScope.arrayAvailableYearsTestScoreEs.length == 0) {
+    //       $('#testScore-all').removeClass('mostrar');
+    //       $('#testScore-all').addClass('borrar');
+    //       $('#testScore-nd').removeClass('borrar');
+    //       $('#testScore-nd').addClass('mostrar');
+          
+    //     };     
+
+    // };
+    //  if ( ((tipoEscuela.indexOf("High School Transfer") !== -1) || (tipoEscuela.indexOf("High School") !== -1)) && (tipoEscuela.length == 1) ){
+    //   $('#testScore-all').removeClass('borrar');
+    //   $('#testScore-all').addClass('mostrar');
+    //   $('#testScore-high').removeClass('borrar');
+    //   $('#testScore-high').addClass('mostrar');
+
+    //     if ($rootScope.arrayAvailableYearsTestScoreHs.length == 0) {
+    //       $('#testScore-all').removeClass('mostrar');
+    //       $('#testScore-all').addClass('borrar');
+    //       $('#testScore-nd').removeClass('borrar');
+    //       $('#testScore-nd').addClass('mostrar');
+    //     };
+
+    // };
+    //  if ( (tipoEscuela.indexOf("K-2") !== -1) && (tipoEscuela.length == 1) ){
+    //   $('#testScore-nd').removeClass('borrar');
+    //   $('#testScore-nd').addClass('mostrar');
+    // };
+    //  if ((tipoEscuela.indexOf("High School") !== -1) && (tipoEscuela.indexOf("Middle") !== -1)){
+    //   $('#selectTestScore').removeClass('borrar');
+    //   $('#selectTestScore').addClass('mostrar');
+    // };
+    //  if ((tipoEscuela.indexOf("High School") !== -1) && (tipoEscuela.indexOf("K-8") !== -1)){
+    //   // if ($rootScope.GradesAvailable) {
+    //     $('#selectTestScore').removeClass('borrar');
+    //     $('#selectTestScore').addClass('mostrar');
+    //   // };
+    // };
+    //  if (tipoEscuela.length== 0) {
+    //   $('#testScore-nd').removeClass('borrar');
+    //   $('#testScore-nd').addClass('mostrar');
+    // };
 
     $rootScope.selectedyear_testScore_year_hs= "2013";
     $rootScope.valuesSat = DatosSchool.SearchValuesSat(indice);
@@ -728,6 +750,7 @@ nyc_controllers.controller("TestScoreCtrlYearEl" ,[ '$scope', 'DatosSchool', '$r
       };
     arrayAvailableYears.push(item);
     };
+
     $rootScope.arrayAvailableYearsTestScoreEs = arrayAvailableYears;
     jsonAvaylableYears = JSON.stringify(arrayAvailableYears);
     $rootScope.itemsYearsTestScoreEl = JSON.parse(jsonAvaylableYears);
@@ -925,7 +948,7 @@ nyc_controllers.controller("TestScoreGradeddCtrl" ,[ '$scope', 'DatosSchool', '$
     // si no hao esta condicional ocurre un error
     // if ((arrayAvailableAllGrades['filtroGrade'] !== undefined) && (arrayAvailableAllGrades['texto'] !== undefined) && (arrayAvailableAllGrades['indice'] !== undefined)) {
       console.log(arrayAvailableAllGrades);
-    if (arrayAvailableAllGrades.length > 0) {
+    if (($rootScope.arrayAvailableYearsTestScoreEs.length > 0) && (arrayAvailableAllGrades.length > 0)) {
       if ( !((tipoEscuela.length == 1) && ((tipoEscuela.indexOf('High School Transfer') !== -1) || (tipoEscuela.indexOf('High School') !== -1)))) {
         $rootScope.testScore_grade = $rootScope.itemsGrades[0].filtroGrade;
         $scope.selectedgrade = $rootScope.itemsGrades[0].texto;
