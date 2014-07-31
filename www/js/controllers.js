@@ -629,7 +629,6 @@ nyc_controllers.controller("TestScoreCtrlYearHs" ,[ '$scope', 'DatosSchool', '$r
       $('#testScore-all').addClass('mostrar');
       $('#testScore-high').removeClass('borrar');
       $('#testScore-high').addClass('mostrar');
-        console.log("here carajo!");
 
         if ($rootScope.arrayAvailableYearsTestScoreHs.length == 0) {
           $('#testScore-all').removeClass('mostrar');
@@ -648,8 +647,10 @@ nyc_controllers.controller("TestScoreCtrlYearHs" ,[ '$scope', 'DatosSchool', '$r
       $('#selectTestScore').addClass('mostrar');
     };
      if ((tipoEscuela.indexOf("High School") !== -1) && (tipoEscuela.indexOf("K-8") !== -1)){
-      $('#selectTestScore').removeClass('borrar');
-      $('#selectTestScore').addClass('mostrar');
+      // if ($rootScope.GradesAvailable) {
+        $('#selectTestScore').removeClass('borrar');
+        $('#selectTestScore').addClass('mostrar');
+      // };
     };
      if (tipoEscuela.length== 0) {
       $('#testScore-nd').removeClass('borrar');
@@ -922,10 +923,28 @@ nyc_controllers.controller("TestScoreGradeddCtrl" ,[ '$scope', 'DatosSchool', '$
     // tipoEscuela.length
 
     // si no hao esta condicional ocurre un error
-    if ( !((tipoEscuela.length == 1) && ((tipoEscuela.indexOf('High School Transfer') !== -1) || (tipoEscuela.indexOf('High School') !== -1)))) {
-      $rootScope.testScore_grade = $rootScope.itemsGrades[0].filtroGrade;
-      $scope.selectedgrade = $rootScope.itemsGrades[0].texto;
-    };
+    // if ((arrayAvailableAllGrades['filtroGrade'] !== undefined) && (arrayAvailableAllGrades['texto'] !== undefined) && (arrayAvailableAllGrades['indice'] !== undefined)) {
+      console.log(arrayAvailableAllGrades);
+    if (arrayAvailableAllGrades.length > 0) {
+      if ( !((tipoEscuela.length == 1) && ((tipoEscuela.indexOf('High School Transfer') !== -1) || (tipoEscuela.indexOf('High School') !== -1)))) {
+        $rootScope.testScore_grade = $rootScope.itemsGrades[0].filtroGrade;
+        $scope.selectedgrade = $rootScope.itemsGrades[0].texto;
+      $rootScope.GradesAvailable = true;
+      }
+    }
+
+    // else if( ((tipoEscuela.indexOf("High School Transfer") !== -1) || (tipoEscuela.indexOf("High School") !== -1)) && (tipoEscuela.length == 1) ){
+    //   console.log('here my good');
+    // }else{
+    //   $rootScope.GradesAvailable = false;
+    //   // console.log('borrar poes');
+    //     // $('#testScore-all').removeClass('mostrar');      
+    //     // $('#testScore-all').addClass('borrar');   
+    //     // $('#selectTestScore').removeClass('mostrar');
+    //     // $('#selectTestScore').addClass('borrar');
+    //     $('#testScore-nd').removeClass('borrar');
+    //     $('#testScore-nd').addClass('mostrar');
+    // };
     // $scope.itemsGrades = [{texto:"3rd",indice:"0"},{texto:"4th",indice:"1"},{texto:"5th",indice:"2"},{texto:"6th",indice:"3"},{texto:"7th",indice:"4"},{texto:"8th",indice:"5"}];
    
     $scope.changegrade = function(indice_grade) {
