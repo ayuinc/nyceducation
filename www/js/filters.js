@@ -9,6 +9,14 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
     } 
 })
 
+.filter("filtraCerosNull", function(){
+    return function(text) { 
+
+        if (text == null || text == "0" || text == ""){ return "borrar";}
+
+    } 
+})
+
 .filter("filterNull", function(){
     return function(text) { 
 
