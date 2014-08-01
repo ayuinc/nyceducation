@@ -136,36 +136,22 @@
 
       <div class="small-12 medium-12 large-12 columns bg-tablas-data {{enrollment.attendance_es_ms_k8_ec | filtraCeros}}" >
         <div class="democracy color-barra " style="width:{{enrollment.attendance_es_ms_k8_ec}}%; margin-left:-17px">
-            <p>{{enrollment.attendance_es_ms_k8_ec | number:1}}</p>
+            <p>{{enrollment.attendance_es_ms_k8_ec | number:1}}%</p>
             <itemsurvey><span  class="sin-i" style="margin-right: -28px;">Attendance Rate K-8</span></itemsurvey>                
         </div>
-
-        <div class="metrics {{city_average.AttendanceRate | filtraCeros}}">
-          <div class="average" style="width:{{city_average.AttendanceRate}}%;">
-              <p style="padding-left:25px">City Average: {{city_average.AttendanceRate | redondea}}</p>
-          </div>                          
-          <div class="rank">
-            <p class="{{ proficiency_ratings.attendance_es_ms_k8_ec_pr | filtraCeros }}">Rank <samp><img ng-src="img/{{ proficiency_ratings.attendance_es_ms_k8_ec_pr | filtraRank }}.png" ></samp> >Avg. </p>
-          </div>
+        <div class="rank-s">
+          <p class="{{ proficiency_ratings.attendance_es_ms_k8_ec_pr | filtraCeros }}">Rank <samp><img ng-src="img/{{ proficiency_ratings.attendance_es_ms_k8_ec_pr | filtraRank }}.png" ></samp> >Avg. </p>
         </div>
-
       </div>
 
       <div class="small-12 medium-12 large-12 columns bg-tablas-data {{enrollment.attendance_hs_transfer_hs | filtraCeros}}" >
         <div class="democracy color-barra  " style="width:{{enrollment.attendance_hs_transfer_hs}}%;margin-left:-17px">
-              <p>{{enrollment.attendance_hs_transfer_hs | number:1}}</p>
+              <p>{{enrollment.attendance_hs_transfer_hs | number:1}}%</p>
               <itemsurvey><span  class="sin-i" style="margin-right: -28px;">Attendance Rate 9-12</span></itemsurvey>
         </div>
-
-        <div class="metrics {{city_average.Average_of_Percent_of_Students_Earning_10_Credits_in_1st_Year | filtraCeros}}">
-          <div class="average" style="width:{{city_average.Average_of_Percent_of_Students_Earning_10_Credits_in_1st_Year}}%;">
-              <p style="padding-left:25px">City Average: {{city_average.Average_of_Percent_of_Students_Earning_10_Credits_in_1st_Year | redondea}}</p>
-          </div>                          
-          <div class="rank" >
-            <p class="{{ proficiency_ratings.attendance_hs_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.attendance_hs_pr | filtraRank }}.png" > >Avg. </p>
-          </div>
+        <div class="rank-s">
+          <p class="{{ proficiency_ratings.attendance_hs_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.attendance_hs_pr | filtraRank }}.png" > >Avg. </p>
         </div>
-                
      
       </div>
 
