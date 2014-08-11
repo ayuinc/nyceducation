@@ -1290,7 +1290,7 @@ left: 105px;
 .middle-vertical {
 	display: table;
 	height: 100%;
-	width: 86%;
+	/* width: 86%; */
 }
 
 .middle-vertical h1{
