@@ -1366,6 +1366,33 @@ padding-right: 2.5rem !important;
   background-position: 95% 0% !important;
 }
 
+.survey-categories .close{
+
+  background: #8ecad4 url('../img/close.png') !important;
+  background-repeat: no-repeat !important;
+  min-width: 1.2rem;
+  min-height: 1.2rem;
+  background-size: 1.2rem !important;
+  -webkit-background-size: 1.2rem !important;
+  -moz-background-size: 1.2rem !important;
+  -o-background-size: 1.2rem !important;
+  background-position: 95% 0% !important;
+
+}
+
+.survey-categories .open{
+
+  background: #8ecad4 url('../img/open.png') !important;
+  background-repeat: no-repeat !important;
+  min-width: 1.2rem;
+  min-height: 1.2rem;
+  background-size: 1.2rem !important;
+  -webkit-background-size: 1.2rem !important;
+  -moz-background-size: 1.2rem !important;
+  -o-background-size: 1.2rem !important;
+  background-position: 95% 0% !important;
+}
+
 
 .accordion dd > a.accordion_label_srd {
 border-bottom: 0;

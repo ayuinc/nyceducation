@@ -304,4 +304,16 @@ if (text == "2011"){
 })
 
 
+.filter("filtrasat800", function(){
+    return function(text) {
+
+        var num = parseInt(text);
+
+        var val = (num*100)/(800);
+        // console.log(val);
+        return val;
+    }
+})
+
+
 ;

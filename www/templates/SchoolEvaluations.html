@@ -98,7 +98,7 @@
 
 					<div class="small-12 medium-12 large-12 columns barra-blanca-pq bg-tablas-data  {{evaluation.es_ms_k8_ec_s_perf_pr_score | filtraCeros}}">
 						<div class="democracy color-barra " style="width:{{evaluation.es_ms_k8_ec_s_perf_pr_score}}%;">
-							<p>{{evaluation.es_ms_k8_ec_s_perf_pr_grade}}</p>
+							<p>{{evaluation.es_ms_k8_ec_s_perf_pr_score | number:1}}</p>
 							<itemsurvey><span class="con-info">Performance</span>
 							<div Popover-animation="false" popover="Based on student results on the State tests in English Language Arts and Math. Middle school scores also take students passing core courses into account." popover-placement="left" class="icon-info" style="cursor:pointer"  onclick="quitaBurbuja()"></div>
 							</itemsurvey>
@@ -110,7 +110,7 @@
 
 					<div class="small-12 medium-12 large-12 columns barra-blanca-pq bg-tablas-data  {{evaluation.es_ms_k8_ec_s_prog_score | filtraCeros}}">
 						<div class="democracy color-barra " style="width:{{evaluation.es_ms_k8_ec_s_prog_score}}%;">
-							<p>{{evaluation.es_ms_k8_ec_s_prog_grade}}</p>
+							<p>{{evaluation.es_ms_k8_ec_s_prog_score | number:1}}</p>
 							<itemsurvey><span class="con-info">Progress</span>
 							<div Popover-animation="false" popover="Based on how much individual students improved on State tests in English Language Arts and Math compared to other students in the City." popover-placement="left" class="icon-info" style="cursor:pointer"   onclick="quitaBurbuja()"></div>
 							</itemsurvey>
@@ -122,7 +122,7 @@
 
 					<div class="small-12 medium-12 large-12 columns barra-blanca-pq bg-tablas-data  {{evaluation.es_ms_k8_ec_s_enviro_pr_score | filtraCeros}}">
 						<div class="democracy color-barra " style="width:{{evaluation.es_ms_k8_ec_s_enviro_pr_score}}%;">
-							<p>{{evaluation.es_ms_k8_ec_s_enviro_pr_grade}}</p>
+							<p>{{evaluation.es_ms_k8_ec_s_enviro_pr_score | number:1}}</p>
 							<itemsurvey><span class="con-info">Environment</span>
 							<div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer"   onclick="quitaBurbuja()"></div>
 							</itemsurvey>
@@ -138,12 +138,19 @@
 
 		    <div ng-show="valuesQualityReviewElem" style="position:relative;z-index:5;top: 8px;left: 126px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="A two- or three-day school visit by an experienced educator to evaluate how well the school is organized to support student achievement. The overall rating is based on three major categories: instruction that prepares students for college and careers, school organization and management, and quality of the learning environment." ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>
 
-	    <accordion-group is-open="false" ng-show="valuesQualityReviewElem">
+	    <accordion-group is-open="false" >
         <accordion-heading>
             <div >Quality Review</div>
         </accordion-heading> 
 
-			    	<div class="row">
+			    	<div class="row" ng-show="valuesQualityReviewElem">
+
+				<div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ratings.quality_review_rating | filtraCeros}}">
+					<div class="democracy color-barra " style="width:{{evaluation_ratings.quality_review_rating | filtraqr}}%;">
+						<p style="font-size:1.1rem">{{evaluation_ratings.quality_review_rating }}</p>
+						<itemsurvey style="width:40%;top:-0.4rem;text-align:right;"><span class="sin-i">Overall</span></itemsurvey>
+					</div>
+				</div>				    		
 
 				<div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ratings.ri_11 | filtraCeros}}">
 					<div class="democracy color-barra-2 " style="width:{{evaluation_ratings.ri_11 | filtraqr}}%;">
@@ -184,6 +191,18 @@
 					</div>
 				</div>	
 
+
+    	</div>
+
+    	<div class="row" ng-show="valuesQualityReviewElemND">
+
+				<div class="small-12 medium-12 large-12 columns bg-tablas-data">
+					<div class="democracy color-barra " style="width:0%;">
+						<p style="font-size:1.1rem">Unavailable</p>
+						<itemsurvey style="top:-0.4rem;text-align:right;">
+						</itemsurvey>
+					</div>
+				</div>	  		
 
     	</div>
 
@@ -249,7 +268,7 @@
 
 					<div class="small-12 medium-12 large-12 columns barra-blanca-pq bg-tablas-data  {{evaluation.hs_t_hs_sper_pr_score | filtraCeros}}">
 						<div class="democracy color-barra " style="width:{{evaluation.hs_t_hs_sper_pr_score}}%;">
-							<p>{{evaluation.hs_t_hs_sper_pr_grade}}</p>
+							<p>{{evaluation.hs_t_hs_sper_pr_score | number:1}}</p>
 							<itemsurvey><span class="con-info">Performance</span>
 							<div Popover-animation="false" popover="Based on how many students graduated within 4 and 6 years of starting high school  and the types of diplomas they earned." popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
 							</itemsurvey>
@@ -261,7 +280,7 @@
 
 					<div class="small-12 medium-12 large-12 columns barra-blanca-pq bg-tablas-data  {{evaluation.hs_t_hs_spro_pr_score | filtraCeros}}">
 						<div class="democracy color-barra " style="width:{{evaluation.hs_t_hs_spro_pr_score}}%;">
-							<p>{{evaluation.hs_t_hs_spro_pr_grade}}</p>
+							<p>{{evaluation.hs_t_hs_spro_pr_score | number:1}}</p>
 							<itemsurvey><span class="con-info">Progress</span>
 							<div Popover-animation="false" popover="Based on the annual progress students make toward meeting the State's graduation requirements by earning course credits and passing Regents exams." popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
 							</itemsurvey>
@@ -273,7 +292,7 @@
 
 					<div class="small-12 medium-12 large-12 columns barra-blanca-pq bg-tablas-data  {{evaluation.hs_t_hs_se_pr_score | filtraCeros}}">
 						<div class="democracy color-barra " style="width:{{evaluation.hs_t_hs_se_pr_score}}%;">
-							<p>{{evaluation.hs_t_hs_se_pr_grade}}</p>
+							<p>{{evaluation.hs_t_hs_se_pr_score | number:1}}</p>
 							<itemsurvey><span class="con-info">Environment</span>
 							<div Popover-animation="false" popover="Based on student attendance and the results of the school's NYC School Survey." popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
 							</itemsurvey>
@@ -285,7 +304,7 @@
   
 					<div class="small-12 medium-12 large-12 columns barra-blanca-pq bg-tablas-data  {{evaluation.hs_t_hs_o_cac_score | filtraCeros}}">
 						<div class="democracy color-barra " style="width:{{evaluation.hs_t_hs_o_cac_score}}%;">
-							<p>{{evaluation.hs_t_hs_o_cac_grade}}</p>
+							<p>{{evaluation.hs_t_hs_o_cac_score | number:1}}</p>
 							<itemsurvey><span class="con-info">College and Career</span>
 							<div Popover-animation="false" popover="Measures the ability of a school to prepare its students for success in college and career on the basis of passing advanced courses, meeting proficiency standards and enrolling in a post-secondary institution." popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
 							</itemsurvey>
@@ -300,18 +319,18 @@
 	    </accordion-group>
 
 		    <div ng-show="valuesQualityReviewHigh" style="position:relative;z-index:5;top: 8px;left: 126px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="A two- or three-day school visit by an experienced educator to evaluate how well the school is organized to support student achievement. The overall rating is based on three major categories: instruction that prepares students for college and careers, school organization and management, and quality of the learning environment." ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>
-	    <accordion-group is-open="false" ng-show="valuesQualityReviewHigh">
+	    <accordion-group is-open="false" >
         <accordion-heading>
             <div >Quality Review</div>
         </accordion-heading> 
 
-    	<div class="row">
+    	<div class="row" ng-show="valuesQualityReviewHigh">
 
 
 				<div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ratings.quality_review_rating | filtraCeros}}">
 					<div class="democracy color-barra " style="width:{{evaluation_ratings.quality_review_rating | filtraqr}}%;">
 						<p style="font-size:1.1rem">{{evaluation_ratings.quality_review_rating }}</p>
-						<itemsurvey style="width:40%;top:-0.4rem;text-align:right;"><span class="sin-i">Quality</span></itemsurvey>
+						<itemsurvey style="width:40%;top:-0.4rem;text-align:right;"><span class="sin-i">Overall</span></itemsurvey>
 					</div>
 				</div>	
 
@@ -352,6 +371,18 @@
 				</div>	
 
   	</div>
+
+    	<div class="row" ng-show="valuesQualityReviewHighND">
+
+				<div class="small-12 medium-12 large-12 columns bg-tablas-data">
+					<div class="democracy color-barra " style="width:0%;">
+						<p style="font-size:1.1rem">Unavailable</p>
+						<itemsurvey style="top:-0.4rem;text-align:right;">
+						</itemsurvey>
+					</div>
+				</div>	  		
+
+    	</div>  	
 
   	</accordion-group>
   </accordion>
