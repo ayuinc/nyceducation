@@ -18,13 +18,11 @@
   <script type="text/javascript">
 
 
-    function GetUniqueElementsArray(inputArray)
-    {
+    function GetUniqueElementsArray(inputArray) {
       var outputArray = [];
-      for (var i = 0; i < inputArray.length; i++)
-      {
-        if ((jQuery.inArray(inputArray[i], outputArray)) == -1)
-        {
+      var inputArrayLength = inputArray.length;
+      for (var i = 0; i < inputArrayLength ; i++) {
+        if ((jQuery.inArray(inputArray[i], outputArray)) == -1) {
           if ((inputArray[i] != "") && (inputArray[i] != "0.00") && (inputArray[i] != "0")) {
             outputArray.push(inputArray[i].trim());
           };
@@ -33,13 +31,11 @@
       return outputArray;
     }
 
-    function GetUniqueElementsArrayForELA(inputArray)
-    {
+    function GetUniqueElementsArrayForELA(inputArray) {
       var outputArray = [];
-      for (var i = 0; i < inputArray.length; i++)
-      {
-        if ((jQuery.inArray(inputArray[i], outputArray)) == -1)
-        {
+      var inputArrayLength = inputArray.length;
+      for (var i = 0; i < inputArrayLength ; i++) {
+        if ((jQuery.inArray(inputArray[i], outputArray)) == -1) {
           if ((inputArray[i] != "") && (inputArray[i] != null)) {
             outputArray.push(inputArray[i]);
           };
