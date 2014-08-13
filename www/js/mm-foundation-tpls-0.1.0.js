@@ -2485,7 +2485,7 @@ angular.module("template/accordion/accordion-group.html", []).run(["$templateCac
 angular.module("template/accordion/accordion-grouptwo.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("template/accordion/accordion-grouptwo.html",
     "<dd>\n" +
-    "  <a class=\"accordion_label_srd\" ng-click=\"isOpen = !isOpen\" accordion-transclude=\"heading\" >{{heading}} </a>\n" +
+    "  <a onClick=\"openCloseAccordionSurverCategories(this)\" class=\"accordion_label close-survey-categories\" ng-click=\"isOpen = !isOpen\"  accordion-transclude=\"heading\"  >{{heading}}  </a>  \n" +
     "  <div class=\"content\" ng-style=\"isOpen ? {display: 'block'} : {}\" ng-transclude></div>\n" +
     "</dd>\n" +
     "");

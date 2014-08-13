@@ -989,12 +989,12 @@
         
       </accordion-group>
 
-      <div ng-show="valuesAverageProficiencyScoreELA" style="position:relative;z-index:5;top: 8px;left: 241px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="Provides the average performance level on New York State ELA test of students who took the test at the school." ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>        
+      <div ng-show="valuesAverageProficiencyScore" style="position:relative;z-index:5;top: 8px;left: 203px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="Provides the average performance level on New York State ELA and Math test of students who took the test at the school." ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>        
         
-    	<accordion-group is-open="false" ng-show="valuesAverageProficiencyScoreELA">
+    	<accordion-group is-open="false" ng-show="valuesAverageProficiencyScore">
 
         <accordion-heading>
-            <div >Average Proficiency Score - ELA</div>
+            <div >Average Proficiency Score</div>
         </accordion-heading>             
 
     		 <!--AVERANGE ELA -->
@@ -1004,7 +1004,7 @@
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.3rd_a_p_r_ela | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_ela.3rd_a_p_r_ela | EscalaAverageTestScore}}%;">
                 <p>{{evaluation_ela.3rd_a_p_r_ela | redondea_sp}}/<span class="total_dividendo">4.5</span></p>
-                <itemsurvey><span class="sin-i"> Average Proficiency Rating </span></itemsurvey>
+                <itemsurvey><span class="sin-i"> Average Proficiency Rating - ELA</span></itemsurvey>
                 </div>
 
                 <div class="metrics {{city_average.3rdGradeAverageProficiencyRatingELA }}">
@@ -1022,7 +1022,7 @@
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.4rd_a_p_r_ela | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_ela.4rd_a_p_r_ela | EscalaAverageTestScore}}%;">
                 <p>{{evaluation_ela.4rd_a_p_r_ela | redondea_sp}}/<span class="total_dividendo">4.5</span></p>
-                <itemsurvey><span class="sin-i">Average Proficiency Rating</span></itemsurvey>
+                <itemsurvey><span class="sin-i">Average Proficiency Rating - ELA</span></itemsurvey>
                 </div>
 
                 <div class="metrics {{city_average.4thGradeAverageProficiencyRatingsELA }}">
@@ -1040,7 +1040,7 @@
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.5rd_a_p_r_ela | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_ela.5rd_a_p_r_ela | EscalaAverageTestScore}}%;">
                 <p>{{evaluation_ela.5rd_a_p_r_ela | redondea_sp}}/<span class="total_dividendo">4.5</span></p>
-                <itemsurvey><span class="sin-i">Average Proficiency Rating</span></itemsurvey>
+                <itemsurvey><span class="sin-i">Average Proficiency Rating - ELA</span></itemsurvey>
                 </div>
 
                 <div class="metrics {{city_average.5thGradeAverageProficiencyRatingELA }}">
@@ -1058,7 +1058,7 @@
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.6rd_a_p_r_ela | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_ela.6rd_a_p_r_ela | EscalaAverageTestScore}}%;">
                 <p>{{evaluation_ela.6rd_a_p_r_ela | redondea_sp}}/<span class="total_dividendo">4.5</span></p>
-                <itemsurvey><span class="sin-i">Average Proficiency Rating</span></itemsurvey>
+                <itemsurvey><span class="sin-i">Average Proficiency Rating - ELA</span></itemsurvey>
                 </div>
 
                 <div class="metrics {{city_average.6thGradeAverageProficiencyRatingELA }}">
@@ -1076,7 +1076,7 @@
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.7rd_a_p_r_ela | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_ela.7rd_a_p_r_ela | EscalaAverageTestScore}}%;">
                 <p>{{evaluation_ela.7rd_a_p_r_ela | redondea_sp}}/<span class="total_dividendo">4.5</span></p>
-                <itemsurvey><span class="sin-i">Average Proficiency Rating</span></itemsurvey>
+                <itemsurvey><span class="sin-i">Average Proficiency Rating - ELA</span></itemsurvey>
                 </div>
 
                 <div class="metrics {{city_average.7thGradeAverageProficiencyRatingELA }}">
@@ -1094,7 +1094,7 @@
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.8rd_a_p_r_ela | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_ela.8rd_a_p_r_ela | EscalaAverageTestScore}}%;">
                 <p>{{evaluation_ela.8rd_a_p_r_ela | redondea_sp}}/<span class="total_dividendo">4.5</span></p>
-                <itemsurvey><span class="sin-i">Average Proficiency Rating</span></itemsurvey>
+                <itemsurvey><span class="sin-i">Average Proficiency Rating - ELA</span></itemsurvey>
                 </div>
 
                 <div class="metrics {{city_average.8thGradeAverageProficiencyRatingELA }}">
@@ -1108,25 +1108,14 @@
               </div>
             </div>
 
-      	 </div>
-
-      </accordion-group>
-
-      <div ng-show="valuesAverageProficiencyScoreMath" style="position:relative;z-index:5;top: 8px;left: 250px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="Provides the average performance level on New York State Math test of students who took the test at the school." ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>       
-
-      <accordion-group is-open="false" ng-show="valuesAverageProficiencyScoreMath">
-          <accordion-heading>
-              <div >Average Proficiency Score - Math</div>
-          </accordion-heading>         
-
-    		 <!--AVERANGE MATH-->
-    		  <div class="row">
+      <!-- FIN ELA -->            
+      <!-- COMIENZO MATH-->
 
             <div class ="{{ 3 | filtraGrado}}">
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_math.3rd_a_p_r_math | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_math.3rd_a_p_r_math | EscalaAverageTestScore}}%;">
                 <p>{{evaluation_math.3rd_a_p_r_math | redondea_sp}}/<span class="total_dividendo">4.5</span></p>
-                <itemsurvey><span class="sin-i"> Average Proficiency Rating </span></itemsurvey>
+                <itemsurvey><span class="sin-i"> Average Proficiency Rating - Math</span></itemsurvey>
                 </div>
 
                 <div class="metrics {{city_average.3rdGradeAverageProficiencyRatingMath }}">
@@ -1144,12 +1133,12 @@
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_math.4rd_a_p_r_math | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_math.4rd_a_p_r_math | EscalaAverageTestScore}}%;">
                 <p>{{evaluation_math.4rd_a_p_r_math | redondea_sp}}/<span class="total_dividendo">4.5</span></p>
-                <itemsurvey><span class="sin-i">Average Proficiency Rating</span></itemsurvey>
+                <itemsurvey><span class="sin-i">Average Proficiency Rating - Math</span></itemsurvey>
                 </div>
 
                 <div class="metrics {{city_average.4thGradeAverageProficiencyRatingsMath }}">
                   <div class="average" style="width:{{city_average.4thGradeAverageProficiencyRatingsMath | EscalaAverageTestScore}}%;">
-                  <p style="padding-left:25px">City Average: {{city_average.4thGradeAverageProficiencyRatingsMath | redondea}}/<span class="total_dividendo_caverage">4.5</span></p>
+                  <p style="padding-left:25px">City Average: {{city_average.4thGradeAverageProficiencyRatingsMath | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span></p>
                   </div>                          
                   <div class="rank">
                   <p class="{{ proficiency_ratings.4rd_a_p_r_math_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.4rd_a_p_r_math_pr | filtraRank }}.png" > >Avg. </p>
@@ -1162,7 +1151,7 @@
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_math.5rd_a_p_r_math | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_math.5rd_a_p_r_math | EscalaAverageTestScore}}%;">
                 <p>{{evaluation_math.5rd_a_p_r_math | redondea_sp}}/<span class="total_dividendo">4.5</span></p>
-                <itemsurvey><span class="sin-i">Average Proficiency Rating</span></itemsurvey>
+                <itemsurvey><span class="sin-i">Average Proficiency Rating - Math</span></itemsurvey>
                 </div>
 
                 <div class="metrics {{city_average.5thGradeAverageProficiencyRatingMath }}">
@@ -1180,7 +1169,7 @@
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_math.6rd_a_p_r_math | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_math.6rd_a_p_r_math | EscalaAverageTestScore}}%;">
                 <p>{{evaluation_math.6rd_a_p_r_math | redondea_sp}}/<span class="total_dividendo">4.5</span></p>
-                <itemsurvey><span class="sin-i">Average Proficiency Rating</span></itemsurvey>
+                <itemsurvey><span class="sin-i">Average Proficiency Rating - Math</span></itemsurvey>
                 </div>
 
                 <div class="metrics {{city_average.6thGradeAverageProficiencyRatingMath }}">
@@ -1198,7 +1187,7 @@
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_math.7rd_a_p_r_math | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_math.7rd_a_p_r_math | EscalaAverageTestScore}}%;">
                 <p>{{evaluation_math.7rd_a_p_r_math | redondea_sp}}/<span class="total_dividendo">4.5</span></p>
-                <itemsurvey><span class="sin-i">Average Proficiency Rating</span></itemsurvey>
+                <itemsurvey><span class="sin-i">Average Proficiency Rating - Math</span></itemsurvey>
                 </div>
 
                 <div class="metrics {{city_average.7thGradeAverageProficiencyRatingMath }}">
@@ -1216,7 +1205,7 @@
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_math.8rd_a_p_r_math | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_math.8rd_a_p_r_math | EscalaAverageTestScore}}%;">
                 <p>{{evaluation_math.8rd_a_p_r_math | redondea_sp}}/<span class="total_dividendo">4.5</span></p>
-                <itemsurvey><span class="sin-i">Average Proficiency Rating</span></itemsurvey>
+                <itemsurvey><span class="sin-i">Average Proficiency Rating - Math</span></itemsurvey>
                 </div>
 
                 <div class="metrics {{city_average.8thGradeAverageProficiencyRatingMath }}">
@@ -1230,8 +1219,8 @@
               </div>
             </div>        
 
+      	 </div> <!-- row -->
 
-        	</div>
       </accordion-group>
 
 
@@ -1316,16 +1305,16 @@
 
 
         			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_average_score.sat_a_cr_s | filtraCeros}}">
-            			<div class="democracy color-barra" style="width:{{evaluation_average_score.sat_a_cr_s | filtrasat }}%;">
-            				<p style="top: 0.1rem;">{{evaluation_average_score.sat_a_cr_s}}/<span class="total_dividendo">2400</span></p>
+            			<div class="democracy color-barra" style="width:{{evaluation_average_score.sat_a_cr_s | filtrasat800 }}%;">
+            				<p style="top: 0.1rem;">{{evaluation_average_score.sat_a_cr_s}}/<span class="total_dividendo">800</span></p>
             				<itemsurvey><span class="con-info">Critial Reasoning</span>
                     <div Popover-animation="false" popover="Average SAT score of students at the school taking the exam, a globally recognized college admission test that tests knowledge of critical  reading, writing and math." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
                     </itemsurvey>
             			</div>
 
         		   		<div class="metrics {{city_average.SAT_AverageCRScore }}">
-          					<div class="average" style="width:{{city_average.SAT_AverageCRScore | filtrasat }}%;">
-          						<p style="padding-left:25px">City Average: {{city_average.SAT_AverageCRScore | number:0}}/<span class="total_dividendo_caverage">2400</span></p>
+          					<div class="average" style="width:{{city_average.SAT_AverageCRScore | filtrasat800 }}%;">
+          						<p style="padding-left:25px">City Average: {{city_average.SAT_AverageCRScore | number:0}}/<span class="total_dividendo_caverage">800</span></p>
           					</div>			    			
           					<div class="rank">
           						<p class="{{ proficiency_ratings.sat_a_cr_s_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.sat_a_cr_s_pr | filtraRank }}.png" > >Avg. </p>
@@ -1336,16 +1325,16 @@
 
 
         			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_average_score.sat_a_math_s | filtraCeros }}">
-            			<div class="democracy color-barra" style="width:{{evaluation_average_score.sat_a_math_s | filtrasat }}%;">
-            				<p style="top: 0.1rem;">{{evaluation_average_score.sat_a_math_s}}/<span class="total_dividendo">2400</span></p>
+            			<div class="democracy color-barra" style="width:{{evaluation_average_score.sat_a_math_s | filtrasat800 }}%;">
+            				<p style="top: 0.1rem;">{{evaluation_average_score.sat_a_math_s}}/<span class="total_dividendo">800</span></p>
             				<itemsurvey><span class="con-info">Math</span>
                       <div Popover-animation="false" popover="Average SAT score of students at the school taking the exam, a globally recognized college admission test that tests knowledge of critical  reading, writing and math." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
                     </itemsurvey>
             			</div>
 
         		   		<div class="metrics {{city_average.SAT_AverageMathScore }}">
-          					<div class="average" style="width:{{city_average.SAT_AverageMathScore | filtrasat }}%;">
-          						<p style="padding-left:25px">City Average: {{city_average.SAT_AverageMathScore | number:0}}/<span class="total_dividendo_caverage">2400</span></p>
+          					<div class="average" style="width:{{city_average.SAT_AverageMathScore | filtrasat800 }}%;">
+          						<p style="padding-left:25px">City Average: {{city_average.SAT_AverageMathScore | number:0}}/<span class="total_dividendo_caverage">800</span></p>
           					</div>			    			
           					<div class="rank">
           						<p class="{{ proficiency_ratings.sat_a_math_s_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.sat_a_math_s_pr | filtraRank }}.png" > >Avg. </p>
@@ -1356,16 +1345,16 @@
 
 
         			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_average_score.sat_a_writing_s | filtraCeros}}">
-            			<div class="democracy color-barra" style="width:{{evaluation_average_score.sat_a_writing_s | filtrasat }}%;">
-            				<p style="top: 0.1rem;">{{evaluation_average_score.sat_a_writing_s}}/<span class="total_dividendo">2400</span></p>
+            			<div class="democracy color-barra" style="width:{{evaluation_average_score.sat_a_writing_s | filtrasat800 }}%;">
+            				<p style="top: 0.1rem;">{{evaluation_average_score.sat_a_writing_s}}/<span class="total_dividendo">800</span></p>
             				<itemsurvey><span class="con-info">Writing</span>
                       <div Popover-animation="false" popover="Average SAT score of students at the school taking the exam, a globally recognized college admission test that tests knowledge of critical  reading, writing and math." popover-placement="left" class="icon-info" style="cursor:pointer"></div>
                     </itemsurvey>
             			</div>
 
         		   		<div class="metrics {{city_average.SAT_AverageWritingScore }}">
-          					<div class="average" style="width:{{city_average.SAT_AverageWritingScore | filtrasat }}%;">
-          						<p style="padding-left:25px">City Average: {{city_average.SAT_AverageWritingScore | number:0}}/<span class="total_dividendo_caverage">2400</span></p>
+          					<div class="average" style="width:{{city_average.SAT_AverageWritingScore | filtrasat800 }}%;">
+          						<p style="padding-left:25px">City Average: {{city_average.SAT_AverageWritingScore | number:0}}/<span class="total_dividendo_caverage">800</span></p>
           					</div>			    			
           					<div class="rank">
           						<p class="{{ proficiency_ratings.sat_a_writing_s_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.sat_a_writing_s_pr | filtraRank }}.png" > >Avg. </p>
@@ -1378,17 +1367,17 @@
           	</div>
           </accordion-group>
 
-            <div ng-show="valuesRegentsAverageScore" style="position:relative;z-index:5;top: 8px;left: 152px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="Percentage of students passing the Regents Exam in the selected year." ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>       
+            <div  style="position:relative;z-index:5;top: 8px;left: 152px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="Percentage of students passing the Regents Exam in the selected year." ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>       
           
             
-            <accordion-group is-open="false" ng-show="valuesRegentsPassRate">
+            <accordion-group is-open="false" >
 
               <accordion-heading>
                   <div >Regents Pass Rate</div>
               </accordion-heading>      
 
                  <!-- Regents Pass Rate-->
-              <div class="row">
+              <div class="row" ng-show="valuesRegentsPassRate">
 
 
                 <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.pp_r_english | filtraCeros}}">
@@ -1562,21 +1551,31 @@
 
                 </div>                                                                                                
 
-            </div>        
+            </div>  
+
+            <div class="row" ng-show="valuesRegentsPassRateND">
+
+                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                  <div class="democracy color-barra" style="width:0%">
+                      <p>Unavailable</p>
+                  </div>
+                </div>
+
+            </div>      
 
 
           </accordion-group>            
 
-            <div ng-show="valuesRegentsAverageScore" style="position:relative;z-index:5;top: 8px;left: 183px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="Average score of all students who took the Regents Exam in the selected year." ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>   
+            <div style="position:relative;z-index:5;top: 8px;left: 183px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="Average score of all students who took the Regents Exam in the selected year." ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>   
 
-           <accordion-group is-open="false" ng-show="valuesRegentsAverageScore">
+           <accordion-group is-open="false">
 
             <accordion-heading>
                 <div >Regents Average Score</div>
             </accordion-heading>     
 
                  <!-- Regents Average Score-->
-            <div class="row">
+            <div class="row"  ng-show="valuesRegentsAverageScore">
 
 
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.as_r_english | filtraCeros}}">
@@ -1597,7 +1596,7 @@
 
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.as_r_us_history | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_regents.as_r_us_history}}%;">
-                    <p>{{evaluation_regents.as_r_us_history | redondea}}</p>
+                    <p>{{evaluation_regents.as_r_us_history | redondeaSinPorcentaje}}</p>
                     <itemsurvey><span class="sin-i"> U.S. History</span></itemsurvey>
                 </div>
                 <div class="rank-s">
@@ -1613,7 +1612,7 @@
 
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.as_r_global_history | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_regents.as_r_global_history}}%;">
-                    <p>{{evaluation_regents.as_r_global_history | redondea}}</p>
+                    <p>{{evaluation_regents.as_r_global_history | redondeaSinPorcentaje}}</p>
                     <itemsurvey><span class="sin-i"> Global History</span></itemsurvey>
                 </div>
                 <div class="rank-s">
@@ -1629,7 +1628,7 @@
 
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.as_r_living_environment | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_regents.as_r_living_environment}}%;">
-                    <p>{{evaluation_regents.as_r_living_environment | redondea}}</p>
+                    <p>{{evaluation_regents.as_r_living_environment | redondeaSinPorcentaje}}</p>
                     <itemsurvey><span class="sin-i"> Living Environment</span></itemsurvey>
                 </div>
                 <div class="rank-s">
@@ -1645,7 +1644,7 @@
 
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.as_r_earth_science | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_regents.as_r_earth_science}}%;">
-                    <p>{{evaluation_regents.as_r_earth_science | redondea}}</p>
+                    <p>{{evaluation_regents.as_r_earth_science | redondeaSinPorcentaje}}</p>
                     <itemsurvey><span class="sin-i"> Earth Science</span></itemsurvey>
                 </div>
                 <div class="rank-s">
@@ -1663,7 +1662,7 @@
 
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.as_r_chemistry | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_regents.as_r_chemistry}}%;">
-                    <p>{{evaluation_regents.as_r_chemistry | redondea}}</p>
+                    <p>{{evaluation_regents.as_r_chemistry | redondeaSinPorcentaje}}</p>
                     <itemsurvey><span class="sin-i"> Chemistry</span></itemsurvey>
                 </div>
                 <div class="rank-s">
@@ -1681,7 +1680,7 @@
 
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.as_r_physics | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_regents.as_r_physics}}%;">
-                    <p>{{evaluation_regents.as_r_physics | redondea}}</p>
+                    <p>{{evaluation_regents.as_r_physics | redondeaSinPorcentaje}}</p>
                     <itemsurvey><span class="sin-i"> Physics</span></itemsurvey>
                 </div>
                 <div class="rank-s">
@@ -1698,7 +1697,7 @@
 
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.as_r_integrated_algebra | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_regents.as_r_integrated_algebra}}%;">
-                    <p>{{evaluation_regents.as_r_integrated_algebra | redondea}}</p>
+                    <p>{{evaluation_regents.as_r_integrated_algebra | redondeaSinPorcentaje}}</p>
                     <itemsurvey><span class="sin-i"> Integrated Algebra</span></itemsurvey>
                 </div>
                 <div class="rank-s">
@@ -1716,7 +1715,7 @@
 
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.as_r_geometry | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_regents.as_r_geometry}}%;">
-                    <p>{{evaluation_regents.as_r_geometry | redondea}}</p>
+                    <p>{{evaluation_regents.as_r_geometry | redondeaSinPorcentaje}}</p>
                     <itemsurvey><span class="sin-i"> Geometry</span></itemsurvey>
                 </div>
                 <div class="rank-s">
@@ -1735,7 +1734,7 @@
 
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.as_r_algebraii | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_regents.as_r_algebraii}}%;">
-                    <p>{{evaluation_regents.as_r_algebraii | redondea}}</p>
+                    <p>{{evaluation_regents.as_r_algebraii | redondeaSinPorcentaje}}</p>
                     <itemsurvey><span class="sin-i"> Algebra II</span></itemsurvey>
                 </div>
                 <div class="rank-s">
@@ -1751,21 +1750,31 @@
 
               </div>                                                                                                
 
-          </div>        
+          </div>    
+
+            <div class="row" ng-show="valuesRegentsAverageScoreND">
+
+                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                  <div class="democracy color-barra" style="width:0%">
+                      <p>Unavailable</p>
+                  </div>
+                </div>
+
+            </div>               
 
 
           </accordion-group>    
 
-            <div ng-show="valuesRegentsRegentsCollegeReady" style="position:relative;z-index:5;top: 8px;left: 183px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="Percentage of students who scored at the college ready threshold for the Regents Exam in the selected year." ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>       
+            <div  style="position:relative;z-index:5;top: 8px;left: 183px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="Percentage of students who scored at the college ready threshold for the Regents Exam in the selected year." ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>       
 
-           <accordion-group  is-open="false" ng-show="valuesRegentsRegentsCollegeReady">
+           <accordion-group  is-open="false">
 
             <accordion-heading>
                 <div>Regents College Ready</div>
             </accordion-heading>       
 
                  <!-- Regents College Ready-->
-            <div class="row">
+            <div class="row" ng-show="valuesRegentsRegentsCollegeReady">
 
 
             <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{evaluation_regents.pcr_r_comprehensive_english | filtraCeros }}">
@@ -1840,6 +1849,16 @@
             </div>
 
             </div>
+
+            <div class="row"  ng-show="valuesRegentsRegentsCollegeReadyND">
+
+                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                  <div class="democracy color-barra" style="width:0%">
+                      <p>Unavailable</p>
+                  </div>
+                </div>
+
+            </div>              
 
 
           </accordion-group>    
