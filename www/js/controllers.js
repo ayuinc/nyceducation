@@ -488,38 +488,6 @@ nyc_controllers.controller("EvaluationsCtrlYearElem" ,[ '$scope', 'DatosSchool',
     };
 
 
-
-    // var tipoEscuela = $rootScope.tipoDeEscuela; 
-
-   //  if (((tipoEscuela.indexOf("Elementary") !== -1) || (tipoEscuela.indexOf("Middle") !== -1) || (tipoEscuela.indexOf("K-8") !== -1)|| (tipoEscuela.indexOf("K-3") !== -1)|| (tipoEscuela.indexOf("K-3 ") !== -1)) && (tipoEscuela.length == 1) ){
-   //    $('#elementary_eva').removeClass('borrar');
-   //    $('#elementary_eva').addClass('mostrar');
-   //    $('#all_eva').removeClass('borrar');
-   //    $('#all_eva').addClass('mostrar');
-   //  }else if ( ((tipoEscuela.indexOf("K-3") !== -1) && (tipoEscuela.indexOf("Elementary") !== -1)) || ((tipoEscuela.indexOf("K-8") !== -1) && (tipoEscuela.indexOf("Elementary") !== -1)) ){
-   //    $('#elementary_eva').removeClass('borrar');
-   //    $('#elementary_eva').addClass('mostrar');
-   //    $('#all_eva').removeClass('borrar');
-   //    $('#all_eva').addClass('mostrar');
-   //  }else if (((tipoEscuela.indexOf("High School Transfer") !== -1) || (tipoEscuela.indexOf("High School") !== -1)) && (tipoEscuela.length == 1) ){
-   //    $('#high_eva').removeClass('borrar');
-   //    $('#high_eva').addClass('mostrar');
-   //    $('#all_eva').removeClass('borrar');
-   //    $('#all_eva').addClass('mostrar');
-   //  }else if ( (tipoEscuela.indexOf("K-2") !== -1) && (tipoEscuela.length == 1) ){
-   //    $('#nd_eva').removeClass('borrar');
-   //    $('#nd_eva').addClass('mostrar');
-   //  }else if ((tipoEscuela.indexOf("High School") !== -1) && (tipoEscuela.indexOf("Middle") !== -1)){
-   //    $('#selectEvaluation_eva').removeClass('borrar');
-   //    $('#selectEvaluation_eva').addClass('mostrar');
-   // }else if ((tipoEscuela.indexOf("High School") !== -1) && (tipoEscuela.indexOf("K-8") !== -1)){
-   //    $('#selectEvaluation_eva').removeClass('borrar');
-   //    $('#selectEvaluation_eva').addClass('mostrar');
-   // }else if (tipoEscuela.length== 0) {
-   //    $('#nd_eva').removeClass('borrar');
-   //    $('#nd_eva').addClass('mostrar');
-   //  };
-
   $scope.changeyear = function(indice) {
 
     var ind;
@@ -556,18 +524,6 @@ nyc_controllers.controller("EvaluationsCtrlYearElem" ,[ '$scope', 'DatosSchool',
 nyc_controllers.controller("EvaluationsCtrlYearHigh" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
 
-
-    // var vProgressReportHigh_calc, vQualityReviewHigh_calc;
-    // var availableYears_calc = [];
-    // var arrayAvailableYears_calc = [];
-    // for (i = 0; i < 3; i++) { 
-    // vProgressReportHigh_calc = DatosSchool.SearchValuesProgressReportHigh(i);
-    // vQualityReviewHigh_calc = DatosSchool.SearchValuesQualityReviewHigh(i);
-    //   if ( vProgressReportHigh_calc || vQualityReviewHigh_calc ){
-    //     availableYears_calc.push(i);
-    //   }
-    // };
-    // $rootScope.arrayAvailableYearsEvaluationsHs = availableYears_calc;
 
     var vProgressReportHigh_calc;
     var availableYears_calc = [];
