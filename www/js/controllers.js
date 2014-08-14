@@ -728,20 +728,20 @@ nyc_controllers.controller("TestScoreCtrlYearHs" ,[ '$scope', 'DatosSchool', '$r
 
       // $rootScope.valuesRegentsAverageScore = DatosSchool.SearchValuesRegentsAverageScore(indice);
       if (DatosSchool.SearchValuesRegentsAverageScore(indice)) {
-        $rootScope.valuesRegentsPassRate = true;
-        $rootScope.valuesRegentsPassRateND = false;
+        $rootScope.valuesRegentsAverageScore = true;
+        $rootScope.valuesRegentsAverageScoreND = false;
       }else{
-        $rootScope.valuesRegentsPassRateND = true;
-        $rootScope.valuesRegentsPassRate = false;
+        $rootScope.valuesRegentsAverageScoreND = true;
+        $rootScope.valuesRegentsAverageScore = false;
       };
 
       // $rootScope.valuesRegentsRegentsCollegeReady = DatosSchool.SearchValuesRegentsRegentsCollegeReady(indice);
       if (DatosSchool.SearchValuesRegentsRegentsCollegeReady(indice)) {
-        $rootScope.valuesRegentsPassRate = true;
-        $rootScope.valuesRegentsPassRateND = false;
+        $rootScope.valuesRegentsRegentsCollegeReady = true;
+        $rootScope.valuesRegentsRegentsCollegeReadyND = false;
       }else{
-        $rootScope.valuesRegentsPassRateND = true;
-        $rootScope.valuesRegentsPassRate = false;
+        $rootScope.valuesRegentsRegentsCollegeReadyND = true;
+        $rootScope.valuesRegentsRegentsCollegeReady = false;
       };      
     };
 
