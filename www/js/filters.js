@@ -41,7 +41,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
     return function(text) {
 
 
-        if ( (text > 1) && (text < 25 )){ return '25';}
+        if ( (text >= 1) && (text < 25 )){ return '25';}
         else if ( (text >= 25) && (text < 50 )){ return '50';}
         else if ( (text >= 50) && (text < 75 )){ return '75';}
         else if ( (text >= 75) && (text <= 100 )){ return "100";}
