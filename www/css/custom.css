@@ -442,7 +442,7 @@ body{
 .priority {
 	background-color: #99E5FF;
 	padding: 1.1rem;
-	text-align: right;
+	text-align: left;
 }
 .priority h6 {
 	text-align: right;

@@ -18,7 +18,7 @@
   <script type="text/javascript">
 
 
-    function GetUniqueElementsArray(inputArray) {
+    function GetUniqueElementsArrayOld(inputArray) {
       var outputArray = [];
       var inputArrayLength = inputArray.length;
       for (var i = 0; i < inputArrayLength ; i++) {
@@ -31,12 +31,12 @@
       return outputArray;
     }
 
-    function GetUniqueElementsArrayForELA(inputArray) {
+    function GetUniqueElementsArray(inputArray) {
       var outputArray = [];
       var inputArrayLength = inputArray.length;
       for (var i = 0; i < inputArrayLength ; i++) {
         if ((jQuery.inArray(inputArray[i], outputArray)) == -1) {
-          if ((inputArray[i] != "") && (inputArray[i] != null)) {
+          if ((inputArray[i] != "") && (inputArray[i] != null) && (inputArray[i] != "0.00")) {
             outputArray.push(inputArray[i]);
           };
         }
