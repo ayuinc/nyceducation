@@ -45,6 +45,17 @@ nyc_controllers.controller("MainController", ['$scope', '$rootScope', '$window',
 
 }]);
 
+nyc_controllers.controller('BoroughController', ['$scope', function($scope) {
+  $scope.boroughs = [
+    { name: 'Manhattan' },
+    { name: 'Brooklyn' },
+    { name: 'Queens' },
+    { name: 'Bronx' },
+    { name: 'Staten Island' }
+  ];
+
+  $scope.myBorough = $scope.boroughs[0];
+}]);
 
 nyc_controllers.controller("SchoolListController", ['$scope', '$http', '$routeParams', function($scope, $http ,$routeParams) {
 

@@ -21,16 +21,29 @@
                     <input type="radio" name="search" value="advanced" id="advanced" ng-model="value"><label for="advanced">By Address</label> -->
                 </div>
 
+
                 <div ng-switch on="value">
                     <div ng-switch-when="simple">
                         <autocomplete ng-model="yourchoice" data="schools" on-type="updateSchools"></autocomplete>
                         <!-- <button type="submit" class="button expand bottones-search">Search Simple</button> -->
                     </div>
                     <div ng-switch-when="advanced">
-                        <form ng-submit="go('/school/query/' +  school.query)">
-                            <input style="color:#545459" type="text" placeholder="Your address" ng-model="school.query">
+                      <div ng-controller="BoroughController">
+                        
+                        <form ng-submit="go('/school/query/' + school.query + ' ' + myBorough.name)">
+                          <div class="row">
+
+                            <div class="small-8 columns"> 
+                              <input style="color:#545459" type="text" placeholder="Your address" ng-model="school.query">
+                            </div>
+
+                            <div class="small-4 columns"> 
+                              <select style="color:#545459;height:3.3rem" ng-model="myBorough" ng-options="borough.name for borough in boroughs"></select>
+                            </div>
                       <!--      <button type="submit" class="button expand bottones-search">Search Advanced</button>-->
+                          </div>
                         </form>
+                      </div>
                         <ul>
                             <li ng-repeat="sc in scs">{{ sc.name }}</li>
                         </ul>
