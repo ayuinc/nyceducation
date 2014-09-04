@@ -16,13 +16,13 @@
     <section class="main-section">
 			<div class="row menu-header">
 				<div class="small-offset-5 small-6 medium-7 large-7 columns">
-					<h3>Profile</h3>
+					<h3>{{'Profile' | translateMenu}}</h3>
 				</div>	
 			</div> 	 
 			<div class="row profile_item">
 				<div class="small-6 columns">
 					<div class="profile_label">
-						<span>Principal</span>
+						<span>{{'Principal' | translateProfile}}</span>
 					</div>
 				</div>
 				<div class="small-6 columns">
@@ -34,8 +34,8 @@
 			<div class="row profile_item">
 				<div class="small-6 columns">
 					<div class="profile_label">
-						<span>District</span>
-		    <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="The geographic district in which the school is located. Note that all charter schools are assigned to District 84 regardless of geographic location." ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja()"></div>
+						<span>{{'District' | translateProfile}}</span>
+		    <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'The geographic district in which the school is located.  Note that all charter schools are assigned to District 84 regardless of geographic location.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja()"></div>
 		    <!--
 						<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
 					</div>
@@ -49,7 +49,7 @@
 			<div class="row profile_item">
 				<div class="small-6 columns">
 					<div class="profile_label">
-						<span>Grade Served</span>
+						<span>{{'Grade Served' | translateProfile}}</span>
 					</div>
 				</div>
 				<div class="small-6 columns">
@@ -61,13 +61,13 @@
 			<div class="row profile_item">
 				<div class="small-6 columns">
 					<div class="profile_label">
-						<span>Total Enrollment</span>
-		    <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="The total number of students who are enrolled in the school as of October 31 of the selected school year." ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja()"></div>						
+						<span>{{'Total Enrollment' | translateProfile}}</span>
+		    <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'The total number of students who are enrolled in the school as of October 31 of the selected school year.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja()"></div>						
 			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
 					</div>
 				</div>
 				<div class="small-6 columns">
-					<div class="profile_info">
+					<div class="profile_info {{ 1 | flagHighRow }}">
 						<span>{{ profile.total_enrollment }}</span>
 					</div>
 				</div>
@@ -75,8 +75,8 @@
 			<div class="row profile_item">
 				<div class="small-6 columns">
 					<div class="profile_label">
-						<span>Year Opened</span>
-		    <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="The first school year that the school was open." ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja()"></div>							
+						<span>{{'Year Opened' | translateProfile}}</span>
+		    <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'The first school year that the school was open.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja()"></div>							
 			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
 					</div>
 				</div>
@@ -89,22 +89,22 @@
 			<div class="row profile_item">
 				<div class="small-6 columns">
 					<div class="profile_label">
-						<span>Shared Site</span>
+						<span>{{'Shared Site' | translateProfile}}</span>
 	
-		    <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="Whether the school is co-located with at least one other school in a shared building." ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>						
+		    <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'Whether the school is co-located with at least one other school in a shared building.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>						
 					<!--	<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
 					</div>
 				</div>
 				<div class="small-6 columns">
 					<div class="profile_info">
-						<span>{{ profile.shared_site }}</span>
+						<span>{{ profile.shared_site | translateProfile}}</span>
 					</div>
 				</div>
 			</div>
 			<div class="row profile_item">
 				<div class="small-6 columns">
 					<div class="profile_label">
-						<span>Address</span>
+						<span>{{'Address' | translateProfile}}</span>
 					</div>
 				</div>
 				<div class="small-6 columns">
@@ -116,7 +116,7 @@
 			<div class="row profile_item">
 				<div class="small-6 columns">
 					<div class="profile_label">
-						<span>Phone</span>
+						<span>{{'Phone' | translateProfile}}</span>
 					</div>
 				</div>
 				<div class="small-6 columns">
@@ -128,7 +128,7 @@
 			<div class="row profile_item">
 				<div class="small-6 columns">
 					<div class="profile_label">
-						<span>Website</span>
+						<span>{{'Website' | translateProfile}}</span>
 					</div>
 				</div>
 				<div class="small-6 columns">

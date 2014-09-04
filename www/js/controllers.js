@@ -151,7 +151,13 @@ nyc_controllers.controller('SelectSchoolController', ['$scope', '$rootScope', '$
             if (((arrayts.indexOf("Elementary") != -1) || (arrayts.indexOf("Middle") != -1) || (arrayts.indexOf("K-8") != -1)|| (arrayts.indexOf("K-3") != -1)|| (arrayts.indexOf("K-2") != -1)) && (arrayts.length == 1) ){
               $rootScope.filtroCCmenu = true;
               $rootScope.classGT = "switch1";
+            }else if ( (arrayts.indexOf("K-2") !== -1) && (arrayts.indexOf("Elementary") !== -1) ){
+              $rootScope.filtroCCmenu = true;
+              $rootScope.classGT = "switch1";
             }else if ( (arrayts.indexOf("K-3") !== -1) && (arrayts.indexOf("Elementary") !== -1) ){
+              $rootScope.filtroCCmenu = true;
+              $rootScope.classGT = "switch1";
+            }else if ( (arrayts.indexOf("K-8") !== -1) && (arrayts.indexOf("Elementary") !== -1) ){
               $rootScope.filtroCCmenu = true;
               $rootScope.classGT = "switch1";
             }else if (arrayts.length == 0) {
@@ -379,7 +385,7 @@ nyc_controllers.controller("SelectEvaluations" ,[ '$scope', 'DatosSchool', '$roo
   $scope.itemsEvaluations = [{texto:"Middle",indice:"0"},{texto:"High",indice:"1"}];
   $scope.changeEvaluations = function(indice) {
 
-  $scope.SelectEvaluations_is = $scope.itemsEvaluations[indice].texto;
+  // $scope.SelectEvaluations_is = $scope.itemsEvaluations[indice].texto;
   if (indice==0){
 
     $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[2]; 
@@ -917,6 +923,7 @@ nyc_controllers.controller("SelectTestScores" ,[ '$scope', 'DatosSchool', '$root
       $('#testScore-high').removeClass('mostrar');
       $('#testScore-high').addClass('borrar');    
 
+    // $scope.SelectTestScores_si = $scope.items_selec_testScore[0].texto;    
   }else if (indice==1){
 
     var indice = 2;
@@ -937,9 +944,10 @@ nyc_controllers.controller("SelectTestScores" ,[ '$scope', 'DatosSchool', '$root
       $('#testScore-all').addClass('mostrar');
       $('#testScore-elementary').removeClass('mostrar');
       $('#testScore-elementary').addClass('borrar');
+      
+    // $scope.SelectTestScores_si = $scope.items_selec_testScore[1].texto;    
   }
 
-    $scope.SelectTestScores_si = $scope.items_selec_testScore[indice].texto;    
 
   };
 
@@ -1480,4 +1488,31 @@ nyc_controllers.controller("SurveyRespCtrlQuestion" ,[ '$scope', 'DatosSchool', 
       $rootScope.survey_var=parseInt(indice_grade);};
 
 
+}]);
+
+
+nyc_controllers.controller("LenguageCtrl" ,[ '$scope', 'DatosSchool', '$rootScope', function ($scope, DatosSchool, $rootScope) {
+
+  // $rootScope.lenguage = "ngl";
+
+  if ($rootScope.lenguage == "esp") {
+    $('#inglish').prop('checked',false)
+    $('#spanish').prop('checked',true)
+  }else{
+    $('#inglish').prop('checked',true)
+    $('#spanish').prop('checked',false)
+  }
+    $scope.lenguage = function(lenguage){
+      console.log(lenguage);
+      if (lenguage==2) {
+        $rootScope.lenguage = "esp";
+      //   app.config(function($routeProvider) {
+      //   $routeProvider.when("/", {
+      //       templateUrl: "templates/main_sp.html",
+      //       controller: "MainController"
+      //   });
+      // });
+      //   reload();
+    }else{$rootScope.lenguage = "ngl";};
+  };
 }]);

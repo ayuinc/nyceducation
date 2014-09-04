@@ -118,40 +118,24 @@
 	font-size: 1.3rem;
 	margin-right: 0rem;
 	margin-top: -0.7rem;
-position: static;
-	/*	z-index: 99;*/
-	/*top: 1.3rem;
-	left: 17.85rem;
-	font-size: 1.3rem;
-	font-weight: 100;
-	color: #FFF;
-	line-height: 4%; */
+	position: static;
 }
-.accordion .icon-info {
-	/*position: absolute;
-	top: 1rem;
-	right: 0rem;
-	color:#13688F;
-	font-size: 1.1rem;
-	margin-right: -0.5rem;*/
-
+.accordion .icon-info, .accordion .icon-info-2 {
 	background-image: url("../img/icon-info-azul.png");
 	background-repeat: no-repeat;
 	background-size: 16px 16px;
 	width: 16px;
 	height: 16px;
-	margin-left: 93.7%;
-	margin-top: 4px;
+
+	position: absolute;
+	float: right ! important;
+	right: 0rem;
+	top: 1.4rem;
+
 }
 
 .accordion .icon-info-2 {
-background-image: url("../img/icon-info-azul.png");
-background-repeat: no-repeat;
-background-size: 16px 16px;
-width: 16px;
-height: 16px;
-margin-left: 88%;
-margin-top: -12px;
+	top: 2.4rem !important;
 }
 
 .accordion .icon-info-3 {
@@ -386,7 +370,7 @@ body{
 
 .switch1, .switch2 {
 	padding:0.6rem 0.5rem;
-	max-height: 2.8rem;
+	/*max-height: 2.8rem;*/
 }
 
 .switch1 a:active, .switch2 a:active {
@@ -1461,12 +1445,24 @@ padding: 0.3rem 0.8rem 0.4rem 1rem;
 border: 1px solid #FFFFFF;
 }
 
-
 .something-semantic {
    display: table;
    width: 100%;
 }
+
 .something-else-semantic {
    display: table-cell;
    vertical-align: middle;
+}
+
+.rblenguage{
+	top: 2rem;
+}
+
+.flagHighRow{
+	height: 3.4rem;
+}
+
+.disclaimer{
+	background-color: white;
 }

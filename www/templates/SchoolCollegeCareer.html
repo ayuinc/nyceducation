@@ -16,7 +16,7 @@
 			<div id="CC_K_8" class="borrar">    
 				<div class="row menu-header">	
 					<div class="small-6 small-centered medium-6 large-6 columns">
-						<h3 class="text-center">College & Career</h3>
+						<h3 class="text-center">{{'College & Career' | translateCollegeCareer}}</h3>
 					</div>	
 				</div>
 				<div  class="no-data">NO DATA AVAILABLE</div>
@@ -25,7 +25,7 @@
 			<div id="CC_9_12" class="borrar">    
 				<div class="row menu-header">	
 					<div class="small-12 small-centered medium-12 large-12 columns">
-					<h3 class="text-center">College & Career</h3>
+					<h3 class="text-center">{{'College & Career' | translateCollegeCareer}}</h3>
 					</div>	
 					<div class="small-10 small-centered medium-10 large-10 columns">		
 						<div class="row">
@@ -55,21 +55,21 @@
     	<accordion-group is-open="false" ng-show="valuesCollegeCareerReadiness">  
 
         <accordion-heading>
-            <div>College & Career Readiness</div>
+            <div>{{'College & Career Readiness' | translateCollegeCareer}}</div>
         </accordion-heading>        
 
     	<div class="row">
 
-				<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.postsecondary_enrollment_rate_6months | filtraCeros}}">
+				<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.postsecondary_enrollment_rate_6months | filterNull}}">
 					<div class="democracy color-barra" style="width:{{college_career.postsecondary_enrollment_rate_6months}}%;">
-						<p>{{college_career.postsecondary_enrollment_rate_6months | redondea}}</p>
-						<itemsurvey><span class="con-info">Post-Secondary Enrollment Rate</span>
-						<div Popover-animation="false" popover="Percentage of students who have graduated and enrolled in a two- or four-year college, vocational program, or public service within six months of their scheduled graduation date." popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+						<p>{{college_career.postsecondary_enrollment_rate_6months | number:1}}%</p>
+						<itemsurvey><span class="con-info">{{'Post-Secondary Enrollment Rate' | translateCollegeCareer}}</span>
+						<div Popover-animation="false" popover="{{'Percentage of students who have graduated and enrolled in a two- or four-year college, vocational program, or public service within six months of their scheduled graduation date.' | translateGlosary }}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
 						</itemsurvey>
 					</div>
 					<div class="metrics {{city_average.Post_SecondaryEnrollmentRate | filtraCeros}}">
 						<div class="average" style="width:{{city_average.Post_SecondaryEnrollmentRate}}%;">
-							<p style="padding-left:25px">City Average: {{city_average.Post_SecondaryEnrollmentRate | redondea}}</p>
+							<p style="padding-left:25px">{{'City Average' | translateGlobal}}: {{city_average.Post_SecondaryEnrollmentRate | number:1}}%</p>
 						</div>			    			
 						<!-- <div class="rank">
 							<p class="{{ proficiency_ratings.postsecondary_enrollment_rate_6months_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.postsecondary_enrollment_rate_6months_pr | filtraRank }}.png" > >Avg. </p>
@@ -78,16 +78,16 @@
 				</div>    		
 
 
-				<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.4year_non_remediation_rate | filtraCeros}}">
+				<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.4year_non_remediation_rate | filterNull}}">
 					<div class="democracy color-barra" style="width:{{college_career.4year_non_remediation_rate}}%;">
-						<p>{{college_career.4year_non_remediation_rate | redondea}}</p>
-						<itemsurvey><span class="con-info">Four-Year Non-Remediation Rate</span>
-						<div Popover-animation="false" popover="Percentage  of students in the school’s four-year cohort who, by the August after their fourth year in high school, have graduated with a Regents Diploma and have met the City University of New York's (CUNY) standards for college readiness in English and Math." popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+						<p>{{college_career.4year_non_remediation_rate | number:1}}%</p>
+						<itemsurvey style="width:50%;"><span class="con-info">{{'Four-Year Non-Remediation Rate' | translateCollegeCareer}}</span>
+						<div Popover-animation="false" popover="{{'Percentage  of students in the school’s four-year cohort who, by the August after their fourth year in high school, have graduated with a Regents Diploma and have met the City University of New York\'s (CUNY) standards for college readiness in English and Math.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
 						</itemsurvey>
 					</div>
 					<div class="metrics {{city_average.Four_YearNon_RemediationRate | filtraCeros}}">
 						<div class="average" style="width:{{city_average.Four_YearNon_RemediationRate}}%;">
-							<p style="padding-left:25px">City Average:{{city_average.Four_YearNon_RemediationRate | redondea}}</p>
+							<p style="padding-left:25px">{{'City Average' | translateGlobal}}:{{city_average.Four_YearNon_RemediationRate | number:1}}%</p>
 						</div>			    			
 						<!-- <div class="rank">
 							<p class="{{ proficiency_ratings.4year_non_remediation_rate_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.4year_non_remediation_rate_pr | filtraRank }}.png" > >Avg. </p>
@@ -95,16 +95,16 @@
 					</div>
 				</div>	
 
-				<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.cc_preparatory_course_index | filtraCeros}}">
+				<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.cc_preparatory_course_index | filterNull}}">
 					<div class="democracy color-barra" style="width:{{college_career.cc_preparatory_course_index}}%;">
-						<p>{{college_career.cc_preparatory_course_index | redondea}}</p>
-						<itemsurvey  style="width:40%;top:-1.4rem;text-align:right;"><span class="con-info">College & Career Preparatory Course Index</span>
-						<div Popover-animation="false" popover="The percentage of students in the school’s four-year cohort who have successfully completed approved rigorous courses and assessments after four years of high school." popover-placement="left" class="icon-info-2" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+						<p>{{college_career.cc_preparatory_course_index | number:1}}%</p>
+						<itemsurvey  style="width:50%;top:-1.4rem;text-align:right;"><span class="con-info">{{'College & Career Preparatory Course Index' | translateCollegeCareer}}</span>
+						<div Popover-animation="false" popover="{{'The percentage of students in the school’s four-year cohort who have successfully completed approved rigorous courses and assessments after four years of high school.' | translateGlosary}}" popover-placement="left" class="icon-info-2" style="cursor:pointer" onclick="quitaBurbuja()"></div>
 						</itemsurvey>
 					</div>
 					<div class="metrics {{city_average.CollegeandCareerPreparatoryCourseIndex | filtraCeros}}">
 						<div class="average" style="width:{{city_average.CollegeandCareerPreparatoryCourseIndex}}%;">
-							<p style="padding-left:25px">City Average:{{city_average.CollegeandCareerPreparatoryCourseIndex | redondea}}</p>
+							<p style="padding-left:25px">{{'City Average' | translateGlobal}}:{{city_average.CollegeandCareerPreparatoryCourseIndex | number:1}}%</p>
 						</div>			    			
 						<!-- <div class="rank">
 							<p class="{{ proficiency_ratings.cc_preparatory_course_index_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.cc_preparatory_course_index_pr | filtraRank }}.png" > >Avg. </p>
@@ -113,16 +113,16 @@
 				</div>	
 
 
-				<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.c_readiness_r_including_p | filtraCeros}}">
+				<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.c_readiness_r_including_p | filterNull}}">
 					<div class="democracy color-barra" style="width:{{college_career.c_readiness_r_including_p}}%;">
-						<p>{{college_career.c_readiness_r_including_p | redondea}}</p>
-						<itemsurvey style="width:40%;top:-1.4rem;text-align:right;"><span class="con-info">College Readiness Rate Including Persistence</span>
-						<div Popover-animation="false" popover="Percentage of students in the six-year cohort who 1) graduated with a Regents diploma and have met City University of New York's (CUNY) standards for English and mathematics, or 2) graduated, enrolled and persisted through 3 consecutive semesters of college within six years of graduating." popover-placement="left" class="icon-info-2" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+						<p>{{college_career.c_readiness_r_including_p | number:1}}%</p>
+						<itemsurvey style="width:50%;top:-1.4rem;text-align:right;"><span class="con-info">{{'College Readiness Rate Including Persistence' | translateCollegeCareer}}</span>
+						<div Popover-animation="false" popover="{{'Percentage of students in the six-year cohort who 1) graduated with a Regents diploma and have met City University of New York\'s (CUNY) standards for English and mathematics, or 2) graduated, enrolled and persisted through 3 consecutive semesters of college within six years of graduating.' | translateGlosary}}" popover-placement="left" class="icon-info-2" style="cursor:pointer" onclick="quitaBurbuja()"></div>
 						</itemsurvey>
 					</div>
 					<div class="metrics {{city_average.CollegeReadinessRateIncludingPersistence | filtraCeros}}">
 						<div class="average" style="width:{{city_average.CollegeReadinessRateIncludingPersistence}}%;">
-							<p style="padding-left:25px">City Average:{{city_average.CollegeReadinessRateIncludingPersistence | redondea}}</p>
+							<p style="padding-left:25px">{{'City Average' | translateGlobal}}:{{city_average.CollegeReadinessRateIncludingPersistence | number:1}}%</p>
 						</div>			    			
 						<!-- <div class="rank">
 							<p class="{{ proficiency_ratings.c_readiness_r_including_p_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.c_readiness_r_including_p_pr | filtraRank }}.png" > >Avg. </p>
@@ -142,10 +142,10 @@
 
     	<div class="row">
 
-				<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{college_career.transfer_s_graduation_r | filtraCeros}}">
+				<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{college_career.transfer_s_graduation_r | filterNull}}">
 					<div class="democracy color-barra" style="width:{{college_career.transfer_s_graduation_r}}%;">
-						<p>{{college_career.transfer_s_graduation_r | redondea}}</p>
-						<itemsurvey><span class="sin-i">Transfer School Graduation Rate</span></itemsurvey>
+						<p>{{college_career.transfer_s_graduation_r | number:1}}%</p>
+						<itemsurvey><span class="sin-i">{{'Transfer School Graduation Rate' | translateCollegeCareer}}</span></itemsurvey>
 					</div>
 					<!-- <div class="rank-s">
 						<p class="{{ proficiency_ratings.transfer_s_graduation_r_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.transfer_s_graduation_r_pr | filtraRank }}.png" > >Avg. </p>
@@ -153,16 +153,16 @@
 				</div>
 
 
-				<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.p_s_earning10_credits_in1year | filtraCeros}}">
+				<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.p_s_earning10_credits_in1year | filterNull}}">
 					<div class="democracy color-barra" style="width:{{college_career.p_s_earning10_credits_in1year}}%;">
-						<p>{{college_career.p_s_earning10_credits_in1year | redondea}}</p>
-						<itemsurvey><span class="con-info">Credit Accumulation</span>
-						<div Popover-animation="false" popover="Percentage of students who accumulate 10 or more academic credits in their first year of high school, with a particular focus on credits earned in English, math, science and social studies.  Credit accumulation is a strong indicator that a student is on track to graduation." popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+						<p>{{college_career.p_s_earning10_credits_in1year | number:1}}%</p>
+						<itemsurvey><span class="con-info">{{'Credit Accumulation' | translateCollegeCareer}}</span>
+						<div Popover-animation="false" popover="{{'Percentage of students who accumulate 10 or more academic credits in their first year of high school, with a particular focus on credits earned in English, math, science and social studies.  Credit accumulation is a strong indicator that a student is on track to graduation.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
 						</itemsurvey>
 					</div>
 					<div class="metrics {{city_average.Average_of_Percent_of_Students_Earning_10_Credits_in_1st_Year | filtraCeros}}">
 						<div class="average" style="width:{{city_average.Average_of_Percent_of_Students_Earning_10_Credits_in_1st_Year}}%;">
-							<p style="padding-left:25px">City Average:{{city_average.Average_of_Percent_of_Students_Earning_10_Credits_in_1st_Year | redondea}}</p>
+							<p style="padding-left:25px">{{'City Average' | translateGlobal}}:{{city_average.Average_of_Percent_of_Students_Earning_10_Credits_in_1st_Year | number:1}}%</p>
 						</div>			    			
 						<!-- <div class="rank">
 							<p class="{{ proficiency_ratings.p_s_earning10_credits_in1year_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.p_s_earning10_credits_in1year_pr | filtraRank }}.png" > >Avg. </p>
@@ -171,16 +171,16 @@
 				</div>
 
 
-				<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.4y_g_r | filtraCeros}}">
+				<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.4y_g_r | filterNull}}">
 					<div class="democracy color-barra" style="width:{{college_career.4y_g_r}}%;">
-						<p>{{college_career.4y_g_r | redondea}}</p>
-						<itemsurvey><span class="con-info">Four-Year Graduation Rate</span>
-						<div Popover-animation="false" popover="Percentage of students who graduated with a Regents or Local Diploma within four years of beginning high school, including August graduates.  Citywide graduation rates are as reported by New York State Department of Education while individual school graduation rates are as reported by NYC DOE." popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+						<p>{{college_career.4y_g_r | number:1}}%</p>
+						<itemsurvey><span class="con-info">{{'Four-Year Graduation Rate' | translateCollegeCareer}}</span>
+						<div Popover-animation="false" popover="{{'Percentage of students who graduated with a Regents or Local Diploma within four years of beginning high school, including August graduates.  Citywide graduation rates are as reported by New York State Department of Education while individual school graduation rates are as reported by NYC DOE.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
 						</itemsurvey>
 					</div>
 					<div class="metrics {{city_average.4YearGraduationRate | filtraCeros}}">
 						<div class="average" style="width:{{city_average.4YearGraduationRate}}%;">
-							<p style="padding-left:25px">City Average: {{city_average.4YearGraduationRate | redondea}}</p>
+							<p style="padding-left:25px">{{'City Average' | translateGlobal}}: {{city_average.4YearGraduationRate | number:1}}%</p>
 						</div>			    			
 						<!-- <div class="rank">
 							<p class="{{ proficiency_ratings.4y_g_r_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.4y_g_r_pr | filtraRank }}.png" > >Avg. </p>
@@ -188,16 +188,16 @@
 					</div>
 				</div>
 
-				<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.6y_g_r | filtraCeros}}">
+				<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  {{college_career.6y_g_r | filterNull}}">
 					<div class="democracy color-barra" style="width:{{college_career.6y_g_r}}%;">
-						<p>{{college_career.6y_g_r | redondea}}</p>
-						<itemsurvey><span class="con-info">6 year Graduation Rate</span>
-						<div Popover-animation="false" popover="Percentage of students who graduated with a Regents or Local Diploma within six years of beginning high school, including August graduates. Citywide graduation rates are as reported by New York State Department of Education while individual school graduation rates are as reported by NYC DOE." popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+						<p>{{college_career.6y_g_r | number:1}}%</p>
+						<itemsurvey><span class="con-info">{{'6 year Graduation Rate' | translateCollegeCareer}}</span>
+						<div Popover-animation="false" popover="{{'Percentage of students who graduated with a Regents or Local Diploma within six years of beginning high school, including August graduates. Citywide graduation rates are as reported by New York State Department of Education while individual school graduation rates are as reported by NYC DOE.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
 						</itemsurvey>
 					</div>
 					<div class="metrics {{city_average.6YearGraduationRate | filtraCeros}}">
 						<div class="average" style="width:{{city_average.6YearGraduationRate}}%;">
-							<p style="padding-left:25px">City Average: {{city_average.6YearGraduationRate | redondea}}</p>
+							<p style="padding-left:25px">{{'City Average' | translateGlobal}}: {{city_average.6YearGraduationRate | number:1}}%</p>
 						</div>			    			
 						<!-- <div class="rank">
 							<p class="{{ proficiency_ratings.6y_g_r_pr | filtraCeros }}">Rank <img ng-src="img/{{ proficiency_ratings.6y_g_r_pr | filtraRank }}.png" > >Avg. </p>
