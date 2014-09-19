@@ -118,8 +118,9 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Address'){ return "Dirección";}
             else if (text == 'Your address'){ return "Tu dirección";}
             else if (text == 'School name'){ return "Escriba el nombre de la escuela";}
-            else if (text == 'Disclaimer'){ return "Descargo de responsabilidad";}
-            else if (text == 'This application and website are not products of the NYC Department of Education, and are not endorsed by the NYCDOE. NYCDOE is not responsible for the accuracy of the content of the application or site. Use of this application and website is not a requirement of NYCDOE admissions'){ return "Esta aplicación y sitio web no son productos propiedad del Departamento de Educación de la Ciudad de Nueva York y dicha entidad no los avala. El NYCDOE no se hace responsable por la exactitud del contenido de la aplicación o del sitio web. El uso de esta aplicación y sitio web, no es un requisito de admisión del NYCDOE.";}
+            else if (text == 'Disclaimer'){ return "Cláusula de exención de responsabilidad";}
+            else if (text == 'Search'){ return "Buscar";}
+            else if (text == 'This application is not a product of the NYC Department of Education and is not endorsed by the NYCDOE. NYCDOE is not responsible for the accuracy of the content of the application. Use of this application is not a requirement of NYCDOE admissions.'){ return "Esta aplicación no es un producto del Departamento de Educación de la Ciudad de Nueva York y dicha entidad no la avala. El NYCDOE no se hace responsable por la exactitud del contenido de la aplicación. El uso de esta aplicación no es un requisito de admisión del NYCDOE.";}
         }else{ return text; };
     } 
 })
@@ -157,6 +158,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Website'){ return "Sitio web";}
             else if (text == 'Address'){ return "Dirección";}
             else if (text == 'Yes'){ return "Sí";}
+            else if (text == 'No'){ return "No";}
         }else{ return text; };
     } 
 })
@@ -247,6 +249,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Integrated Algebra'){ return "Álgebra integrada";}
             else if (text == 'Geometry'){ return "Geometría";}
             else if (text == 'Algebra II'){ return "Álgebra II";}
+            else if (text == 'SAT'){ return "Examen SAT";}
             else if (text == 'Regents Average Score'){ return "Puntaje promedio en los exámenes Regents";}
             else if (text == 'Regents College Ready'){ return "Preparación universitaria Regents";}
         }else{ return text; };
@@ -461,21 +464,21 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
 .filter("translateSurveyQuestion", function($rootScope){
     return function(text) { 
         if ($rootScope.lenguage == "esp") {
-            if (text == 'At my school, I am safe in the hallways, bathrooms, locker rooms, and cafeteria. (s)'){ return "En mi escuela, no corro peligro en los pasillos, baños, vestuarios ni en el comedor escolar.";}
-            else if (text == 'Most of the teaching staff at my school make me excited about learning. (s)'){ return "La mayor parte del personal docente de mi escuela, me motiva a aprender.";}
-            else if (text == 'I feel welcome at my school. (s)'){ return "Me siento bien recibido en mi escuela.";}
-            else if (text == 'Most adults at my school care about me. (s)'){ return "Los adultos de mi escuela se preocupan por mí.";}
-            else if (text == 'Most students at my school respect students who get good grades. (s)'){ return "La mayoría de los estudiantes de mi escuela, respetan a los alumnos que obtienen buenas calificaciones.";}
-            else if (text == 'I would recommend my school to parents seeking a place for their child. (t)'){ return "Yo les recomendaría mi escuela a los padres que estén buscando una para su hijo.";}
-            else if (text == 'At my school, adults treat students with respect. (t)'){ return "En mi escuela, los adultos tratan a los estudiantes con respeto.";}
-            else if (text == 'School leaders place a high priority on the quality of teaching. (t)'){ return "Para las directivas de las escuelas, la calidad de la enseñanza, tiene gran prioridad.";}
-            else if (text == 'Students are often harassed or bullied in school. (t)'){ return "Frecuentemente, los estudiantes son acosados o víctimas de bullying en la escuela.";}
-            else if (text == 'My school communicates effectively with parents about their child’s progress. (t)'){ return "Mi escuela tiene una comunicación eficaz con los padres, acerca del progreso de sus hijos.";}
-            else if (text == 'My child is safe at school. (p)'){ return "Mi hijo se siente seguro en la escuela.";}
-            else if (text == 'My child’s school is responsive to parent feedback. (p)'){ return "La escuela de mi hijo tiene en cuenta la opinión de los padres.";}
-            else if (text == 'My child’s school keeps me informed about my child’s academic progress. (p)'){ return "La escuela de mi hijo me mantiene informado con respecto al progreso académico de mi hijo.";}
-            else if (text == 'I would recommend this school to other parents. (p)'){ return "Recomendaría esta escuela a otros padres.";}
-            else if (text == 'I am satisfied or very satisfied with the education my child has received this year. (p)'){ return "Me encuentro satisfecho o muy satisfecho con la educación que hijo ha recibido este año.";}
+            if (text == 'At my school, I am safe in the hallways, bathrooms, locker rooms, and cafeteria.'){ return "En mi escuela, no corro peligro en los pasillos, baños, vestuarios ni en el comedor escolar.";}
+            else if (text == 'Most of the teaching staff at my school make me excited about learning.'){ return "La mayor parte del personal docente de mi escuela, me motiva a aprender.";}
+            else if (text == 'I feel welcome at my school.'){ return "Me siento bien recibido en mi escuela.";}
+            else if (text == 'Most adults at my school care about me.'){ return "Los adultos de mi escuela se preocupan por mí.";}
+            else if (text == 'Most students at my school respect students who get good grades.'){ return "La mayoría de los estudiantes de mi escuela, respetan a los alumnos que obtienen buenas calificaciones.";}
+            else if (text == 'I would recommend my school to parents seeking a place for their child.'){ return "Yo les recomendaría mi escuela a los padres que estén buscando una para su hijo.";}
+            else if (text == 'At my school, adults treat students with respect.'){ return "En mi escuela, los adultos tratan a los estudiantes con respeto.";}
+            else if (text == 'School leaders place a high priority on the quality of teaching.'){ return "Para las directivas de las escuelas, la calidad de la enseñanza, tiene gran prioridad.";}
+            else if (text == 'Students are often harassed or bullied in school.'){ return "Frecuentemente, los estudiantes son acosados o víctimas de bullying en la escuela.";}
+            else if (text == 'My school communicates effectively with parents about their child’s progress.'){ return "Mi escuela tiene una comunicación eficaz con los padres, acerca del progreso de sus hijos.";}
+            else if (text == 'My child is safe at school.'){ return "Mi hijo se siente seguro en la escuela.";}
+            else if (text == 'My child’s school is responsive to parent feedback.'){ return "La escuela de mi hijo tiene en cuenta la opinión de los padres.";}
+            else if (text == 'My child’s school keeps me informed about my child’s academic progress.'){ return "La escuela de mi hijo me mantiene informado con respecto al progreso académico de mi hijo.";}
+            else if (text == 'I would recommend this school to other parents.'){ return "Recomendaría esta escuela a otros padres.";}
+            else if (text == 'I am satisfied or very satisfied with the education my child has received this year.'){ return "Me encuentro satisfecho o muy satisfecho con la educación que hijo ha recibido este año.";}
         }else{ return text; };
     } 
 })
@@ -709,13 +712,103 @@ if (text == "2011" || text == "2012"){
 
 .filter("fitrar_srd_11", function(){
     return function(text) {
-
-if (text == "2011"){
-    return "borrar";
-}
-
+      if (text == "2011"){
+          return "borrar";
+      }
     }
 })
+
+.filter("escalaPrPerformElem", function(){
+    return function(text) {
+        var num = parseFloat(text);
+        var val = (num*100)/(25);
+        return val;
+    }
+})
+
+.filter("escalaPrProgressElem", function(){
+    return function(text) {
+        var num = parseFloat(text);
+        var val = (num*100)/(60);
+        return val;
+    }
+})
+
+.filter("escalaPrEnvironmentElem", function(){
+    return function(text) {
+        var num = parseFloat(text);
+        var val = (num*100)/(15);
+        return val;
+    }
+})
+
+// HIGH
+
+.filter("escalaPrPerformHigh", function($rootScope){
+    return function(text) {
+        var ano = $rootScope.selectedyearEvaluationsHigh;
+        // console.log(ano);
+        if (ano == '2011') {
+        var num = parseFloat(text);
+        var val = (num*100)/(25);
+        // console.log('sobre 25');
+        return val;        
+        }else{
+        var num = parseFloat(text);
+        var val = (num*100)/(20);
+        // console.log('sobre 20');
+        return val;        
+        };
+    }
+})
+
+.filter("escalaPrProgressHigh", function($rootScope){
+    return function(text) {
+        var ano = $rootScope.selectedyearEvaluationsHigh;
+        // console.log(ano);
+        if (ano == '2011') {
+        var num = parseFloat(text);
+        var val = (num*100)/(60);
+        // console.log('sobre 60');
+        return val;        
+        }else{
+        var num = parseFloat(text);
+        var val = (num*100)/(55);
+        // console.log('sobre 55');
+        return val;        
+        };
+    }
+})
+
+.filter("escalaPrEnvironmentHigh", function(){
+    return function(text) {
+        var num = parseFloat(text);
+        var val = (num*100)/(15);
+        return val;
+    }
+}) 
+
+.filter("escalaPrCollegueCareerHigh", function(){
+    return function(text) {
+        var num = parseFloat(text);
+        var val = (num*100)/(10);
+        return val;
+    }
+})
+
+.filter("filtroDenominador", function($rootScope){
+    return function(text) {
+      var ano = $rootScope.selectedyearEvaluationsHigh;
+      if (ano == '2011') {
+        var num = parseInt(text);
+        var val = num+5;
+        return val;
+      }else{
+        return text;
+      };
+    }
+})
+
 
 .filter("EscalaAverageTestScore", function(){
     return function(text) {

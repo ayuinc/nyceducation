@@ -222,7 +222,7 @@ body{
 
 .header {
 	background-color: #FFBE00;	
-	height: 2.8125rem;
+	min-height: 2.8125rem;
 	/*box-shadow: 0px 1px 5px #888;
 	position: relative;*/
 }
@@ -233,7 +233,7 @@ body{
 	color: #FFF;
 	line-height: 1rem;
 	margin: 0.9rem auto 0.8rem auto;
-	min-height: 40px;
+	/*min-height: 40px;*/
 }
 
 
@@ -292,7 +292,9 @@ body{
 }
 
 .bottones-search {
-	margin:2.2rem 0 2rem 0 !important;
+	font-size: 0.9rem;
+	margin: 0;
+	padding: 0.5rem;
 }
 
 .boton-right {
@@ -544,7 +546,7 @@ position: relative;
 }
 
 .democracy {
-	height: 3rem;
+	height: 100%;
 	padding-top: 0rem;
 	margin-top:0rem;
 }
@@ -552,16 +554,11 @@ position: relative;
 	color: #333;
 	font-weight: 100;
 	font-size: 1.5rem;
-	padding: 0 2rem;
+	padding: 0 1rem;
 	position: relative;
 	top: 0.5rem;
-
-		/*color: #333;
-	font-weight: 100;
-	font-size: 0.9rem;
-	position: relative;
-	top: 0.9rem;
-	right:0.8rem;*/
+	height: 2.5rem;
+	margin-bottom: 0.5rem;
 }
 
 .democracy span {
@@ -703,6 +700,10 @@ position: relative;
 	color: #333333;
 }
 
+.average p {
+	padding-left: 0.5rem;
+}
+
 .rank p{
 	margin-top: 10px;
 }
@@ -793,7 +794,7 @@ itemsurvey {
 	font-size: 0.8rem;
 	position: absolute;
 	top: 0.6rem;
-	right: 2rem;
+	right: 1rem;
 	height: 0;
 	width: 80%;
 	top: -0.4rem;
@@ -954,7 +955,7 @@ itemsurvey span .pmizq{
 }*/
 
 .main-section {
-	min-height: 435px !important;
+	min-height: 500px !important;
 }
 
 .button-white {
@@ -1275,14 +1276,29 @@ left: 105px;
 .middle-vertical {
 	display: table;
 	height: 100%;
-	/* width: 86%; */
+	 width: 86%; 
 }
 
-.middle-vertical h1{
+.middle-vertical-main {
+	height: 100%;
+	 width: 100%; 
+}
+
+.middle-vertical-menu {
+	height: 100%;
+	 width: 100%; 
+}
+
+.middle-vertical h1 {
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
 }
+
+/*.middle-vertical-menu h1{
+	margin: 0rem;
+	margin-top: 0.5rem;
+}*/
 
 .f-dropdown li a {
 font-size: 0.8rem;
@@ -1391,10 +1407,11 @@ background-color: #138e51;
 background-color:#81CAD1;
 padding: 5px 0; 
 max-height: 1.7rem;
+position: relative;
 }
 
 .ns-sat{
-padding-left: 3rem;
+padding-left: 1rem;
 font-size: 0.9rem;
 font-family: "MuseoSansLocal", "museo-sans",sans-serif;
 font-weight: 100;
@@ -1402,7 +1419,7 @@ font-weight: 100;
 
 .ns-sat-label{
 float: right;
-margin-right: 70px;
+margin-right: 2.5rem;
 font-size: 0.9rem
 font-family: "MuseoSansLocal", "museo-sans",sans-serif;
 font-weight: 100;

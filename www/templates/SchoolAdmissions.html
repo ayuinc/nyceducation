@@ -87,18 +87,17 @@
 <div id="admissionsAll" class="borrar">
 
     
-    <div id="admissionsElementary" class="borrar" > <!--ES ADMISSION-->
+  <div id="admissionsElementary" class="borrar" > <!--ES ADMISSION-->
 
     <div style="height: 15px;background-color:#DFE5E9"></div>
 
 			<div class="row profile_item">
-
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>{{'Method' | translateAdmissions}}</span>
-				<div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'The way schools consider and admit applicants into a program.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>
-					
-			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
+						<div style="top: -2px;cursor: pointer;float: right;"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'The way schools consider and admit applicants into a program.' | translateGlosary}}" >
+							<img style="position: relative;right: 1.5rem;" src='img/info.png' width='30' onclick="quitaBurbuja()">
+						</div>					
 					</div>
 				</div>
 				<div class="small-6 columns">
@@ -126,124 +125,120 @@
 				<div class="small-12 medium-12 large-12 columns">
 					<div class="profile_label">
 						<span>{{'Priority' | translateAdmissions}}</span>
-		    <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'The order in which applicants are considered for placement.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>							
+						<div style="top: -2px;cursor: pointer;float: right;"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'The order in which applicants are considered for placement.' | translateGlosary}}" >
+							<img style="position: relative;right: 13.5rem;" src='img/info.png' width='30' onclick="quitaBurbuja()">
+						</div>								
 					</div>
 				</div>
 			</div>
 			<div class="row profile_item">
-				<div class="small-12 medium-12 large-12 columns">
-
-					<div class="row">
-						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority1 | filtraCeros}}">
-							<div class="priority">
-								<p>{{es_admissions.priority1+"1" | admission_e}}</p>
-							</div>
+					<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority1 | filtraCeros}}">
+						<div class="priority">
+							<p>{{es_admissions.priority1+"1" | admission_e}}</p>
 						</div>
+					</div>
 
-						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority2 | filtraCeros}}">
-							<div class="priority color2">
-								<p>{{es_admissions.priority2+"2" | admission_e}}</p>
-							</div>
+					<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority2 | filtraCeros}}">
+						<div class="priority color2">
+							<p>{{es_admissions.priority2+"2" | admission_e}}</p>
 						</div>
+					</div>
 
-						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority3 | filtraCeros}}">
-							<div class="priority">
-								<p>{{es_admissions.priority3+"3" | admission_e}}</p>
-							</div>
+					<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority3 | filtraCeros}}">
+						<div class="priority">
+							<p>{{es_admissions.priority3+"3" | admission_e}}</p>
 						</div>
+					</div>
 
-						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority4 | filtraCeros}}">
-							<div class="priority color2">
-								<p>{{es_admissions.priority4+"4" | admission_e}}</p>
-							</div>
+					<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority4 | filtraCeros}}">
+						<div class="priority color2">
+							<p>{{es_admissions.priority4+"4" | admission_e}}</p>
 						</div>
+					</div>
 
-						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority5 | filtraCeros}}">
-							<div class="priority">
-								<p>{{es_admissions.priority5+"5" | admission_e}}</p>
-							</div>
-						</div>	
+					<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority5 | filtraCeros}}">
+						<div class="priority">
+							<p>{{es_admissions.priority5+"5" | admission_e}}</p>
+						</div>
+					</div>	
 
-						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority6 | filtraCeros}}">
-							<div class="priority color2">
-								<p>{{es_admissions.priority6+"6" | admission_e}}</p>
-							</div>
-						</div>			
+					<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority6 | filtraCeros}}">
+						<div class="priority color2">
+							<p>{{es_admissions.priority6+"6" | admission_e}}</p>
+						</div>
+					</div>			
 
-						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority7 | filtraCeros}}">
-							<div class="priority">
-								<p>{{es_admissions.priority7+"7" | admission_e}}</p>
-							</div>
-						</div>	
+					<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority7 | filtraCeros}}">
+						<div class="priority">
+							<p>{{es_admissions.priority7+"7" | admission_e}}</p>
+						</div>
+					</div>	
 
-						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority8 | filtraCeros}}">
-							<div class="priority color2">
-								<p>{{es_admissions.priority8+"8" | admission_e}}</p>
-							</div>
-						</div>	
+					<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority8 | filtraCeros}}">
+						<div class="priority color2">
+							<p>{{es_admissions.priority8+"8" | admission_e}}</p>
+						</div>
+					</div>	
 
-						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority9 | filtraCeros}}">
-							<div class="priority">
-								<p>{{es_admissions.priority9+"9" | admission_e}}</p>
-							</div>
-						</div>	
+					<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority9 | filtraCeros}}">
+						<div class="priority">
+							<p>{{es_admissions.priority9+"9" | admission_e}}</p>
+						</div>
+					</div>	
 
-						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority10 | filtraCeros}}">
-							<div class="priority color2">
-								<p>{{es_admissions.priority10+"10" | admission_e}}</p>
-							</div>
-						</div>		
+					<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority10 | filtraCeros}}">
+						<div class="priority color2">
+							<p>{{es_admissions.priority10+"10" | admission_e}}</p>
+						</div>
+					</div>		
 
-						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority11 | filtraCeros}}">
-							<div class="priority">
-								<p>{{es_admissions.priority11+"11" | admission_e}}</p>
-							</div>
-						</div>	
+					<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority11 | filtraCeros}}">
+						<div class="priority">
+							<p>{{es_admissions.priority11+"11" | admission_e}}</p>
+						</div>
+					</div>	
 
-						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority12 | filtraCeros}}">
-							<div class="priority color2">
-								<p>{{es_admissions.priority12+"12" | admission_e}}</p>
-							</div>
-						</div>	
+					<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority12 | filtraCeros}}">
+						<div class="priority color2">
+							<p>{{es_admissions.priority12+"12" | admission_e}}</p>
+						</div>
+					</div>	
 
-						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority13 | filtraCeros}}">
-							<div class="priority">
-								<p>{{es_admissions.priority13+"13" | admission_e}}</p>
-							</div>
-						</div>	
+					<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority13 | filtraCeros}}">
+						<div class="priority">
+							<p>{{es_admissions.priority13+"13" | admission_e}}</p>
+						</div>
+					</div>	
 
-						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority14 | filtraCeros}}">
-							<div class="priority color2">
-								<p>{{es_admissions.priority14+"14" | admission_e}}</p>
-							</div>
-						</div>	
+					<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority14 | filtraCeros}}">
+						<div class="priority color2">
+							<p>{{es_admissions.priority14+"14" | admission_e}}</p>
+						</div>
+					</div>	
 
-						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority15 | filtraCeros}}">
-							<div class="priority">
-								<p>{{es_admissions.priority15+"15" | admission_e}}</p>
-							</div>
-						</div>	
+					<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority15 | filtraCeros}}">
+						<div class="priority">
+							<p>{{es_admissions.priority15+"15" | admission_e}}</p>
+						</div>
+					</div>	
 
-						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority16 | filtraCeros}}">
-							<div class="priority color2">
-								<p>{{es_admissions.priority16+"16" | admission_e}}</p>
-							</div>
-						</div>	
+					<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority16 | filtraCeros}}">
+						<div class="priority color2">
+							<p>{{es_admissions.priority16+"16" | admission_e}}</p>
+						</div>
+					</div>	
 
-						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority17 | filtraCeros}}">
-							<div class="priority">
-								<p>{{es_admissions.priority17+"17" | admission_e}}</p>
-							</div>
-						</div>	
+					<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority17 | filtraCeros}}">
+						<div class="priority">
+							<p>{{es_admissions.priority17+"17" | admission_e}}</p>
+						</div>
+					</div>	
 
-						<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority18 | filtraCeros}}">
-							<div class="priority color2">
-								<p>{{es_admissions.priority18+"18" | admission_e}}</p>
-							</div>
-						</div>	
-														
-					</div>					
-				</div>
+					<div class="small-12 medium-12 large-12 columns barra-gris {{es_admissions.priority18 | filtraCeros}}">
+						<div class="priority color2">
+							<p>{{es_admissions.priority18+"18" | admission_e}}</p>
+						</div>
+					</div>	
 			</div>        	
 
 
@@ -274,8 +269,9 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>{{'Program' | translateAdmissions}}</span>
-		    <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'When applying to middle and high schools, students apply to programs within schools. Programs may have different interest or focus areas as well as admissions methods.' | translateGlosary}}" ><img style="position:absolute" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>							
-	
+		    		<div style="top: -2px;cursor: pointer;float: right;"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'When applying to middle and high schools, students apply to programs within schools. Programs may have different interest or focus areas as well as admissions methods.' | translateGlosary}}" >
+		    			<img style="position: relative;right: 1.5rem;" src='img/info.png' width='30' onclick="quitaBurbuja()">
+		    		</div>
 					</div>
 				</div>
 				<div class="small-6 columns">
@@ -292,8 +288,9 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>{{'Interest Area' | translateAdmissions}}</span>
-		    <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'A program’s interest area may indicate a general, comprehensive academic program (Humanities & Interdisciplinary or Zoned, for example), while other interest areas emphasize a particular industry (like Architecture or Engineering). Although every high school program is associated with a particular interest area, all New York City students are required to take a variety of courses in order to graduate.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>							
-			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
+		    		<div style="top: -2px;cursor: pointer;float: right;"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'A program’s interest area may indicate a general, comprehensive academic program (Humanities & Interdisciplinary or Zoned, for example), while other interest areas emphasize a particular industry (like Architecture or Engineering). Although every high school program is associated with a particular interest area, all New York City students are required to take a variety of courses in order to graduate.' | translateGlosary}}" >
+		    			<img style="position: relative;right: 1.5rem;" src='img/info.png' width='30' onclick="quitaBurbuja()">
+		    		</div>
 					</div>
 				</div>
 				<div class="small-6 columns">
@@ -307,9 +304,9 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>{{'Method' | translateAdmissions}}</span>
-				<div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'The way schools consider and admit applicants into a program.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>
-		    <!-- <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="The way schools consider and admit applicants into a program." ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>	 -->							
-			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
+						<div style="top: -2px;cursor: pointer;float: right;"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'The way schools consider and admit applicants into a program.' | translateGlosary}}" >
+							<img style="position: relative;right: 1.5rem;" src='img/info.png' width='30' onclick="quitaBurbuja()">
+						</div>
 					</div>
 				</div>
 				<div class="small-6 columns">
@@ -324,15 +321,11 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>{{'Priority' | translateAdmissions}}</span>
-		    <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'The order in which applicants are considered for placement.' | translateGlosary}} " ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>							
+		    		<div style="top: -2px;cursor: pointer;float: right;"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'The order in which applicants are considered for placement.' | translateGlosary}} " >
+		    			<img style="position: relative;right: 1.5rem;" src='img/info.png' width='30' onclick="quitaBurbuja()">
+		    		</div>						
 					</div>
 				</div>
-<!-- 			</div>
-			<div class="row profile_item">
-				<div class="small-12 medium-12 large-12 columns">
-					<div class="profile_info" style="text-align:justify">
-						<span>{{ms_admissions.admissions_priority}}</span>
-					</div -->
 				<div class="small-6 columns">
 					<div class="profile_info">
 						<span>{{ms_admissions.admissions_priority}}</span>
@@ -344,8 +337,9 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>{{'Seats' | translateAdmissions}}</span>
-		    <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'Number of seats in a program that were available to students applying for September of the selected year.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>								
-			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
+		    		<div style="top: -2px;cursor: pointer;float: right;"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'Number of seats in a program that were available to students applying for September of the selected year.' | translateGlosary}}" >
+		    			<img style="position: relative;right: 1.5rem;" src='img/info.png' width='30' onclick="quitaBurbuja()">
+		    		</div>
 					</div>
 				</div>
 				<div class="small-6 columns">
@@ -359,8 +353,9 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>{{'Applicants' | translateAdmissions}}</span>
-		    <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'Total number of students who applied for admission to a program in the September of the selected year.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>						
-			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
+		    		<div style="top: -2px;cursor: pointer;float: right;"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'Total number of students who applied for admission to a program in the September of the selected year.' | translateGlosary}}" >
+		    			<img style="position: relative;right: 1.5rem;" src='img/info.png' width='30' onclick="quitaBurbuja()">
+		    		</div>
 					</div>
 				</div>
 				<div class="small-6 columns">
@@ -409,8 +404,9 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>{{'Program' | translateAdmissions}}</span>
-		    <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'When applying to middle and high schools, students apply to programs within schools. Programs may have different interest or focus areas as well as admissions methods.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>								
-			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
+	    			<div style="top: -2px;cursor: pointer;float: right;"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'When applying to middle and high schools, students apply to programs within schools. Programs may have different interest or focus areas as well as admissions methods.' | translateGlosary}}" >
+	    				<img style="position: relative;right: 1.5rem;" src='img/info.png' width='30' onclick="quitaBurbuja()">
+	    			</div>
 					</div>
 				</div>
 				<div class="small-6 columns">
@@ -424,8 +420,9 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>{{'Interest Area' | translateAdmissions}}</span>
-		    <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'A program’s interest area may indicate a general, comprehensive academic program (Humanities & Interdisciplinary or Zoned, for example), while other interest areas emphasize a particular industry (like Architecture or Engineering). Although every high school program is associated with a particular interest area, all New York City students are required to take a variety of courses in order to graduate.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>							
-			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
+		    		<div style="top: -2px;cursor: pointer;float: right;"class="icon-info-acordion"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'A program’s interest area may indicate a general, comprehensive academic program (Humanities & Interdisciplinary or Zoned, for example), while other interest areas emphasize a particular industry (like Architecture or Engineering). Although every high school program is associated with a particular interest area, all New York City students are required to take a variety of courses in order to graduate.' | translateGlosary}}" >
+		    			<img style="position: relative;right: 1.5rem;" src='img/info.png' width='30' onclick="quitaBurbuja()">
+		    		</div>
 					</div>
 				</div>
 				<div class="small-6 columns">
@@ -438,9 +435,9 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>{{'Method' | translateAdmissions}}</span>
-				<div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'The way schools consider and admit applicants into a program.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>
-		    <!-- <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="The way schools consider and admit applicants into a program." ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>	 -->
-			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
+						<div style="top: -2px;cursor: pointer;float: right;"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'The way schools consider and admit applicants into a program.' | translateGlosary}}" >
+							<img style="position: relative;right: 1.5rem;" src='img/info.png' width='30' onclick="quitaBurbuja()">
+						</div>
 					</div>
 				</div>
 				<div class="small-6 columns">
@@ -466,7 +463,9 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>{{'Priority' | translateAdmissions}}</span>
-		    <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'The order in which applicants are considered for placement.' | translateGlosary}} " ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>							
+		    		<div style="top: -2px;cursor: pointer;float: right;"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'The order in which applicants are considered for placement.' | translateGlosary}} " >
+		    			<img style="position: relative;right: 1.5rem;" src='img/info.png' width='30' onclick="quitaBurbuja()">
+		    		</div>
 					</div>
 				</div>
 				<div class="small-6 columns">
@@ -480,8 +479,9 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>{{'Seats' | translateAdmissions}}</span>
-		    <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'Number of seats in a program that were available to students applying for September of the selected year.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>							
-			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
+		    		<div style="top: -2px;cursor: pointer;float: right;"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'Number of seats in a program that were available to students applying for September of the selected year.' | translateGlosary}}" >
+		    			<img style="position: relative;right: 1.5rem;" src='img/info.png' width='30' onclick="quitaBurbuja()">
+		    		</div>
 					</div>
 				</div>
 				<div class="small-6 columns">
@@ -495,8 +495,9 @@
 				<div class="small-6 columns">
 					<div class="profile_label">
 						<span>{{'Applicants' | translateAdmissions}}</span>
-		    <div style="position:relative;left:7.2rem;top:-15px;cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'Total number of students who applied for admission to a program in the September of the selected year.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja()"></div>							
-			<!--			<a ng-click="go('/school/' +  school.id + '/glossary')" ng-href="#/school/{{school.id}}/glossary"><div class="info-perfil"></div></a>-->
+		    		<div style="top: -2px;cursor: pointer;float: right;"class="icon-info-acordion" Popover-animation="false"  popover-placement="top" popover="{{'Total number of students who applied for admission to a program in the September of the selected year.' | translateGlosary}}" >
+		    			<img style="position: relative;right: 1.5rem;" src='img/info.png' width='30' onclick="quitaBurbuja()">
+		    		</div>
 					</div>
 				</div>
 				<div class="small-6 columns">

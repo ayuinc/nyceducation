@@ -875,8 +875,6 @@ nyc_controllers.controller("TestScoreCtrlYearEl" ,[ '$scope', 'DatosSchool', '$r
       };
     });
 
-        $rootScope.selectedyear_testScore_year_el = $rootScope.itemsYearsTestScoreEl[ind].texto;
-
         $rootScope.evaluation_ela=DatosSchool.datos.evaluations_ela[indice_year]; 
         $rootScope.evaluation_math=DatosSchool.datos.evaluations_math[indice_year]; 
         $rootScope.city_average=DatosSchool.datos.city_averages[indice_year];
@@ -885,6 +883,7 @@ nyc_controllers.controller("TestScoreCtrlYearEl" ,[ '$scope', 'DatosSchool', '$r
         $rootScope.valuesElaScores = DatosSchool.SearchValuesElaScores(indice_year);
         $rootScope.valuesMathScores = DatosSchool.SearchValuesMathScores(indice_year);
 
+        $rootScope.selectedyear_testScore_year_el = $rootScope.itemsYearsTestScoreEl[ind].texto;
         if ((DatosSchool.SearchValuesAverageProficiencyScoreELA(indice_year)) && (DatosSchool.SearchValuesAverageProficiencyScoreMath(indice_year))) {
           $rootScope.valuesAverageProficiencyScore = true;        
         }else{
@@ -1495,24 +1494,18 @@ nyc_controllers.controller("LenguageCtrl" ,[ '$scope', 'DatosSchool', '$rootScop
 
   // $rootScope.lenguage = "ngl";
 
-  if ($rootScope.lenguage == "esp") {
-    $('#inglish').prop('checked',false)
-    $('#spanish').prop('checked',true)
-  }else{
-    $('#inglish').prop('checked',true)
-    $('#spanish').prop('checked',false)
-  }
-    $scope.lenguage = function(lenguage){
-      console.log(lenguage);
-      if (lenguage==2) {
+    // $rootScope.lenguage = "ngl";
+      if ($rootScope.lenguage == "esp") {
         $rootScope.lenguage = "esp";
-      //   app.config(function($routeProvider) {
-      //   $routeProvider.when("/", {
-      //       templateUrl: "templates/main_sp.html",
-      //       controller: "MainController"
-      //   });
-      // });
-      //   reload();
-    }else{$rootScope.lenguage = "ngl";};
+      }else{$rootScope.lenguage = "ngl";};
+    $scope.lenguageChange = function(){
+      console.log('1');
+      if ($rootScope.lenguage == "esp") {
+        $rootScope.lenguage = "ngl";
+        $('#label-btn-lenguage').replaceWith('<span id="label-btn-lenguage">English</span>');
+      }else{
+        $rootScope.lenguage = "esp";
+        $('#label-btn-lenguage').replaceWith('<span id="label-btn-lenguage">Español</span>');
+      };
   };
 }]);
