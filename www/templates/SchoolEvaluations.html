@@ -94,7 +94,7 @@
 					</div>
 
 					<div class="small-12 medium-12 large-12 columns  bg-tablas-data  {{evaluation.es_ms_k8_ec_s_perf_pr_score | filterNull}}">
-						<div class="democracy color-barra " style="width:{{evaluation.es_ms_k8_ec_s_perf_pr_score | escalaPrPerformElem}}%;">
+						<div class="democracy color-barra-2 " style="width:{{evaluation.es_ms_k8_ec_s_perf_pr_score | escalaPrPerformElem}}%;">
 							<p>{{evaluation.es_ms_k8_ec_s_perf_pr_score | number:1}}/<span class="total_dividendo">25</span></p>
 							<itemsurvey><span class="con-info">{{'Performance' | translateEvaluations}}</span>
 							<div Popover-animation="false" popover="{{'Based on student results on the State tests in English Language Arts and Math. Middle school scores also take students passing core courses into account.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer"  onclick="quitaBurbuja()"></div>
@@ -118,7 +118,7 @@
 					</div> 
 
 					<div class="small-12 medium-12 large-12 columns  bg-tablas-data  {{evaluation.es_ms_k8_ec_s_enviro_pr_score | filterNull}}">
-						<div class="democracy color-barra " style="width:{{evaluation.es_ms_k8_ec_s_enviro_pr_score | escalaPrEnvironmentElem}}%;">
+						<div class="democracy color-barra-2 " style="width:{{evaluation.es_ms_k8_ec_s_enviro_pr_score | escalaPrEnvironmentElem}}%;">
 							<p>{{evaluation.es_ms_k8_ec_s_enviro_pr_score | number:1}}/<span class="total_dividendo">15</span></p>
 							<itemsurvey><span class="con-info">{{'Environment' | translateEvaluations}}</span>
 							<div Popover-animation="false" popover="{{'Based on student attendance and the results of the school\'s NYC School Survey.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer"   onclick="quitaBurbuja()"></div>
@@ -262,7 +262,7 @@
 
 
 					<div class="small-12 medium-12 large-12 columns  bg-tablas-data  {{evaluation.hs_t_hs_sper_pr_score | filterNull}}">
-						<div class="democracy color-barra " style="width:{{evaluation.hs_t_hs_sper_pr_score | escalaPrPerformHigh}}%;">
+						<div class="democracy color-barra-2 " style="width:{{evaluation.hs_t_hs_sper_pr_score | escalaPrPerformHigh}}%;">
 							<p>{{evaluation.hs_t_hs_sper_pr_score | number:1}}/<span class="total_dividendo">{{ 20 | filtroDenominador }}</span></p>
 							<itemsurvey><span class="con-info">{{'Performance' | translateEvaluations}}</span>
 							<div Popover-animation="false" popover="{{'Based on how many students graduated within 4 and 6 years of starting high school  and the types of diplomas they earned.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
@@ -286,7 +286,7 @@
 					</div>
 
 					<div class="small-12 medium-12 large-12 columns  bg-tablas-data  {{evaluation.hs_t_hs_se_pr_score | filterNull}}">
-						<div class="democracy color-barra " style="width:{{evaluation.hs_t_hs_se_pr_score | escalaPrEnvironmentHigh}}%;">
+						<div class="democracy color-barra-2 " style="width:{{evaluation.hs_t_hs_se_pr_score | escalaPrEnvironmentHigh}}%;">
 							<p>{{evaluation.hs_t_hs_se_pr_score | number:1}}/<span class="total_dividendo">15</span></p>
 							<itemsurvey><span class="con-info">{{'Environment' | translateEvaluations}}</span>
 							<div Popover-animation="false" popover="{{'Based on student attendance and the results of the school\'s NYC School Survey.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
@@ -346,7 +346,7 @@
 					</div>	
 
 					<div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ratings.ri_14 | filtraCeros}}">
-						<div class="democracy color-barra-2 " style="width:{{evaluation_ratings.ri_14 | filtraqr}}%;">
+						<div class="democracy c " style="width:{{evaluation_ratings.ri_14 | filtraqr}}%;">
 							<p style="font-size:1.1rem">{{evaluation_ratings.ri_14 | translateEvaluations}}</p>
 							<itemsurvey style="width:40%;top:-0.4rem;text-align:right;"><span class="con-info">{{'Positive Learning Env.' | translateEvaluations}}</span>
 							<div Popover-animation="false" popover="{{'Measures the quality of school culture and environment including safety, inclusiveness and other student success supports.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer;" onclick="quitaBurbuja()"></div>
