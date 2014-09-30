@@ -1,0 +1,605 @@
+<script>
+  window.scrollTo(0,0);
+</script>
+
+	<div class="off-canvas-wrap">
+  <div class="inner-wrap">
+    <nav class="tab-bar header">
+      <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+      </section>
+
+      <section class="right tab-bar-section middle-vertical">
+        <h1 class="title">{{ school.name }}</h1>
+      </section>
+    </nav>
+
+    <div ng-include src="'templates/sidebar.html'"></div>
+    
+	<!--CONTENIDO-->
+    <section class="main-section">
+			<div class="row menu-header">
+				<div class=" small-10 small-centered medium-7 large-7 text-center columns">
+					<h3>{{'Glossary' | translateMenu}}</h3>
+				</div>					
+			</div> 	 
+			
+<div class="row">
+	<div ng-controller="AccordionDemoCtrl">
+
+	  	<accordion close-others="oneAtATime">
+		    <accordion-group  is-open="false">  
+        <accordion-heading>
+            <div>{{'Academic Expectations (Survey)' | translateHeaderGlosary}}</div>
+        </accordion-heading>			    
+			    	<div class="glossary">
+			    		<p>{{'Measures whether respondents feel that the school encourages students to do their best by developing rigorous and meaningful academic goals.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div>{{'Applicants' | translateHeaderGlosary}}</div>
+        </accordion-heading>			    
+			    	<div class="glossary">
+			    		<p>{{'Total number of students who applied for admission to a program in the September of the selected year.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group is-open="false">
+        <accordion-heading>
+            <div>{{'Attendance Rate' | translateHeaderGlosary}}</div>
+        </accordion-heading>		      
+			    	<div class="glossary">
+			    		<p>{{'Includes the attendance days for all students on a school’s register at any point during the regular school year (September through June). Calculated by adding the total number of days attended by all students and dividing it by the total number of days on register for all students.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+		    <!-- <accordion-group is-open="false">  
+        <accordion-heading>
+            <div>{{'Average Proficiency Score Overall (ELA)' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'Provides the average performance level on New York State ELA test of students who took the test at the school.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div >{{'Average Proficiency Score Overall (Math)' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'Provides the average performance level on New York State Math test of students who took the test at the school.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group> -->
+
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div>{{'Average Proficiency Score by Grade (ELA)' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'Provides the average performance level by grade level  on New York State ELA test of students who took the test.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div>{{'Average Proficiency Score by Grade (Math)' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'Provides the average performance level by grade level on New York State Math test of students who took the test.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>			
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div>{{'Average SAT Score' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'Average SAT score of students at the school taking the exam, a globally recognized college admission test that tests knowledge of critical  reading, writing and math.' | translateGlosary}} </p>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div>{{'College and Career Preparatory Course Index' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'The percentage of students in the school’s four-year cohort who have successfully completed approved rigorous courses and assessments after four years of high school.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div>{{'College Readiness Rate Including Persistence' | translateHeaderGlosary}} </div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'Percentage of students in the six-year cohort who 1) graduated with a Regents diploma and have met City University of New York\'s (CUNY) standards for English and mathematics, or 2) graduated, enrolled and persisted through 3 consecutive semesters of college within six years of graduating.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div>{{'Communication (Survey)' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'Measures whether respondents feel that the school provides them with information about the school’s educational goals and offers appropriate feedback on each student’s learning outcomes.' | translateGlosary}} </p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div>{{'Credit Accumulation' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'Percentage of students who accumulate 10 or more academic credits in their first year of high school, with a particular focus on credits earned in English, math, science and social studies.  Credit accumulation is a strong indicator that a student is on track to graduation.' | translateGlosary}} </p>
+			    	</div>
+			</accordion-group>			
+
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div>{{'Developing (Quality Review)' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'A Developing rating may indicate inconsistent teaching and learning practices and is working towards effective school management and a more positive learning environment.' | translateGlosary}} </p>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group  is-open="false">
+        <accordion-heading>
+            <div>{{'District' | translateHeaderGlosary}}</div>
+        </accordion-heading>   
+			    	<div class="glossary">
+			    		<p>{{'The geographic district in which the school is located.  Note that all charter schools are assigned to District 84 regardless of geographic location.' | translateGlosary}} </p>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group  is-open="false">  
+        <accordion-heading>
+            <div>{{'Engagement' | translateHeaderGlosary}}</div>
+        </accordion-heading>
+			    	<div class="glossary">
+			    		<p>{{'Measures whether respondents feel engaged in an active and vibrant partnership to promote student learning.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group  is-open="false">  
+        <accordion-heading>
+            <div>{{'English Language Learners' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'Percent of students that have been identified based on an initial language assessment and who have not passed the New York State English as a Second Language Achievement Test (NYSESLAT).' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group is-open="false"> 
+        <accordion-heading>
+            <div>{{'Enrollment' | translateHeaderGlosary}}</div>
+        </accordion-heading>	 
+			    	<div class="glossary">
+			    		<p>{{'The total number of students who are enrolled in each grade of the school as of October 31 of the current school year.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div>{{'Four-Year Non-Remediation Rate' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'Percentage  of students in the school’s four-year cohort who, by the August after their fourth year in high school, have graduated with a Regents Diploma and have met the City University of New York\'s (CUNY) standards for college readiness in English and Math.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group  is-open="false">  
+        <accordion-heading>
+            <div> {{'Free/Reduced Lunch' | translateHeaderGlosary}} </div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'Percentage of students with families who have qualified for the Free or Reduced-Price Lunch program or if the student is enrolled in a Universal Meal School (where all students automatically qualify).' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div>{{'Interest Area' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'A program’s interest area may indicate a general, comprehensive academic program (Humanities & Interdisciplinary or Zoned, for example), while other interest areas emphasize a particular industry (like Architecture or Engineering). Although every high school program is associated with a particular interest area, all New York City students are required to take a variety of courses in order to graduate.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div>{{'Method' | translateHeaderGlosary}}</div>
+        </accordion-heading>			    
+			    	<div class="glossary">
+			    		<p>{{'The way schools consider and admit applicants into a program.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div>{{'Proficient (Quality Review)' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'A Proficient rating typically indicates solid teaching and learning practices, effective school management, and a high quality learning environment.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div>{{'Percent of students scoring at levels 1-4 by grade (ELA)' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'New York State assigns 4 Performance Levels  to scale scores on the test:' | translateGlosary}} </p>
+								<ul>
+									<li>{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}} </li>
+									<li>{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}} </li>
+									<li>{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}} </li>
+									<li>{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} </li>
+								</ul>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div>{{'Percent of students scoring at levels 1-4 by grade (Math)' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'New York State assigns 4 Performance Levels  to scale scores on the test:' | translateGlosary}} </p>							
+								<ul>
+									<li>{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}} </li>
+									<li>{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}} </li>
+									<li>{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}} </li>
+									<li>{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} </li>
+								</ul>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div>{{'Post-Secondary Enrollment Rate' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'Percentage of students who have graduated and enrolled in a two- or four-year college, vocational program, or public service within six months of their scheduled graduation date.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div >{{'Priority' | translateHeaderGlosary}}</div>
+        </accordion-heading>			    
+			    	<div class="glossary">
+			    		<p>{{'The order in which applicants are considered for placement.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div >{{'Program' | translateHeaderGlosary}}</div>
+        </accordion-heading>			    
+			    	<div class="glossary">
+			    		<p>{{'When applying to middle and high schools, students apply to programs within schools. Programs may have different interest or focus areas as well as admissions methods.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div>{{'Program Focus' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'A program’s focus area may indicate a general, comprehensive academic program (Humanities & Interdisciplinary or Zoned, for example), while other interest areas emphasize a particular industry (like Architecture or Engineering).' | translateGlosary}} </p>
+			    	</div>
+			</accordion-group>	
+
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div>{{'Progress Report- College and Career Subgrade' | translateHeaderGlosary}}</div>
+        </accordion-heading>			    
+			    	<div class="glossary">
+			    		<p>{{'Measures the ability of a school to prepare its students for success in college and career on the basis of passing advanced courses, meeting proficiency standards and enrolling in a post-secondary institution.' | translateGlosary}}  </p>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div >{{'Progress Report- Environment Subgrade' | translateHeaderGlosary}}</div>
+        </accordion-heading>			    
+			    	<div class="glossary">
+			    		<p>{{'Based on student attendance and the results of the school\'s NYC School Survey.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div >{{'Progress Report- Overall Grade' | translateHeaderGlosary}}</div>
+        </accordion-heading>			    
+			    	<div class="glossary">
+			    		<p>{{'The Progress Report measures students’ year-to-year progress, compares the school to other schools with similar students, and rewards success in moving all children forward, especially those with the highest needs (i.e., students with disabilities, English language learners, students with the lowest third incoming proficiency citywide, and black and Hispanic males). Overall Progress Report grades, which range from A to F, are based on the scores of multiple sections.  In each section, a school\'s results are compared to the results of “peer” schools serving similar students and to all schools citywide.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div >{{'Progress Report- Performance Subgrade (ES/MS)' | translateHeaderGlosary}}</div>
+        </accordion-heading>			    
+			    	<div class="glossary">
+			    		<p>{{'Based on student results on the State tests in English Language Arts and Math. Middle school scores also take students passing core courses into account.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div >{{'Progress Report- Performance Subgrade (HS)' | translateHeaderGlosary}}</div>
+        </accordion-heading>			    
+			    	<div class="glossary">
+			    		<p>{{'Based on how many students graduated within 4 and 6 years of starting high school  and the types of diplomas they earned.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div >{{'Progress Report- Progress Subgrade (ES/MS)' | translateHeaderGlosary}}</div>
+        </accordion-heading>			    
+			    	<div class="glossary">
+			    		<p>{{'Based on how much individual students improved on State tests in English Language Arts and Math compared to other students in the City.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div>{{'Progress Report- Progress Subgrade (HS)' | translateHeaderGlosary}}</div>
+        </accordion-heading>			    
+			    	<div class="glossary">
+			    		<p>{{'Based on the annual progress students make toward meeting the State\'s graduation requirements by earning course credits and passing Regents exams.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div >{{'Quality Review' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'A two- or three-day school visit by an experienced educator to evaluate how well the school is organized to support student achievement. The overall rating is based on three major categories: instruction that prepares students for college and careers, school organization and management, and quality of the learning environment.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div >{{'Regents Average Score' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'Average score of all students who took the Regents Exam in the selected year.' | translateGlosary}} </p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div >{{'Regents College Ready' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'Percentage of students who scored at the college ready threshold for the Regents Exam in the selected year.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div >{{'Regents Pass Rate' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'Percentage of students passing the Regents Exam in the selected year.' | translateGlosary}}  </p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group  is-open="false">  
+        <accordion-heading>
+            <div >{{'Response Rates' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'Percentage of eligible parents, teachers and students in grades 6-12 who responded to the NYC School Survey.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group  is-open="false">  
+        <accordion-heading>
+            <div >{{'Safety and Respect (Survey)' | translateHeaderGlosary}}</div>
+        </accordion-heading>			    
+			    	<div class="glossary">
+			    		<p>{{'Measures whether respondents feel that the school creates a physically and emotionally secure environment in which everyone can focus on student learning.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div >{{'SAT Takers' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'The number of students at the school who took the SAT at the school, a globally recognized college admission test that tests knowledge of critical  reading, writing and math.' | translateGlosary}} </p>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div >{{'Seats' | translateHeaderGlosary}}</div>
+        </accordion-heading>			    
+			    	<div class="glossary">
+			    		<p>{{'Number of seats in a program that were available to students applying for September of the selected year.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group  is-open="false"> 
+        <accordion-heading>
+            <div >{{'Shared Site' | translateHeaderGlosary}}</div>
+        </accordion-heading>		     
+			    	<div class="glossary">
+			    		<p>{{'Whether the school is co-located with at least one other school in a shared building.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group  is-open="false">  
+        <accordion-heading>
+            <div >{{'Students with Disabilities' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'Percentage of students receiving an Individualized Education Plan (IEP) as of the end of the school year.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div >{{'Survey' | translateHeaderGlosary}}</div>
+        </accordion-heading>			    
+			    	<div class="glossary">
+			    		<p>{{'The NYC School Survey is administered annually to all parents, all teachers, and students in grades 6 - 12.  Survey results provide insight into a school\'s learning environment and assess the community\'s opinions on academic expectations, communication, engagement, and safety and respect.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div>{{'Test Scores (ELA)' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'In Spring 2013, New York State administered the first set of tests designed to assess student performance in English Language Arts (Grades 3-8) in accordance with the instructional shifts required by the Common Core Learning Standards. New York State assigns performance levels 1 ,2, 3, and 4 to scale scores from the exams.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div >{{'Test Scores (Math)' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'In Spring 2013, New York State administered the first set of tests designed to assess student performance in Math (Grades 3-8) in accordance with the instructional shifts required by the Common Core Learning Standards. New York State assigns performance levels 1, 2, 3, and 4 to scale scores from the exams.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group  is-open="false">
+        <accordion-heading>
+            <div >{{'Total Enrollment' | translateHeaderGlosary}}</div>
+        </accordion-heading>  
+
+			    	<div class="glossary">
+			    		<p>{{'The total number of students who are enrolled in the school as of October 31 of the selected school year.' | translateGlosary}} </p>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div>{{'Underdeveloped (Quality Review Rating)' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'An Underdeveloped rating may indicate a failure to deliver effective teaching and learning practices, demonstrate effective school management and provide a high quality learning environment.' | translateGlosary}} </p>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div >{{'Well Developed (Quality Review Rating)' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'This is the highest rating a school can earn on the Quality Review.  It indicates highly effective teaching and learning practice, strategic school management, and an excellent quality learning environment.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group  is-open="false">  
+        <accordion-heading>
+            <div >{{'Year Opened' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'The first school year that the school was open.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div >{{'Curriculum (Quality Review Indicator)' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'Measures the rigor and coherence of school curricula in all subjects with a close examination of consistency and access for all students across grades and subject areas.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div >{{'Pedagogy (Quality Review Indicator)' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'Measures the effectiveness of instruction across classrooms by looking at the quality of student work products and student discussion.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div >{{'Positive Learning Environment (Quality Review Indicator)' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'Measures the quality of school culture and environment including safety, inclusiveness and other student success supports.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div >{{'High expectations (Quality Review Indicator)' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'Measures how effectively the school establishes a culture for learning that communicates high expectations to students, families, and staff and provides support towards students’ next steps.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div >{{'4 Year Graduation Rate' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'Percentage of students who graduated with a Regents or Local Diploma within four years of beginning high school, including August graduates.  Citywide graduation rates are as reported by New York State Department of Education while individual school graduation rates are as reported by NYC DOE.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+		    <accordion-group is-open="false">  
+        <accordion-heading>
+            <div >{{'6 Year Graduation Rate' | translateHeaderGlosary}}</div>
+        </accordion-heading>		    
+			    	<div class="glossary">
+			    		<p>{{'Percentage of students who graduated with a Regents or Local Diploma within six years of beginning high school, including August graduates. Citywide graduation rates are as reported by New York State Department of Education while individual school graduation rates are as reported by NYC DOE.' | translateGlosary}}</p>
+			    	</div>
+			</accordion-group>
+
+
+		</accordion>
+	</div>
+</div>
+
+    </section>
+    <!--END.CONTENIDO-->
+
+  <a class="exit-off-canvas"></a>
+
+  </div>
+</div>
