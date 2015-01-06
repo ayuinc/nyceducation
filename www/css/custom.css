@@ -9,6 +9,19 @@
 	font-style: normal;
 }
 
+.custom-gray {
+	background-color: #E3E3E3 !important;
+}
+
+.avg-score {
+	padding: 14px !important;
+}
+
+.not-available {
+  font-size: 16px !important;
+  width: 20rem !important;
+}
+
 [class^="icon-"], [class*=" icon-"] {
 	font-family: 'icomoon';
 	speak: none;
@@ -118,40 +131,24 @@
 	font-size: 1.3rem;
 	margin-right: 0rem;
 	margin-top: -0.7rem;
-position: static;
-	/*	z-index: 99;*/
-	/*top: 1.3rem;
-	left: 17.85rem;
-	font-size: 1.3rem;
-	font-weight: 100;
-	color: #FFF;
-	line-height: 4%; */
+	position: static;
 }
-.accordion .icon-info {
-	/*position: absolute;
-	top: 1rem;
-	right: 0rem;
-	color:#13688F;
-	font-size: 1.1rem;
-	margin-right: -0.5rem;*/
-
+.accordion .icon-info, .accordion .icon-info-2 {
 	background-image: url("../img/icon-info-azul.png");
 	background-repeat: no-repeat;
 	background-size: 16px 16px;
 	width: 16px;
 	height: 16px;
-	margin-left: 93.7%;
-	margin-top: 4px;
+
+	position: absolute;
+	float: right ! important;
+	right: 0rem;
+	top: 1.4rem;
+
 }
 
 .accordion .icon-info-2 {
-background-image: url("../img/icon-info-azul.png");
-background-repeat: no-repeat;
-background-size: 16px 16px;
-width: 16px;
-height: 16px;
-margin-left: 88%;
-margin-top: -12px;
+	top: 2.4rem !important;
 }
 
 .accordion .icon-info-3 {
@@ -221,7 +218,7 @@ a{
 }
 
 body{
-	background-color: #B4B9C1;
+	background-color: #b4b9c0;
 	/*font-family: "MuseoSansLocal";*/
 	font-weight: normal;
 	font-style: normal;
@@ -237,19 +234,20 @@ body{
 }
 
 .header {
-	background-color: #FFBE00;	
-	height: 2.8125rem;
+	background-color: #ffcb33;	
+	min-height: 2.8125rem;
+	/*min-height: 5.4rem;*/
 	/*box-shadow: 0px 1px 5px #888;
 	position: relative;*/
 }
 
 .header h1 {
-	font-size: 0.9rem;
+	font-size: 1rem;
 	font-weight: 500;
 	color: #FFF;
-	line-height: 1rem;
+	line-height: 1.3rem;
 	margin: 0.9rem auto 0.8rem auto;
-	min-height: 40px;
+	/*min-height: 40px;*/
 }
 
 
@@ -267,26 +265,45 @@ body{
 }
 
 .bg-letters {
-    background-image: url("../img/bg-app.png");
+  background-image: url("../img/bg-app.png");
 	background-repeat: repeat;
 	background-position-x: -1rem;
 	height: 14rem;
+	padding-top: 1rem;
+	margin-bottom: 1rem;
 }
 
 .homepage h3 {
-	margin-top:3rem;
-	font-size: 1.8rem;
+	margin-top: 2.8rem;
+	font-size: 2.5rem;
 	line-height: 100%;
-	font-weight: 300;
+	font-weight: 500;
 	color: #C9F4FF;
 }
 
 .homepage h2 {
-	margin-top:1.5rem;
-	font-size: 3em;
+	margin-top:0rem;
+	font-size: 4.3em;
 	line-height: 100%;
 	font-weight: 600;
 	color: #C9F4FF;
+}
+
+.search-address-field {
+	color:#545459;
+	-moz-border-radius:0px;
+	-webkit-border-radius:0px;
+	border-radius:0px;
+}
+
+.search-address-select {
+	color:#545459;
+	height:3.32rem;
+	border:none;
+	background: url("../img/vineta.png") no-repeat right;
+	background-color: #F7F7F7;
+	background-position-x: 90%;
+	background-size: 18px;
 }
 
 .search-form{
@@ -307,8 +324,42 @@ body{
 	margin-bottom:1rem;
 }
 
+.button-language {
+	width:98%;
+	background-color:#555555 !important;
+	height:41px;
+	font-size: 1rem;
+	color:#FFFFFF !important;
+	border:none;
+	padding: 0.7rem;
+	font-family: 'museo-sans',sans-serif;
+	-webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  background: url("../img/vineta_blanca.png") no-repeat right;
+	background-position-x: 90%;
+	background-size: 18px;
+}
+
+.button-school {
+	width:96%;
+	background-color:#666666 !important;
+	padding: 0.7rem;
+	font-size: 1rem;
+}
+
+.button-address {
+	width:100%;
+	background-color:#777777 !important;
+	padding: 0.7rem;
+	font-size: 1rem;
+}
+
 .bottones-search {
-	margin:2.2rem 0 2rem 0 !important;
+	font-size: 0.9rem;
+	margin: 0;
+	padding: 0.5rem;
 }
 
 .boton-right {
@@ -386,7 +437,7 @@ body{
 
 .switch1, .switch2 {
 	padding:0.6rem 0.5rem;
-	max-height: 2.8rem;
+	/*max-height: 2.8rem;*/
 }
 
 .switch1 a:active, .switch2 a:active {
@@ -442,6 +493,7 @@ body{
 .priority {
 	background-color: #99E5FF;
 	padding: 1.1rem;
+	text-align: left;
 }
 .priority h6 {
 	text-align: right;
@@ -567,16 +619,11 @@ position: relative;
 	color: #333;
 	font-weight: 100;
 	font-size: 1.5rem;
-	padding: 0 2rem;
+	padding: 0 1rem;
 	position: relative;
 	top: 0.5rem;
-
-		/*color: #333;
-	font-weight: 100;
-	font-size: 0.9rem;
-	position: relative;
-	top: 0.9rem;
-	right:0.8rem;*/
+	/*height: 2.5rem;*/
+	margin-bottom: 0.5rem;
 }
 
 .democracy span {
@@ -718,6 +765,10 @@ position: relative;
 	color: #333333;
 }
 
+.average p {
+	padding-left: 0.5rem;
+}
+
 .rank p{
 	margin-top: 10px;
 }
@@ -808,7 +859,7 @@ itemsurvey {
 	font-size: 0.8rem;
 	position: absolute;
 	top: 0.6rem;
-	right: 2rem;
+	right: 1rem;
 	height: 0;
 	width: 80%;
 	top: -0.4rem;
@@ -969,7 +1020,7 @@ itemsurvey span .pmizq{
 }*/
 
 .main-section {
-	min-height: 435px !important;
+	min-height: 500px !important;
 }
 
 .button-white {
@@ -1207,11 +1258,17 @@ span.joyride-nub.right {
 .dropdown.button.small:before, button.dropdown.small:before{
 
 	border-color: transparent;
-    background-image: url("../img/vineta.png");
+  background-image: url("../img/vineta.png");
 	background-repeat: no-repeat;
 	background-position-y: -1rem;
 	margin-right: -20px;
 	width: 40px;
+}
+
+#lang-toogle.dropdown.button.small:before{
+  background-image: url("../img/close.png");
+	background-position-y: -1.2rem;
+	background-size: 80%;
 }
 
 a.left-off-canvas-toggle.menu-icon{
@@ -1290,14 +1347,29 @@ left: 105px;
 .middle-vertical {
 	display: table;
 	height: 100%;
-	width: 86%;
+	 width: 86%; 
 }
 
-.middle-vertical h1{
+.middle-vertical-main {
+	height: 100%;
+	 width: 100%; 
+}
+
+.middle-vertical-menu {
+	height: 100%;
+	 width: 100%; 
+}
+
+.middle-vertical h1 {
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
 }
+
+/*.middle-vertical-menu h1{
+	margin: 0rem;
+	margin-top: 0.5rem;
+}*/
 
 .f-dropdown li a {
 font-size: 0.8rem;
@@ -1316,7 +1388,7 @@ margin-right: -13px;
 
 .dropdown.button, button.dropdown {
 position: relative;
-width: 130px;
+width: 145px;
 }
 
 .dropdown.button.small, button.dropdown.small {
@@ -1366,6 +1438,33 @@ padding-right: 2.5rem !important;
   background-position: 95% 0% !important;
 }
 
+.survey-categories .close{
+
+  background: #8ecad4 url('../img/close.png') !important;
+  background-repeat: no-repeat !important;
+  min-width: 1.2rem;
+  min-height: 1.2rem;
+  background-size: 1.2rem !important;
+  -webkit-background-size: 1.2rem !important;
+  -moz-background-size: 1.2rem !important;
+  -o-background-size: 1.2rem !important;
+  background-position: 95% 0% !important;
+
+}
+
+.survey-categories .open{
+
+  background: #8ecad4 url('../img/open.png') !important;
+  background-repeat: no-repeat !important;
+  min-width: 1.2rem;
+  min-height: 1.2rem;
+  background-size: 1.2rem !important;
+  -webkit-background-size: 1.2rem !important;
+  -moz-background-size: 1.2rem !important;
+  -o-background-size: 1.2rem !important;
+  background-position: 95% 0% !important;
+}
+
 
 .accordion dd > a.accordion_label_srd {
 border-bottom: 0;
@@ -1379,10 +1478,11 @@ background-color: #138e51;
 background-color:#81CAD1;
 padding: 5px 0; 
 max-height: 1.7rem;
+position: relative;
 }
 
 .ns-sat{
-padding-left: 3rem;
+padding-left: 1rem;
 font-size: 0.9rem;
 font-family: "MuseoSansLocal", "museo-sans",sans-serif;
 font-weight: 100;
@@ -1390,7 +1490,7 @@ font-weight: 100;
 
 .ns-sat-label{
 float: right;
-margin-right: 70px;
+margin-right: 2.5rem;
 font-size: 0.9rem
 font-family: "MuseoSansLocal", "museo-sans",sans-serif;
 font-weight: 100;
@@ -1433,12 +1533,28 @@ padding: 0.3rem 0.8rem 0.4rem 1rem;
 border: 1px solid #FFFFFF;
 }
 
-
 .something-semantic {
    display: table;
    width: 100%;
 }
+
 .something-else-semantic {
    display: table-cell;
    vertical-align: middle;
+}
+
+.rblenguage{
+	top: 2rem;
+}
+
+.flagHighRow{
+	height: 3.4rem;
+}
+
+.disclaimer{
+	background-color: white;
+}
+
+.diclaimer-home {
+	margin-bottom:3rem;
 }

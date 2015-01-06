@@ -1,58 +1,139 @@
 <!--HEADER-->
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="es" ng-app="nyce">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>School Source NYC</title>
-	<script type="text/javascript">
-	  (function(d) {
-	    var config = {
-	      kitId: 'cda4cic',
-	      scriptTimeout: 3000
-	    },
-	    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-	  })(document);
-	</script>    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>School Central NYC</title>
+    <script type="text/javascript">
+      (function(d) {
+        var config = {
+          kitId: 'cda4cic',
+          scriptTimeout: 3000
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script>
+
+  <script type="text/javascript">
+
+
+    function GetUniqueElementsArrayOld(inputArray) {
+      var outputArray = [];
+      var inputArrayLength = inputArray.length;
+      for (var i = 0; i < inputArrayLength ; i++) {
+        if ((jQuery.inArray(inputArray[i], outputArray)) == -1) {
+          if ((inputArray[i] != "") && (inputArray[i] != "0.00") && (inputArray[i] != "0")) {
+            outputArray.push(inputArray[i].trim());
+          };
+        }
+      }
+      return outputArray;
+    }
+
+    function GetUniqueElementsArray(inputArray) {
+      var outputArray = [];
+      var inputArrayLength = inputArray.length;
+      for (var i = 0; i < inputArrayLength ; i++) {
+        if ((jQuery.inArray(inputArray[i], outputArray)) == -1) {
+          if ((inputArray[i] != "") && (inputArray[i] != null) && (inputArray[i] != "0.00")) {
+            outputArray.push(inputArray[i]);
+          };
+        }
+      }
+      return outputArray;
+    }
+
+
+
+
+    function mcolor( id ){
+      var michi = "#";
+      if ( id == "btn_simple"){
+        var btn_desactivar = document.getElementById("btn_simple");
+        var btn_activar = document.getElementById("btn_complicado");
+        btn_activar.style.background="#a6acb5";
+        btn_desactivar.style.background="#969DA1";
+      }
+      if ( id == "btn_complicado"){
+        var btn_desactivar = document.getElementById("btn_complicado");
+        var btn_activar = document.getElementById("btn_simple");
+        btn_activar.style.background="#a6acb5";
+        btn_desactivar.style.background="#969DA1";
+      }
+    }
+
+    function openCloseAccordion(e){
+      if($(e).hasClass("close")){
+        $(e).removeClass("close");
+        $(e).addClass("open");
+        $(e).css('box-shadow','0px 4px 3px 0px #8e8e8e');
+      }else if($(e).hasClass("open")){
+        $(e).removeClass("open");
+        $(e).addClass("close");
+        $(e).css('box-shadow','none');
+      }
+    }
+
+    function openCloseAccordionSurverCategories(e){
+      if($(e).hasClass("close-survey-categories")){
+        $(e).removeClass("close-survey-categories");
+        $(e).addClass("open-survey-categories");
+        $(e).css('box-shadow','0px 4px 3px 0px #8e8e8e');
+      }else if($(e).hasClass("open-survey-categories")){
+        $(e).removeClass("open-survey-categories");
+        $(e).addClass("close-survey-categories");
+        $(e).css('box-shadow','none');
+      }
+    }
+
+
+  </script>
+
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/autocomplete.css" />
     <script src="js/vendor/modernizr.js"></script>
   </head>
-  <body>
-    
-	<div class="row header">
-		<div class="small-12 medium-12 large-12 columns">
-			<h1 class="text-center">Welcome</h1>
-		</div>
-	</div> 
+  <body ng-controller="MainController">
+
 <!--END.HEADER-->
-	
-	
-	
-	<div class="row homepage">
-		<div class="small-12 medium-12 large-12 columns bg-letters">
-			<h3 class="text-center">School Source</h3>
-			<h2 class="text-center">NYC</h2>
-		</div>	
-		<div class="small-12 medium-12 large-12 columns">
-				<div class="row collapse">
-					<div class="small-12 columns">
-						<form class="search-form" action="menu.html">
-		                    <input type="search" placeholder="School Name / Address">
-		                    <img src="img/search.png" alt="">
-		                    <a class="button expand bottones-search">Search</a>
-						</form>
-					</div>
-				</div>
-			</form>  
-		</div>			
 
-	</div> 	 	
+    <div ng-view ng-class="slide"></div>
+
+<!--FOOTER-->
+        <script src="js/vendor/jquery.js"></script>
+        <script src="js/foundation.min.js"></script>
+        <script>
+          $(document).foundation();
+
+          // $('*').click(function() {
+          //   quitaBurbuja();
+          // });
+
+          function quitaBurbuja(){
+          var elementos = document.getElementsByClassName('joyride-tip-guide');
+           for (var i = 0; i < elementos.length; i++) {
+            elementos[i].style.display="none";
+            }
+          }
+
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-touch.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-resource.min.js"></script>
 
 
-<!--FOOTER-->    
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/foundation.min.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/controllers.js"></script>
+        <script src="js/filters.js"></script>
+        <script src="js/mm-foundation-tpls-0.1.0.js"></script>
+        <script src="js/autocomplete.js"></script>
+        <!--<script src="js/search-data-by-year.js"></script-->
+
+
   </body>
 </html>
 <!--END.FOOTER-->
