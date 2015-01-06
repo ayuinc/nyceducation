@@ -76,6 +76,10 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
     } 
 })
 
+.filter("middleschool", function($rootScope) {
+  
+})
+
 .filter("translateGlobal", function($rootScope){
     return function(text) { 
         if ($rootScope.lenguage == "esp") {
@@ -83,8 +87,8 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Select'){ return "Seleccionar";}
             else if (text == 'Rank'){ return "Rango";}
             else if (text == 'Avg.'){ return "Promedio";}
-            else if (text == 'Unavailable'){ return "No Disponible";}
-            else if (text == 'N/A'){ return "No Disponible";}
+            else if (text == "Unavailable for the selected year"){ return "No disponible para el año seleccionado";}
+            // else if (text == 'N/A'){ return "No disponible para el año seleccionado";}
             else if (text == 'Program'){ return "Programa";}
             else if (text == 'Middle'){ return "Intermedia";}
             else if (text == 'High'){ return "Secundaria";}
@@ -117,7 +121,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Welcome'){ return "Bienvenidos";}
             else if (text == 'Address'){ return "Dirección";}
             else if (text == 'Your address'){ return "Tu dirección";}
-            else if (text == 'School Name/Address'){ return "Escriba el nombre de la escuela";}
+            else if (text == 'School Name'){ return "Nombre de la escuela";}
             else if (text == 'Disclaimer'){ return "Cláusula de exención de responsabilidad";}
             else if (text == 'Search'){ return "Buscar";}
             else if (text == 'This application is not a product of the NYC Department of Education and is not endorsed by the NYCDOE. NYCDOE is not responsible for the accuracy of the content of the application. Use of this application is not a requirement of NYCDOE admissions.'){ return "Esta aplicación no es un producto del Departamento de Educación de la Ciudad de Nueva York y dicha entidad no la avala. El NYCDOE no se hace responsable por la exactitud del contenido de la aplicación. El uso de esta aplicación no es un requisito de admisión del NYCDOE.";}
@@ -536,10 +540,64 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
     } 
 })
 
-.filter("filternulltext", function(){
+.filter("filternulltext", function($rootScope){
     return function(text) { 
 
-        if (text == null || text == ''){ return "N/A";}
+        // if (text == null || text == ''){ 
+        //   return "0";
+        // }else if (text == "N/A"){
+        //   return;
+        // }
+        if (text === null || text === ''){
+          if ($rootScope.lenguage == "esp") { 
+            return "No disponible para el año seleccionado";
+          } else {
+            return "Unavailable for the selected year";
+          }
+        } else {
+          return;
+        }
+    } 
+})
+
+// .filter("filtertest", function(){
+//   return function(text) {
+//     console.log("something");
+//   }
+// })
+
+.filter("filterpercent", function(){
+    return function(text) { 
+
+        if (text == null || text == ''){ 
+          return;
+        }else {
+          return "%";
+        }
+
+    } 
+})
+
+.filter("filterslashvisibility", function(){
+    return function(text) { 
+
+        if (text == null || text == ''){ 
+          return;
+        }else {
+          return "/";
+        }
+
+    } 
+})
+
+.filter("filternumbervisibility", function(){
+    return function(text) { 
+
+        if (text == null || text == ''){ 
+          return;
+        }else {
+          return "100";
+        }
 
     } 
 })
@@ -644,7 +702,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
     return function(text) {
 
 if (text == "0.00" || text == "0" || text == ""){
-    return "N/A";
+    return "Unavailable for the selected year";
 }
 else {
     return parseFloat(text).toFixed(1)+"%";
@@ -657,7 +715,7 @@ else {
     return function(text) {
 
 if (text == "0.00" || text == "0" || text == ""){
-    return "N/A";
+    return "Unavailable for the selected year";
 }
 else {
     return parseFloat(text).toFixed(1);
@@ -682,7 +740,7 @@ else {
     return function(text) {
 
 if (text == "0.00" || text == "0" || text == ""){
-    return "N/A";
+    return "Unavailable for the selected year";
 }
 else {
     return text;
@@ -695,7 +753,7 @@ else {
     return function(text) {
 
 if (text == "0.00" || text == "0" || text == ""){
-    return "N/A";
+    return "Unavailable for the selected year";
 }
 else {
     return parseFloat(text).toFixed(1);
@@ -708,7 +766,7 @@ else {
     return function(text) {
 
 if (text == "0.00" || text == "0" || text == ""){
-    return "N/A";
+    return "Unavailable for the selected year";
 }
 else {
     return parseFloat(text).toFixed(0);

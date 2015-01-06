@@ -1,119 +1,72 @@
 <div class="row header">
-    <div class="small-12 medium-12 large-12 columns middle-vertical-main">
-        <h1 class="text-center">{{ header.title | translateMain }}</h1>
-    </div>
+	<div class="small-12 medium-12 large-12 columns middle-vertical-main">
+		<h1 class="text-center">{{ header.title | translateMain }}</h1>
+	</div>
 </div>
-
 <div class="row homepage">
-    <div class="small-12 medium-12 large-12 columns bg-letters">
-        <h3 class="text-center">School Source</h3>
-        <h2 class="text-center">NYC</h2>
-        <!--<div class="small-6 columns text-center rblenguage"><input id="inglish" ng-click="lenguage(1)" type="radio" name="lenguage" value="inglish" checked><label for="inglish">English</label></div>
-        <div class="small-6 columns text-center rblenguage"><input id="spanish" ng-click="lenguage(2)" type="radio" name="lenguage" value="spanish"><label for="spanish">Spanish</label></div> -->
-    </div>  
-    <div class="small-12 medium-12 large-12 columns">
-        <div class="row collapse">
-            <div class="small-12 columns">
-                <div class="text-center">
-<!-- a6acb5 -->
-        <!--<div class="row">
-          <div ng-controller="LenguageCtrl" class="small-6 columns">
-            <label for="spanish">
-              <input id="spanish" type="radio" name="language" value="" ng-click="lenguageChange()"> Spanish 
-            </label>  
+	<div class="small-12 medium-12 large-12 columns bg-letters">
+	  <h3 class="text-center">School Central</h3>
+	  <h2 class="text-center">NYC</h2>
+	</div>  
+	<div class="small-12 medium-12 large-12 columns">
+	  <div class="row collapse">
+	    <div class="small-12 columns">
+	      <div class="text-center">
+	        <div class="row">
+	          <!-- <div class="small-4 columns">
+	            <div ng-controller="LenguageCtrl" class="text-center">
+	              <select ng-options="language.label for language in languages track by language.id" ng-model="mylanguage" ng-change="lenguageChange()" name="language" class="button-language"></select>
+	            </div>    
+					  </div> -->
+					  <div class="small-12 columns">
+	            <div ng-controller="LenguageCtrl" class="row text-center">
+	              <!-- <select ng-options="language.label for language in languages track by language.id" ng-model="mylanguage" ng-change="lenguageChange()" name="language" class="button-language"></select> -->
+	              <label class='small-6 columns' for="ngl"><input type="radio" id='ngl' name="lang" ng-click="lenguageChange('ngl')" checked="checked"> English</label>
+								<label class='small-6 columns' for="esp"><input type="radio" id='esp' name="lang" ng-click="lenguageChange('esp')"> Spanish</label>
+	            </div>    
+					  </div>
+			      <div class="small-6 columns">
+					    <button type="button" class="button button-school" id="btn_simple" ng-model="value" value="simple" btn-radio="'simple'" >{{'School' | translateMain }}</button>
+					  </div>
+		        <div class="small-6 columns">
+					    <button type="button" class="button button-address" id="btn_complicado" ng-model="value" value="advanced" btn-radio="'advanced'" >{{'Address' | translateMain}}</button>
+				    </div>
+				  </div>
+	      </div>
+	      <div ng-switch on="value">
+	        <div ng-switch-when="simple">
+            <autocomplete ng-model="yourchoice" data="schools" on-type="updateSchools"></autocomplete>
           </div>
-          <div ng-controller="LenguageCtrl" class="small-6 columns">
-            <label for="english">
-              <input id="english" type="radio" name="language" value="" ng-click="lenguageChange()" checked> English
-            </label>  
-          </div>
-        </div> --> 
-        <div class="row">
-          <div class="small-4 columns">
-            <div ng-controller="LenguageCtrl" class="text-center">
-                <select ng-options="language.label for language in languages track by language.id" ng-model="mylanguage" ng-change="lenguageChange()" name="language" style="width:99%;background-color:#777777;height:41px;font-size: 1rem;color:#FFF;border:none;padding:0 11rem;font-family: 'museo-sans',sans-serif;">
-                	<!-- <option selected="selected" value="ngl" id="english">English</option>
-                	<option value="esp" id="spanish">Spanish</option> -->
-                </select>
-            </div>    
-            <!-- <div ng-controller="LenguageCtrl" class="text-center">
-                <a id="lang-toogle" dropdown-toggle="#dropdown-language" class="button dropdown small bg-dropdown" style="width:99%;background-color:#777777;font-size: 1rem;color:#FFF !important;border:none;padding:0.7rem;">English</a>
-                    <ul id="dropdown-language" class="f-dropdown" style="width:100%;max-width:inherit">
-                        <li>
-                            <a ng-click="lenguageChange('esp')">Spanish</a>
-                        </li>
-                        <li>
-                            <a ng-click="lenguageChange('ngl')">English</a>
-                        </li>
-                    </ul>
-                <br>
-            </div> -->
-          </div>
-          <div class="small-4 columns">
-            <button type="button" class="button" style="width:99%;background-color:#666666;padding: 0.7rem;font-size: 1rem;" id="btn_simple" onclick="mcolor(this.id)" ng-model="value" value="simple" btn-radio="'simple'" >{{'School' | translateMain }}</button>
-          </div>
-          <div class="small-4 columns">
-            <button type="button" class="button" style="width:99%;background-color:#777777;padding: 0.7rem;font-size: 1rem;" id="btn_complicado" onclick="mcolor(this.id)" ng-model="value" value="advanced" btn-radio="'advanced'" >{{'Address' | translateMain}}</button>
-          </div>
-        </div>
-
-             <!--       <input type="radio" name="search" value="simple" id="simple" ng-model="value" ng-checked="'true'"><label for="simple">By Name</label>
-                    <input type="radio" name="search" value="advanced" id="advanced" ng-model="value"><label for="advanced">By Address</label> -->
+	        <div ng-switch-when="advanced">
+            <div ng-controller="BoroughController">
+              <form ng-submit="go('/school/query/' + school.query + ' ' + myBorough.name)">
+                <div class="row">
+                  <div class="small-8 columns"> 
+                    <input class="search-address-field" type="text" placeholder="{{'Your address' | translateMain}}" ng-model="school.query">
+                  </div>
+                  <div class="small-4 columns"> 
+                    <select class="search-address-select" ng-model="myBorough" ng-options="borough.name for borough in boroughs"></select>
+                  </div>
+                  <div class="row">
+                    <div class="small-6 small-centered columns">
+                      <button type="submit" class="button expand bottones-search">{{'Search' | translateMain}}</button>
+                    </div>
+                  </div>
                 </div>
-
-
-                <div ng-switch on="value">
-                    <div ng-switch-when="simple">
-                        <autocomplete ng-model="yourchoice" data="schools" on-type="updateSchools"></autocomplete>
-                        <!-- <button type="submit" class="button expand bottones-search">Search Simple</button> -->
-                    </div>
-                    <div ng-switch-when="advanced">
-                      <div ng-controller="BoroughController">
-                        
-                        <form ng-submit="go('/school/query/' + school.query + ' ' + myBorough.name)">
-                          <div class="row">
-
-                            <div class="small-8 columns"> 
-                              <input style="color:#545459" type="text" placeholder="{{'Your address' | translateMain}}" ng-model="school.query">
-                            </div>
-
-                            <div class="small-4 columns"> 
-                              <select style="color:#545459;height:3.3rem" ng-model="myBorough" ng-options="borough.name for borough in boroughs"></select>
-                            </div>
-                            <div class="row">
-                                <div class="small-6 small-centered columns">
-                                    <button type="submit" class="button expand bottones-search">{{'Search' | translateMain}}</button>
-                                </div>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                        <ul>
-                            <li ng-repeat="sc in scs">{{ sc.name }}</li>
-                        </ul>
-                    </div>
-                    <div ng-switch-default>
-                        <autocomplete ng-model="yourchoice" data="schools" on-type="updateSchools"></autocomplete>
-                        <!--<button type="submit" class="button expand bottones-search">Search Default</button>-->
-                    </div>
-                </div>
-<div class="text-center">
-    <a ng-click="go('/Disclaimer)" ng-href="#/Disclaimer">{{'Disclaimer' | translateMain }}</a>
-</div>
-
-<!-- <div ng-show="valuesElaScores" style="position:relative;z-index:5;top: 8px;left: {{ 2 | iconPosition }};cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="{{'In Spring 2013, New York State administered the first set of tests designed to assess student performance in English Language Arts (Grades 3-8) in accordance with the instructional shifts required by the Common Core Learning Standards. New York State assigns performance levels 1 ,2, 3, and 4 to scale scores from the exams.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>asd    -->                 
-               
-                <!-- <autocomplete ng-model="yourchoice" data="schools" on-type="updateSchools"></autocomplete>
-                <button type="submit" class="button expand bottones-search">Search</button> -->
-                <!-- <form class="search-form" ng-submit="go('/school/' + school.name)">
-                    <input type="search" placeholder="School Name / Address" autofocus="autofocus" ng-model="school.name" required>
-                    <img src="img/search.png" alt="">
-                    <button type="submit" class="button expand bottones-search">Search</button>
-                </form> -->
+              </form>
             </div>
-        </div>
-    </div>
-
-<!--     <autocomplete ng-model="yourchoice" data="schools" on-type="updateMovies"></autocomplete>
- -->
+            <ul>
+            	<li ng-repeat="sc in scs">{{ sc.name }}</li>
+            </ul>
+          </div>
+	        <div ng-switch-default>
+          	<autocomplete ng-model="yourchoice" data="schools" on-type="updateSchools"></autocomplete>
+          </div>
+	      </div>
+				<div class="text-center disclaimer-home">
+					<a ng-href="#/Disclaimer">{{'Disclaimer' | translateMain }}</a>
+				</div>
+			</div>
+	  </div>
+	</div>
 </div>

@@ -99,7 +99,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesStudentsEnrolledGrade.push(this.datos.enrollments[indice]["grade12"]);
           if(GetUniqueElementsArray(ValuesStudentsEnrolledGrade).length > 0)
               { return true }
-          else{ return false }  
+          else{ return false }
         },
         SearchValuesAttendance: function(indice){
           var ValuesAttendance = [];
@@ -107,7 +107,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesAttendance.push(this.datos.enrollments[indice]['attendance_hs_transfer_hs']);
           if(GetUniqueElementsArray(ValuesAttendance).length > 0)
             { return true}
-          else{ return false }      
+          else{ return false }
         },
         SearchValuesGraduation: function(indice){
           var ValuesGraduation = [];
@@ -117,7 +117,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesGraduation.push(this.datos.college_careers[indice]['transfer_s_graduation_r']);
           if(GetUniqueElementsArray(ValuesGraduation).length > 0)
             { return true }
-          else{ return false }      
+          else{ return false }
         },
         SearchValuesCollegeCareerReadiness: function(indice){
           var ValuesCollegeCareerReadiness = [];
@@ -127,7 +127,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesCollegeCareerReadiness.push(this.datos.college_careers[indice]['c_readiness_r_including_p']);
           if(GetUniqueElementsArray(ValuesCollegeCareerReadiness).length > 0)
             { return true }
-          else{ return false }      
+          else{ return false }
         },
         SearchValuesSat: function(indice){
           var ValuesSat = [];
@@ -137,7 +137,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesSat.push(this.datos.evaluations_average_score[indice]['sat_a_writing_s']);
           if(GetUniqueElementsArray(ValuesSat).length > 0)
             { return true }
-          else{ return false }      
+          else{ return false }
         },
         SearchValuesRegentsPassRate: function(indice){
           var ValuesRegentsPassRate = [];
@@ -153,7 +153,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesRegentsPassRate.push(this.datos.evaluations_regents[indice]['pp_r_algebraii']);
           if(GetUniqueElementsArray(ValuesRegentsPassRate).length > 0)
             { return true }
-          else{ return false }      
+          else{ return false }
         },
         SearchValuesRegentsAverageScore: function(indice){
           var ValuesRegentsAverageScore = [];
@@ -169,7 +169,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesRegentsAverageScore.push(this.datos.evaluations_regents[indice]['as_r_algebraii']);
           if(GetUniqueElementsArray(ValuesRegentsAverageScore).length > 0)
             { return true }
-          else{ return false }      
+          else{ return false }
         },
         SearchValuesRegentsRegentsCollegeReady: function(indice){
           var ValuesRegentsRegentsCollegeReady = [];
@@ -179,7 +179,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesRegentsRegentsCollegeReady.push(this.datos.evaluations_regents[indice]['pcr_r_geometry']);
           if(GetUniqueElementsArray(ValuesRegentsRegentsCollegeReady).length > 0)
             { return true }
-          else{ return false }      
+          else{ return false }
         },
         SearchValuesElaScores: function(indice){
           var ValuesElaScores = [];
@@ -198,18 +198,18 @@ app.factory('DatosSchool',function($rootScope){
           ValuesElaScores.push(this.datos.evaluations_ela[indice]['6rd_pr_s_level1_ela']);
           ValuesElaScores.push(this.datos.evaluations_ela[indice]['6rd_pr_s_level2_ela']);
           ValuesElaScores.push(this.datos.evaluations_ela[indice]['6rd_pr_s_level3_ela']);
-          ValuesElaScores.push(this.datos.evaluations_ela[indice]['6rd_pr_s_level4_ela']);          
+          ValuesElaScores.push(this.datos.evaluations_ela[indice]['6rd_pr_s_level4_ela']);
           ValuesElaScores.push(this.datos.evaluations_ela[indice]['7rd_pr_s_level1_ela']);
           ValuesElaScores.push(this.datos.evaluations_ela[indice]['7rd_pr_s_level2_ela']);
           ValuesElaScores.push(this.datos.evaluations_ela[indice]['7rd_pr_s_level3_ela']);
-          ValuesElaScores.push(this.datos.evaluations_ela[indice]['7rd_pr_s_level4_ela']);          
+          ValuesElaScores.push(this.datos.evaluations_ela[indice]['7rd_pr_s_level4_ela']);
           ValuesElaScores.push(this.datos.evaluations_ela[indice]['8rd_pr_s_level1_ela']);
           ValuesElaScores.push(this.datos.evaluations_ela[indice]['8rd_pr_s_level2_ela']);
           ValuesElaScores.push(this.datos.evaluations_ela[indice]['8rd_pr_s_level3_ela']);
-          ValuesElaScores.push(this.datos.evaluations_ela[indice]['8rd_pr_s_level4_ela']);          
+          ValuesElaScores.push(this.datos.evaluations_ela[indice]['8rd_pr_s_level4_ela']);
           if(GetUniqueElementsArray(ValuesElaScores).length > 0)
             { return true }
-          else{ return false }      
+          else{ return false }
         },
         SearchValuesMathScores: function(indice){
           var ValuesMathScores = [];
@@ -228,18 +228,18 @@ app.factory('DatosSchool',function($rootScope){
           ValuesMathScores.push(this.datos.evaluations_math[indice]['6rd_pr_s_level1_math']);
           ValuesMathScores.push(this.datos.evaluations_math[indice]['6rd_pr_s_level2_math']);
           ValuesMathScores.push(this.datos.evaluations_math[indice]['6rd_pr_s_level3_math']);
-          ValuesMathScores.push(this.datos.evaluations_math[indice]['6rd_pr_s_level4_math']);          
+          ValuesMathScores.push(this.datos.evaluations_math[indice]['6rd_pr_s_level4_math']);
           ValuesMathScores.push(this.datos.evaluations_math[indice]['7rd_pr_s_level1_math']);
           ValuesMathScores.push(this.datos.evaluations_math[indice]['7rd_pr_s_level2_math']);
           ValuesMathScores.push(this.datos.evaluations_math[indice]['7rd_pr_s_level3_math']);
-          ValuesMathScores.push(this.datos.evaluations_math[indice]['7rd_pr_s_level4_math']);          
+          ValuesMathScores.push(this.datos.evaluations_math[indice]['7rd_pr_s_level4_math']);
           ValuesMathScores.push(this.datos.evaluations_math[indice]['8rd_pr_s_level1_math']);
           ValuesMathScores.push(this.datos.evaluations_math[indice]['8rd_pr_s_level2_math']);
           ValuesMathScores.push(this.datos.evaluations_math[indice]['8rd_pr_s_level3_math']);
-          ValuesMathScores.push(this.datos.evaluations_math[indice]['8rd_pr_s_level4_math']);          
+          ValuesMathScores.push(this.datos.evaluations_math[indice]['8rd_pr_s_level4_math']);
           if(GetUniqueElementsArray(ValuesMathScores).length > 0)
             { return true }
-          else{ return false }  
+          else{ return false }
         },
         SearchValuesAverageProficiencyScoreELA: function(indice){
           var ValuesAverageProficiencyScoreELA = [];
@@ -252,7 +252,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesAverageProficiencyScoreELA.push(this.datos.evaluations_ela[indice]['8rd_a_p_r_ela']);
           if(GetUniqueElementsArray(ValuesAverageProficiencyScoreELA).length > 0)
             { return true }
-          else{ return false }      
+          else{ return false }
         },
         SearchValuesAverageProficiencyScoreMath: function(indice){
           var ValuesAverageProficiencyScoreMath = [];
@@ -265,7 +265,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesAverageProficiencyScoreMath.push(this.datos.evaluations_math[indice]['8rd_a_p_r_math']);
           if(GetUniqueElementsArray(ValuesAverageProficiencyScoreMath).length > 0)
             { return true }
-          else{ return false }      
+          else{ return false }
         },
         SearchValuesGender: function(indice){
           var ValuesGender = [];
@@ -273,7 +273,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesGender.push(this.datos.demographics[indice]['male']);
           if(GetUniqueElementsArray(ValuesGender).length > 0)
             { return true }
-          else{ return false }      
+          else{ return false }
         },
         SearchValuesEthnicity: function(indice){
           var ValuesEthnicity = [];
@@ -284,7 +284,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesEthnicity.push(this.datos.demographics[indice]['other']);
           if(GetUniqueElementsArray(ValuesEthnicity).length > 0)
             { return true }
-          else{ return false }      
+          else{ return false }
         },
         SearchValuesStatus: function(indice){
           var ValuesStatus = [];
@@ -294,7 +294,7 @@ app.factory('DatosSchool',function($rootScope){
           if(GetUniqueElementsArray(ValuesStatus).length > 0)
             { return true }
           else{ return false }
-        }, 
+        },
         SearchValuesProgressReportElem: function(indice){
           var ValuesProgressReport = [];
           ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_pr_grade']);
@@ -303,7 +303,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_enviro_pr_grade']);
           if(GetUniqueElementsArray(ValuesProgressReport).length > 0)
             { return true }
-          else{ return false }      
+          else{ return false }
         },
         SearchValuesQualityReviewElem: function(indice){
           var ValuesQualityReview = [];
@@ -313,7 +313,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_34']);
           if(GetUniqueElementsArray(ValuesQualityReview).length > 0)
             { return true }
-          else{ return false }      
+          else{ return false }
         },
         SearchValuesProgressReportHigh: function(indice){
           var ValuesProgressReport = [];
@@ -324,7 +324,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesProgressReport.push(this.datos.evaluations[indice]['hs_t_hs_o_cac_grade']);
           if(GetUniqueElementsArray(ValuesProgressReport).length > 0)
             { return true }
-          else{ return false }      
+          else{ return false }
         },
         SearchValuesQualityReviewHigh: function(indice){
           var ValuesQualityReview = [];
@@ -335,7 +335,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_34']);
           if(GetUniqueElementsArray(ValuesQualityReview).length > 0)
             { return true }
-          else{ return false }      
+          else{ return false }
         },
         SearchValuesTotalResponseRate: function(indice){
           var ValuesTotalResponseRate = [];
@@ -344,7 +344,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesTotalResponseRate.push(this.datos.survey_result[indice]['s_total_response_rate']);
           if(GetUniqueElementsArray(ValuesTotalResponseRate).length > 0)
             { return true }
-          else{ return false }      
+          else{ return false }
         },
         SearchValuesSafetyandRespect: function(indice){
           var ValuesSafetyandRespect = [];
@@ -353,7 +353,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesSafetyandRespect.push(this.datos.survey_result[indice]['s_safety_respect_rs']);
           if(GetUniqueElementsArray(ValuesSafetyandRespect).length > 0)
             { return true }
-          else{ return false }      
+          else{ return false }
         },
         SearchValuesEngagement: function(indice){
           var ValuesEngagement = [];
@@ -362,7 +362,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesEngagement.push(this.datos.survey_result[indice]['s_engagement_rs']);
           if(GetUniqueElementsArray(ValuesEngagement).length > 0)
             { return true }
-          else{ return false }      
+          else{ return false }
         },
         SearchValuesCommunication: function(indice){
           var ValuesCommunication = [];
@@ -371,7 +371,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesCommunication.push(this.datos.survey_result[indice]['s_communication_rs']);
           if(GetUniqueElementsArray(ValuesCommunication).length > 0)
             { return true }
-          else{ return false }      
+          else{ return false }
         },
         SearchValuesAcademicExpectations: function(indice){
           var ValuesAcademicExpectations = [];
@@ -380,7 +380,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesAcademicExpectations.push(this.datos.survey_result[indice]['s_academic_expectations_rs']);
           if(GetUniqueElementsArray(ValuesAcademicExpectations).length > 0)
             { return true }
-          else{ return false }      
+          else{ return false }
         },
         SearchValuesStudentsResp: function(indice){
           var ValuesStudentsResp = [];
@@ -391,7 +391,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesStudentsResp.push(this.datos.survey_result[indice]['s_total_response_rate']);
           if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
             { return true }
-          else{ return false }      
+          else{ return false }
         },
 // FILTROS SURVEY QUESTIONS
         SearchSurveyQuestionQ1F: function(indice){
@@ -400,7 +400,7 @@ app.factory('DatosSchool',function($rootScope){
           ValuesStudentsResp.push(this.datos.survey_result[indice]['s_q1f_strongly_agree']);
           if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
             { return true }
-          else{ return false }      
+          else{ return false }
         },
         SearchSurveyQuestionQ2B: function(indice){
           var ValuesStudentsResp = [];
@@ -408,15 +408,15 @@ app.factory('DatosSchool',function($rootScope){
           ValuesStudentsResp.push(this.datos.survey_result[indice]['s_q2b_strongly_agree']);
           if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
             { return true }
-          else{ return false }      
-        },      
+          else{ return false }
+        },
         SearchSurveyQuestionQ4E: function(indice){
           var ValuesStudentsResp = [];
           ValuesStudentsResp.push(this.datos.survey_result[indice]['s_q4e_agree']);
           ValuesStudentsResp.push(this.datos.survey_result[indice]['s_q4e_strongly_agree']);
           if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
             { return true }
-          else{ return false }      
+          else{ return false }
         },
         SearchSurveyQuestionQ4G: function(indice){
           var ValuesStudentsResp = [];
@@ -424,16 +424,16 @@ app.factory('DatosSchool',function($rootScope){
           ValuesStudentsResp.push(this.datos.survey_result[indice]['s_q4g_strongly_agree']);
           if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
             { return true }
-          else{ return false }      
-        },       
+          else{ return false }
+        },
         SearchSurveyQuestionQ6C: function(indice){
           var ValuesStudentsResp = [];
           ValuesStudentsResp.push(this.datos.survey_result[indice]['s_q6c_agree']);
           ValuesStudentsResp.push(this.datos.survey_result[indice]['s_q6c_strongly_agree']);
           if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
             { return true }
-          else{ return false }      
-        }, 
+          else{ return false }
+        },
 
         SearchSurveyQuestionQ3D: function(indice){
           var ValuesStudentsResp = [];
@@ -441,8 +441,8 @@ app.factory('DatosSchool',function($rootScope){
           ValuesStudentsResp.push(this.datos.survey_result[indice]['t_q3d_strongly_agree']);
           if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
             { return true }
-          else{ return false }      
-        }, 
+          else{ return false }
+        },
 
         SearchSurveyQuestionQ8C: function(indice){
           var ValuesStudentsResp = [];
@@ -450,8 +450,8 @@ app.factory('DatosSchool',function($rootScope){
           ValuesStudentsResp.push(this.datos.survey_result[indice]['t_q8c_strongly_agree']);
           if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
             { return true }
-          else{ return false }      
-        }, 
+          else{ return false }
+        },
 
         SearchSurveyQuestionQ10C: function(indice){
           var ValuesStudentsResp = [];
@@ -459,8 +459,8 @@ app.factory('DatosSchool',function($rootScope){
           ValuesStudentsResp.push(this.datos.survey_result[indice]['t_q10c_strongly_agree']);
           if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
             { return true }
-          else{ return false }      
-        },               
+          else{ return false }
+        },
 
         SearchSurveyQuestionQ11E: function(indice){
           var ValuesStudentsResp = [];
@@ -468,8 +468,8 @@ app.factory('DatosSchool',function($rootScope){
           ValuesStudentsResp.push(this.datos.survey_result[indice]['t_q11e_strongly_disagree']);
           if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
             { return true }
-          else{ return false }      
-        },               
+          else{ return false }
+        },
 
 
         SearchSurveyQuestionQ11F: function(indice){
@@ -478,8 +478,8 @@ app.factory('DatosSchool',function($rootScope){
           ValuesStudentsResp.push(this.datos.survey_result[indice]['t_q11f_strongly_agree']);
           if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
             { return true }
-          else{ return false }      
-        },               
+          else{ return false }
+        },
 
 
         SearchSurveyQuestionQ1A: function(indice){
@@ -488,8 +488,8 @@ app.factory('DatosSchool',function($rootScope){
           ValuesStudentsResp.push(this.datos.survey_result[indice]['p_q1a_strongly_agree']);
           if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
             { return true }
-          else{ return false }      
-        },               
+          else{ return false }
+        },
 
 
         SearchSurveyQuestionQ1G: function(indice){
@@ -498,8 +498,8 @@ app.factory('DatosSchool',function($rootScope){
           ValuesStudentsResp.push(this.datos.survey_result[indice]['p_q1g_strongly_agree']);
           if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
             { return true }
-          else{ return false }      
-        },               
+          else{ return false }
+        },
 
         SearchSurveyQuestionQ2A: function(indice){
           var ValuesStudentsResp = [];
@@ -507,8 +507,8 @@ app.factory('DatosSchool',function($rootScope){
           ValuesStudentsResp.push(this.datos.survey_result[indice]['p_q2a_strongly_agree']);
           if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
             { return true }
-          else{ return false }      
-        },   
+          else{ return false }
+        },
 
         SearchSurveyQuestionQ3A: function(indice){
           var ValuesStudentsResp = [];
@@ -516,8 +516,8 @@ app.factory('DatosSchool',function($rootScope){
           ValuesStudentsResp.push(this.datos.survey_result[indice]['p_q3a_strongly_agree']);
           if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
             { return true }
-          else{ return false }      
-        },   
+          else{ return false }
+        },
 
         SearchSurveyQuestionQ5B: function(indice){
           var ValuesStudentsResp = [];
@@ -529,7 +529,7 @@ app.factory('DatosSchool',function($rootScope){
         },
 
 // SEARCH DATA BY GRADE ELA- TEST SCORE
-        
+
         SearchTestScoreGrade3rdEla:function(indice){
           var ValuesTestScoreGrade3rd = [];
           ValuesTestScoreGrade3rd.push(this.datos.evaluations_ela[indice]['3rd_a_p_r_ela']);
@@ -598,7 +598,7 @@ app.factory('DatosSchool',function($rootScope){
         },
 
 // SEARCH DATA BY GRADE MATH- TEST SCORE
-        
+
         SearchTestScoreGrade3rdMath:function(indice){
           var ValuesTestScoreGrade3rd = [];
           ValuesTestScoreGrade3rd.push(this.datos.evaluations_math[indice]['3rd_a_p_r_math']);
@@ -664,12 +664,12 @@ app.factory('DatosSchool',function($rootScope){
           if(GetUniqueElementsArray(ValuesTestScoreGrade8th).length > 0)
             { return true }
           else{ return false }
-        }                        
+        }
 
 
 
 
-      
+
 
 
 
@@ -686,7 +686,7 @@ function AccordionDemoCtrl($scope , $rootScope) {
   $rootScope.oneAtATime = false;
 }
 
-
+// retrieves schools after query
 app.factory('SchoolRetriever', function($http, $q, $timeout) {
     var getSchools = function(query) {
         var deferred = $q.defer();
@@ -699,15 +699,9 @@ app.factory('SchoolRetriever', function($http, $q, $timeout) {
         .error(function(reason) {
             deferred.reject(reason);
         })
-
         return deferred.promise;
     }
-
     return {
         getSchools: getSchools
     };
 })
-
-
-
-

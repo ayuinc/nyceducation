@@ -11,24 +11,23 @@
     </nav>
 
     <div ng-include src="'templates/sidebar.html'"></div>
-    
+
 	<!--CONTENIDO-->
 <section class="main-section">
-    
-    <div class="row menu-header" style="margin-bottom: -0.9rem;">      
+
+    <div class="row menu-header" style="margin-bottom: -0.9rem;">
       <div class="small-6 small-centered medium-6 large-6 columns">
         <h3 class="text-center">{{'Test Scores' | translateTestScore}}</h3>
-      </div>  
-    </div>  
-	
+      </div>
+    </div>
     <div id="selectTestScore" class="borrar"> <!--ES ADMISSION-->
-      <div class="row menu-header"  style="padding-top:0 !important">   
-        <div class="small-10 small-centered medium-10 large-10 columns">        
+      <div class="row menu-header"  style="padding-top:0 !important">
+        <div class="small-10 small-centered medium-10 large-10 columns">
           <div class="row">
             <div class="small-10 small-centered medium-6 large-6 columns">
               <div ng-controller="SelectTestScores" class="text-center">
                 <a dropdown-toggle="#dropdown_select_testScore" class="button dropdown small bg-dropdown" >{{SelectTestScores_si | translateGlobal}}</a>
-                <ul id="dropdown_select_testScore" class="f-dropdown" >
+                <ul id="dropdown_select_testScore" ng-click="updategrades()" class="f-dropdown" >
                   <li ng-repeat="item_select_TS in items_selec_testScore">
                     <a ng-click="change_selec_testScore(item_select_TS.indice)">{{item_select_TS.texto | translateGlobal}}</a>
                   </li>
@@ -37,19 +36,19 @@
             </div>
           </div>
         </div>
-      </div>  
+      </div>
     </div>
 
     <div  id="testScore-nd" class="borrar"> <!--ES ADMISSION-->
       <div class="no-data">NO DATA AVAILABLE</div>
-    </div>  
+    </div>
 
 
 <div id="testScore-all" class="borrar">
   <div class="">
-    <div  id="testScore-elementary" class="borrar">   
-       <div class="row menu-header"  style="padding-top:0 !important"> 
-        <div class="small-10 small-centered medium-10 large-10 columns">        
+    <div  id="testScore-elementary" class="borrar">
+       <div class="row menu-header"  style="padding-top:0 !important">
+        <div class="small-10 small-centered medium-10 large-10 columns">
           <div class="row">
             <div class="small-6  medium-6 large-6 columns" >
                 <!-- <div ng-controller="TestScoreYearddCtrl" class="text-center"> -->
@@ -66,7 +65,13 @@
 
             <div class="small-6  medium-6 large-6 columns " >
               <div ng-controller="TestScoreGradeddCtrl" class="text-center">
-                <a dropdown-toggle="#dropdown-grade_testScore" class="button dropdown small bg-dropdown" style="margin-right: -10px;">{{selectedgrade | translateGlobal}}</a>
+                <div ng-if="selectedgradedefault === null" >
+                  <a dropdown-toggle="#dropdown-grade_testScore" class="button dropdown small bg-dropdown" style="margin-right: -10px;">{{selectedgrade | translateGlobal}}</a>
+                </div>
+                <div ng-if="selectedgradedefault !== null">
+                  <a dropdown-toggle="#dropdown-grade_testScore" class="button dropdown small bg-dropdown" style="margin-right: -10px;">{{selectedgradedefault | translateGlobal}}</a>
+                </div>
+
                 <ul id="dropdown-grade_testScore" class="f-dropdown" >
                   <li ng-repeat="itemg in itemsGrades">
                     <a ng-click="changegrade(itemg.indice)">{{itemg.texto | translateGlobal}}</a>
@@ -74,8 +79,8 @@
                 </ul>
                 <br>
               </div>
-            </div>  
-          </div> 
+            </div>
+          </div>
         </div>
       </div>
 
@@ -84,12 +89,12 @@
 
     <accordion close-others="oneAtATime">
 
-      <div ng-show="valuesElaScores" style="position:relative;z-index:5;top: 8px;left: {{ 2 | iconPosition }};cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="{{'In Spring 2013, New York State administered the first set of tests designed to assess student performance in English Language Arts (Grades 3-8) in accordance with the instructional shifts required by the Common Core Learning Standards. New York State assigns performance levels 1 ,2, 3, and 4 to scale scores from the exams.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>    
-      <accordion-group is-open="false" ng-show="valuesElaScores"> 
+      <div ng-show="valuesElaScores" style="position:relative;z-index:5;top: 8px;left: {{ 2 | iconPosition }};cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="{{'In Spring 2013, New York State administered the first set of tests designed to assess student performance in English Language Arts (Grades 3-8) in accordance with the instructional shifts required by the Common Core Learning Standards. New York State assigns performance levels 1 ,2, 3, and 4 to scale scores from the exams.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>
+      <accordion-group is-open="false" ng-show="valuesElaScores">
 
         <accordion-heading>
             <div >{{'ELA Scores' | translateTestScore}}</div>
-        </accordion-heading>     
+        </accordion-heading>
 
         <!-- <div class="row"> -->
 
@@ -103,7 +108,7 @@
                     <itemsurvey><span class="con-info">{{'Level 1' | translateTestScore}}</span>
                     <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer"  onclick="quitaBurbuja()"></div>
                     </itemsurvey>
-                  </div>           
+                  </div>
                 </div>
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.3rd_pr_s_level2_ela | filterNull}}">
@@ -112,7 +117,7 @@
                     <itemsurvey><span class="con-info">{{'Level 2' | translateTestScore}}</span>
                     <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
-                  </div>                 
+                  </div>
                 </div>
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.3rd_pr_s_level3_ela | filterNull}}">
@@ -121,7 +126,7 @@
                     <itemsurvey><span class="con-info">{{'Level 3' | translateTestScore}}</span>
                     <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
-                  </div>                    
+                  </div>
                 </div>
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.3rd_pr_s_level4_ela | filterNull}}">
@@ -130,7 +135,7 @@
                     <itemsurvey><span class="con-info">{{'Level 4' | translateTestScore}}</span>
                     <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
-                  </div>             
+                  </div>
                 </div>
               </div>
         		  </div>
@@ -145,7 +150,7 @@
                     <itemsurvey><span class="con-info"> {{'Level 1' | translateTestScore}} </span>
                     <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
-                  </div>                                   
+                  </div>
                 </div>
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.4rd_pr_s_level2_ela | filterNull}}">
@@ -154,7 +159,7 @@
                     <itemsurvey><span class="con-info"> {{'Level 2' | translateTestScore}} </span>
                     <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
-                  </div>                                  
+                  </div>
                 </div>
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.4rd_pr_s_level3_ela | filterNull}}">
@@ -163,7 +168,7 @@
                     <itemsurvey><span class="con-info"> {{'Level 3' | translateTestScore}} </span>
                     <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
-                  </div>              
+                  </div>
                 </div>
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.4rd_pr_s_level4_ela | filterNull}}">
@@ -172,7 +177,7 @@
                     <itemsurvey><span class="con-info"> {{'Level 4' | translateTestScore}} </span>
                     <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
-                  </div>                            
+                  </div>
                 </div>
               </div>
         		  </div>
@@ -195,7 +200,7 @@
                     <itemsurvey><span class="con-info"> {{'Level 2' | translateTestScore}} </span>
                     <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
-                  </div>                               
+                  </div>
                 </div>
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.5rd_pr_s_level3_ela | filterNull}}">
@@ -204,7 +209,7 @@
                     <itemsurvey><span class="con-info"> {{'Level 3' | translateTestScore}} </span>
                     <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
-                  </div>                         
+                  </div>
                 </div>
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.5rd_pr_s_level4_ela | filterNull}}">
@@ -213,7 +218,7 @@
                     <itemsurvey><span class="con-info"> {{'Level 4' | translateTestScore}} </span>
                     <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
-                  </div>                             
+                  </div>
                 </div>
               </div>
         		  </div>
@@ -227,7 +232,7 @@
                     <itemsurvey><span class="con-info"> {{'Level 1' | translateTestScore}} </span>
                     <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
-                  </div>                                           
+                  </div>
                 </div>
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.6rd_pr_s_level2_ela | filterNull}}">
@@ -236,7 +241,7 @@
                     <itemsurvey><span class="con-info"> {{'Level 2' | translateTestScore}} </span>
                     <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
-                  </div>                                        
+                  </div>
                 </div>
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.6rd_pr_s_level3_ela | filterNull}}">
@@ -245,7 +250,7 @@
                     <itemsurvey><span class="con-info"> {{'Level 3' | translateTestScore}} </span>
                     <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
-                  </div>   
+                  </div>
                 </div>
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.6rd_pr_s_level4_ela | filterNull}}">
@@ -254,7 +259,7 @@
                     <itemsurvey><span class="con-info"> {{'Level 4' | translateTestScore}} </span>
                     <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
-                  </div>                                
+                  </div>
                 </div>
               </div>
         		  </div>
@@ -268,7 +273,7 @@
                     <itemsurvey><span class="con-info"> {{'Level 1' | translateTestScore}} </span>
                     <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
-                  </div>                          
+                  </div>
                 </div>
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.7rd_pr_s_level2_ela | filterNull}}">
@@ -277,7 +282,7 @@
                     <itemsurvey><span class="con-info"> {{'Level 2' | translateTestScore}} </span>
                     <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
-                  </div>   
+                  </div>
                 </div>
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.7rd_pr_s_level3_ela | filterNull}}">
@@ -286,7 +291,7 @@
                     <itemsurvey><span class="con-info"> {{'Level 3' | translateTestScore}} </span>
                     <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
-                  </div>                          
+                  </div>
                 </div>
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.7rd_pr_s_level4_ela | filterNull}}">
@@ -295,7 +300,7 @@
                     <itemsurvey><span class="con-info"> {{'Level 4' | translateTestScore}} </span>
                     <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
-                  </div>                                
+                  </div>
                 </div>
               </div>
         		  </div>
@@ -309,7 +314,7 @@
                     <itemsurvey><span class="con-info"> {{'Level 1' | translateTestScore}} </span>
                     <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
-                  </div>                                       
+                  </div>
                 </div>
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.8rd_pr_s_level2_ela | filterNull}}">
@@ -318,7 +323,7 @@
                     <itemsurvey><span class="con-info"> {{'Level 2' | translateTestScore}} </span>
                     <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
-                  </div>                  
+                  </div>
                 </div>
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.8rd_pr_s_level3_ela | filterNull}}">
@@ -336,7 +341,7 @@
                     <itemsurvey><span class="con-info"> {{'Level 4' | translateTestScore}} </span>
                     <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
-                  </div>                                                   
+                  </div>
                 </div>
               </div>
         		  </div>
@@ -346,13 +351,13 @@
 
       </accordion-group>
 
-      <div ng-show="valuesMathScores" style="position:relative;z-index:5;top: 8px;left: {{ 3 | iconPosition }};cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="{{'In Spring 2013, New York State administered the first set of tests designed to assess student performance in Math (Grades 3-8) in accordance with the instructional shifts required by the Common Core Learning Standards. New York State assigns performance levels 1, 2, 3, and 4 to scale scores from the exams.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>   
-        
+      <div ng-show="valuesMathScores" style="position:relative;z-index:5;top: 8px;left: {{ 3 | iconPosition }};cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="{{'In Spring 2013, New York State administered the first set of tests designed to assess student performance in Math (Grades 3-8) in accordance with the instructional shifts required by the Common Core Learning Standards. New York State assigns performance levels 1, 2, 3, and 4 to scale scores from the exams.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>
+
       <accordion-group is-open="false" ng-show="valuesMathScores">
 
       <accordion-heading>
         <div>{{'Math Scores' | translateTestScore}}</div>
-      </accordion-heading>     
+      </accordion-heading>
 
     		<!-- MATH -->
     	  <div class="row">
@@ -366,7 +371,7 @@
                 <itemsurvey><span class="con-info"> {{'Level 1' | translateTestScore}} </span>
                 <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                 </itemsurvey>
-              </div>                                   
+              </div>
             </div>
 
             <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.3rd_pr_s_level2_math | filterNull}}">
@@ -375,7 +380,7 @@
                 <itemsurvey><span class="con-info"> {{'Level 2' | translateTestScore}} </span>
                 <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                 </itemsurvey>
-              </div>                                      
+              </div>
             </div>
 
             <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.3rd_pr_s_level3_math | filterNull}}">
@@ -384,7 +389,7 @@
                 <itemsurvey><span class="con-info"> {{'Level 3' | translateTestScore}} </span>
                 <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                 </itemsurvey>
-              </div>                        
+              </div>
             </div>
 
             <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.3rd_pr_s_level4_math | filterNull}}">
@@ -393,7 +398,7 @@
                 <itemsurvey><span class="con-info"> {{'Level 4' | translateTestScore}} </span>
                 <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                 </itemsurvey>
-              </div>                       
+              </div>
             </div>
 
     		  </div>
@@ -407,7 +412,7 @@
                 <itemsurvey><span class="con-info"> {{'Level 1' | translateTestScore}} </span>
                 <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                 </itemsurvey>
-              </div>                              
+              </div>
             </div>
 
             <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.4rd_pr_s_level2_math | filterNull}}">
@@ -416,7 +421,7 @@
                 <itemsurvey><span class="con-info"> {{'Level 2' | translateTestScore}} </span>
                 <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                 </itemsurvey>
-              </div>                     
+              </div>
             </div>
 
             <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.4rd_pr_s_level3_math | filterNull}}">
@@ -425,7 +430,7 @@
                 <itemsurvey><span class="con-info"> {{'Level 3' | translateTestScore}} </span>
                 <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                 </itemsurvey>
-              </div>             
+              </div>
             </div>
 
             <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.4rd_pr_s_level4_math | filterNull}}">
@@ -434,7 +439,7 @@
                 <itemsurvey><span class="con-info"> {{'Level 4' | translateTestScore}} </span>
                 <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                 </itemsurvey>
-              </div>               
+              </div>
             </div>
 
     		  </div>
@@ -447,7 +452,7 @@
                 <itemsurvey><span class="con-info"> {{'Level 1' | translateTestScore}} </span>
                 <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                 </itemsurvey>
-              </div>                          
+              </div>
             </div>
 
             <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.5rd_pr_s_level2_math | filterNull}}">
@@ -456,7 +461,7 @@
                 <itemsurvey><span class="con-info"> {{'Level 2' | translateTestScore}} </span>
                 <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                 </itemsurvey>
-              </div>                   
+              </div>
             </div>
 
             <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.5rd_pr_s_level3_math | filterNull}}">
@@ -465,7 +470,7 @@
                 <itemsurvey><span class="con-info"> {{'Level 3' | translateTestScore}} </span>
                 <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                 </itemsurvey>
-              </div>                    
+              </div>
             </div>
 
             <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.5rd_pr_s_level4_math | filterNull}}">
@@ -474,7 +479,7 @@
                 <itemsurvey><span class="con-info"> {{'Level 4' | translateTestScore}} </span>
                 <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                 </itemsurvey>
-              </div>                                          
+              </div>
             </div>
 
     		  </div>
@@ -488,7 +493,7 @@
                 <itemsurvey><span class="con-info"> {{'Level 1' | translateTestScore}} </span>
                 <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                 </itemsurvey>
-              </div>                
+              </div>
             </div>
 
             <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.6rd_pr_s_level2_math | filterNull}}">
@@ -497,7 +502,7 @@
                 <itemsurvey><span class="con-info"> {{'Level 2' | translateTestScore}} </span>
                 <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                 </itemsurvey>
-              </div>                              
+              </div>
             </div>
 
             <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.6rd_pr_s_level3_math | filterNull}}">
@@ -506,7 +511,7 @@
                 <itemsurvey><span class="con-info"> {{'Level 3' | translateTestScore}} </span>
                 <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                 </itemsurvey>
-              </div>                              
+              </div>
             </div>
 
             <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.6rd_pr_s_level4_math | filterNull}}">
@@ -515,7 +520,7 @@
                 <itemsurvey><span class="con-info"> {{'Level 4' | translateTestScore}} </span>
                 <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                 </itemsurvey>
-              </div>                                           
+              </div>
             </div>
 
       		</div>
@@ -529,7 +534,7 @@
                 <itemsurvey><span class="con-info"> {{'Level 1' | translateTestScore}} </span>
                 <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                 </itemsurvey>
-              </div>                                  
+              </div>
             </div>
 
             <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.7rd_pr_s_level2_math | filterNull}}">
@@ -538,7 +543,7 @@
                 <itemsurvey><span class="con-info"> {{'Level 2' | translateTestScore}} </span>
                 <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                 </itemsurvey>
-              </div>                                            
+              </div>
             </div>
 
             <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.7rd_pr_s_level3_math | filterNull}}">
@@ -547,7 +552,7 @@
                 <itemsurvey><span class="con-info"> {{'Level 3' | translateTestScore}} </span>
                 <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                 </itemsurvey>
-              </div>                              
+              </div>
             </div>
 
             <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.7rd_pr_s_level4_math | filterNull}}">
@@ -556,7 +561,7 @@
                 <itemsurvey><span class="con-info"> {{'Level 4' | translateTestScore}} </span>
                 <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                 </itemsurvey>
-              </div> 
+              </div>
             </div>
 
     		  </div>
@@ -570,7 +575,7 @@
                 <itemsurvey><span class="con-info"> {{'Level 1' | translateTestScore}} </span>
                 <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                 </itemsurvey>
-              </div>                      
+              </div>
             </div>
 
             <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.8rd_pr_s_level2_math | filterNull}}">
@@ -579,7 +584,7 @@
                 <itemsurvey><span class="con-info"> {{'Level 2' | translateTestScore}} </span>
                 <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                 </itemsurvey>
-              </div>                                      
+              </div>
             </div>
 
             <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.8rd_pr_s_level3_math | filterNull}}">
@@ -588,7 +593,7 @@
                 <itemsurvey><span class="con-info"> {{'Level 3' | translateTestScore}} </span>
                 <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                 </itemsurvey>
-              </div>                                              
+              </div>
             </div>
 
             <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.8rd_pr_s_level4_math | filterNull}}">
@@ -597,24 +602,26 @@
                 <itemsurvey><span class="con-info"> {{'Level 4' | translateTestScore}} </span>
                 <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                 </itemsurvey>
-              </div>                                           
+              </div>
             </div>
 
     		  </div>
 
         </div>
-        
+
       </accordion-group>
 
-      <div ng-show="valuesAverageProficiencyScore" style="position:relative;z-index:5;top: 8px;left: {{ 4 | iconPosition }};cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="{{'Provides the average performance level on New York State ELA and Math test of students who took the test at the school.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>        
-        
-    	<accordion-group is-open="false" ng-show="valuesAverageProficiencyScore">
+      <div style="position:relative;z-index:5;top: 8px;left: {{ 4 | iconPosition }};cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="{{'Provides the average performance level on New York State ELA and Math test of students who took the test at the school.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>
 
+        <accordion-group is-open="false">
+          <div class="small-12 medium-12 large-12 columns avg-score bg-tablas-data" ng-if="valuesAverageProficiencyScore==false">
+            <p style="padding-left:7px; margin-bottom:0px; margin-top:0px; font-size:1rem; width: 20rem">{{'Unavailable for the selected year' | translateGlobal}}</p>
+          </div>
         <accordion-heading>
-            <div >{{'Average Proficiency Score' | translateTestScore}}</div>
-        </accordion-heading>             
+            <div>{{'Average Proficiency Score' | translateTestScore}}</div>
+        </accordion-heading>
 
-    		 <!--AVERANGE ELA -->
+    		 <!-- AVERANGE ELA -->
     		<div class="row">
 
             <div class ="{{ 3 | filtraGrado}}">
@@ -646,7 +653,7 @@
                 </div>
               </div>
             </div>
-            
+
             <div class ="{{ 5 | filtraGrado}}">
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.5rd_a_p_r_ela | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_ela.5rd_a_p_r_ela | EscalaAverageTestScore}}%;">
@@ -660,8 +667,8 @@
                   </div>
                 </div>
               </div>
-            </div>        
-              
+            </div>
+
             <div class ="{{ 6 | filtraGrado}}">
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.6rd_a_p_r_ela | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_ela.6rd_a_p_r_ela | EscalaAverageTestScore}}%;">
@@ -675,7 +682,7 @@
                   </div>
                 </div>
               </div>
-            </div>    
+            </div>
 
             <div class ="{{ 7 | filtraGrado}}">
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.7rd_a_p_r_ela | filtraCeros}}">
@@ -690,7 +697,7 @@
                   </div>
                 </div>
               </div>
-            </div>                    
+            </div>
 
             <div class ="{{ 8 | filtraGrado}}">
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.8rd_a_p_r_ela | filtraCeros}}">
@@ -707,7 +714,7 @@
               </div>
             </div>
 
-      <!-- FIN ELA -->            
+      <!-- FIN ELA -->
       <!-- COMIENZO MATH-->
 
             <div class ="{{ 3 | filtraGrado}}">
@@ -739,7 +746,7 @@
                 </div>
               </div>
             </div>
-            
+
             <div class ="{{ 5 | filtraGrado}}">
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_math.5rd_a_p_r_math | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_math.5rd_a_p_r_math | EscalaAverageTestScore}}%;">
@@ -753,8 +760,8 @@
                   </div>
                 </div>
               </div>
-            </div>        
-              
+            </div>
+
             <div class ="{{ 6 | filtraGrado}}">
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_math.6rd_a_p_r_math | filtraCeros}}">
                 <div class="democracy color-barra" style="width:{{evaluation_math.6rd_a_p_r_math | EscalaAverageTestScore}}%;">
@@ -768,7 +775,7 @@
                   </div>
                 </div>
               </div>
-            </div>    
+            </div>
 
             <div class ="{{ 7 | filtraGrado}}">
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_math.7rd_a_p_r_math | filtraCeros}}">
@@ -783,7 +790,7 @@
                   </div>
                 </div>
               </div>
-            </div>                    
+            </div>
 
             <div class ="{{ 8 | filtraGrado}}">
               <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_math.8rd_a_p_r_math | filtraCeros}}">
@@ -798,7 +805,7 @@
                   </div>
                 </div>
               </div>
-            </div>        
+            </div>
 
       	 </div> <!-- row -->
 
@@ -807,11 +814,11 @@
 
     </accordion>
   </div> <!-- FIN ACORDION ELEMENTARY -->
-</div> 
+</div>
 
         <div id="testScore-high" class="borrar">
-          <div class="row menu-header"  style="padding-top:0 !important">   
-            <div class="small-10 small-centered medium-10 large-10 columns">        
+          <div class="row menu-header"  style="padding-top:0 !important">
+            <div class="small-10 small-centered medium-10 large-10 columns">
               <!-- <div id="testScore-high_2" class="borrar"> -->
                 <div class="small-6 small-centered medium-6 large-6 columns">
                   <div ng-controller="TestScoreCtrlYearHs" class="text-center">
@@ -825,39 +832,39 @@
                   </div>
                 </div>
               <!-- </div> -->
-            </div>  
-          </div>  
+            </div>
+          </div>
 
         <div ng-controller="AccordionDemoCtrl" >
 
           <accordion close-others="oneAtATime">
 
             <!-- HIGH -->
-           
+
            <accordion-group is-open="false" ng-show="valuesSat">
 
             <accordion-heading>
                 <div >{{'SAT' | translateTestScore}}</div>
-            </accordion-heading>      
+            </accordion-heading>
 
         		 <!--SAT-->
         	  <div class="row">
               <div class="n-student" >
                 <span class="ns-sat">
-                  {{evaluation_average_score.sat_n_test_takers | redondea_sp}} 
-                </span>                        
+                  {{evaluation_average_score.sat_n_test_takers | redondea_sp}}
+                </span>
                 <span class="ns-sat-label">
                   {{'No. Students' | translateTestScore}}
                 </span>
                 <div Popover-animation="false" popover="{{'The number of students at the school who took the SAT at the school, a globally recognized college admission test that tests knowledge of critical  reading, writing and math.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer;cursor: pointer; right: 1rem; top: 0.3rem;"  onclick="quitaBurbuja()">
-                </div>                                          
+                </div>
               </div>
 
         		  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data">
           			<div class="democracy color-barra" style="width:{{evaluation_average_score.sat_a_total_s | filtrasat}}%;">
           				<p style="top: 0.1rem;">{{evaluation_average_score.sat_a_total_s}}/<span class="total_dividendo">2400</span></p>
           				<itemsurvey>
-                  <span class="con-info"> 
+                  <span class="con-info">
                     {{'Overall' | translateTestScore}}
                   </span>
                     <div Popover-animation="false" popover="{{'Average SAT score of students at the school taking the exam, a globally recognized college admission test that tests knowledge of critical  reading, writing and math.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
@@ -929,13 +936,13 @@
 
               <div  style="position:relative;z-index:5;top: 4px;float:right;cursor:pointer;"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="{{'Percentage of students passing the Regents Exam in the selected year.' | translateGlosary}}" >
                 <img style="position:relative;right:4rem" src='img/info.png' width='30'  onclick="quitaBurbuja(this)">
-              </div>       
-            
+              </div>
+
             <accordion-group is-open="false" >
 
               <accordion-heading>
                   <div >{{'Regents Pass Rate' | translateTestScore}}</div>
-              </accordion-heading>      
+              </accordion-heading>
 
                  <!-- Regents Pass Rate-->
               <div class="row" ng-show="valuesRegentsPassRate">
@@ -943,7 +950,7 @@
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data">
                   <div class="democracy color1" style="width:{{evaluation_regents.pp_r_english | filternullwidth}}%;">
-                      <p>{{evaluation_regents.pp_r_english | number:1}}{{evaluation_regents.pp_r_english | filternulltext}}</p>
+                      <p ng-class="{'not-available': evaluation_regents.pp_r_english===null}">{{evaluation_regents.pp_r_english | number:1}}{{evaluation_regents.pp_r_english | filternulltext}}{{evaluation_regents.pp_r_english | filterpercent}}</p>
                       <itemsurvey><span class="sin-i"> {{'English' | translateTestScore}}</span></itemsurvey>
                   </div>
                   <div class="rank-s">
@@ -953,7 +960,7 @@
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data">
                   <div class="democracy color2" style="width:{{evaluation_regents.pp_r_us_history | filternullwidth}}%;">
-                      <p>{{evaluation_regents.pp_r_us_history | number:1}}{{evaluation_regents.pp_r_us_history | filternulltext}}</p>
+                      <p ng-class="{'not-available': evaluation_regents.pp_r_us_history===null}">{{evaluation_regents.pp_r_us_history | number:1}}{{evaluation_regents.pp_r_us_history | filternulltext}}{{evaluation_regents.pp_r_us_history | filterpercent}}</p>
                       <itemsurvey><span class="sin-i"> {{'U.S. History' | translateTestScore}}</span></itemsurvey>
                   </div>
                   <div class="rank-s">
@@ -963,7 +970,7 @@
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data">
                   <div class="democracy color1" style="width:{{evaluation_regents.pp_r_global_history | filternullwidth}}%;">
-                      <p>{{evaluation_regents.pp_r_global_history | number:1}}{{evaluation_regents.pp_r_global_history | filternulltext}}</p>
+                      <p ng-class="{'not-available': evaluation_regents.pp_r_global_history===null}">{{evaluation_regents.pp_r_global_history | number:1}}{{evaluation_regents.pp_r_global_history | filternulltext}}{{evaluation_regents.pp_r_global_history | filterpercent}}</p>
                       <itemsurvey><span class="sin-i"> {{'Global History' | translateTestScore}}</span></itemsurvey>
                   </div>
                     <div class="rank-s">
@@ -973,7 +980,7 @@
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data">
                   <div class="democracy color2" style="width:{{evaluation_regents.pp_r_living_environment | filternullwidth}}%;">
-                      <p>{{evaluation_regents.pp_r_living_environment | number:1}}{{evaluation_regents.pp_r_living_environment | filternulltext}}</p>
+                      <p ng-class="{'not-available': evaluation_regents.pp_r_living_environment===null}">{{evaluation_regents.pp_r_living_environment | number:1}}{{evaluation_regents.pp_r_living_environment | filternulltext}}{{evaluation_regents.pp_r_living_environment | filterpercent}}</p>
                       <itemsurvey><span class="sin-i"> {{'Living Environment' | translateTestScore}}</span></itemsurvey>
                   </div>
                   <div class="rank-s">
@@ -983,7 +990,7 @@
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data">
                   <div class="democracy color1" style="width:{{evaluation_regents.pp_r_earth_science | filternullwidth}}%;">
-                      <p>{{evaluation_regents.pp_r_earth_science | number:1}}{{evaluation_regents.pp_r_earth_science | filternulltext}}</p>
+                      <p ng-class="{'not-available': evaluation_regents.pp_r_earth_science===null}">{{evaluation_regents.pp_r_earth_science | number:1}}{{evaluation_regents.pp_r_earth_science | filternulltext}}{{evaluation_regents.pp_r_earth_science | filterpercent}}</p>
                       <itemsurvey><span class="sin-i"> {{'Earth Science' | translateTestScore}}</span></itemsurvey>
                   </div>
                   <div class="rank-s">
@@ -993,7 +1000,7 @@
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data">
                   <div class="democracy color2" style="width:{{evaluation_regents.pp_r_chemistry | filternullwidth}}%;">
-                      <p>{{evaluation_regents.pp_r_chemistry | number:1}}{{evaluation_regents.pp_r_chemistry | filternulltext}}</p>
+                      <p ng-class="{'not-available': evaluation_regents.pp_r_chemistry===null}">{{evaluation_regents.pp_r_chemistry | number:1}}{{evaluation_regents.pp_r_chemistry | filternulltext}}{{evaluation_regents.pp_r_chemistry | filterpercent}}</p>
                       <itemsurvey><span class="sin-i"> {{'Chemistry' | translateTestScore}}</span></itemsurvey>
                   </div>
                   <div class="rank-s">
@@ -1003,7 +1010,9 @@
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data">
                   <div class="democracy color1" style="width:{{evaluation_regents.pp_r_physics | filternullwidth}}%;">
-                      <p>{{evaluation_regents.pp_r_physics | number:1}}{{evaluation_regents.pp_r_physics | filternulltext}}</p>
+<!--                       <p>{{evaluation_regents.pp_r_physics | number:1}}{{evaluation_regents.pp_r_physics | filternulltext}}{{evaluation_regents.pp_r_physics | filterpercent}}</p> -->
+                            <p ng-class="{'not-available': evaluation_regents.pp_r_physics===null}">{{evaluation_regents.pp_r_physics | number:1}}{{evaluation_regents.pp_r_physics | filternulltext}}{{evaluation_regents.pp_r_physics | filterpercent}}</p>
+
                       <itemsurvey><span class="sin-i"> {{'Physics' | translateTestScore}}</span></itemsurvey>
                   </div>
                   <div class="rank-s">
@@ -1013,7 +1022,7 @@
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data">
                   <div class="democracy color2" style="width:{{evaluation_regents.pp_r_integrated_algebra | filternullwidth}}%;">
-                      <p>{{evaluation_regents.pp_r_integrated_algebra | number:1}}{{evaluation_regents.pp_r_integrated_algebra | filternulltext}}</p>
+                      <p ng-class="{'not-available': evaluation_regents.pp_r_integrated_algebra===null}">{{evaluation_regents.pp_r_integrated_algebra | number:1}}{{evaluation_regents.pp_r_integrated_algebra | filternulltext}}{{evaluation_regents.pp_r_integrated_algebra | filterpercent}}</p>
                       <itemsurvey><span class="sin-i"> {{'Integrated Algebra' | translateTestScore}}</span></itemsurvey>
                   </div>
                   <div class="rank-s">
@@ -1023,49 +1032,49 @@
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data">
                   <div class="democracy color1" style="width:{{evaluation_regents.pp_r_geometry | filternullwidth}}%;">
-                      <p>{{evaluation_regents.pp_r_geometry | number:1}}{{evaluation_regents.pp_r_geometry | filternulltext}}</p>
+                      <p ng-class="{'not-available': evaluation_regents.pp_r_geometry===null}">{{evaluation_regents.pp_r_geometry | number:1}}{{evaluation_regents.pp_r_geometry | filternulltext}}{{evaluation_regents.pp_r_geometry | filterpercent}}</p>
                       <itemsurvey><span class="sin-i"> {{'Geometry' | translateTestScore}}</span></itemsurvey>
                   </div>
                   <div class="rank-s">
                       <p class="{{ proficiency_ratings.pp_r_geometry_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pp_r_geometry_pr | filtraRank }}.png" > >{{'Avg.' | translateGlobal}} </p>
                   </div>
-                </div>                                                                                                
+                </div>
 
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data">
                   <div class="democracy color2" style="width:{{evaluation_regents.pp_r_algebraii | filternullwidth}}%;">
-                      <p>{{evaluation_regents.pp_r_algebraii | number:1}}{{evaluation_regents.pp_r_algebraii | filternulltext}}</p>
+                      <p ng-class="{'not-available': evaluation_regents.pp_r_algebraii===null}">{{evaluation_regents.pp_r_algebraii | number:1}}{{evaluation_regents.pp_r_algebraii | filternulltext}}{{evaluation_regents.pp_r_algebraii | filterpercent}}</p>
                       <itemsurvey><span class="sin-i"> {{'Algebra II' | translateTestScore}}</span></itemsurvey>
                   </div>
                   <div class="rank-s">
                       <p class="{{ proficiency_ratings.pp_r_algebraii_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pp_r_algebraii_pr | filtraRank }}.png" > >{{'Avg.' | translateGlobal}} </p>
                   </div>
-                </div>                                                                                                
+                </div>
 
-            </div>  
+            </div>
 
             <div class="row" ng-show="valuesRegentsPassRateND">
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data">
                   <div class="democracy color-barra" style="width:0%">
-                      <p style="width: 20rem">{{'N/A' | translateGlobal}}</p>
+                      <p style="font-size:1rem; width: 20rem">{{'Unavailable for the selected year' | translateGlobal}}</p>
                   </div>
                 </div>
 
-            </div>      
+            </div>
 
 
-          </accordion-group>            
+          </accordion-group>
 
             <div style="position:relative;z-index:5;top: 4px;float:right;cursor:pointer;"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="{{'Average score of all students who took the Regents Exam in the selected year.' | translateGlosary}}" >
               <img style="position:relative;right:4rem" src='img/info.png' width='30'  onclick="quitaBurbuja(this)">
-            </div>   
+            </div>
 
            <accordion-group is-open="false">
 
             <accordion-heading>
                 <div >{{'Regents Average Score' | translateTestScore}}</div>
-            </accordion-heading>     
+            </accordion-heading>
 
                  <!-- Regents Average Score-->
             <div class="row"  ng-show="valuesRegentsAverageScore">
@@ -1073,7 +1082,7 @@
 
               <div class="small-12 medium-12 large-12 columns bg-tablas-data">
                 <div class="democracy color1" style="width:{{evaluation_regents.as_r_english | filternullwidth}}%;">
-                    <p>{{evaluation_regents.as_r_english | number:0}}{{evaluation_regents.as_r_english | filternulltext}}/<span class="total_dividendo">100</span></p>
+                    <p ng-class="{'not-available': evaluation_regents.as_r_english===null}">{{evaluation_regents.as_r_english | number:0}}{{evaluation_regents.as_r_english | filternulltext}}{{evaluation_regents.as_r_english | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_english | filternumbervisibility}}</span></p>
                     <itemsurvey><span class="sin-i"> {{'English' | translateTestScore}}</span></itemsurvey>
                 </div>
                 <div class="rank-s">
@@ -1083,7 +1092,7 @@
 
               <div class="small-12 medium-12 large-12 columns bg-tablas-data">
                 <div class="democracy color2" style="width:{{evaluation_regents.as_r_us_history | filternullwidth}}%;">
-                    <p>{{evaluation_regents.as_r_us_history | number:0}}{{evaluation_regents.as_r_us_history | filternulltext}}/<span class="total_dividendo">100</span></p>
+                    <p ng-class="{'not-available': evaluation_regents.as_r_us_history===null}">{{evaluation_regents.as_r_us_history | number:0}}{{evaluation_regents.as_r_us_history | filternulltext}}{{evaluation_regents.as_r_us_history | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_us_history | filternumbervisibility}}</span></p>
                     <itemsurvey><span class="sin-i"> {{'U.S. History' | translateTestScore}}</span></itemsurvey>
                 </div>
                 <div class="rank-s">
@@ -1093,7 +1102,7 @@
 
               <div class="small-12 medium-12 large-12 columns bg-tablas-data">
                 <div class="democracy color1" style="width:{{evaluation_regents.as_r_global_history | filternullwidth}}%;">
-                    <p>{{evaluation_regents.as_r_global_history | number:0}}{{evaluation_regents.as_r_global_history | filternulltext}}/<span class="total_dividendo">100</span></p>
+                    <p ng-class="{'not-available': evaluation_regents.as_r_global_history===null}">{{evaluation_regents.as_r_global_history | number:0}}{{evaluation_regents.as_r_global_history | filternulltext}}{{evaluation_regents.as_r_global_history | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_global_history | filternumbervisibility}}</span></p>
                     <itemsurvey><span class="sin-i"> {{'Global History' | translateTestScore}}</span></itemsurvey>
                 </div>
                 <div class="rank-s">
@@ -1103,7 +1112,7 @@
 
               <div class="small-12 medium-12 large-12 columns bg-tablas-data">
                 <div class="democracy color2" style="width:{{evaluation_regents.as_r_living_environment | filternullwidth}}%;">
-                    <p>{{evaluation_regents.as_r_living_environment | number:0}}{{evaluation_regents.as_r_living_environment | filternulltext}}/<span class="total_dividendo">100</span></p>
+                    <p ng-class="{'not-available': evaluation_regents.as_r_living_environment===null}">{{evaluation_regents.as_r_living_environment | number:0}}{{evaluation_regents.as_r_living_environment | filternulltext}}{{evaluation_regents.as_r_living_environment | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_living_environment | filternumbervisibility}}</span></p>
                     <itemsurvey><span class="sin-i"> {{'Living Environment' | translateTestScore}}</span></itemsurvey>
                 </div>
                 <div class="rank-s">
@@ -1113,7 +1122,7 @@
 
               <div class="small-12 medium-12 large-12 columns bg-tablas-data">
                 <div class="democracy color1" style="width:{{evaluation_regents.as_r_earth_science | filternullwidth}}%;">
-                    <p>{{evaluation_regents.as_r_earth_science | number:0}}{{evaluation_regents.as_r_earth_science | filternulltext}}/<span class="total_dividendo">100</span></p>
+                    <p ng-class="{'not-available': evaluation_regents.as_r_earth_science===null}">{{evaluation_regents.as_r_earth_science | number:0}}{{evaluation_regents.as_r_earth_science | filternulltext}}{{evaluation_regents.as_r_earth_science | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_earth_science | filternumbervisibility}}</span></p>
                     <itemsurvey><span class="sin-i"> {{'Earth Science' | translateTestScore}}</span></itemsurvey>
                 </div>
                 <div class="rank-s">
@@ -1123,17 +1132,16 @@
 
               <div class="small-12 medium-12 large-12 columns bg-tablas-data">
                 <div class="democracy color2" style="width:{{evaluation_regents.as_r_chemistry | filternullwidth}}%;">
-                    <p>{{evaluation_regents.as_r_chemistry | number:0}}{{evaluation_regents.as_r_chemistry | filternulltext}}/<span class="total_dividendo">100</span></p>
+                    <p ng-class="{'not-available': evaluation_regents.as_r_chemistry===null}">{{evaluation_regents.as_r_chemistry | number:0}}{{evaluation_regents.as_r_chemistry | filternulltext}}{{evaluation_regents.as_r_chemistry | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_chemistry | filternumbervisibility}}</span></p>
                     <itemsurvey><span class="sin-i"> {{'Chemistry' | translateTestScore}}</span></itemsurvey>
                 </div>
                 <div class="rank-s">
                     <p class="{{ proficiency_ratings.as_r_chemistry_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.as_r_chemistry_pr | filtraRank }}.png" > >{{'Avg.' | translateGlobal}} </p>
                 </div>
-              </div>
-
+              </div> 
               <div class="small-12 medium-12 large-12 columns bg-tablas-data">
                 <div class="democracy color1" style="width:{{evaluation_regents.as_r_physics | filternullwidth}}%;">
-                    <p>{{evaluation_regents.as_r_physics | number:0}}{{evaluation_regents.as_r_physics | filternulltext}}/<span class="total_dividendo">100</span></p>
+                    <p ng-class="{'not-available': evaluation_regents.as_r_physics===null}">{{evaluation_regents.as_r_physics | number:0}}{{evaluation_regents.as_r_physics | filternulltext}}{{evaluation_regents.as_r_physics | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_physics | filternumbervisibility}}</span></p>
                     <itemsurvey><span class="sin-i"> {{'Physics' | translateTestScore}}</span></itemsurvey>
                 </div>
                 <div class="rank-s">
@@ -1143,7 +1151,7 @@
 
               <div class="small-12 medium-12 large-12 columns bg-tablas-data">
                 <div class="democracy color2" style="width:{{evaluation_regents.as_r_integrated_algebra | filternullwidth}}%;">
-                    <p>{{evaluation_regents.as_r_integrated_algebra | number:0}}{{evaluation_regents.as_r_integrated_algebra | filternulltext}}/<span class="total_dividendo">100</span></p>
+                    <p ng-class="{'not-available': evaluation_regents.as_r_integrated_algebra===null}">{{evaluation_regents.as_r_integrated_algebra | number:0}}{{evaluation_regents.as_r_integrated_algebra | filternulltext}}{{evaluation_regents.as_r_integrated_algebra | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_integrated_algebra | filternumbervisibility}}</span></p>
                     <itemsurvey><span class="sin-i"> {{'Integrated Algebra' | translateTestScore}}</span></itemsurvey>
                 </div>
                 <div class="rank-s">
@@ -1153,49 +1161,48 @@
 
               <div class="small-12 medium-12 large-12 columns bg-tablas-data">
                 <div class="democracy color1" style="width:{{evaluation_regents.as_r_geometry | filternullwidth}}%;">
-                    <p>{{evaluation_regents.as_r_geometry | number:0}}{{evaluation_regents.as_r_geometry | filternulltext}}/<span class="total_dividendo">100</span></p>
+                    <p ng-class="{'not-available': evaluation_regents.as_r_geometry===null}">{{evaluation_regents.as_r_geometry | number:0}}{{evaluation_regents.as_r_geometry | filternulltext}}{{evaluation_regents.as_r_geometry | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_geometry | filternumbervisibility}}</span></p>
                     <itemsurvey><span class="sin-i"> {{'Geometry' | translateTestScore}}</span></itemsurvey>
                 </div>
                 <div class="rank-s">
                     <p class="{{ proficiency_ratings.as_r_geometry_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.as_r_geometry_pr | filtraRank }}.png" > >{{'Avg.' | translateGlobal}} </p>
                 </div>
-              </div>                                                                                                
+              </div>
 
 
               <div class="small-12 medium-12 large-12 columns bg-tablas-data">
                 <div class="democracy color2" style="width:{{evaluation_regents.as_r_algebraii | filternullwidth}}%;">
-                    <p>{{evaluation_regents.as_r_algebraii | number:0}}{{evaluation_regents.as_r_algebraii | filternulltext}}/<span class="total_dividendo">100</span></p>
+                    <p ng-class="{'not-available': evaluation_regents.as_r_algebraii===null}">{{evaluation_regents.as_r_algebraii | number:0}}{{evaluation_regents.as_r_algebraii | filternulltext}}{{evaluation_regents.as_r_algebraii | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_algebraii | filternumbervisibility}}</span></p>
                     <itemsurvey><span class="sin-i"> {{'Algebra II' | translateTestScore}}</span></itemsurvey>
                 </div>
                 <div class="rank-s">
                     <p class="{{ proficiency_ratings.as_r_algebraii_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.as_r_algebraii_pr | filtraRank }}.png" > >{{'Avg.' | translateGlobal}} </p>
                 </div>
-              </div>                                                                                                
+              </div>
 
-          </div>    
+          </div>
 
             <div class="row" ng-show="valuesRegentsAverageScoreND">
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data">
                   <div class="democracy color-barra" style="width:0%">
-                      <p style="width: 20rem">{{'N/A' | translateGlobal}}</p>
+                      <p style="font-size:1rem; width: 20rem">{{'Unavailable for the selected year' | translateGlobal}}</p>
                   </div>
                 </div>
+            </div>
 
-            </div>               
 
-
-          </accordion-group>    
+          </accordion-group>
 
             <div  style="position:relative;z-index:5;top: 4px;float:right;cursor:pointer;"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="{{'Percentage of students who scored at the college ready threshold for the Regents Exam in the selected year.' | translateGlosary}}" >
               <img style="position:relative;right:4rem" src='img/info.png' width='30'  onclick="quitaBurbuja(this)">
-            </div>                  
+            </div>
 
            <accordion-group  is-open="false">
 
             <accordion-heading>
                 <div>{{'Regents College Ready' | translateTestScore}}</div>
-            </accordion-heading>       
+            </accordion-heading>
 
                  <!-- Regents College Ready-->
             <div class="row" ng-show="valuesRegentsRegentsCollegeReady">
@@ -1203,7 +1210,7 @@
 
             <div class="small-12 medium-12 large-12 columns bg-tablas-data">
               <div class="democracy color1" style="width:{{evaluation_regents.pcr_r_comprehensive_english | filternullwidth}}%;">
-                  <p>{{evaluation_regents.pcr_r_comprehensive_english | number:1}}{{evaluation_regents.pcr_r_comprehensive_english | filternulltext}}%</p>
+                  <p ng-class="{'not-available': evaluation_regents.pcr_r_comprehensive_english===null}">{{evaluation_regents.pcr_r_comprehensive_english | number:1}}{{evaluation_regents.pcr_r_comprehensive_english | filternulltext}}{{evaluation_regents.pcr_r_comprehensive_english | filterpercent}}</p>
                   <itemsurvey><span class="sin-i"> {{'English' | translateTestScore}}</span></itemsurvey>
               </div>
 
@@ -1214,7 +1221,7 @@
 
             <div class="small-12 medium-12 large-12 columns bg-tablas-data">
               <div class="democracy color2" style="width:{{evaluation_regents.pcr_r_integrated_algebra | filternullwidth}}%;">
-                  <p>{{evaluation_regents.pcr_r_integrated_algebra | number:1}}{{evaluation_regents.pcr_r_integrated_algebra | filternulltext}}%</p>
+                  <p ng-class="{'not-available': evaluation_regents.pcr_r_integrated_algebra===null}">{{evaluation_regents.pcr_r_integrated_algebra | number:1}}{{evaluation_regents.pcr_r_integrated_algebra | filternulltext}}{{evaluation_regents.pcr_r_integrated_algebra | filterpercent}}</p>
                   <itemsurvey><span class="sin-i">{{'Integrated Algebra' | translateTestScore}}</span></itemsurvey>
               </div>
 
@@ -1225,19 +1232,19 @@
 
             <div class="small-12 medium-12 large-12 columns bg-tablas-data">
               <div class="democracy color1" style="width:{{evaluation_regents.pcr_r_algebraii | filternullwidth}}%;">
-                  <p>{{evaluation_regents.pcr_r_algebraii | number:1}}{{evaluation_regents.pcr_r_algebraii | filternulltext}}%</p>
+                  <p ng-class="{'not-available': evaluation_regents.pcr_r_algebraii===null}">{{evaluation_regents.pcr_r_algebraii | number:1}}{{evaluation_regents.pcr_r_algebraii | filternulltext}}{{evaluation_regents.pcr_r_algebraii | filterpercent}}</p>
                   <itemsurvey><span class="sin-i">{{'Algebra II' | translateTestScore}}</span></itemsurvey>
               </div>
 
               <div class="rank-s">
                   <p class="{{ proficiency_ratings.pcr_r_algebraii_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pcr_r_algebraii_pr | filtraRank }}.png" > >{{'Avg.' | translateGlobal}} </p>
               </div>
-            </div>       
+            </div>
 
 
             <div class="small-12 medium-12 large-12 columns bg-tablas-data">
               <div class="democracy color2" style="width:{{evaluation_regents.pcr_r_geometry | filternullwidth}}%;">
-                  <p>{{evaluation_regents.pcr_r_geometry | number:1}}{{evaluation_regents.pcr_r_geometry | filternulltext}}%</p>
+                  <p ng-class="{'not-available': evaluation_regents.pcr_r_geometry===null}">{{evaluation_regents.pcr_r_geometry | number:1}}{{evaluation_regents.pcr_r_geometry | filternulltext}}{{evaluation_regents.pcr_r_geometry | filterpercent}}</p>
                   <itemsurvey><span class="sin-i">{{'Geometry' | translateTestScore}}</span></itemsurvey>
               </div>
 
@@ -1252,14 +1259,14 @@
 
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data">
                   <div class="democracy color-barra" style="width:0%">
-                      <p style="width: 20rem">{{'N/A' | translateGlobal}}</p>
+                      <p style="font-size:1rem; width: 20rem">{{'Unavailable for the selected year' | translateGlobal}}</p>
                   </div>
                 </div>
 
-            </div>              
+            </div>
 
 
-          </accordion-group>    
+          </accordion-group>
 
 
         </accordion>

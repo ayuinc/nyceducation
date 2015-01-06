@@ -9,6 +9,19 @@
 	font-style: normal;
 }
 
+.custom-gray {
+	background-color: #E3E3E3 !important;
+}
+
+.avg-score {
+	padding: 14px !important;
+}
+
+.not-available {
+  font-size: 16px !important;
+  width: 20rem !important;
+}
+
 [class^="icon-"], [class*=" icon-"] {
 	font-family: 'icomoon';
 	speak: none;
@@ -252,12 +265,12 @@ body{
 }
 
 .bg-letters {
-    background-image: url("../img/bg-app.png");
+  background-image: url("../img/bg-app.png");
 	background-repeat: repeat;
 	background-position-x: -1rem;
 	height: 14rem;
-	padding-top: 3rem;
-	margin-bottom: 4.8rem;
+	padding-top: 1rem;
+	margin-bottom: 1rem;
 }
 
 .homepage h3 {
@@ -269,11 +282,28 @@ body{
 }
 
 .homepage h2 {
-	margin-top:1.5rem;
+	margin-top:0rem;
 	font-size: 4.3em;
 	line-height: 100%;
 	font-weight: 600;
 	color: #C9F4FF;
+}
+
+.search-address-field {
+	color:#545459;
+	-moz-border-radius:0px;
+	-webkit-border-radius:0px;
+	border-radius:0px;
+}
+
+.search-address-select {
+	color:#545459;
+	height:3.32rem;
+	border:none;
+	background: url("../img/vineta.png") no-repeat right;
+	background-color: #F7F7F7;
+	background-position-x: 90%;
+	background-size: 18px;
 }
 
 .search-form{
@@ -292,6 +322,38 @@ body{
 	padding-left: 2.2rem;
 	margin-top:-2.2rem;
 	margin-bottom:1rem;
+}
+
+.button-language {
+	width:98%;
+	background-color:#555555 !important;
+	height:41px;
+	font-size: 1rem;
+	color:#FFFFFF !important;
+	border:none;
+	padding: 0.7rem;
+	font-family: 'museo-sans',sans-serif;
+	-webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  background: url("../img/vineta_blanca.png") no-repeat right;
+	background-position-x: 90%;
+	background-size: 18px;
+}
+
+.button-school {
+	width:96%;
+	background-color:#666666 !important;
+	padding: 0.7rem;
+	font-size: 1rem;
+}
+
+.button-address {
+	width:100%;
+	background-color:#777777 !important;
+	padding: 0.7rem;
+	font-size: 1rem;
 }
 
 .bottones-search {
@@ -1326,7 +1388,7 @@ margin-right: -13px;
 
 .dropdown.button, button.dropdown {
 position: relative;
-width: 130px;
+width: 145px;
 }
 
 .dropdown.button.small, button.dropdown.small {
@@ -1491,4 +1553,8 @@ border: 1px solid #FFFFFF;
 
 .disclaimer{
 	background-color: white;
+}
+
+.diclaimer-home {
+	margin-bottom:3rem;
 }

@@ -1,0 +1,92 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@2.0.2
+3 info using node@v0.10.29
+4 verbose config Skipping project config: /Users/Bianca/.npmrc. (matches userconfig)
+5 verbose readDependencies using package.json deps
+6 verbose install where, deps [ '/Users/Bianca', [ 'express', 'ejs', 'underscore', 'node' ] ]
+7 info preinstall application-name@0.0.1
+8 warn package.json node@0.0.0 No description
+9 warn package.json node@0.0.0 No repository field.
+10 warn package.json leapjs@0.1.2 No repository field.
+11 warn package.json url@0.7.9 url is also the name of a node core module.
+12 verbose readDependencies using package.json deps
+13 verbose already installed skipping underscore@~1.6.0 /Users/Bianca
+14 verbose already installed skipping ejs@* /Users/Bianca
+15 verbose already installed skipping express@~3.2.5 /Users/Bianca
+16 verbose already installed skipping node@0.0.0 /Users/Bianca
+17 silly resolved []
+18 info build /Users/Bianca
+19 verbose linkStuff [ false, false, false, '/Users' ]
+20 info linkStuff application-name@0.0.1
+21 verbose linkBins application-name@0.0.1
+22 verbose linkMans application-name@0.0.1
+23 verbose rebuildBundles application-name@0.0.1
+24 verbose rebuildBundles [ '.bin',
+24 verbose rebuildBundles   'bower',
+24 verbose rebuildBundles   'coffee-script',
+24 verbose rebuildBundles   'ejs',
+24 verbose rebuildBundles   'express',
+24 verbose rebuildBundles   'jade',
+24 verbose rebuildBundles   'leapjs',
+24 verbose rebuildBundles   'meteorite',
+24 verbose rebuildBundles   'mysql',
+24 verbose rebuildBundles   'node',
+24 verbose rebuildBundles   'request',
+24 verbose rebuildBundles   'socket.io',
+24 verbose rebuildBundles   'underscore',
+24 verbose rebuildBundles   'url',
+24 verbose rebuildBundles   'virtualenv' ]
+25 verbose rebuild bundle /Users/Bianca/node_modules/bower
+26 info build /Users/Bianca/node_modules/bower
+27 info preinstall bower@0.10.0
+28 verbose linkStuff [ false, false, false, '/Users/Bianca/node_modules' ]
+29 info linkStuff bower@0.10.0
+30 warn prefer global bower@0.10.0 should be installed with -g
+31 verbose linkBins bower@0.10.0
+32 verbose link bins [ { bower: 'bin/bower' },
+32 verbose link bins   '/Users/Bianca/node_modules/.bin',
+32 verbose link bins   false ]
+33 verbose linkMans bower@0.10.0
+34 verbose rebuildBundles bower@0.10.0
+35 verbose gentlyRm vacuuming /Users/Bianca/node_modules/.bin/bower
+36 silly gentlyRm purging /Users/Bianca/node_modules/.bin/bower
+37 verbose rebuildBundles [ '.bin',
+37 verbose rebuildBundles   'abbrev',
+37 verbose rebuildBundles   'archy',
+37 verbose rebuildBundles   'async',
+37 verbose rebuildBundles   'colors',
+37 verbose rebuildBundles   'fstream',
+37 verbose rebuildBundles   'glob',
+37 verbose rebuildBundles   'hogan.js',
+37 verbose rebuildBundles   'lodash',
+37 verbose rebuildBundles   'mkdirp',
+37 verbose rebuildBundles   'nopt',
+37 verbose rebuildBundles   'promptly',
+37 verbose rebuildBundles   'rc',
+37 verbose rebuildBundles   'read-package-json',
+37 verbose rebuildBundles   'request',
+37 verbose rebuildBundles   'rimraf',
+37 verbose rebuildBundles   'semver',
+37 verbose rebuildBundles   'stable',
+37 verbose rebuildBundles   'tar',
+37 verbose rebuildBundles   'tmp',
+37 verbose rebuildBundles   'unzip',
+37 verbose rebuildBundles   'update-notifier',
+37 verbose rebuildBundles   'which' ]
+38 verbose stack Error: EACCES, unlink '/Users/Bianca/node_modules/.bin/bower'
+39 verbose cwd /Users/Bianca/Dropbox/Workspace/Ayu/nyceducation
+40 error Darwin 12.5.0
+41 error argv "node" "/usr/local/bin/npm" "install"
+42 error node v0.10.29
+43 error npm  v2.0.2
+44 error path /Users/Bianca/node_modules/.bin/bower
+45 error code EACCES
+46 error errno 3
+47 error Error: EACCES, unlink '/Users/Bianca/node_modules/.bin/bower'
+47 error  { [Error: EACCES, unlink '/Users/Bianca/node_modules/.bin/bower']
+47 error   errno: 3,
+47 error   code: 'EACCES',
+47 error   path: '/Users/Bianca/node_modules/.bin/bower' }
+48 error Please try running this command again as root/Administrator.
+49 verbose exit [ 3, true ]

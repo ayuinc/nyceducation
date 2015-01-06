@@ -41,7 +41,7 @@
 		</div>     	
 
 		<div id="nd_eva" class="borrar"> <!--ES ADMISSION-->
-			<div  class="no-data"> NO DATA AVAILABLE</div>
+			<div  class="no-data">Unavailable for the selected year.</div>
 		</div>
 
 <!--INICIO ALL-->
@@ -82,7 +82,7 @@
   			<div class="row">
 
 					<div class="small-12 medium-12 large-12 columns  bg-tablas-data  {{evaluation.es_ms_k8_ec_s_pr_grade | filterNull}}">
-						<div class="democracy color-barra " style="width:{{evaluation.es_ms_k8_ec_o_pr_score}}%;">
+						<div class="democracy color-barra " style="width:{{evaluation.esblock}}%;">
 							<p><b>{{evaluation.es_ms_k8_ec_s_pr_grade}} </b></p>
 							<itemsurvey><span class="con-info">{{'Overall' | translateEvaluations}}</span>
 							<div Popover-animation="false" popover="{{'The Progress Report measures students’ year-to-year progress, compares the school to other schools with similar students, and rewards success in moving all children forward, especially those with the highest needs (i.e., students with disabilities, English language learners, students with the lowest third incoming proficiency citywide, and black and Hispanic males). Overall Progress Report grades, which range from A to F, are based on the scores of multiple sections.  In each section, a school\'s results are compared to the results of “peer” schools serving similar students and to all schools citywide.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer"  onclick="quitaBurbuja()"></div>
@@ -195,7 +195,7 @@
 
 				<div class="small-12 medium-12 large-12 columns bg-tablas-data">
 					<div class="democracy color-barra " style="width:0%;">
-						<p style="font-size:1.1rem; width: 20rem">{{'N/A' | translateGlobal}}</p>
+						<p style="font-size:1.1rem; width: 20rem">{{'Unavailable for the selected year' | translateGlobal}}</p>
 						<itemsurvey style="top:-0.4rem;text-align:right;">
 						</itemsurvey>
 					</div>
@@ -346,7 +346,7 @@
 					</div>	
 
 					<div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ratings.ri_14 | filtraCeros}}">
-						<div class="democracy c " style="width:{{evaluation_ratings.ri_14 | filtraqr}}%;">
+						<div class="democracy color-barra" style="width:{{evaluation_ratings.ri_14 | filtraqr}}%;">
 							<p style="font-size:1.1rem">{{evaluation_ratings.ri_14 | translateEvaluations}}</p>
 							<itemsurvey style="width:40%;top:-0.4rem;text-align:right;"><span class="con-info">{{'Positive Learning Env.' | translateEvaluations}}</span>
 							<div Popover-animation="false" popover="{{'Measures the quality of school culture and environment including safety, inclusiveness and other student success supports.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer;" onclick="quitaBurbuja()"></div>
@@ -369,7 +369,7 @@
 
 					<div class="small-12 medium-12 large-12 columns bg-tablas-data">
 						<div class="democracy color-barra " style="width:0%;">
-							<p style="font-size:1.1rem; width: 20rem">{{'N/A' | translateGlobal}}</p>
+							<p style="font-size:0.9rem; width: 24rem">{{'Unavailable for the selected year' | translateGlobal}}</p>
 							<itemsurvey style="top:-0.4rem;text-align:right;">
 							</itemsurvey>
 						</div>

@@ -63,7 +63,7 @@ app.directive('autocomplete', function(){
 
         watching = false;
 
-        // this line determines if it is shown 
+        // this line determines if it is shown
         // in the input field before it's selected:
         //$scope.searchParam = suggestion;
 
@@ -85,9 +85,9 @@ app.directive('autocomplete', function(){
         if(suggestion){
           /*$scope.searchParam = suggestion;
           $scope.searchFilter = suggestion;*/
-          console.log("suggestion===="+suggestion.name);
-          $location.path("/school/" + suggestion.id + "/menu");
-          $scope.$apply(function() { $location.path("/school/" + suggestion.id); });
+          // console.log("suggestion===="+suggestion.name);
+          $location.path("/school/" + suggestion.dbn + "/menu");
+          $scope.$apply(function() { $location.path("/school/" + suggestion.dbn); });
         }
         watching = false;
         $scope.completing = false;
@@ -143,7 +143,7 @@ app.directive('autocomplete', function(){
             e.preventDefault();
         }
       }, true);
-      
+
       document.addEventListener("blur", function(e){
         // disable suggestions on blur
         // we do a timeout to prevent hiding it before a click event is registered
@@ -161,8 +161,8 @@ app.directive('autocomplete', function(){
 
         // implementation of the up and down movement in the list of suggestions
         switch (keycode){
-          case key.up:    
- 
+          case key.up:
+
             index = scope.getIndex()-1;
             if(index<-1){
               index = l-1;
@@ -192,21 +192,21 @@ app.directive('autocomplete', function(){
               break;
             }
             scope.setIndex(index);
-            
+
             if(index!==-1)
               scope.preSelect(angular.element(angular.element(this).find('li')[index]).text());
 
             break;
-          case key.left:    
+          case key.left:
             break;
-          case key.right:  
-          case key.enter:  
+          case key.right:
+          case key.enter:
 
             index = scope.getIndex();
             // scope.preSelectOff();
             if(index !== -1)
               scope.select(angular.element(angular.element(this).find('li')[index]).text());
-            scope.setIndex(-1);     
+            scope.setIndex(-1);
             scope.$apply();
 
             break;
@@ -226,7 +226,7 @@ app.directive('autocomplete', function(){
       });
     },
     template: '<div class="autocomplete {{attrs.class}}" id="{{attrs.id}}">'+
-                '<input type="text" ng-model="searchParam" placeholder="{{\'School Name/Address\'| translateMain}}" class="{{attrs.inputclass}}" id="{{attrs.inputid}}"/>' +
+                '<input type="text" ng-model="searchParam" placeholder="{{\'School Name\'| translateMain}}" class="{{attrs.inputclass}}" id="{{attrs.inputid}}"/>' +
                 '<ul ng-show="completing">' +
                   '<li suggestion ng-repeat="suggestion in suggestions | filter:searchFilter | orderBy:\'toString()\' track by $index"'+
                   'index="{{$index}}" val="{{suggestion}}" ng-class="{active: '+
@@ -249,8 +249,8 @@ app.filter('highlight', function ($sce) {
       var words = searchParam.split(/\ /).join('|'),
           exp = new RegExp("(" + words + ")", "gi");
 
-      if (words.length) {
-        input = $sce.trustAsHtml(input.replace(exp, "<span class=\"highlight\">$1</span>")); 
+      if (words.length && $sce && input) {
+        input = $sce.trustAsHtml(input.replace(exp, "<span class=\"highlight\">$1</span>"));
       }
     }
 

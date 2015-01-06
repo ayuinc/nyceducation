@@ -14,7 +14,7 @@
     <!--CONTENIDO-->
         <section class="main-section">
             <div class="row profile_item">
-                <a ng-repeat="school in schools" ng-click="go('/school/' +  (school.id).toString() + '/menu')" class="advanced-result">
+                <a ng-repeat="school in schools" ng-click="go('/school/' +  (school.dbn).toString() + '/menu')" class="advanced-result">
                     <div class="advanced-result-box">
                         <span class="school-name">{{school.name}} <span class="school-dbn">[{{school.dbn}}]</span></span>
                         <!-- <span class="school-address">{{school.primary_address}}, {{school.city}} {{school.zip}}</span> -->
