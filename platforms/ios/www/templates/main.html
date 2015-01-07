@@ -1,0 +1,72 @@
+<div class="row header">
+	<div class="small-12 medium-12 large-12 columns middle-vertical-main">
+		<h1 class="text-center">{{ header.title | translateMain }}</h1>
+	</div>
+</div>
+<div class="row homepage">
+	<div class="small-12 medium-12 large-12 columns bg-letters">
+	  <h3 class="text-center">School Central</h3>
+	  <h2 class="text-center">NYC</h2>
+	</div>  
+	<div class="small-12 medium-12 large-12 columns">
+	  <div class="row collapse">
+	    <div class="small-12 columns">
+	      <div class="text-center">
+	        <div class="row">
+	          <!-- <div class="small-4 columns">
+	            <div ng-controller="LenguageCtrl" class="text-center">
+	              <select ng-options="language.label for language in languages track by language.id" ng-model="mylanguage" ng-change="lenguageChange()" name="language" class="button-language"></select>
+	            </div>    
+					  </div> -->
+					  <div class="small-12 columns">
+	            <div ng-controller="LenguageCtrl" class="row text-center">
+	              <!-- <select ng-options="language.label for language in languages track by language.id" ng-model="mylanguage" ng-change="lenguageChange()" name="language" class="button-language"></select> -->
+	              <label class='small-6 columns' for="ngl"><input type="radio" id='ngl' name="lang" ng-click="lenguageChange('ngl')" checked="checked"> English</label>
+								<label class='small-6 columns' for="esp"><input type="radio" id='esp' name="lang" ng-click="lenguageChange('esp')"> Spanish</label>
+	            </div>    
+					  </div>
+			      <div class="small-6 columns">
+					    <button type="button" class="button button-school" id="btn_simple" ng-model="value" value="simple" btn-radio="'simple'" >{{'School' | translateMain }}</button>
+					  </div>
+		        <div class="small-6 columns">
+					    <button type="button" class="button button-address" id="btn_complicado" ng-model="value" value="advanced" btn-radio="'advanced'" >{{'Address' | translateMain}}</button>
+				    </div>
+				  </div>
+	      </div>
+	      <div ng-switch on="value">
+	        <div ng-switch-when="simple">
+            <autocomplete ng-model="yourchoice" data="schools" on-type="updateSchools"></autocomplete>
+          </div>
+	        <div ng-switch-when="advanced">
+            <div ng-controller="BoroughController">
+              <form ng-submit="go('/school/query/' + school.query + ' ' + myBorough.name)">
+                <div class="row">
+                  <div class="small-8 columns"> 
+                    <input class="search-address-field" type="text" placeholder="{{'Your address' | translateMain}}" ng-model="school.query">
+                  </div>
+                  <div class="small-4 columns"> 
+                    <select class="search-address-select" ng-model="myBorough" ng-options="borough.name for borough in boroughs"></select>
+                  </div>
+                  <div class="row">
+                    <div class="small-6 small-centered columns">
+                      <button type="submit" class="button expand bottones-search">{{'Search' | translateMain}}</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <ul>
+            	<li ng-repeat="sc in scs">{{ sc.name }}</li>
+            </ul>
+          </div>
+	        <div ng-switch-default>
+          	<autocomplete ng-model="yourchoice" data="schools" on-type="updateSchools"></autocomplete>
+          </div>
+	      </div>
+				<div class="text-center disclaimer-home">
+					<a ng-href="#/Disclaimer">{{'Disclaimer' | translateMain }}</a>
+				</div>
+			</div>
+	  </div>
+	</div>
+</div>
