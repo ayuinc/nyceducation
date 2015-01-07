@@ -36,10 +36,18 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-@font-face {
-    font-family: "museo-sans";
-    src: url('../fonts/MuseoSans-100.otf') format("OpenType");
+/*@font-face {*/
+    /*font-family: "museo-sans";*/
+    /*src: url('../fonts/MuseoSans-100.otf') format("OpenType");*/
+/*}*/
 
+@font-face {
+  font-family: 'museo-sans';
+  src: url('../fonts/MuseoSans.eot'); /* IE9 */
+  src: url('../fonts/MuseoSans.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/MuseoSans.woff') format('woff'), 
+       url('../fonts/MuseoSans.ttf')  format('truetype'), 
+       url('../fonts/MuseoSans.svg') format('svg'); 
 }
 
 .icon-stack:before {
@@ -235,7 +243,8 @@ body{
 
 .header {
 	background-color: #ffcb33;	
-	min-height: 2.8125rem;
+	min-height:70px;
+	/*min-height: 2.8125rem;*/
 	/*min-height: 5.4rem;*/
 	/*box-shadow: 0px 1px 5px #888;
 	position: relative;*/
@@ -246,7 +255,7 @@ body{
 	font-weight: 500;
 	color: #FFF;
 	line-height: 1.3rem;
-	margin: 0.9rem auto 0.8rem auto;
+	margin: 2rem auto 0.8rem auto;
 	/*min-height: 40px;*/
 }
 

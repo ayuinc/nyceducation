@@ -4197,7 +4197,7 @@ dialog[open] {
   width: 2.8125rem;
   height: 2.8125rem;
   position: absolute;
-  top: 0;
+  top: 25px;
   border-right: solid 1px #B9BEC4;
   left: 0; }
 
