@@ -67,7 +67,6 @@
 {
     // View defaults to full size.  If you want to customize the view's size, or its subviews (e.g. webView),
     // you can do so here.
-
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
         CGRect viewBounds = [self.webView bounds];
         viewBounds.origin.y = 20;
@@ -111,7 +110,7 @@
 - (void)webViewDidFinishLoad:(UIWebView*)theWebView
 {
     // Black base color for background matches the native apps
-    theWebView.backgroundColor = [UIColor blackColor];
+    theWebView.backgroundColor = [UIColor colorWithRed:180.0/255.0 green:185.0/255.0 blue:192.0/255.0 alpha:1];
 
     return [super webViewDidFinishLoad:theWebView];
 }
