@@ -873,7 +873,6 @@ nyc_controllers.controller("TestScoreCtrlYearEl" ,[ '$scope', 'DatosSchool', '$r
 
     };
 
-
 }]);
 
 nyc_controllers.controller("TestScoreCtrlYearHs" ,[ '$scope', 'DatosSchool', '$rootScope','$location', '$routeParams', '$route',function ($scope, DatosSchool, $rootScope, $location, $routeParams, $route) {
@@ -907,23 +906,23 @@ nyc_controllers.controller("TestScoreCtrlYearHs" ,[ '$scope', 'DatosSchool', '$r
      var tipoEscuela = $rootScope.tipoDeEscuela;
 
     if(($rootScope.arrayAvailableYearsTestScoreEs.length > 0) && ($rootScope.arrayAvailableYearsTestScoreHs.length == 0)){
-      console.log("primer IF",$rootScope.arrayAvailableYearsTestScoreHs.length);
+      $('#onlyHS').remove();
       $('#testScore-all').removeClass('borrar');
       $('#testScore-all').addClass('mostrar');
       $('#testScore-elementary').removeClass('borrar');
       $('#testScore-elementary').addClass('mostrar');
     }else if (($rootScope.arrayAvailableYearsTestScoreEs.length == 0) && ($rootScope.arrayAvailableYearsTestScoreHs.length > 0)){
-      console.log("segundo IF",$rootScope.arrayAvailableYearsTestScoreHs.length);
+      $('#allSchools').remove();
       $('#testScore-all').removeClass('borrar');
       $('#testScore-all').addClass('mostrar');
       $('#testScore-high').removeClass('borrar');
       $('#testScore-high').addClass('mostrar');
     }else if (($rootScope.arrayAvailableYearsTestScoreEs.length > 0) && ($rootScope.arrayAvailableYearsTestScoreHs.length > 0)) {
-      console.log("tercer IF",$rootScope.arrayAvailableYearsTestScoreHs.length);
+      $('#onlyHS').remove();
       $('#selectTestScore').removeClass('borrar');
       $('#selectTestScore').addClass('mostrar');
     }else{
-      console.log("else",$rootScope.arrayAvailableYearsTestScoreHs.length);
+      $('#onlyHS').remove();
       $('#testScore-nd').removeClass('borrar');
       $('#testScore-nd').addClass('mostrar');
     };
