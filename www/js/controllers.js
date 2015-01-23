@@ -913,6 +913,16 @@ nyc_controllers.controller("TestScoreCtrlYearHs" ,[ '$scope', 'DatosSchool', '$r
     };
 }]);
 
+nyc_controllers.controller('TestScoreCtrl', ['$scope', 'DatosSchool', '$rootScope', '$location', '$routeParams', '$route', function($scope, DatosSchool, $rootScope, $location, $routeParams, $route) {
+    $scope.isHs = function() {
+
+    };
+
+    $scope.isElem = function() {
+
+    };
+}]);
+
 // ELEMENTARY
 
 nyc_controllers.controller("TestScoreCtrlYearEl" ,[ '$scope', 'DatosSchool', '$rootScope','$location', '$routeParams', '$route',function ($scope, DatosSchool, $rootScope, $location, $routeParams, $route) {
