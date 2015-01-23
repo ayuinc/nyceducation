@@ -74,10 +74,12 @@ nyc_controllers.controller("SchoolListController", ['$scope', '$http', '$routePa
 
 
 nyc_controllers.controller('SelectSchoolController', ['$scope', '$rootScope', '$routeParams', '$http', 'DatosSchool', function ($scope, $rootScope ,$routeParams, $http, DatosSchool) {
+    $scope.classGT = "switch2";
     $http.get('http://162.243.110.154/api/v1/school/' + $routeParams.schoolId)
         .success(function(data){
             // DatosSchool.datos.school = data.schools[0];
             // $scope.school=DatosSchool.datos.school;
+            
             $scope.school = data.school;
             $rootScope.school = data.school;
 
@@ -132,23 +134,6 @@ nyc_controllers.controller('SelectSchoolController', ['$scope', '$rootScope', '$
             DatosSchool.datos.city_averages = data.city_average;
             $rootScope.city_average=DatosSchool.datos.city_averages[3];
 
-            $rootScope.selectedyear_testScore_year_hs = $scope.itemsYears[arrayAvailableYears.length-1].texto;
-
-            $rootScope.city_average=DatosSchool.datos.city_averages[1];
-            $rootScope.evaluation_average_score=DatosSchool.datos.evaluations_average_score[1];
-
-            console.log($rootScope.evaluation_average_score);
-
-            $rootScope.evaluation_regents=DatosSchool.datos.evaluations_regents[1];
-
-            console.log($rootScope.evaluation_regents);
-
-            $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[1];
-            //Validación pestañas acordion
-            $rootScope.valuesSat = DatosSchool.SearchValuesSat(1);
-
-            console.log($rootScope  );
-
             $rootScope.survey_var = 0;
 
             var tipoEscuela = [];
@@ -168,23 +153,23 @@ nyc_controllers.controller('SelectSchoolController', ['$scope', '$rootScope', '$
 
 
             if (((arrayts.indexOf("Elementary") != -1) || (arrayts.indexOf("Middle") != -1) || (arrayts.indexOf("K-8") != -1)|| (arrayts.indexOf("K-3") != -1)|| (arrayts.indexOf("K-2") != -1)) && (arrayts.length == 1) ){
-              $rootScope.filtroCCmenu = true;
-              $rootScope.classGT = "switch1";
+              $scope.filtroCCmenu = true;
+              $scope.classGT = "switch1";
             }else if ( (arrayts.indexOf("K-2") !== -1) && (arrayts.indexOf("Elementary") !== -1) ){
-              $rootScope.filtroCCmenu = true;
-              $rootScope.classGT = "switch1";
+              $scope.filtroCCmenu = true;
+              $scope.classGT = "switch1";
             }else if ( (arrayts.indexOf("K-3") !== -1) && (arrayts.indexOf("Elementary") !== -1) ){
-              $rootScope.filtroCCmenu = true;
-              $rootScope.classGT = "switch1";
+              $scope.filtroCCmenu = true;
+              $scope.classGT = "switch1";
             }else if ( (arrayts.indexOf("K-8") !== -1) && (arrayts.indexOf("Elementary") !== -1) ){
-              $rootScope.filtroCCmenu = true;
-              $rootScope.classGT = "switch1";
+              $scope.filtroCCmenu = true;
+              $scope.classGT = "switch1";
             }else if (arrayts.length == 0) {
-              $rootScope.filtroCCmenu = true;
-              $rootScope.classGT = "switch1";
+              $scope.filtroCCmenu = true;
+              $scope.classGT = "switch1";
             }else{
-              $rootScope.filtroCCmenu = false;
-              $rootScope.classGT = "switch2";
+              $scope.filtroCCmenu = false;
+              $scope.classGT = "switch2";
             };
 
         });
