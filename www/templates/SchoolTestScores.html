@@ -136,7 +136,9 @@
                             </div>
                         </div>
                     </accordion-group>
-
+                    <div style="position:relative;z-index:5;top: 4px;float:right;cursor:pointer;" class="icon-info-acordion" Popover-animation="false" popover-placement="bottom" popover="{{'Percentage of students passing the Regents Exam in the selected year.' | translateGlosary}}">
+                    <img style="position:relative;right:4rem" src='img/info.png' width='30' onclick="quitaBurbuja(this)">
+                    </div>
                     <accordion-group is-open="false">
                         <accordion-heading>
                             <div>{{'Regents Average Score' | translateTestScore}}</div>
@@ -264,6 +266,9 @@
                         </div>
                     </accordion-group>
 
+
+                    <div style="position:relative;z-index:5;top: 4px;float:right;cursor:pointer;" class="icon-info-acordion" Popover-animation="false" popover-placement="bottom" popover="{{'Average score of all students who took the Regents Exam in the selected year.' | translateGlosary}}">
+                    <img style="position:relative;right:4rem" src='img/info.png' width='30' onclick="quitaBurbuja(this)"></div>
                     <accordion-group is-open="false">
                         <accordion-heading>
                             <div>{{'Regents College Ready' | translateTestScore}}</div>
@@ -319,7 +324,9 @@
                             </div>
                         </div>
                     </accordion-group>
-
+                    <div style="position:relative;z-index:5;top: 4px;float:right;cursor:pointer;" class="icon-info-acordion" Popover-animation="false" popover-placement="bottom" popover="{{'Percentage of students who scored at the college ready threshold for the Regents Exam in the selected year.' | translateGlosary}}">
+                        <img style="position:relative;right:4rem" src='img/info.png' width='30' onclick="quitaBurbuja(this)">
+                    </div>
                     <accordion-group is-open="false">
                         <accordion-heading>
                             <div>{{'Regents Pass Rate' | translateTestScore}}</div>
@@ -484,205 +491,227 @@
                                 <div ng-show="valuesElaScores" style="position:relative;z-index:5;top: 8px;left: {{ 2 | iconPosition }};cursor:pointer" class="icon-info-acordion" Popover-animation="false" popover-placement="bottom" popover="{{'In Spring 2013, New York State administered the first set of tests designed to assess student performance in English Language Arts (Grades 3-8) in accordance with the instructional shifts required by the Common Core Learning Standards. New York State assigns performance levels 1 ,2, 3, and 4 to scale scores from the exams.' | translateGlosary}}"><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja(this)">
                                 </div>
                                 <!-- ELA Scores-->
-                                <accordion-group is-open="false">
-                                    <div class="small-12 medium-12 large-12 columns avg-score bg-tablas-data" ng-if="valuesAverageProficiencyScore==false">
-                                        <p style="padding-left:7px; margin-bottom:0px; margin-top:0px; font-size:1rem; width: 20rem">{{'Unavailable for the selected year' | translateGlobal}}</p>
-                                    </div>
+                                <accordion-group is-open="false" ng-show="valuesElaScores">
                                     <accordion-heading>
-                                        <div>{{'Average Proficiency Score' | translateTestScore}}</div>
+                                        <div>{{'ELA Scores' | translateTestScore}}</div>
                                     </accordion-heading>
-                                    <div class="row">
-                                        <div class="{{ 3 | filtraGrado}}">
-                                            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.3rd_a_p_r_ela | filtraCeros}}">
-                                                <div class="democracy color-barra" style="width:{{evaluation_ela.3rd_a_p_r_ela | EscalaAverageTestScore}}%;">
-                                                    <p>{{evaluation_ela.3rd_a_p_r_ela | redondea_sp}}/<span class="total_dividendo">4.5</span>
-                                                    </p>
-                                                    <itemsurvey><span class="sin-i"> {{'ELA' | translateTestScore}}</span>
+                                    <div class="{{ 3 | filtraGrado}}">
+                                        <div class="row">
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.3rd_pr_s_level1_ela | filterNull}}">
+                                                <div class="democracy color1" style="width:{{evaluation_ela.3rd_pr_s_level1_ela}}%;">
+                                                    <p>{{evaluation_ela.3rd_pr_s_level1_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info">{{'Level 1' | translateTestScore}}</span>
+                                                        <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                                                     </itemsurvey>
                                                 </div>
-
-                                                <div class="metrics {{city_average.3rdGradeAverageProficiencyRatingELA }}">
-                                                    <div class="average" style="width:{{city_average.3rdGradeAverageProficiencyRatingELA | EscalaAverageTestScore}}%;">
-                                                        <p>{{'City Average' | translateGlobal}}: {{city_average.3rdGradeAverageProficiencyRatingELA | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
-                                                        </p>
-                                                    </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.3rd_pr_s_level2_ela | filterNull}}">
+                                                <div class="democracy color2" style="width:{{evaluation_ela.3rd_pr_s_level2_ela}}%;">
+                                                    <p>{{evaluation_ela.3rd_pr_s_level2_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info">{{'Level 2' | translateTestScore}}</span>
+                                                        <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.3rd_pr_s_level3_ela | filterNull}}">
+                                                <div class="democracy color1" style="width:{{evaluation_ela.3rd_pr_s_level3_ela}}%;">
+                                                    <p>{{evaluation_ela.3rd_pr_s_level3_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info">{{'Level 3' | translateTestScore}}</span>
+                                                        <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.3rd_pr_s_level4_ela | filterNull}}">
+                                                <div class="democracy color2" style="width:{{evaluation_ela.3rd_pr_s_level4_ela}}%;">
+                                                    <p>{{evaluation_ela.3rd_pr_s_level4_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info">{{'Level 4' | translateTestScore}}</span>
+                                                        <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="{{ 4 | filtraGrado}}">
-                                            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.4rd_a_p_r_ela | filtraCeros}}">
-                                                <div class="democracy color-barra" style="width:{{evaluation_ela.4rd_a_p_r_ela | EscalaAverageTestScore}}%;">
-                                                    <p>{{evaluation_ela.4rd_a_p_r_ela | redondea_sp}}/<span class="total_dividendo">4.5</span>
-                                                    </p>
-                                                    <itemsurvey><span class="sin-i">{{'ELA' | translateTestScore}}</span>
+                                    </div>
+                                    <!-- 4rd Grado-->
+                                    <div class="{{ 4 | filtraGrado}}">
+                                        <div class="row">
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.4rd_pr_s_level1_ela | filterNull}}">
+                                                <div class="democracy color1" style="width:{{evaluation_ela.4rd_pr_s_level1_ela}}%;">
+                                                    <p>{{evaluation_ela.4rd_pr_s_level1_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 1' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                                                     </itemsurvey>
                                                 </div>
-                                                <div class="metrics {{city_average.4thGradeAverageProficiencyRatingsELA }}">
-                                                    <div class="average" style="width:{{city_average.4thGradeAverageProficiencyRatingsELA | EscalaAverageTestScore}}%;">
-                                                        <p>{{'City Average' | translateGlobal}}: {{city_average.4thGradeAverageProficiencyRatingsELA | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
-                                                        </p>
-                                                    </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.4rd_pr_s_level2_ela | filterNull}}">
+                                                <div class="democracy color2" style="width:{{evaluation_ela.4rd_pr_s_level2_ela}}%;">
+                                                    <p>{{evaluation_ela.4rd_pr_s_level2_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 2' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.4rd_pr_s_level3_ela | filterNull}}">
+                                                <div class="democracy color1" style="width:{{evaluation_ela.4rd_pr_s_level3_ela}}%;">
+                                                    <p>{{evaluation_ela.4rd_pr_s_level3_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 3' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.4rd_pr_s_level4_ela | filterNull}}">
+                                                <div class="democracy color2" style="width:{{evaluation_ela.4rd_pr_s_level4_ela}}%;">
+                                                    <p>{{evaluation_ela.4rd_pr_s_level4_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 4' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="{{ 5 | filtraGrado}}">
-                                            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.5rd_a_p_r_ela | filtraCeros}}">
-                                                <div class="democracy color-barra" style="width:{{evaluation_ela.5rd_a_p_r_ela | EscalaAverageTestScore}}%;">
-                                                    <p>{{evaluation_ela.5rd_a_p_r_ela | redondea_sp}}/<span class="total_dividendo">4.5</span>
-                                                    </p>
-                                                    <itemsurvey><span class="sin-i">{{'ELA' | translateTestScore}}</span>
+                                    </div>
+                                    <!-- 5rd Grado-->
+                                    <div class="{{ 5 | filtraGrado}}">
+                                        <div class="row">
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.5rd_pr_s_level1_ela | filterNull}}">
+                                                <div class="democracy color1" style="width:{{evaluation_ela.5rd_pr_s_level1_ela}}%;">
+                                                    <p>{{evaluation_ela.5rd_pr_s_level1_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 1' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                                                     </itemsurvey>
                                                 </div>
-                                                <div class="metrics {{city_average.5thGradeAverageProficiencyRatingELA }}">
-                                                    <div class="average" style="width:{{city_average.5thGradeAverageProficiencyRatingELA | EscalaAverageTestScore}}%;">
-                                                        <p>{{'City Average' | translateGlobal}}: {{city_average.5thGradeAverageProficiencyRatingELA | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
-                                                        </p>
-                                                    </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.5rd_pr_s_level2_ela | filterNull}}">
+                                                <div class="democracy color2" style="width:{{evaluation_ela.5rd_pr_s_level2_ela}}%;">
+                                                    <p>{{evaluation_ela.5rd_pr_s_level2_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 2' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.5rd_pr_s_level3_ela | filterNull}}">
+                                                <div class="democracy color1" style="width:{{evaluation_ela.5rd_pr_s_level3_ela}}%;">
+                                                    <p>{{evaluation_ela.5rd_pr_s_level3_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 3' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.5rd_pr_s_level4_ela | filterNull}}">
+                                                <div class="democracy color2" style="width:{{evaluation_ela.5rd_pr_s_level4_ela}}%;">
+                                                    <p>{{evaluation_ela.5rd_pr_s_level4_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 4' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="{{ 6 | filtraGrado}}">
-                                            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.6rd_a_p_r_ela | filtraCeros}}">
-                                                <div class="democracy color-barra" style="width:{{evaluation_ela.6rd_a_p_r_ela | EscalaAverageTestScore}}%;">
-                                                    <p>{{evaluation_ela.6rd_a_p_r_ela | redondea_sp}}/<span class="total_dividendo">4.5</span>
-                                                    </p>
-                                                    <itemsurvey><span class="sin-i">{{'ELA' | translateTestScore}}</span>
+                                    </div>
+                                    <!-- 6rd Grado-->
+                                    <div class="{{ 6 | filtraGrado}}">
+                                        <div class="row">
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.6rd_pr_s_level1_ela | filterNull}}">
+                                                <div class="democracy color1" style="width:{{evaluation_ela.6rd_pr_s_level1_ela}}%;">
+                                                    <p>{{evaluation_ela.6rd_pr_s_level1_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 1' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                                                     </itemsurvey>
                                                 </div>
-                                                <div class="metrics {{city_average.6thGradeAverageProficiencyRatingELA }}">
-                                                    <div class="average" style="width:{{city_average.6thGradeAverageProficiencyRatingELA | EscalaAverageTestScore}}%;">
-                                                        <p>{{'City Average' | translateGlobal}}: {{city_average.6thGradeAverageProficiencyRatingELA | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
-                                                        </p>
-                                                    </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.6rd_pr_s_level2_ela | filterNull}}">
+                                                <div class="democracy color2" style="width:{{evaluation_ela.6rd_pr_s_level2_ela}}%;">
+                                                    <p>{{evaluation_ela.6rd_pr_s_level2_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 2' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.6rd_pr_s_level3_ela | filterNull}}">
+                                                <div class="democracy color1" style="width:{{evaluation_ela.6rd_pr_s_level3_ela}}%;">
+                                                    <p>{{evaluation_ela.6rd_pr_s_level3_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 3' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.6rd_pr_s_level4_ela | filterNull}}">
+                                                <div class="democracy color2" style="width:{{evaluation_ela.6rd_pr_s_level4_ela}}%;">
+                                                    <p>{{evaluation_ela.6rd_pr_s_level4_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 4' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="{{ 7 | filtraGrado}}">
-                                            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.7rd_a_p_r_ela | filtraCeros}}">
-                                                <div class="democracy color-barra" style="width:{{evaluation_ela.7rd_a_p_r_ela | EscalaAverageTestScore}}%;">
-                                                    <p>{{evaluation_ela.7rd_a_p_r_ela | redondea_sp}}/<span class="total_dividendo">4.5</span>
-                                                    </p>
-                                                    <itemsurvey><span class="sin-i">{{'ELA' | translateTestScore}}</span>
+                                    </div>
+                                    <!-- 7rd Grado-->
+                                    <div class="{{ 7 | filtraGrado}}">
+                                        <div class="row">
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.7rd_pr_s_level1_ela | filterNull}}">
+                                                <div class="democracy color1" style="width:{{evaluation_ela.7rd_pr_s_level1_ela}}%;">
+                                                    <p>{{evaluation_ela.7rd_pr_s_level1_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 1' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                                                     </itemsurvey>
                                                 </div>
-                                                <div class="metrics {{city_average.7thGradeAverageProficiencyRatingELA }}">
-                                                    <div class="average" style="width:{{city_average.7thGradeAverageProficiencyRatingELA | EscalaAverageTestScore}}%;">
-                                                        <p>{{'City Average' | translateGlobal}}: {{city_average.7thGradeAverageProficiencyRatingELA | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
-                                                        </p>
-                                                    </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.7rd_pr_s_level2_ela | filterNull}}">
+                                                <div class="democracy color2" style="width:{{evaluation_ela.7rd_pr_s_level2_ela}}%;">
+                                                    <p>{{evaluation_ela.7rd_pr_s_level2_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 2' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.7rd_pr_s_level3_ela | filterNull}}">
+                                                <div class="democracy color1" style="width:{{evaluation_ela.7rd_pr_s_level3_ela}}%;">
+                                                    <p>{{evaluation_ela.7rd_pr_s_level3_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 3' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.7rd_pr_s_level4_ela | filterNull}}">
+                                                <div class="democracy color2" style="width:{{evaluation_ela.7rd_pr_s_level4_ela}}%;">
+                                                    <p>{{evaluation_ela.7rd_pr_s_level4_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 4' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="{{ 8 | filtraGrado}}">
-                                            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.8rd_a_p_r_ela | filtraCeros}}">
-                                                <div class="democracy color-barra" style="width:{{evaluation_ela.8rd_a_p_r_ela | EscalaAverageTestScore}}%;">
-                                                    <p>{{evaluation_ela.8rd_a_p_r_ela | redondea_sp}}/<span class="total_dividendo">4.5</span>
-                                                    </p>
-                                                    <itemsurvey><span class="sin-i">{{'ELA' | translateTestScore}}</span>
+                                    </div>
+                                    <!-- 8rd Grado-->
+                                    <div class="{{ 8 | filtraGrado}}">
+                                        <div class="row">
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.8rd_pr_s_level1_ela | filterNull}}">
+                                                <div class="democracy color1" style="width:{{evaluation_ela.8rd_pr_s_level1_ela}}%;">
+                                                    <p>{{evaluation_ela.8rd_pr_s_level1_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 1' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                                                     </itemsurvey>
-                                                </div>
-                                                <div class="metrics {{city_average.8thGradeAverageProficiencyRatingELA }}">
-                                                    <div class="average" style="width:{{city_average.8thGradeAverageProficiencyRatingELA | EscalaAverageTestScore}}%;">
-                                                        <p>{{'City Average' | translateGlobal}}: {{city_average.8thGradeAverageProficiencyRatingELA | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
-                                                        </p>
-                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="{{ 3 | filtraGrado}}">
-                                            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_math.3rd_a_p_r_math | filtraCeros}}">
-                                                <div class="democracy color-barra" style="width:{{evaluation_math.3rd_a_p_r_math | EscalaAverageTestScore}}%;">
-                                                    <p>{{evaluation_math.3rd_a_p_r_math | redondea_sp}}/<span class="total_dividendo">4.5</span>
-                                                    </p>
-                                                    <itemsurvey><span class="sin-i"> {{'Math' | translateTestScore}}</span>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.8rd_pr_s_level2_ela | filterNull}}">
+                                                <div class="democracy color2" style="width:{{evaluation_ela.8rd_pr_s_level2_ela}}%;">
+                                                    <p>{{evaluation_ela.8rd_pr_s_level2_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 2' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                                                     </itemsurvey>
-                                                </div>
-                                                <div class="metrics {{city_average.3rdGradeAverageProficiencyRatingMath }}">
-                                                    <div class="average" style="width:{{city_average.3rdGradeAverageProficiencyRatingMath | EscalaAverageTestScore}}%;">
-                                                        <p>{{'City Average' | translateGlobal}}: {{city_average.3rdGradeAverageProficiencyRatingMath | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
-                                                        </p>
-                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="{{ 4 | filtraGrado}}">
-                                            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_math.4rd_a_p_r_math | filtraCeros}}">
-                                                <div class="democracy color-barra" style="width:{{evaluation_math.4rd_a_p_r_math | EscalaAverageTestScore}}%;">
-                                                    <p>{{evaluation_math.4rd_a_p_r_math | redondea_sp}}/<span class="total_dividendo">4.5</span>
-                                                    </p>
-                                                    <itemsurvey><span class="sin-i">{{'Math' | translateTestScore}}</span>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.8rd_pr_s_level3_ela | filterNull}}">
+                                                <div class="democracy color1" style="width:{{evaluation_ela.8rd_pr_s_level3_ela}}%;">
+                                                    <p>{{evaluation_ela.8rd_pr_s_level3_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 3' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                                                     </itemsurvey>
-                                                </div>
-
-                                                <div class="metrics {{city_average.4thGradeAverageProficiencyRatingsMath }}">
-                                                    <div class="average" style="width:{{city_average.4thGradeAverageProficiencyRatingsMath | EscalaAverageTestScore}}%;">
-                                                        <p>{{'City Average' | translateGlobal}}: {{city_average.4thGradeAverageProficiencyRatingsMath | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
-                                                        </p>
-                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="{{ 5 | filtraGrado}}">
-                                            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_math.5rd_a_p_r_math | filtraCeros}}">
-                                                <div class="democracy color-barra" style="width:{{evaluation_math.5rd_a_p_r_math | EscalaAverageTestScore}}%;">
-                                                    <p>{{evaluation_math.5rd_a_p_r_math | redondea_sp}}/<span class="total_dividendo">4.5</span>
-                                                    </p>
-                                                    <itemsurvey><span class="sin-i">{{'Math' | translateTestScore}}</span>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.8rd_pr_s_level4_ela | filterNull}}">
+                                                <div class="democracy color2" style="width:{{evaluation_ela.8rd_pr_s_level4_ela}}%;">
+                                                    <p>{{evaluation_ela.8rd_pr_s_level4_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 4' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                                                     </itemsurvey>
-                                                </div>
-                                                <div class="metrics {{city_average.5thGradeAverageProficiencyRatingMath }}">
-                                                    <div class="average" style="width:{{city_average.5thGradeAverageProficiencyRatingMath | EscalaAverageTestScore}}%;">
-                                                        <p>{{'City Average' | translateGlobal}}: {{city_average.5thGradeAverageProficiencyRatingMath | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="{{ 6 | filtraGrado}}">
-                                            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_math.6rd_a_p_r_math | filtraCeros}}">
-                                                <div class="democracy color-barra" style="width:{{evaluation_math.6rd_a_p_r_math | EscalaAverageTestScore}}%;">
-                                                    <p>{{evaluation_math.6rd_a_p_r_math | redondea_sp}}/<span class="total_dividendo">4.5</span>
-                                                    </p>
-                                                    <itemsurvey><span class="sin-i">{{'Math' | translateTestScore}}</span>
-                                                    </itemsurvey>
-                                                </div>
-                                                <div class="metrics {{city_average.6thGradeAverageProficiencyRatingMath }}">
-                                                    <div class="average" style="width:{{city_average.6thGradeAverageProficiencyRatingMath | EscalaAverageTestScore}}%;">
-                                                        <p>{{'City Average' | translateGlobal}}: {{city_average.6thGradeAverageProficiencyRatingMath | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="{{ 7 | filtraGrado}}">
-                                            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_math.7rd_a_p_r_math | filtraCeros}}">
-                                                <div class="democracy color-barra" style="width:{{evaluation_math.7rd_a_p_r_math | EscalaAverageTestScore}}%;">
-                                                    <p>{{evaluation_math.7rd_a_p_r_math | redondea_sp}}/<span class="total_dividendo">4.5</span>
-                                                    </p>
-                                                    <itemsurvey><span class="sin-i">{{'Math' | translateTestScore}}</span>
-                                                    </itemsurvey>
-                                                </div>
-                                                <div class="metrics {{city_average.7thGradeAverageProficiencyRatingMath }}">
-                                                    <div class="average" style="width:{{city_average.7thGradeAverageProficiencyRatingMath | EscalaAverageTestScore}}%;">
-                                                        <p>{{'City Average' | translateGlobal}}: {{city_average.7thGradeAverageProficiencyRatingMath | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="{{ 8 | filtraGrado}}">
-                                            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_math.8rd_a_p_r_math | filtraCeros}}">
-                                                <div class="democracy color-barra" style="width:{{evaluation_math.8rd_a_p_r_math | EscalaAverageTestScore}}%;">
-                                                    <p>{{evaluation_math.8rd_a_p_r_math | redondea_sp}}/<span class="total_dividendo">4.5</span>
-                                                    </p>
-                                                    <itemsurvey><span class="sin-i">{{'Math' | translateTestScore}}</span>
-                                                    </itemsurvey>
-                                                </div>
-                                                <div class="metrics {{city_average.8thGradeAverageProficiencyRatingMath }}">
-                                                    <div class="average" style="width:{{city_average.8thGradeAverageProficiencyRatingMath | EscalaAverageTestScore}}%;">
-                                                        <p>{{'City Average' | translateGlobal}}: {{city_average.8thGradeAverageProficiencyRatingMath | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
-                                                        </p>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
