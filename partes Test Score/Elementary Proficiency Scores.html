@@ -1,0 +1,204 @@
+<accordion-group is-open="false">
+    <div class="small-12 medium-12 large-12 columns avg-score bg-tablas-data" ng-if="valuesAverageProficiencyScore==false">
+        <p style="padding-left:7px; margin-bottom:0px; margin-top:0px; font-size:1rem; width: 20rem">{{'Unavailable for the selected year' | translateGlobal}}</p>
+    </div>
+    <accordion-heading>
+        <div>{{'Average Proficiency Score' | translateTestScore}}</div>
+    </accordion-heading>
+    <div class="row">
+        <div class="{{ 3 | filtraGrado}}">
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.3rd_a_p_r_ela | filtraCeros}}">
+                <div class="democracy color-barra" style="width:{{evaluation_ela.3rd_a_p_r_ela | EscalaAverageTestScore}}%;">
+                    <p>{{evaluation_ela.3rd_a_p_r_ela | redondea_sp}}/<span class="total_dividendo">4.5</span>
+                    </p>
+                    <itemsurvey><span class="sin-i"> {{'ELA' | translateTestScore}}</span>
+                    </itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.3rdGradeAverageProficiencyRatingELA }}">
+                    <div class="average" style="width:{{city_average.3rdGradeAverageProficiencyRatingELA | EscalaAverageTestScore}}%;">
+                        <p>{{'City Average' | translateGlobal}}: {{city_average.3rdGradeAverageProficiencyRatingELA | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="{{ 4 | filtraGrado}}">
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.4rd_a_p_r_ela | filtraCeros}}">
+                <div class="democracy color-barra" style="width:{{evaluation_ela.4rd_a_p_r_ela | EscalaAverageTestScore}}%;">
+                    <p>{{evaluation_ela.4rd_a_p_r_ela | redondea_sp}}/<span class="total_dividendo">4.5</span>
+                    </p>
+                    <itemsurvey><span class="sin-i">{{'ELA' | translateTestScore}}</span>
+                    </itemsurvey>
+                </div>
+                <div class="metrics {{city_average.4thGradeAverageProficiencyRatingsELA }}">
+                    <div class="average" style="width:{{city_average.4thGradeAverageProficiencyRatingsELA | EscalaAverageTestScore}}%;">
+                        <p>{{'City Average' | translateGlobal}}: {{city_average.4thGradeAverageProficiencyRatingsELA | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="{{ 5 | filtraGrado}}">
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.5rd_a_p_r_ela | filtraCeros}}">
+                <div class="democracy color-barra" style="width:{{evaluation_ela.5rd_a_p_r_ela | EscalaAverageTestScore}}%;">
+                    <p>{{evaluation_ela.5rd_a_p_r_ela | redondea_sp}}/<span class="total_dividendo">4.5</span>
+                    </p>
+                    <itemsurvey><span class="sin-i">{{'ELA' | translateTestScore}}</span>
+                    </itemsurvey>
+                </div>
+                <div class="metrics {{city_average.5thGradeAverageProficiencyRatingELA }}">
+                    <div class="average" style="width:{{city_average.5thGradeAverageProficiencyRatingELA | EscalaAverageTestScore}}%;">
+                        <p>{{'City Average' | translateGlobal}}: {{city_average.5thGradeAverageProficiencyRatingELA | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="{{ 6 | filtraGrado}}">
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.6rd_a_p_r_ela | filtraCeros}}">
+                <div class="democracy color-barra" style="width:{{evaluation_ela.6rd_a_p_r_ela | EscalaAverageTestScore}}%;">
+                    <p>{{evaluation_ela.6rd_a_p_r_ela | redondea_sp}}/<span class="total_dividendo">4.5</span>
+                    </p>
+                    <itemsurvey><span class="sin-i">{{'ELA' | translateTestScore}}</span>
+                    </itemsurvey>
+                </div>
+                <div class="metrics {{city_average.6thGradeAverageProficiencyRatingELA }}">
+                    <div class="average" style="width:{{city_average.6thGradeAverageProficiencyRatingELA | EscalaAverageTestScore}}%;">
+                        <p>{{'City Average' | translateGlobal}}: {{city_average.6thGradeAverageProficiencyRatingELA | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="{{ 7 | filtraGrado}}">
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.7rd_a_p_r_ela | filtraCeros}}">
+                <div class="democracy color-barra" style="width:{{evaluation_ela.7rd_a_p_r_ela | EscalaAverageTestScore}}%;">
+                    <p>{{evaluation_ela.7rd_a_p_r_ela | redondea_sp}}/<span class="total_dividendo">4.5</span>
+                    </p>
+                    <itemsurvey><span class="sin-i">{{'ELA' | translateTestScore}}</span>
+                    </itemsurvey>
+                </div>
+                <div class="metrics {{city_average.7thGradeAverageProficiencyRatingELA }}">
+                    <div class="average" style="width:{{city_average.7thGradeAverageProficiencyRatingELA | EscalaAverageTestScore}}%;">
+                        <p>{{'City Average' | translateGlobal}}: {{city_average.7thGradeAverageProficiencyRatingELA | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="{{ 8 | filtraGrado}}">
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.8rd_a_p_r_ela | filtraCeros}}">
+                <div class="democracy color-barra" style="width:{{evaluation_ela.8rd_a_p_r_ela | EscalaAverageTestScore}}%;">
+                    <p>{{evaluation_ela.8rd_a_p_r_ela | redondea_sp}}/<span class="total_dividendo">4.5</span>
+                    </p>
+                    <itemsurvey><span class="sin-i">{{'ELA' | translateTestScore}}</span>
+                    </itemsurvey>
+                </div>
+                <div class="metrics {{city_average.8thGradeAverageProficiencyRatingELA }}">
+                    <div class="average" style="width:{{city_average.8thGradeAverageProficiencyRatingELA | EscalaAverageTestScore}}%;">
+                        <p>{{'City Average' | translateGlobal}}: {{city_average.8thGradeAverageProficiencyRatingELA | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="{{ 3 | filtraGrado}}">
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_math.3rd_a_p_r_math | filtraCeros}}">
+                <div class="democracy color-barra" style="width:{{evaluation_math.3rd_a_p_r_math | EscalaAverageTestScore}}%;">
+                    <p>{{evaluation_math.3rd_a_p_r_math | redondea_sp}}/<span class="total_dividendo">4.5</span>
+                    </p>
+                    <itemsurvey><span class="sin-i"> {{'Math' | translateTestScore}}</span>
+                    </itemsurvey>
+                </div>
+                <div class="metrics {{city_average.3rdGradeAverageProficiencyRatingMath }}">
+                    <div class="average" style="width:{{city_average.3rdGradeAverageProficiencyRatingMath | EscalaAverageTestScore}}%;">
+                        <p>{{'City Average' | translateGlobal}}: {{city_average.3rdGradeAverageProficiencyRatingMath | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="{{ 4 | filtraGrado}}">
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_math.4rd_a_p_r_math | filtraCeros}}">
+                <div class="democracy color-barra" style="width:{{evaluation_math.4rd_a_p_r_math | EscalaAverageTestScore}}%;">
+                    <p>{{evaluation_math.4rd_a_p_r_math | redondea_sp}}/<span class="total_dividendo">4.5</span>
+                    </p>
+                    <itemsurvey><span class="sin-i">{{'Math' | translateTestScore}}</span>
+                    </itemsurvey>
+                </div>
+
+                <div class="metrics {{city_average.4thGradeAverageProficiencyRatingsMath }}">
+                    <div class="average" style="width:{{city_average.4thGradeAverageProficiencyRatingsMath | EscalaAverageTestScore}}%;">
+                        <p>{{'City Average' | translateGlobal}}: {{city_average.4thGradeAverageProficiencyRatingsMath | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="{{ 5 | filtraGrado}}">
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_math.5rd_a_p_r_math | filtraCeros}}">
+                <div class="democracy color-barra" style="width:{{evaluation_math.5rd_a_p_r_math | EscalaAverageTestScore}}%;">
+                    <p>{{evaluation_math.5rd_a_p_r_math | redondea_sp}}/<span class="total_dividendo">4.5</span>
+                    </p>
+                    <itemsurvey><span class="sin-i">{{'Math' | translateTestScore}}</span>
+                    </itemsurvey>
+                </div>
+                <div class="metrics {{city_average.5thGradeAverageProficiencyRatingMath }}">
+                    <div class="average" style="width:{{city_average.5thGradeAverageProficiencyRatingMath | EscalaAverageTestScore}}%;">
+                        <p>{{'City Average' | translateGlobal}}: {{city_average.5thGradeAverageProficiencyRatingMath | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="{{ 6 | filtraGrado}}">
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_math.6rd_a_p_r_math | filtraCeros}}">
+                <div class="democracy color-barra" style="width:{{evaluation_math.6rd_a_p_r_math | EscalaAverageTestScore}}%;">
+                    <p>{{evaluation_math.6rd_a_p_r_math | redondea_sp}}/<span class="total_dividendo">4.5</span>
+                    </p>
+                    <itemsurvey><span class="sin-i">{{'Math' | translateTestScore}}</span>
+                    </itemsurvey>
+                </div>
+                <div class="metrics {{city_average.6thGradeAverageProficiencyRatingMath }}">
+                    <div class="average" style="width:{{city_average.6thGradeAverageProficiencyRatingMath | EscalaAverageTestScore}}%;">
+                        <p>{{'City Average' | translateGlobal}}: {{city_average.6thGradeAverageProficiencyRatingMath | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="{{ 7 | filtraGrado}}">
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_math.7rd_a_p_r_math | filtraCeros}}">
+                <div class="democracy color-barra" style="width:{{evaluation_math.7rd_a_p_r_math | EscalaAverageTestScore}}%;">
+                    <p>{{evaluation_math.7rd_a_p_r_math | redondea_sp}}/<span class="total_dividendo">4.5</span>
+                    </p>
+                    <itemsurvey><span class="sin-i">{{'Math' | translateTestScore}}</span>
+                    </itemsurvey>
+                </div>
+                <div class="metrics {{city_average.7thGradeAverageProficiencyRatingMath }}">
+                    <div class="average" style="width:{{city_average.7thGradeAverageProficiencyRatingMath | EscalaAverageTestScore}}%;">
+                        <p>{{'City Average' | translateGlobal}}: {{city_average.7thGradeAverageProficiencyRatingMath | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="{{ 8 | filtraGrado}}">
+            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_math.8rd_a_p_r_math | filtraCeros}}">
+                <div class="democracy color-barra" style="width:{{evaluation_math.8rd_a_p_r_math | EscalaAverageTestScore}}%;">
+                    <p>{{evaluation_math.8rd_a_p_r_math | redondea_sp}}/<span class="total_dividendo">4.5</span>
+                    </p>
+                    <itemsurvey><span class="sin-i">{{'Math' | translateTestScore}}</span>
+                    </itemsurvey>
+                </div>
+                <div class="metrics {{city_average.8thGradeAverageProficiencyRatingMath }}">
+                    <div class="average" style="width:{{city_average.8thGradeAverageProficiencyRatingMath | EscalaAverageTestScore}}%;">
+                        <p>{{'City Average' | translateGlobal}}: {{city_average.8thGradeAverageProficiencyRatingMath | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</accordion-group>

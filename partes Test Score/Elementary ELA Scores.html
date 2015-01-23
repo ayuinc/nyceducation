@@ -1,0 +1,226 @@
+<accordion-group is-open="false" ng-show="valuesElaScores">
+    <accordion-heading>
+        <div>{{'ELA Scores' | translateTestScore}}</div>
+    </accordion-heading>
+    <div class="{{ 3 | filtraGrado}}">
+        <div class="row">
+            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.3rd_pr_s_level1_ela | filterNull}}">
+                <div class="democracy color1" style="width:{{evaluation_ela.3rd_pr_s_level1_ela}}%;">
+                    <p>{{evaluation_ela.3rd_pr_s_level1_ela | number:1}}%</p>
+                    <itemsurvey><span class="con-info">{{'Level 1' | translateTestScore}}</span>
+                        <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                </div>
+            </div>
+            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.3rd_pr_s_level2_ela | filterNull}}">
+                <div class="democracy color2" style="width:{{evaluation_ela.3rd_pr_s_level2_ela}}%;">
+                    <p>{{evaluation_ela.3rd_pr_s_level2_ela | number:1}}%</p>
+                    <itemsurvey><span class="con-info">{{'Level 2' | translateTestScore}}</span>
+                        <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                </div>
+            </div>
+            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.3rd_pr_s_level3_ela | filterNull}}">
+                <div class="democracy color1" style="width:{{evaluation_ela.3rd_pr_s_level3_ela}}%;">
+                    <p>{{evaluation_ela.3rd_pr_s_level3_ela | number:1}}%</p>
+                    <itemsurvey><span class="con-info">{{'Level 3' | translateTestScore}}</span>
+                        <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                </div>
+            </div>
+            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.3rd_pr_s_level4_ela | filterNull}}">
+                <div class="democracy color2" style="width:{{evaluation_ela.3rd_pr_s_level4_ela}}%;">
+                    <p>{{evaluation_ela.3rd_pr_s_level4_ela | number:1}}%</p>
+                    <itemsurvey><span class="con-info">{{'Level 4' | translateTestScore}}</span>
+                        <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 4rd Grado-->
+    <div class="{{ 4 | filtraGrado}}">
+        <div class="row">
+            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.4rd_pr_s_level1_ela | filterNull}}">
+                <div class="democracy color1" style="width:{{evaluation_ela.4rd_pr_s_level1_ela}}%;">
+                    <p>{{evaluation_ela.4rd_pr_s_level1_ela | number:1}}%</p>
+                    <itemsurvey><span class="con-info"> {{'Level 1' | translateTestScore}} </span>
+                        <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                </div>
+            </div>
+            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.4rd_pr_s_level2_ela | filterNull}}">
+                <div class="democracy color2" style="width:{{evaluation_ela.4rd_pr_s_level2_ela}}%;">
+                    <p>{{evaluation_ela.4rd_pr_s_level2_ela | number:1}}%</p>
+                    <itemsurvey><span class="con-info"> {{'Level 2' | translateTestScore}} </span>
+                        <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                </div>
+            </div>
+            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.4rd_pr_s_level3_ela | filterNull}}">
+                <div class="democracy color1" style="width:{{evaluation_ela.4rd_pr_s_level3_ela}}%;">
+                    <p>{{evaluation_ela.4rd_pr_s_level3_ela | number:1}}%</p>
+                    <itemsurvey><span class="con-info"> {{'Level 3' | translateTestScore}} </span>
+                        <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                </div>
+            </div>
+            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.4rd_pr_s_level4_ela | filterNull}}">
+                <div class="democracy color2" style="width:{{evaluation_ela.4rd_pr_s_level4_ela}}%;">
+                    <p>{{evaluation_ela.4rd_pr_s_level4_ela | number:1}}%</p>
+                    <itemsurvey><span class="con-info"> {{'Level 4' | translateTestScore}} </span>
+                        <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 5rd Grado-->
+    <div class="{{ 5 | filtraGrado}}">
+        <div class="row">
+            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.5rd_pr_s_level1_ela | filterNull}}">
+                <div class="democracy color1" style="width:{{evaluation_ela.5rd_pr_s_level1_ela}}%;">
+                    <p>{{evaluation_ela.5rd_pr_s_level1_ela | number:1}}%</p>
+                    <itemsurvey><span class="con-info"> {{'Level 1' | translateTestScore}} </span>
+                        <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                </div>
+            </div>
+            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.5rd_pr_s_level2_ela | filterNull}}">
+                <div class="democracy color2" style="width:{{evaluation_ela.5rd_pr_s_level2_ela}}%;">
+                    <p>{{evaluation_ela.5rd_pr_s_level2_ela | number:1}}%</p>
+                    <itemsurvey><span class="con-info"> {{'Level 2' | translateTestScore}} </span>
+                        <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                </div>
+            </div>
+            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.5rd_pr_s_level3_ela | filterNull}}">
+                <div class="democracy color1" style="width:{{evaluation_ela.5rd_pr_s_level3_ela}}%;">
+                    <p>{{evaluation_ela.5rd_pr_s_level3_ela | number:1}}%</p>
+                    <itemsurvey><span class="con-info"> {{'Level 3' | translateTestScore}} </span>
+                        <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                </div>
+            </div>
+            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.5rd_pr_s_level4_ela | filterNull}}">
+                <div class="democracy color2" style="width:{{evaluation_ela.5rd_pr_s_level4_ela}}%;">
+                    <p>{{evaluation_ela.5rd_pr_s_level4_ela | number:1}}%</p>
+                    <itemsurvey><span class="con-info"> {{'Level 4' | translateTestScore}} </span>
+                        <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 6rd Grado-->
+    <div class="{{ 6 | filtraGrado}}">
+        <div class="row">
+            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.6rd_pr_s_level1_ela | filterNull}}">
+                <div class="democracy color1" style="width:{{evaluation_ela.6rd_pr_s_level1_ela}}%;">
+                    <p>{{evaluation_ela.6rd_pr_s_level1_ela | number:1}}%</p>
+                    <itemsurvey><span class="con-info"> {{'Level 1' | translateTestScore}} </span>
+                        <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                </div>
+            </div>
+            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.6rd_pr_s_level2_ela | filterNull}}">
+                <div class="democracy color2" style="width:{{evaluation_ela.6rd_pr_s_level2_ela}}%;">
+                    <p>{{evaluation_ela.6rd_pr_s_level2_ela | number:1}}%</p>
+                    <itemsurvey><span class="con-info"> {{'Level 2' | translateTestScore}} </span>
+                        <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                </div>
+            </div>
+            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.6rd_pr_s_level3_ela | filterNull}}">
+                <div class="democracy color1" style="width:{{evaluation_ela.6rd_pr_s_level3_ela}}%;">
+                    <p>{{evaluation_ela.6rd_pr_s_level3_ela | number:1}}%</p>
+                    <itemsurvey><span class="con-info"> {{'Level 3' | translateTestScore}} </span>
+                        <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                </div>
+            </div>
+            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.6rd_pr_s_level4_ela | filterNull}}">
+                <div class="democracy color2" style="width:{{evaluation_ela.6rd_pr_s_level4_ela}}%;">
+                    <p>{{evaluation_ela.6rd_pr_s_level4_ela | number:1}}%</p>
+                    <itemsurvey><span class="con-info"> {{'Level 4' | translateTestScore}} </span>
+                        <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 7rd Grado-->
+    <div class="{{ 7 | filtraGrado}}">
+        <div class="row">
+            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.7rd_pr_s_level1_ela | filterNull}}">
+                <div class="democracy color1" style="width:{{evaluation_ela.7rd_pr_s_level1_ela}}%;">
+                    <p>{{evaluation_ela.7rd_pr_s_level1_ela | number:1}}%</p>
+                    <itemsurvey><span class="con-info"> {{'Level 1' | translateTestScore}} </span>
+                        <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                </div>
+            </div>
+            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.7rd_pr_s_level2_ela | filterNull}}">
+                <div class="democracy color2" style="width:{{evaluation_ela.7rd_pr_s_level2_ela}}%;">
+                    <p>{{evaluation_ela.7rd_pr_s_level2_ela | number:1}}%</p>
+                    <itemsurvey><span class="con-info"> {{'Level 2' | translateTestScore}} </span>
+                        <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                </div>
+            </div>
+            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.7rd_pr_s_level3_ela | filterNull}}">
+                <div class="democracy color1" style="width:{{evaluation_ela.7rd_pr_s_level3_ela}}%;">
+                    <p>{{evaluation_ela.7rd_pr_s_level3_ela | number:1}}%</p>
+                    <itemsurvey><span class="con-info"> {{'Level 3' | translateTestScore}} </span>
+                        <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                </div>
+            </div>
+            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.7rd_pr_s_level4_ela | filterNull}}">
+                <div class="democracy color2" style="width:{{evaluation_ela.7rd_pr_s_level4_ela}}%;">
+                    <p>{{evaluation_ela.7rd_pr_s_level4_ela | number:1}}%</p>
+                    <itemsurvey><span class="con-info"> {{'Level 4' | translateTestScore}} </span>
+                        <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 8rd Grado-->
+    <div class="{{ 8 | filtraGrado}}">
+        <div class="row">
+            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.8rd_pr_s_level1_ela | filterNull}}">
+                <div class="democracy color1" style="width:{{evaluation_ela.8rd_pr_s_level1_ela}}%;">
+                    <p>{{evaluation_ela.8rd_pr_s_level1_ela | number:1}}%</p>
+                    <itemsurvey><span class="con-info"> {{'Level 1' | translateTestScore}} </span>
+                        <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                </div>
+            </div>
+            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.8rd_pr_s_level2_ela | filterNull}}">
+                <div class="democracy color2" style="width:{{evaluation_ela.8rd_pr_s_level2_ela}}%;">
+                    <p>{{evaluation_ela.8rd_pr_s_level2_ela | number:1}}%</p>
+                    <itemsurvey><span class="con-info"> {{'Level 2' | translateTestScore}} </span>
+                        <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                </div>
+            </div>
+            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.8rd_pr_s_level3_ela | filterNull}}">
+                <div class="democracy color1" style="width:{{evaluation_ela.8rd_pr_s_level3_ela}}%;">
+                    <p>{{evaluation_ela.8rd_pr_s_level3_ela | number:1}}%</p>
+                    <itemsurvey><span class="con-info"> {{'Level 3' | translateTestScore}} </span>
+                        <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                </div>
+            </div>
+            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.8rd_pr_s_level4_ela | filterNull}}">
+                <div class="democracy color2" style="width:{{evaluation_ela.8rd_pr_s_level4_ela}}%;">
+                    <p>{{evaluation_ela.8rd_pr_s_level4_ela | number:1}}%</p>
+                    <itemsurvey><span class="con-info"> {{'Level 4' | translateTestScore}} </span>
+                        <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                </div>
+            </div>
+        </div>
+    </div>
+</accordion-group>

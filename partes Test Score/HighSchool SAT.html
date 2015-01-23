@@ -1,0 +1,75 @@
+<accordion-group is-open="false" ng-show="valuesSat">
+    <accordion-heading>
+        <div>{{'SAT' | translateTestScore}}</div>
+    </accordion-heading>
+    <!--SAT-->
+    <div class="row">
+        <div class="n-student">
+            <span class="ns-sat"> {{evaluation_average_score.sat_n_test_takers | redondea_sp}}</span>
+            <span class="ns-sat-label">{{'No. Students' | translateTestScore}}</span>
+            <div Popover-animation="false" popover="{{'The number of students at the school who took the SAT at the school, a globally recognized college admission test that tests knowledge of critical  reading, writing and math.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer;cursor: pointer; right: 1rem; top: 0.3rem;" onclick="quitaBurbuja()">
+            </div>
+        </div>
+        <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data">
+            <div class="democracy color-barra" style="width:{{evaluation_average_score.sat_a_total_s | filtrasat}}%;">
+                <p style="top: 0.1rem;">{{evaluation_average_score.sat_a_total_s}}/<span class="total_dividendo">2400</span>
+                </p>
+                <itemsurvey>
+                    <span class="con-info">{{'Overall' | translateTestScore}}</span>
+                    <div Popover-animation="false" popover="{{'Average SAT score of students at the school taking the exam, a globally recognized college admission test that tests knowledge of critical  reading, writing and math.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                </itemsurvey>
+            </div>
+            <div class="metrics {{city_average.SAT_AverageTotalScore }}">
+                <div class="average" style="width:{{city_average.SAT_AverageTotalScore | filtrasat}}%;">
+                    <p>{{'City Average' | translateGlobal}}: {{city_average.SAT_AverageTotalScore | number:0}}/<span class="total_dividendo_caverage">2400</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data">
+            <div class="democracy color-barra" style="width:{{evaluation_average_score.sat_a_cr_s | filtrasat800 }}%;">
+                <p style="top: 0.1rem;">{{evaluation_average_score.sat_a_cr_s}}/<span class="total_dividendo">800</span>
+                </p>
+                <itemsurvey><span class="con-info">{{'Critical Reasoning' | translateTestScore}}</span>
+                    <div Popover-animation="false" popover="{{'Average SAT score of students at the school taking the exam, a globally recognized college admission test that tests knowledge of critical  reading, writing and math.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                </itemsurvey>
+            </div>
+            <div class="metrics {{city_average.SAT_AverageCRScore }}">
+                <div class="average" style="width:{{city_average.SAT_AverageCRScore | filtrasat800 }}%;">
+                    <p>{{'City Average' | translateGlobal}}: {{city_average.SAT_AverageCRScore | number:0}}/<span class="total_dividendo_caverage">800</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data">
+            <div class="democracy color-barra" style="width:{{evaluation_average_score.sat_a_math_s | filtrasat800 }}%;">
+                <p style="top: 0.1rem;">{{evaluation_average_score.sat_a_math_s}}/<span class="total_dividendo">800</span>
+                </p>
+                <itemsurvey><span class="con-info">{{'Math' | translateTestScore}}</span>
+                    <div Popover-animation="false" popover="{{'Average SAT score of students at the school taking the exam, a globally recognized college admission test that tests knowledge of critical  reading, writing and math.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                </itemsurvey>
+            </div>
+            <div class="metrics {{city_average.SAT_AverageMathScore }}">
+                <div class="average" style="width:{{city_average.SAT_AverageMathScore | filtrasat800 }}%;">
+                    <p>{{'City Average' | translateGlobal}}: {{city_average.SAT_AverageMathScore | number:0}}/<span class="total_dividendo_caverage">800</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data">
+            <div class="democracy color-barra" style="width:{{evaluation_average_score.sat_a_writing_s | filtrasat800 }}%;">
+                <p style="top: 0.1rem;">{{evaluation_average_score.sat_a_writing_s}}/<span class="total_dividendo">800</span>
+                </p>
+                <itemsurvey><span class="con-info">{{'Writing' | translateTestScore}}</span>
+                    <div Popover-animation="false" popover="{{'Average SAT score of students at the school taking the exam, a globally recognized college admission test that tests knowledge of critical  reading, writing and math.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                </itemsurvey>
+            </div>
+            <div class="metrics {{city_average.SAT_AverageWritingScore }}">
+                <div class="average" style="width:{{city_average.SAT_AverageWritingScore | filtrasat800 }}%;">
+                    <p>{{'City Average' | translateGlobal}}: {{city_average.SAT_AverageWritingScore | number:0}}/<span class="total_dividendo_caverage">800</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</accordion-group>
