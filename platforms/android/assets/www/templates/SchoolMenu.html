@@ -92,7 +92,7 @@
         </div>  
     </a>
     <a ng-hide="filtroCCmenu" ng-href="#/school/{{school.id}}/college">     
-        <div  class="row switch1 ">
+        <div  class="row switch1">
             <div class="small-5 medium-5 large-5 columns ">
                 <p  class="text-center"><img src="img/college_menu.png"></p> 
             </div>
@@ -102,11 +102,11 @@
         </div>
     </a>
     <a ng-href="#/school/{{school.id}}/glossary" > 
-        <div class="row {{classGT}} something-semantic" >
+        <div class="row" ng-class="classGT" >
             <div class="small-5 medium-5 large-5 columns">
                 <p class="text-center"><img src="img/glosary_menu.png"></p> 
             </div>
-            <div class="small-7 medium-7 large-7 columns something-else-semantic">
+            <div class="small-7 medium-7 large-7 columns">
                 <p>{{'Glossary of Terms' | translateMenu}}</p>
             </div>
         </div>  
