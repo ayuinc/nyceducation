@@ -142,8 +142,26 @@
 
           <accordion-group  is-open="false" >
             <accordion-heading>
-              <div>{{'CLASS_VIEW_TITLE' | translate}}</div>
+              <div>{{'ENROLL_CLASS_VIEW' | translate}}</div>
             </accordion-heading>
+
+            <table>
+              <thead>
+                <tr>
+                  <th class="custom-gray" width="33%">{{'ENROLL_SUBJECT' | translate}}</th>
+                  <th class="custom-gray" width="33%">{{'ENROLL_COURSE' | translate}}</th>
+                  <th class="custom-gray" width="34%">{{'ENROLL_AVSIZE' | translate}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat= "cs in class_size" ng-class-odd="'color4'">
+                  <td>{{cs.grade}}</td>
+                  <td>{{cs.course}}</td>
+                  <td>{{cs.average}}</td>
+                </tr>
+              </tbody>
+            </table>
+
 
           </accordion-group>
 

@@ -1,6 +1,6 @@
 <div class="row header">
 	<div class="small-12 medium-12 large-12 columns middle-vertical-main">
-		<h1 class="text-center">{{ header.title | translateMain }}</h1>
+		<h1 class="text-center">{{ header.title | translate }}</h1>
 	</div>
 </div>
 <div class="row homepage">
@@ -26,10 +26,10 @@
 	            </div>
 					  </div>
 			      <div class="small-6 columns">
-					    <button type="button" class="button button-school" id="btn_simple" ng-model="value" value="simple" btn-radio="'simple'" >{{'School' | translateMain }}</button>
+					    <button type="button" class="button button-school" id="btn_simple" ng-model="value" value="simple" btn-radio="'simple'" >{{'SCHOOL' | translate }}</button>
 					  </div>
 		        <div class="small-6 columns">
-					    <button type="button" class="button button-address" id="btn_complicado" ng-model="value" value="advanced" btn-radio="'advanced'" >{{'Address' | translate}}</button>
+					    <button type="button" class="button button-address" id="btn_complicado" ng-model="value" value="advanced" btn-radio="'advanced'" >{{'ADDRESS' | translate}}</button>
 				    </div>
 				  </div>
 	      </div>
@@ -42,14 +42,14 @@
               <form ng-submit="go('/school/query/' + school.query + ' ' + myBorough.name)">
                 <div class="row">
                   <div class="small-8 columns">
-                    <input class="search-address-field" type="text" placeholder="{{'Your address' | translateMain}}" ng-model="school.query">
+                    <input class="search-address-field" type="text" placeholder="{{'MAIN_YOUR_ADDRESS' | translate}}" ng-model="school.query">
                   </div>
                   <div class="small-4 columns">
                     <select class="search-address-select" ng-model="myBorough" ng-options="borough.name for borough in boroughs"></select>
                   </div>
                   <div class="row">
                     <div class="small-6 small-centered columns">
-                      <button type="submit" class="button expand bottones-search">{{'Search' | translateMain}}</button>
+                      <button type="submit" class="button expand bottones-search">{{'SEARCH' | translate}}</button>
                     </div>
                   </div>
                 </div>
@@ -64,7 +64,7 @@
           </div>
 	      </div>
 				<div class="text-center disclaimer-home">
-					<a ng-href="#/Disclaimer">{{'Disclaimer' | translateMain }}</a><br>
+					<a ng-href="#/Disclaimer">{{'DISCLAIMER' | translate }}</a><br>
                     <small>UI/UX Design by Carlos Fierro - Software development by AYU</small>
 				</div>
 			</div>

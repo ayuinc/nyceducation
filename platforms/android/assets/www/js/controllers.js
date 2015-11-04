@@ -2,7 +2,7 @@
 var nyc_controllers = angular.module('controllers_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch", "autocomplete","filters_nyce"]);
 
 
-nyc_controllers.controller("MainController", ['$scope', '$rootScope', '$window', '$location', '$http', 'SchoolRetriever', function($scope, $rootScope, $window, $location, $http, SchoolRetriever) {
+nyc_controllers.controller("MainController", ['$scope', '$rootScope', '$window', '$location', '$http', '$translate', 'SchoolRetriever', function($scope, $rootScope, $window, $location, $http, $translate, SchoolRetriever) {
     $scope.header = { title: "Welcome"};
     $scope.slide = '';
     $scope.schools = [];
@@ -23,6 +23,7 @@ nyc_controllers.controller("MainController", ['$scope', '$rootScope', '$window',
         .success(function(data){
             $scope.schools = data.schools.slice(0, 150);
         })*/
+    $translate.use('ngl');
     $scope.schools = SchoolRetriever.getSchools();
     $scope.schools.then(function(data){
         $scope.schools = data.profiles;
@@ -134,6 +135,42 @@ nyc_controllers.controller('SelectSchoolController', ['$scope', '$rootScope', '$
             DatosSchool.datos.city_averages = data.city_average;
             $rootScope.city_average=DatosSchool.datos.city_averages[3];
 
+            // mock data for class view
+            var classSize1 = {
+              "grade": "01-G&T",
+              "sections": 1,
+              "course": "",
+              "average": 12
+            }
+            var classSize2 = {
+              "grade": "01-GEN ED",
+              "sections": 1,
+              "course": "",
+              "average": 15
+            }
+            var classSize3 = {
+              "grade": "01-ICT",
+              "sections": 1,
+              "course": "",
+              "average": 19
+            }
+            var classSizeSub1 = {
+              "grade": "Math GEN-ED",
+              "sections": 0,
+              "course": "Algebra 2/Trig",
+              "average": 26
+            }
+            var classSizeSub2 = {
+              "grade": "Math-ICT",
+              "sections": 0,
+              "course": "Algebra 2/Trig",
+              "average": 23
+            }
+            var listCS2014 = [classSize1, classSize2, classSize3];
+            var listSubCS2014 = [classSizeSub1, classSizeSub2];
+            DatosSchool.datos.class_size = [listSubCS2014];
+            $rootScope.class_size = [listSubCS2014];
+
             $rootScope.survey_var = 0;
 
             var tipoEscuela = [];
@@ -187,6 +224,8 @@ nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', 'DatosSchool', '$ro
   $rootScope.enrollment=DatosSchool.datos.enrollments[indice];
   $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];
   $rootScope.city_average=DatosSchool.datos.city_averages[indice];
+  console.log(DatosSchool.datos.class_size);
+  $rootScope.class_size = DatosSchool.datos.class_size[0];
 
     var vStudentsEnrolledGrade,vAttendance;
     var availableYears = [];
@@ -1768,7 +1807,19 @@ nyc_controllers.controller("SurveyRespCtrlQuestion" ,[ '$scope', 'DatosSchool', 
 
 
 nyc_controllers.controller("LenguageCtrl" ,[ '$translate', '$scope', 'DatosSchool', '$rootScope', function ($translate, $scope, DatosSchool, $rootScope) {
+  $scope.languages = [
+      {label:'English', id:'ngl'},
+      {label:'Español', id:'esp'}
+  ];
+  $scope.mylanguage = $scope.languages[0];
+  if ($rootScope.lenguage == "esp") {
+      $rootScope.lenguage = "esp";
+  } else {
+    $rootScope.lenguage = "ngl";
+  }
+
   $scope.lenguageChange = function (langKey) {
+    $rootScope.lenguage = val;
     $translate.use(langKey);
   };
 }]);

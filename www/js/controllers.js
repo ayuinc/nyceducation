@@ -2,7 +2,7 @@
 var nyc_controllers = angular.module('controllers_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch", "autocomplete","filters_nyce"]);
 
 
-nyc_controllers.controller("MainController", ['$scope', '$rootScope', '$window', '$location', '$http', 'SchoolRetriever', function($scope, $rootScope, $window, $location, $http, SchoolRetriever) {
+nyc_controllers.controller("MainController", ['$scope', '$rootScope', '$window', '$location', '$http', '$translate', 'SchoolRetriever', function($scope, $rootScope, $window, $location, $http, $translate, SchoolRetriever) {
     $scope.header = { title: "Welcome"};
     $scope.slide = '';
     $scope.schools = [];
@@ -23,6 +23,7 @@ nyc_controllers.controller("MainController", ['$scope', '$rootScope', '$window',
         .success(function(data){
             $scope.schools = data.schools.slice(0, 150);
         })*/
+    $translate.use('ngl');
     $scope.schools = SchoolRetriever.getSchools();
     $scope.schools.then(function(data){
         $scope.schools = data.profiles;
@@ -1806,7 +1807,19 @@ nyc_controllers.controller("SurveyRespCtrlQuestion" ,[ '$scope', 'DatosSchool', 
 
 
 nyc_controllers.controller("LenguageCtrl" ,[ '$translate', '$scope', 'DatosSchool', '$rootScope', function ($translate, $scope, DatosSchool, $rootScope) {
+  $scope.languages = [
+      {label:'English', id:'ngl'},
+      {label:'Español', id:'esp'}
+  ];
+  $scope.mylanguage = $scope.languages[0];
+  if ($rootScope.lenguage == "esp") {
+      $rootScope.lenguage = "esp";
+  } else {
+    $rootScope.lenguage = "ngl";
+  }
+
   $scope.lenguageChange = function (langKey) {
+    $rootScope.lenguage = langKey;
     $translate.use(langKey);
   };
 }]);

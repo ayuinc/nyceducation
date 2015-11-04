@@ -2,7 +2,7 @@
 angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch", "autocomplete","controllers_nyce"])
 
 .filter("iconPosition", function($rootScope){
-    return function(text) { 
+    return function(text) {
         if ($rootScope.lenguage == "esp") {
           switch(text) {
           case 1:
@@ -34,7 +34,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
               break;
           case 10:
               return '193px';
-              break;        
+              break;
           }
 
         }else{
@@ -45,7 +45,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
               break;
           case 2:
               return '97px';
-              break;  
+              break;
           case 3:
               return '105px';
               break;
@@ -66,22 +66,22 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
               break;
           case 9:
               return '126px';
-              break;           
+              break;
           case 10:
               return '139px';
-              break;                  
+              break;
           }
 
         };
-    } 
+    }
 })
 
 .filter("middleschool", function($rootScope) {
-  
+
 })
 
 .filter("translateGlobal", function($rootScope){
-    return function(text) { 
+    return function(text) {
         if ($rootScope.lenguage == "esp") {
             if (text == 'City Average'){ return "Promedio de la ciudad";}
             else if (text == 'Select'){ return "Seleccionar";}
@@ -110,11 +110,11 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == '11th'){ return "11.º";}
             else if (text == '12th'){ return "12.º";}
         }else{ return text; };
-    } 
+    }
 })
 
 .filter("translateMain", function($rootScope){
-    return function(text) { 
+    return function(text) {
 
         if ($rootScope.lenguage == "esp") {
             if (text == 'School'){ return "Escuela";}
@@ -126,11 +126,11 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Search'){ return "Buscar";}
             else if (text == 'This application is not a product of the NYC Department of Education and is not endorsed by the NYCDOE. NYCDOE is not responsible for the accuracy of the content of the application. Use of this application is not a requirement of NYCDOE admissions.'){ return "Esta aplicación no es un producto del Departamento de Educación de la Ciudad de Nueva York y dicha entidad no la avala. El NYCDOE no se hace responsable por la exactitud del contenido de la aplicación. El uso de esta aplicación no es un requisito de admisión del NYCDOE.";}
         }else{ return text; };
-    } 
+    }
 })
 
 .filter("translateMenu", function($rootScope){
-    return function(text) { 
+    return function(text) {
         if ($rootScope.lenguage == "esp") {
             if (text == 'Menu'){ return "Menú";}
             else if (text == 'Search'){ return "Buscar";}
@@ -146,11 +146,11 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Glossary'){ return "Glosario";}
             else if (text == 'Results by distance'){ return "Resultados por distancia";}
         }else{ return text; };
-    } 
+    }
 })
 
 .filter("translateProfile", function($rootScope){
-    return function(text) { 
+    return function(text) {
         if ($rootScope.lenguage == "esp") {
             if (text == 'Principal'){ return "Director";}
             else if (text == 'District'){ return "Distrito";}
@@ -164,11 +164,11 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Yes'){ return "Sí";}
             else if (text == 'No'){ return "No";}
         }else{ return text; };
-    } 
+    }
 })
 
 .filter("translateDemographics", function($rootScope){
-    return function(text) { 
+    return function(text) {
         if ($rootScope.lenguage == "esp") {
             if (text == 'Demographics'){ return "Demografía";}
             else if (text == 'Gender'){ return "Género";}
@@ -185,11 +185,11 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Students with Disabilities'){ return "Estudiantes con discapacidades";}
             else if (text == 'English Language Learners'){ return "Estudiantes que aprenden inglés";}
         }else{ return text; };
-    } 
+    }
 })
 
 .filter("translateAdmissions", function($rootScope){
-    return function(text) { 
+    return function(text) {
         if ($rootScope.lenguage == "esp") {
             if (text == 'Admissions'){ return "Admisiones";}
             else if (text == 'Description'){ return "Descripción";}
@@ -201,11 +201,11 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Applicants'){ return "Aspirantes";}
             else if (text == 'Additional Programs'){ return "Programas adicionales";}
         }else{ return text; };
-    } 
+    }
 })
 
 .filter("translateEnrollment", function($rootScope){
-    return function(text) { 
+    return function(text) {
         if ($rootScope.lenguage == "esp") {
             if (text == 'Enrollment'){ return "Inscripción";}
             else if (text == 'Students Enrolled by Grade'){ return "Alumnos inscritos según el grado";}
@@ -214,11 +214,11 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Attendance Rate'){ return "Tasa de asistencia";}
             else if (text == 'Attendance'){ return "Asistencia a clases";}
         }else{ return text; };
-    } 
+    }
 })
 
 .filter("translateTestScore", function($rootScope){
-    return function(text) { 
+    return function(text) {
         if ($rootScope.lenguage == "esp") {
             if (text == 'Test Scores'){ return "Puntajes en los exámenes";}
             else if (text == 'ELA Scores'){ return "Puntajes en ELA";}
@@ -257,11 +257,11 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Regents Average Score'){ return "Puntaje promedio en los exámenes Regents";}
             else if (text == 'Regents College Ready'){ return "Preparación universitaria Regents";}
         }else{ return text; };
-    } 
+    }
 })
 
 .filter("translateEvaluations", function($rootScope){
-    return function(text) { 
+    return function(text) {
         if ($rootScope.lenguage == "esp") {
             if (text == 'Evaluations'){ return "Evaluaciones";}
             else if (text == 'Progress Report'){ return "Informe de progreso";}
@@ -285,11 +285,11 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             // else if (text == "'Underdeveloped"){ return "Poco desarrollada";}
 
         }else{ return text; };
-    } 
+    }
 })
 
 .filter("translateSurvey", function($rootScope){
-    return function(text) { 
+    return function(text) {
         if ($rootScope.lenguage == "esp") {
             if (text == 'Survey'){ return "Encuesta";}
             else if (text == 'Parents'){ return "Padres";}
@@ -309,11 +309,11 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Communication'){ return "Comunicación";}
             else if (text == 'Academic Expectations'){ return "Expectativas académicas";}
         }else{ return text; };
-    } 
+    }
 })
 
 .filter("translateCollegeCareer", function($rootScope){
-    return function(text) { 
+    return function(text) {
         if ($rootScope.lenguage == "esp") {
             if (text == 'College & Career'){ return "Universidad y carreras profesionales";}
             else if (text == 'College & Career Readiness'){ return "Preparación universitaria y vocacional";}
@@ -327,11 +327,11 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == '6 year Graduation Rate'){ return "Índice de graduación en seis años";}
             else if (text == 'Transfer School Graduation Rate'){ return "Tasa de graduación de escuela de transferencia";}
         }else{ return text; };
-    } 
+    }
 })
 
 .filter("translateGlosary", function($rootScope){
-    return function(text) { 
+    return function(text) {
         if ($rootScope.lenguage == "esp") {
             if (text == 'Percentage of students who graduated with a Regents or Local Diploma within four years of beginning high school, including August graduates.  Citywide graduation rates are as reported by New York State Department of Education while individual school graduation rates are as reported by NYC DOE.'){ return "Porcentaje de estudiantes que se graduaron con un diploma Regents o diploma local, dentro de los cuatro años siguientes de haber empezado la escuela secundaria, incluyendo a los graduandos de agosto.  Las tasa de graduación a nivel de la ciudad son reportadas por el Departamento de Educación del Estado de Nueva York, mientras que las tasas de graduación de cada escuela en particular, son reportadas por el NYC DOE.";}
             else if (text == 'Percentage of students who graduated with a Regents or Local Diploma within six years of beginning high school, including August graduates. Citywide graduation rates are as reported by New York State Department of Education while individual school graduation rates are as reported by NYC DOE.'){ return "Porcentaje de estudiantes que se graduaron con un diploma Regents o diploma local, dentro de los seis años siguientes de haber empezado la escuela secundaria, incluyendo a los graduandos de agosto. Las tasa de graduación a nivel de la ciudad son reportadas por el Departamento de Educación del Estado de Nueva York, mientras que las tasas de graduación de cada escuela en particular, son reportadas por el NYC DOE.";}
@@ -364,7 +364,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Level 3: Students performing at this level are proficient in standards for their grade.'){ return "Nivel 3: Los estudiantes que alcanzan este nivel, dominan los estándares de su grado.";}
             else if (text == 'Level 2: Students performing at this level are below proficient in standards for their grade.'){ return "Nivel 2: Los estudiantes que alcanzan este nivel, están por debajo del nivel de dominio de los estándares de su grado.";}
             else if (text == 'Level 1: Students performing at this level are well below proficient in standards for their grade.'){ return "Nivel 1: Los estudiantes que alcanzan este nivel, están muy por debajo del nivel de dominio de los estándares de su grado.";}
-            
+
             else if (text == 'Measures the quality of school culture and environment including safety, inclusiveness and other student success supports.'){ return "Mide la calidad de la cultura y el entorno escolar, incluyendo seguridad, inclusión y otras herramientas de apoyo para el éxito estudiantil.";}
             else if (text == 'Percentage of students who have graduated and enrolled in a two- or four-year college, vocational program, or public service within six months of their scheduled graduation date.'){ return "Porcentaje de estudiantes que se han graduado y se han inscrito en una institución universitaria de dos o cuatro años, un programa vocacional, o servicio público, durante los seis meses siguientes a la fecha programada para su graduación.";}
             else if (text == 'The order in which applicants are considered for placement.'){ return "El orden en el se toman en cuenta los solicitantes para un cupo.";}
@@ -398,11 +398,11 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'The first school year that the school was open.'){ return "El primer año de funcionamiento de la escuela.";}
 
         }else{ return text; };
-    } 
+    }
 })
 
 .filter("translateHeaderGlosary", function($rootScope){
-    return function(text) { 
+    return function(text) {
         if ($rootScope.lenguage == "esp") {
             if (text == '4 Year Graduation Rate'){ return "Índice de graduación en cuatro años";}
             else if (text == '6 Year Graduation Rate'){ return "Índice de graduación en seis años";}
@@ -462,11 +462,11 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Well Developed (Quality Review Rating)'){ return "Bien desarrollada (Calificación en la Revisión de Calidad)";}
             else if (text == 'Year Opened'){ return "Año de apertura";}
         }else{ return text; };
-    } 
+    }
 })
 
 .filter("translateSurveyQuestion", function($rootScope){
-    return function(text) { 
+    return function(text) {
         if ($rootScope.lenguage == "esp") {
             if (text == 'At my school, I am safe in the hallways, bathrooms, locker rooms, and cafeteria.'){ return "En mi escuela, no corro peligro en los pasillos, baños, vestuarios ni en el comedor escolar.";}
             else if (text == 'Most of the teaching staff at my school make me excited about learning.'){ return "La mayor parte del personal docente de mi escuela, me motiva a aprender.";}
@@ -484,72 +484,72 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'I would recommend this school to other parents.'){ return "Recomendaría esta escuela a otros padres.";}
             else if (text == 'I am satisfied or very satisfied with the education my child has received this year.'){ return "Me encuentro satisfecho o muy satisfecho con la educación que hijo ha recibido este año.";}
         }else{ return text; };
-    } 
+    }
 })
 
 .filter("flagHighRow", function($rootScope){
-    return function(text) { 
+    return function(text) {
         if ($rootScope.lenguage == "esp") {
             if (text == 1){ return "flagHighRow";}
         }else{ return ""; };
-    } 
+    }
 })
 
 
 .filter("filtraCeros", function(){
-    return function(text) { 
+    return function(text) {
 
         if (text == null || text == "0.00" || text == "0" || text == ""){ return "borrar";}
 
-    } 
+    }
 })
 
 
 .filter("filterAdmissNA", function(){
-    return function(text) { 
+    return function(text) {
 
         if (text == "N/A"){ return "borrar";}
 
-    } 
+    }
 })
 
 .filter("filtraCerosNull", function(){
-    return function(text) { 
+    return function(text) {
 
         if (text == null || text == "0" || text == ""){ return "borrar";}
 
-    } 
+    }
 })
 
 .filter("filterNull", function(){
-    return function(text) { 
+    return function(text) {
 
         if (text == null){ return "borrar";}
 
-    } 
+    }
 })
 
 .filter("filternullwidth", function(){
-    return function(text) { 
-        if (text == null || text == '' || text == "N/A"){ 
+    return function(text) {
+        if (text == null || text == '' || text == "N/A"){
           return parseInt(0);
         }else{
           return parseInt(text);
         }
 
-    } 
+    }
 })
 
 .filter("filternulltext", function($rootScope){
-    return function(text) { 
+    return function(text) {
 
-        // if (text == null || text == ''){ 
+        // if (text == null || text == ''){
         //   return "0";
         // }else if (text == "N/A"){
         //   return;
         // }
         if (text === null || text === ''){
-          if ($rootScope.lenguage == "esp") { 
+          if ($rootScope.lenguage == "esp") {
             return "No disponible para el año seleccionado";
           } else {
             return "Unavailable for the selected year";
@@ -557,7 +557,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
         } else {
           return;
         }
-    } 
+    }
 })
 
 // .filter("filtertest", function(){
@@ -567,39 +567,39 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
 // })
 
 .filter("filterpercent", function(){
-    return function(text) { 
+    return function(text) {
 
-        if (text == null || text == ''){ 
+        if (text == null || text == ''){
           return;
         }else {
           return "%";
         }
 
-    } 
+    }
 })
 
 .filter("filterslashvisibility", function(){
-    return function(text) { 
+    return function(text) {
 
-        if (text == null || text == ''){ 
+        if (text == null || text == ''){
           return;
         }else {
           return "/";
         }
 
-    } 
+    }
 })
 
 .filter("filternumbervisibility", function(){
-    return function(text) { 
+    return function(text) {
 
-        if (text == null || text == ''){ 
+        if (text == null || text == ''){
           return;
         }else {
           return "100";
         }
 
-    } 
+    }
 })
 
 .filter("filtraGrado", function( $rootScope ){
@@ -639,8 +639,8 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
 
 
     if ( (text == "parents") && (who != 0) ){ return "borrar";}
-    else if ( (text == "teachers") && (who != 1)){ return "borrar";} 
-    else if ( (text == "students") && (who != 2)){ return "borrar";}        
+    else if ( (text == "teachers") && (who != 1)){ return "borrar";}
+    else if ( (text == "students") && (who != 2)){ return "borrar";}
 
     }
 })
@@ -670,11 +670,11 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
 
     case "Proficient":
     return "75";
-    break;  
+    break;
 
     case "Developing":
     return "50";
-    break;      
+    break;
 
     case "Well Developed":
     return "100";
@@ -682,7 +682,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
 
     case "Underdevelop":
     return "25";
-    break;    
+    break;
 
     }}
 })
@@ -829,12 +829,12 @@ if (text == "2011" || text == "2012"){
         var num = parseFloat(text);
         var val = (num*100)/(25);
         // console.log('sobre 25');
-        return val;        
+        return val;
         }else{
         var num = parseFloat(text);
         var val = (num*100)/(20);
         // console.log('sobre 20');
-        return val;        
+        return val;
         };
     }
 })
@@ -847,12 +847,12 @@ if (text == "2011" || text == "2012"){
         var num = parseFloat(text);
         var val = (num*100)/(60);
         // console.log('sobre 60');
-        return val;        
+        return val;
         }else{
         var num = parseFloat(text);
         var val = (num*100)/(55);
         // console.log('sobre 55');
-        return val;        
+        return val;
         };
     }
 })
@@ -863,7 +863,7 @@ if (text == "2011" || text == "2012"){
         var val = (num*100)/(15);
         return val;
     }
-}) 
+})
 
 .filter("escalaPrCollegueCareerHigh", function(){
     return function(text) {
@@ -930,14 +930,14 @@ if (text == "2011" || text == "2012"){
     return function(text) {
 
         if ((text.length == 1) || (text.length == 2)){
-            return text+".";    
+            return text+".";
         }else{
             if (text.substring(text.length-2,text.length-1)=="0"){
             prioridad = text.substring(0,text.length-2);
-            return prioridad;                
+            return prioridad;
             }else{
             prioridad = text.substring(0,text.length-1);
-            return prioridad;    
+            return prioridad;
             }
         }
     }
@@ -954,7 +954,7 @@ if (text == "2011" || text == "2012"){
     if (asd == "0.00" && asd == "0.00"){
         return "mostrar"
     }else{return "borrar"}
-   
+
     }
 })
 
