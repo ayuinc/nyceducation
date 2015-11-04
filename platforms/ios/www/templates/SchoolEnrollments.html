@@ -14,8 +14,8 @@
 
     <!--CONTENIDO-->
     <section class="main-section">
-      
-      <div class=" menu-header">   
+
+      <div class=" menu-header">
         <h3 class="text-center">{{'Enrollment' | translateEnrollment}}</h3>
         <div ng-controller="EnrollmentCtrlYear" class="text-center">
           <a dropdown-toggle="#dropdown-enrollment" class="button dropdown small bg-dropdown">{{selectedyearEnrollment}}</a>
@@ -25,8 +25,8 @@
             </li>
           </ul>
           <br>
-        </div>          
-      </div>      
+        </div>
+      </div>
 
       <div ng-controller="AccordionDemoCtrl">
         <accordion close-others="oneAtATime">
@@ -36,7 +36,7 @@
           <accordion-group is-open="false">
               <accordion-heading>
                 <div>{{'Students Enrolled by Grade' | translateEnrollment}}</div>
-              </accordion-heading>          
+              </accordion-heading>
 
 
                 <table>
@@ -50,11 +50,11 @@
                     <tr ng-hide="NAStudentsEnrolledGrade">
                       <td style="background-color: white;">N/A</td>
                       <td style="background-color: white;">N/A</td>
-                    </tr>                 
+                    </tr>
                     <tr class="{{enrollment.pre_kinder | filtraCeros}} ">
                       <td>{{'Pre - K' | translateGlobal}}</td>
                       <td>{{enrollment.pre_kinder}}</td>
-                    </tr>                
+                    </tr>
                     <tr class="{{enrollment.kinder | filtraCeros}} color4">
                       <td>{{'K' | translateGlobal}}</td>
                       <td>{{enrollment.kinder}}</td>
@@ -62,19 +62,19 @@
                     <tr class="{{enrollment.grade1 | filtraCeros}} ">
                       <td>{{'1st' | translateGlobal}}</td>
                       <td>{{enrollment.grade1}}</td>
-                    </tr>       
+                    </tr>
                     <tr class="{{enrollment.grade2 | filtraCeros}} color4">
                       <td>{{'2nd' | translateGlobal}}</td>
                       <td>{{enrollment.grade2}}</td>
-                    </tr>   
+                    </tr>
                     <tr class="{{enrollment.grade3 | filtraCeros}} ">
                       <td>{{'3rd' | translateGlobal}}</td>
                       <td>{{enrollment.grade3}}</td>
-                    </tr>   
+                    </tr>
                     <tr class="{{enrollment.grade4 | filtraCeros}} color4">
                       <td>{{'4th' | translateGlobal}}</td>
                       <td>{{enrollment.grade4}}</td>
-                    </tr>   
+                    </tr>
                     <tr class="{{enrollment.grade5 | filtraCeros}} ">
                       <td>{{'5th' | translateGlobal}}</td>
                       <td>{{enrollment.grade5}}</td>
@@ -112,16 +112,16 @@
 
           </accordion-group>
 
-          <accordion-group  is-open="false" >  
+          <accordion-group  is-open="false" >
             <accordion-heading>
               <div>{{'Attendance' | translateEnrollment}}</div>
-            </accordion-heading> 
+            </accordion-heading>
 
 
               <div class="small-12 medium-12 large-12 columns bg-tablas-data {{enrollment.attendance_es_ms_k8_ec | filterNull}}" >
                 <div class="democracy color-barra " style="width:{{enrollment.attendance_es_ms_k8_ec}}%;">
                     <p>{{enrollment.attendance_es_ms_k8_ec | number:1}}%</p>
-                    <itemsurvey><span  class="sin-i"> {{'Attendance Rate' | translateEnrollment}} K-8</span></itemsurvey>                
+                    <itemsurvey><span  class="sin-i"> {{'Attendance Rate' | translateEnrollment}} K-8</span></itemsurvey>
                 </div>
               </div>
 
@@ -138,14 +138,21 @@
                 </div>
               </div>
 
-          </accordion-group>  
+          </accordion-group>
 
-        </accordion>    
+          <accordion-group  is-open="false" >
+            <accordion-heading>
+              <div>{{'CLASS_VIEW_TITLE' | translate}}</div>
+            </accordion-heading>
+
+          </accordion-group>
+
+        </accordion>
       </div>
-      
+
     </section>
     <!--END.CONTENIDO-->
 
   <a class="exit-off-canvas"></a>
   </div>
-</div>  
+</div>

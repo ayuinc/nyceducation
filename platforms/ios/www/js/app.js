@@ -1,6 +1,23 @@
-var app = angular.module("nyce", ["mm.foundation","ngRoute", "ngAnimate", "ngTouch", "autocomplete","filters_nyce","controllers_nyce"]);
+var app = angular.module("nyce", ["mm.foundation","ngRoute", "ngAnimate", "ngTouch", "autocomplete","filters_nyce","controllers_nyce", "pascalprecht.translate"]);
 
 //angular.module('nyce', ['mm.foundation']);
+var translations = {
+  CLASS_VIEW_TITLE: 'Class View',
+  Address: 'Address'
+};
+
+var translationsES = {
+  CLASS_VIEW_TITLE: 'Vista de la clase',
+  Address: 'Dirección'
+};
+
+app.config(['$translateProvider', function ($translateProvider) {
+  // add translation tables
+  $translateProvider.translations('ngl', translations);
+  $translateProvider.translations('esp', translationsES);
+  $translateProvider.preferredLanguage('ngl');
+  $translateProvider.fallbackLanguage('ngl');
+}]);
 
 app.config(function($routeProvider) {
     $routeProvider.when("/", {

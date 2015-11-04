@@ -1,6 +1,33 @@
-var app = angular.module("nyce", ["mm.foundation","ngRoute", "ngAnimate", "ngTouch", "autocomplete","filters_nyce","controllers_nyce"]);
+var app = angular.module("nyce", ["mm.foundation","ngRoute", "ngAnimate", "ngTouch", "autocomplete","filters_nyce","controllers_nyce", "pascalprecht.translate"]);
 
 //angular.module('nyce', ['mm.foundation']);
+var translations = {
+  ENROLL_CLASS_VIEW: 'Class View',
+  ENROLL_GRADE: 'Grade',
+  ENROLL_SECTIONS: 'Sections',
+  ENROLL_SUBJECT: 'Subject',
+  ENROLL_COURSE: 'Course',
+  ENROLL_AVSIZE: 'Av. Size',
+  Address: 'Address'
+};
+
+var translationsES = {
+  ENROLL_CLASS_VIEW: 'Class View',
+  ENROLL_GRADE: 'Grade',
+  ENROLL_SECTIONS: 'Sections',
+  ENROLL_SUBJECT: 'Subject',
+  ENROLL_COURSE: 'Course',
+  ENROLL_AVSIZE: 'Av. Size',
+  Address: 'Dirección'
+};
+
+app.config(['$translateProvider', function ($translateProvider) {
+  // add translation tables
+  $translateProvider.translations('ngl', translations);
+  $translateProvider.translations('esp', translationsES);
+  $translateProvider.preferredLanguage('ngl');
+  $translateProvider.fallbackLanguage('ngl');
+}]);
 
 app.config(function($routeProvider) {
     $routeProvider.when("/", {
