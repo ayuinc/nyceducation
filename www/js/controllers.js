@@ -1,3 +1,4 @@
+/* global angular */
 
 var nyc_controllers = angular.module('controllers_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch", "autocomplete","filters_nyce"]);
 
@@ -224,7 +225,6 @@ nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', 'DatosSchool', '$ro
   $rootScope.enrollment=DatosSchool.datos.enrollments[indice];
   $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];
   $rootScope.city_average=DatosSchool.datos.city_averages[indice];
-  console.log(DatosSchool.datos.class_size);
   $rootScope.class_size = DatosSchool.datos.class_size[0];
 
     var vStudentsEnrolledGrade,vAttendance;
@@ -266,7 +266,7 @@ nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', 'DatosSchool', '$ro
   $scope.changeyear = function(indice) {
 
     var ind;
-    $.each($scope.itemsYearEnrollment, function(i, v) {
+    angular.forEach($scope.itemsYearEnrollment, function(v, i){
       if (v.indice == indice) {
         ind = i;
       };

@@ -16,7 +16,7 @@
     <section class="main-section">
 
       <div class=" menu-header">
-        <h3 class="text-center">{{'Enrollment' | translateEnrollment}}</h3>
+        <h3 class="text-center">{{'CLASSSIZE_ENROLLMENT' | translate}}</h3>
         <div ng-controller="EnrollmentCtrlYear" class="text-center">
           <a dropdown-toggle="#dropdown-enrollment" class="button dropdown small bg-dropdown">{{selectedyearEnrollment}}</a>
           <ul id="dropdown-enrollment" class="f-dropdown" >
@@ -146,6 +146,46 @@
             </accordion-heading>
 
             <table>
+              <thead>
+                <tr>
+                  <th class="custom-gray" width="33%">{{'ENROLL_SUBJECT' | translate}}</th>
+                  <th class="custom-gray" width="33%">{{'ENROLL_COURSE' | translate}}</th>
+                  <th class="custom-gray" width="34%">{{'ENROLL_AVSIZE' | translate}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat= "cs in class_size" ng-class-odd="'color4'">
+                  <td>{{cs.grade}}</td>
+                  <td>{{cs.course}}</td>
+                  <td>{{cs.average}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </accordion-group>
+          
+          <accordion-group  is-open="false" >
+            <accordion-heading>
+              <div>{{'ENROLL_CLASS_SIZE' | translate}}</div>
+            </accordion-heading>
+
+            <table ng-show="schoolType!='High School'">
+              <thead>
+                <tr>
+                  <th class="custom-gray" width="33%">{{'ENROLL_GRADE' | translate}}</th>
+                  <th class="custom-gray" width="33%">{{'ENROLL_SECTIONS' | translate}}</th>
+                  <th class="custom-gray" width="34%">{{'ENROLL_AVSIZE' | translate}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat= "cs in class_size" ng-class-odd="'color4'">
+                  <td>{{cs.grade}}</td>
+                  <td>{{cs.sections}}</td>
+                  <td>{{cs.average}}</td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <table ng-show="schoolType=='High School'">
               <thead>
                 <tr>
                   <th class="custom-gray" width="33%">{{'ENROLL_SUBJECT' | translate}}</th>

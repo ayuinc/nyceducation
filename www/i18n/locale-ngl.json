@@ -10,6 +10,8 @@
   "PROFILE": "Profile",
   "DEMOGRAPHICS": "Demographics",
   "ENROLLMENT": "Enrollment",
+  "CLASSSIZE_ENROLLMENT": "Class Size / Enrollment",
+  "ENROLL_CLASS_SIZE": "Class Size",
   "ADMISSIONS": "Admissions",
   "TEST_SCORES": "Test Scores",
   "EVALUATIONS": "Evaluations",
