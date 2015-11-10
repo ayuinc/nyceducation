@@ -810,6 +810,33 @@ nyc_controllers.controller("testHigh" ,[ function () {
 
 }]);
 
+nyc_controllers.controller("TestScoreCtrlGenereEl" ,[ '$scope', 'DatosSchool', '$rootScope','$location', '$routeParams', '$route',function ($scope, DatosSchool, $rootScope, $location, $routeParams, $route) {
+
+  $scope.typeStudents = [
+    {'texto': "All Students", 'indice': 0 }, 
+    {'texto': "White", 'indice': 1 }, 
+    {'texto': "Black", 'indice': 2 }, 
+    {'texto': "Hispanic", 'indice': 3 }, 
+    {'texto': "Asian", 'indice': 4 }, 
+    {'texto': "Male", 'indice': 5 }, 
+    {'texto': "Female", 'indice': 6 }, 
+    {'texto': "SWD", 'indice': 7 }, 
+    {'texto': "No SWD", 'indice': 8 }
+  ];
+  
+  $scope.selectedGenereOption = $scope.typeStudents[0].texto;
+  
+  $scope.changegenere = function(indice) {
+    var ind = 0;
+    angular.forEach($scope.typeStudents, function(v, i){
+      if (v.indice == indice) {
+        ind = i;
+      };
+    });
+    $scope.selectedGenereOption = $scope.typeStudents[ind].texto;
+  };
+  
+}])
 nyc_controllers.controller("TestScoreCtrlYearEl" ,[ '$scope', 'DatosSchool', '$rootScope','$location', '$routeParams', '$route',function ($scope, DatosSchool, $rootScope, $location, $routeParams, $route) {
 
     var vElaScores,vMathScores,vAverageProficiencyScoreELA,vAverageProficiencyScoreMath;
@@ -856,8 +883,6 @@ nyc_controllers.controller("TestScoreCtrlYearEl" ,[ '$scope', 'DatosSchool', '$r
       //Validación de pestañas de acordión
       $rootScope.valuesElaScores = DatosSchool.SearchValuesElaScores(indice);
       $rootScope.valuesMathScores = DatosSchool.SearchValuesMathScores(indice);
-
-
     };
 
 
@@ -1335,18 +1360,25 @@ nyc_controllers.controller("TestScoreGradeddCtrl" ,[ '$scope', 'DatosSchool', '$
     if (availableGrades8th.length > 0) {
       arrayAvailableGrades.push('8th');
     };
+    
+    arrayAvailableAllGrades.push({
+        texto: "All Grades",
+        filtroGrade: "0",
+        indice: 0
+      });
 
     for (i = 0; i < arrayAvailableGrades.length; i++) {
       var item = {
         texto: arrayAvailableGrades[i],
         filtroGrade: arrayAvailableGrades[i].substring(0,1) ,
-        indice: i
+        indice: i+1
       };
     arrayAvailableAllGrades.push(item);
     };
 
     jsonArrayAvailableAllGrades = JSON.stringify(arrayAvailableAllGrades);
     $rootScope.itemsGrades = JSON.parse(jsonArrayAvailableAllGrades);
+    console.log($rootScope.itemsGrades, "$rootScope.itemsGrades");
 
     if (parseInt(arrayAvailableAllGrades[0].texto.charAt(0)) >= 3 && parseInt(arrayAvailableAllGrades[0].texto.charAt(0)) < 6) {
       $rootScope.elementaryOnly = "okE";

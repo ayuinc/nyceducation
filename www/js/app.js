@@ -7,7 +7,6 @@ app.config(['$translateProvider', function ($translateProvider) {
   });
   $translateProvider.preferredLanguage('ngl');
   $translateProvider.fallbackLanguage('ngl');
-  $translateProvider.useSanitizeValueStrategy('escape');
 }]);
 
 app.config(function($routeProvider) {
