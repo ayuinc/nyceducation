@@ -605,9 +605,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
 .filter("filtraGrado", function( $rootScope ){
 
     return function(text) {
-
         if ( text != $rootScope.testScore_grade){ return "borrar";}
-
     }
 })
 

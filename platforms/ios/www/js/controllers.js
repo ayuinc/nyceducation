@@ -1819,7 +1819,7 @@ nyc_controllers.controller("LenguageCtrl" ,[ '$translate', '$scope', 'DatosSchoo
   }
 
   $scope.lenguageChange = function (langKey) {
-    $rootScope.lenguage = val;
+    $rootScope.lenguage = langKey;
     $translate.use(langKey);
   };
 }]);

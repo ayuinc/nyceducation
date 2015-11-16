@@ -44,7 +44,7 @@
                 <div ng-controller="TestScoreCtrlYearEl" class="text-center"></div>
 
                 <!-- inicio solo highschool -->
-                <div id="onlyHS"> 
+                <div id="onlyHS">
                     <div class="row menu-header" style="padding-top:0 !important">
                         <div class="small-10 small-centered medium-10 large-10 columns">
                             <div class="small-6 small-centered medium-6 large-6 columns">
@@ -55,7 +55,7 @@
                                             <a ng-click="changeyear(itemy.indice)">{{itemy.texto}}</a>
                                         </li>
                                     </ul>
-                                    <br>  
+                                    <br>
                                 </div>
                             </div>
                         </div>
@@ -484,6 +484,19 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="small-6  medium-6 large-6 columns" style="margin: 0 auto; float: none;">
+                                        <div ng-controller="TestScoreCtrlGenereEl" class="text-center">
+                                            <a dropdown-toggle="#dropdown-ethnic_testScore" class="button dropdown small bg-dropdown" style="margin-left: 0px;">{{selectedGenereOption}}</a>
+                                            <ul id="dropdown-ethnic_testScore" class="f-dropdown">
+                                                <li ng-repeat="itemy in typeStudents">
+                                                    <a ng-click="changegenere(itemy.indice)">{{itemy.texto}}</a>
+                                                </li>
+                                            </ul>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div ng-controller="AccordionDemoCtrl">
@@ -495,6 +508,43 @@
                                     <accordion-heading>
                                         <div>{{'ELA Scores' | translateTestScore}}</div>
                                     </accordion-heading>
+                                    <!-- All Grades -->
+                                    <div class="{{ 0 | filtraGrado}}">
+                                        <div class="row">
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.all_grades_p_level1_ela | filterNull}}">
+                                                <div class="democracy color1" style="width:{{evaluation_ela.all_grades_p_level1_ela}}%;">
+                                                    <p>{{evaluation_ela.all_grades_p_level1_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info">{{'Level 1' | translateTestScore}}</span>
+                                                        <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.all_grades_p_level2_ela | filterNull}}">
+                                                <div class="democracy color2" style="width:{{evaluation_ela.all_grades_p_level2_ela}}%;">
+                                                    <p>{{evaluation_ela.all_grades_p_level2_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info">{{'Level 2' | translateTestScore}}</span>
+                                                        <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.all_grades_p_level3_ela | filterNull}}">
+                                                <div class="democracy color1" style="width:{{evaluation_ela.all_grades_p_level3_ela}}%;">
+                                                    <p>{{evaluation_ela.all_grades_p_level3_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info">{{'Level 3' | translateTestScore}}</span>
+                                                        <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.all_grades_p_level4_ela | filterNull}}">
+                                                <div class="democracy color2" style="width:{{evaluation_ela.all_grades_p_level4_ela}}%;">
+                                                    <p>{{evaluation_ela.all_grades_p_level4_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info">{{'Level 4' | translateTestScore}}</span>
+                                                        <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="{{ 3 | filtraGrado}}">
                                         <div class="row">
                                             <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.3rd_pr_s_level1_ela | filterNull}}">
@@ -727,6 +777,41 @@
                                     </accordion-heading>
                                     <!-- MATH -->
                                     <div class="row">
+                                        <!-- All Grades -->
+                                        <div class="{{ 0 | filtraGrado}}">
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.all_grades_p_level1_math | filterNull}}">
+                                                <div class="democracy color1" style="width: {{evaluation_math.all_grades_p_level1_math}}%;">
+                                                    <p> {{evaluation_math.all_grades_p_level1_math | number:1}}% </p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 1' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.all_grades_p_level2_math | filterNull}}">
+                                                <div class="democracy color2" style="width:{{evaluation_math.all_grades_p_level2_math}}%;">
+                                                    <p> {{evaluation_math.all_grades_p_level2_math | number:1}}% </p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 2' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.all_grades_p_level3_math | filterNull}}">
+                                                <div class="democracy color1" style="width:{{evaluation_math.all_grades_p_level3_math}}%;">
+                                                    <p> {{evaluation_math.all_grades_p_level3_math | number:1}}% </p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 3' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.all_grades_p_level4_math | filterNull}}">
+                                                <div class="democracy color2" style="width:{{evaluation_math.all_grades_p_level4_math}}%;">
+                                                    <p> {{evaluation_math.all_grades_p_level4_math | number:1}}% </p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 4' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <!-- 3rd Grado-->
                                         <div class="{{ 3 | filtraGrado}}">
                                             <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.3rd_pr_s_level1_math | filterNull}}">
@@ -951,6 +1036,24 @@
                                             <div>{{'Average Proficiency Score' | translateTestScore}}</div>
                                         </accordion-heading>
                                         <div class="row">
+                                            <!-- All Grades -->
+                                            <div class="{{ 0 | filtraGrado}}">
+                                                <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.3rd_a_p_r_ela | filtraCeros}}">
+                                                    <div class="democracy color-barra" style="width:{{evaluation_ela.3rd_a_p_r_ela | EscalaAverageTestScore}}%;">
+                                                        <p>{{evaluation_ela.3rd_a_p_r_ela | redondea_sp}}/<span class="total_dividendo">4.5</span>
+                                                        </p>
+                                                        <itemsurvey><span class="sin-i"> {{'ELA' | translateTestScore}}</span>
+                                                        </itemsurvey>
+                                                    </div>
+
+                                                    <div class="metrics {{city_average.3rdGradeAverageProficiencyRatingELA }}">
+                                                        <div class="average" style="width:{{city_average.3rdGradeAverageProficiencyRatingELA | EscalaAverageTestScore}}%;">
+                                                            <p>{{'City Average' | translateGlobal}}: {{city_average.3rdGradeAverageProficiencyRatingELA | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="{{ 3 | filtraGrado}}">
                                                 <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.3rd_a_p_r_ela | filtraCeros}}">
                                                     <div class="democracy color-barra" style="width:{{evaluation_ela.3rd_a_p_r_ela | EscalaAverageTestScore}}%;">
@@ -1164,7 +1267,7 @@
                                                 <a ng-click="changeyear(itemy.indice)">{{itemy.texto}}</a>
                                             </li>
                                         </ul>
-                                        <br>  
+                                        <br>
                                     </div>
                                 </div>
                             </div>

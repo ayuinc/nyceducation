@@ -2,7 +2,7 @@ var app = angular.module("nyce", ["mm.foundation","ngRoute", "ngAnimate", "ngTou
 
 app.config(['$translateProvider', function ($translateProvider) {
   $translateProvider.useStaticFilesLoader({
-    prefix: '/i18n/locale-',
+    prefix: './i18n/locale-',
     suffix: '.json'
   });
   $translateProvider.preferredLanguage('ngl');
