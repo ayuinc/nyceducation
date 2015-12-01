@@ -446,14 +446,18 @@
                 </accordion>
                 </div>
                 <!-- fin solo highschool -->
-
+<style type="text/css">
+    .large-dropdowns .row{ margin-bottom: 5px; }
+    .large-dropdowns .row .dropdown{ width: 70%; }
+    .large-dropdowns .f-dropdown{ left: auto !important; right: 16%!important; }
+</style>
                 <!-- inicio all -->
                 <div id="allSchools">
                     <div id="testScore-elementary" class="borrar">
                         <div class="row menu-header" style="padding-top:0 !important">
-                            <div class="small-10 small-centered medium-10 large-10 columns">
+                            <div class="large-dropdowns small-10 small-centered medium-10 large-10 columns">
                                 <div class="row">
-                                    <div class="small-6  medium-6 large-6 columns">
+                                    <div class="large-6 columns" style="margin: 0 auto; float: none;">
                                         <!-- <div ng-controller="TestScoreYearddCtrl" class="text-center"> -->
                                         <div ng-controller="TestScoreCtrlYearEl" class="text-center">
                                             <a dropdown-toggle="#dropdown-year_testScore" class="button dropdown small bg-dropdown" style="margin-left: 0px;">{{selectedyear_testScore_year_el}}</a>
@@ -465,16 +469,14 @@
                                             <br>
                                         </div>
                                     </div>
-
-                                    <div class="small-6  medium-6 large-6 columns ">
+                                </div>
+                                <div class="row">
+                                    <div class="large-6 columns" style="margin: 0 auto; float: none;">
                                         <div ng-controller="TestScoreGradeddCtrl" class="text-center">
-                                            <div ng-if="selectedgradedefault === null">
-                                                <a dropdown-toggle="#dropdown-grade_testScore" class="button dropdown small bg-dropdown" style="margin-right: -10px;">{{selectedgrade | translateGlobal}}</a>
-                                            </div>
-                                            <div ng-if="selectedgradedefault !== null">
-                                                <a dropdown-toggle="#dropdown-grade_testScore" class="button dropdown small bg-dropdown" style="margin-right: -10px;">{{selectedgradedefault | translateGlobal}}</a>
-                                            </div>
-
+                                            <a dropdown-toggle="#dropdown-grade_testScore" class="button dropdown small bg-dropdown">
+                                                <span ng-if="selectedgradedefault === null">{{selectedgrade | translateGlobal}}</span>
+                                                <span ng-if="selectedgradedefault !== null">{{selectedgradedefault | translateGlobal}}</span>
+                                            </a>
                                             <ul id="dropdown-grade_testScore" class="f-dropdown">
                                                 <li ng-repeat="itemg in itemsGrades">
                                                     <a ng-click="changegrade(itemg.indice)">{{itemg.texto | translateGlobal}}</a>
@@ -485,7 +487,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="small-6  medium-6 large-6 columns" style="margin: 0 auto; float: none;">
+                                    <div class="large-6 columns" style="margin: 0 auto; float: none;">
                                         <div ng-controller="TestScoreCtrlGenereEl" class="text-center">
                                             <a dropdown-toggle="#dropdown-ethnic_testScore" class="button dropdown small bg-dropdown" style="margin-left: 0px;">{{selectedGenereOption}}</a>
                                             <ul id="dropdown-ethnic_testScore" class="f-dropdown">

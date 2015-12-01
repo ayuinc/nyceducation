@@ -430,15 +430,13 @@ nyc_controllers.controller("SelectEvaluations" ,[ '$scope', 'DatosSchool', '$roo
   $scope.SelectEvaluations_is = "Select";
   $scope.itemsEvaluations = [{texto:"Middle",indice:"0"},{texto:"High",indice:"1"}];
   $scope.changeEvaluations = function(indice) {
-
-  // $scope.SelectEvaluations_is = $scope.itemsEvaluations[indice].texto;
-  if (indice==0){
-
-    $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[2];
-    $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[2];
-    $rootScope.evaluation=DatosSchool.datos.evaluations[2];
-    $rootScope.valuesProgressReportElem = DatosSchool.SearchValuesProgressReportElem(2);
-    $rootScope.valuesQualityReviewElem = DatosSchool.SearchValuesQualityReviewElem(2);
+    // $scope.SelectEvaluations_is = $scope.itemsEvaluations[indice].texto;
+    if (indice===0){
+      $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[2];
+      $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[2];
+      $rootScope.evaluation=DatosSchool.datos.evaluations[2];
+      $rootScope.valuesProgressReportElem = DatosSchool.SearchValuesProgressReportElem(2);
+      $rootScope.valuesQualityReviewElem = DatosSchool.SearchValuesQualityReviewElem(2);
 
       if (DatosSchool.SearchValuesQualityReviewElem(2)) {
         $rootScope.valuesQualityReviewElemND = false;
@@ -448,7 +446,7 @@ nyc_controllers.controller("SelectEvaluations" ,[ '$scope', 'DatosSchool', '$roo
         $rootScope.valuesQualityReviewElem = false;
       };
 
-    $rootScope.selectedyearEvaluationsElem= "2013";
+      $rootScope.selectedyearEvaluationsElem= "2013";
 
       $('#elementary_eva').removeClass('borrar');
       $('#elementary_eva').addClass('mostrar');
@@ -458,7 +456,7 @@ nyc_controllers.controller("SelectEvaluations" ,[ '$scope', 'DatosSchool', '$roo
       $('#high_eva').removeClass('mostrar');
       $('#high_eva').addClass('borrar');
 
-  }else if (indice==1){
+    }else if (indice==1){
 
       $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[2];
       $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[2];
@@ -524,7 +522,7 @@ nyc_controllers.controller("EvaluationsCtrlYearElem" ,[ '$scope', 'DatosSchool',
         indice: availableYears[i],
         index: i
       };
-    arrayAvailableYearsEs.push(item);
+      arrayAvailableYearsEs.push(item);
     };
     jsonAvaylableYears = JSON.stringify(arrayAvailableYearsEs);
     $scope.itemsYearsEvaluationsElem = JSON.parse(jsonAvaylableYears);
@@ -557,7 +555,7 @@ nyc_controllers.controller("EvaluationsCtrlYearElem" ,[ '$scope', 'DatosSchool',
         case 'F':
             $rootScope.evaluation.esblock = 5
             break;
-    }
+      }
 
       // Validación de pestañas de acordion
       $rootScope.valuesProgressReportElem = DatosSchool.SearchValuesProgressReportElem(indice);
@@ -571,7 +569,7 @@ nyc_controllers.controller("EvaluationsCtrlYearElem" ,[ '$scope', 'DatosSchool',
       };
 
     // $rootScope.valuesQualityReviewElem = DatosSchool.SearchValuesQualityReviewElem(indice);
-    };
+  };
 
 
   $scope.changeyear = function(indice) {
@@ -630,8 +628,6 @@ nyc_controllers.controller("EvaluationsCtrlYearElem" ,[ '$scope', 'DatosSchool',
 
 nyc_controllers.controller("EvaluationsCtrlYearHigh" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
-
-
     var vProgressReportHigh_calc;
     var availableYears_calc = [];
     for (i = 0; i < 4; i++) {
@@ -642,7 +638,6 @@ nyc_controllers.controller("EvaluationsCtrlYearHigh" ,[ '$scope', 'DatosSchool',
     };
     $rootScope.arrayAvailableYearsEvaluationsHs = availableYears_calc;
 
-
     var vQualityReview_calc;
     var availableYearsQR_calc = [];
     for (i = 0; i < 4; i++) {
@@ -652,7 +647,6 @@ nyc_controllers.controller("EvaluationsCtrlYearHigh" ,[ '$scope', 'DatosSchool',
       }
     };
     $rootScope.arrayAvailableYearsQualityReview = availableYearsQR_calc;
-
 
     var vProgressReportHigh,vQualityReviewHigh;
     var availableYears = [];
@@ -732,7 +726,7 @@ nyc_controllers.controller("EvaluationsCtrlYearHigh" ,[ '$scope', 'DatosSchool',
     }
       // validación de secciones acordion
       $rootScope.valuesProgressReportHigh = DatosSchool.SearchValuesProgressReportHigh(indice);
-      console.log(DatosSchool.SearchValuesQualityReviewHigh);
+      // console.log(DatosSchool.SearchValuesQualityReviewHigh);
       $rootScope.valuesQualityReviewHigh = DatosSchool.SearchValuesQualityReviewHigh(indice);
 
 

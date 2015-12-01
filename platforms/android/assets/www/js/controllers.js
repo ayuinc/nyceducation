@@ -575,7 +575,7 @@ nyc_controllers.controller("EvaluationsCtrlYearElem" ,[ '$scope', 'DatosSchool',
 
 
   $scope.changeyear = function(indice) {
-
+    console.log(indice);
     var ind;
     $.each($scope.itemsYearsEvaluationsElem, function(i, v) {
       if (v.indice == indice) {
