@@ -33,7 +33,7 @@ nyc_controllers.controller("MainController", ['$scope', '$rootScope', '$window',
 
     $scope.getSchools = function() {
         return $scope.schools;
-    }
+    };
 
     $scope.updateSchools = function(typed) {
         $scope.newSchools = SchoolRetriever.getSchools(typed);
@@ -41,9 +41,9 @@ nyc_controllers.controller("MainController", ['$scope', '$rootScope', '$window',
             $scope.schools = data.profiles;
             // $scope.schools = data;
         });
-    }
+    };
 
-
+console.log();
 }]);
 
 nyc_controllers.controller('BoroughController', ['$scope', function($scope) {
@@ -142,36 +142,41 @@ nyc_controllers.controller('SelectSchoolController', ['$scope', '$rootScope', '$
               "sections": 1,
               "course": "",
               "average": 12
-            }
+            };
+
             var classSize2 = {
               "grade": "01-GEN ED",
               "sections": 1,
               "course": "",
               "average": 15
-            }
+            };
+
             var classSize3 = {
               "grade": "01-ICT",
               "sections": 1,
               "course": "",
               "average": 19
-            }
+            };
+
             var classSizeSub1 = {
               "grade": "Math GEN-ED",
               "sections": 0,
               "course": "Algebra 2/Trig",
               "average": 26
-            }
+            };
+
             var classSizeSub2 = {
               "grade": "Math-ICT",
               "sections": 0,
               "course": "Algebra 2/Trig",
               "average": 23
-            }
+            };
+
             var listCS2014 = [classSize1, classSize2, classSize3];
             var listSubCS2014 = [classSizeSub1, classSizeSub2];
+
             DatosSchool.datos.class_size = [listSubCS2014];
             $rootScope.class_size = [listSubCS2014];
-
             $rootScope.survey_var = 0;
 
             var tipoEscuela = [];
@@ -188,7 +193,6 @@ nyc_controllers.controller('SelectSchoolController', ['$scope', '$rootScope', '$
             // console.log(GetUniqueElementsArray(tipoEscuela));
             $rootScope.tipoDeEscuela = GetUniqueElementsArray(tipoEscuela);
             var arrayts = GetUniqueElementsArray(tipoEscuela);
-
 
             if (((arrayts.indexOf("Elementary") != -1) || (arrayts.indexOf("Middle") != -1) || (arrayts.indexOf("K-8") != -1)|| (arrayts.indexOf("K-3") != -1)|| (arrayts.indexOf("K-2") != -1)) && (arrayts.length == 1) ){
               $scope.filtroCCmenu = true;
@@ -210,6 +214,8 @@ nyc_controllers.controller('SelectSchoolController', ['$scope', '$rootScope', '$
               $scope.classGT = "switch2";
             };
 
+
+
         });
     }]);
 
@@ -220,36 +226,38 @@ nyc_controllers.controller('SchoolController', ['$scope', '$rootScope', '$routeP
 
 
 nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
+  var indice = 3,
+      vStudentsEnrolledGrade,
+      vAttendance,
+      availableYears = [],
+      arrayAvailableYears = [],
+      jsonAvaylableYears = "",
+      i;
 
-  var indice = 3
-  $rootScope.enrollment=DatosSchool.datos.enrollments[indice];
+  $rootScope.enrollment = DatosSchool.datos.enrollments[indice];
   $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];
   $rootScope.city_average=DatosSchool.datos.city_averages[indice];
   $rootScope.class_size = DatosSchool.datos.class_size[0];
 
-    var vStudentsEnrolledGrade,vAttendance;
-    var availableYears = [];
-    var arrayAvailableYears = [];
-    var jsonAvaylableYears = "";
-    for (i = 0; i < 4; i++) {
+  for (i = 0; i < 4; i++) {
     vStudentsEnrolledGrade = DatosSchool.SearchValuesStudentsEnrolledGrade(i);
     vAttendance = DatosSchool.SearchValuesAttendance(i);
-      if ( vStudentsEnrolledGrade || vAttendance ){
-        availableYears.push(i);
-      }
-    };
+    if ( vStudentsEnrolledGrade || vAttendance ){
+      availableYears.push(i);
+    }
+  }
 
-    for (i = 0; i < availableYears.length; i++) {
-      var item = {
-        texto: ((2010+availableYears[i]).toString() +' - ').concat((2011+availableYears[i]).toString()),
-        // texto: (2011+availableYears[i]).toString(),
-        indice: availableYears[i],
-        index: i
-      };
-    arrayAvailableYears.push(item);
+  for (i = 0; i < availableYears.length; i++) {
+    var item = {
+      texto: ((2010+availableYears[i]).toString() +' - ').concat((2011+availableYears[i]).toString()),
+      indice: availableYears[i],
+      index: i
     };
-    jsonAvaylableYears = JSON.stringify(arrayAvailableYears);
-    $scope.itemsYearEnrollment = JSON.parse(jsonAvaylableYears);
+    arrayAvailableYears.push(item);
+  };
+
+  jsonAvaylableYears = JSON.stringify(arrayAvailableYears);
+  $scope.itemsYearEnrollment = JSON.parse(jsonAvaylableYears);
 
   $rootScope.NAStudentsEnrolledGrade = DatosSchool.SearchValuesStudentsEnrolledGrade(indice);
   // $rootScope.valuesAttendance = DatosSchool.SearchValuesAttendance(indice);
@@ -264,7 +272,6 @@ nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', 'DatosSchool', '$ro
   $scope.selectedyearEnrollment= arrayAvailableYears[arrayAvailableYears.length-1].texto;
 
   $scope.changeyear = function(indice) {
-
     var ind;
     angular.forEach($scope.itemsYearEnrollment, function(v, i){
       if (v.indice == indice) {
@@ -285,10 +292,30 @@ nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', 'DatosSchool', '$ro
       $rootScope.valuesAttendanceND = true;
     }else{
       $rootScope.valuesAttendanceND = false;
-    };
-
+    }
   };
 
+  $rootScope.isHighSchool = false;
+  $rootScope.isElemSchool = false;
+  $rootScope.isMultiSchool = false;
+
+  $rootScope.$watch('tipoDeEscuela', function(oldV, newV){
+    $rootScope.isHighSchool = false;
+    $rootScope.isElemSchool = false;
+    $rootScope.isMultiSchool = false;
+
+    if(newV.length > 1){
+      $rootScope.isMultiSchool = true;
+    }else{
+
+      if(newV.indexOf('Elementary') !== -1 || newV.indexOf('Middle') !== -1 || newV.indexOf('K-8') !== -1){
+        $rootScope.isElemSchool = true;
+      }
+      if(newV.indexOf('High School') !== -1 || newV.indexOf('High School Transfer') !== -1){
+        $rootScope.isHighSchool = true;
+      }
+    }
+  });
 
 }]);
 

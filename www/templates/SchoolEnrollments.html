@@ -16,7 +16,7 @@
     <section class="main-section">
 
       <div class=" menu-header">
-        <h3 class="text-center">{{'ENROLLMENT' | translate}}</h3>
+        <h3 class="text-center">{{'CLASSSIZE_ENROLLMENT' | translate}}</h3>
         <div ng-controller="EnrollmentCtrlYear" class="text-center">
           <a dropdown-toggle="#dropdown-enrollment" class="button dropdown small bg-dropdown">{{selectedyearEnrollment}}</a>
           <ul id="dropdown-enrollment" class="f-dropdown" >
@@ -34,82 +34,79 @@
             <div style="position:relative;z-index:5;top: 7px;left: {{ 1 | iconPosition }};cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="{{'The total number of students who are enrolled in each grade of the school as of October 31 of the selected school year.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>
 
           <accordion-group is-open="false">
-              <accordion-heading>
-                <div>{{'Students Enrolled by Grade' | translateEnrollment}}</div>
-              </accordion-heading>
-
-
-                <table>
-                  <thead>
-                    <tr>
-                      <th class="custom-gray" width="50%">{{'Grade' | translateEnrollment}}</th>
-                      <th class="custom-gray" width="50%">{{'No. Students' | translateEnrollment}}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr ng-hide="NAStudentsEnrolledGrade">
-                      <td style="background-color: white;">N/A</td>
-                      <td style="background-color: white;">N/A</td>
-                    </tr>
-                    <tr class="{{enrollment.pre_kinder | filtraCeros}} ">
-                      <td>{{'Pre - K' | translateGlobal}}</td>
-                      <td>{{enrollment.pre_kinder}}</td>
-                    </tr>
-                    <tr class="{{enrollment.kinder | filtraCeros}} color4">
-                      <td>{{'K' | translateGlobal}}</td>
-                      <td>{{enrollment.kinder}}</td>
-                    </tr>
-                    <tr class="{{enrollment.grade1 | filtraCeros}} ">
-                      <td>{{'1st' | translateGlobal}}</td>
-                      <td>{{enrollment.grade1}}</td>
-                    </tr>
-                    <tr class="{{enrollment.grade2 | filtraCeros}} color4">
-                      <td>{{'2nd' | translateGlobal}}</td>
-                      <td>{{enrollment.grade2}}</td>
-                    </tr>
-                    <tr class="{{enrollment.grade3 | filtraCeros}} ">
-                      <td>{{'3rd' | translateGlobal}}</td>
-                      <td>{{enrollment.grade3}}</td>
-                    </tr>
-                    <tr class="{{enrollment.grade4 | filtraCeros}} color4">
-                      <td>{{'4th' | translateGlobal}}</td>
-                      <td>{{enrollment.grade4}}</td>
-                    </tr>
-                    <tr class="{{enrollment.grade5 | filtraCeros}} ">
-                      <td>{{'5th' | translateGlobal}}</td>
-                      <td>{{enrollment.grade5}}</td>
-                    </tr>
-                    <tr class="{{enrollment.grade6 | filtraCeros}} color4">
-                      <td>{{'6th' | translateGlobal}}</td>
-                      <td>{{enrollment.grade6}}</td>
-                    </tr>
-                    <tr class="{{enrollment.grade7 | filtraCeros}} ">
-                      <td>{{'7th' | translateGlobal}}</td>
-                      <td>{{enrollment.grade7}}</td>
-                    </tr>
-                    <tr class="{{enrollment.grade8 | filtraCeros}} color4">
-                      <td>{{'8th' | translateGlobal}}</td>
-                      <td>{{enrollment.grade8}}</td>
-                    </tr>
-                    <tr class="{{enrollment.grade9 | filtraCeros}} ">
-                      <td>{{'9th' | translateGlobal}}</td>
-                      <td>{{enrollment.grade9}}</td>
-                    </tr>
-                    <tr class="{{enrollment.grade10 | filtraCeros}} color4">
-                      <td>{{'10th' | translateGlobal}}</td>
-                      <td>{{enrollment.grade10}}</td>
-                    </tr>
-                    <tr class="{{enrollment.grade11 | filtraCeros}} ">
-                      <td>{{'11th' | translateGlobal}}</td>
-                      <td>{{enrollment.grade11}}</td>
-                    </tr>
-                    <tr class="{{enrollment.grade12 | filtraCeros}} color4">
-                      <td>{{'12th' | translateGlobal}}</td>
-                      <td>{{enrollment.grade12}}</td>
-                    </tr>
-                  </tbody>
-                </table>
-
+            <accordion-heading>
+              <div>{{'Students Enrolled by Grade' | translateEnrollment}}</div>
+            </accordion-heading>
+            <table>
+              <thead>
+                <tr>
+                  <th class="custom-gray" width="50%">{{'Grade' | translateEnrollment}}</th>
+                  <th class="custom-gray" width="50%">{{'No. Students' | translateEnrollment}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-hide="NAStudentsEnrolledGrade">
+                  <td style="background-color: white;">N/A</td>
+                  <td style="background-color: white;">N/A</td>
+                </tr>
+                <tr class="{{enrollment.pre_kinder | filtraCeros}} ">
+                  <td>{{'Pre - K' | translateGlobal}}</td>
+                  <td>{{enrollment.pre_kinder}}</td>
+                </tr>
+                <tr class="{{enrollment.kinder | filtraCeros}} color4">
+                  <td>{{'K' | translateGlobal}}</td>
+                  <td>{{enrollment.kinder}}</td>
+                </tr>
+                <tr class="{{enrollment.grade1 | filtraCeros}} ">
+                  <td>{{'1st' | translateGlobal}}</td>
+                  <td>{{enrollment.grade1}}</td>
+                </tr>
+                <tr class="{{enrollment.grade2 | filtraCeros}} color4">
+                  <td>{{'2nd' | translateGlobal}}</td>
+                  <td>{{enrollment.grade2}}</td>
+                </tr>
+                <tr class="{{enrollment.grade3 | filtraCeros}} ">
+                  <td>{{'3rd' | translateGlobal}}</td>
+                  <td>{{enrollment.grade3}}</td>
+                </tr>
+                <tr class="{{enrollment.grade4 | filtraCeros}} color4">
+                  <td>{{'4th' | translateGlobal}}</td>
+                  <td>{{enrollment.grade4}}</td>
+                </tr>
+                <tr class="{{enrollment.grade5 | filtraCeros}} ">
+                  <td>{{'5th' | translateGlobal}}</td>
+                  <td>{{enrollment.grade5}}</td>
+                </tr>
+                <tr class="{{enrollment.grade6 | filtraCeros}} color4">
+                  <td>{{'6th' | translateGlobal}}</td>
+                  <td>{{enrollment.grade6}}</td>
+                </tr>
+                <tr class="{{enrollment.grade7 | filtraCeros}} ">
+                  <td>{{'7th' | translateGlobal}}</td>
+                  <td>{{enrollment.grade7}}</td>
+                </tr>
+                <tr class="{{enrollment.grade8 | filtraCeros}} color4">
+                  <td>{{'8th' | translateGlobal}}</td>
+                  <td>{{enrollment.grade8}}</td>
+                </tr>
+                <tr class="{{enrollment.grade9 | filtraCeros}} ">
+                  <td>{{'9th' | translateGlobal}}</td>
+                  <td>{{enrollment.grade9}}</td>
+                </tr>
+                <tr class="{{enrollment.grade10 | filtraCeros}} color4">
+                  <td>{{'10th' | translateGlobal}}</td>
+                  <td>{{enrollment.grade10}}</td>
+                </tr>
+                <tr class="{{enrollment.grade11 | filtraCeros}} ">
+                  <td>{{'11th' | translateGlobal}}</td>
+                  <td>{{enrollment.grade11}}</td>
+                </tr>
+                <tr class="{{enrollment.grade12 | filtraCeros}} color4">
+                  <td>{{'12th' | translateGlobal}}</td>
+                  <td>{{enrollment.grade12}}</td>
+                </tr>
+              </tbody>
+            </table>
           </accordion-group>
 
           <accordion-group  is-open="false" >
@@ -144,7 +141,7 @@
             <accordion-heading>
               <div>{{'ENROLL_CLASS_SIZE' | translate}}</div>
             </accordion-heading>
-            <table ng-show="tipoDeEscuela!='High School'">
+            <table ng-if="isElemSchool">
               <thead>
                 <tr>
                   <th class="custom-gray" width="33%">{{'ENROLL_GRADE' | translate}}</th>
@@ -161,11 +158,28 @@
               </tbody>
             </table>
 
-            <table ng-show="tipoDeEscuela=='High School'">
+            <table ng-if="isHighSchool">
               <thead>
                 <tr>
                   <th class="custom-gray" width="33%">{{'ENROLL_SUBJECT' | translate}}</th>
                   <th class="custom-gray" width="33%">{{'ENROLL_COURSE' | translate}}</th>
+                  <th class="custom-gray" width="34%">{{'ENROLL_AVSIZE' | translate}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat= "cs in class_size" ng-class-odd="'color4'">
+                  <td>{{cs.grade}}</td>
+                  <td>{{cs.course}}</td>
+                  <td>{{cs.average}}</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table ng-if="isMultiSchool">
+              <thead>
+                <tr>
+                  <th class="custom-gray" width="33%">{{'ENROLL_GRADE' | translate}} / {{'ENROLL_SUBJECT' | translate}}</th>
+                  <th class="custom-gray" width="33%">{{'ENROLL_SECTIONS' | translate}} / {{'ENROLL_COURSE' | translate}}</th>
                   <th class="custom-gray" width="34%">{{'ENROLL_AVSIZE' | translate}}</th>
                 </tr>
               </thead>
