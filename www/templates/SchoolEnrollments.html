@@ -144,7 +144,7 @@
             <accordion-heading>
               <div>{{'ENROLL_CLASS_SIZE' | translate}}</div>
             </accordion-heading>
-            <table ng-show="schoolType!='High School'">
+            <table ng-show="tipoDeEscuela!='High School'">
               <thead>
                 <tr>
                   <th class="custom-gray" width="33%">{{'ENROLL_GRADE' | translate}}</th>
@@ -161,7 +161,7 @@
               </tbody>
             </table>
 
-            <table ng-show="schoolType=='High School'">
+            <table ng-show="tipoDeEscuela=='High School'">
               <thead>
                 <tr>
                   <th class="custom-gray" width="33%">{{'ENROLL_SUBJECT' | translate}}</th>
@@ -171,7 +171,7 @@
               </thead>
               <tbody>
                 <tr ng-repeat= "cs in class_size" ng-class-odd="'color4'">
-                  <td>{{cs.subject}}</td>
+                  <td>{{cs.grade}}</td>
                   <td>{{cs.course}}</td>
                   <td>{{cs.average}}</td>
                 </tr>
