@@ -1,5 +1,10 @@
 var app = angular.module("nyce", ["mm.foundation","ngRoute", "ngAnimate", "ngTouch", "autocomplete","filters_nyce","controllers_nyce", "pascalprecht.translate"]);
 
+app.constant('$config', {
+  'API_V1_URL': 'http://nyce-v103-api.laboratoria.la/api/v1/'
+  // 'API_V1_URL': 'http://162.243.110.154/api/v1/'
+});
+
 app.config(['$translateProvider', function ($translateProvider) {
   $translateProvider.useStaticFilesLoader({
     prefix: './i18n/locale-',
@@ -694,11 +699,11 @@ function AccordionDemoCtrl($scope , $rootScope) {
 }
 
 // retrieves schools after query
-app.factory('SchoolRetriever', function($http, $q, $timeout) {
+app.factory('SchoolRetriever', function($http, $q, $timeout, $config) {
     var getSchools = function(query) {
         var deferred = $q.defer();
 
-        $http.get('http://162.243.110.154/api/v1/schools/' + query)
+        $http.get($config.API_V1_URL + 'schools/' + query)
         // $http.get('http://nyc-education-data-service.herokuapp.com/api/v1/schools/search_by_name_or_dbn?name_or_dbn=' + query)
         .success(function(data) {
             deferred.resolve(data);

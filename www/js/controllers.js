@@ -3,7 +3,7 @@
 var nyc_controllers = angular.module('controllers_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch", "autocomplete","filters_nyce"]);
 
 
-nyc_controllers.controller("MainController", ['$scope', '$rootScope', '$window', '$location', '$http', '$translate', 'SchoolRetriever', function($scope, $rootScope, $window, $location, $http, $translate, SchoolRetriever) {
+nyc_controllers.controller("MainController", ['$scope', '$rootScope', '$window', '$location', '$http', '$translate', '$config', 'SchoolRetriever', function($scope, $rootScope, $window, $location, $http, $translate, $config, SchoolRetriever) {
     $scope.header = { title: "Welcome"};
     $scope.slide = '';
     $scope.schools = [];
@@ -42,8 +42,6 @@ nyc_controllers.controller("MainController", ['$scope', '$rootScope', '$window',
             // $scope.schools = data;
         });
     };
-
-console.log();
 }]);
 
 nyc_controllers.controller('BoroughController', ['$scope', function($scope) {
@@ -58,9 +56,9 @@ nyc_controllers.controller('BoroughController', ['$scope', function($scope) {
   $scope.myBorough = $scope.boroughs[0];
 }]);
 
-nyc_controllers.controller("SchoolListController", ['$scope', '$http', '$routeParams', function($scope, $http ,$routeParams) {
+nyc_controllers.controller("SchoolListController", ['$scope', '$http', '$routeParams', '$config', function($scope, $http ,$routeParams, $config) {
 
-    $http.get('http://162.243.110.154/api/v1/schools/findByDistrict/' + encodeURI($routeParams.query))
+    $http.get($config.API_V1_URL + 'schools/findByDistrict/' + encodeURI($routeParams.query))
         .success(function(data) {
             if(data.error) {
                 $scope.err = "Schools not found."
@@ -75,21 +73,27 @@ nyc_controllers.controller("SchoolListController", ['$scope', '$http', '$routePa
 
 
 
-nyc_controllers.controller('SelectSchoolController', ['$scope', '$rootScope', '$routeParams', '$http', 'DatosSchool', function ($scope, $rootScope ,$routeParams, $http, DatosSchool) {
+nyc_controllers.controller('SelectSchoolController', ['$scope', '$rootScope', '$routeParams', '$http',  '$filter', '$config', 'DatosSchool', function ($scope, $rootScope, $routeParams, $http, $filter, $config, DatosSchool) {
+
     $scope.classGT = "switch2";
-    $http.get('http://162.243.110.154/api/v1/school/' + $routeParams.schoolId)
+    $http.get( $config.API_V1_URL + 'school/' + $routeParams.schoolId)
         .success(function(data){
             // DatosSchool.datos.school = data.schools[0];
             // $scope.school=DatosSchool.datos.school;
 
-            $scope.school = data.school;
-            $rootScope.school = data.school;
+
+            /*
+             * Due to a REST response, We're now using the data param called 
+             * schools instead school, and it's also an array. 
+             */
+            $scope.school = data.schools[0];
+            $rootScope.school = data.schools[0];
 
             // $rootScope.school=DatosSchool.datos.school;
             // if (data.profile[data.profile.length-1].grades_served === "6, 7, 8") ;
 
             DatosSchool.datos.profiles = data.profile;
-            $rootScope.profile=DatosSchool.datos.profiles[3];
+            $rootScope.profile = angular.copy(DatosSchool.datos.profiles).reverse().pop();
 
             DatosSchool.datos.demographics = data.demographic;
             $rootScope.demographic=DatosSchool.datos.demographics[0];
@@ -137,7 +141,7 @@ nyc_controllers.controller('SelectSchoolController', ['$scope', '$rootScope', '$
             $rootScope.city_average=DatosSchool.datos.city_averages[3];
 
             // mock data for class view
-            var classSize1 = {
+            /*var classSize1 = {
               "grade": "01-G&T",
               "sections": 1,
               "course": "",
@@ -174,9 +178,9 @@ nyc_controllers.controller('SelectSchoolController', ['$scope', '$rootScope', '$
 
             var listCS2014 = [classSize1, classSize2, classSize3];
             var listSubCS2014 = [classSizeSub1, classSizeSub2];
-
-            DatosSchool.datos.class_size = [listSubCS2014];
-            $rootScope.class_size = [listSubCS2014];
+*/
+            DatosSchool.datos.class_size = data.class_size;
+            $rootScope.class_size = [];
             $rootScope.survey_var = 0;
 
             var tipoEscuela = [];
@@ -225,7 +229,7 @@ nyc_controllers.controller('SchoolController', ['$scope', '$rootScope', '$routeP
 }]);
 
 
-nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
+nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', '$filter', 'DatosSchool', '$rootScope',function ($scope, $filter, DatosSchool, $rootScope) {
   var indice = 3,
       vStudentsEnrolledGrade,
       vAttendance,
@@ -234,12 +238,8 @@ nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', 'DatosSchool', '$ro
       jsonAvaylableYears = "",
       i;
 
-  $rootScope.enrollment = DatosSchool.datos.enrollments[indice];
-  $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];
-  $rootScope.city_average=DatosSchool.datos.city_averages[indice];
-  $rootScope.class_size = DatosSchool.datos.class_size[0];
 
-  for (i = 0; i < 4; i++) {
+  for (i = 0; i < 5; i++) {
     vStudentsEnrolledGrade = DatosSchool.SearchValuesStudentsEnrolledGrade(i);
     vAttendance = DatosSchool.SearchValuesAttendance(i);
     if ( vStudentsEnrolledGrade || vAttendance ){
@@ -269,7 +269,12 @@ nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', 'DatosSchool', '$ro
     $rootScope.valuesAttendanceND = false;
   };
 
-  $scope.selectedyearEnrollment= arrayAvailableYears[arrayAvailableYears.length-1].texto;
+  $scope.selectedyearEnrollment = arrayAvailableYears[arrayAvailableYears.length-1].texto;
+
+  $rootScope.enrollment = DatosSchool.datos.enrollments[indice];
+  $rootScope.proficiency_ratings = DatosSchool.datos.proficiency_rating[indice];
+  $rootScope.city_average = DatosSchool.datos.city_averages[indice];
+  $rootScope.class_size = $filter('filter')(DatosSchool.datos.class_size, {'year': $scope.selectedyearEnrollment.substr(-4)}, true);
 
   $scope.changeyear = function(indice) {
     var ind;
@@ -283,6 +288,7 @@ nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', 'DatosSchool', '$ro
     $rootScope.enrollment=DatosSchool.datos.enrollments[indice];
     $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];
     $rootScope.city_average=DatosSchool.datos.city_averages[indice];
+    $rootScope.class_size = $filter('filter')(DatosSchool.datos.class_size, {'year': $scope.selectedyearEnrollment.substr(-4)}, true);
 
     // $rootScope.valuesAttendance = DatosSchool.SearchValuesAttendance(indice);
     $rootScope.NAStudentsEnrolledGrade = DatosSchool.SearchValuesStudentsEnrolledGrade(indice);
@@ -307,7 +313,6 @@ nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', 'DatosSchool', '$ro
     if(newV.length > 1){
       $rootScope.isMultiSchool = true;
     }else{
-
       if(newV.indexOf('Elementary') !== -1 || newV.indexOf('Middle') !== -1 || newV.indexOf('K-8') !== -1){
         $rootScope.isElemSchool = true;
       }

@@ -114,7 +114,7 @@
               <div>{{'Attendance' | translateEnrollment}}</div>
             </accordion-heading>
 
-
+            <div class="clearfix">
               <div class="small-12 medium-12 large-12 columns bg-tablas-data {{enrollment.attendance_es_ms_k8_ec | filterNull}}" >
                 <div class="democracy color-barra " style="width:{{enrollment.attendance_es_ms_k8_ec}}%;">
                     <p>{{enrollment.attendance_es_ms_k8_ec | number:1}}%</p>
@@ -134,6 +134,7 @@
                     <p style="width:24rem">{{'Unavailable for the selected year' | translateGlobal}}</p>
                 </div>
               </div>
+            </div>
 
           </accordion-group>
 
@@ -152,8 +153,8 @@
               <tbody>
                 <tr ng-repeat= "cs in class_size" ng-class-odd="'color4'">
                   <td>{{cs.grade}}</td>
-                  <td>{{cs.sections}}</td>
-                  <td>{{cs.average}}</td>
+                  <td>{{cs.section}}</td>
+                  <td>{{cs.avg_class_size}}</td>
                 </tr>
               </tbody>
             </table>
@@ -170,7 +171,7 @@
                 <tr ng-repeat= "cs in class_size" ng-class-odd="'color4'">
                   <td>{{cs.grade}}</td>
                   <td>{{cs.course}}</td>
-                  <td>{{cs.average}}</td>
+                  <td>{{cs.avg_class_size}}</td>
                 </tr>
               </tbody>
             </table>
@@ -187,7 +188,7 @@
                 <tr ng-repeat= "cs in class_size" ng-class-odd="'color4'">
                   <td>{{cs.grade}}</td>
                   <td>{{cs.course}}</td>
-                  <td>{{cs.average}}</td>
+                  <td>{{cs.avg_class_size}}</td>
                 </tr>
               </tbody>
             </table>
