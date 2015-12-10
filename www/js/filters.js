@@ -97,6 +97,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Avg.'){ return "Promedio";}
             else if (text == 'Pre - K'){ return "Pre - Kínder";}
             else if (text == 'K'){ return "Kínder";}
+            else if (text == 'All Grades'){ return "Todos los grados";}
             else if (text == '1st'){ return "1.º";}
             else if (text == '2nd'){ return "2.º";}
             else if (text == '3rd'){ return "3.º";}
@@ -109,6 +110,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == '10th'){ return "10.º";}
             else if (text == '11th'){ return "11.º";}
             else if (text == '12th'){ return "12.º";}
+
         }else{ return text; };
     }
 })
@@ -177,13 +179,17 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Ethnicity'){ return "Grupos étnicos";}
             else if (text == 'Asian'){ return "Asiáticos";}
             else if (text == 'Black'){ return "Negros";}
+            else if (text == 'Hispanic'){ return "Latinos";}
             else if (text == 'Latino'){ return "Latinos";}
             else if (text == 'White'){ return "Blancos";}
             else if (text == 'Other'){ return "Otros";}
-            else if (text == 'Status'){ return "Estatus";}
+            else if (text == 'Status'){ return "Estado";}
             else if (text == 'Free / Reduced Lunch'){ return "Almuerzo gratuito o a precio reducido";}
             else if (text == 'Students with Disabilities'){ return "Estudiantes con discapacidades";}
             else if (text == 'English Language Learners'){ return "Estudiantes que aprenden inglés";}
+            else if (text == 'All Students'){ return "Todos los estudiantes";}
+            else if (text == "SWD") { return "SWD"; }
+            else if (text == "No SWD") { return "No SWD"; }
         }else{ return text; };
     }
 })

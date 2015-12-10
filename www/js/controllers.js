@@ -86,8 +86,8 @@ nyc_controllers.controller('SelectSchoolController', ['$scope', '$rootScope', '$
              * Due to a REST response, We're now using the data param called 
              * schools instead school, and it's also an array. 
              */
-            $scope.school = data.schools[0];
-            $rootScope.school = data.schools[0];
+            $scope.school = data.school;
+            $rootScope.school = data.school;
 
             // $rootScope.school=DatosSchool.datos.school;
             // if (data.profile[data.profile.length-1].grades_served === "6, 7, 8") ;
