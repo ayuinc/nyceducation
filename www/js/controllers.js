@@ -93,7 +93,7 @@ nyc_controllers.controller('SelectSchoolController', ['$scope', '$rootScope', '$
             // if (data.profile[data.profile.length-1].grades_served === "6, 7, 8") ;
 
             DatosSchool.datos.profiles = data.profile;
-            $rootScope.profile = angular.copy(DatosSchool.datos.profiles).reverse().pop();
+            $rootScope.profile = angular.copy(DatosSchool.datos.profiles).pop();
 
             DatosSchool.datos.demographics = data.demographic;
             $rootScope.demographic=DatosSchool.datos.demographics[0];
