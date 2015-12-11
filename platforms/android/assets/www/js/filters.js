@@ -136,6 +136,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Search'){ return "Buscar";}
             else if (text == 'Profile'){ return "Perfil";}
             else if (text == 'Demographics'){ return "Demografía";}
+            else if (text == 'ClassSize_Enrollment'){ return "Tam. de Clase / Inscripción";}
             else if (text == 'Enrollment'){ return "Inscripción";}
             else if (text == 'Admissions'){ return "Admisiones";}
             else if (text == 'Test Scores'){ return "Puntajes en los exámenes";}
