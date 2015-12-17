@@ -25,5 +25,6 @@
   "ENROLL_SECTIONS": "Secciones",
   "ENROLL_SUBJECT": "Asunto",
   "ENROLL_COURSE": "Curso",
-  "ENROLL_AVSIZE": "Av. Size"
+  "ENROLL_AVSIZE": "Av. Size",
+  "UNAVAILABEL_SEL_YEAR": "No disponible para el año seleccionado"
 }

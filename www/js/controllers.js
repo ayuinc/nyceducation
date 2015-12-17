@@ -197,6 +197,7 @@ nyc_controllers.controller('SelectSchoolController', ['$scope', '$rootScope', '$
             // console.log(GetUniqueElementsArray(tipoEscuela));
             $rootScope.tipoDeEscuela = GetUniqueElementsArray(tipoEscuela);
             var arrayts = GetUniqueElementsArray(tipoEscuela);
+            $rootScope.filtroCCmenu = true;
 
             if (((arrayts.indexOf("Elementary") != -1) || (arrayts.indexOf("Middle") != -1) || (arrayts.indexOf("K-8") != -1)|| (arrayts.indexOf("K-3") != -1)|| (arrayts.indexOf("K-2") != -1)) && (arrayts.length == 1) ){
               $scope.filtroCCmenu = true;
@@ -215,6 +216,7 @@ nyc_controllers.controller('SelectSchoolController', ['$scope', '$rootScope', '$
               $scope.classGT = "switch1";
             }else{
               $scope.filtroCCmenu = false;
+              $rootScope.filtroCCmenu = false;
               $scope.classGT = "switch2";
             };
 
@@ -275,6 +277,7 @@ nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', '$filter', 'DatosSc
   $rootScope.proficiency_ratings = DatosSchool.datos.proficiency_rating[indice];
   $rootScope.city_average = DatosSchool.datos.city_averages[indice];
   $rootScope.class_size = $filter('filter')(DatosSchool.datos.class_size, {'year': $scope.selectedyearEnrollment.substr(-4)}, true);
+  $rootScope.hasClassSizeItems = $rootScope.class_size.length > 0 ? true : false;
 
   $scope.changeyear = function(indice) {
     var ind;
@@ -289,6 +292,7 @@ nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', '$filter', 'DatosSc
     $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];
     $rootScope.city_average=DatosSchool.datos.city_averages[indice];
     $rootScope.class_size = $filter('filter')(DatosSchool.datos.class_size, {'year': $scope.selectedyearEnrollment.substr(-4)}, true);
+    $rootScope.hasClassSizeItems = $rootScope.class_size.length > 0 ? true : false;
 
     // $rootScope.valuesAttendance = DatosSchool.SearchValuesAttendance(indice);
     $rootScope.NAStudentsEnrolledGrade = DatosSchool.SearchValuesStudentsEnrolledGrade(indice);
@@ -304,6 +308,8 @@ nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', '$filter', 'DatosSc
   $rootScope.isHighSchool = false;
   $rootScope.isElemSchool = false;
   $rootScope.isMultiSchool = false;
+
+  $rootScope.hasClassSize = false;
 
   $rootScope.$watch('tipoDeEscuela', function(oldV, newV){
     $rootScope.isHighSchool = false;

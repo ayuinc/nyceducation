@@ -56,7 +56,7 @@
                 <img src="img/enrollment_menu.png"> 
             </div>  
             <div class="small-10 columns menu-alinear-texto">   
-                 {{'ClassSize_Enrollment' | translateMenu}}
+                 {{'Class Size / Enrollment' | translateMenu}}
             </div>
         </div>
         </a>            
@@ -98,8 +98,8 @@
         </div>
         </a>            
     </li>
-    <li>
-        <a ng-hide="filtroCCmenu" ng-click="go('/school/' +  school.id + '/college')" ng-href="#/school/{{school.id}}/college">
+    <li ng-hide="filtroCCmenu">
+        <a ng-click="go('/school/' +  school.id + '/college')" ng-href="#/school/{{school.id}}/college">
         <div class="row">
             <div class="small-2  columns">
                 <img src="img/college_menu.png">    

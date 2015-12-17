@@ -1,6 +1,19 @@
 
 angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch", "autocomplete","controllers_nyce"])
 
+.filter("checkEmpty", function($rootScope){
+  return function(text) {
+    if(text == ''){
+      if ($rootScope.lenguage == "esp") {
+        return 'N/D';
+      }else{
+        return 'N/A';
+      }
+    }
+    return text;
+  }
+})
+
 .filter("iconPosition", function($rootScope){
     return function(text) {
         if ($rootScope.lenguage == "esp") {
@@ -140,6 +153,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Demographics'){ return "Demografía";}
             else if (text == 'Enrollment'){ return "Inscripción";}
             else if (text == 'Admissions'){ return "Admisiones";}
+            else if (text == 'Class Size / Enrollment'){ return "Tamaño de Clase / Inscripción";}
             else if (text == 'Test Scores'){ return "Puntajes en los exámenes";}
             else if (text == 'Evaluations'){ return "Evaluaciones";}
             else if (text == 'Survey Results'){ return "Resultados de la encuesta";}

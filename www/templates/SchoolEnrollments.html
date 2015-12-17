@@ -31,6 +31,66 @@
       <div ng-controller="AccordionDemoCtrl">
         <accordion close-others="oneAtATime">
 
+          <accordion-group  is-open="false" >
+            <accordion-heading>
+              <div>{{'ENROLL_CLASS_SIZE' | translate}}</div>
+            </accordion-heading>
+            
+            <table ng-if="isElemSchool">
+              <thead>
+                <tr>
+                  <th class="custom-gray" width="33%">{{'ENROLL_GRADE' | translate}}</th>
+                  <th class="custom-gray" width="33%">{{'ENROLL_SECTIONS' | translate}}</th>
+                  <th class="custom-gray" width="34%">{{'ENROLL_AVSIZE' | translate}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat= "cs in class_size" ng-class-odd="'color4'">
+                  <td>{{cs.grade}}</td>
+                  <td>{{cs.section}}</td>
+                  <td>{{cs.avg_class_size}}</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table ng-if="isHighSchool">
+              <thead>
+                <tr>
+                  <th class="custom-gray" width="33%">{{'ENROLL_SUBJECT' | translate}}</th>
+                  <th class="custom-gray" width="33%">{{'ENROLL_COURSE' | translate}}</th>
+                  <th class="custom-gray" width="34%">{{'ENROLL_AVSIZE' | translate}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat= "cs in class_size" ng-class-odd="'color4'">
+                  <td>{{cs.grade}}</td>
+                  <td>{{cs.course}}</td>
+                  <td>{{cs.avg_class_size}}</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table ng-if="isMultiSchool">
+              <thead>
+                <tr>
+                  <th class="custom-gray" width="33%">{{'ENROLL_GRADE' | translate}} / {{'ENROLL_SUBJECT' | translate}}</th>
+                  <th class="custom-gray" width="33%">{{'ENROLL_SECTIONS' | translate}} / {{'ENROLL_COURSE' | translate}}</th>
+                  <th class="custom-gray" width="34%">{{'ENROLL_AVSIZE' | translate}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat= "cs in class_size" ng-class-odd="'color4'">
+                  <td>{{cs.grade}}</td>
+                  <td>{{cs.course}}</td>
+                  <td>{{cs.avg_class_size}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="unavailabe-message" ng-if="!hasClassSizeItems">
+              {{'UNAVAILABEL_SEL_YEAR' | translate}}
+            </div>
+          </accordion-group>
+
             <div style="position:relative;z-index:5;top: 7px;left: {{ 1 | iconPosition }};cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="{{'The total number of students who are enrolled in each grade of the school as of October 31 of the selected school year.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>
 
           <accordion-group is-open="false">
@@ -136,62 +196,6 @@
               </div>
             </div>
 
-          </accordion-group>
-
-          <accordion-group  is-open="false" >
-            <accordion-heading>
-              <div>{{'ENROLL_CLASS_SIZE' | translate}}</div>
-            </accordion-heading>
-            <table ng-if="isElemSchool">
-              <thead>
-                <tr>
-                  <th class="custom-gray" width="33%">{{'ENROLL_GRADE' | translate}}</th>
-                  <th class="custom-gray" width="33%">{{'ENROLL_SECTIONS' | translate}}</th>
-                  <th class="custom-gray" width="34%">{{'ENROLL_AVSIZE' | translate}}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr ng-repeat= "cs in class_size" ng-class-odd="'color4'">
-                  <td>{{cs.grade}}</td>
-                  <td>{{cs.section}}</td>
-                  <td>{{cs.avg_class_size}}</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <table ng-if="isHighSchool">
-              <thead>
-                <tr>
-                  <th class="custom-gray" width="33%">{{'ENROLL_SUBJECT' | translate}}</th>
-                  <th class="custom-gray" width="33%">{{'ENROLL_COURSE' | translate}}</th>
-                  <th class="custom-gray" width="34%">{{'ENROLL_AVSIZE' | translate}}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr ng-repeat= "cs in class_size" ng-class-odd="'color4'">
-                  <td>{{cs.grade}}</td>
-                  <td>{{cs.course}}</td>
-                  <td>{{cs.avg_class_size}}</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <table ng-if="isMultiSchool">
-              <thead>
-                <tr>
-                  <th class="custom-gray" width="33%">{{'ENROLL_GRADE' | translate}} / {{'ENROLL_SUBJECT' | translate}}</th>
-                  <th class="custom-gray" width="33%">{{'ENROLL_SECTIONS' | translate}} / {{'ENROLL_COURSE' | translate}}</th>
-                  <th class="custom-gray" width="34%">{{'ENROLL_AVSIZE' | translate}}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr ng-repeat= "cs in class_size" ng-class-odd="'color4'">
-                  <td>{{cs.grade}}</td>
-                  <td>{{cs.course}}</td>
-                  <td>{{cs.avg_class_size}}</td>
-                </tr>
-              </tbody>
-            </table>
           </accordion-group>
 
         </accordion>
