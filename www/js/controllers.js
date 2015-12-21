@@ -94,6 +94,7 @@ nyc_controllers.controller('SelectSchoolController', ['$scope', '$rootScope', '$
 
             DatosSchool.datos.profiles = data.profile;
             $rootScope.profile = angular.copy(DatosSchool.datos.profiles).pop();
+            $rootScope.schoolType = DatosSchool.getSchoolType(DatosSchool.datos.profiles.length-1);
 
             DatosSchool.datos.demographics = data.demographic;
             $rootScope.demographic=DatosSchool.datos.demographics[0];
@@ -194,7 +195,6 @@ nyc_controllers.controller('SelectSchoolController', ['$scope', '$rootScope', '$
             tipoEscuela.push(DatosSchool.datos.evaluations[2]['hs_t_hs_o_pr_s_type']);
             tipoEscuela.push(DatosSchool.datos.evaluations[3]['hs_t_hs_o_pr_s_type']);
 
-            // console.log(GetUniqueElementsArray(tipoEscuela));
             $rootScope.tipoDeEscuela = GetUniqueElementsArray(tipoEscuela);
             var arrayts = GetUniqueElementsArray(tipoEscuela);
             $rootScope.filtroCCmenu = true;
@@ -219,9 +219,6 @@ nyc_controllers.controller('SelectSchoolController', ['$scope', '$rootScope', '$
               $rootScope.filtroCCmenu = false;
               $scope.classGT = "switch2";
             };
-
-
-
         });
     }]);
 
@@ -305,27 +302,16 @@ nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', '$filter', 'DatosSc
     }
   };
 
-  $rootScope.isHighSchool = false;
-  $rootScope.isElemSchool = false;
-  $rootScope.isMultiSchool = false;
+  $rootScope.isHighSchool = $rootScope.schoolType.highschool;
+  $rootScope.isElemSchool = $rootScope.schoolType.elementary;
+  $rootScope.isMultiSchool = $rootScope.schoolType.elementary && $rootScope.schoolType.highschool;
 
   $rootScope.hasClassSize = false;
 
   $rootScope.$watch('tipoDeEscuela', function(oldV, newV){
-    $rootScope.isHighSchool = false;
-    $rootScope.isElemSchool = false;
-    $rootScope.isMultiSchool = false;
-
-    if(newV.length > 1){
-      $rootScope.isMultiSchool = true;
-    }else{
-      if(newV.indexOf('Elementary') !== -1 || newV.indexOf('Middle') !== -1 || newV.indexOf('K-8') !== -1){
-        $rootScope.isElemSchool = true;
-      }
-      if(newV.indexOf('High School') !== -1 || newV.indexOf('High School Transfer') !== -1){
-        $rootScope.isHighSchool = true;
-      }
-    }
+    $rootScope.isHighSchool = $rootScope.schoolType.highschool;
+    $rootScope.isElemSchool = $rootScope.schoolType.elementary;
+    $rootScope.isMultiSchool = $rootScope.schoolType.elementary && $rootScope.schoolType.highschool;
   });
 
 }]);
@@ -339,7 +325,7 @@ nyc_controllers.controller("DemographicsCtrlYear" ,[ '$scope', 'DatosSchool', '$
     var availableYears = [];
     var arrayAvailableYears = [];
     var jsonAvaylableYears = "";
-    for (i = 0; i < 4; i++) {
+    for (i = 0; i < 5; i++) {
       vGender = DatosSchool.SearchValuesGender(i);
       vEthnicity = DatosSchool.SearchValuesEthnicity(i);
       vStatus = DatosSchool.SearchValuesStatus(i);
@@ -386,7 +372,7 @@ nyc_controllers.controller("DemographicsCtrlYear" ,[ '$scope', 'DatosSchool', '$
 }]);
 
 nyc_controllers.controller("CollegeCarrerCtrlYear" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
-  var indice = 2;
+  var indice = 3;
   $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];
   $rootScope.college_career=DatosSchool.datos.college_careers[indice];
   $rootScope.city_average=DatosSchool.datos.city_averages[indice];
@@ -414,36 +400,31 @@ nyc_controllers.controller("CollegeCarrerCtrlYear" ,[ '$scope', 'DatosSchool', '
     var availableYears = [];
     var arrayAvailableYears = [];
     var jsonAvaylableYears = "";
-    for (i = 0; i < 4; i++) {
-    vGraduation = DatosSchool.SearchValuesGraduation(i);
-    vCollegeCareerReadiness = DatosSchool.SearchValuesCollegeCareerReadiness(i);
-      if ( vGraduation || vCollegeCareerReadiness ){
+    for (var i = 0; i < 4; i++) {
+        vGraduation = DatosSchool.SearchValuesGraduation(i);
+        vCollegeCareerReadiness = DatosSchool.SearchValuesCollegeCareerReadiness(i);
         availableYears.push(i);
-      }
     };
 
     for (i = 0; i < availableYears.length; i++) {
-      var item = {
-        texto: ((2010+availableYears[i]).toString() +' - ').concat((2011+availableYears[i]).toString()),
-        // texto: (2011+availableYears[i]).toString(),
-        indice: availableYears[i],
-        index: i
-      };
-    arrayAvailableYears.push(item);
+        var item = {
+            texto: ((2010+availableYears[i]).toString() +' - ').concat((2011+availableYears[i]).toString()),
+            // texto: (2011+availableYears[i]).toString(),
+            indice: availableYears[i],
+            index: i
+        };
+        arrayAvailableYears.push(item);
     };
     jsonAvaylableYears = JSON.stringify(arrayAvailableYears);
     $scope.itemsYearsCollegeCarrer = JSON.parse(jsonAvaylableYears);
-
-
+    
   $rootScope.valuesGraduation = DatosSchool.SearchValuesGraduation(indice);
   $rootScope.valuesCollegeCareerReadiness = DatosSchool.SearchValuesCollegeCareerReadiness(indice);
-
 
   $scope.selectedyearCollegeCarrer= arrayAvailableYears[arrayAvailableYears.length-1].texto;
   // $scope.itemsddCollegeCarrer = [{texto:"2011",indice:"0"},{texto:"2012",indice:"1"},{texto:"2013",indice:"2"}];
 
   $scope.changeyear = function(indice) {
-
     var ind;
     $.each($scope.itemsYearsCollegeCarrer, function(i, v) {
       if (v.indice == indice) {
@@ -528,15 +509,17 @@ nyc_controllers.controller("SelectEvaluations" ,[ '$scope', 'DatosSchool', '$roo
 
 
 nyc_controllers.controller("EvaluationsCtrlYearElem" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
-
-
     var vProgressReportElem_calc;
     var availableYears_calc = [];
-    for (i = 0; i < 4; i++) {
-    vProgressReportElem_calc = DatosSchool.SearchValuesProgressReportElem(i);
-      if ( vProgressReportElem_calc ){
-        availableYears_calc.push(i);
-      }
+    for (var i = 0; i < 4; i++) {
+        if(i < 3){
+            vProgressReportElem_calc = DatosSchool.SearchValuesProgressReportElem(i);   
+        }else{
+            vProgressReportElem_calc = DatosSchool.SearchValuesProgressReportUpdatedElem(i);
+        }
+        if ( vProgressReportElem_calc ){
+            availableYears_calc.push(i);
+        }
     };
 
     $rootScope.arrayAvailableYearsEvaluationsEs = availableYears_calc;
@@ -546,11 +529,15 @@ nyc_controllers.controller("EvaluationsCtrlYearElem" ,[ '$scope', 'DatosSchool',
     var arrayAvailableYearsEs = [];
     var jsonAvaylableYears = "";
     for (i = 0; i < 4; i++) {
-    vProgressReportElem = DatosSchool.SearchValuesProgressReportElem(i);
-    vQualityReviewElem = DatosSchool.SearchValuesQualityReviewElem(i);
-      if ( vProgressReportElem || vQualityReviewElem ){
-        availableYears.push(i);
-      }
+        if(i < 3){
+            vProgressReportElem = DatosSchool.SearchValuesProgressReportElem(i);   
+        }else{
+            vProgressReportElem = DatosSchool.SearchValuesProgressReportUpdatedElem(i);
+        }
+        vQualityReviewElem = DatosSchool.SearchValuesQualityReviewElem(i);
+        if ( vProgressReportElem || vQualityReviewElem ){
+            availableYears.push(i);
+        }
     };
 
     for (i = 0; i < availableYears.length; i++) {
@@ -565,7 +552,6 @@ nyc_controllers.controller("EvaluationsCtrlYearElem" ,[ '$scope', 'DatosSchool',
     jsonAvaylableYears = JSON.stringify(arrayAvailableYearsEs);
     $scope.itemsYearsEvaluationsElem = JSON.parse(jsonAvaylableYears);
 
-
     if ($rootScope.arrayAvailableYearsEvaluationsEs.length > 0) {
       var indice = $scope.itemsYearsEvaluationsElem[arrayAvailableYearsEs.length-1].indice;
       $rootScope.selectedyearEvaluationsElem= $scope.itemsYearsEvaluationsElem[arrayAvailableYearsEs.length-1].texto;
@@ -574,27 +560,31 @@ nyc_controllers.controller("EvaluationsCtrlYearElem" ,[ '$scope', 'DatosSchool',
       $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];
       $rootScope.evaluation=DatosSchool.datos.evaluations[indice];
 
-      switch($rootScope.evaluation.es_ms_k8_ec_s_pr_grade) {
-        case 'A':
-            $rootScope.evaluation.esblock = 100
-            break;
-        case 'B':
-            $rootScope.evaluation.esblock = 75
-            break;
-        case 'C':
-            $rootScope.evaluation.esblock = 50
-            break;
-        case 'D':
-            $rootScope.evaluation.esblock = 25
-            break;
-        case 'E':
-            $rootScope.evaluation.esblock = 10
-            break;
-        case 'F':
-            $rootScope.evaluation.esblock = 5
-            break;
+      if(typeof $rootScope.evaluation.es_ms_k8_ec_s_pr_grade !== 'undefined'){
+          switch($rootScope.evaluation.es_ms_k8_ec_s_pr_grade) {
+            case 'A':
+                $rootScope.evaluation.esblock = 100
+                break;
+            case 'B':
+                $rootScope.evaluation.esblock = 75
+                break;
+            case 'C':
+                $rootScope.evaluation.esblock = 50
+                break;
+            case 'D':
+                $rootScope.evaluation.esblock = 25
+                break;
+            case 'E':
+                $rootScope.evaluation.esblock = 10
+                break;
+            case 'F':
+                $rootScope.evaluation.esblock = 5
+                break;
+        }
+      }else{
+          $rootScope.evaluation.esblock = '';
       }
-
+      
       // Validación de pestañas de acordion
       $rootScope.valuesProgressReportElem = DatosSchool.SearchValuesProgressReportElem(indice);
 
@@ -625,25 +615,29 @@ nyc_controllers.controller("EvaluationsCtrlYearElem" ,[ '$scope', 'DatosSchool',
     $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];
     $rootScope.evaluation=DatosSchool.datos.evaluations[indice]
 
-    switch($rootScope.evaluation.es_ms_k8_ec_s_pr_grade) {
-        case 'A':
-            $rootScope.evaluation.esblock = 100
-            break;
-        case 'B':
-            $rootScope.evaluation.esblock = 75
-            break;
-        case 'C':
-            $rootScope.evaluation.esblock = 50
-            break;
-        case 'D':
-            $rootScope.evaluation.esblock = 25
-            break;
-        case 'E':
-            $rootScope.evaluation.esblock = 10
-            break;
-        case 'F':
-            $rootScope.evaluation.esblock = 5
-            break;
+    if(typeof $rootScope.evaluation.es_ms_k8_ec_s_pr_grade !== 'undefined'){
+        switch($rootScope.evaluation.es_ms_k8_ec_s_pr_grade) {
+            case 'A':
+                $rootScope.evaluation.esblock = 100;
+                break;
+            case 'B':
+                $rootScope.evaluation.esblock = 75;
+                break;
+            case 'C':
+                $rootScope.evaluation.esblock = 50;
+                break;
+            case 'D':
+                $rootScope.evaluation.esblock = 25;
+                break;
+            case 'E':
+                $rootScope.evaluation.esblock = 10;
+                break;
+            case 'F':
+                $rootScope.evaluation.esblock = 5;
+                break;
+        }
+    }else{
+        $rootScope.evaluation.esblock = '';
     }
 
     $rootScope.valuesProgressReportElem = DatosSchool.SearchValuesProgressReportElem(indice);

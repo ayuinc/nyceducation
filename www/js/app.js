@@ -1,8 +1,10 @@
+/* global $ */
+/* global GetUniqueElementsArray */
 var app = angular.module("nyce", ["mm.foundation","ngRoute", "ngAnimate", "ngTouch", "autocomplete","filters_nyce","controllers_nyce", "pascalprecht.translate"]);
 
 app.constant('$config', {
   'API_V1_URL': 'http://nyce-v103-api.laboratoria.la/api/v1/'
-  // 'API_V1_URL': 'http://162.243.110.154/api/v1/'
+//   'API_V1_URL': 'http://162.243.110.154/api/v1/'
 });
 
 app.config(['$translateProvider', function ($translateProvider) {
@@ -92,6 +94,32 @@ app.factory('DatosSchool',function($rootScope){
 
     return {
         datos: {},
+        getSchoolType : function(yearIndex){
+            var gradesServed = this.datos.profiles[yearIndex].grades_served || false,
+                schoolType = { k8: false, elementary: false, middle: false, highschool: false};
+                
+            if(!gradesServed) { return schoolType; }
+            
+            gradesServed = gradesServed.split(',').map(function(v){
+               return $.trim(v); 
+            });
+            angular.forEach(gradesServed, function(grade){
+                if(grade === 'K' || grade === '1' || grade === '2' || grade === '3' || grade === '4' || grade === '5' || grade === '6' || grade === '7' || grade === '8'){
+                    schoolType.k8 = true;
+                }
+                if(grade === 'K' || grade === '1' || grade === '2' || grade === '3' || grade === '4' || grade === '5'){
+                    schoolType.elementary = true;
+                }
+                if(grade === '6' || grade === '7' || grade === '8'){
+                    schoolType.middle = true;
+                }
+                if(grade === '9' || grade === '10' || grade === '11' || grade === '12'){
+                    schoolType.highschool = true;
+                }
+            });
+            
+            return schoolType;
+        },
         SearchValuesStudentsEnrolledGrade: function(indice){
 
           var ValuesStudentsEnrolledGrade = [];
@@ -109,9 +137,11 @@ app.factory('DatosSchool',function($rootScope){
           ValuesStudentsEnrolledGrade.push(this.datos.enrollments[indice]["grade10"]);
           ValuesStudentsEnrolledGrade.push(this.datos.enrollments[indice]["grade11"]);
           ValuesStudentsEnrolledGrade.push(this.datos.enrollments[indice]["grade12"]);
-          if(GetUniqueElementsArray(ValuesStudentsEnrolledGrade).length > 0)
-              { return true }
-          else{ return false }
+          if(GetUniqueElementsArray(ValuesStudentsEnrolledGrade).length > 0){
+              return true;
+          }else{
+              return false;
+          }
         },
         SearchValuesAttendance: function(indice){
           var ValuesAttendance = [];
@@ -307,18 +337,34 @@ app.factory('DatosSchool',function($rootScope){
             { return true }
           else{ return false }
         },
+        SearchValuesProgressReportUpdatedElem: function(indice){
+          var ValuesProgressReport = [];
+          if(typeof this.datos.evaluations[indice] === 'undefined'){
+              return false;
+          }
+            ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_o_pr_score']);
+            ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_perf_pr_score']);
+            ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_prog_score']);
+            ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_enviro_pr_score']);
+            
+          if(GetUniqueElementsArray(ValuesProgressReport).length > 0){ return true }
+          else{ return false }
+        },
         SearchValuesProgressReportElem: function(indice){
           var ValuesProgressReport = [];
-          ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_pr_grade']);
-          ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_perf_pr_grade']);
-          ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_prog_grade']);
-          ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_enviro_pr_grade']);
-          if(GetUniqueElementsArray(ValuesProgressReport).length > 0)
-            { return true }
+            ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_pr_grade']);
+            ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_perf_pr_grade']);
+            ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_prog_grade']);
+            ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_enviro_pr_grade']);
+            
+          if(GetUniqueElementsArray(ValuesProgressReport).length > 0){ return true }
           else{ return false }
         },
         SearchValuesQualityReviewElem: function(indice){
           var ValuesQualityReview = [];
+          if(typeof this.datos.evaluation_rating[indice] === 'undefined'){
+              return false;
+          }
           ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_11']);
           ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_12']);
           ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_14']);

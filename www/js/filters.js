@@ -19,7 +19,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
         if ($rootScope.lenguage == "esp") {
           switch(text) {
           case 1:
-              return '250px';
+              return '255px';
               break;
           case 2:
               return '128px';
@@ -47,6 +47,15 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
               break;
           case 10:
               return '193px';
+              break;
+          case 11:
+              return '290px';
+              break;
+          case 12:
+              return '275px';
+              break;
+          case 13:
+              return '255px';
               break;
           }
 
@@ -82,6 +91,15 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
               break;
           case 10:
               return '139px';
+              break;
+          case 11:
+              return '220px';
+              break;
+          case 12:
+              return '217px';
+              break;
+          case 13:
+              return '207px';
               break;
           }
 
