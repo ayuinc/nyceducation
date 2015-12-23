@@ -303,15 +303,15 @@ nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', '$filter', 'DatosSc
   };
 
   $rootScope.isHighSchool = $rootScope.schoolType.highschool;
-  $rootScope.isElemSchool = $rootScope.schoolType.elementary;
+  $rootScope.isElemSchool = $rootScope.schoolType.elementary || $rootScope.schoolType.middle;
   $rootScope.isMultiSchool = $rootScope.schoolType.elementary && $rootScope.schoolType.highschool;
 
   $rootScope.hasClassSize = false;
 
   $rootScope.$watch('tipoDeEscuela', function(oldV, newV){
     $rootScope.isHighSchool = $rootScope.schoolType.highschool;
-    $rootScope.isElemSchool = $rootScope.schoolType.elementary;
-    $rootScope.isMultiSchool = $rootScope.schoolType.elementary && $rootScope.schoolType.highschool;
+    $rootScope.isElemSchool = $rootScope.schoolType.k8;
+    $rootScope.isMultiSchool = $rootScope.schoolType.k8 && $rootScope.schoolType.highschool;
   });
 
 }]);
@@ -1849,8 +1849,6 @@ nyc_controllers.controller("SurveyRespCtrlQuestion" ,[ '$scope', 'DatosSchool', 
     }else{
       $scope.itemsGrades = [{texto:"Parents",indice:"0"},{texto:"Teachers",indice:"1"},{texto:"Students",indice:"2"}];
       };
-
-
     // $rootScope.selectedgrade= "Parents";
 
     $scope.changegrade = function(indice_grade) {

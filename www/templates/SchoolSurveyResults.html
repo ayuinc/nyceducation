@@ -69,6 +69,237 @@
 
         <accordion close-others="oneAtATime">
 
+             <accordion-group is-open="false">
+
+            <accordion-heading>
+                <div>{{'Categories' | translateSurvey}}</div>
+            </accordion-heading>
+
+            <div class="sub-acordion">
+
+              <div class="row">
+
+                <!-- Parents -->
+                <div class ="{{ 'parents' | filtraSurvey }}">
+                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
+                    <div class="democracy color-barra" style="width:{{survey_results.p_safety_respect_rs | escala10}}%;">
+                      <p>{{survey_results.p_safety_respect_rs | number:1}}/<span class="total_dividendo">10</span></p>
+                      <itemsurvey><span class="con-info"> {{'Safety and Respect' | translateSurvey}} </span>
+                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school creates a physically and emotionally secure environment in which everyone can focus on student learning.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                      </itemsurvey>
+                    </div>
+                    <div class="metrics {{city_average.SchoolSurveyParents_Safety_RespectRawScore | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurveyParents_Safety_RespectRawScore | escala10}}%;">
+                          <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyParents_Safety_RespectRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class ="{{ 'teachers' | filtraSurvey }}">
+
+                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
+                    <div class="democracy color-barra" style="width:{{survey_results.t_safety_respect_rs | escala10}}%;">
+                      <p>{{survey_results.t_safety_respect_rs | number:1}}/<span class="total_dividendo">10</span></p>
+                      <itemsurvey><span class="con-info"> {{'Safety and Respect' | translateSurvey}} </span>
+                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school creates a physically and emotionally secure environment in which everyone can focus on student learning.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                      </itemsurvey>
+                    </div>
+                    <div class="metrics {{city_average.SchoolSurveyTeachers_Safety_RespectRawScore | filtraCeros}}">
+                        <div class="average" style="width:{{city_average.SchoolSurveyTeachers_Safety_RespectRawScore | escala10}}%;">
+                          <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyTeachers_Safety_RespectRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class ="{{ 'students' | filtraSurvey }}">
+                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
+                    <div class="democracy color-barra" style="width:{{survey_results.s_safety_respect_rs | escala10}}%;">
+                      <p>{{survey_results.s_safety_respect_rs | number:1}}/<span class="total_dividendo">10</span></p>
+                      <itemsurvey><span class="con-info"> {{'Safety and Respect' | translateSurvey}} </span>
+                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school creates a physically and emotionally secure environment in which everyone can focus on student learning.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                      </itemsurvey>
+                    </div>
+                    <div class="metrics {{city_average.SchoolSurveyStudents_Safety_RespectRawScore | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurveyStudents_Safety_RespectRawScore | escala10}}%;">
+                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyStudents_Safety_RespectRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+
+                <!-- Parents -->
+                <div class ="{{ 'parents' | filtraSurvey }}">
+                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
+                    <div class="democracy color-barra" style="width:{{survey_results.p_engagement_rs | escala10}}%;">
+                      <p>{{survey_results.p_engagement_rs | number:1}}/<span class="total_dividendo">10</span></p>
+                      <itemsurvey><span class="con-info"> {{'Engagement' | translateSurvey}} </span>
+                      <div Popover-animation="false" popover="{{'Measures whether respondents feel engaged in an active and vibrant partnership to promote student learning.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                      </itemsurvey>
+                    </div>
+                    <div class="metrics {{city_average.SchoolSurveyParents_EngagementRawScore | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurveyParents_EngagementRawScore | escala10}}%;">
+                          <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyParents_EngagementRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class ="{{ 'teachers' | filtraSurvey }}">
+                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
+                    <div class="democracy color-barra" style="width:{{survey_results.t_engagement_rs | escala10}}%;">
+                      <p>{{survey_results.t_engagement_rs | number:1}}/<span class="total_dividendo">10</span></p>
+                      <itemsurvey><span class="con-info"> {{'Engagement' | translateSurvey}} </span>
+                      <div Popover-animation="false" popover="{{'Measures whether respondents feel engaged in an active and vibrant partnership to promote student learning.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                      </itemsurvey>
+                    </div>
+                    <div class="metrics {{city_average.SchoolSurveyTeachers_EngagementRawScore | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurveyTeachers_EngagementRawScore | escala10}}%;">
+                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyTeachers_EngagementRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class ="{{ 'students' | filtraSurvey }}">
+                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
+                    <div class="democracy color-barra" style="width:{{survey_results.s_engagement_rs | escala10}}%;">
+                      <p>{{survey_results.s_engagement_rs | number:1}}/<span class="total_dividendo">10</span></p>
+                      <itemsurvey><span class="con-info"> {{'Engagement' | translateSurvey}} </span>
+                      <div Popover-animation="false" popover="{{'Measures whether respondents feel engaged in an active and vibrant partnership to promote student learning.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                      </itemsurvey>
+                    </div>
+                    <div class="metrics {{city_average.SchoolSurveyStudents_EngagementRawScore | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurveyStudents_EngagementRawScore | escala10}}%;">
+                          <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyStudents_EngagementRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+
+                <!-- Parents -->
+                <div class ="{{ 'parents' | filtraSurvey }}">
+                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
+                    <div class="democracy color-barra" style="width:{{survey_results.p_communication_rs | escala10}}%;">
+                      <p>{{survey_results.p_communication_rs | number:1}}/<span class="total_dividendo">10</span></p>
+                      <itemsurvey><span class="con-info"> {{'Communication' | translateSurvey}} </span>
+                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school provides them with information about the school’s educational goals and offers appropriate feedback on each student’s learning outcomes.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                      </itemsurvey>
+                    </div>
+                    <div class="metrics {{city_average.SchoolSurveyParents_CommunicationRawScore | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurveyParents_CommunicationRawScore | escala10}}%;">
+                          <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyParents_CommunicationRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class ="{{ 'teachers' | filtraSurvey }}">
+                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
+                    <div class="democracy color-barra" style="width:{{survey_results.t_communication_rs | escala10}}%;">
+                      <p>{{survey_results.t_communication_rs | number:1}}/<span class="total_dividendo">10</span></p>
+                      <itemsurvey><span class="con-info"> {{'Communication' | translateSurvey}} </span>
+                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school provides them with information about the school’s educational goals and offers appropriate feedback on each student’s learning outcomes.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                      </itemsurvey>
+                    </div>
+                    <div class="metrics {{city_average.SchoolSurveyTeachers_CommunicationRawScore | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurveyTeachers_CommunicationRawScore | escala10}}%;">
+                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyTeachers_CommunicationRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class ="{{ 'students' | filtraSurvey }}">
+                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
+                    <div class="democracy color-barra" style="width:{{survey_results.s_communication_rs | escala10}}%;">
+                      <p>{{survey_results.s_communication_rs | number:1}}/<span class="total_dividendo">10</span></p>
+                      <itemsurvey><span class="con-info"> {{'Communication' | translateSurvey}} </span>
+                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school provides them with information about the school’s educational goals and offers appropriate feedback on each student’s learning outcomes.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                      </itemsurvey>
+                    </div>
+                    <div class="metrics {{city_average.SchoolSurveyStudents_CommunicationRawScore | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurveyStudents_CommunicationRawScore | escala10}}%;">
+                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyStudents_CommunicationRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+
+                <!-- Parents -->
+                <div class ="{{ 'parents' | filtraSurvey }}">
+                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
+                    <div class="democracy color-barra" style="width:{{survey_results.p_academic_expectations_rs | escala10}}%;">
+                      <p>{{survey_results.p_academic_expectations_rs | number:1}}/<span class="total_dividendo">10</span></p>
+                      <itemsurvey><span class="con-info"> {{'Academic Expectations' | translateSurvey}} </span>
+                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school encourages students to do their best by developing rigorous and meaningful academic goals.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                      </itemsurvey>
+                    </div>
+                    <div class="metrics {{city_average.SchoolSurveyParents_AcademicExpectationsRawScore | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurveyParents_AcademicExpectationsRawScore | escala10}}%;">
+                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyParents_AcademicExpectationsRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class ="{{ 'teachers' | filtraSurvey }}">
+                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
+                    <div class="democracy color-barra" style="width:{{survey_results.t_academic_expectations_rs | escala10}}%;">
+                      <p>{{survey_results.t_academic_expectations_rs | number:1}}/<span class="total_dividendo">10</span></p>
+                      <itemsurvey><span class="con-info"> {{'Academic Expectations' | translateSurvey}} </span>
+                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school encourages students to do their best by developing rigorous and meaningful academic goals.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                      </itemsurvey>
+                    </div>
+                    <div class="metrics {{city_average.SchoolSurveyTeachers_AcademicExpectationsRawScore | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurveyTeachers_AcademicExpectationsRawScore | escala10}}%;">
+                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyTeachers_AcademicExpectationsRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class ="{{ 'students' | filtraSurvey }}">
+                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
+                    <div class="democracy color-barra" style="width:{{survey_results.s_academic_expectations_rs | escala10}}%;">
+                      <p>{{survey_results.s_academic_expectations_rs | number:1}}/<span class="total_dividendo">10</span></p>
+                      <itemsurvey><span class="con-info"> {{'Academic Expectations' | translateSurvey}} </span>
+                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school encourages students to do their best by developing rigorous and meaningful academic goals.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                      </itemsurvey>
+                    </div>
+                    <div class="metrics {{city_average.SchoolSurveyStudents_AcademicExpectationsRawScore | filtraCeros}}">
+                        <div class="average" style="width:{{city_average.SchoolSurveyStudents_AcademicExpectationsRawScore | escala10}}%;">
+                          <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyStudents_AcademicExpectationsRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div> <!-- sub acordion -->
+
+          </accordion-group>
+
           <accordion-group is-open="false">
 
             <accordion-heading>
@@ -473,238 +704,6 @@
             
           </accordion-group>
           <!-- /Parents -->
-          
-          <accordion-group is-open="false">
-
-            <accordion-heading>
-                <div>{{'Categories' | translateSurvey}}</div>
-            </accordion-heading>
-
-            <div class="sub-acordion">
-
-              <div class="row">
-
-                <!-- Parents -->
-                <div class ="{{ 'parents' | filtraSurvey }}">
-                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-                    <div class="democracy color-barra" style="width:{{survey_results.p_safety_respect_rs | escala10}}%;">
-                      <p>{{survey_results.p_safety_respect_rs | number:1}}/<span class="total_dividendo">10</span></p>
-                      <itemsurvey><span class="con-info"> {{'Safety and Respect' | translateSurvey}} </span>
-                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school creates a physically and emotionally secure environment in which everyone can focus on student learning.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                      </itemsurvey>
-                    </div>
-                    <div class="metrics {{city_average.SchoolSurveyParents_Safety_RespectRawScore | filtraCeros}}">
-                      <div class="average" style="width:{{city_average.SchoolSurveyParents_Safety_RespectRawScore | escala10}}%;">
-                          <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyParents_Safety_RespectRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class ="{{ 'teachers' | filtraSurvey }}">
-
-                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
-                    <div class="democracy color-barra" style="width:{{survey_results.t_safety_respect_rs | escala10}}%;">
-                      <p>{{survey_results.t_safety_respect_rs | number:1}}/<span class="total_dividendo">10</span></p>
-                      <itemsurvey><span class="con-info"> {{'Safety and Respect' | translateSurvey}} </span>
-                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school creates a physically and emotionally secure environment in which everyone can focus on student learning.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                      </itemsurvey>
-                    </div>
-                    <div class="metrics {{city_average.SchoolSurveyTeachers_Safety_RespectRawScore | filtraCeros}}">
-                        <div class="average" style="width:{{city_average.SchoolSurveyTeachers_Safety_RespectRawScore | escala10}}%;">
-                          <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyTeachers_Safety_RespectRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class ="{{ 'students' | filtraSurvey }}">
-                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
-                    <div class="democracy color-barra" style="width:{{survey_results.s_safety_respect_rs | escala10}}%;">
-                      <p>{{survey_results.s_safety_respect_rs | number:1}}/<span class="total_dividendo">10</span></p>
-                      <itemsurvey><span class="con-info"> {{'Safety and Respect' | translateSurvey}} </span>
-                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school creates a physically and emotionally secure environment in which everyone can focus on student learning.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                      </itemsurvey>
-                    </div>
-                    <div class="metrics {{city_average.SchoolSurveyStudents_Safety_RespectRawScore | filtraCeros}}">
-                      <div class="average" style="width:{{city_average.SchoolSurveyStudents_Safety_RespectRawScore | escala10}}%;">
-                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyStudents_Safety_RespectRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="row">
-
-                <!-- Parents -->
-                <div class ="{{ 'parents' | filtraSurvey }}">
-                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-                    <div class="democracy color-barra" style="width:{{survey_results.p_engagement_rs | escala10}}%;">
-                      <p>{{survey_results.p_engagement_rs | number:1}}/<span class="total_dividendo">10</span></p>
-                      <itemsurvey><span class="con-info"> {{'Engagement' | translateSurvey}} </span>
-                      <div Popover-animation="false" popover="{{'Measures whether respondents feel engaged in an active and vibrant partnership to promote student learning.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                      </itemsurvey>
-                    </div>
-                    <div class="metrics {{city_average.SchoolSurveyParents_EngagementRawScore | filtraCeros}}">
-                      <div class="average" style="width:{{city_average.SchoolSurveyParents_EngagementRawScore | escala10}}%;">
-                          <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyParents_EngagementRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class ="{{ 'teachers' | filtraSurvey }}">
-                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
-                    <div class="democracy color-barra" style="width:{{survey_results.t_engagement_rs | escala10}}%;">
-                      <p>{{survey_results.t_engagement_rs | number:1}}/<span class="total_dividendo">10</span></p>
-                      <itemsurvey><span class="con-info"> {{'Engagement' | translateSurvey}} </span>
-                      <div Popover-animation="false" popover="{{'Measures whether respondents feel engaged in an active and vibrant partnership to promote student learning.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                      </itemsurvey>
-                    </div>
-                    <div class="metrics {{city_average.SchoolSurveyTeachers_EngagementRawScore | filtraCeros}}">
-                      <div class="average" style="width:{{city_average.SchoolSurveyTeachers_EngagementRawScore | escala10}}%;">
-                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyTeachers_EngagementRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class ="{{ 'students' | filtraSurvey }}">
-                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-                    <div class="democracy color-barra" style="width:{{survey_results.s_engagement_rs | escala10}}%;">
-                      <p>{{survey_results.s_engagement_rs | number:1}}/<span class="total_dividendo">10</span></p>
-                      <itemsurvey><span class="con-info"> {{'Engagement' | translateSurvey}} </span>
-                      <div Popover-animation="false" popover="{{'Measures whether respondents feel engaged in an active and vibrant partnership to promote student learning.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                      </itemsurvey>
-                    </div>
-                    <div class="metrics {{city_average.SchoolSurveyStudents_EngagementRawScore | filtraCeros}}">
-                      <div class="average" style="width:{{city_average.SchoolSurveyStudents_EngagementRawScore | escala10}}%;">
-                          <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyStudents_EngagementRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="row">
-
-                <!-- Parents -->
-                <div class ="{{ 'parents' | filtraSurvey }}">
-                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-                    <div class="democracy color-barra" style="width:{{survey_results.p_communication_rs | escala10}}%;">
-                      <p>{{survey_results.p_communication_rs | number:1}}/<span class="total_dividendo">10</span></p>
-                      <itemsurvey><span class="con-info"> {{'Communication' | translateSurvey}} </span>
-                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school provides them with information about the school’s educational goals and offers appropriate feedback on each student’s learning outcomes.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                      </itemsurvey>
-                    </div>
-                    <div class="metrics {{city_average.SchoolSurveyParents_CommunicationRawScore | filtraCeros}}">
-                      <div class="average" style="width:{{city_average.SchoolSurveyParents_CommunicationRawScore | escala10}}%;">
-                          <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyParents_CommunicationRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class ="{{ 'teachers' | filtraSurvey }}">
-                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-                    <div class="democracy color-barra" style="width:{{survey_results.t_communication_rs | escala10}}%;">
-                      <p>{{survey_results.t_communication_rs | number:1}}/<span class="total_dividendo">10</span></p>
-                      <itemsurvey><span class="con-info"> {{'Communication' | translateSurvey}} </span>
-                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school provides them with information about the school’s educational goals and offers appropriate feedback on each student’s learning outcomes.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                      </itemsurvey>
-                    </div>
-                    <div class="metrics {{city_average.SchoolSurveyTeachers_CommunicationRawScore | filtraCeros}}">
-                      <div class="average" style="width:{{city_average.SchoolSurveyTeachers_CommunicationRawScore | escala10}}%;">
-                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyTeachers_CommunicationRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class ="{{ 'students' | filtraSurvey }}">
-                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
-                    <div class="democracy color-barra" style="width:{{survey_results.s_communication_rs | escala10}}%;">
-                      <p>{{survey_results.s_communication_rs | number:1}}/<span class="total_dividendo">10</span></p>
-                      <itemsurvey><span class="con-info"> {{'Communication' | translateSurvey}} </span>
-                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school provides them with information about the school’s educational goals and offers appropriate feedback on each student’s learning outcomes.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                      </itemsurvey>
-                    </div>
-                    <div class="metrics {{city_average.SchoolSurveyStudents_CommunicationRawScore | filtraCeros}}">
-                      <div class="average" style="width:{{city_average.SchoolSurveyStudents_CommunicationRawScore | escala10}}%;">
-                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyStudents_CommunicationRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="row">
-
-                <!-- Parents -->
-                <div class ="{{ 'parents' | filtraSurvey }}">
-                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-                    <div class="democracy color-barra" style="width:{{survey_results.p_academic_expectations_rs | escala10}}%;">
-                      <p>{{survey_results.p_academic_expectations_rs | number:1}}/<span class="total_dividendo">10</span></p>
-                      <itemsurvey><span class="con-info"> {{'Academic Expectations' | translateSurvey}} </span>
-                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school encourages students to do their best by developing rigorous and meaningful academic goals.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                      </itemsurvey>
-                    </div>
-                    <div class="metrics {{city_average.SchoolSurveyParents_AcademicExpectationsRawScore | filtraCeros}}">
-                      <div class="average" style="width:{{city_average.SchoolSurveyParents_AcademicExpectationsRawScore | escala10}}%;">
-                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyParents_AcademicExpectationsRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class ="{{ 'teachers' | filtraSurvey }}">
-                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
-                    <div class="democracy color-barra" style="width:{{survey_results.t_academic_expectations_rs | escala10}}%;">
-                      <p>{{survey_results.t_academic_expectations_rs | number:1}}/<span class="total_dividendo">10</span></p>
-                      <itemsurvey><span class="con-info"> {{'Academic Expectations' | translateSurvey}} </span>
-                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school encourages students to do their best by developing rigorous and meaningful academic goals.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                      </itemsurvey>
-                    </div>
-                    <div class="metrics {{city_average.SchoolSurveyTeachers_AcademicExpectationsRawScore | filtraCeros}}">
-                      <div class="average" style="width:{{city_average.SchoolSurveyTeachers_AcademicExpectationsRawScore | escala10}}%;">
-                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyTeachers_AcademicExpectationsRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class ="{{ 'students' | filtraSurvey }}">
-                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-                    <div class="democracy color-barra" style="width:{{survey_results.s_academic_expectations_rs | escala10}}%;">
-                      <p>{{survey_results.s_academic_expectations_rs | number:1}}/<span class="total_dividendo">10</span></p>
-                      <itemsurvey><span class="con-info"> {{'Academic Expectations' | translateSurvey}} </span>
-                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school encourages students to do their best by developing rigorous and meaningful academic goals.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                      </itemsurvey>
-                    </div>
-                    <div class="metrics {{city_average.SchoolSurveyStudents_AcademicExpectationsRawScore | filtraCeros}}">
-                        <div class="average" style="width:{{city_average.SchoolSurveyStudents_AcademicExpectationsRawScore | escala10}}%;">
-                          <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyStudents_AcademicExpectationsRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-            </div> <!-- sub acordion -->
-
-          </accordion-group>
-
         </accordion>
 
 
