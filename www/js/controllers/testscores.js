@@ -36,8 +36,13 @@ nyc_controllers.controller("TestScoreCtrlYearEl", ['$scope', 'DatosSchool', '$ro
     		evaluationsMath = DatosSchool.getTestScoreEvaluationData('math', $scope.TestScoreSelectedYear);
 
 	    $rootScope.TestScoreCategories = angular.extend(DatosSchool.getTestScoreCategoriesList(evaluationsELA), DatosSchool.getTestScoreCategoriesList(evaluationsMath));
-	    $rootScope.TestScoreSelectedCategory = $rootScope.TestScoreCategories[$rootScope.TestScoreSelectedCategoryIndex].texto;
-	    
+	    var categIndiceIndex = 0;
+	    $rootScope.TestScoreCategories.map(function(item, index){
+			if(item.indice == $rootScope.TestScoreSelectedCategoryIndex){
+				categIndiceIndex = index;
+			}
+		});
+	    $rootScope.TestScoreSelectedCategory = $rootScope.TestScoreCategories[categIndiceIndex].texto;
 
 	    // Establecemos por defecto que la categoría es All Students
 	    evaluationsELA = DatosSchool.getTestScoreEvaluationData('ela', $scope.TestScoreSelectedYear, $rootScope.TestScoreSelectedCategoryIndex);
@@ -586,13 +591,7 @@ nyc_controllers.controller("TestScoreCtrlCategory" ,[ '$scope', 'DatosSchool', '
 
 
   $scope.changegenere = function(indice) {
-    var ind = 0;
-    angular.forEach($rootScope.TestScoreCategories, function(v, i){
-      if (v.indice == indice) {
-        ind = i;
-      };
-    });
-    $rootScope.TestScoreSelectedCategoryIndex = $rootScope.TestScoreCategories[ind].indice;
+    $rootScope.TestScoreSelectedCategoryIndex = indice;
     $rootScope.$emit('TestScoreCategoryChange');
   };
 
