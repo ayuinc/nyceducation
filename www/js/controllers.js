@@ -1025,27 +1025,19 @@ nyc_controllers.controller("AdmissionsHSctrl" ,[ '$scope', 'DatosSchool', '$root
 
 
 // CONTROLADORES SURVEY SCHOOL
-
-
 nyc_controllers.controller("SurveyYearCtrl" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
-    var indice = 2;
-
-    $rootScope.survey_results=DatosSchool.datos.survey_result[indice];
-    $rootScope.city_average=DatosSchool.datos.city_averages[indice];
-    $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];
-
-
+    var indice = 0;
     var vTotalResponseRate,vSafetyandRespect,vEngagement,vCommunication,vAcademicExpectations;
     var availableYears = [];
     var arrayAvailableYears = [];
     var jsonAvaylableYears = "";
-    for (i = 0; i < 4; i++) {
-    vTotalResponseRate = DatosSchool.SearchValuesTotalResponseRate(i);
-    vSafetyandRespect = DatosSchool.SearchValuesSafetyandRespect(i);
-    vEngagement = DatosSchool.SearchValuesEngagement(i);
-    vCommunication = DatosSchool.SearchValuesCommunication(i);
-    vAcademicExpectations = DatosSchool.SearchValuesAcademicExpectations(i);
+    for (i = 0; i < 5; i++) {
+      vTotalResponseRate = DatosSchool.SearchValuesTotalResponseRate(i);
+      vSafetyandRespect = DatosSchool.SearchValuesSafetyandRespect(i);
+      vEngagement = DatosSchool.SearchValuesEngagement(i);
+      vCommunication = DatosSchool.SearchValuesCommunication(i);
+      vAcademicExpectations = DatosSchool.SearchValuesAcademicExpectations(i);
       if ( vTotalResponseRate || vSafetyandRespect || vEngagement || vCommunication || vAcademicExpectations ){
         availableYears.push(i);
       }
@@ -1058,8 +1050,18 @@ nyc_controllers.controller("SurveyYearCtrl" ,[ '$scope', 'DatosSchool', '$rootSc
         indice: availableYears[i],
         index: i
       };
-    arrayAvailableYears.push(item);
+      arrayAvailableYears.push(item);
+      indice = i;
     };
+
+    $rootScope.SurveyResultsYearSelected = indice;
+    $rootScope.survey_results=DatosSchool.datos.survey_result[indice];
+    $rootScope.city_average=DatosSchool.datos.city_averages[indice];
+    $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];
+
+    $rootScope.hasZeroStudentsQuestions = true;
+    $rootScope.hasZeroTeachersQuestions = true;
+    $rootScope.hasZeroParentsQuestions = true;
 
     if(arrayAvailableYears.length == 0){
       $('#survey_nd').removeClass("borrar");
@@ -1069,11 +1071,8 @@ nyc_controllers.controller("SurveyYearCtrl" ,[ '$scope', 'DatosSchool', '$rootSc
       $('#survey_all').addClass("mostrar");
     };
 
-
-
     jsonAvaylableYears = JSON.stringify(arrayAvailableYears);
     $scope.itemsYears = JSON.parse(jsonAvaylableYears);
-
 
     $rootScope.valuesTotalResponseRate = DatosSchool.SearchValuesTotalResponseRate(indice);
     $rootScope.valuesSafetyandRespect = DatosSchool.SearchValuesSafetyandRespect(indice);
@@ -1097,50 +1096,80 @@ nyc_controllers.controller("SurveyYearCtrl" ,[ '$scope', 'DatosSchool', '$rootSc
     $rootScope.valuesSurveyQuestionQ3A = DatosSchool.SearchSurveyQuestionQ3A(indice);
     $rootScope.valuesSurveyQuestionQ5B = DatosSchool.SearchSurveyQuestionQ5B(indice);
 
+    $rootScope.valuesSurveyQuestionCheck = function(type, questionNum){
+      return DatosSchool.SearchSurveyQuestionPosNeg(indice, type, questionNum);
+    };
 
     $rootScope.selectedyear_survey= arrayAvailableYears[arrayAvailableYears.length-1].texto;
     // $scope.itemsYears = [{texto:"2011",indice:0},{texto:"2012",indice:1},{texto:"2013",indice:2}];
     $scope.changeyear = function(indice_year) {
+      var ind;
+      $.each($scope.itemsYears, function(i, v) {
+        if (v.indice == indice_year) {
+          ind = i;
+          indice = i;
+        };
+      });
 
-    var ind;
-    $.each($scope.itemsYears, function(i, v) {
-      if (v.indice == indice_year) {
-        ind = i;
-      };
-    });
+      $rootScope.SurveyResultsYearSelected = indice;
+      $rootScope.selectedyear_survey = $scope.itemsYears[ind].texto;
+      // $rootScope.selectedyear_sd = $scope.itemsYears[indice_year].texto;
+      $rootScope.survey_results=DatosSchool.datos.survey_result[indice_year];
+      $rootScope.city_average=DatosSchool.datos.city_averages[indice_year];
+      $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice_year];
 
-    $rootScope.selectedyear_survey = $scope.itemsYears[ind].texto;
-    // $rootScope.selectedyear_sd = $scope.itemsYears[indice_year].texto;
-    $rootScope.survey_results=DatosSchool.datos.survey_result[indice_year];
-    $rootScope.city_average=DatosSchool.datos.city_averages[indice_year];
-    $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice_year];
-
-    $rootScope.valuesTotalResponseRate = DatosSchool.SearchValuesTotalResponseRate(indice_year);
-    $rootScope.valuesSafetyandRespect = DatosSchool.SearchValuesSafetyandRespect(indice_year);
-    $rootScope.valuesEngagement = DatosSchool.SearchValuesEngagement(indice_year);
-    $rootScope.valuesCommunication = DatosSchool.SearchValuesCommunication(indice_year);
-    $rootScope.valuesAcademicExpectations = DatosSchool.SearchValuesAcademicExpectations(indice_year);
+      $rootScope.valuesTotalResponseRate = DatosSchool.SearchValuesTotalResponseRate(indice_year);
+      $rootScope.valuesSafetyandRespect = DatosSchool.SearchValuesSafetyandRespect(indice_year);
+      $rootScope.valuesEngagement = DatosSchool.SearchValuesEngagement(indice_year);
+      $rootScope.valuesCommunication = DatosSchool.SearchValuesCommunication(indice_year);
+      $rootScope.valuesAcademicExpectations = DatosSchool.SearchValuesAcademicExpectations(indice_year);
 
 
-    $rootScope.valuesSurveyQuestionQ1F = DatosSchool.SearchSurveyQuestionQ1F(indice_year);
-    $rootScope.valuesSurveyQuestionQ2B = DatosSchool.SearchSurveyQuestionQ2B(indice_year);
-    $rootScope.valuesSurveyQuestionQ4E = DatosSchool.SearchSurveyQuestionQ4E(indice_year);
-    $rootScope.valuesSurveyQuestionQ4G = DatosSchool.SearchSurveyQuestionQ4G(indice_year);
-    $rootScope.valuesSurveyQuestionQ6C = DatosSchool.SearchSurveyQuestionQ6C(indice_year);
-    $rootScope.valuesSurveyQuestionQ3D = DatosSchool.SearchSurveyQuestionQ3D(indice_year);
-    $rootScope.valuesSurveyQuestionQ8C = DatosSchool.SearchSurveyQuestionQ8C(indice_year);
-    $rootScope.valuesSurveyQuestionQ10C = DatosSchool.SearchSurveyQuestionQ10C(indice_year);
-    $rootScope.valuesSurveyQuestionQ11E = DatosSchool.SearchSurveyQuestionQ11E(indice_year);
-    $rootScope.valuesSurveyQuestionQ11F = DatosSchool.SearchSurveyQuestionQ11F(indice_year);
-    $rootScope.valuesSurveyQuestionQ1A = DatosSchool.SearchSurveyQuestionQ1A(indice_year);
-    $rootScope.valuesSurveyQuestionQ1G = DatosSchool.SearchSurveyQuestionQ1G(indice_year);
-    $rootScope.valuesSurveyQuestionQ2A = DatosSchool.SearchSurveyQuestionQ2A(indice_year);
-    $rootScope.valuesSurveyQuestionQ3A = DatosSchool.SearchSurveyQuestionQ3A(indice_year);
-    $rootScope.valuesSurveyQuestionQ5B = DatosSchool.SearchSurveyQuestionQ5B(indice_year);
+      $rootScope.valuesSurveyQuestionQ1F = DatosSchool.SearchSurveyQuestionQ1F(indice_year);
+      $rootScope.valuesSurveyQuestionQ2B = DatosSchool.SearchSurveyQuestionQ2B(indice_year);
+      $rootScope.valuesSurveyQuestionQ4E = DatosSchool.SearchSurveyQuestionQ4E(indice_year);
+      $rootScope.valuesSurveyQuestionQ4G = DatosSchool.SearchSurveyQuestionQ4G(indice_year);
+      $rootScope.valuesSurveyQuestionQ6C = DatosSchool.SearchSurveyQuestionQ6C(indice_year);
+      $rootScope.valuesSurveyQuestionQ3D = DatosSchool.SearchSurveyQuestionQ3D(indice_year);
+      $rootScope.valuesSurveyQuestionQ8C = DatosSchool.SearchSurveyQuestionQ8C(indice_year);
+      $rootScope.valuesSurveyQuestionQ10C = DatosSchool.SearchSurveyQuestionQ10C(indice_year);
+      $rootScope.valuesSurveyQuestionQ11E = DatosSchool.SearchSurveyQuestionQ11E(indice_year);
+      $rootScope.valuesSurveyQuestionQ11F = DatosSchool.SearchSurveyQuestionQ11F(indice_year);
+      $rootScope.valuesSurveyQuestionQ1A = DatosSchool.SearchSurveyQuestionQ1A(indice_year);
+      $rootScope.valuesSurveyQuestionQ1G = DatosSchool.SearchSurveyQuestionQ1G(indice_year);
+      $rootScope.valuesSurveyQuestionQ2A = DatosSchool.SearchSurveyQuestionQ2A(indice_year);
+      $rootScope.valuesSurveyQuestionQ3A = DatosSchool.SearchSurveyQuestionQ3A(indice_year);
+      $rootScope.valuesSurveyQuestionQ5B = DatosSchool.SearchSurveyQuestionQ5B(indice_year);
 
+      checkEmptyQuestionList();
     };
 
+    function checkEmptyQuestionList(){
+      var studentsQuestionsCodes = ["s_q1f_agree", "s_q2b_agree", "s_q4e_agree", "s_q4g_agree", "s_q6c_agree", "s_q1d_positive", "s_q2a_positive", "s_q5a_positive", "s_q7d_positive", "s_q9a_positive", "s_q10f_positive", "s_q10j_positive", "s_q11a_positive", "s_q11d_positive"],
+        teachersQuestionsCodes = ["t_q3d_agree", "t_q8c_agree", "t_q10c_agree", "t_q11e_disagree", "t_q11f_agree", "t_q9d_positive", "t_q10d_positive", "t_q14e_positive", "t_q15a_positive", "t_q15d_positive", "t_q17b_positive"],
+        parentsQuestionsCodes = ["p_qq1a_agree", "p_q1g_agree", "p_q2a_agree", "p_q3a_agree", "p_q5b_satisfied", "p_q4h_positive", "p_q5g_positive", "p_q8a_positive", "p_q8b_positive", "p_q8c_positive", "p_q10b_positive"];
 
+      $rootScope.hasZeroStudentsQuestions = true;
+      $rootScope.hasZeroTeachersQuestions = true;
+      $rootScope.hasZeroParentsQuestions = true;
+
+      studentsQuestionsCodes = studentsQuestionsCodes.map(function(questionNum){
+        return DatosSchool.datos.survey_result[indice][questionNum];
+      });
+      $rootScope.hasZeroStudentsQuestions = GetUniqueElementsArray(studentsQuestionsCodes).length === 0;
+
+      teachersQuestionsCodes = teachersQuestionsCodes.map(function(questionNum){
+        return DatosSchool.datos.survey_result[indice][questionNum];
+      });
+      $rootScope.hasZeroTeachersQuestions = GetUniqueElementsArray(teachersQuestionsCodes).length === 0;
+
+      parentsQuestionsCodes = parentsQuestionsCodes.map(function(questionNum){
+        return DatosSchool.datos.survey_result[indice][questionNum];
+      });
+      $rootScope.hasZeroParentsQuestions = GetUniqueElementsArray(parentsQuestionsCodes).length === 0;
+    }
+
+    checkEmptyQuestionList();
 
 }]);
 

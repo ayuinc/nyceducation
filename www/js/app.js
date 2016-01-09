@@ -481,6 +481,20 @@ app.factory('DatosSchool',function($rootScope, $filter){
           else{ return false }
         },
 // FILTROS SURVEY QUESTIONS
+        /*
+          #type: s, p, t
+        */
+        SearchSurveyQuestionPosNeg: function(indice, type, questionNum){
+          if(typeof this.datos.survey_result[indice] === 'undefined' || typeof type === 'undefined' || typeof questionNum === 'undefined'){
+            return false;
+          }
+          var ValuesStudentsResp = [];
+          ValuesStudentsResp.push(this.datos.survey_result[indice][type+'_q'+questionNum+'_positive']);
+          ValuesStudentsResp.push(this.datos.survey_result[indice][type+'_q'+questionNum+'_negative']);
+          if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
+            { return true }
+          else{ return false }
+        },
         SearchSurveyQuestionQ1F: function(indice){
           var ValuesStudentsResp = [];
           ValuesStudentsResp.push(this.datos.survey_result[indice]['s_q1f_agree']);
