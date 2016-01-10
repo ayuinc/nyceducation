@@ -436,7 +436,7 @@ nyc_controllers.controller("SelectEvaluations" ,[ '$scope', 'DatosSchool', '$roo
       $('#high_eva').removeClass('mostrar');
       $('#high_eva').addClass('borrar');
 
-    }else if (indice==1){
+    }else if (indice>=1){
 
       $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[2];
       $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[2];
@@ -509,6 +509,8 @@ nyc_controllers.controller("EvaluationsCtrlYearElem" ,[ '$scope', 'DatosSchool',
         index: i
       };
       arrayAvailableYearsEs.push(item);
+
+      $rootScope.EvaluationsYearSelected = i;
     };
     jsonAvaylableYears = JSON.stringify(arrayAvailableYearsEs);
     $scope.itemsYearsEvaluationsElem = JSON.parse(jsonAvaylableYears);
@@ -571,6 +573,7 @@ nyc_controllers.controller("EvaluationsCtrlYearElem" ,[ '$scope', 'DatosSchool',
     });
 
     $rootScope.selectedyearEvaluationsElem = $scope.itemsYearsEvaluationsElem[ind].texto;
+    $rootScope.EvaluationsYearSelected = ind;
 
     $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[indice];
     $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];

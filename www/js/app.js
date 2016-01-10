@@ -381,10 +381,10 @@ app.factory('DatosSchool',function($rootScope, $filter){
         },
         SearchValuesProgressReportElem: function(indice){
           var ValuesProgressReport = [];
-            ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_pr_grade']);
-            ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_perf_pr_grade']);
-            ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_prog_grade']);
-            ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_enviro_pr_grade']);
+            ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_pr_score']);
+            ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_perf_pr_score']);
+            ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_prog_score']);
+            ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_enviro_pr_score']);
             
           if(GetUniqueElementsArray(ValuesProgressReport).length > 0){ return true }
           else{ return false }
@@ -398,6 +398,7 @@ app.factory('DatosSchool',function($rootScope, $filter){
           ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_12']);
           ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_14']);
           ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_34']);
+          ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_22']);
           if(GetUniqueElementsArray(ValuesQualityReview).length > 0)
             { return true }
           else{ return false }
@@ -409,12 +410,18 @@ app.factory('DatosSchool',function($rootScope, $filter){
           ValuesProgressReport.push(this.datos.evaluations[indice]['hs_t_hs_spro_pr_grade']);
           ValuesProgressReport.push(this.datos.evaluations[indice]['hs_t_hs_se_pr_grade']);
           ValuesProgressReport.push(this.datos.evaluations[indice]['hs_t_hs_o_cac_grade']);
+          ValuesProgressReport.push(this.datos.evaluations[indice]['hs_t_hs_o_pr_score']);
+          ValuesProgressReport.push(this.datos.evaluations[indice]['hs_t_hs_sper_pr_score']);
+          ValuesProgressReport.push(this.datos.evaluations[indice]['hs_t_hs_spro_pr_score']);
+          ValuesProgressReport.push(this.datos.evaluations[indice]['hs_t_hs_se_pr_score']);
+          ValuesProgressReport.push(this.datos.evaluations[indice]['hs_t_hs_o_cac_score']);
           if(GetUniqueElementsArray(ValuesProgressReport).length > 0)
             { return true }
           else{ return false }
         },
         SearchValuesQualityReviewHigh: function(indice){
           var ValuesQualityReview = [];
+          if(typeof this.datos.evaluation_rating[indice] === 'undefined') return false; 
           ValuesQualityReview.push(this.datos.evaluation_rating[indice]['quality_review_rating']);
           ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_11']);
           ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_12']);
@@ -426,6 +433,7 @@ app.factory('DatosSchool',function($rootScope, $filter){
         },
         SearchValuesTotalResponseRate: function(indice){
           var ValuesTotalResponseRate = [];
+          if(typeof this.datos.survey_result[indice] === 'undefined') return false; 
           ValuesTotalResponseRate.push(this.datos.survey_result[indice]['p_total_response_rate']);
           ValuesTotalResponseRate.push(this.datos.survey_result[indice]['t_total_response_rate']);
           ValuesTotalResponseRate.push(this.datos.survey_result[indice]['s_total_response_rate']);
@@ -435,6 +443,7 @@ app.factory('DatosSchool',function($rootScope, $filter){
         },
         SearchValuesSafetyandRespect: function(indice){
           var ValuesSafetyandRespect = [];
+          if(typeof this.datos.survey_result[indice] === 'undefined') return false; 
           ValuesSafetyandRespect.push(this.datos.survey_result[indice]['p_safety_respect_rs']);
           ValuesSafetyandRespect.push(this.datos.survey_result[indice]['t_safety_respect_rs']);
           ValuesSafetyandRespect.push(this.datos.survey_result[indice]['s_safety_respect_rs']);
@@ -444,6 +453,7 @@ app.factory('DatosSchool',function($rootScope, $filter){
         },
         SearchValuesEngagement: function(indice){
           var ValuesEngagement = [];
+          if(typeof this.datos.survey_result[indice] === 'undefined') return false; 
           ValuesEngagement.push(this.datos.survey_result[indice]['p_engagement_rs']);
           ValuesEngagement.push(this.datos.survey_result[indice]['t_engagement_rs']);
           ValuesEngagement.push(this.datos.survey_result[indice]['s_engagement_rs']);
@@ -453,6 +463,7 @@ app.factory('DatosSchool',function($rootScope, $filter){
         },
         SearchValuesCommunication: function(indice){
           var ValuesCommunication = [];
+          if(typeof this.datos.survey_result[indice] === 'undefined') return false; 
           ValuesCommunication.push(this.datos.survey_result[indice]['p_communication_rs']);
           ValuesCommunication.push(this.datos.survey_result[indice]['t_communication_rs']);
           ValuesCommunication.push(this.datos.survey_result[indice]['s_communication_rs']);
@@ -462,6 +473,7 @@ app.factory('DatosSchool',function($rootScope, $filter){
         },
         SearchValuesAcademicExpectations: function(indice){
           var ValuesAcademicExpectations = [];
+          if(typeof this.datos.survey_result[indice] === 'undefined') return false; 
           ValuesAcademicExpectations.push(this.datos.survey_result[indice]['p_academic_expectations_rs']);
           ValuesAcademicExpectations.push(this.datos.survey_result[indice]['t_academic_expectations_rs']);
           ValuesAcademicExpectations.push(this.datos.survey_result[indice]['s_academic_expectations_rs']);
@@ -471,6 +483,7 @@ app.factory('DatosSchool',function($rootScope, $filter){
         },
         SearchValuesStudentsResp: function(indice){
           var ValuesStudentsResp = [];
+          if(typeof this.datos.survey_result[indice] === 'undefined') return false; 
           ValuesStudentsResp.push(this.datos.survey_result[indice]['s_academic_expectations_rs']);
           ValuesStudentsResp.push(this.datos.survey_result[indice]['s_communication_rs']);
           ValuesStudentsResp.push(this.datos.survey_result[indice]['s_engagement_rs']);

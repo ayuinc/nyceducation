@@ -303,6 +303,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
         if ($rootScope.lenguage == "esp") {
             if (text == 'Evaluations'){ return "Evaluaciones";}
             else if (text == 'Progress Report'){ return "Informe de progreso";}
+            else if (text == 'Closing Gap'){ return "Cierre de brecha";}
             else if (text == 'Overall'){ return "General";}
             else if (text == 'Performance'){ return "Rendimiento";}
             else if (text == 'Progress'){ return "Progreso";}
@@ -317,6 +318,8 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Well Developed'){ return "Bien desarrollada";}
             else if (text == 'Developing'){ return "En desarrollo";}
             else if (text == 'Underdeveloped'){ return "Poco desarrollada";}
+            else if (text == 'Assessment'){ return "Evaluación";}
+            else if (text == 'Career Readiness'){ return "Career Readiness";}
             // else if (text == "'Proficient"){ return "Competente";}
             // else if (text == "'Well Developed"){ return "'Bien desarrollada";}
             // else if (text == "'Developing"){ return "En desarrollo";}
@@ -442,6 +445,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Supportive Environment'){ return 'Supportive Environment'; }
             else if (text == 'Trust'){ return 'Trust'; }
             else if (text == 'Description'){ return "Descripción";}
+            else if (text == 'Assessment'){ return "Evaluación"; }
 
         }else{ return text; };
     }
@@ -880,6 +884,15 @@ if (text == "2011" || text == "2012"){
 })
 
 .filter("escalaPrEnvironmentElem", function(){
+    return function(text) {
+        var num = parseFloat(text);
+        var val = (num*100)/(15);
+        return val;
+    }
+})
+
+
+.filter("escalaPr100", function(){
     return function(text) {
         var num = parseFloat(text);
         var val = (num*100)/(15);

@@ -42,6 +42,10 @@
 
 }
 
+span em{
+	font-style: normal;
+}
+
 .icon-stack:before {
 	content: "\e60f";
 }
