@@ -47,7 +47,7 @@
                 <tr ng-repeat= "cs in class_size" ng-class-odd="'color4'">
                   <td>{{cs.grade}}</td>
                   <td>{{cs.section}}</td>
-                  <td>{{cs.avg_class_size}}</td>
+                  <td>{{cs.avg_class_size | number:0 }}</td>
                 </tr>
               </tbody>
             </table>
@@ -64,7 +64,7 @@
                 <tr ng-repeat= "cs in class_size" ng-class-odd="'color4'">
                   <td>{{cs.grade}}</td>
                   <td>{{cs.course}}</td>
-                  <td>{{cs.avg_class_size}}</td>
+                  <td>{{cs.avg_class_size | number:0 }}</td>
                 </tr>
               </tbody>
             </table>
@@ -81,7 +81,7 @@
                 <tr ng-repeat= "cs in class_size" ng-class-odd="'color4'">
                   <td>{{cs.grade}}</td>
                   <td>{{cs.course}}</td>
-                  <td>{{cs.avg_class_size}}</td>
+                  <td>{{cs.avg_class_size | number:0 }}</td>
                 </tr>
               </tbody>
             </table>
@@ -174,17 +174,37 @@
             </accordion-heading>
 
             <div class="clearfix">
-              <div class="small-12 medium-12 large-12 columns bg-tablas-data {{enrollment.attendance_es_ms_k8_ec | filterNull}}" >
-                <div class="democracy color-barra " style="width:{{enrollment.attendance_es_ms_k8_ec}}%;">
-                    <p>{{enrollment.attendance_es_ms_k8_ec | number:1}}%</p>
-                    <itemsurvey><span  class="sin-i"> {{'Attendance Rate' | translateEnrollment}} K-8</span></itemsurvey>
+
+              <div ng-if="isElemSchool">
+                <div class="small-12 medium-12 large-12 columns bg-tablas-data {{enrollment.attendance_es_ms_k8_ec | filterNull}}" >
+                  <div class="democracy color-barra " style="width:{{enrollment.attendance_es_ms_k8_ec}}%;">
+                      <p>{{enrollment.attendance_es_ms_k8_ec | number:1}}%</p>
+                      <itemsurvey><span  class="sin-i"> {{'Attendance Rate' | translateEnrollment}} K-8</span></itemsurvey>
+                  </div>
                 </div>
               </div>
 
-              <div class="small-12 medium-12 large-12 columns bg-tablas-data {{enrollment.attendance_hs_transfer_hs | filterNull}}" >
-                <div class="democracy color-barra  " style="width:{{enrollment.attendance_hs_transfer_hs}}%;">
-                      <p>{{enrollment.attendance_hs_transfer_hs | number:1}}%</p>
-                      <itemsurvey><span  class="sin-i"> {{'Attendance Rate' | translateEnrollment}} 9-12</span></itemsurvey>
+              <div ng-if="isHighSchool">
+                <div class="small-12 medium-12 large-12 columns bg-tablas-data {{enrollment.attendance_hs_transfer_hs | filterNull}}" >
+                  <div class="democracy color-barra  " style="width:{{enrollment.attendance_hs_transfer_hs}}%;">
+                        <p>{{enrollment.attendance_hs_transfer_hs | number:1}}%</p>
+                        <itemsurvey><span  class="sin-i"> {{'Attendance Rate' | translateEnrollment}} 9-12</span></itemsurvey>
+                  </div>
+                </div>
+              </div>
+
+              <div ng-if="isMultiSchool">
+                <div class="small-12 medium-12 large-12 columns bg-tablas-data {{enrollment.attendance_es_ms_k8_ec | filterNull}}" >
+                  <div class="democracy color-barra " style="width:{{enrollment.attendance_es_ms_k8_ec}}%;">
+                      <p>{{enrollment.attendance_es_ms_k8_ec | number:1}}%</p>
+                      <itemsurvey><span  class="sin-i"> {{'Attendance Rate' | translateEnrollment}} K-8</span></itemsurvey>
+                  </div>
+                </div>
+                <div class="small-12 medium-12 large-12 columns bg-tablas-data {{enrollment.attendance_hs_transfer_hs | filterNull}}" >
+                  <div class="democracy color-barra  " style="width:{{enrollment.attendance_hs_transfer_hs}}%;">
+                        <p>{{enrollment.attendance_hs_transfer_hs | number:1}}%</p>
+                        <itemsurvey><span  class="sin-i"> {{'Attendance Rate' | translateEnrollment}} 9-12</span></itemsurvey>
+                  </div>
                 </div>
               </div>
 

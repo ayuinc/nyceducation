@@ -235,6 +235,20 @@ nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', '$filter', 'DatosSc
   $rootScope.proficiency_ratings = DatosSchool.datos.proficiency_rating[indice];
   $rootScope.city_average = DatosSchool.datos.city_averages[indice];
   $rootScope.class_size = $filter('filter')(DatosSchool.datos.class_size, {'year': $scope.selectedyearEnrollment.substr(-4)}, true);
+
+  var tmpKinderClassSizesList = [],
+      lastGradeBefore0KFound = 0;
+
+  $rootScope.class_size.map(function (i, index) {
+    if(i.grade.indexOf('0K-') !== -1){
+      if(lastGradeBefore0KFound == 0){ lastGradeBefore0KFound = index; }
+      tmpKinderClassSizesList.push(i);
+    }
+  });
+  if(lastGradeBefore0KFound > 0){
+    $rootScope.class_size = tmpKinderClassSizesList.concat($rootScope.class_size.slice(0, lastGradeBefore0KFound));
+  }
+
   $rootScope.hasClassSizeItems = $rootScope.class_size.length > 0 ? true : false;
 
   $scope.changeyear = function(indice) {
@@ -266,6 +280,22 @@ nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', '$filter', 'DatosSc
   $rootScope.isHighSchool = $rootScope.schoolType.highschool;
   $rootScope.isElemSchool = $rootScope.schoolType.elementary || $rootScope.schoolType.middle;
   $rootScope.isMultiSchool = $rootScope.schoolType.elementary && $rootScope.schoolType.highschool;
+
+
+  // Sorting the class size by it course, the the subject (only for HS)
+  if($rootScope.isHighSchool || $rootScope.isMultiSchool){
+    $rootScope.class_size.sort(function(a, b){
+      if(a.course < b.course) return -1;
+      if(a.course > b.course) return 1;
+      return 0;
+    });
+
+    $rootScope.class_size.sort(function(a, b){
+      if(a.grade < b.grade) return -1;
+      if(a.grade > b.grade) return 1;
+      return 0;
+    });
+  }
 
   $rootScope.hasClassSize = false;
 
