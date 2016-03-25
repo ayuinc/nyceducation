@@ -57,6 +57,9 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
           case 13:
               return '255px';
               break;
+          case 14:
+              return '141px';
+              break;
           }
 
         }else{
@@ -100,6 +103,9 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
               break;
           case 13:
               return '207px';
+              break;
+          case 14:
+              return '91px';
               break;
           }
 
@@ -251,6 +257,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'No. Students'){ return "No. de estudiantes";}
             else if (text == 'Attendance Rate'){ return "Tasa de asistencia";}
             else if (text == 'Attendance'){ return "Asistencia a clases";}
+            else if (text == 'Class Size'){ return "Tamaño de clase";}
         }else{ return text; };
     }
 })
@@ -345,6 +352,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Very satisfied'){ return "Muy satisfecho";}
             else if (text == 'Satisfied'){ return "Satisfecho";}
             else if (text == 'Categories'){ return "Categorías";}
+            else if (text == 'Categories (Satisfaction Rate)'){ return "Categorías (Tasa de satisfacción)";}
             else if (text == 'Safety and Respect'){ return "Seguridad y respeto";}
             else if (text == 'Engagement'){ return "Participación";}
             else if (text == 'Communication'){ return "Comunicación";}
@@ -438,14 +446,17 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'This is the highest rating a school can earn on the Quality Review.  It indicates highly effective teaching and learning practice, strategic school management, and an excellent quality learning environment.'){ return "Es la calificación más alta que puede obtener una escuela en la Revisión de calidad.  Indica prácticas de enseñanza y aprendizaje sólidas altamente eficaces, manejo estratégico de la escuela y un entorno de aprendizaje de excelente calidad.";}
             else if (text == 'The first school year that the school was open.'){ return "El primer año de funcionamiento de la escuela.";}
 
-            else if (text == 'Collaborative Teachers'){ return 'Collaborative Teachers'; }
-            else if (text == 'Effective School Leadership'){ return 'Effective School Leadership'; }
-            else if (text == 'Rigorous Instruction'){ return 'Rigorous Instruction'; }
-            else if (text == 'Strong Family-Community Ties'){ return 'Strong Family-Community Ties'; }
-            else if (text == 'Supportive Environment'){ return 'Supportive Environment'; }
-            else if (text == 'Trust'){ return 'Trust'; }
-            else if (text == 'Description'){ return "Descripción";}
+            else if (text == 'The degree to which teachers participate in opportunities to develop, grow, and contribute to the continuous improvement of the school community. '){ return 'The degree to which teachers participate in opportunities to develop, grow, and contribute to the continuous improvement of the school community. '; }
+            else if (text == 'The degree to which school leadership inspires the school community with a clear instructional vision and effectively distributes leadership to realize this vision.'){ return 'The degree to which school leadership inspires the school community with a clear instructional vision and effectively distributes leadership to realize this vision.'; }
+            else if (text == 'The degree to which curriculum and instruction are designed to engage students, foster critical-thinking skills, and are aligned to the Common Core.'){ return 'The degree to which curriculum and instruction are designed to engage students, foster critical-thinking skills, and are aligned to the Common Core.'; }
+            else if (text == 'The degree to which the school forms effective partnerships with families and outside organizations to improve the school.'){ return 'The degree to which the school forms effective partnerships with families and outside organizations to improve the school.'; }
+            else if (text == 'The degree to which the school establishes a culture where students feel safe, challenged to grow, and supported to meet high expectations.'){ return 'The degree to which the school establishes a culture where students feel safe, challenged to grow, and supported to meet high expectations.'; }
+            else if (text == 'The degree to which relationships between administrators, educators, students, and families are based on trust and respect.'){ return 'The degree to which relationships between administrators, educators, students, and families are based on trust and respect.'; }
+            else if (text == 'The degree to which curriculum and instruction are designed to engage students, foster critical-thinking skills, and are aligned to the Common Core.'){ return "The degree to which curriculum and instruction are designed to engage students, foster critical-thinking skills, and are aligned to the Common Core.";}
             else if (text == 'Assessment'){ return "Evaluación"; }
+
+            else if (text == 'Average class size is calculated by dividing the number of students by the number of sections as determined by each student’s official class (e.g. homeroom/advisory) from the Automate the Schools (ATS) system.'){ return "Average class size is calculated by dividing the number of students by the number of sections as determined by each student’s official class (e.g. homeroom/advisory) from the Automate the Schools (ATS) system."; }
+            else if (text == 'Average class size is calculated by the average number of students in each section of course courses (English, Math, Science and Social Studies) from the STARS system.'){ return "Average class size is calculated by the average number of students in each section of course courses (English, Math, Science and Social Studies) from the STARS system."; }
 
         }else{ return text; };
     }

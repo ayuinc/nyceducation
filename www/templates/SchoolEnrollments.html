@@ -31,9 +31,13 @@
       <div ng-controller="AccordionDemoCtrl">
         <accordion close-others="oneAtATime">
 
+          <div ng-if="isElemSchool" style="position:relative;z-index:5;top: 7px;left: {{ 14 | iconPosition }};cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="{{'Average class size is calculated by dividing the number of students by the number of sections as determined by each student’s official class (e.g. homeroom/advisory) from the Automate the Schools (ATS) system.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>
+
+          <div ng-if="isHighSchool" style="position:relative;z-index:5;top: 7px;left: {{ 14 | iconPosition }};cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="{{'Average class size is calculated by the average number of students in each section of course courses (English, Math, Science and Social Studies) from the STARS system.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>
+
           <accordion-group  is-open="false" >
             <accordion-heading>
-              <div>{{'ENROLL_CLASS_SIZE' | translate}}</div>
+              <div>{{'Class Size' | translateEnrollment}}</div>
             </accordion-heading>
             <table ng-if="isElemSchool">
               <thead>
@@ -175,7 +179,7 @@
 
             <div class="clearfix">
 
-              <div ng-if="isElemSchool">
+              <div ng-if="isElemSchool && !isMultiSchool">
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data {{enrollment.attendance_es_ms_k8_ec | filterNull}}" >
                   <div class="democracy color-barra " style="width:{{enrollment.attendance_es_ms_k8_ec}}%;">
                       <p>{{enrollment.attendance_es_ms_k8_ec | number:1}}%</p>
@@ -184,7 +188,7 @@
                 </div>
               </div>
 
-              <div ng-if="isHighSchool">
+              <div ng-if="isHighSchool && !isMultiSchool">
                 <div class="small-12 medium-12 large-12 columns bg-tablas-data {{enrollment.attendance_hs_transfer_hs | filterNull}}" >
                   <div class="democracy color-barra  " style="width:{{enrollment.attendance_hs_transfer_hs}}%;">
                         <p>{{enrollment.attendance_hs_transfer_hs | number:1}}%</p>

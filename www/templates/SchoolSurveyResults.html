@@ -72,12 +72,12 @@
              <accordion-group is-open="false">
 
             <accordion-heading>
-                <div>{{'Categories' | translateSurvey}}</div>
+                <div>{{'Categories (Satisfaction Rate)' | translateSurvey}}</div>
             </accordion-heading>
 
             <div class="sub-acordion">
 
-              <div class="row" ng-if="SurveyResultsYearSelected < 3">
+              <div  style="display: none;" class="row" ng-if="SurveyResultsYearSelected < 3">
 
                 <!-- Parents -->
                 <div class ="{{ 'parents' | filtraSurvey }}">
@@ -133,7 +133,7 @@
 
               </div>
 
-              <div class="row" ng-if="SurveyResultsYearSelected < 3">
+              <div style="display: none;" class="row" ng-if="SurveyResultsYearSelected < 3">
 
                 <!-- Parents -->
                 <div class ="{{ 'parents' | filtraSurvey }}">
@@ -188,7 +188,7 @@
 
               </div>
 
-              <div class="row" ng-if="SurveyResultsYearSelected < 3">
+              <div style="display: none;" class="row" ng-if="SurveyResultsYearSelected < 3">
 
                 <!-- Parents -->
                 <div class ="{{ 'parents' | filtraSurvey }}">
@@ -243,7 +243,7 @@
 
               </div>
 
-              <div class="row" ng-if="SurveyResultsYearSelected < 3">
+              <div style="display: none;" class="row" ng-if="SurveyResultsYearSelected < 3">
 
                 <!-- Parents -->
                 <div class ="{{ 'parents' | filtraSurvey }}">
@@ -301,7 +301,7 @@
                   <div class="democracy color-barra" style="width:{{survey_results.ps_collaborative_teachers}}%;">
                     <p>{{survey_results.ps_collaborative_teachers | number:1 }}%</p>
                     <itemsurvey><span class="con-info"> {{'Collaborative Teachers' | translateSurvey}} </span>
-                    <div Popover-animation="false" popover="{{'Description' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    <div Popover-animation="false" popover="{{'The degree to which curriculum and instruction are designed to engage students, foster critical-thinking skills, and are aligned to the Common Core.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
                   </div>
                   <div class="metrics {{city_average.SchoolSurvey_Collaborative_Teachers | filtraCeros}}">
@@ -317,7 +317,7 @@
                   <div class="democracy color-barra" style="width:{{survey_results.ps_school_leadership}}%;">
                     <p>{{survey_results.ps_school_leadership | number:1 }}%</p>
                     <itemsurvey><span class="con-info"> {{'Effective School Leadership' | translateSurvey}} </span>
-                    <div Popover-animation="false" popover="{{'Effective School Leadership' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    <div Popover-animation="false" popover="{{'The degree to which school leadership inspires the school community with a clear instructional vision and effectively distributes leadership to realize this vision.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
                   </div>
                   <div class="metrics {{city_average.SchoolSurvey_School_Leadership | filtraCeros}}">
@@ -333,7 +333,7 @@
                   <div class="democracy color-barra" style="width:{{survey_results.ps_rigorous_instruction}}%;">
                     <p>{{survey_results.ps_rigorous_instruction | number:1 }}%</p>
                     <itemsurvey><span class="con-info"> {{'Rigorous Instruction' | translateSurvey}} </span>
-                    <div Popover-animation="false" popover="{{'Rigorous Instruction' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    <div Popover-animation="false" popover="{{'The degree to which curriculum and instruction are designed to engage students, foster critical-thinking skills, and are aligned to the Common Core.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
                   </div>
                   <div class="metrics {{city_average.SchoolSurvey_Rigorous_Instruction | filtraCeros}}">
@@ -349,7 +349,7 @@
                   <div class="democracy color-barra" style="width:{{survey_results.ps_strongf_communityt}}%;">
                     <p>{{survey_results.ps_strongf_communityt | number:1 }}%</p>
                     <itemsurvey><span class="con-info"> {{'Strong Family-Community Ties' | translateSurvey}} </span>
-                    <div Popover-animation="false" popover="{{'Strong Family-Community Ties' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    <div Popover-animation="false" popover="{{'The degree to which the school forms effective partnerships with families and outside organizations to improve the school.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
                   </div>
                   <div class="metrics {{city_average.SchoolSurvey_Strongf_Communityt | filtraCeros}}">
@@ -365,7 +365,7 @@
                   <div class="democracy color-barra" style="width:{{survey_results.ps_supportive_environment}}%;">
                     <p>{{survey_results.ps_supportive_environment | number:1 }}%</p>
                     <itemsurvey><span class="con-info"> {{'Supportive Environment' | translateSurvey}} </span>
-                    <div Popover-animation="false" popover="{{'Supportive Environment' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    <div Popover-animation="false" popover="{{'The degree to which the school establishes a culture where students feel safe, challenged to grow, and supported to meet high expectations.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
                   </div>
                   <div class="metrics {{city_average.SchoolSurvey_Supportive_Environment | filtraCeros}}">
@@ -381,7 +381,7 @@
                   <div class="democracy color-barra" style="width:{{survey_results.ps_trust}}%;">
                     <p>{{survey_results.ps_trust | number:1 }}%</p>
                     <itemsurvey><span class="con-info"> {{'Trust' | translateSurvey}} </span>
-                    <div Popover-animation="false" popover="{{'Trust' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    <div Popover-animation="false" popover="{{'The degree to which relationships between administrators, educators, students, and families are based on trust and respect.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
                   </div>
                   <div class="metrics {{city_average.SchoolSurvey_Trust | filtraCeros}}">

@@ -48,7 +48,7 @@
 <div id="all_eva" class="borrar">
 <!-- ES ES ES ES -->
 
-<div id="elementary_eva" class="borrar">
+<div id="elementary_eva" class="borrar" ng-show="showElementary">
 
 			<div class="row menu-header"  style="padding-top:0 !important">
 				<div class="small-10 small-centered medium-10 large-10 columns">
@@ -58,7 +58,7 @@
 								<a dropdown-toggle="#dropdown-Evaluations" class="button dropdown small bg-dropdown">{{selectedyearEvaluationsElem}}</a>
 									<ul id="dropdown-Evaluations" class="f-dropdown">
 										<li ng-repeat="item in itemsYearsEvaluationsElem">
-											<a ng-click="changeyear(item.indice)">{{item.texto}}</a>
+											<a ng-click="changeyear($index)">{{item.texto}}</a>
 										</li>
 									</ul>
 								<br>
@@ -196,7 +196,7 @@
 				</div>
 
 				<div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ratings.ri_22 | filtraCeros}}">
-					<div class="democracy color-barra " style="width:{{evaluation_ratings.ri_22 | filtraqr}}%;">
+					<div class="democracy color-barra-2 " style="width:{{evaluation_ratings.ri_22 | filtraqr}}%;">
 						<p style="font-size:1.1rem">{{evaluation_ratings.ri_22 | translateEvaluations}}</p>
 						<itemsurvey style="width:40%;top:-0.4rem;text-align:right;"><span class="con-info">{{'Assessment' | translateEvaluations}}</span>
 						<div Popover-animation="false" popover="{{'Assessment Description' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer;" onclick="quitaBurbuja()"></div>
@@ -230,7 +230,7 @@
 
 <!-- HS HS HS HS -->
 
-	<div id="high_eva" class="borrar">
+	<div id="high_eva" class="borrar" ng-show="showHigh">
 			<div class="row menu-header" style="padding-top:0 !important">
 				<div class="small-10 small-centered medium-10 large-10 columns">
 					<div class="row">
@@ -239,7 +239,7 @@
 								<a dropdown-toggle="#dropdown-Evaluations_hs" class="button dropdown small bg-dropdown">{{selectedyearEvaluationsHigh}}</a>
 									<ul id="dropdown-Evaluations_hs" class="f-dropdown">
 										<li ng-repeat="item_hs in itemsYearsEvaluationsHigh">
-											<a ng-click="changeyear_hs(item_hs.indice)">{{item_hs.texto}}</a>
+											<a ng-click="changeyear_hs($index)">{{item_hs.texto}}</a>
 										</li>
 									</ul>
 								<br>
@@ -367,7 +367,7 @@
 					</div>
 
 					<div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ratings.ri_14 | filtraCeros}}">
-						<div class="democracy color-barra" style="width:{{evaluation_ratings.ri_14 | filtraqr}}%;">
+						<div class="democracy color-barra-2" style="width:{{evaluation_ratings.ri_14 | filtraqr}}%;">
 							<p style="font-size:1.1rem">{{evaluation_ratings.ri_14 | translateEvaluations}}</p>
 							<itemsurvey style="width:40%;top:-0.4rem;text-align:right;"><span class="con-info">{{'Positive Learning Env.' | translateEvaluations}}</span>
 							<div Popover-animation="false" popover="{{'Measures the quality of school culture and environment including safety, inclusiveness and other student success supports.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer;" onclick="quitaBurbuja()"></div>
@@ -385,7 +385,7 @@
 					</div>
 
 					<div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ratings.ri_22 | filtraCeros}}">
-						<div class="democracy color-barra " style="width:{{evaluation_ratings.ri_22 | filtraqr}}%;">
+						<div class="democracy color-barra-2" style="width:{{evaluation_ratings.ri_22 | filtraqr}}%;">
 							<p style="font-size:1.1rem">{{evaluation_ratings.ri_22 | translateEvaluations}}</p>
 							<itemsurvey style="width:40%;top:-0.4rem;text-align:right;"><span class="con-info">{{'Assessment' | translateEvaluations}}</span>
 							<div Popover-animation="false" popover="{{'Assessment Description' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer;" onclick="quitaBurbuja()"></div>
