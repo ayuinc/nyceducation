@@ -8,6 +8,11 @@ nyc_controllers.controller("TestScoreCtrlYearEl", ['$scope', 'DatosSchool', '$ro
     var availableYears = [];
     var arrayAvailableYears = [];
     var jsonAvaylableYears = "";
+    var lengthAvailableYears = 0, 
+      testScoresByYearTotal = DatosSchool.datos.evaluations.length,
+      testScoresFirstYear = parseInt(DatosSchool.datos.evaluations[0].year,10),
+      selectedYear = testScoresFirstYear;
+
     for (i = 0; i < 5; i++) {
 		vElaScores = DatosSchool.SearchValuesElaScores(i);
 		vMathScores = DatosSchool.SearchValuesMathScores(i);
@@ -18,15 +23,23 @@ nyc_controllers.controller("TestScoreCtrlYearEl", ['$scope', 'DatosSchool', '$ro
 		}
     }
 
+    lengthAvailableYears = availableYears.length;
+    if (lengthAvailableYears == 5) {
+      availableYears.shift(); 
+    }
+    
     for (i = 0; i < availableYears.length; i++) {
       var item = {
-        texto: ((2010+availableYears[i]).toString() +' - ').concat((2011+availableYears[i]).toString()),
+        texto: ((testScoresFirstYear + i).toString() +' - ').concat(((testScoresFirstYear + 1) + i).toString()),
+        // texto: ((2010+availableYears[i]).toString() +' - ').concat((2011+availableYears[i]).toString()),
         indice: availableYears[i],
         index: i
       };
       arrayAvailableYears.push(item);
-      $rootScope.TestScoreSelectedYear = (2011+availableYears[i]).toString();
+      // $rootScope.TestScoreSelectedYear = (2011+availableYears[i]).toString();
+      $rootScope.TestScoreSelectedYear= arrayAvailableYears[arrayAvailableYears.length-1].texto;
     }
+    // $rootScope.TestScoreSelectedYear= arrayAvailableYears[arrayAvailableYears.length-1].texto;
 
     function setYear(e){
     	if(typeof e !== 'undefined'){
@@ -95,6 +108,7 @@ nyc_controllers.controller("TestScoreCtrlYearEl", ['$scope', 'DatosSchool', '$ro
       $.each($rootScope.itemsYearsTestScoreEl, function(i, v) {
         if (v.indice == indice_year) {
           ind = i;
+          selectedYear = v.year;
         };
       });
 
@@ -142,6 +156,9 @@ nyc_controllers.controller("TestScoreCtrlYearHs" ,[ '$scope', 'DatosSchool', '$r
     var availableYears = [];
     var arrayAvailableYears = [];
     var jsonAvaylableYears = "";
+    var testScoresByYearTotal = DatosSchool.datos.evaluations.length,
+      testScoresFirstYear = parseInt(DatosSchool.datos.evaluations[0].year,10),
+      selectedYear = testScoresFirstYear;
 
     for (i = 0; i < 5; i++) {
       vSat = DatosSchool.SearchValuesSat(i);
@@ -154,7 +171,8 @@ nyc_controllers.controller("TestScoreCtrlYearHs" ,[ '$scope', 'DatosSchool', '$r
     };
     for (i = 0; i < availableYears.length; i++) {
       var item = {
-        texto: ((2010+availableYears[i]).toString() +' - ').concat((2011+availableYears[i]).toString()),
+        texto: ((testScoresFirstYear + i).toString() +' - ').concat(((testScoresFirstYear + 1) + i).toString()),
+        // texto: ((2010+availableYears[i]).toString() +' - ').concat((2011+availableYears[i]).toString()),
         indice: availableYears[i],
         index: i
       };
@@ -231,6 +249,7 @@ nyc_controllers.controller("TestScoreCtrlYearHs" ,[ '$scope', 'DatosSchool', '$r
       $.each($scope.itemsYears, function(i, v) {
         if (v.indice == indice_year) {
           ind = i;
+          selectedYear = v.year;
         };
       });
 
