@@ -482,9 +482,8 @@ nyc_controllers.controller("SelectEvaluations" ,[ '$scope', 'DatosSchool', '$roo
   $rootScope.showHigh = false;
 
   $scope.changeEvaluations = function(indice) {
-    console.log(indice);
     // $scope.SelectEvaluations_is = $scope.itemsEvaluations[indice].texto;
-    if (indice===0){
+    if (indice==="0"){
       $rootScope.evaluation_ratings=DatosSchool.datos.evaluation_rating[2];
       $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[2];
       $rootScope.evaluation=DatosSchool.datos.evaluations[2];
@@ -1196,9 +1195,15 @@ nyc_controllers.controller("SurveyYearCtrl" ,[ '$scope', 'DatosSchool', '$rootSc
       }
     }
 
-    $rootScope.survey_results = DatosSchool.datos.survey_result[surveyResultDataIndex];
-    $rootScope.city_average= DatosSchool.datos.city_averages[cityAvarageDataIndex];
-    $rootScope.proficiency_ratings = DatosSchool.datos.proficiency_rating[proficiencyDataIndex];
+    // console.log(surveyResultDataIndex);
+    $rootScope.survey_results = DatosSchool.datos.survey_result[indice];
+    $rootScope.city_average= DatosSchool.datos.city_averages[indice];
+    $rootScope.proficiency_ratings = DatosSchool.datos.proficiency_rating[indice];
+
+    // console.log(indice);
+    // $rootScope.survey_results = DatosSchool.datos.survey_result[indice];
+    // $rootScope.city_average= DatosSchool.datos.city_averages[indice];
+    // $rootScope.proficiency_ratings = DatosSchool.datos.proficiency_rating[indice];
 
     $rootScope.hasZeroStudentsQuestions = true;
     $rootScope.hasZeroTeachersQuestions = true;
@@ -1256,9 +1261,13 @@ nyc_controllers.controller("SurveyYearCtrl" ,[ '$scope', 'DatosSchool', '$rootSc
       $rootScope.SurveyResultsYearSelected = indice;
       $rootScope.selectedyear_survey = $scope.itemsYears[ind].texto;
       // $rootScope.selectedyear_sd = $scope.itemsYears[indice_year].texto;
-      $rootScope.survey_results = $filter('filter')(DatosSchool.datos.survey_result, {'year': selectedYear}, true);
-      $rootScope.city_average= $filter('filter')(DatosSchool.datos.city_averages, {'year': selectedYear}, true);
-      $rootScope.proficiency_ratings = $filter('filter')(DatosSchool.datos.proficiency_rating, {'year': selectedYear}, true);
+      // $rootScope.survey_results = $filter('filter')(DatosSchool.datos.survey_result, {'year': selectedYear}, true);
+      // $rootScope.city_average= $filter('filter')(DatosSchool.datos.city_averages, {'year': selectedYear}, true);
+      // $rootScope.proficiency_ratings = $filter('filter')(DatosSchool.datos.proficiency_rating, {'year': selectedYear}, true);
+
+      $rootScope.survey_results = DatosSchool.datos.survey_result[ind];
+      $rootScope.city_average= DatosSchool.datos.city_averages[ind];
+      $rootScope.proficiency_ratings = DatosSchool.datos.proficiency_rating[ind];
 
       var surveyResultDataIndex = 0,
         cityAvarageDataIndex = 0,

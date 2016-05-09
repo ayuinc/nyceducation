@@ -288,15 +288,43 @@ nyc_controllers.controller("TestScoreCtrlYearHs" ,[ '$scope', 'DatosSchool', '$r
 
 nyc_controllers.controller("SelectTestScores" ,[ '$scope', 'DatosSchool', '$rootScope',function ($scope, DatosSchool, $rootScope) {
 
-  $scope.SelectTestScores_si= "Select";
-  $scope.items_selec_testScore = [{texto:"Middle",indice:"0"},{texto:"High",indice:"1"},{texto:"Elementary",indice:"2"}];
+  var availableGrades3rd = [];
+  var availableGrades4th = [];
+  var availableGrades5th = [];
 
+  for (i = 0; i < 4; i++) {
+    var vGrade3rdEla = DatosSchool.SearchTestScoreGrade3rdEla(i);
+    var vGrade4thEla = DatosSchool.SearchTestScoreGrade4thEla(i);
+    var vGrade5thEla = DatosSchool.SearchTestScoreGrade5thEla(i);
+      if ( vGrade3rdEla ){
+        availableGrades3rd.push(i);
+      }
+      if ( vGrade4thEla ){
+        availableGrades4th.push(i);
+      }
+      if ( vGrade5thEla ){
+        availableGrades5th.push(i);
+      }
+  };
+
+  $scope.SelectTestScores_si= "Select";
+  var selectTestScore = [{texto:"Middle",indice:"0"},{texto:"High",indice:"1"}];
+  var sum = availableGrades3rd.length + availableGrades4th.length + availableGrades5th.length ;
+  if ( sum > 0) {
+    var itemSelect = {
+      texto: "Elementary",
+      indice: 2
+    }
+    selectTestScore.push(itemSelect);
+  }
+  $scope.items_selec_testScore = selectTestScore;
+  
   // updategrades
   $scope.updategrades = function() {
     var vGrade3rdEla,vGrade4thEla,vGrade5thEla,vGrade6thEla,vGrade7thEla,vGrade8thEla;
-    var availableGrades3rd = [];
-    var availableGrades4th = [];
-    var availableGrades5th = [];
+    // var availableGrades3rd = [];
+    // var availableGrades4th = [];
+    // var availableGrades5th = [];
     var availableGrades6th = [];
     var availableGrades7th = [];
     var availableGrades8th = [];
@@ -306,24 +334,24 @@ nyc_controllers.controller("SelectTestScores" ,[ '$scope', 'DatosSchool', '$root
     var jsonArrayAvailableAllGrades = "";
 
 
-    for (i = 0; i < 4; i++) {
-    vGrade3rdEla = DatosSchool.SearchTestScoreGrade3rdEla(i);
-      if ( vGrade3rdEla ){
-        availableGrades3rd.push(i);
-      }
-    };
-    for (i = 0; i < 4; i++) {
-    vGrade4thEla = DatosSchool.SearchTestScoreGrade4thEla(i);
-      if ( vGrade4thEla ){
-        availableGrades4th.push(i);
-      }
-    };
-    for (i = 0; i < 4; i++) {
-    vGrade5thEla = DatosSchool.SearchTestScoreGrade5thEla(i);
-      if ( vGrade5thEla ){
-        availableGrades5th.push(i);
-      }
-    };
+    // for (i = 0; i < 4; i++) {
+    // vGrade3rdEla = DatosSchool.SearchTestScoreGrade3rdEla(i);
+    //   if ( vGrade3rdEla ){
+    //     availableGrades3rd.push(i);
+    //   }
+    // };
+    // for (i = 0; i < 4; i++) {
+    // vGrade4thEla = DatosSchool.SearchTestScoreGrade4thEla(i);
+    //   if ( vGrade4thEla ){
+    //     availableGrades4th.push(i);
+    //   }
+    // };
+    // for (i = 0; i < 4; i++) {
+    // vGrade5thEla = DatosSchool.SearchTestScoreGrade5thEla(i);
+    //   if ( vGrade5thEla ){
+    //     availableGrades5th.push(i);
+    //   }
+    // };
     for (i = 0; i < 4; i++) {
     vGrade6thEla = DatosSchool.SearchTestScoreGrade6thEla(i);
       if ( vGrade6thEla ){
@@ -372,6 +400,7 @@ nyc_controllers.controller("SelectTestScores" ,[ '$scope', 'DatosSchool', '$root
         arrayAvailableGrades.push('8th');
       };
     };
+
     for (i = 0; i < arrayAvailableGrades.length; i++) {
       var item = {
         texto: arrayAvailableGrades[i],
@@ -388,6 +417,7 @@ nyc_controllers.controller("SelectTestScores" ,[ '$scope', 'DatosSchool', '$root
         // $scope.selectedgrade = $rootScope.itemsGrades[0].texto;
         $rootScope.GradesAvailable = true;
     };
+
     // if ($rootScope.levelSelected === "Middle") {
     //   $scope.selectedgrade = "6th";
     // } else if ($rootScope.levelSelected === "Elementary") {
@@ -425,6 +455,7 @@ nyc_controllers.controller("SelectTestScores" ,[ '$scope', 'DatosSchool', '$root
 
     // $scope.SelectTestScores_si = $scope.items_selec_testScore[0].texto;
   }else if (indice==="1"){
+    $('#allSchools').show();
 
     var indice = 2;
     $rootScope.city_average=DatosSchool.datos.city_averages[indice];
@@ -455,7 +486,6 @@ nyc_controllers.controller("SelectTestScores" ,[ '$scope', 'DatosSchool', '$root
   }
   // implementing Elementary
   else if (indice==="2"){
-
     var indice = 2;
     // probando con 3 por 2013 (default year)
     // antes: $rootScope.evaluation_ela=DatosSchool.datos.evaluations_ela[indice];
@@ -465,7 +495,6 @@ nyc_controllers.controller("SelectTestScores" ,[ '$scope', 'DatosSchool', '$root
     // fin de actualización con número 3
     $rootScope.city_average=DatosSchool.datos.city_averages[indice];
     $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];
-
     $rootScope.valuesElaScores = DatosSchool.SearchValuesElaScores(indice);
     $rootScope.valuesMathScores = DatosSchool.SearchValuesMathScores(indice);
     $rootScope.valuesAverageProficiencyScoreELA = DatosSchool.SearchValuesAverageProficiencyScoreELA(indice);
