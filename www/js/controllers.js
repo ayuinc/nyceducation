@@ -437,7 +437,7 @@ nyc_controllers.controller("CollegeCarrerCtrlYear" ,[ '$scope', 'DatosSchool', '
 
     for (i = 0; i < availableYears.length; i++) {
         var item = {
-            texto: ((collegeCarreersFirstYear + i).toString() +' - ').concat(((collegeCarreersFirstYear + 1) + i).toString()),
+            texto: ((collegeCarreersFirstYear - 1 + i).toString() +' - ').concat(((collegeCarreersFirstYear) + i).toString()),
             // texto: (2011+availableYears[i]).toString(),
             indice: availableYears[i],
             year: collegeCarreersFirstYear + i,
