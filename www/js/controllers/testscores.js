@@ -171,7 +171,7 @@ nyc_controllers.controller("TestScoreCtrlYearHs" ,[ '$scope', 'DatosSchool', '$r
     };
     for (i = 0; i < availableYears.length; i++) {
       var item = {
-        texto: ((testScoresFirstYear + i).toString() +' - ').concat(((testScoresFirstYear + 1) + i).toString()),
+        texto: ((testScoresFirstYear - 1 + i).toString() +' - ').concat(((testScoresFirstYear) + i).toString()),
         // texto: ((2010+availableYears[i]).toString() +' - ').concat((2011+availableYears[i]).toString()),
         indice: availableYears[i],
         index: i
