@@ -230,8 +230,8 @@ nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', '$filter', 'DatosSc
   }else{
     $rootScope.valuesAttendanceND = false;
   };
-
-  $scope.selectedyearEnrollment = arrayAvailableYears[arrayAvailableYears.length-1].texto;
+  indice = arrayAvailableYears.length-1;
+  $scope.selectedyearEnrollment = arrayAvailableYears[indice].texto;
 
   $rootScope.enrollment = DatosSchool.datos.enrollments[indice];
   $rootScope.proficiency_ratings = DatosSchool.datos.proficiency_rating[indice];
