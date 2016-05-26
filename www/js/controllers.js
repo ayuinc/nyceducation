@@ -313,7 +313,8 @@ nyc_controllers.controller("DemographicsCtrlYear" ,[ '$scope', 'DatosSchool', '$
 
   var demographicsYearsCount = DatosSchool.datos.demographics.length,
       indice = demographicsYearsCount-1,
-      startingYear = parseInt(DatosSchool.datos.demographics[0].year, 10);
+      startingYear = parseInt(DatosSchool.datos.demographics[0].year, 10),
+      selectedYear = startingYear;
 
   $rootScope.demographic=DatosSchool.datos.demographics[indice];
 
@@ -332,9 +333,10 @@ nyc_controllers.controller("DemographicsCtrlYear" ,[ '$scope', 'DatosSchool', '$
 
     for (i = 0; i < availableYears.length; i++) {
       var item = {
-        texto: ((startingYear+availableYears[i]).toString() +' - ').concat(((startingYear+1)+availableYears[i]).toString()),
+        texto: (((startingYear-1)+availableYears[i]).toString()+' - '.concat((startingYear + i).toString())),
         // texto: (2011+availableYears[i]).toString(),
         indice: availableYears[i],
+        year: startingYear + 1,
         index: i
       };
     arrayAvailableYears.push(item);
@@ -353,6 +355,7 @@ nyc_controllers.controller("DemographicsCtrlYear" ,[ '$scope', 'DatosSchool', '$
     $.each($scope.itemsYearsDemographic, function(i, v) {
       if (v.indice == indice) {
         ind = i;
+        selectYear = v.year;
       };
     });
 
@@ -1156,7 +1159,7 @@ nyc_controllers.controller("SurveyYearCtrl" ,[ '$scope', 'DatosSchool', '$rootSc
       }
     };
 
-    for (i = 0; i < availableYears.length; i++) {
+    for (i = 3; i < availableYears.length; i++) {
       var item = {
         texto: ((surveyFirstYear + i).toString() +' - ').concat(((surveyFirstYear+1)+availableYears[i]).toString()),
         // texto: (2011+availableYears[i]).toString(),

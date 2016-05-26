@@ -134,7 +134,6 @@ app.factory('DatosSchool',function($rootScope, $filter){
             return schoolType;
         },
         SearchValuesStudentsEnrolledGrade: function(indice){
-
           var ValuesStudentsEnrolledGrade = [];
           ValuesStudentsEnrolledGrade.push(this.datos.enrollments[indice]["pre_kinder"]);
           ValuesStudentsEnrolledGrade.push(this.datos.enrollments[indice]["kinder"]);

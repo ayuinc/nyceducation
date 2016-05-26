@@ -301,12 +301,12 @@
                   <div class="democracy color-barra" style="width:{{survey_results.ps_collaborative_teachers}}%;">
                     <p>{{survey_results.ps_collaborative_teachers | number:1 }}%</p>
                     <itemsurvey><span class="con-info"> {{'Collaborative Teachers' | translateSurvey}} </span>
-                    <div Popover-animation="false" popover="{{'The degree to which curriculum and instruction are designed to engage students, foster critical-thinking skills, and are aligned to the Common Core.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    <div Popover-animation="false" popover="{{'The degree to which teachers participate in opportunities to develop, grow, and contribute to the continuous improvement of the school community.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
                     </itemsurvey>
                   </div>
                   <div class="metrics {{city_average.SchoolSurvey_Collaborative_Teachers | filtraCeros}}">
                       <div class="average" style="width:{{city_average.SchoolSurvey_Collaborative_Teachers | escala10}}%;">
-                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurvey_Collaborative_Teachers | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurvey_Collaborative_Teachers | redondea}}</p>
                       </div>
                   </div>
                 </div>
@@ -322,7 +322,7 @@
                   </div>
                   <div class="metrics {{city_average.SchoolSurvey_School_Leadership | filtraCeros}}">
                       <div class="average" style="width:{{city_average.SchoolSurvey_School_Leadership | escala10}}%;">
-                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurvey_School_Leadership | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurvey_School_Leadership | redondea}}</p>
                       </div>
                   </div>
                 </div>
@@ -338,7 +338,7 @@
                   </div>
                   <div class="metrics {{city_average.SchoolSurvey_Rigorous_Instruction | filtraCeros}}">
                       <div class="average" style="width:{{city_average.SchoolSurvey_Rigorous_Instruction | escala10}}%;">
-                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurvey_Rigorous_Instruction | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurvey_Rigorous_Instruction | redondea}}</p>
                       </div>
                   </div>
                 </div>
@@ -354,7 +354,7 @@
                   </div>
                   <div class="metrics {{city_average.SchoolSurvey_Strongf_Communityt | filtraCeros}}">
                       <div class="average" style="width:{{city_average.SchoolSurvey_Strongf_Communityt | escala10}}%;">
-                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurvey_Strongf_Communityt | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurvey_Strongf_Communityt | redondea}}</p>
                       </div>
                   </div>
                 </div>
@@ -370,7 +370,7 @@
                   </div>
                   <div class="metrics {{city_average.SchoolSurvey_Supportive_Environment | filtraCeros}}">
                       <div class="average" style="width:{{city_average.SchoolSurvey_Supportive_Environment | escala10}}%;">
-                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurvey_Supportive_Environment | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurvey_Supportive_Environment | redondea}}</p>
                       </div>
                   </div>
                 </div>
@@ -386,8 +386,15 @@
                   </div>
                   <div class="metrics {{city_average.SchoolSurvey_Trust | filtraCeros}}">
                       <div class="average" style="width:{{city_average.SchoolSurvey_Trust | escala10}}%;">
-                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurvey_Trust | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurvey_Trust | redondea}}</p>
                       </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row" ng-if="survey_results.ps_trust == null && survey_results.ps_supportive_environment == null && survey_results.ps_strongf_communityt == null && survey_results.ps_school_leadership == null && survey_results.ps_rigorous_instruction == null" >
+                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                  <div class="democracy color-barra" style="width:0%">
+                    <p style="font-size:1rem; width: 20rem" class="ng-binding">NO DATA AVAILABLE</p>
                   </div>
                 </div>
               </div>

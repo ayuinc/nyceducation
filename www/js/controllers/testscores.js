@@ -160,6 +160,7 @@ nyc_controllers.controller("TestScoreCtrlYearHs" ,[ '$scope', 'DatosSchool', '$r
       testScoresFirstYear = parseInt(DatosSchool.datos.evaluations[0].year,10),
       selectedYear = testScoresFirstYear;
 
+    console.log(DatosSchool.datos.evaluations);  
     for (i = 0; i < 5; i++) {
       vSat = DatosSchool.SearchValuesSat(i);
       vRegentsPassRate = DatosSchool.SearchValuesRegentsPassRate(i);
