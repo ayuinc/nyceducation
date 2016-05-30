@@ -14,13 +14,13 @@ nyc_controllers.controller("TestScoreCtrlYearEl", ['$scope', 'DatosSchool', '$ro
       selectedYear = testScoresFirstYear;
 
     for (i = 0; i < 5; i++) {
-		vElaScores = DatosSchool.SearchValuesElaScores(i);
-		vMathScores = DatosSchool.SearchValuesMathScores(i);
-		vAverageProficiencyScoreELA = DatosSchool.SearchValuesAverageProficiencyScoreELA(i);
-		vAverageProficiencyScoreMath = DatosSchool.SearchValuesAverageProficiencyScoreMath(i);
-		if ( vElaScores || vMathScores || vAverageProficiencyScoreELA || vAverageProficiencyScoreMath ){
-			availableYears.push(i);
-		}
+  		vElaScores = DatosSchool.SearchValuesElaScores(i);
+  		vMathScores = DatosSchool.SearchValuesMathScores(i);
+  		vAverageProficiencyScoreELA = DatosSchool.SearchValuesAverageProficiencyScoreELA(i);
+  		vAverageProficiencyScoreMath = DatosSchool.SearchValuesAverageProficiencyScoreMath(i);
+  		if ( vElaScores || vMathScores || vAverageProficiencyScoreELA || vAverageProficiencyScoreMath ){
+  			availableYears.push(i);
+  		}
     }
 
     lengthAvailableYears = availableYears.length;
@@ -30,7 +30,7 @@ nyc_controllers.controller("TestScoreCtrlYearEl", ['$scope', 'DatosSchool', '$ro
     
     for (i = 0; i < availableYears.length; i++) {
       var item = {
-        texto: ((testScoresFirstYear + i).toString() +' - ').concat(((testScoresFirstYear + 1) + i).toString()),
+        texto: ((testScoresFirstYear + availableYears[i] - 1).toString() +' - ').concat(((testScoresFirstYear + availableYears[i])).toString()),
         // texto: ((2010+availableYears[i]).toString() +' - ').concat((2011+availableYears[i]).toString()),
         indice: availableYears[i],
         index: i
