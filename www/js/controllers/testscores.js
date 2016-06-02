@@ -160,7 +160,6 @@ nyc_controllers.controller("TestScoreCtrlYearHs" ,[ '$scope', 'DatosSchool', '$r
       testScoresFirstYear = parseInt(DatosSchool.datos.evaluations[0].year,10),
       selectedYear = testScoresFirstYear;
 
-    console.log(DatosSchool.datos.evaluations);  
     for (i = 0; i < 5; i++) {
       vSat = DatosSchool.SearchValuesSat(i);
       vRegentsPassRate = DatosSchool.SearchValuesRegentsPassRate(i);
@@ -632,7 +631,6 @@ nyc_controllers.controller("TestScoreGradedCtrl", ['$scope', 'DatosSchool', '$ro
       $rootScope.testScore_grade=parseInt(filterGrade);
       $scope.selectedgrade = $scope.itemsGrades[indice_grade].texto;
 
-      console.log($rootScope.testScore_grade);
     };
 }]);
 

@@ -804,9 +804,9 @@ app.factory('DatosSchool',function($rootScope, $filter){
           }
 
           if(category === false || typeof category === 'undefined'){
-            return $filter('filter')(this.datos['evaluations_' + field], {'year': year}, true);
+            return $filter('filter')(this.datos['evaluations_' + field], {'year': year.substr(-4)}, true);
           }else if(category > -1){
-            return $filter('filter')(this.datos['evaluations_' + field], {'year': year, 'category': categoryKeywords[category]}, true)
+            return $filter('filter')(this.datos['evaluations_' + field], {'year': year.substr(-4), 'category': categoryKeywords[category]}, true)
           }
         },
 
