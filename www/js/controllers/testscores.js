@@ -546,7 +546,7 @@ nyc_controllers.controller("TestScoreGradedCtrl", ['$scope', 'DatosSchool', '$ro
 			availableGrades3rd.push(i);
 		}
     };
-    for (i = 0; i < 5; i++) {
+    for (i = 0; i < DatosSchool.datos.evaluations_ela.length; i++) {
     vGrade4thEla = DatosSchool.SearchTestScoreGrade4thEla(i);
       if ( vGrade4thEla ){
         availableGrades4th.push(i);
