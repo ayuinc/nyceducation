@@ -426,7 +426,7 @@ nyc_controllers.controller("SelectTestScores" ,[ '$scope', 'DatosSchool', '$root
   };
   // updategrade ends
   $scope.change_selec_testScore = function(indice) {
-  if (indice==="0"){
+  if (indice=="0"){
 
     var indice = 2;
     // probando con número 3 por 2013 (default year)
@@ -454,7 +454,7 @@ nyc_controllers.controller("SelectTestScores" ,[ '$scope', 'DatosSchool', '$root
 	$('#testScore-high').addClass('borrar');
 
     // $scope.SelectTestScores_si = $scope.items_selec_testScore[0].texto;
-  }else if (indice==="1"){
+  }else if (indice=="1"){
     $('#allSchools').show();
 
     var indice = 2;
@@ -485,7 +485,7 @@ nyc_controllers.controller("SelectTestScores" ,[ '$scope', 'DatosSchool', '$root
     // $scope.SelectTestScores_si = $scope.items_selec_testScore[1].texto;
   }
   // implementing Elementary
-  else if (indice==="2"){
+  else if (indice=="2"){
     var indice = 2;
     // probando con 3 por 2013 (default year)
     // antes: $rootScope.evaluation_ela=DatosSchool.datos.evaluations_ela[indice];
