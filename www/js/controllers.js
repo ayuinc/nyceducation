@@ -282,6 +282,10 @@ nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', '$filter', 'DatosSc
   $rootScope.isHighSchool = $rootScope.schoolType.highschool;
   $rootScope.isElemSchool = $rootScope.schoolType.elementary || $rootScope.schoolType.middle;
   $rootScope.isMultiSchool = $rootScope.schoolType.elementary && $rootScope.schoolType.highschool;
+  if ($rootScope.isMultiSchool) {
+    $rootScope.isHighSchool = false;
+    $rootScope.isElemSchool = false;
+  }
 
 
   // Sorting the class size by it course, the the subject (only for HS)
@@ -305,6 +309,10 @@ nyc_controllers.controller("EnrollmentCtrlYear" ,[ '$scope', '$filter', 'DatosSc
     $rootScope.isHighSchool = $rootScope.schoolType.highschool;
     $rootScope.isElemSchool = $rootScope.schoolType.k8;
     $rootScope.isMultiSchool = $rootScope.schoolType.k8 && $rootScope.schoolType.highschool;
+    if ($rootScope.isMultiSchool) {
+      $rootScope.isHighSchool = false;
+      $rootScope.isElemSchool = false;
+    }
   });
 
 }]);
