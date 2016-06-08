@@ -171,7 +171,7 @@ nyc_controllers.controller("TestScoreCtrlYearHs" ,[ '$scope', 'DatosSchool', '$r
     };
     for (i = 0; i < availableYears.length; i++) {
       var item = {
-        texto: ((testScoresFirstYear - 1 + i).toString() +' - ').concat(((testScoresFirstYear) + i).toString()),
+        texto: ((testScoresFirstYear - 1 + availableYears[i]).toString() +' - ').concat(((testScoresFirstYear) + availableYears[i]).toString()),
         // texto: ((2010+availableYears[i]).toString() +' - ').concat((2011+availableYears[i]).toString()),
         indice: availableYears[i],
         index: i
@@ -457,22 +457,22 @@ nyc_controllers.controller("SelectTestScores" ,[ '$scope', 'DatosSchool', '$root
   }else if (indice=="1"){
     $('#allSchools').show();
 
-    var indice = 2;
-    $rootScope.city_average=DatosSchool.datos.city_averages[indice];
-    $rootScope.evaluation_average_score=DatosSchool.datos.evaluations_average_score[indice];
-    $rootScope.evaluation_regents=DatosSchool.datos.evaluations_regents[indice];
-    $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[indice];
+    var objYear = $rootScope.arrayAvailableYearsTestScoreHs[$rootScope.arrayAvailableYearsTestScoreHs.length - 1];
+    $rootScope.city_average=DatosSchool.datos.city_averages[objYear.indice];
+    $rootScope.evaluation_average_score=DatosSchool.datos.evaluations_average_score[objYear.indice];
+    $rootScope.evaluation_regents=DatosSchool.datos.evaluations_regents[objYear.indice];
+    $rootScope.proficiency_ratings=DatosSchool.datos.proficiency_rating[objYear.indice];
 
-    $rootScope.valuesSat = DatosSchool.SearchValuesSat(indice);
+    $rootScope.valuesSat = DatosSchool.SearchValuesSat(objYear.indice);
     // probando con número 3 por 2013 (default year)
     // $rootScope.valuesRegentsPassRate = DatosSchool.SearchValuesRegentsPassRate(indice);
-    $rootScope.valuesRegentsPassRate = DatosSchool.SearchValuesRegentsPassRate(3);
+    $rootScope.valuesRegentsPassRate = DatosSchool.SearchValuesRegentsPassRate(objYear.indice);
     // $rootScope.valuesRegentsAverageScore = DatosSchool.SearchValuesRegentsAverageScore(indice);
-    $rootScope.valuesRegentsAverageScore = DatosSchool.SearchValuesRegentsAverageScore(3);
+    $rootScope.valuesRegentsAverageScore = DatosSchool.SearchValuesRegentsAverageScore(objYear.indice);
     // $rootScope.valuesRegentsRegentsCollegeReady = DatosSchool.SearchValuesRegentsRegentsCollegeReady(indice);
-    $rootScope.valuesRegentsRegentsCollegeReady = DatosSchool.SearchValuesRegentsRegentsCollegeReady(3);
+    $rootScope.valuesRegentsRegentsCollegeReady = DatosSchool.SearchValuesRegentsRegentsCollegeReady(objYear.indice);
     // fin - probando con número 3 por 2013 (default year)
-    $rootScope.selectedyear_testScore_year_hs= "2013";
+    $rootScope.selectedyear_testScore_year_hs= objYear.texto;
     $rootScope.levelSelected = "High";
 
       $('#testScore-high').removeClass('borrar');
