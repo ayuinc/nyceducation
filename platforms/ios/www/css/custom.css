@@ -18,7 +18,7 @@
 }
 
 .not-available {
-  font-size: 16px !important;
+  /*font-size: 16px !important;*/
   width: 20rem !important;
 }
 
@@ -40,6 +40,10 @@
     font-family: "museo-sans";
     src: url('../fonts/MuseoSans-100.otf') format("OpenType");
 
+}
+
+span em{
+	font-style: normal;
 }
 
 .icon-stack:before {
@@ -1557,4 +1561,19 @@ border: 1px solid #FFFFFF;
 
 .diclaimer-home {
 	margin-bottom:3rem;
+}
+
+.mt-21 {
+	margin-top: 21px;
+	margin-top: 1.31rem;
+}
+
+.mt-14 {
+	margin-top: 14px;
+	margin-top: 0.875rem
+}
+
+.unavailabe-message{
+	text-align: center;
+	padding: 20px 5px;
 }

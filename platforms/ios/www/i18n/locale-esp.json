@@ -10,6 +10,9 @@
   "PROFILE": "Perfil",
   "DEMOGRAPHICS": "Demografía",
   "ENROLLMENT": "Inscripción",
+  "CLASSSIZE_ENROLLMENT": "Tamaño de Clase / Inscripción",
+  "CLASSVIEW_ENROLLMENT": "Vista de clase / Inscripción",
+  "ENROLL_CLASS_SIZE": "Class Size",
   "ADMISSIONS": "Admisiones",
   "TEST_SCORES": "Puntajes en los exámenes",
   "EVALUATIONS": "Evaluaciones",
@@ -22,5 +25,6 @@
   "ENROLL_SECTIONS": "Secciones",
   "ENROLL_SUBJECT": "Asunto",
   "ENROLL_COURSE": "Curso",
-  "ENROLL_AVSIZE": "Av. Size"
+  "ENROLL_AVSIZE": "Av. Size",
+  "UNAVAILABEL_SEL_YEAR": "No disponible para el año seleccionado"
 }

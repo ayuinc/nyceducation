@@ -1,6 +1,6 @@
 /* global angular */
 
-var nyc_controllers = angular.module('controllers_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch", "autocomplete","filters_nyce", "controllers_nyce.testscores"]);
+var nyc_controllers = angular.module('controllers_nyce', [ "ngRoute", "ngAnimate", "ngTouch", "autocomplete", "filters_nyce", "controllers_nyce.testscores"]);
 
 
 nyc_controllers.controller("MainController", ['$scope', '$rootScope', '$window', '$location', '$http', '$translate', '$config', 'SchoolRetriever', function($scope, $rootScope, $window, $location, $http, $translate, $config, SchoolRetriever) {
@@ -27,6 +27,7 @@ nyc_controllers.controller("MainController", ['$scope', '$rootScope', '$window',
     $translate.use('ngl');
     $scope.schools = SchoolRetriever.getSchools();
     $scope.schools.then(function(data){
+
         $scope.schools = data.profiles;
         // $scope.schools = data;
     });

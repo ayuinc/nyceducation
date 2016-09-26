@@ -11,29 +11,29 @@
     </nav>
 
     <div ng-include src="'templates/sidebar.html'"></div>
-    
+
 	<!--CONTENIDO-->
 
 
     <section  class="main-section">
-    
-      <div  class="row menu-header " style="margin-bottom: -0.9rem;">   
+
+      <div  class="row menu-header " style="margin-bottom: -0.9rem;">
         <div class="small-6 small-centered medium-6 large-6 columns">
           <h3 class="text-center">{{'Survey' | translateSurvey}}</h3>
-        </div> 
+        </div>
       </div>
 
-        <div  id="survey_nd" class="row  borrar"> 
+        <div  id="survey_nd" class="row  borrar">
           <div   class="no-data"> NO DATA AVAILABLE</div>
         </div>
 
     <div id="survey_all" class="borrar">
-      <div class="row menu-header" style="padding-top: 0 !important;"> 
+      <div class="row menu-header" style="padding-top: 0 !important;">
 
-    		<div class="small-10 small-centered medium-10 large-10 columns">		
-    			<div class="row">
+    		<div class="small-10 small-centered medium-10 large-10 columns">
+    			<div class="row text-center">
 
-            <div class="small-6  medium-6 large-6 columns" style="margin-right:-2px">
+            <div class="small-6  medium-6 large-6 columns" style="margin: 0 auto; float: none;">
                 <div ng-controller="SurveyYearCtrl" class="text-center" style="">
                   <a dropdown-toggle="#dropdown-year_sr" class="button dropdown small bg-dropdown" style="margin-left: -11px;">{{selectedyear_survey}}</a>
                   <ul id="dropdown-year_sr" class="f-dropdown" >
@@ -44,7 +44,7 @@
                   <br>
                 </div>
             </div>
-
+<!--
     				<div class="small-6  medium-6 large-6 columns " style="margin-left:-3px">
     					<div ng-controller="SurveyRespCtrl" class="text-center">
     					  <a dropdown-toggle="#dropdown-grade_sr" class="button dropdown small bg-dropdown" style="margin-right: -24px;">{{selectedgrade | translateSurvey}}</a>
@@ -55,29 +55,367 @@
     					  </ul>
     					  <br>
     					</div>
-    				</div>	
+    				</div>-->
     			</div>
-    		</div>		
-    	</div>		
-
-
+          <!-- <p class="small-note" style="
+    font-size: 12px;
+    padding-top: 20px;
+    padding-left: 0;
+">Inside the “Categories" section you will find common data across (parents, students and teachers)</p> -->
+    		</div>
+    	</div>
 
       <div ng-controller="AccordionDemoCtrl">
 
         <accordion close-others="oneAtATime">
-        
+
+             <accordion-group is-open="false">
+
+            <accordion-heading>
+                <div>{{'Categories (Satisfaction Rate)' | translateSurvey}}</div>
+            </accordion-heading>
+
+            <div class="sub-acordion">
+
+              <div  style="display: none;" class="row" ng-if="SurveyResultsYearSelected < 3">
+
+                <!-- Parents -->
+                <div class ="{{ 'parents' | filtraSurvey }}">
+                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
+                    <div class="democracy color-barra" style="width:{{survey_results.p_safety_respect_rs | escala10}}%;">
+                      <p>{{survey_results.p_safety_respect_rs | number:1}}/<span class="total_dividendo">10</span></p>
+                      <itemsurvey><span class="con-info"> {{'Safety and Respect' | translateSurvey}} </span>
+                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school creates a physically and emotionally secure environment in which everyone can focus on student learning.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                      </itemsurvey>
+                    </div>
+                    <div class="metrics {{city_average.SchoolSurveyParents_Safety_RespectRawScore | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurveyParents_Safety_RespectRawScore | escala10}}%;">
+                          <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyParents_Safety_RespectRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class ="{{ 'teachers' | filtraSurvey }}">
+
+                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
+                    <div class="democracy color-barra" style="width:{{survey_results.t_safety_respect_rs | escala10}}%;">
+                      <p>{{survey_results.t_safety_respect_rs | number:1}}/<span class="total_dividendo">10</span></p>
+                      <itemsurvey><span class="con-info"> {{'Safety and Respect' | translateSurvey}} </span>
+                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school creates a physically and emotionally secure environment in which everyone can focus on student learning.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                      </itemsurvey>
+                    </div>
+                    <div class="metrics {{city_average.SchoolSurveyTeachers_Safety_RespectRawScore | filtraCeros}}">
+                        <div class="average" style="width:{{city_average.SchoolSurveyTeachers_Safety_RespectRawScore | escala10}}%;">
+                          <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyTeachers_Safety_RespectRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class ="{{ 'students' | filtraSurvey }}">
+                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
+                    <div class="democracy color-barra" style="width:{{survey_results.s_safety_respect_rs | escala10}}%;">
+                      <p>{{survey_results.s_safety_respect_rs | number:1}}/<span class="total_dividendo">10</span></p>
+                      <itemsurvey><span class="con-info"> {{'Safety and Respect' | translateSurvey}} </span>
+                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school creates a physically and emotionally secure environment in which everyone can focus on student learning.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                      </itemsurvey>
+                    </div>
+                    <div class="metrics {{city_average.SchoolSurveyStudents_Safety_RespectRawScore | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurveyStudents_Safety_RespectRawScore | escala10}}%;">
+                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyStudents_Safety_RespectRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div style="display: none;" class="row" ng-if="SurveyResultsYearSelected < 3">
+
+                <!-- Parents -->
+                <div class ="{{ 'parents' | filtraSurvey }}">
+                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
+                    <div class="democracy color-barra" style="width:{{survey_results.p_engagement_rs | escala10}}%;">
+                      <p>{{survey_results.p_engagement_rs | number:1}}/<span class="total_dividendo">10</span></p>
+                      <itemsurvey><span class="con-info"> {{'Engagement' | translateSurvey}} </span>
+                      <div Popover-animation="false" popover="{{'Measures whether respondents feel engaged in an active and vibrant partnership to promote student learning.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                      </itemsurvey>
+                    </div>
+                    <div class="metrics {{city_average.SchoolSurveyParents_EngagementRawScore | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurveyParents_EngagementRawScore | escala10}}%;">
+                          <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyParents_EngagementRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class ="{{ 'teachers' | filtraSurvey }}">
+                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
+                    <div class="democracy color-barra" style="width:{{survey_results.t_engagement_rs | escala10}}%;">
+                      <p>{{survey_results.t_engagement_rs | number:1}}/<span class="total_dividendo">10</span></p>
+                      <itemsurvey><span class="con-info"> {{'Engagement' | translateSurvey}} </span>
+                      <div Popover-animation="false" popover="{{'Measures whether respondents feel engaged in an active and vibrant partnership to promote student learning.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                      </itemsurvey>
+                    </div>
+                    <div class="metrics {{city_average.SchoolSurveyTeachers_EngagementRawScore | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurveyTeachers_EngagementRawScore | escala10}}%;">
+                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyTeachers_EngagementRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class ="{{ 'students' | filtraSurvey }}">
+                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
+                    <div class="democracy color-barra" style="width:{{survey_results.s_engagement_rs | escala10}}%;">
+                      <p>{{survey_results.s_engagement_rs | number:1}}/<span class="total_dividendo">10</span></p>
+                      <itemsurvey><span class="con-info"> {{'Engagement' | translateSurvey}} </span>
+                      <div Popover-animation="false" popover="{{'Measures whether respondents feel engaged in an active and vibrant partnership to promote student learning.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                      </itemsurvey>
+                    </div>
+                    <div class="metrics {{city_average.SchoolSurveyStudents_EngagementRawScore | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurveyStudents_EngagementRawScore | escala10}}%;">
+                          <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyStudents_EngagementRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div style="display: none;" class="row" ng-if="SurveyResultsYearSelected < 3">
+
+                <!-- Parents -->
+                <div class ="{{ 'parents' | filtraSurvey }}">
+                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
+                    <div class="democracy color-barra" style="width:{{survey_results.p_communication_rs | escala10}}%;">
+                      <p>{{survey_results.p_communication_rs | number:1}}/<span class="total_dividendo">10</span></p>
+                      <itemsurvey><span class="con-info"> {{'Communication' | translateSurvey}} </span>
+                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school provides them with information about the school’s educational goals and offers appropriate feedback on each student’s learning outcomes.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                      </itemsurvey>
+                    </div>
+                    <div class="metrics {{city_average.SchoolSurveyParents_CommunicationRawScore | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurveyParents_CommunicationRawScore | escala10}}%;">
+                          <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyParents_CommunicationRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class ="{{ 'teachers' | filtraSurvey }}">
+                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
+                    <div class="democracy color-barra" style="width:{{survey_results.t_communication_rs | escala10}}%;">
+                      <p>{{survey_results.t_communication_rs | number:1}}/<span class="total_dividendo">10</span></p>
+                      <itemsurvey><span class="con-info"> {{'Communication' | translateSurvey}} </span>
+                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school provides them with information about the school’s educational goals and offers appropriate feedback on each student’s learning outcomes.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                      </itemsurvey>
+                    </div>
+                    <div class="metrics {{city_average.SchoolSurveyTeachers_CommunicationRawScore | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurveyTeachers_CommunicationRawScore | escala10}}%;">
+                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyTeachers_CommunicationRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class ="{{ 'students' | filtraSurvey }}">
+                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
+                    <div class="democracy color-barra" style="width:{{survey_results.s_communication_rs | escala10}}%;">
+                      <p>{{survey_results.s_communication_rs | number:1}}/<span class="total_dividendo">10</span></p>
+                      <itemsurvey><span class="con-info"> {{'Communication' | translateSurvey}} </span>
+                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school provides them with information about the school’s educational goals and offers appropriate feedback on each student’s learning outcomes.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                      </itemsurvey>
+                    </div>
+                    <div class="metrics {{city_average.SchoolSurveyStudents_CommunicationRawScore | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurveyStudents_CommunicationRawScore | escala10}}%;">
+                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyStudents_CommunicationRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div style="display: none;" class="row" ng-if="SurveyResultsYearSelected < 3">
+
+                <!-- Parents -->
+                <div class ="{{ 'parents' | filtraSurvey }}">
+                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
+                    <div class="democracy color-barra" style="width:{{survey_results.p_academic_expectations_rs | escala10}}%;">
+                      <p>{{survey_results.p_academic_expectations_rs | number:1}}/<span class="total_dividendo">10</span></p>
+                      <itemsurvey><span class="con-info"> {{'Academic Expectations' | translateSurvey}} </span>
+                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school encourages students to do their best by developing rigorous and meaningful academic goals.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                      </itemsurvey>
+                    </div>
+                    <div class="metrics {{city_average.SchoolSurveyParents_AcademicExpectationsRawScore | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurveyParents_AcademicExpectationsRawScore | escala10}}%;">
+                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyParents_AcademicExpectationsRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class ="{{ 'teachers' | filtraSurvey }}">
+                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
+                    <div class="democracy color-barra" style="width:{{survey_results.t_academic_expectations_rs | escala10}}%;">
+                      <p>{{survey_results.t_academic_expectations_rs | number:1}}/<span class="total_dividendo">10</span></p>
+                      <itemsurvey><span class="con-info"> {{'Academic Expectations' | translateSurvey}} </span>
+                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school encourages students to do their best by developing rigorous and meaningful academic goals.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                      </itemsurvey>
+                    </div>
+                    <div class="metrics {{city_average.SchoolSurveyTeachers_AcademicExpectationsRawScore | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurveyTeachers_AcademicExpectationsRawScore | escala10}}%;">
+                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyTeachers_AcademicExpectationsRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class ="{{ 'students' | filtraSurvey }}">
+                  <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
+                    <div class="democracy color-barra" style="width:{{survey_results.s_academic_expectations_rs | escala10}}%;">
+                      <p>{{survey_results.s_academic_expectations_rs | number:1}}/<span class="total_dividendo">10</span></p>
+                      <itemsurvey><span class="con-info"> {{'Academic Expectations' | translateSurvey}} </span>
+                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school encourages students to do their best by developing rigorous and meaningful academic goals.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                      </itemsurvey>
+                    </div>
+                    <div class="metrics {{city_average.SchoolSurveyStudents_AcademicExpectationsRawScore | filtraCeros}}">
+                        <div class="average" style="width:{{city_average.SchoolSurveyStudents_AcademicExpectationsRawScore | escala10}}%;">
+                          <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyStudents_AcademicExpectationsRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row" ng-if="survey_results.ps_collaborative_teachers != null" >
+                <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data">
+                  <div class="democracy color-barra" style="width:{{survey_results.ps_collaborative_teachers}}%;">
+                    <p>{{survey_results.ps_collaborative_teachers | number:1 }}%</p>
+                    <itemsurvey><span class="con-info"> {{'Collaborative Teachers' | translateSurvey}} </span>
+                    <div Popover-animation="false" popover="{{'The degree to which teachers participate in opportunities to develop, grow, and contribute to the continuous improvement of the school community.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                  </div>
+                  <div class="metrics {{city_average.SchoolSurvey_Collaborative_Teachers | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurvey_Collaborative_Teachers }}%;">
+                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurvey_Collaborative_Teachers | redondea}}</p>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row" ng-if="survey_results.ps_school_leadership != null" >
+                <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data">
+                  <div class="democracy color-barra" style="width:{{survey_results.ps_school_leadership}}%;">
+                    <p>{{survey_results.ps_school_leadership | number:1 }}%</p>
+                    <itemsurvey><span class="con-info"> {{'Effective School Leadership' | translateSurvey}} </span>
+                    <div Popover-animation="false" popover="{{'The degree to which school leadership inspires the school community with a clear instructional vision and effectively distributes leadership to realize this vision.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                  </div>
+                  <div class="metrics {{city_average.SchoolSurvey_School_Leadership | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurvey_School_Leadership }}%;">
+                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurvey_School_Leadership | redondea}}</p>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row" ng-if="survey_results.ps_rigorous_instruction != null" >
+                <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data">
+                  <div class="democracy color-barra" style="width:{{survey_results.ps_rigorous_instruction}}%;">
+                    <p>{{survey_results.ps_rigorous_instruction | number:1 }}%</p>
+                    <itemsurvey><span class="con-info"> {{'Rigorous Instruction' | translateSurvey}} </span>
+                    <div Popover-animation="false" popover="{{'The degree to which curriculum and instruction are designed to engage students, foster critical-thinking skills, and are aligned to the Common Core.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                  </div>
+                  <div class="metrics {{city_average.SchoolSurvey_Rigorous_Instruction | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurvey_Rigorous_Instruction }}%;">
+                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurvey_Rigorous_Instruction | redondea}}</p>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row" ng-if="survey_results.ps_strongf_communityt != null" >
+                <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data">
+                  <div class="democracy color-barra" style="width:{{survey_results.ps_strongf_communityt}}%;">
+                    <p>{{survey_results.ps_strongf_communityt | number:1 }}%</p>
+                    <itemsurvey><span class="con-info"> {{'Strong Family-Community Ties' | translateSurvey}} </span>
+                    <div Popover-animation="false" popover="{{'The degree to which the school forms effective partnerships with families and outside organizations to improve the school.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                  </div>
+                  <div class="metrics {{city_average.SchoolSurvey_Strongf_Communityt | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurvey_Strongf_Communityt }}%;">
+                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurvey_Strongf_Communityt | redondea}}</p>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row" ng-if="survey_results.ps_supportive_environment != null" >
+                <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data">
+                  <div class="democracy color-barra" style="width:{{survey_results.ps_supportive_environment}}%;">
+                    <p>{{survey_results.ps_supportive_environment | number:1 }}%</p>
+                    <itemsurvey><span class="con-info"> {{'Supportive Environment' | translateSurvey}} </span>
+                    <div Popover-animation="false" popover="{{'The degree to which the school establishes a culture where students feel safe, challenged to grow, and supported to meet high expectations.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                  </div>
+                  <div class="metrics {{city_average.SchoolSurvey_Supportive_Environment | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurvey_Supportive_Environment }}%;">
+                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurvey_Supportive_Environment | redondea}}</p>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row" ng-if="survey_results.ps_trust != null" >
+                <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data">
+                  <div class="democracy color-barra" style="width:{{survey_results.ps_trust}}%;">
+                    <p>{{survey_results.ps_trust | number:1 }}%</p>
+                    <itemsurvey><span class="con-info"> {{'Trust' | translateSurvey}} </span>
+                    <div Popover-animation="false" popover="{{'The degree to which relationships between administrators, educators, students, and families are based on trust and respect.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                    </itemsurvey>
+                  </div>
+                  <div class="metrics {{city_average.SchoolSurvey_Trust | filtraCeros}}">
+                      <div class="average" style="width:{{city_average.SchoolSurvey_Trust }}%;">
+                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurvey_Trust | redondea}}</p>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row" ng-if="survey_results.ps_trust == null && survey_results.ps_supportive_environment == null && survey_results.ps_strongf_communityt == null && survey_results.ps_school_leadership == null && survey_results.ps_rigorous_instruction == null" >
+                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                  <div class="democracy color-barra" style="width:0%">
+                    <p style="font-size:1rem; width: 20rem" class="ng-binding">NO DATA AVAILABLE</p>
+                  </div>
+                </div>
+              </div>
+
+            </div> <!-- sub acordion -->
+
+          </accordion-group>
+
           <accordion-group is-open="false">
 
             <accordion-heading>
                 <div>{{'Response Rate' | translateSurvey}}</div>
-            </accordion-heading>      
+            </accordion-heading>
 
             <div class="row">
 
-              <div class ="{{ 'parents' | filtraSurvey }}">
+              <div ng-if="survey_results.p_total_response_rate !== null">
                 <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
                   <div class="democracy color-barra" style="width:{{survey_results.p_total_response_rate}}%;">
                     <p>{{survey_results.p_total_response_rate | redondea}}</p>
+                    <itemsurvey><span class="sin-i">{{ 'Parents' | translateSurvey}}</span></itemsurvey>
                   </div>
 
                   <div class="metrics {{city_average.SchoolSurveyParents_TotalResponseRate | filtraCeros}}">
@@ -89,283 +427,55 @@
               </div>
 
 
-              <div class ="{{ 'teachers' | filtraSurvey }}">
+              <div ng-if="survey_results.t_total_response_rate !== null">
                 <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
                   <div class="democracy color-barra" style="width:{{survey_results.t_total_response_rate}}%;">
                       <p>{{survey_results.t_total_response_rate | redondea}}</p>
+                      <itemsurvey><span class="sin-i">{{ 'Teachers' | translateSurvey}}</span></itemsurvey>
                   </div>
 
                   <div class="metrics {{city_average.SchoolSurveyTeachers_TotalResponseRate | filtraCeros}}">
                     <div class="average" style="width:{{city_average.SchoolSurveyTeachers_TotalResponseRate}}%;">
-                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyTeachers_TotalResponseRate | redondea}}</p>
+                        <p>{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyTeachers_TotalResponseRate | redondea}}</p>
                     </div>
                   </div>
                 </div>
-              </div>          
+              </div>
 
 
-              <div class ="{{ 'students' | filtraSurvey }}">
+              <div ng-if="survey_results.s_total_response_rate !== null">
                 <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
                   <div class="democracy color-barra" style="width:{{survey_results.s_total_response_rate}}%;">
                       <p>{{survey_results.s_total_response_rate | redondea}}</p>
+                      <itemsurvey><span class="sin-i">{{ 'Students' | translateSurvey}}</span></itemsurvey>
                   </div>
 
                   <div class="metrics {{city_average.SchoolSurveyStudents_TotalResponseRate | filtraCeros}}">
                     <div class="average" style="width:{{city_average.SchoolSurveyStudents_TotalResponseRate}}%;">
                         <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyStudents_TotalResponseRate | redondea}}</p>
-                    </div>                          
+                    </div>
                   </div>
                 </div>
-              </div>  
+              </div>
 
             </div> <!-- row general-->
 
           </accordion-group>
-
-
-          <accordion-group is-open="false">
           
-            <accordion-heading>
-                <div>{{'Categories' | translateSurvey}}</div>
-            </accordion-heading>    
-
-            <div class="sub-acordion">
-
-          		<div class="row">
-
-          			<!-- Parents -->
-            		<div class ="{{ 'parents' | filtraSurvey }}">
-            			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-              			<div class="democracy color-barra" style="width:{{survey_results.p_safety_respect_rs | escala10}}%;">
-              				<p>{{survey_results.p_safety_respect_rs | number:1}}/<span class="total_dividendo">10</span></p>
-                      <itemsurvey><span class="con-info"> {{'Safety and Respect' | translateSurvey}} </span>
-                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school creates a physically and emotionally secure environment in which everyone can focus on student learning.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                      </itemsurvey>
-              			</div>
-                    <div class="metrics {{city_average.SchoolSurveyParents_Safety_RespectRawScore | filtraCeros}}">
-                      <div class="average" style="width:{{city_average.SchoolSurveyParents_Safety_RespectRawScore | escala10}}%;">
-                          <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyParents_Safety_RespectRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
-                      </div>                          
-                    </div>
-              		</div>
-            		</div>
-
-
-            		<div class ="{{ 'teachers' | filtraSurvey }}">
-
-            			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
-              			<div class="democracy color-barra" style="width:{{survey_results.t_safety_respect_rs | escala10}}%;">
-              				<p>{{survey_results.t_safety_respect_rs | number:1}}/<span class="total_dividendo">10</span></p>
-                      <itemsurvey><span class="con-info"> {{'Safety and Respect' | translateSurvey}} </span>
-                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school creates a physically and emotionally secure environment in which everyone can focus on student learning.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                      </itemsurvey>          
-              			</div>
-                    <div class="metrics {{city_average.SchoolSurveyTeachers_Safety_RespectRawScore | filtraCeros}}">
-                        <div class="average" style="width:{{city_average.SchoolSurveyTeachers_Safety_RespectRawScore | escala10}}%;">
-                          <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyTeachers_Safety_RespectRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
-                        </div>                          
-                    </div>
-              		</div>
-            		</div>			
-
-
-            		<div class ="{{ 'students' | filtraSurvey }}">
-            			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
-              			<div class="democracy color-barra" style="width:{{survey_results.s_safety_respect_rs | escala10}}%;">
-              				<p>{{survey_results.s_safety_respect_rs | number:1}}/<span class="total_dividendo">10</span></p>
-                      <itemsurvey><span class="con-info"> {{'Safety and Respect' | translateSurvey}} </span>
-                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school creates a physically and emotionally secure environment in which everyone can focus on student learning.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                      </itemsurvey>             
-                    </div>
-                    <div class="metrics {{city_average.SchoolSurveyStudents_Safety_RespectRawScore | filtraCeros}}">
-                      <div class="average" style="width:{{city_average.SchoolSurveyStudents_Safety_RespectRawScore | escala10}}%;">
-                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyStudents_Safety_RespectRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
-                      </div>                          
-                    </div>
-              		</div>
-            		</div>	
-
-          		</div>
-          		
-          		<div class="row">
-
-          			<!-- Parents -->
-          			<div class ="{{ 'parents' | filtraSurvey }}">
-            			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-              			<div class="democracy color-barra" style="width:{{survey_results.p_engagement_rs | escala10}}%;">
-              				<p>{{survey_results.p_engagement_rs | number:1}}/<span class="total_dividendo">10</span></p>
-                      <itemsurvey><span class="con-info"> {{'Engagement' | translateSurvey}} </span>
-                      <div Popover-animation="false" popover="{{'Measures whether respondents feel engaged in an active and vibrant partnership to promote student learning.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                      </itemsurvey>             
-              			</div>
-                    <div class="metrics {{city_average.SchoolSurveyParents_EngagementRawScore | filtraCeros}}">
-                      <div class="average" style="width:{{city_average.SchoolSurveyParents_EngagementRawScore | escala10}}%;">
-                          <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyParents_EngagementRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
-                      </div>                          
-                    </div>
-              		</div>
-          			</div>
-
-
-          			<div class ="{{ 'teachers' | filtraSurvey }}">
-              		<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
-              			<div class="democracy color-barra" style="width:{{survey_results.t_engagement_rs | escala10}}%;">
-              				<p>{{survey_results.t_engagement_rs | number:1}}/<span class="total_dividendo">10</span></p>
-                      <itemsurvey><span class="con-info"> {{'Engagement' | translateSurvey}} </span>
-                      <div Popover-animation="false" popover="{{'Measures whether respondents feel engaged in an active and vibrant partnership to promote student learning.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                      </itemsurvey>             
-              			</div>
-                    <div class="metrics {{city_average.SchoolSurveyTeachers_EngagementRawScore | filtraCeros}}">
-                      <div class="average" style="width:{{city_average.SchoolSurveyTeachers_EngagementRawScore | escala10}}%;">
-                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyTeachers_EngagementRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
-                      </div>                          
-                    </div>
-              		</div>
-          			</div>			
-
-
-          			<div class ="{{ 'students' | filtraSurvey }}">
-            			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-              			<div class="democracy color-barra" style="width:{{survey_results.s_engagement_rs | escala10}}%;">
-              				<p>{{survey_results.s_engagement_rs | number:1}}/<span class="total_dividendo">10</span></p>
-                      <itemsurvey><span class="con-info"> {{'Engagement' | translateSurvey}} </span>
-                      <div Popover-animation="false" popover="{{'Measures whether respondents feel engaged in an active and vibrant partnership to promote student learning.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                      </itemsurvey>             
-              			</div>
-                    <div class="metrics {{city_average.SchoolSurveyStudents_EngagementRawScore | filtraCeros}}">
-                      <div class="average" style="width:{{city_average.SchoolSurveyStudents_EngagementRawScore | escala10}}%;">
-                          <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyStudents_EngagementRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
-                      </div>                          
-                    </div>
-              		</div>
-          			</div>	
-
-          		</div>
-
-          		<div class="row">
-
-          			<!-- Parents -->
-          			<div class ="{{ 'parents' | filtraSurvey }}">
-            			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-              			<div class="democracy color-barra" style="width:{{survey_results.p_communication_rs | escala10}}%;">
-              				<p>{{survey_results.p_communication_rs | number:1}}/<span class="total_dividendo">10</span></p>
-                      <itemsurvey><span class="con-info"> {{'Communication' | translateSurvey}} </span>
-                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school provides them with information about the school’s educational goals and offers appropriate feedback on each student’s learning outcomes.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                      </itemsurvey>            
-              			</div>
-                    <div class="metrics {{city_average.SchoolSurveyParents_CommunicationRawScore | filtraCeros}}">
-                      <div class="average" style="width:{{city_average.SchoolSurveyParents_CommunicationRawScore | escala10}}%;">
-                          <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyParents_CommunicationRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
-                      </div>                          
-                    </div>
-              		</div>
-          			</div>
-
-
-          			<div class ="{{ 'teachers' | filtraSurvey }}">
-            			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-              			<div class="democracy color-barra" style="width:{{survey_results.t_communication_rs | escala10}}%;">
-              				<p>{{survey_results.t_communication_rs | number:1}}/<span class="total_dividendo">10</span></p>
-                      <itemsurvey><span class="con-info"> {{'Communication' | translateSurvey}} </span>
-                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school provides them with information about the school’s educational goals and offers appropriate feedback on each student’s learning outcomes.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                      </itemsurvey>             
-              			</div>
-                    <div class="metrics {{city_average.SchoolSurveyTeachers_CommunicationRawScore | filtraCeros}}">
-                      <div class="average" style="width:{{city_average.SchoolSurveyTeachers_CommunicationRawScore | escala10}}%;">
-                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyTeachers_CommunicationRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
-                      </div>                          
-                    </div>
-              		</div>
-          			</div>			
-
-
-          			<div class ="{{ 'students' | filtraSurvey }}">
-            			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
-              			<div class="democracy color-barra" style="width:{{survey_results.s_communication_rs | escala10}}%;">
-              				<p>{{survey_results.s_communication_rs | number:1}}/<span class="total_dividendo">10</span></p>
-                      <itemsurvey><span class="con-info"> {{'Communication' | translateSurvey}} </span>
-                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school provides them with information about the school’s educational goals and offers appropriate feedback on each student’s learning outcomes.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                      </itemsurvey>             
-              			</div>
-                    <div class="metrics {{city_average.SchoolSurveyStudents_CommunicationRawScore | filtraCeros}}">
-                      <div class="average" style="width:{{city_average.SchoolSurveyStudents_CommunicationRawScore | escala10}}%;">
-                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyStudents_CommunicationRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
-                      </div>                          
-                    </div>
-              		</div>
-          			</div>	
-
-          		</div>
-
-          		<div class="row">
-
-          			<!-- Parents -->
-          			<div class ="{{ 'parents' | filtraSurvey }}">
-            			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-              			<div class="democracy color-barra" style="width:{{survey_results.p_academic_expectations_rs | escala10}}%;">
-              				<p>{{survey_results.p_academic_expectations_rs | number:1}}/<span class="total_dividendo">10</span></p>
-                      <itemsurvey><span class="con-info"> {{'Academic Expectations' | translateSurvey}} </span>
-                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school encourages students to do their best by developing rigorous and meaningful academic goals.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                      </itemsurvey>             
-              			</div>
-                    <div class="metrics {{city_average.SchoolSurveyParents_AcademicExpectationsRawScore | filtraCeros}}">
-                      <div class="average" style="width:{{city_average.SchoolSurveyParents_AcademicExpectationsRawScore | escala10}}%;">
-                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyParents_AcademicExpectationsRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
-                      </div>                          
-                    </div>
-              		</div>
-          			</div>
-
-          			<div class ="{{ 'teachers' | filtraSurvey }}">
-            			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data  ">
-              			<div class="democracy color-barra" style="width:{{survey_results.t_academic_expectations_rs | escala10}}%;">
-              				<p>{{survey_results.t_academic_expectations_rs | number:1}}/<span class="total_dividendo">10</span></p>
-                      <itemsurvey><span class="con-info"> {{'Academic Expectations' | translateSurvey}} </span>
-                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school encourages students to do their best by developing rigorous and meaningful academic goals.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                      </itemsurvey>             
-              			</div>
-                    <div class="metrics {{city_average.SchoolSurveyTeachers_AcademicExpectationsRawScore | filtraCeros}}">
-                      <div class="average" style="width:{{city_average.SchoolSurveyTeachers_AcademicExpectationsRawScore | escala10}}%;">
-                        <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyTeachers_AcademicExpectationsRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
-                      </div>                          
-                    </div>
-              		</div>
-          			</div>			
-
-          			<div class ="{{ 'students' | filtraSurvey }}">
-            			<div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data ">
-              			<div class="democracy color-barra" style="width:{{survey_results.s_academic_expectations_rs | escala10}}%;">
-              				<p>{{survey_results.s_academic_expectations_rs | number:1}}/<span class="total_dividendo">10</span></p>
-                      <itemsurvey><span class="con-info"> {{'Academic Expectations' | translateSurvey}} </span>
-                      <div Popover-animation="false" popover="{{'Measures whether respondents feel that the school encourages students to do their best by developing rigorous and meaningful academic goals.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                      </itemsurvey>             
-              			</div>
-                    <div class="metrics {{city_average.SchoolSurveyStudents_AcademicExpectationsRawScore | filtraCeros}}">
-                        <div class="average" style="width:{{city_average.SchoolSurveyStudents_AcademicExpectationsRawScore | escala10}}%;">
-                          <p >{{'City Average' | translateGlobal}}: {{city_average.SchoolSurveyStudents_AcademicExpectationsRawScore | number:1}}/<span class="total_dividendo_caverage">10</span></p>
-                        </div>                          
-                    </div>
-              		</div>
-          			</div>	
-
-          		</div>
-      	
-            </div> <!-- sub acordion -->
-
-          </accordion-group>
-
-          <div style="position:relative;z-index:5;top: 8px;left: {{ 10 | iconPosition }};cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="{{'The NYC School Survey is administered annually to all parents, all teachers, and students in grades 6 - 12.  Survey results provide insight into a school\'s learning environment and assess the community\'s opinions on academic expectations, communication, engagement, and safety and respect.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>   
-        
+          <div style="position:relative;z-index:5;top: 8px; left: {{ 11 | iconPosition }};cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="{{'The NYC School Survey is administered annually to all parents, all teachers, and students in grades 6 - 12.  Survey results provide insight into a school\'s learning environment and assess the community\'s opinions on academic expectations, communication, engagement, and safety and respect.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>
           <accordion-group is-open="false">
 
             <accordion-heading>
-                <div>{{'Survey Questions' | translateSurvey}}</div>
-            </accordion-heading> 
-
-
+                <div>{{'Survey Questions' | translateSurvey}} ({{ 'Students' | translateSurvey}}) </div>
+            </accordion-heading>
             <div class="sub-acordion">
+            </div>
+            
+            <div class="cnt">
 
-              <div class=" {{ 'students' | filtraSurvey }}">  <!-- 1re -->
+              <div class="small-12 medium-12 large-12 avg-score bg-tablas-data" ng-show="hasZeroStudentsQuestions">
+                  <p style="padding-left:7px; margin-bottom:0px; margin-top:0px; font-size:1rem; width: 20rem">{{'Unavailable for the selected year' | translateGlobal}}</p>
+              </div>
 
                 <div ng-show="valuesSurveyQuestionQ1F">
                   <div class="head-question-survey" >
@@ -405,9 +515,9 @@
                       </div>
                     </div>
                   </div>
-                </div>      
+                </div>
 
-                <div ng-show="valuesSurveyQuestionQ4E">   
+                <div ng-show="valuesSurveyQuestionQ4E">
                   <div class="head-question-survey" >
                     {{'I feel welcome at my school.' | translateSurveyQuestion}}
                   </div>
@@ -425,9 +535,9 @@
                         </div>
                       </div>
                   </div>
-                </div>  
+                </div>
 
-                <div ng-show="valuesSurveyQuestionQ4G">      
+                <div ng-show="valuesSurveyQuestionQ4G">
                   <div class="head-question-survey" >
                     {{'At my school, I am safe in the hallways, bathrooms, locker rooms, and cafeteria.' | translateSurveyQuestion}}
                   </div>
@@ -445,12 +555,12 @@
                         </div>
                       </div>
                   </div>
-                </div>     
+                </div>
 
-                <div ng-show="valuesSurveyQuestionQ6C">   
+                <div ng-show="valuesSurveyQuestionQ6C">
                   <div  class="head-question-survey" >
                     {{'Most students at my school respect students who get good grades.' | translateSurveyQuestion}}
-                  </div>         
+                  </div>
                   <div class="row">
                     <div class="small-12 medium-12 large-12 columns  bg-tablas-data  {{survey_results.s_q6c_strongly_agree }}">
                       <div class="democracy color5" style="width:{{survey_results.s_q6c_strongly_agree}}%;">
@@ -465,17 +575,215 @@
                       </div>
                     </div>
                   </div>
-                </div>       
+                </div>
 
-              </div>  
+<!-- New Students Question Updated -->
+<div ng-show="valuesSurveyQuestionCheck('s', '1d')">
+  <div  class="head-question-survey" >
+    {{'How many of the students in your class(es) try hard to get good grades' | translateSurveyQuestion}}
+  </div>
 
+  <div class="row">
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color5" style="width:{{survey_results.s_q1d_negative}}%;">
+          <p>{{survey_results.s_q1d_negative | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Negative' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color-barra" style="width:{{survey_results.s_q1d_positive}}%;">
+          <p>{{survey_results.s_q1d_positive | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Positive' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+  </div>
+</div>
+<div ng-show="valuesSurveyQuestionCheck('s', '2a')">
+  <div  class="head-question-survey" >
+    {{'Think about the class that you attend first on Mondays. In that class, to what extent are you challenged' | translateSurveyQuestion}}
+  </div>
 
-              <div class=" {{ 'teachers' | filtraSurvey }}">  <!-- 2do -->
+  <div class="row">
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color5" style="width:{{survey_results.s_q2a_negative}}%;">
+          <p>{{survey_results.s_q2a_negative | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Negative' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color-barra" style="width:{{survey_results.s_q2a_positive}}%;">
+          <p>{{survey_results.s_q2a_positive | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Positive' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+  </div>
+</div>
+<div ng-show="valuesSurveyQuestionCheck('s', '5a')">
+  <div  class="head-question-survey" >
+    {{'How much do you agree with the following statements? In my classes, my teachers expect students to work hard' | translateSurveyQuestion}}
+  </div>
+
+  <div class="row">
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color5" style="width:{{survey_results.s_q5a_negative}}%;">
+          <p>{{survey_results.s_q5a_negative | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Negative' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color-barra" style="width:{{survey_results.s_q5a_positive}}%;">
+          <p>{{survey_results.s_q5a_positive | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Positive' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+  </div>
+</div>
+<div ng-show="valuesSurveyQuestionCheck('s', '7d')">
+  <div  class="head-question-survey" >
+    {{'How much do you agree with the following statements? Students in this school get to know each other really well' | translateSurveyQuestion}}
+  </div>
+
+  <div class="row">
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color5" style="width:{{survey_results.s_q7d_negative}}%;">
+          <p>{{survey_results.s_q7d_negative | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Negative' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color-barra" style="width:{{survey_results.s_q7d_positive}}%;">
+          <p>{{survey_results.s_q7d_positive | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Positive' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+  </div>
+</div>
+<div ng-show="valuesSurveyQuestionCheck('s', '9a')">
+  <div  class="head-question-survey" >
+    {{'How much do you agree with the following statements? I\'m learning a lot in my classes at this school' | translateSurveyQuestion}}
+  </div>
+
+  <div class="row">
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color5" style="width:{{survey_results.s_q9a_negative}}%;">
+          <p>{{survey_results.s_q9a_negative | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Negative' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color-barra" style="width:{{survey_results.s_q9a_positive}}%;">
+          <p>{{survey_results.s_q9a_positive | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Positive' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+  </div>
+</div>
+<div ng-show="valuesSurveyQuestionCheck('s', '10f')">
+  <div  class="head-question-survey" >
+    {{'How much do you agree with the following statements? This school offers a wide enough variety of programs, classes and activities to keep me interested in school' | translateSurveyQuestion}}
+  </div>
+
+  <div class="row">
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color5" style="width:{{survey_results.s_q10f_negative}}%;">
+          <p>{{survey_results.s_q10f_negative | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Negative' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color-barra" style="width:{{survey_results.s_q10f_positive}}%;">
+          <p>{{survey_results.s_q10f_positive | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Positive' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+  </div>
+</div>
+<div ng-show="valuesSurveyQuestionCheck('s', '10j')">
+  <div  class="head-question-survey" >
+    {{'How much do you agree with the following statements? Most students at this school treat each other with respect' | translateSurveyQuestion}}
+  </div>
+
+  <div class="row">
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color5" style="width:{{survey_results.s_q10j_negative}}%;">
+          <p>{{survey_results.s_q10j_negative | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Negative' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color-barra" style="width:{{survey_results.s_q10j_positive}}%;">
+          <p>{{survey_results.s_q10j_positive | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Positive' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+  </div>
+</div>
+<div ng-show="valuesSurveyQuestionCheck('s', '11a')">
+  <div  class="head-question-survey" >
+    {{'How much do you agree with the following statements? At this school students harass or bully other students' | translateSurveyQuestion}}
+  </div>
+
+  <div class="row">
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color5" style="width:{{survey_results.s_q11a_negative}}%;">
+          <p>{{survey_results.s_q11a_negative | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Negative' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color-barra" style="width:{{survey_results.s_q11a_positive}}%;">
+          <p>{{survey_results.s_q11a_positive | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Positive' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+  </div>
+</div>
+<div ng-show="valuesSurveyQuestionCheck('s', '11d')">
+  <div  class="head-question-survey" >
+    {{'How much do you agree with the following statements? At this school students drink alcohol, use illegal drugs, or abuse prescription drugs while at school' | translateSurveyQuestion}}
+  </div>
+
+  <div class="row">
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color5" style="width:{{survey_results.s_q11d_negative}}%;">
+          <p>{{survey_results.s_q11d_negative | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Negative' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color-barra" style="width:{{survey_results.s_q11d_positive}}%;">
+          <p>{{survey_results.s_q11d_positive | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Positive' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+  </div>
+</div>
+<!-- //New Students Question Updated -->
+
+              </div>
+            
+          </accordion-group>
+          <!-- /Students -->
+          
+          
+          <div style="position:relative;z-index:5;top: 8px; left: {{ 12 | iconPosition }};cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="{{'The NYC School Survey is administered annually to all parents, all teachers, and students in grades 6 - 12.  Survey results provide insight into a school\'s learning environment and assess the community\'s opinions on academic expectations, communication, engagement, and safety and respect.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>
+          <accordion-group is-open="false">
+
+            <accordion-heading>
+                <div>{{'Survey Questions' | translateSurvey}} ({{ 'Teachers' | translateSurvey}}) </div>
+            </accordion-heading>
+            <div class="sub-acordion">
+            </div>
+            
+            <div class="cnt">
+              <div class="small-12 medium-12 large-12 avg-score bg-tablas-data" ng-show="hasZeroTeachersQuestions">
+                  <p style="padding-left:7px; margin-bottom:0px; margin-top:0px; font-size:1rem; width: 20rem">{{'Unavailable for the selected year' | translateGlobal}}</p>
+              </div>
 
                 <div ng-show="valuesSurveyQuestionQ3D">
                   <div class="head-question-survey" >
                     {{'School leaders place a high priority on the quality of teaching.' | translateSurveyQuestion}}
-                  </div>          
+                  </div>
 
                   <div class="row">
                       <div class="small-12 medium-12 large-12 columns  bg-tablas-data  {{survey_results.t_q3d_strongly_agree }}">
@@ -511,12 +819,12 @@
                       </div>
                     </div>
                   </div>
-                </div>          
+                </div>
 
                 <div ng-show="valuesSurveyQuestionQ10C">
                   <div class="head-question-survey">
                     {{'My school communicates effectively with parents about their child’s progress.' | translateSurveyQuestion}}
-                  </div>     
+                  </div>
                   <div class="row">
                     <div class="small-12 medium-12 large-12 columns  bg-tablas-data  {{survey_results.t_q10c_strongly_agree }}">
                       <div class="democracy color5" style="width:{{survey_results.t_q10c_strongly_agree}}%;">
@@ -531,7 +839,7 @@
                       </div>
                     </div>
                   </div>
-                </div>  
+                </div>
 
                 <div ng-show="valuesSurveyQuestionQ11E">
                   <div class="head-question-survey">
@@ -551,12 +859,12 @@
                         </div>
                       </div>
                   </div>
-                </div>     
+                </div>
 
                 <div ng-show="valuesSurveyQuestionQ11F">
                   <div  class="head-question-survey" >
                     {{'At my school, adults treat students with respect.' | translateSurveyQuestion}}
-                  </div>            
+                  </div>
                   <div class="row">
                       <div class="small-12 medium-12 large-12 columns  bg-tablas-data  {{survey_results.t_q11f_strongly_agree }}">
                         <div class="democracy color5" style="width:{{survey_results.t_q11f_strongly_agree}}%;">
@@ -571,17 +879,155 @@
                         </div>
                       </div>
                   </div>
-                </div>       
+                </div>
 
-              </div>  
+<!-- New Teachers Question Updated -->
+<div ng-show="valuesSurveyQuestionCheck('t', '9d')">
+  <div  class="head-question-survey" >
+    {{'The Principal at this school (not Assistant Principal(s)) sets high standards for student learning' | translateSurveyQuestion}}
+  </div>
 
+  <div class="row">
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color5" style="width:{{survey_results.t_q9d_negative}}%;">
+          <p>{{survey_results.t_q9d_negative | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Negative' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color-barra" style="width:{{survey_results.t_q9d_positive}}%;">
+          <p>{{survey_results.t_q9d_positive | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Positive' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+  </div>
+</div>
+<div ng-show="valuesSurveyQuestionCheck('t', '10d')">
+  <div  class="head-question-survey" >
+    {{'At this school there is an expectation that teachers communicate regularly with parents/guardians' | translateSurveyQuestion}}
+  </div>
 
-              <div class=" {{ 'parents' | filtraSurvey }}">  <!-- 3ro -->
+  <div class="row">
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color5" style="width:{{survey_results.t_q10d_negative}}%;">
+          <p>{{survey_results.t_q10d_negative | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Negative' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color-barra" style="width:{{survey_results.t_q10d_positive}}%;">
+          <p>{{survey_results.t_q10d_positive | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Positive' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+  </div>
+</div>
+<div ng-show="valuesSurveyQuestionCheck('t', '14e')">
+  <div  class="head-question-survey" >
+    {{'I wouldn\'t want to work in any other school' | translateSurveyQuestion}}
+  </div>
+
+  <div class="row">
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color5" style="width:{{survey_results.t_q14e_negative}}%;">
+          <p>{{survey_results.t_q14e_negative | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Negative' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color-barra" style="width:{{survey_results.t_q14e_positive}}%;">
+          <p>{{survey_results.t_q14e_positive | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Positive' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+  </div>
+</div>
+<div ng-show="valuesSurveyQuestionCheck('t', '15a')">
+  <div  class="head-question-survey" >
+    {{'This school sets high standards for academic performance' | translateSurveyQuestion}}
+  </div>
+
+  <div class="row">
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color5" style="width:{{survey_results.t_q15a_negative}}%;">
+          <p>{{survey_results.t_q15a_negative | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Negative' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color-barra" style="width:{{survey_results.t_q15a_positive}}%;">
+          <p>{{survey_results.t_q15a_positive | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Positive' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+  </div>
+</div>
+<div ng-show="valuesSurveyQuestionCheck('t', '15d')">
+  <div  class="head-question-survey" >
+    {{'I would recommend this school to parents/guardians seeking a place for their child' | translateSurveyQuestion}}
+  </div>
+
+  <div class="row">
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color5" style="width:{{survey_results.t_q15d_negative}}%;">
+          <p>{{survey_results.t_q15d_negative | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Negative' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color-barra" style="width:{{survey_results.t_q15d_positive}}%;">
+          <p>{{survey_results.t_q15d_positive | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Positive' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+  </div>
+</div>
+<div ng-show="valuesSurveyQuestionCheck('t', '17b')">
+  <div  class="head-question-survey" >
+    {{'This school educates students with disabilities in the least restrictive environment.' | translateSurveyQuestion}}
+  </div>
+
+  <div class="row">
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color5" style="width:{{survey_results.t_q17b_negative}}%;">
+          <p>{{survey_results.t_q17b_negative | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Negative' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color-barra" style="width:{{survey_results.t_q17b_positive}}%;">
+          <p>{{survey_results.t_q17b_positive | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Positive' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+  </div>
+</div>
+<!-- //New Teachers Question Updated -->
+
+            </div>
+            
+          </accordion-group>
+          <!-- /Teachers -->
+          
+          
+          <div style="position:relative;z-index:5;top: 8px; left: {{ 13 | iconPosition }};cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="{{'The NYC School Survey is administered annually to all parents, all teachers, and students in grades 6 - 12.  Survey results provide insight into a school\'s learning environment and assess the community\'s opinions on academic expectations, communication, engagement, and safety and respect.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>
+          <accordion-group is-open="false">
+
+            <accordion-heading>
+                <div>{{'Survey Questions' | translateSurvey}} ({{ 'Parents' | translateSurvey}}) </div>
+            </accordion-heading>
+            <div class="sub-acordion">
+            </div>
+            
+            <div class="cnt">
+              <div class="small-12 medium-12 large-12 avg-score bg-tablas-data" ng-show="hasZeroParentsQuestions">
+                  <p style="padding-left:7px; margin-bottom:0px; margin-top:0px; font-size:1rem; width: 20rem">{{'Unavailable for the selected year' | translateGlobal}}</p>
+              </div>
 
                 <div ng-show="valuesSurveyQuestionQ1A">
                   <div  class="head-question-survey" >
                     {{'My child’s school keeps me informed about my child’s academic progress.' | translateSurveyQuestion}}
-                  </div>  
+                  </div>
 
                   <div class="row">
                       <div class="small-12 medium-12 large-12 columns  bg-tablas-data  {{survey_results.p_q1a_strongly_agree }}">
@@ -617,7 +1063,7 @@
                       </div>
                     </div>
                   </div>
-                </div>          
+                </div>
 
                 <div ng-show="valuesSurveyQuestionQ2A">
                   <div id="grilla_09_03_dw" class="head-question-survey" onclick="rotarGrilla(this.id)">
@@ -637,12 +1083,12 @@
                       </div>
                     </div>
                   </div>
-                </div>  
+                </div>
 
                 <div ng-show="valuesSurveyQuestionQ3A">
                   <div class="head-question-survey" >
                     {{'I would recommend this school to other parents.' | translateSurveyQuestion}}
-                  </div>             
+                  </div>
                   <div class="row">
                     <div class="small-12 medium-12 large-12 columns  bg-tablas-data  {{survey_results.p_q3a_strongly_agree }}">
                       <div class="democracy color5" style="width:{{survey_results.p_q3a_strongly_agree}}%;">
@@ -657,12 +1103,12 @@
                       </div>
                     </div>
                   </div>
-                </div>     
+                </div>
 
                 <div ng-show="valuesSurveyQuestionQ5B">
                   <div id="grilla_09_05_dw" class="head-question-survey" onclick="rotarGrilla(this.id)">
                     {{'I am satisfied or very satisfied with the education my child has received this year.' | translateSurveyQuestion}}
-                  </div>         
+                  </div>
                   <div class="row">
                       <div class="small-12 medium-12 large-12 columns  bg-tablas-data  {{survey_results.p_q5b_very_satisfied }}">
                         <div class="democracy color5" style="width:{{survey_results.p_q5b_very_satisfied}}%;">
@@ -677,15 +1123,139 @@
                         </div>
                       </div>
                   </div>
-                </div>       
+                </div>
 
-              </div> 
+<!-- New Parents Question Updated -->
+<div ng-show="valuesSurveyQuestionCheck('p', '4h')">
+  <div  class="head-question-survey" >
+    {{'Teachers communicate regularly with parents/guardians' | translateSurveyQuestion}}
+  </div>
+
+  <div class="row">
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color5" style="width:{{survey_results.p_q4h_negative}}%;">
+          <p>{{survey_results.p_q4h_negative | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Negative' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color-barra" style="width:{{survey_results.p_q4h_positive}}%;">
+          <p>{{survey_results.p_q4h_positive | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Positive' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+  </div>
+</div>
+<div ng-show="valuesSurveyQuestionCheck('p', '5g')">
+  <div  class="head-question-survey" >
+    {{'At this school my child is safe' | translateSurveyQuestion}}
+  </div>
+
+  <div class="row">
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color5" style="width:{{survey_results.p_q5g_negative}}%;">
+          <p>{{survey_results.p_q5g_negative | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Negative' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color-barra" style="width:{{survey_results.p_q5g_positive}}%;">
+          <p>{{survey_results.p_q5g_positive | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Positive' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+  </div>
+</div>
+<div ng-show="valuesSurveyQuestionCheck('p', '8a')">
+  <div  class="head-question-survey" >
+    {{'How satisfied are you with the following? The response I get when I contact this school' | translateSurveyQuestion}}
+  </div>
+
+  <div class="row">
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color5" style="width:{{survey_results.p_q8a_negative}}%;">
+          <p>{{survey_results.p_q8a_negative | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Negative' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color-barra" style="width:{{survey_results.p_q8a_positive}}%;">
+          <p>{{survey_results.p_q8a_positive | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Positive' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+  </div>
+</div>
+<div ng-show="valuesSurveyQuestionCheck('p', '8b')">
+  <div  class="head-question-survey" >
+    {{'How satisfied are you with the following? The education my child has received this year' | translateSurveyQuestion}}
+  </div>
+
+  <div class="row">
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color5" style="width:{{survey_results.p_q8b_negative}}%;">
+          <p>{{survey_results.p_q8b_negative | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Negative' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color-barra" style="width:{{survey_results.p_q8b_positive}}%;">
+          <p>{{survey_results.p_q8b_positive | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Positive' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+  </div>
+</div>
+<div ng-show="valuesSurveyQuestionCheck('p', '8c')">
+  <div  class="head-question-survey" >
+    {{'How satisfied are you with the following? The overall quality of my child\'s teachers this year' | translateSurveyQuestion}}
+  </div>
+
+  <div class="row">
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color5" style="width:{{survey_results.p_q8c_negative}}%;">
+          <p>{{survey_results.p_q8c_negative | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Negative' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color-barra" style="width:{{survey_results.p_q8c_positive}}%;">
+          <p>{{survey_results.p_q8c_positive | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Positive' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+  </div>
+</div>
+<div ng-show="valuesSurveyQuestionCheck('p', '10b')">
+  <div  class="head-question-survey" >
+    {{'This school works to achieve the goals on my child\'s Individual Education Program (IEP)' | translateSurveyQuestion}}
+  </div>
+
+  <div class="row">
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color5" style="width:{{survey_results.p_q10b_negative}}%;">
+          <p>{{survey_results.p_q10b_negative | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Negative' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+      <div class="small-12 medium-12 large-12 columns  bg-tablas-data">
+        <div class="democracy color-barra" style="width:{{survey_results.p_q10b_positive}}%;">
+          <p>{{survey_results.p_q10b_positive | number:1}}%</p>
+          <itemsurvey><span class="sin-i">{{'Positive' | translateSurvey}}</span></itemsurvey>
+        </div>
+      </div>
+  </div>
+</div>
+<!-- //New Parents Question Updated -->
+
 
             </div>
-
-          </accordion-group>  	
-
+            
+          </accordion-group>
+          <!-- /Parents -->
         </accordion>
+
+
       </div> <!-- Control accordion -->
     </div> <!-- survey_all -->
 

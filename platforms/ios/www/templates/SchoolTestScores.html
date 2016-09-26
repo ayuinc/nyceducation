@@ -1,3 +1,24 @@
+<style type="text/css">
+    /*.large-dropdowns .row{ margin-bottom: 5px; }
+    .large-dropdowns .row .dropdown{ width: 70%; }
+    .large-dropdowns .f-dropdown{ left: auto !important; right: 16%!important; }*/
+
+    .large-4.columns {
+        width: 32%;
+        padding: 0;
+    }
+    .large-4-first.columns {
+        width: 34%!important;
+    }
+    .large-4.columns .dropdown{ width: 95%; padding-right: 0!important; padding-left: 5%!important; text-align: left; font-size: 12px; }
+    .large-4.columns .f-dropdown{ right: 16%!important; }
+    .large-4.columns .dropdown.button.small:before, .large-4.columns button.dropdown.small:before{
+        width: 34px!important;
+        top: 15px;
+        background-size: cover;
+        right: 12px;
+     }
+</style>
 <div class="off-canvas-wrap">
     <div class="inner-wrap">
         <nav class="tab-bar header">
@@ -44,10 +65,10 @@
                 <div ng-controller="TestScoreCtrlYearEl" class="text-center"></div>
 
                 <!-- inicio solo highschool -->
-                <div id="onlyHS"> 
+                <div id="onlyHS">
                     <div class="row menu-header" style="padding-top:0 !important">
-                        <div class="small-10 small-centered medium-10 large-10 columns">
-                            <div class="small-6 small-centered medium-6 large-6 columns">
+                        <div class="small-12 small-centered medium-12 large-12 columns text-center">
+                            <div class="small-6 medium-6 large-6" style="margin: 0 auto;">
                                 <div ng-controller="TestScoreCtrlYearHs" class="text-center">
                                     <a dropdown-toggle="#dropdown-year_testScore_h" class="button dropdown small bg-dropdown">{{selectedyear_testScore_year_hs}}</a>
                                     <ul id="dropdown-year_testScore_h" class="f-dropdown">
@@ -55,395 +76,407 @@
                                             <a ng-click="changeyear(itemy.indice)">{{itemy.texto}}</a>
                                         </li>
                                     </ul>
-                                    <br>  
+                                    <br>
                                 </div>
                             </div>
+                            <!-- <div class="small-6 medium-6 large-6 columns">
+                                <div ng-controller="TestScoreCtrlCategory" class="text-center">
+                                    <a dropdown-toggle="#dropdown-ethnic_testScore" class="button dropdown small bg-dropdown">{{TestScoreSelectedCategory | translateDemographics}}</a>
+                                    <ul id="dropdown-ethnic_testScore" class="f-dropdown">
+                                        <li ng-repeat="itemy in TestScoreCategories">
+                                            <a ng-click="changegenere(itemy.indice)">{{itemy.texto | translateDemographics}}</a>
+                                        </li>
+                                    </ul>
+                                    <br>
+                                </div>
+                            </div> -->
                         </div>
                     </div>
-                <accordion close-others="oneAtATime">
-                    <accordion-group is-open="false" ng-show="valuesSat">
-                        <accordion-heading>
-                            <div>{{'SAT' | translateTestScore}}</div>
-                        </accordion-heading>
-                        <!--SAT-->
-                        <div class="row">
-                            <div class="n-student">
-                                <span class="ns-sat"> {{evaluation_average_score.sat_n_test_takers | redondea_sp}}</span>
-                                <span class="ns-sat-label">{{'No. Students' | translateTestScore}}</span>
-                                <div Popover-animation="false" popover="{{'The number of students at the school who took the SAT at the school, a globally recognized college admission test that tests knowledge of critical  reading, writing and math.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer;cursor: pointer; right: 1rem; top: 0.3rem;" onclick="quitaBurbuja()">
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data">
-                                <div class="democracy color-barra" style="width:{{evaluation_average_score.sat_a_total_s | filtrasat}}%;">
-                                    <p style="top: 0.1rem;">{{evaluation_average_score.sat_a_total_s}}/<span class="total_dividendo">2400</span>
-                                    </p>
-                                    <itemsurvey>
-                                        <span class="con-info">{{'Overall' | translateTestScore}}</span>
-                                        <div Popover-animation="false" popover="{{'Average SAT score of students at the school taking the exam, a globally recognized college admission test that tests knowledge of critical  reading, writing and math.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                                    </itemsurvey>
-                                </div>
-                                <div class="metrics {{city_average.SAT_AverageTotalScore }}">
-                                    <div class="average" style="width:{{city_average.SAT_AverageTotalScore | filtrasat}}%;">
-                                        <p>{{'City Average' | translateGlobal}}: {{city_average.SAT_AverageTotalScore | number:0}}/<span class="total_dividendo_caverage">2400</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data">
-                                <div class="democracy color-barra" style="width:{{evaluation_average_score.sat_a_cr_s | filtrasat800 }}%;">
-                                    <p style="top: 0.1rem;">{{evaluation_average_score.sat_a_cr_s}}/<span class="total_dividendo">800</span>
-                                    </p>
-                                    <itemsurvey><span class="con-info">{{'Critical Reasoning' | translateTestScore}}</span>
-                                        <div Popover-animation="false" popover="{{'Average SAT score of students at the school taking the exam, a globally recognized college admission test that tests knowledge of critical  reading, writing and math.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                                    </itemsurvey>
-                                </div>
-                                <div class="metrics {{city_average.SAT_AverageCRScore }}">
-                                    <div class="average" style="width:{{city_average.SAT_AverageCRScore | filtrasat800 }}%;">
-                                        <p>{{'City Average' | translateGlobal}}: {{city_average.SAT_AverageCRScore | number:0}}/<span class="total_dividendo_caverage">800</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data">
-                                <div class="democracy color-barra" style="width:{{evaluation_average_score.sat_a_math_s | filtrasat800 }}%;">
-                                    <p style="top: 0.1rem;">{{evaluation_average_score.sat_a_math_s}}/<span class="total_dividendo">800</span>
-                                    </p>
-                                    <itemsurvey><span class="con-info">{{'Math' | translateTestScore}}</span>
-                                        <div Popover-animation="false" popover="{{'Average SAT score of students at the school taking the exam, a globally recognized college admission test that tests knowledge of critical  reading, writing and math.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                                    </itemsurvey>
-                                </div>
-                                <div class="metrics {{city_average.SAT_AverageMathScore }}">
-                                    <div class="average" style="width:{{city_average.SAT_AverageMathScore | filtrasat800 }}%;">
-                                        <p>{{'City Average' | translateGlobal}}: {{city_average.SAT_AverageMathScore | number:0}}/<span class="total_dividendo_caverage">800</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data">
-                                <div class="democracy color-barra" style="width:{{evaluation_average_score.sat_a_writing_s | filtrasat800 }}%;">
-                                    <p style="top: 0.1rem;">{{evaluation_average_score.sat_a_writing_s}}/<span class="total_dividendo">800</span>
-                                    </p>
-                                    <itemsurvey><span class="con-info">{{'Writing' | translateTestScore}}</span>
-                                        <div Popover-animation="false" popover="{{'Average SAT score of students at the school taking the exam, a globally recognized college admission test that tests knowledge of critical  reading, writing and math.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
-                                    </itemsurvey>
-                                </div>
-                                <div class="metrics {{city_average.SAT_AverageWritingScore }}">
-                                    <div class="average" style="width:{{city_average.SAT_AverageWritingScore | filtrasat800 }}%;">
-                                        <p>{{'City Average' | translateGlobal}}: {{city_average.SAT_AverageWritingScore | number:0}}/<span class="total_dividendo_caverage">800</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </accordion-group>
-                    <div style="position:relative;z-index:5;top: 4px;float:right;cursor:pointer;" class="icon-info-acordion" Popover-animation="false" popover-placement="bottom" popover="{{'Percentage of students passing the Regents Exam in the selected year.' | translateGlosary}}">
-                    <img style="position:relative;right:4rem" src='img/info.png' width='30' onclick="quitaBurbuja(this)">
-                    </div>
-                    <accordion-group is-open="false">
-                        <accordion-heading>
-                            <div>{{'Regents Average Score' | translateTestScore}}</div>
-                        </accordion-heading>
-                        <!-- Regents Average Score-->
-                        <div class="row" ng-show="valuesRegentsAverageScore">
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color1" style="width:{{evaluation_regents.as_r_english | filternullwidth}}%;">
-                                    <p ng-class="{'not-available': evaluation_regents.as_r_english===null}">{{evaluation_regents.as_r_english | number:0}}{{evaluation_regents.as_r_english | filternulltext}}{{evaluation_regents.as_r_english | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_english | filternumbervisibility}}</span>
-                                    </p>
-                                    <itemsurvey><span class="sin-i"> {{'English' | translateTestScore}}</span>
-                                    </itemsurvey>
-                                </div>
-                                <div class="rank-s">
-                                    <p class="{{ proficiency_ratings.as_r_english_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.as_r_english_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color2" style="width:{{evaluation_regents.as_r_us_history | filternullwidth}}%;">
-                                    <p ng-class="{'not-available': evaluation_regents.as_r_us_history===null}">{{evaluation_regents.as_r_us_history | number:0}}{{evaluation_regents.as_r_us_history | filternulltext}}{{evaluation_regents.as_r_us_history | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_us_history | filternumbervisibility}}</span>
-                                    </p>
-                                    <itemsurvey><span class="sin-i"> {{'U.S. History' | translateTestScore}}</span>
-                                    </itemsurvey>
-                                </div>
-                                <div class="rank-s">
-                                    <p class="{{ proficiency_ratings.as_r_us_history_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.as_r_us_history_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color1" style="width:{{evaluation_regents.as_r_global_history | filternullwidth}}%;">
-                                    <p ng-class="{'not-available': evaluation_regents.as_r_global_history===null}">{{evaluation_regents.as_r_global_history | number:0}}{{evaluation_regents.as_r_global_history | filternulltext}}{{evaluation_regents.as_r_global_history | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_global_history | filternumbervisibility}}</span>
-                                    </p>
-                                    <itemsurvey><span class="sin-i"> {{'Global History' | translateTestScore}}</span>
-                                    </itemsurvey>
-                                </div>
-                                <div class="rank-s">
-                                    <p class="{{ proficiency_ratings.as_r_global_history_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.as_r_global_history_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color2" style="width:{{evaluation_regents.as_r_living_environment | filternullwidth}}%;">
-                                    <p ng-class="{'not-available': evaluation_regents.as_r_living_environment===null}">{{evaluation_regents.as_r_living_environment | number:0}}{{evaluation_regents.as_r_living_environment | filternulltext}}{{evaluation_regents.as_r_living_environment | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_living_environment | filternumbervisibility}}</span>
-                                    </p>
-                                    <itemsurvey><span class="sin-i"> {{'Living Environment' | translateTestScore}}</span>
-                                    </itemsurvey>
-                                </div>
-                                <div class="rank-s">
-                                    <p class="{{ proficiency_ratings.as_r_living_environment_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.as_r_living_environment_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color1" style="width:{{evaluation_regents.as_r_earth_science | filternullwidth}}%;">
-                                    <p ng-class="{'not-available': evaluation_regents.as_r_earth_science===null}">{{evaluation_regents.as_r_earth_science | number:0}}{{evaluation_regents.as_r_earth_science | filternulltext}}{{evaluation_regents.as_r_earth_science | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_earth_science | filternumbervisibility}}</span>
-                                    </p>
-                                    <itemsurvey><span class="sin-i"> {{'Earth Science' | translateTestScore}}</span>
-                                    </itemsurvey>
-                                </div>
-                                <div class="rank-s">
-                                    <p class="{{ proficiency_ratings.as_r_earth_science_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.as_r_earth_science_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color2" style="width:{{evaluation_regents.as_r_chemistry | filternullwidth}}%;">
-                                    <p ng-class="{'not-available': evaluation_regents.as_r_chemistry===null}">{{evaluation_regents.as_r_chemistry | number:0}}{{evaluation_regents.as_r_chemistry | filternulltext}}{{evaluation_regents.as_r_chemistry | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_chemistry | filternumbervisibility}}</span>
-                                    </p>
-                                    <itemsurvey><span class="sin-i"> {{'Chemistry' | translateTestScore}}</span>
-                                    </itemsurvey>
-                                </div>
-                                <div class="rank-s">
-                                    <p class="{{ proficiency_ratings.as_r_chemistry_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.as_r_chemistry_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color1" style="width:{{evaluation_regents.as_r_physics | filternullwidth}}%;">
-                                    <p ng-class="{'not-available': evaluation_regents.as_r_physics===null}">{{evaluation_regents.as_r_physics | number:0}}{{evaluation_regents.as_r_physics | filternulltext}}{{evaluation_regents.as_r_physics | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_physics | filternumbervisibility}}</span>
-                                    </p>
-                                    <itemsurvey><span class="sin-i"> {{'Physics' | translateTestScore}}</span>
-                                    </itemsurvey>
-                                </div>
-                                <div class="rank-s">
-                                    <p class="{{ proficiency_ratings.as_r_physics_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.as_r_physics_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color2" style="width:{{evaluation_regents.as_r_integrated_algebra | filternullwidth}}%;">
-                                    <p ng-class="{'not-available': evaluation_regents.as_r_integrated_algebra===null}">{{evaluation_regents.as_r_integrated_algebra | number:0}}{{evaluation_regents.as_r_integrated_algebra | filternulltext}}{{evaluation_regents.as_r_integrated_algebra | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_integrated_algebra | filternumbervisibility}}</span>
-                                    </p>
-                                    <itemsurvey><span class="sin-i"> {{'Integrated Algebra' | translateTestScore}}</span>
-                                    </itemsurvey>
-                                </div>
-                                <div class="rank-s">
-                                    <p class="{{ proficiency_ratings.as_r_integrated_algebra_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.as_r_integrated_algebra_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color1" style="width:{{evaluation_regents.as_r_geometry | filternullwidth}}%;">
-                                    <p ng-class="{'not-available': evaluation_regents.as_r_geometry===null}">{{evaluation_regents.as_r_geometry | number:0}}{{evaluation_regents.as_r_geometry | filternulltext}}{{evaluation_regents.as_r_geometry | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_geometry | filternumbervisibility}}</span>
-                                    </p>
-                                    <itemsurvey><span class="sin-i"> {{'Geometry' | translateTestScore}}</span>
-                                    </itemsurvey>
-                                </div>
-                                <div class="rank-s">
-                                    <p class="{{ proficiency_ratings.as_r_geometry_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.as_r_geometry_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color2" style="width:{{evaluation_regents.as_r_algebraii | filternullwidth}}%;">
-                                    <p ng-class="{'not-available': evaluation_regents.as_r_algebraii===null}">{{evaluation_regents.as_r_algebraii | number:0}}{{evaluation_regents.as_r_algebraii | filternulltext}}{{evaluation_regents.as_r_algebraii | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_algebraii | filternumbervisibility}}</span>
-                                    </p>
-                                    <itemsurvey><span class="sin-i"> {{'Algebra II' | translateTestScore}}</span>
-                                    </itemsurvey>
-                                </div>
-                                <div class="rank-s">
-                                    <p class="{{ proficiency_ratings.as_r_algebraii_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.as_r_algebraii_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
-                                </div>
-                            </div>
 
-                        </div>
-                        <div class="row" ng-show="valuesRegentsAverageScoreND">
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color-barra" style="width:0%">
-                                    <p style="font-size:1rem; width: 20rem">{{'Unavailable for the selected year' | translateGlobal}}</p>
+                    <accordion close-others="oneAtATime">
+                        <accordion-group is-open="false" ng-show="valuesSat">
+                            <accordion-heading>
+                                <div>{{'SAT' | translateTestScore}}</div>
+                            </accordion-heading>
+                            <!--SAT-->
+                            <div class="row">
+                                <div class="n-student">
+                                    <span class="ns-sat"> {{evaluation_average_score.sat_n_test_takers | redondea_sp}}</span>
+                                    <span class="ns-sat-label">{{'No. Students' | translateTestScore}}</span>
+                                    <div Popover-animation="false" popover="{{'The number of students at the school who took the SAT at the school, a globally recognized college admission test that tests knowledge of critical  reading, writing and math.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer;cursor: pointer; right: 1rem; top: 0.3rem;" onclick="quitaBurbuja()">
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data">
+                                    <div class="democracy color-barra" style="width:{{evaluation_average_score.sat_a_total_s | filtrasat}}%;">
+                                        <p style="top: 0.1rem;">{{evaluation_average_score.sat_a_total_s}}/<span class="total_dividendo">2400</span>
+                                        </p>
+                                        <itemsurvey>
+                                            <span class="con-info">{{'Overall' | translateTestScore}}</span>
+                                            <div Popover-animation="false" popover="{{'Average SAT score of students at the school taking the exam, a globally recognized college admission test that tests knowledge of critical  reading, writing and math.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="metrics {{city_average.SAT_AverageTotalScore }}">
+                                        <div class="average" style="width:{{city_average.SAT_AverageTotalScore | filtrasat}}%;">
+                                            <p>{{'City Average' | translateGlobal}}: {{city_average.SAT_AverageTotalScore | number:0}}/<span class="total_dividendo_caverage">2400</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data">
+                                    <div class="democracy color-barra" style="width:{{evaluation_average_score.sat_a_cr_s | filtrasat800 }}%;">
+                                        <p style="top: 0.1rem;">{{evaluation_average_score.sat_a_cr_s}}/<span class="total_dividendo">800</span>
+                                        </p>
+                                        <itemsurvey><span class="con-info">{{'Critical Reasoning' | translateTestScore}}</span>
+                                            <div Popover-animation="false" popover="{{'Average SAT score of students at the school taking the exam, a globally recognized college admission test that tests knowledge of critical  reading, writing and math.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="metrics {{city_average.SAT_AverageCRScore }}">
+                                        <div class="average" style="width:{{city_average.SAT_AverageCRScore | filtrasat800 }}%;">
+                                            <p>{{'City Average' | translateGlobal}}: {{city_average.SAT_AverageCRScore | number:0}}/<span class="total_dividendo_caverage">800</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data">
+                                    <div class="democracy color-barra" style="width:{{evaluation_average_score.sat_a_math_s | filtrasat800 }}%;">
+                                        <p style="top: 0.1rem;">{{evaluation_average_score.sat_a_math_s}}/<span class="total_dividendo">800</span>
+                                        </p>
+                                        <itemsurvey><span class="con-info">{{'Math' | translateTestScore}}</span>
+                                            <div Popover-animation="false" popover="{{'Average SAT score of students at the school taking the exam, a globally recognized college admission test that tests knowledge of critical  reading, writing and math.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="metrics {{city_average.SAT_AverageMathScore }}">
+                                        <div class="average" style="width:{{city_average.SAT_AverageMathScore | filtrasat800 }}%;">
+                                            <p>{{'City Average' | translateGlobal}}: {{city_average.SAT_AverageMathScore | number:0}}/<span class="total_dividendo_caverage">800</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data">
+                                    <div class="democracy color-barra" style="width:{{evaluation_average_score.sat_a_writing_s | filtrasat800 }}%;">
+                                        <p style="top: 0.1rem;">{{evaluation_average_score.sat_a_writing_s}}/<span class="total_dividendo">800</span>
+                                        </p>
+                                        <itemsurvey><span class="con-info">{{'Writing' | translateTestScore}}</span>
+                                            <div Popover-animation="false" popover="{{'Average SAT score of students at the school taking the exam, a globally recognized college admission test that tests knowledge of critical  reading, writing and math.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="metrics {{city_average.SAT_AverageWritingScore }}">
+                                        <div class="average" style="width:{{city_average.SAT_AverageWritingScore | filtrasat800 }}%;">
+                                            <p>{{'City Average' | translateGlobal}}: {{city_average.SAT_AverageWritingScore | number:0}}/<span class="total_dividendo_caverage">800</span>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </accordion-group>
-
-
-                    <div style="position:relative;z-index:5;top: 4px;float:right;cursor:pointer;" class="icon-info-acordion" Popover-animation="false" popover-placement="bottom" popover="{{'Average score of all students who took the Regents Exam in the selected year.' | translateGlosary}}">
-                    <img style="position:relative;right:4rem" src='img/info.png' width='30' onclick="quitaBurbuja(this)"></div>
-                    <accordion-group is-open="false">
-                        <accordion-heading>
-                            <div>{{'Regents College Ready' | translateTestScore}}</div>
-                        </accordion-heading>
-                        <!-- Regents College Ready-->
-                        <div class="row" ng-show="valuesRegentsRegentsCollegeReady">
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color1" style="width:{{evaluation_regents.pcr_r_comprehensive_english | filternullwidth}}%;">
-                                    <p ng-class="{'not-available': evaluation_regents.pcr_r_comprehensive_english===null}">{{evaluation_regents.pcr_r_comprehensive_english | number:1}}{{evaluation_regents.pcr_r_comprehensive_english | filternulltext}}{{evaluation_regents.pcr_r_comprehensive_english | filterpercent}}</p>
-                                    <itemsurvey><span class="sin-i"> {{'English' | translateTestScore}}</span>
-                                    </itemsurvey>
-                                </div>
-                                <div class="rank-s">
-                                    <p class="{{ proficiency_ratings.pcr_r_comprehensive_english_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pcr_r_comprehensive_english_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color2" style="width:{{evaluation_regents.pcr_r_integrated_algebra | filternullwidth}}%;">
-                                    <p ng-class="{'not-available': evaluation_regents.pcr_r_integrated_algebra===null}">{{evaluation_regents.pcr_r_integrated_algebra | number:1}}{{evaluation_regents.pcr_r_integrated_algebra | filternulltext}}{{evaluation_regents.pcr_r_integrated_algebra | filterpercent}}</p>
-                                    <itemsurvey><span class="sin-i">{{'Integrated Algebra' | translateTestScore}}</span>
-                                    </itemsurvey>
-                                </div>
-                                <div class="rank-s">
-                                    <p class="{{ proficiency_ratings.pcr_r_integrated_algebra_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pcr_r_integrated_algebra_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color1" style="width:{{evaluation_regents.pcr_r_algebraii | filternullwidth}}%;">
-                                    <p ng-class="{'not-available': evaluation_regents.pcr_r_algebraii===null}">{{evaluation_regents.pcr_r_algebraii | number:1}}{{evaluation_regents.pcr_r_algebraii | filternulltext}}{{evaluation_regents.pcr_r_algebraii | filterpercent}}</p>
-                                    <itemsurvey><span class="sin-i">{{'Algebra II' | translateTestScore}}</span>
-                                    </itemsurvey>
-                                </div>
-                                <div class="rank-s">
-                                    <p class="{{ proficiency_ratings.pcr_r_algebraii_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pcr_r_algebraii_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color2" style="width:{{evaluation_regents.pcr_r_geometry | filternullwidth}}%;">
-                                    <p ng-class="{'not-available': evaluation_regents.pcr_r_geometry===null}">{{evaluation_regents.pcr_r_geometry | number:1}}{{evaluation_regents.pcr_r_geometry | filternulltext}}{{evaluation_regents.pcr_r_geometry | filterpercent}}</p>
-                                    <itemsurvey><span class="sin-i">{{'Geometry' | translateTestScore}}</span>
-                                    </itemsurvey>
-                                </div>
-                                <div class="rank-s">
-                                    <p class="{{ proficiency_ratings.pcr_r_geometry_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pcr_r_geometry_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" ng-show="valuesRegentsRegentsCollegeReadyND">
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color-barra" style="width:0%">
-                                    <p style="font-size:1rem; width: 20rem">{{'Unavailable for the selected year' | translateGlobal}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </accordion-group>
-                    <div style="position:relative;z-index:5;top: 4px;float:right;cursor:pointer;" class="icon-info-acordion" Popover-animation="false" popover-placement="bottom" popover="{{'Percentage of students who scored at the college ready threshold for the Regents Exam in the selected year.' | translateGlosary}}">
+                        </accordion-group>
+                        <div style="position:relative;z-index:5;top: 4px;float:right;cursor:pointer;" class="icon-info-acordion" Popover-animation="false" popover-placement="bottom" popover="{{'Percentage of students passing the Regents Exam in the selected year.' | translateGlosary}}">
                         <img style="position:relative;right:4rem" src='img/info.png' width='30' onclick="quitaBurbuja(this)">
-                    </div>
-                    <accordion-group is-open="false">
-                        <accordion-heading>
-                            <div>{{'Regents Pass Rate' | translateTestScore}}</div>
-                        </accordion-heading>
-                        <!-- Regents Pass Rate-->
-                        <div class="row" ng-show="valuesRegentsPassRate">
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color1" style="width:{{evaluation_regents.pp_r_english | filternullwidth}}%;">
-                                    <p ng-class="{'not-available': evaluation_regents.pp_r_english===null}">{{evaluation_regents.pp_r_english | number:1}}{{evaluation_regents.pp_r_english | filternulltext}}{{evaluation_regents.pp_r_english | filterpercent}}</p>
-                                    <itemsurvey><span class="sin-i"> {{'English' | translateTestScore}}</span>
-                                    </itemsurvey>
-                                </div>
-                                <div class="rank-s">
-                                    <p class="{{ proficiency_ratings.pp_r_english_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pp_r_english_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color2" style="width:{{evaluation_regents.pp_r_us_history | filternullwidth}}%;">
-                                    <p ng-class="{'not-available': evaluation_regents.pp_r_us_history===null}">{{evaluation_regents.pp_r_us_history | number:1}}{{evaluation_regents.pp_r_us_history | filternulltext}}{{evaluation_regents.pp_r_us_history | filterpercent}}</p>
-                                    <itemsurvey><span class="sin-i"> {{'U.S. History' | translateTestScore}}</span>
-                                    </itemsurvey>
-                                </div>
-                                <div class="rank-s">
-                                    <p class="{{ proficiency_ratings.pp_r_us_history_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pp_r_us_history_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color1" style="width:{{evaluation_regents.pp_r_global_history | filternullwidth}}%;">
-                                    <p ng-class="{'not-available': evaluation_regents.pp_r_global_history===null}">{{evaluation_regents.pp_r_global_history | number:1}}{{evaluation_regents.pp_r_global_history | filternulltext}}{{evaluation_regents.pp_r_global_history | filterpercent}}</p>
-                                    <itemsurvey><span class="sin-i"> {{'Global History' | translateTestScore}}</span>
-                                    </itemsurvey>
-                                </div>
-                                <div class="rank-s">
-                                    <p class="{{ proficiency_ratings.pp_r_global_history_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pp_r_global_history_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color2" style="width:{{evaluation_regents.pp_r_living_environment | filternullwidth}}%;">
-                                    <p ng-class="{'not-available': evaluation_regents.pp_r_living_environment===null}">{{evaluation_regents.pp_r_living_environment | number:1}}{{evaluation_regents.pp_r_living_environment | filternulltext}}{{evaluation_regents.pp_r_living_environment | filterpercent}}</p>
-                                    <itemsurvey><span class="sin-i"> {{'Living Environment' | translateTestScore}}</span>
-                                    </itemsurvey>
-                                </div>
-                                <div class="rank-s">
-                                    <p class="{{ proficiency_ratings.pp_r_living_environment_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pp_r_living_environment_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color1" style="width:{{evaluation_regents.pp_r_earth_science | filternullwidth}}%;">
-                                    <p ng-class="{'not-available': evaluation_regents.pp_r_earth_science===null}">{{evaluation_regents.pp_r_earth_science | number:1}}{{evaluation_regents.pp_r_earth_science | filternulltext}}{{evaluation_regents.pp_r_earth_science | filterpercent}}</p>
-                                    <itemsurvey><span class="sin-i"> {{'Earth Science' | translateTestScore}}</span>
-                                    </itemsurvey>
-                                </div>
-                                <div class="rank-s">
-                                    <p class="{{ proficiency_ratings.pp_r_earth_science_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pp_r_earth_science_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color2" style="width:{{evaluation_regents.pp_r_chemistry | filternullwidth}}%;">
-                                    <p ng-class="{'not-available': evaluation_regents.pp_r_chemistry===null}">{{evaluation_regents.pp_r_chemistry | number:1}}{{evaluation_regents.pp_r_chemistry | filternulltext}}{{evaluation_regents.pp_r_chemistry | filterpercent}}</p>
-                                    <itemsurvey><span class="sin-i"> {{'Chemistry' | translateTestScore}}</span>
-                                    </itemsurvey>
-                                </div>
-                                <div class="rank-s">
-                                    <p class="{{ proficiency_ratings.pp_r_chemistry_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pp_r_chemistry_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color1" style="width:{{evaluation_regents.pp_r_physics | filternullwidth}}%;">
-                                    <!--                       <p>{{evaluation_regents.pp_r_physics | number:1}}{{evaluation_regents.pp_r_physics | filternulltext}}{{evaluation_regents.pp_r_physics | filterpercent}}</p> -->
-                                    <p ng-class="{'not-available': evaluation_regents.pp_r_physics===null}">{{evaluation_regents.pp_r_physics | number:1}}{{evaluation_regents.pp_r_physics | filternulltext}}{{evaluation_regents.pp_r_physics | filterpercent}}</p>
-                                    <itemsurvey><span class="sin-i"> {{'Physics' | translateTestScore}}</span>
-                                    </itemsurvey>
-                                </div>
-                                <div class="rank-s">
-                                    <p class="{{ proficiency_ratings.pp_r_physics_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pp_r_physics_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color2" style="width:{{evaluation_regents.pp_r_integrated_algebra | filternullwidth}}%;">
-                                    <p ng-class="{'not-available': evaluation_regents.pp_r_integrated_algebra===null}">{{evaluation_regents.pp_r_integrated_algebra | number:1}}{{evaluation_regents.pp_r_integrated_algebra | filternulltext}}{{evaluation_regents.pp_r_integrated_algebra | filterpercent}}</p>
-                                    <itemsurvey><span class="sin-i"> {{'Integrated Algebra' | translateTestScore}}</span>
-                                    </itemsurvey>
-                                </div>
-                                <div class="rank-s">
-                                    <p class="{{ proficiency_ratings.pp_r_integrated_algebra_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pp_r_integrated_algebra_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color1" style="width:{{evaluation_regents.pp_r_geometry | filternullwidth}}%;">
-                                    <p ng-class="{'not-available': evaluation_regents.pp_r_geometry===null}">{{evaluation_regents.pp_r_geometry | number:1}}{{evaluation_regents.pp_r_geometry | filternulltext}}{{evaluation_regents.pp_r_geometry | filterpercent}}</p>
-                                    <itemsurvey><span class="sin-i"> {{'Geometry' | translateTestScore}}</span>
-                                    </itemsurvey>
-                                </div>
-                                <div class="rank-s">
-                                    <p class="{{ proficiency_ratings.pp_r_geometry_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pp_r_geometry_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
-                                </div>
-                            </div>
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color2" style="width:{{evaluation_regents.pp_r_algebraii | filternullwidth}}%;">
-                                    <p ng-class="{'not-available': evaluation_regents.pp_r_algebraii===null}">{{evaluation_regents.pp_r_algebraii | number:1}}{{evaluation_regents.pp_r_algebraii | filternulltext}}{{evaluation_regents.pp_r_algebraii | filterpercent}}</p>
-                                    <itemsurvey><span class="sin-i"> {{'Algebra II' | translateTestScore}}</span>
-                                    </itemsurvey>
-                                </div>
-                                <div class="rank-s">
-                                    <p class="{{ proficiency_ratings.pp_r_algebraii_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pp_r_algebraii_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
-                                </div>
-                            </div>
                         </div>
-                        <div class="row" ng-show="valuesRegentsPassRateND">
-                            <div class="small-12 medium-12 large-12 columns bg-tablas-data">
-                                <div class="democracy color-barra" style="width:0%">
-                                    <p style="font-size:1rem; width: 20rem">{{'Unavailable for the selected year' | translateGlobal}}</p>
+                        <accordion-group is-open="false">
+                            <accordion-heading>
+                                <div>{{'Regents Average Score' | translateTestScore}}</div>
+                            </accordion-heading>
+                            <!-- Regents Average Score-->
+                            <div class="row" ng-show="valuesRegentsAverageScore">
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color1" style="width:{{evaluation_regents.as_r_english | filternullwidth}}%;">
+                                        <p ng-class="{'not-available': evaluation_regents.as_r_english===null}">{{evaluation_regents.as_r_english | number:0}}{{evaluation_regents.as_r_english | filternulltext}}{{evaluation_regents.as_r_english | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_english | filternumbervisibility}}</span>
+                                        </p>
+                                        <itemsurvey><span class="sin-i"> {{'English' | translateTestScore}}</span>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="rank-s">
+                                        <p class="{{ proficiency_ratings.as_r_english_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.as_r_english_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color2" style="width:{{evaluation_regents.as_r_us_history | filternullwidth}}%;">
+                                        <p ng-class="{'not-available': evaluation_regents.as_r_us_history===null}">{{evaluation_regents.as_r_us_history | number:0}}{{evaluation_regents.as_r_us_history | filternulltext}}{{evaluation_regents.as_r_us_history | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_us_history | filternumbervisibility}}</span>
+                                        </p>
+                                        <itemsurvey><span class="sin-i"> {{'U.S. History' | translateTestScore}}</span>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="rank-s">
+                                        <p class="{{ proficiency_ratings.as_r_us_history_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.as_r_us_history_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color1" style="width:{{evaluation_regents.as_r_global_history | filternullwidth}}%;">
+                                        <p ng-class="{'not-available': evaluation_regents.as_r_global_history===null}">{{evaluation_regents.as_r_global_history | number:0}}{{evaluation_regents.as_r_global_history | filternulltext}}{{evaluation_regents.as_r_global_history | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_global_history | filternumbervisibility}}</span>
+                                        </p>
+                                        <itemsurvey><span class="sin-i"> {{'Global History' | translateTestScore}}</span>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="rank-s">
+                                        <p class="{{ proficiency_ratings.as_r_global_history_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.as_r_global_history_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color2" style="width:{{evaluation_regents.as_r_living_environment | filternullwidth}}%;">
+                                        <p ng-class="{'not-available': evaluation_regents.as_r_living_environment===null}">{{evaluation_regents.as_r_living_environment | number:0}}{{evaluation_regents.as_r_living_environment | filternulltext}}{{evaluation_regents.as_r_living_environment | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_living_environment | filternumbervisibility}}</span>
+                                        </p>
+                                        <itemsurvey><span class="sin-i"> {{'Living Environment' | translateTestScore}}</span>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="rank-s">
+                                        <p class="{{ proficiency_ratings.as_r_living_environment_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.as_r_living_environment_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color1" style="width:{{evaluation_regents.as_r_earth_science | filternullwidth}}%;">
+                                        <p ng-class="{'not-available': evaluation_regents.as_r_earth_science===null}">{{evaluation_regents.as_r_earth_science | number:0}}{{evaluation_regents.as_r_earth_science | filternulltext}}{{evaluation_regents.as_r_earth_science | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_earth_science | filternumbervisibility}}</span>
+                                        </p>
+                                        <itemsurvey><span class="sin-i"> {{'Earth Science' | translateTestScore}}</span>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="rank-s">
+                                        <p class="{{ proficiency_ratings.as_r_earth_science_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.as_r_earth_science_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color2" style="width:{{evaluation_regents.as_r_chemistry | filternullwidth}}%;">
+                                        <p ng-class="{'not-available': evaluation_regents.as_r_chemistry===null}">{{evaluation_regents.as_r_chemistry | number:0}}{{evaluation_regents.as_r_chemistry | filternulltext}}{{evaluation_regents.as_r_chemistry | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_chemistry | filternumbervisibility}}</span>
+                                        </p>
+                                        <itemsurvey><span class="sin-i"> {{'Chemistry' | translateTestScore}}</span>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="rank-s">
+                                        <p class="{{ proficiency_ratings.as_r_chemistry_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.as_r_chemistry_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color1" style="width:{{evaluation_regents.as_r_physics | filternullwidth}}%;">
+                                        <p ng-class="{'not-available': evaluation_regents.as_r_physics===null}">{{evaluation_regents.as_r_physics | number:0}}{{evaluation_regents.as_r_physics | filternulltext}}{{evaluation_regents.as_r_physics | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_physics | filternumbervisibility}}</span>
+                                        </p>
+                                        <itemsurvey><span class="sin-i"> {{'Physics' | translateTestScore}}</span>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="rank-s">
+                                        <p class="{{ proficiency_ratings.as_r_physics_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.as_r_physics_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color2" style="width:{{evaluation_regents.as_r_integrated_algebra | filternullwidth}}%;">
+                                        <p ng-class="{'not-available': evaluation_regents.as_r_integrated_algebra===null}">{{evaluation_regents.as_r_integrated_algebra | number:0}}{{evaluation_regents.as_r_integrated_algebra | filternulltext}}{{evaluation_regents.as_r_integrated_algebra | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_integrated_algebra | filternumbervisibility}}</span>
+                                        </p>
+                                        <itemsurvey><span class="sin-i"> {{'Integrated Algebra' | translateTestScore}}</span>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="rank-s">
+                                        <p class="{{ proficiency_ratings.as_r_integrated_algebra_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.as_r_integrated_algebra_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color1" style="width:{{evaluation_regents.as_r_geometry | filternullwidth}}%;">
+                                        <p ng-class="{'not-available': evaluation_regents.as_r_geometry===null}">{{evaluation_regents.as_r_geometry | number:0}}{{evaluation_regents.as_r_geometry | filternulltext}}{{evaluation_regents.as_r_geometry | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_geometry | filternumbervisibility}}</span>
+                                        </p>
+                                        <itemsurvey><span class="sin-i"> {{'Geometry' | translateTestScore}}</span>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="rank-s">
+                                        <p class="{{ proficiency_ratings.as_r_geometry_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.as_r_geometry_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color2" style="width:{{evaluation_regents.as_r_algebraii | filternullwidth}}%;">
+                                        <p ng-class="{'not-available': evaluation_regents.as_r_algebraii===null}">{{evaluation_regents.as_r_algebraii | number:0}}{{evaluation_regents.as_r_algebraii | filternulltext}}{{evaluation_regents.as_r_algebraii | filterslashvisibility}}<span class="total_dividendo">{{evaluation_regents.as_r_algebraii | filternumbervisibility}}</span>
+                                        </p>
+                                        <itemsurvey><span class="sin-i"> {{'Algebra II' | translateTestScore}}</span>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="rank-s">
+                                        <p class="{{ proficiency_ratings.as_r_algebraii_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.as_r_algebraii_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row" ng-show="valuesRegentsAverageScoreND">
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color-barra" style="width:0%">
+                                        <p style="font-size:1rem; width: 20rem">{{'Unavailable for the selected year' | translateGlobal}}</p>
+                                    </div>
                                 </div>
                             </div>
+                        </accordion-group>
+
+
+                        <div style="position:relative;z-index:5;top: 4px;float:right;cursor:pointer;" class="icon-info-acordion" Popover-animation="false" popover-placement="bottom" popover="{{'Average score of all students who took the Regents Exam in the selected year.' | translateGlosary}}">
+                        <img style="position:relative;right:4rem" src='img/info.png' width='30' onclick="quitaBurbuja(this)"></div>
+                        <accordion-group is-open="false">
+                            <accordion-heading>
+                                <div>{{'Regents College Ready' | translateTestScore}}</div>
+                            </accordion-heading>
+                            <!-- Regents College Ready-->
+                            <div class="row" ng-show="valuesRegentsRegentsCollegeReady">
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color1" style="width:{{evaluation_regents.pcr_r_comprehensive_english | filternullwidth}}%;">
+                                        <p ng-class="{'not-available': evaluation_regents.pcr_r_comprehensive_english===null}">{{evaluation_regents.pcr_r_comprehensive_english | number:1}}{{evaluation_regents.pcr_r_comprehensive_english | filternulltext}}{{evaluation_regents.pcr_r_comprehensive_english | filterpercent}}</p>
+                                        <itemsurvey><span class="sin-i"> {{'English' | translateTestScore}}</span>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="rank-s">
+                                        <p class="{{ proficiency_ratings.pcr_r_comprehensive_english_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pcr_r_comprehensive_english_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color2" style="width:{{evaluation_regents.pcr_r_integrated_algebra | filternullwidth}}%;">
+                                        <p ng-class="{'not-available': evaluation_regents.pcr_r_integrated_algebra===null}">{{evaluation_regents.pcr_r_integrated_algebra | number:1}}{{evaluation_regents.pcr_r_integrated_algebra | filternulltext}}{{evaluation_regents.pcr_r_integrated_algebra | filterpercent}}</p>
+                                        <itemsurvey><span class="sin-i">{{'Integrated Algebra' | translateTestScore}}</span>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="rank-s">
+                                        <p class="{{ proficiency_ratings.pcr_r_integrated_algebra_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pcr_r_integrated_algebra_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color1" style="width:{{evaluation_regents.pcr_r_algebraii | filternullwidth}}%;">
+                                        <p ng-class="{'not-available': evaluation_regents.pcr_r_algebraii===null}">{{evaluation_regents.pcr_r_algebraii | number:1}}{{evaluation_regents.pcr_r_algebraii | filternulltext}}{{evaluation_regents.pcr_r_algebraii | filterpercent}}</p>
+                                        <itemsurvey><span class="sin-i">{{'Algebra II' | translateTestScore}}</span>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="rank-s">
+                                        <p class="{{ proficiency_ratings.pcr_r_algebraii_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pcr_r_algebraii_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color2" style="width:{{evaluation_regents.pcr_r_geometry | filternullwidth}}%;">
+                                        <p ng-class="{'not-available': evaluation_regents.pcr_r_geometry===null}">{{evaluation_regents.pcr_r_geometry | number:1}}{{evaluation_regents.pcr_r_geometry | filternulltext}}{{evaluation_regents.pcr_r_geometry | filterpercent}}</p>
+                                        <itemsurvey><span class="sin-i">{{'Geometry' | translateTestScore}}</span>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="rank-s">
+                                        <p class="{{ proficiency_ratings.pcr_r_geometry_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pcr_r_geometry_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" ng-show="valuesRegentsRegentsCollegeReadyND">
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color-barra" style="width:0%">
+                                        <p style="font-size:1rem; width: 20rem">{{'Unavailable for the selected year' | translateGlobal}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </accordion-group>
+                        <div style="position:relative;z-index:5;top: 4px;float:right;cursor:pointer;" class="icon-info-acordion" Popover-animation="false" popover-placement="bottom" popover="{{'Percentage of students who scored at the college ready threshold for the Regents Exam in the selected year.' | translateGlosary}}">
+                            <img style="position:relative;right:4rem" src='img/info.png' width='30' onclick="quitaBurbuja(this)">
                         </div>
-                    </accordion-group>
-                </accordion>
+                        <accordion-group is-open="false">
+                            <accordion-heading>
+                                <div>{{'Regents Pass Rate' | translateTestScore}}</div>
+                            </accordion-heading>
+                            <!-- Regents Pass Rate-->
+                            <div class="row" ng-show="valuesRegentsPassRate">
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color1" style="width:{{evaluation_regents.pp_r_english | filternullwidth}}%;">
+                                        <p ng-class="{'not-available': evaluation_regents.pp_r_english===null}">{{evaluation_regents.pp_r_english | number:1}}{{evaluation_regents.pp_r_english | filternulltext}}{{evaluation_regents.pp_r_english | filterpercent}}</p>
+                                        <itemsurvey><span class="sin-i"> {{'English' | translateTestScore}}</span>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="rank-s">
+                                        <p class="{{ proficiency_ratings.pp_r_english_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pp_r_english_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color2" style="width:{{evaluation_regents.pp_r_us_history | filternullwidth}}%;">
+                                        <p ng-class="{'not-available': evaluation_regents.pp_r_us_history===null}">{{evaluation_regents.pp_r_us_history | number:1}}{{evaluation_regents.pp_r_us_history | filternulltext}}{{evaluation_regents.pp_r_us_history | filterpercent}}</p>
+                                        <itemsurvey><span class="sin-i"> {{'U.S. History' | translateTestScore}}</span>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="rank-s">
+                                        <p class="{{ proficiency_ratings.pp_r_us_history_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pp_r_us_history_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color1" style="width:{{evaluation_regents.pp_r_global_history | filternullwidth}}%;">
+                                        <p ng-class="{'not-available': evaluation_regents.pp_r_global_history===null}">{{evaluation_regents.pp_r_global_history | number:1}}{{evaluation_regents.pp_r_global_history | filternulltext}}{{evaluation_regents.pp_r_global_history | filterpercent}}</p>
+                                        <itemsurvey><span class="sin-i"> {{'Global History' | translateTestScore}}</span>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="rank-s">
+                                        <p class="{{ proficiency_ratings.pp_r_global_history_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pp_r_global_history_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color2" style="width:{{evaluation_regents.pp_r_living_environment | filternullwidth}}%;">
+                                        <p ng-class="{'not-available': evaluation_regents.pp_r_living_environment===null}">{{evaluation_regents.pp_r_living_environment | number:1}}{{evaluation_regents.pp_r_living_environment | filternulltext}}{{evaluation_regents.pp_r_living_environment | filterpercent}}</p>
+                                        <itemsurvey><span class="sin-i"> {{'Living Environment' | translateTestScore}}</span>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="rank-s">
+                                        <p class="{{ proficiency_ratings.pp_r_living_environment_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pp_r_living_environment_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color1" style="width:{{evaluation_regents.pp_r_earth_science | filternullwidth}}%;">
+                                        <p ng-class="{'not-available': evaluation_regents.pp_r_earth_science===null}">{{evaluation_regents.pp_r_earth_science | number:1}}{{evaluation_regents.pp_r_earth_science | filternulltext}}{{evaluation_regents.pp_r_earth_science | filterpercent}}</p>
+                                        <itemsurvey><span class="sin-i"> {{'Earth Science' | translateTestScore}}</span>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="rank-s">
+                                        <p class="{{ proficiency_ratings.pp_r_earth_science_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pp_r_earth_science_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color2" style="width:{{evaluation_regents.pp_r_chemistry | filternullwidth}}%;">
+                                        <p ng-class="{'not-available': evaluation_regents.pp_r_chemistry===null}">{{evaluation_regents.pp_r_chemistry | number:1}}{{evaluation_regents.pp_r_chemistry | filternulltext}}{{evaluation_regents.pp_r_chemistry | filterpercent}}</p>
+                                        <itemsurvey><span class="sin-i"> {{'Chemistry' | translateTestScore}}</span>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="rank-s">
+                                        <p class="{{ proficiency_ratings.pp_r_chemistry_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pp_r_chemistry_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color1" style="width:{{evaluation_regents.pp_r_physics | filternullwidth}}%;">
+                                        <!--                       <p>{{evaluation_regents.pp_r_physics | number:1}}{{evaluation_regents.pp_r_physics | filternulltext}}{{evaluation_regents.pp_r_physics | filterpercent}}</p> -->
+                                        <p ng-class="{'not-available': evaluation_regents.pp_r_physics===null}">{{evaluation_regents.pp_r_physics | number:1}}{{evaluation_regents.pp_r_physics | filternulltext}}{{evaluation_regents.pp_r_physics | filterpercent}}</p>
+                                        <itemsurvey><span class="sin-i"> {{'Physics' | translateTestScore}}</span>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="rank-s">
+                                        <p class="{{ proficiency_ratings.pp_r_physics_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pp_r_physics_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color2" style="width:{{evaluation_regents.pp_r_integrated_algebra | filternullwidth}}%;">
+                                        <p ng-class="{'not-available': evaluation_regents.pp_r_integrated_algebra===null}">{{evaluation_regents.pp_r_integrated_algebra | number:1}}{{evaluation_regents.pp_r_integrated_algebra | filternulltext}}{{evaluation_regents.pp_r_integrated_algebra | filterpercent}}</p>
+                                        <itemsurvey><span class="sin-i"> {{'Integrated Algebra' | translateTestScore}}</span>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="rank-s">
+                                        <p class="{{ proficiency_ratings.pp_r_integrated_algebra_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pp_r_integrated_algebra_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color1" style="width:{{evaluation_regents.pp_r_geometry | filternullwidth}}%;">
+                                        <p ng-class="{'not-available': evaluation_regents.pp_r_geometry===null}">{{evaluation_regents.pp_r_geometry | number:1}}{{evaluation_regents.pp_r_geometry | filternulltext}}{{evaluation_regents.pp_r_geometry | filterpercent}}</p>
+                                        <itemsurvey><span class="sin-i"> {{'Geometry' | translateTestScore}}</span>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="rank-s">
+                                        <p class="{{ proficiency_ratings.pp_r_geometry_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pp_r_geometry_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
+                                    </div>
+                                </div>
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color2" style="width:{{evaluation_regents.pp_r_algebraii | filternullwidth}}%;">
+                                        <p ng-class="{'not-available': evaluation_regents.pp_r_algebraii===null}">{{evaluation_regents.pp_r_algebraii | number:1}}{{evaluation_regents.pp_r_algebraii | filternulltext}}{{evaluation_regents.pp_r_algebraii | filterpercent}}</p>
+                                        <itemsurvey><span class="sin-i"> {{'Algebra II' | translateTestScore}}</span>
+                                        </itemsurvey>
+                                    </div>
+                                    <div class="rank-s">
+                                        <p class="{{ proficiency_ratings.pp_r_algebraii_pr | filtraCeros }}">{{'Rank' | translateGlobal}} <img ng-src="img/{{ proficiency_ratings.pp_r_algebraii_pr | filtraRank }}.png"> >{{'Avg.' | translateGlobal}} </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" ng-show="valuesRegentsPassRateND">
+                                <div class="small-12 medium-12 large-12 columns bg-tablas-data">
+                                    <div class="democracy color-barra" style="width:0%">
+                                        <p style="font-size:1rem; width: 20rem">{{'Unavailable for the selected year' | translateGlobal}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </accordion-group>
+                    </accordion>
                 </div>
                 <!-- fin solo highschool -->
 
@@ -451,9 +484,9 @@
                 <div id="allSchools">
                     <div id="testScore-elementary" class="borrar">
                         <div class="row menu-header" style="padding-top:0 !important">
-                            <div class="small-10 small-centered medium-10 large-10 columns">
+                            <div class="small-11 small-centered medium-12 large-12 columns">
                                 <div class="row">
-                                    <div class="small-6  medium-6 large-6 columns">
+                                    <div class="large-4-first large-4 columns">
                                         <!-- <div ng-controller="TestScoreYearddCtrl" class="text-center"> -->
                                         <div ng-controller="TestScoreCtrlYearEl" class="text-center">
                                             <a dropdown-toggle="#dropdown-year_testScore" class="button dropdown small bg-dropdown" style="margin-left: 0px;">{{selectedyear_testScore_year_el}}</a>
@@ -465,19 +498,25 @@
                                             <br>
                                         </div>
                                     </div>
-
-                                    <div class="small-6  medium-6 large-6 columns ">
-                                        <div ng-controller="TestScoreGradeddCtrl" class="text-center">
-                                            <div ng-if="selectedgradedefault === null">
-                                                <a dropdown-toggle="#dropdown-grade_testScore" class="button dropdown small bg-dropdown" style="margin-right: -10px;">{{selectedgrade | translateGlobal}}</a>
-                                            </div>
-                                            <div ng-if="selectedgradedefault !== null">
-                                                <a dropdown-toggle="#dropdown-grade_testScore" class="button dropdown small bg-dropdown" style="margin-right: -10px;">{{selectedgradedefault | translateGlobal}}</a>
-                                            </div>
-
+                                    <div class="large-4 columns">
+                                        <div ng-controller="TestScoreGradedCtrl" class="text-center">
+                                            <a dropdown-toggle="#dropdown-grade_testScore" class="button dropdown small bg-dropdown">
+                                                <span>{{selectedgrade | translateGlobal}}</span>
+                                            </a>
                                             <ul id="dropdown-grade_testScore" class="f-dropdown">
                                                 <li ng-repeat="itemg in itemsGrades">
                                                     <a ng-click="changegrade(itemg.indice)">{{itemg.texto | translateGlobal}}</a>
+                                                </li>
+                                            </ul>
+                                            <br>
+                                        </div>
+                                    </div>
+                                    <div class="large-4 columns">
+                                        <div ng-controller="TestScoreCtrlCategory" class="text-center">
+                                            <a dropdown-toggle="#dropdown-ethnic_testScore" class="button dropdown small bg-dropdown" style="margin-left: 0px;">{{TestScoreSelectedCategory | translateDemographics}}</a>
+                                            <ul id="dropdown-ethnic_testScore" class="f-dropdown">
+                                                <li ng-repeat="itemy in TestScoreCategories">
+                                                    <a ng-click="changegenere(itemy.indice)">{{itemy.texto | translateDemographics}}</a>
                                                 </li>
                                             </ul>
                                             <br>
@@ -491,10 +530,48 @@
                                 <div ng-show="valuesElaScores" style="position:relative;z-index:5;top: 8px;left: {{ 2 | iconPosition }};cursor:pointer" class="icon-info-acordion" Popover-animation="false" popover-placement="bottom" popover="{{'In Spring 2013, New York State administered the first set of tests designed to assess student performance in English Language Arts (Grades 3-8) in accordance with the instructional shifts required by the Common Core Learning Standards. New York State assigns performance levels 1 ,2, 3, and 4 to scale scores from the exams.' | translateGlosary}}"><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja(this)">
                                 </div>
                                 <!-- ELA Scores-->
-                                <accordion-group is-open="false" ng-show="valuesElaScores">
+                                <accordion-group is-open="true" ng-show="valuesElaScores">
                                     <accordion-heading>
                                         <div>{{'ELA Scores' | translateTestScore}}</div>
                                     </accordion-heading>
+                                    <!-- All Grades -->
+                                    <div class="{{ 0 | filtraGrado}}">
+                                        <div class="row">
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.all_grades_p_level1_ela | filterNull}}">
+                                                <div class="democracy color1" style="width:{{evaluation_ela.all_grades_p_level1_ela}}%;">
+                                                    <p>{{evaluation_ela.all_grades_p_level1_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info">{{'Level 1' | translateTestScore}}</span>
+                                                        <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.all_grades_p_level2_ela | filterNull}}">
+                                                <div class="democracy color2" style="width:{{evaluation_ela.all_grades_p_level2_ela}}%;">
+                                                    <p>{{evaluation_ela.all_grades_p_level2_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info">{{'Level 2' | translateTestScore}}</span>
+                                                        <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.all_grades_p_level3_ela | filterNull}}">
+                                                <div class="democracy color1" style="width:{{evaluation_ela.all_grades_p_level3_ela}}%;">
+                                                    <p>{{evaluation_ela.all_grades_p_level3_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info">{{'Level 3' | translateTestScore}}</span>
+                                                        <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.all_grades_p_level4_ela | filterNull}}">
+                                                <div class="democracy color2" style="width:{{evaluation_ela.all_grades_p_level4_ela}}%;">
+                                                    <p>{{evaluation_ela.all_grades_p_level4_ela | number:1}}%</p>
+                                                    <itemsurvey><span class="con-info">{{'Level 4' | translateTestScore}}</span>
+                                                        <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 3 Grado -->
                                     <div class="{{ 3 | filtraGrado}}">
                                         <div class="row">
                                             <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_ela.3rd_pr_s_level1_ela | filterNull}}">
@@ -721,12 +798,47 @@
                                 <div ng-show="valuesMathScores" style="position:relative;z-index:5;top: 8px;left: {{ 3 | iconPosition }};cursor:pointer" class="icon-info-acordion" Popover-animation="false" popover-placement="bottom" popover="{{'In Spring 2013, New York State administered the first set of tests designed to assess student performance in Math (Grades 3-8) in accordance with the instructional shifts required by the Common Core Learning Standards. New York State assigns performance levels 1, 2, 3, and 4 to scale scores from the exams.' | translateGlosary}}"><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja(this)">
                                 </div>
                                 <!-- MATH Scores-->
-                                <accordion-group is-open="false" ng-show="valuesMathScores">
+                                <accordion-group is-open="true" ng-show="valuesMathScores">
                                     <accordion-heading>
                                         <div>{{'Math Scores' | translateTestScore}}</div>
                                     </accordion-heading>
                                     <!-- MATH -->
                                     <div class="row">
+                                        <!-- All Grades -->
+                                        <div class="{{ 0 | filtraGrado}}">
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.all_grades_p_level1_math | filterNull}}">
+                                                <div class="democracy color1" style="width: {{evaluation_math.all_grades_p_level1_math}}%;">
+                                                    <p> {{evaluation_math.all_grades_p_level1_math | number:1}}% </p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 1' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 1: Students performing at this level are well below proficient in standards for their grade.' | translateGlosary}} " popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.all_grades_p_level2_math | filterNull}}">
+                                                <div class="democracy color2" style="width:{{evaluation_math.all_grades_p_level2_math}}%;">
+                                                    <p> {{evaluation_math.all_grades_p_level2_math | number:1}}% </p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 2' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 2: Students performing at this level are below proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.all_grades_p_level3_math | filterNull}}">
+                                                <div class="democracy color1" style="width:{{evaluation_math.all_grades_p_level3_math}}%;">
+                                                    <p> {{evaluation_math.all_grades_p_level3_math | number:1}}% </p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 3' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 3: Students performing at this level are proficient in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                            <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.all_grades_p_level4_math | filterNull}}">
+                                                <div class="democracy color2" style="width:{{evaluation_math.all_grades_p_level4_math}}%;">
+                                                    <p> {{evaluation_math.all_grades_p_level4_math | number:1}}% </p>
+                                                    <itemsurvey><span class="con-info"> {{'Level 4' | translateTestScore}} </span>
+                                                        <div Popover-animation="false" popover="{{'Level 4: Students performing at this level excel in standards for their grade.' | translateGlosary}}" popover-placement="left" class="icon-info" style="cursor:pointer" onclick="quitaBurbuja()"></div>
+                                                    </itemsurvey>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <!-- 3rd Grado-->
                                         <div class="{{ 3 | filtraGrado}}">
                                             <div class="small-12 medium-12 large-12 columns bg-tablas-data  {{evaluation_math.3rd_pr_s_level1_math | filterNull}}">
@@ -940,10 +1052,10 @@
                                     </div>
                                 </accordion-group>
                                 <!-- Fin MATH Scores-->
-                                <div style="position:relative;z-index:5;top: 8px;left: {{ 4 | iconPosition }};cursor:pointer" class="icon-info-acordion" Popover-animation="false" popover-placement="bottom" popover="{{'Provides the average performance level on New York State ELA and Math test of students who took the test at the school.' | translateGlosary}}"><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja(this)">
+                                <div style="display: none; position:relative;z-index:5;top: 8px;left: {{ 4 | iconPosition }};cursor:pointer" class="icon-info-acordion" Popover-animation="false" popover-placement="bottom" popover="{{'Provides the average performance level on New York State ELA and Math test of students who took the test at the school.' | translateGlosary}}"><img style="position:absolute;" src='img/info.png' width='30' onclick="quitaBurbuja(this)">
                                 </div>
                                 <!-- Average Profiency Score-->
-                                    <accordion-group is-open="false">
+                                    <accordion-group style="display: none;" is-open="false">
                                         <div class="small-12 medium-12 large-12 columns avg-score bg-tablas-data" ng-if="valuesAverageProficiencyScore==false">
                                             <p style="padding-left:7px; margin-bottom:0px; margin-top:0px; font-size:1rem; width: 20rem">{{'Unavailable for the selected year' | translateGlobal}}</p>
                                         </div>
@@ -951,6 +1063,24 @@
                                             <div>{{'Average Proficiency Score' | translateTestScore}}</div>
                                         </accordion-heading>
                                         <div class="row">
+                                            <!-- All Grades -->
+                                            <div class="{{ 0 | filtraGrado}}">
+                                                <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.av_proficiency_rating_ela | filtraCeros}}">
+                                                    <div class="democracy color-barra" style="width:{{evaluation_ela.av_proficiency_rating_ela | EscalaAverageTestScore}}%;">
+                                                        <p>{{evaluation_ela.av_proficiency_rating_ela}}/<span class="total_dividendo">4.5</span>
+                                                        </p>
+                                                        <itemsurvey><span class="sin-i"> {{'ELA' | translateTestScore}}</span>
+                                                        </itemsurvey>
+                                                    </div>
+
+                                                    <div class="metrics {{city_average.AverageProficiencyRatingOverallELA }}">
+                                                        <div class="average" style="width:{{city_average.AverageProficiencyRatingOverallELA | EscalaAverageTestScore}}%;">
+                                                            <p>{{'City Average' | translateGlobal}}: {{city_average.AverageProficiencyRatingOverallELA | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="{{ 3 | filtraGrado}}">
                                                 <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_ela.3rd_a_p_r_ela | filtraCeros}}">
                                                     <div class="democracy color-barra" style="width:{{evaluation_ela.3rd_a_p_r_ela | EscalaAverageTestScore}}%;">
@@ -1043,6 +1173,25 @@
                                                     <div class="metrics {{city_average.8thGradeAverageProficiencyRatingELA }}">
                                                         <div class="average" style="width:{{city_average.8thGradeAverageProficiencyRatingELA | EscalaAverageTestScore}}%;">
                                                             <p>{{'City Average' | translateGlobal}}: {{city_average.8thGradeAverageProficiencyRatingELA | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="{{ 0 | filtraGrado}}">
+                                                <div class="small-12 medium-12 large-12 columns barra-blanca bg-tablas-data {{evaluation_math.av_proficiency_rating_math | filtraCeros}}">
+                                                    <div class="democracy color-barra" style="width:{{evaluation_math.av_proficiency_rating_math | EscalaAverageTestScore}}%;">
+                                                        <p>{{evaluation_math.av_proficiency_rating_math | redondea_sp}}/<span class="total_dividendo">4.5</span>
+                                                        </p>
+                                                        <itemsurvey><span class="sin-i"> {{'Math' | translateTestScore}}</span>
+                                                        </itemsurvey>
+                                                    </div>
+
+                                                    <div class="metrics {{city_average.AverageProficiencyRatingOverallMath }}">
+                                                        <div class="average" style="width:{{city_average.AverageProficiencyRatingOverallMath | EscalaAverageTestScore}}%;">
+                                                            <p>{{'City Average' | translateGlobal}}: {{city_average.AverageProficiencyRatingOverallMath | redondea_sp}}/<span class="total_dividendo_caverage">4.5</span>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -1164,7 +1313,7 @@
                                                 <a ng-click="changeyear(itemy.indice)">{{itemy.texto}}</a>
                                             </li>
                                         </ul>
-                                        <br>  
+                                        <br>
                                     </div>
                                 </div>
                             </div>

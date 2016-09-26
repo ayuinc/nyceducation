@@ -1,5 +1,5 @@
 
-angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch", "autocomplete","controllers_nyce"])
+angular.module('filters_nyce', ["ngRoute", "ngAnimate", "ngTouch", "autocomplete" , "controllers_nyce"])
 
 .filter("checkEmpty", function($rootScope){
   return function(text) {

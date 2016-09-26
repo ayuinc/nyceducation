@@ -16,7 +16,7 @@
     <section class="main-section">
 
       <div class=" menu-header">
-        <h3 class="text-center">{{'Enrollment' | translateEnrollment}}</h3>
+        <h3 class="text-center">{{'CLASSSIZE_ENROLLMENT' | translate}}</h3>
         <div ng-controller="EnrollmentCtrlYear" class="text-center">
           <a dropdown-toggle="#dropdown-enrollment" class="button dropdown small bg-dropdown">{{selectedyearEnrollment}}</a>
           <ul id="dropdown-enrollment" class="f-dropdown" >
@@ -31,121 +31,32 @@
       <div ng-controller="AccordionDemoCtrl">
         <accordion close-others="oneAtATime">
 
-            <div style="position:relative;z-index:5;top: 7px;left: {{ 1 | iconPosition }};cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="{{'The total number of students who are enrolled in each grade of the school as of October 31 of the selected school year.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>
+          <div ng-if="isElemSchool" style="position:relative;z-index:5;top: 7px;left: {{ 14 | iconPosition }};cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="{{'Average class size is calculated by dividing the number of students by the number of sections as determined by each student’s official class (e.g. homeroom/advisory) from the Automate the Schools (ATS) system.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>
 
-          <accordion-group is-open="false">
-              <accordion-heading>
-                <div>{{'Students Enrolled by Grade' | translateEnrollment}}</div>
-              </accordion-heading>
-
-
-                <table>
-                  <thead>
-                    <tr>
-                      <th class="custom-gray" width="50%">{{'Grade' | translateEnrollment}}</th>
-                      <th class="custom-gray" width="50%">{{'No. Students' | translateEnrollment}}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr ng-hide="NAStudentsEnrolledGrade">
-                      <td style="background-color: white;">N/A</td>
-                      <td style="background-color: white;">N/A</td>
-                    </tr>
-                    <tr class="{{enrollment.pre_kinder | filtraCeros}} ">
-                      <td>{{'Pre - K' | translateGlobal}}</td>
-                      <td>{{enrollment.pre_kinder}}</td>
-                    </tr>
-                    <tr class="{{enrollment.kinder | filtraCeros}} color4">
-                      <td>{{'K' | translateGlobal}}</td>
-                      <td>{{enrollment.kinder}}</td>
-                    </tr>
-                    <tr class="{{enrollment.grade1 | filtraCeros}} ">
-                      <td>{{'1st' | translateGlobal}}</td>
-                      <td>{{enrollment.grade1}}</td>
-                    </tr>
-                    <tr class="{{enrollment.grade2 | filtraCeros}} color4">
-                      <td>{{'2nd' | translateGlobal}}</td>
-                      <td>{{enrollment.grade2}}</td>
-                    </tr>
-                    <tr class="{{enrollment.grade3 | filtraCeros}} ">
-                      <td>{{'3rd' | translateGlobal}}</td>
-                      <td>{{enrollment.grade3}}</td>
-                    </tr>
-                    <tr class="{{enrollment.grade4 | filtraCeros}} color4">
-                      <td>{{'4th' | translateGlobal}}</td>
-                      <td>{{enrollment.grade4}}</td>
-                    </tr>
-                    <tr class="{{enrollment.grade5 | filtraCeros}} ">
-                      <td>{{'5th' | translateGlobal}}</td>
-                      <td>{{enrollment.grade5}}</td>
-                    </tr>
-                    <tr class="{{enrollment.grade6 | filtraCeros}} color4">
-                      <td>{{'6th' | translateGlobal}}</td>
-                      <td>{{enrollment.grade6}}</td>
-                    </tr>
-                    <tr class="{{enrollment.grade7 | filtraCeros}} ">
-                      <td>{{'7th' | translateGlobal}}</td>
-                      <td>{{enrollment.grade7}}</td>
-                    </tr>
-                    <tr class="{{enrollment.grade8 | filtraCeros}} color4">
-                      <td>{{'8th' | translateGlobal}}</td>
-                      <td>{{enrollment.grade8}}</td>
-                    </tr>
-                    <tr class="{{enrollment.grade9 | filtraCeros}} ">
-                      <td>{{'9th' | translateGlobal}}</td>
-                      <td>{{enrollment.grade9}}</td>
-                    </tr>
-                    <tr class="{{enrollment.grade10 | filtraCeros}} color4">
-                      <td>{{'10th' | translateGlobal}}</td>
-                      <td>{{enrollment.grade10}}</td>
-                    </tr>
-                    <tr class="{{enrollment.grade11 | filtraCeros}} ">
-                      <td>{{'11th' | translateGlobal}}</td>
-                      <td>{{enrollment.grade11}}</td>
-                    </tr>
-                    <tr class="{{enrollment.grade12 | filtraCeros}} color4">
-                      <td>{{'12th' | translateGlobal}}</td>
-                      <td>{{enrollment.grade12}}</td>
-                    </tr>
-                  </tbody>
-                </table>
-
-          </accordion-group>
+          <div ng-if="isHighSchool" style="position:relative;z-index:5;top: 7px;left: {{ 14 | iconPosition }};cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="{{'Average class size is calculated by the average number of students in each section of course courses (English, Math, Science and Social Studies) from the STARS system.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>
 
           <accordion-group  is-open="false" >
             <accordion-heading>
-              <div>{{'Attendance' | translateEnrollment}}</div>
+              <div>{{'Class Size' | translateEnrollment}}</div>
             </accordion-heading>
+            <table ng-if="isElemSchool">
+              <thead>
+                <tr>
+                  <th class="custom-gray" width="33%">{{'ENROLL_GRADE' | translate}}</th>
+                  <th class="custom-gray" width="33%">{{'ENROLL_SECTIONS' | translate}}</th>
+                  <th class="custom-gray" width="34%">{{'ENROLL_AVSIZE' | translate}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat= "cs in class_size" ng-class-odd="'color4'">
+                  <td>{{cs.grade}}</td>
+                  <td>{{cs.section}}</td>
+                  <td>{{cs.avg_class_size | number:0 }}</td>
+                </tr>
+              </tbody>
+            </table>
 
-
-              <div class="small-12 medium-12 large-12 columns bg-tablas-data {{enrollment.attendance_es_ms_k8_ec | filterNull}}" >
-                <div class="democracy color-barra " style="width:{{enrollment.attendance_es_ms_k8_ec}}%;">
-                    <p>{{enrollment.attendance_es_ms_k8_ec | number:1}}%</p>
-                    <itemsurvey><span  class="sin-i"> {{'Attendance Rate' | translateEnrollment}} K-8</span></itemsurvey>
-                </div>
-              </div>
-
-              <div class="small-12 medium-12 large-12 columns bg-tablas-data {{enrollment.attendance_hs_transfer_hs | filterNull}}" >
-                <div class="democracy color-barra  " style="width:{{enrollment.attendance_hs_transfer_hs}}%;">
-                      <p>{{enrollment.attendance_hs_transfer_hs | number:1}}%</p>
-                      <itemsurvey><span  class="sin-i"> {{'Attendance Rate' | translateEnrollment}} 9-12</span></itemsurvey>
-                </div>
-              </div>
-
-              <div class="small-12 medium-12 large-12 columns bg-tablas-data" ng-show="valuesAttendanceND">
-                <div class="democracy color-barra " style="width:0%;">
-                    <p style="width:24rem">{{'Unavailable for the selected year' | translateGlobal}}</p>
-                </div>
-              </div>
-
-          </accordion-group>
-
-          <accordion-group  is-open="false" >
-            <accordion-heading>
-              <div>{{'ENROLL_CLASS_VIEW' | translate}}</div>
-            </accordion-heading>
-
-            <table>
+            <table ng-if="isHighSchool">
               <thead>
                 <tr>
                   <th class="custom-gray" width="33%">{{'ENROLL_SUBJECT' | translate}}</th>
@@ -157,11 +68,156 @@
                 <tr ng-repeat= "cs in class_size" ng-class-odd="'color4'">
                   <td>{{cs.grade}}</td>
                   <td>{{cs.course}}</td>
-                  <td>{{cs.average}}</td>
+                  <td>{{cs.avg_class_size | number:0 }}</td>
                 </tr>
               </tbody>
             </table>
 
+            <table ng-if="isMultiSchool">
+              <thead>
+                <tr>
+                  <th class="custom-gray" width="33%">{{'ENROLL_GRADE' | translate}} / {{'ENROLL_SUBJECT' | translate}}</th>
+                  <th class="custom-gray" width="33%">{{'ENROLL_SECTIONS' | translate}} / {{'ENROLL_COURSE' | translate}}</th>
+                  <th class="custom-gray" width="34%">{{'ENROLL_AVSIZE' | translate}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat= "cs in class_size" ng-class-odd="'color4'">
+                  <td>{{cs.grade}}</td>
+                  <td>{{cs.course}}</td>
+                  <td>{{cs.avg_class_size | number:0 }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="unavailabe-message" ng-if="!hasClassSizeItems">
+              {{'UNAVAILABEL_SEL_YEAR' | translate}}
+            </div>
+          </accordion-group>
+
+            <div style="position:relative;z-index:5;top: 7px;left: {{ 1 | iconPosition }};cursor:pointer"class="icon-info-acordion" Popover-animation="false"  popover-placement="bottom" popover="{{'The total number of students who are enrolled in each grade of the school as of October 31 of the selected school year.' | translateGlosary}}" ><img style="position:absolute;" src='img/info.png' width='30'  onclick="quitaBurbuja(this)"></div>
+
+          <accordion-group is-open="false">
+            <accordion-heading>
+              <div>{{'Students Enrolled by Grade' | translateEnrollment}}</div>
+            </accordion-heading>
+            <table>
+              <thead>
+                <tr>
+                  <th class="custom-gray" width="50%">{{'Grade' | translateEnrollment}}</th>
+                  <th class="custom-gray" width="50%">{{'No. Students' | translateEnrollment}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-hide="NAStudentsEnrolledGrade">
+                  <td style="background-color: white;">N/A</td>
+                  <td style="background-color: white;">N/A</td>
+                </tr>
+                <tr class="{{enrollment.pre_kinder | filtraCeros}} ">
+                  <td>{{'Pre - K' | translateGlobal}}</td>
+                  <td>{{enrollment.pre_kinder}}</td>
+                </tr>
+                <tr class="{{enrollment.kinder | filtraCeros}} color4">
+                  <td>{{'K' | translateGlobal}}</td>
+                  <td>{{enrollment.kinder}}</td>
+                </tr>
+                <tr class="{{enrollment.grade1 | filtraCeros}} ">
+                  <td>{{'1st' | translateGlobal}}</td>
+                  <td>{{enrollment.grade1}}</td>
+                </tr>
+                <tr class="{{enrollment.grade2 | filtraCeros}} color4">
+                  <td>{{'2nd' | translateGlobal}}</td>
+                  <td>{{enrollment.grade2}}</td>
+                </tr>
+                <tr class="{{enrollment.grade3 | filtraCeros}} ">
+                  <td>{{'3rd' | translateGlobal}}</td>
+                  <td>{{enrollment.grade3}}</td>
+                </tr>
+                <tr class="{{enrollment.grade4 | filtraCeros}} color4">
+                  <td>{{'4th' | translateGlobal}}</td>
+                  <td>{{enrollment.grade4}}</td>
+                </tr>
+                <tr class="{{enrollment.grade5 | filtraCeros}} ">
+                  <td>{{'5th' | translateGlobal}}</td>
+                  <td>{{enrollment.grade5}}</td>
+                </tr>
+                <tr class="{{enrollment.grade6 | filtraCeros}} color4">
+                  <td>{{'6th' | translateGlobal}}</td>
+                  <td>{{enrollment.grade6}}</td>
+                </tr>
+                <tr class="{{enrollment.grade7 | filtraCeros}} ">
+                  <td>{{'7th' | translateGlobal}}</td>
+                  <td>{{enrollment.grade7}}</td>
+                </tr>
+                <tr class="{{enrollment.grade8 | filtraCeros}} color4">
+                  <td>{{'8th' | translateGlobal}}</td>
+                  <td>{{enrollment.grade8}}</td>
+                </tr>
+                <tr class="{{enrollment.grade9 | filtraCeros}} ">
+                  <td>{{'9th' | translateGlobal}}</td>
+                  <td>{{enrollment.grade9}}</td>
+                </tr>
+                <tr class="{{enrollment.grade10 | filtraCeros}} color4">
+                  <td>{{'10th' | translateGlobal}}</td>
+                  <td>{{enrollment.grade10}}</td>
+                </tr>
+                <tr class="{{enrollment.grade11 | filtraCeros}} ">
+                  <td>{{'11th' | translateGlobal}}</td>
+                  <td>{{enrollment.grade11}}</td>
+                </tr>
+                <tr class="{{enrollment.grade12 | filtraCeros}} color4">
+                  <td>{{'12th' | translateGlobal}}</td>
+                  <td>{{enrollment.grade12}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </accordion-group>
+
+          <accordion-group  is-open="false" >
+            <accordion-heading>
+              <div>{{'Attendance' | translateEnrollment}}</div>
+            </accordion-heading>
+
+            <div class="clearfix">
+
+              <div ng-if="isElemSchool && !isMultiSchool">
+                <div class="small-12 medium-12 large-12 columns bg-tablas-data {{enrollment.attendance_es_ms_k8_ec | filterNull}}" >
+                  <div class="democracy color-barra " style="width:{{enrollment.attendance_es_ms_k8_ec}}%;">
+                      <p>{{enrollment.attendance_es_ms_k8_ec | number:1}}%</p>
+                      <itemsurvey><span  class="sin-i"> {{'Attendance Rate' | translateEnrollment}} K-8</span></itemsurvey>
+                  </div>
+                </div>
+              </div>
+
+              <div ng-if="isHighSchool && !isMultiSchool">
+                <div class="small-12 medium-12 large-12 columns bg-tablas-data {{enrollment.attendance_hs_transfer_hs | filterNull}}" >
+                  <div class="democracy color-barra  " style="width:{{enrollment.attendance_hs_transfer_hs}}%;">
+                        <p>{{enrollment.attendance_hs_transfer_hs | number:1}}%</p>
+                        <itemsurvey><span  class="sin-i"> {{'Attendance Rate' | translateEnrollment}} 9-12</span></itemsurvey>
+                  </div>
+                </div>
+              </div>
+
+              <div ng-if="isMultiSchool">
+                <div class="small-12 medium-12 large-12 columns bg-tablas-data {{enrollment.attendance_es_ms_k8_ec | filterNull}}" >
+                  <div class="democracy color-barra " style="width:{{enrollment.attendance_es_ms_k8_ec}}%;">
+                      <p>{{enrollment.attendance_es_ms_k8_ec | number:1}}%</p>
+                      <itemsurvey><span  class="sin-i"> {{'Attendance Rate' | translateEnrollment}} K-8</span></itemsurvey>
+                  </div>
+                </div>
+                <div class="small-12 medium-12 large-12 columns bg-tablas-data {{enrollment.attendance_hs_transfer_hs | filterNull}}" >
+                  <div class="democracy color-barra  " style="width:{{enrollment.attendance_hs_transfer_hs}}%;">
+                        <p>{{enrollment.attendance_hs_transfer_hs | number:1}}%</p>
+                        <itemsurvey><span  class="sin-i"> {{'Attendance Rate' | translateEnrollment}} 9-12</span></itemsurvey>
+                  </div>
+                </div>
+              </div>
+
+              <div class="small-12 medium-12 large-12 columns bg-tablas-data" ng-show="valuesAttendanceND">
+                <div class="democracy color-barra " style="width:0%;">
+                    <p style="width:24rem">{{'Unavailable for the selected year' | translateGlobal}}</p>
+                </div>
+              </div>
+            </div>
 
           </accordion-group>
 

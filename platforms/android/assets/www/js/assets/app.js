@@ -1,3 +1,23 @@
+function iOS() {
+
+  var iDevices = [
+    'iPad Simulator',
+    'iPhone Simulator',
+    'iPod Simulator',
+    'iPad',
+    'iPhone',
+    'iPod'
+  ];
+
+  if (!!navigator.platform) {
+    while (iDevices.length) {
+      if (navigator.platform === iDevices.pop()){ return true; }
+    }
+  }
+
+  return false;
+}
+
 angular.module('foundationDemoApp', ['mm.foundation', 'plunker'], function($httpProvider){
   FastClick.attach(document.body);
   delete $httpProvider.defaults.headers.common['X-Requested-With'];
@@ -6,6 +26,9 @@ angular.module('foundationDemoApp', ['mm.foundation', 'plunker'], function($http
 function MainCtrl($scope, $http, $document, $modal, orderByFilter) {
   var url = "http://50.116.42.77:3001";
   //iFrame for downloading
+  if(iOS()){
+    angular.element('body').addClass('mt-21');
+  }
   var $iframe = angular.element('<iframe>').css('display','none');
   $document.find('body').append($iframe);
 

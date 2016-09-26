@@ -1,10 +1,33 @@
+function iOS() {
+
+  var iDevices = [
+    'iPad Simulator',
+    'iPhone Simulator',
+    'iPod Simulator',
+    'iPad',
+    'iPhone',
+    'iPod'
+  ];
+
+  if (!!navigator.platform) {
+    while (iDevices.length) {
+      if (navigator.platform === iDevices.pop()){ return true; }
+    }
+  }
+
+  return false;
+}
+if(iOS()){
+  angular.element('body').addClass('mt-21');
+}
 /* global $ */
 /* global GetUniqueElementsArray */
-var app = angular.module("nyce", ["mm.foundation","ngRoute", "ngAnimate", "ngTouch", "autocomplete","filters_nyce","controllers_nyce", "pascalprecht.translate"]);
+var dependencies = ["ngRoute", "mm.foundation", "ngSanitize", "ngAnimate", "ngTouch", "autocomplete","filters_nyce","controllers_nyce", "pascalprecht.translate"];
+var app = angular.module("nyce", dependencies);
 
 app.constant('$config', {
-  'API_V1_URL': 'http://nyce-v103-api.laboratoria.la/api/v1/'
-//   'API_V1_URL': 'http://162.243.110.154/api/v1/'
+//  'API_V1_URL': 'http://nyce-v103-api.laboratoria.la/api/v1/'
+   'API_V1_URL': 'http://162.243.110.154/api/v1/'
 });
 
 app.config(['$translateProvider', function ($translateProvider) {
@@ -14,6 +37,7 @@ app.config(['$translateProvider', function ($translateProvider) {
   });
   $translateProvider.preferredLanguage('ngl');
   $translateProvider.fallbackLanguage('ngl');
+  $translateProvider.useSanitizeValueStrategy('escapeParameters');
 }]);
 
 app.config(function($routeProvider) {
@@ -860,6 +884,7 @@ app.factory('SchoolRetriever', function($http, $q, $timeout, $config) {
         .error(function(reason) {
             deferred.reject(reason);
         })
+
         return deferred.promise;
     }
     return {

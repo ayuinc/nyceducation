@@ -1,4 +1,34 @@
-var app = angular.module("nyce", ["mm.foundation","ngRoute", "ngAnimate", "ngTouch", "autocomplete","filters_nyce","controllers_nyce", "pascalprecht.translate"]);
+function iOS() {
+
+  var iDevices = [
+    'iPad Simulator',
+    'iPhone Simulator',
+    'iPod Simulator',
+    'iPad',
+    'iPhone',
+    'iPod'
+  ];
+
+  if (!!navigator.platform) {
+    while (iDevices.length) {
+      if (navigator.platform === iDevices.pop()){ return true; }
+    }
+  }
+
+  return false;
+}
+if(iOS()){
+  angular.element('body').addClass('mt-21');
+}
+/* global $ */
+/* global GetUniqueElementsArray */
+var dependencies = ["ngRoute", "mm.foundation", "ngSanitize", "ngAnimate", "ngTouch", "autocomplete","filters_nyce","controllers_nyce", "pascalprecht.translate"];
+var app = angular.module("nyce", dependencies);
+
+app.constant('$config', {
+//  'API_V1_URL': 'http://nyce-v103-api.laboratoria.la/api/v1/'
+   'API_V1_URL': 'http://162.243.110.154/api/v1/'
+});
 
 app.config(['$translateProvider', function ($translateProvider) {
   $translateProvider.useStaticFilesLoader({
@@ -7,6 +37,7 @@ app.config(['$translateProvider', function ($translateProvider) {
   });
   $translateProvider.preferredLanguage('ngl');
   $translateProvider.fallbackLanguage('ngl');
+  $translateProvider.useSanitizeValueStrategy('escapeParameters');
 }]);
 
 app.config(function($routeProvider) {
@@ -83,12 +114,50 @@ app.config(function($routeProvider) {
     $routeProvider.otherwise({ redirect_to: "/" });
 });
 
-app.factory('DatosSchool',function($rootScope){
+app.factory('DatosSchool',function($rootScope, $filter){
+
+  // La referencia es el numero de indice en la DB para los categories de evaluation_math y evaluation_ela, además conserva este orden
+  var categoryKeywords = [
+    'All Students',
+    'White',
+    'Black',
+    'Hispanic',
+    'Asian',
+    'Male',
+    'Female',
+    'SWD',
+    'Not SWD'
+  ];
 
     return {
         datos: {},
+        getSchoolType : function(yearIndex){
+            var gradesServed = this.datos.profiles[yearIndex].grades_served || false,
+                schoolType = { k8: false, elementary: false, middle: false, highschool: false};
+                
+            if(!gradesServed) { return schoolType; }
+            
+            gradesServed = gradesServed.split(',').map(function(v){
+               return $.trim(v); 
+            });
+            angular.forEach(gradesServed, function(grade){
+                if(grade === 'K' || grade === '1' || grade === '2' || grade === '3' || grade === '4' || grade === '5' || grade === '6' || grade === '7' || grade === '8'){
+                    schoolType.k8 = true;
+                }
+                if(grade === 'K' || grade === '1' || grade === '2' || grade === '3' || grade === '4' || grade === '5'){
+                    schoolType.elementary = true;
+                }
+                if(grade === '6' || grade === '7' || grade === '8'){
+                    schoolType.middle = true;
+                }
+                if(grade === '9' || grade === '10' || grade === '11' || grade === '12'){
+                    schoolType.highschool = true;
+                }
+            });
+            
+            return schoolType;
+        },
         SearchValuesStudentsEnrolledGrade: function(indice){
-
           var ValuesStudentsEnrolledGrade = [];
           ValuesStudentsEnrolledGrade.push(this.datos.enrollments[indice]["pre_kinder"]);
           ValuesStudentsEnrolledGrade.push(this.datos.enrollments[indice]["kinder"]);
@@ -104,9 +173,11 @@ app.factory('DatosSchool',function($rootScope){
           ValuesStudentsEnrolledGrade.push(this.datos.enrollments[indice]["grade10"]);
           ValuesStudentsEnrolledGrade.push(this.datos.enrollments[indice]["grade11"]);
           ValuesStudentsEnrolledGrade.push(this.datos.enrollments[indice]["grade12"]);
-          if(GetUniqueElementsArray(ValuesStudentsEnrolledGrade).length > 0)
-              { return true }
-          else{ return false }
+          if(GetUniqueElementsArray(ValuesStudentsEnrolledGrade).length > 0){
+              return true;
+          }else{
+              return false;
+          }
         },
         SearchValuesAttendance: function(indice){
           var ValuesAttendance = [];
@@ -138,6 +209,8 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchValuesSat: function(indice){
           var ValuesSat = [];
+          if(typeof this.datos.evaluations_average_score[indice] === 'undefined'){ return false; }
+
           ValuesSat.push(this.datos.evaluations_average_score[indice]['sat_a_total_s']);
           ValuesSat.push(this.datos.evaluations_average_score[indice]['sat_a_cr_s']);
           ValuesSat.push(this.datos.evaluations_average_score[indice]['sat_a_math_s']);
@@ -148,6 +221,8 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchValuesRegentsPassRate: function(indice){
           var ValuesRegentsPassRate = [];
+          if(typeof this.datos.evaluations_regents[indice] === 'undefined'){ return false; }
+
           ValuesRegentsPassRate.push(this.datos.evaluations_regents[indice]['pp_r_global_history']);
           ValuesRegentsPassRate.push(this.datos.evaluations_regents[indice]['pp_r_english']);
           ValuesRegentsPassRate.push(this.datos.evaluations_regents[indice]['pp_r_living_environment']);
@@ -164,6 +239,8 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchValuesRegentsAverageScore: function(indice){
           var ValuesRegentsAverageScore = [];
+          if(typeof this.datos.evaluations_regents[indice] === 'undefined'){ return false; }
+
           ValuesRegentsAverageScore.push(this.datos.evaluations_regents[indice]['as_r_english']);
           ValuesRegentsAverageScore.push(this.datos.evaluations_regents[indice]['as_r_us_history']);
           ValuesRegentsAverageScore.push(this.datos.evaluations_regents[indice]['as_r_global_history']);
@@ -180,6 +257,8 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchValuesRegentsRegentsCollegeReady: function(indice){
           var ValuesRegentsRegentsCollegeReady = [];
+          if(typeof this.datos.evaluations_regents[indice] === 'undefined'){ return false; }
+
           ValuesRegentsRegentsCollegeReady.push(this.datos.evaluations_regents[indice]['pcr_r_comprehensive_english']);
           ValuesRegentsRegentsCollegeReady.push(this.datos.evaluations_regents[indice]['pcr_r_integrated_algebra']);
           ValuesRegentsRegentsCollegeReady.push(this.datos.evaluations_regents[indice]['pcr_r_algebraii']);
@@ -190,6 +269,8 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchValuesElaScores: function(indice){
           var ValuesElaScores = [];
+          if(typeof this.datos.evaluations_ela[indice] === 'undefined'){ return false; }
+
           ValuesElaScores.push(this.datos.evaluations_ela[indice]['3rd_pr_s_level1_ela']);
           ValuesElaScores.push(this.datos.evaluations_ela[indice]['3rd_pr_s_level2_ela']);
           ValuesElaScores.push(this.datos.evaluations_ela[indice]['3rd_pr_s_level3_ela']);
@@ -220,6 +301,8 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchValuesMathScores: function(indice){
           var ValuesMathScores = [];
+          if(typeof this.datos.evaluations_math[indice] === 'undefined'){ return false; }
+
           ValuesMathScores.push(this.datos.evaluations_math[indice]['3rd_pr_s_level1_math']);
           ValuesMathScores.push(this.datos.evaluations_math[indice]['3rd_pr_s_level2_math']);
           ValuesMathScores.push(this.datos.evaluations_math[indice]['3rd_pr_s_level3_math']);
@@ -250,6 +333,8 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchValuesAverageProficiencyScoreELA: function(indice){
           var ValuesAverageProficiencyScoreELA = [];
+          if(typeof this.datos.evaluations_ela[indice] === 'undefined'){ return false; }
+
           // ValuesAverageProficiencyScoreELA.push(this.datos.evaluations_ela[indice]['av_proficiency_rating_ela']);
           ValuesAverageProficiencyScoreELA.push(this.datos.evaluations_ela[indice]['3rd_a_p_r_ela']);
           ValuesAverageProficiencyScoreELA.push(this.datos.evaluations_ela[indice]['4rd_a_p_r_ela']);
@@ -263,6 +348,8 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchValuesAverageProficiencyScoreMath: function(indice){
           var ValuesAverageProficiencyScoreMath = [];
+          if(typeof this.datos.evaluations_math[indice] === 'undefined'){ return false; }
+
           // ValuesAverageProficiencyScoreMath.push(this.datos.evaluations_math[indice]['av_proficiency_rating_math']);
           ValuesAverageProficiencyScoreMath.push(this.datos.evaluations_math[indice]['3rd_a_p_r_math']);
           ValuesAverageProficiencyScoreMath.push(this.datos.evaluations_math[indice]['4rd_a_p_r_math']);
@@ -302,22 +389,39 @@ app.factory('DatosSchool',function($rootScope){
             { return true }
           else{ return false }
         },
+        SearchValuesProgressReportUpdatedElem: function(indice){
+          var ValuesProgressReport = [];
+          if(typeof this.datos.evaluations[indice] === 'undefined'){
+              return false;
+          }
+            ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_o_pr_score']);
+            ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_perf_pr_score']);
+            ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_prog_score']);
+            ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_enviro_pr_score']);
+            
+          if(GetUniqueElementsArray(ValuesProgressReport).length > 0){ return true }
+          else{ return false }
+        },
         SearchValuesProgressReportElem: function(indice){
           var ValuesProgressReport = [];
-          ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_pr_grade']);
-          ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_perf_pr_grade']);
-          ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_prog_grade']);
-          ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_enviro_pr_grade']);
-          if(GetUniqueElementsArray(ValuesProgressReport).length > 0)
-            { return true }
+            ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_pr_score']);
+            ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_perf_pr_score']);
+            ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_prog_score']);
+            ValuesProgressReport.push(this.datos.evaluations[indice]['es_ms_k8_ec_s_enviro_pr_score']);
+            
+          if(GetUniqueElementsArray(ValuesProgressReport).length > 0){ return true }
           else{ return false }
         },
         SearchValuesQualityReviewElem: function(indice){
           var ValuesQualityReview = [];
+          if(typeof this.datos.evaluation_rating[indice] === 'undefined'){
+              return false;
+          }
           ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_11']);
           ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_12']);
           ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_14']);
           ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_34']);
+          ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_22']);
           if(GetUniqueElementsArray(ValuesQualityReview).length > 0)
             { return true }
           else{ return false }
@@ -329,12 +433,18 @@ app.factory('DatosSchool',function($rootScope){
           ValuesProgressReport.push(this.datos.evaluations[indice]['hs_t_hs_spro_pr_grade']);
           ValuesProgressReport.push(this.datos.evaluations[indice]['hs_t_hs_se_pr_grade']);
           ValuesProgressReport.push(this.datos.evaluations[indice]['hs_t_hs_o_cac_grade']);
+          ValuesProgressReport.push(this.datos.evaluations[indice]['hs_t_hs_o_pr_score']);
+          ValuesProgressReport.push(this.datos.evaluations[indice]['hs_t_hs_sper_pr_score']);
+          ValuesProgressReport.push(this.datos.evaluations[indice]['hs_t_hs_spro_pr_score']);
+          ValuesProgressReport.push(this.datos.evaluations[indice]['hs_t_hs_se_pr_score']);
+          ValuesProgressReport.push(this.datos.evaluations[indice]['hs_t_hs_o_cac_score']);
           if(GetUniqueElementsArray(ValuesProgressReport).length > 0)
             { return true }
           else{ return false }
         },
         SearchValuesQualityReviewHigh: function(indice){
           var ValuesQualityReview = [];
+          if(typeof this.datos.evaluation_rating[indice] === 'undefined') return false; 
           ValuesQualityReview.push(this.datos.evaluation_rating[indice]['quality_review_rating']);
           ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_11']);
           ValuesQualityReview.push(this.datos.evaluation_rating[indice]['ri_12']);
@@ -346,6 +456,7 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchValuesTotalResponseRate: function(indice){
           var ValuesTotalResponseRate = [];
+          if(typeof this.datos.survey_result[indice] === 'undefined') return false; 
           ValuesTotalResponseRate.push(this.datos.survey_result[indice]['p_total_response_rate']);
           ValuesTotalResponseRate.push(this.datos.survey_result[indice]['t_total_response_rate']);
           ValuesTotalResponseRate.push(this.datos.survey_result[indice]['s_total_response_rate']);
@@ -355,6 +466,7 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchValuesSafetyandRespect: function(indice){
           var ValuesSafetyandRespect = [];
+          if(typeof this.datos.survey_result[indice] === 'undefined') return false; 
           ValuesSafetyandRespect.push(this.datos.survey_result[indice]['p_safety_respect_rs']);
           ValuesSafetyandRespect.push(this.datos.survey_result[indice]['t_safety_respect_rs']);
           ValuesSafetyandRespect.push(this.datos.survey_result[indice]['s_safety_respect_rs']);
@@ -364,6 +476,7 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchValuesEngagement: function(indice){
           var ValuesEngagement = [];
+          if(typeof this.datos.survey_result[indice] === 'undefined') return false; 
           ValuesEngagement.push(this.datos.survey_result[indice]['p_engagement_rs']);
           ValuesEngagement.push(this.datos.survey_result[indice]['t_engagement_rs']);
           ValuesEngagement.push(this.datos.survey_result[indice]['s_engagement_rs']);
@@ -373,6 +486,7 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchValuesCommunication: function(indice){
           var ValuesCommunication = [];
+          if(typeof this.datos.survey_result[indice] === 'undefined') return false; 
           ValuesCommunication.push(this.datos.survey_result[indice]['p_communication_rs']);
           ValuesCommunication.push(this.datos.survey_result[indice]['t_communication_rs']);
           ValuesCommunication.push(this.datos.survey_result[indice]['s_communication_rs']);
@@ -382,6 +496,7 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchValuesAcademicExpectations: function(indice){
           var ValuesAcademicExpectations = [];
+          if(typeof this.datos.survey_result[indice] === 'undefined') return false; 
           ValuesAcademicExpectations.push(this.datos.survey_result[indice]['p_academic_expectations_rs']);
           ValuesAcademicExpectations.push(this.datos.survey_result[indice]['t_academic_expectations_rs']);
           ValuesAcademicExpectations.push(this.datos.survey_result[indice]['s_academic_expectations_rs']);
@@ -391,6 +506,7 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchValuesStudentsResp: function(indice){
           var ValuesStudentsResp = [];
+          if(typeof this.datos.survey_result[indice] === 'undefined') return false; 
           ValuesStudentsResp.push(this.datos.survey_result[indice]['s_academic_expectations_rs']);
           ValuesStudentsResp.push(this.datos.survey_result[indice]['s_communication_rs']);
           ValuesStudentsResp.push(this.datos.survey_result[indice]['s_engagement_rs']);
@@ -401,6 +517,20 @@ app.factory('DatosSchool',function($rootScope){
           else{ return false }
         },
 // FILTROS SURVEY QUESTIONS
+        /*
+          #type: s, p, t
+        */
+        SearchSurveyQuestionPosNeg: function(indice, type, questionNum){
+          if(typeof this.datos.survey_result[indice] === 'undefined' || typeof type === 'undefined' || typeof questionNum === 'undefined'){
+            return false;
+          }
+          var ValuesStudentsResp = [];
+          ValuesStudentsResp.push(this.datos.survey_result[indice][type+'_q'+questionNum+'_positive']);
+          ValuesStudentsResp.push(this.datos.survey_result[indice][type+'_q'+questionNum+'_negative']);
+          if(GetUniqueElementsArray(ValuesStudentsResp).length > 0)
+            { return true }
+          else{ return false }
+        },
         SearchSurveyQuestionQ1F: function(indice){
           var ValuesStudentsResp = [];
           ValuesStudentsResp.push(this.datos.survey_result[indice]['s_q1f_agree']);
@@ -539,7 +669,9 @@ app.factory('DatosSchool',function($rootScope){
 
         SearchTestScoreGrade3rdEla:function(indice){
           var ValuesTestScoreGrade3rd = [];
-          ValuesTestScoreGrade3rd.push(this.datos.evaluations_ela[indice]['3rd_a_p_r_ela']);
+          // ValuesTestScoreGrade3rd.push(this.datos.evaluations_ela[indice]['3rd_a_p_r_ela']);
+          if(typeof this.datos.evaluations_ela[indice] === 'undefined'){ return false; }
+
           ValuesTestScoreGrade3rd.push(this.datos.evaluations_ela[indice]['3rd_pr_s_level1_ela']);
           ValuesTestScoreGrade3rd.push(this.datos.evaluations_ela[indice]['3rd_pr_s_level2_ela']);
           ValuesTestScoreGrade3rd.push(this.datos.evaluations_ela[indice]['3rd_pr_s_level3_ela']);
@@ -550,7 +682,8 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchTestScoreGrade4thEla:function(indice){
           var ValuesTestScoreGrade4th = [];
-          ValuesTestScoreGrade4th.push(this.datos.evaluations_ela[indice]['4rd_a_p_r_ela']);
+          // ValuesTestScoreGrade4th.push(this.datos.evaluations_ela[indice]['4rd_a_p_r_ela']);
+          if(typeof this.datos.evaluations_ela[indice] === 'undefined'){ return false; }
           ValuesTestScoreGrade4th.push(this.datos.evaluations_ela[indice]['4rd_pr_s_level1_ela']);
           ValuesTestScoreGrade4th.push(this.datos.evaluations_ela[indice]['4rd_pr_s_level2_ela']);
           ValuesTestScoreGrade4th.push(this.datos.evaluations_ela[indice]['4rd_pr_s_level3_ela']);
@@ -561,7 +694,8 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchTestScoreGrade5thEla:function(indice){
           var ValuesTestScoreGrade5th = [];
-          ValuesTestScoreGrade5th.push(this.datos.evaluations_ela[indice]['5rd_a_p_r_ela']);
+          // ValuesTestScoreGrade5th.push(this.datos.evaluations_ela[indice]['5rd_a_p_r_ela']);
+          if(typeof this.datos.evaluations_ela[indice] === 'undefined'){ return false; }
           ValuesTestScoreGrade5th.push(this.datos.evaluations_ela[indice]['5rd_pr_s_level1_ela']);
           ValuesTestScoreGrade5th.push(this.datos.evaluations_ela[indice]['5rd_pr_s_level2_ela']);
           ValuesTestScoreGrade5th.push(this.datos.evaluations_ela[indice]['5rd_pr_s_level3_ela']);
@@ -572,7 +706,8 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchTestScoreGrade6thEla:function(indice){
           var ValuesTestScoreGrade6th = [];
-          ValuesTestScoreGrade6th.push(this.datos.evaluations_ela[indice]['6rd_a_p_r_ela']);
+          // ValuesTestScoreGrade6th.push(this.datos.evaluations_ela[indice]['6rd_a_p_r_ela']);
+          if(typeof this.datos.evaluations_ela[indice] === 'undefined'){ return false; }
           ValuesTestScoreGrade6th.push(this.datos.evaluations_ela[indice]['6rd_pr_s_level1_ela']);
           ValuesTestScoreGrade6th.push(this.datos.evaluations_ela[indice]['6rd_pr_s_level2_ela']);
           ValuesTestScoreGrade6th.push(this.datos.evaluations_ela[indice]['6rd_pr_s_level3_ela']);
@@ -583,7 +718,8 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchTestScoreGrade7thEla:function(indice){
           var ValuesTestScoreGrade7th = [];
-          ValuesTestScoreGrade7th.push(this.datos.evaluations_ela[indice]['7rd_a_p_r_ela']);
+          // ValuesTestScoreGrade7th.push(this.datos.evaluations_ela[indice]['7rd_a_p_r_ela']);
+          if(typeof this.datos.evaluations_ela[indice] === 'undefined'){ return false; }
           ValuesTestScoreGrade7th.push(this.datos.evaluations_ela[indice]['7rd_pr_s_level1_ela']);
           ValuesTestScoreGrade7th.push(this.datos.evaluations_ela[indice]['7rd_pr_s_level2_ela']);
           ValuesTestScoreGrade7th.push(this.datos.evaluations_ela[indice]['7rd_pr_s_level3_ela']);
@@ -594,7 +730,8 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchTestScoreGrade8thEla:function(indice){
           var ValuesTestScoreGrade8th = [];
-          ValuesTestScoreGrade8th.push(this.datos.evaluations_ela[indice]['8rd_a_p_r_ela']);
+          // ValuesTestScoreGrade8th.push(this.datos.evaluations_ela[indice]['8rd_a_p_r_ela']);
+          if(typeof this.datos.evaluations_ela[indice] === 'undefined'){ return false; }
           ValuesTestScoreGrade8th.push(this.datos.evaluations_ela[indice]['8rd_pr_s_level1_ela']);
           ValuesTestScoreGrade8th.push(this.datos.evaluations_ela[indice]['8rd_pr_s_level2_ela']);
           ValuesTestScoreGrade8th.push(this.datos.evaluations_ela[indice]['8rd_pr_s_level3_ela']);
@@ -608,7 +745,8 @@ app.factory('DatosSchool',function($rootScope){
 
         SearchTestScoreGrade3rdMath:function(indice){
           var ValuesTestScoreGrade3rd = [];
-          ValuesTestScoreGrade3rd.push(this.datos.evaluations_math[indice]['3rd_a_p_r_math']);
+          // ValuesTestScoreGrade3rd.push(this.datos.evaluations_math[indice]['3rd_a_p_r_math']);
+          if(typeof this.datos.evaluations_math[indice] === 'undefined'){ return false; }
           ValuesTestScoreGrade3rd.push(this.datos.evaluations_math[indice]['3rd_pr_s_level1_math']);
           ValuesTestScoreGrade3rd.push(this.datos.evaluations_math[indice]['3rd_pr_s_level2_math']);
           ValuesTestScoreGrade3rd.push(this.datos.evaluations_math[indice]['3rd_pr_s_level3_math']);
@@ -619,7 +757,8 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchTestScoreGrade4thMath:function(indice){
           var ValuesTestScoreGrade4th = [];
-          ValuesTestScoreGrade4th.push(this.datos.evaluations_math[indice]['4rd_a_p_r_math']);
+          // ValuesTestScoreGrade4th.push(this.datos.evaluations_math[indice]['4rd_a_p_r_math']);
+          if(typeof this.datos.evaluations_math[indice] === 'undefined'){ return false; }
           ValuesTestScoreGrade4th.push(this.datos.evaluations_math[indice]['4rd_pr_s_level1_math']);
           ValuesTestScoreGrade4th.push(this.datos.evaluations_math[indice]['4rd_pr_s_level2_math']);
           ValuesTestScoreGrade4th.push(this.datos.evaluations_math[indice]['4rd_pr_s_level3_math']);
@@ -630,7 +769,8 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchTestScoreGrade5thMath:function(indice){
           var ValuesTestScoreGrade5th = [];
-          ValuesTestScoreGrade5th.push(this.datos.evaluations_math[indice]['5rd_a_p_r_math']);
+          // ValuesTestScoreGrade5th.push(this.datos.evaluations_math[indice]['5rd_a_p_r_math']);
+          if(typeof this.datos.evaluations_math[indice] === 'undefined'){ return false; }
           ValuesTestScoreGrade5th.push(this.datos.evaluations_math[indice]['5rd_pr_s_level1_math']);
           ValuesTestScoreGrade5th.push(this.datos.evaluations_math[indice]['5rd_pr_s_level2_math']);
           ValuesTestScoreGrade5th.push(this.datos.evaluations_math[indice]['5rd_pr_s_level3_math']);
@@ -641,7 +781,8 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchTestScoreGrade6thMath:function(indice){
           var ValuesTestScoreGrade6th = [];
-          ValuesTestScoreGrade6th.push(this.datos.evaluations_math[indice]['6rd_a_p_r_math']);
+          // ValuesTestScoreGrade6th.push(this.datos.evaluations_math[indice]['6rd_a_p_r_math']);
+          if(typeof this.datos.evaluations_math[indice] === 'undefined'){ return false; }
           ValuesTestScoreGrade6th.push(this.datos.evaluations_math[indice]['6rd_pr_s_level1_math']);
           ValuesTestScoreGrade6th.push(this.datos.evaluations_math[indice]['6rd_pr_s_level2_math']);
           ValuesTestScoreGrade6th.push(this.datos.evaluations_math[indice]['6rd_pr_s_level3_math']);
@@ -652,7 +793,8 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchTestScoreGrade7thMath:function(indice){
           var ValuesTestScoreGrade7th = [];
-          ValuesTestScoreGrade7th.push(this.datos.evaluations_math[indice]['7rd_a_p_r_math']);
+          // ValuesTestScoreGrade7th.push(this.datos.evaluations_math[indice]['7rd_a_p_r_math']);
+          if(typeof this.datos.evaluations_math[indice] === 'undefined'){ return false; }
           ValuesTestScoreGrade7th.push(this.datos.evaluations_math[indice]['7rd_pr_s_level1_math']);
           ValuesTestScoreGrade7th.push(this.datos.evaluations_math[indice]['7rd_pr_s_level2_math']);
           ValuesTestScoreGrade7th.push(this.datos.evaluations_math[indice]['7rd_pr_s_level3_math']);
@@ -663,7 +805,8 @@ app.factory('DatosSchool',function($rootScope){
         },
         SearchTestScoreGrade8thMath:function(indice){
           var ValuesTestScoreGrade8th = [];
-          ValuesTestScoreGrade8th.push(this.datos.evaluations_math[indice]['8rd_a_p_r_math']);
+          if(typeof this.datos.evaluations_math[indice] === 'undefined'){ return false; }
+          // ValuesTestScoreGrade8th.push(this.datos.evaluations_math[indice]['8rd_a_p_r_math']);
           ValuesTestScoreGrade8th.push(this.datos.evaluations_math[indice]['8rd_pr_s_level1_math']);
           ValuesTestScoreGrade8th.push(this.datos.evaluations_math[indice]['8rd_pr_s_level2_math']);
           ValuesTestScoreGrade8th.push(this.datos.evaluations_math[indice]['8rd_pr_s_level3_math']);
@@ -671,16 +814,51 @@ app.factory('DatosSchool',function($rootScope){
           if(GetUniqueElementsArray(ValuesTestScoreGrade8th).length > 0)
             { return true }
           else{ return false }
+        },
+        /*
+          @description: "devuelve un array con los datos filtrados, según sus parametros: field, year, grade, category".
+
+          @field: "math"|"ela" / required
+          @year: 4 digits year > 2011 / required
+          @category: index number for categories: 0-all studes (check the categories static variable template) / default = 0
+        */
+        getTestScoreEvaluationData: function(field, year, category){
+          if(typeof field == 'undefined' || typeof year == 'undefined'){
+            return false;
+          }
+
+          if(category === false || typeof category === 'undefined'){
+            return $filter('filter')(this.datos['evaluations_' + field], {'year': year.substr(-4)}, true);
+          }else if(category > -1){
+            return $filter('filter')(this.datos['evaluations_' + field], {'year': year.substr(-4), 'category': categoryKeywords[category]}, true)
+          }
+        },
+
+        getTestScoreCategoriesList: function(records){
+          var result = [];
+          records.map(function(item){
+            var index = categoryKeywords.indexOf(item.category);
+            if(index !== -1){
+              result.push({'texto': item.category, 'indice': index });
+            }
+          });
+
+          if(result.length === 0){
+            result.push({'texto': categoryKeywords[0], 'indice': 0 });
+          }
+
+          result.sort(function (a, b) {
+            if (a.indice > b.indice) {
+              return 1;
+            }
+            if (a.indice < b.indice) {
+              return -1;
+            }
+            return 0;
+          });
+
+          return result;
         }
-
-
-
-
-
-
-
-
-
     };
 });
 
@@ -694,11 +872,11 @@ function AccordionDemoCtrl($scope , $rootScope) {
 }
 
 // retrieves schools after query
-app.factory('SchoolRetriever', function($http, $q, $timeout) {
+app.factory('SchoolRetriever', function($http, $q, $timeout, $config) {
     var getSchools = function(query) {
         var deferred = $q.defer();
 
-        $http.get('http://162.243.110.154/api/v1/schools/' + query)
+        $http.get($config.API_V1_URL + 'schools/' + query)
         // $http.get('http://nyc-education-data-service.herokuapp.com/api/v1/schools/search_by_name_or_dbn?name_or_dbn=' + query)
         .success(function(data) {
             deferred.resolve(data);
@@ -706,6 +884,7 @@ app.factory('SchoolRetriever', function($http, $q, $timeout) {
         .error(function(reason) {
             deferred.reject(reason);
         })
+
         return deferred.promise;
     }
     return {

@@ -225,13 +225,13 @@ app.directive('autocomplete', function(){
           e.preventDefault();
       });
     },
-    template: '<div class="autocomplete {{attrs.class}}" id="{{attrs.id}}">'+
+   template: '<div class="autocomplete {{attrs.class}}" id="{{attrs.id}}">'+
                 '<input type="text" ng-model="searchParam" placeholder="{{\'MAIN_SCHOOL_NAME\'| translate}}" class="{{attrs.inputclass}}" id="{{attrs.inputid}}"/>' +
                 '<ul ng-show="completing">' +
                   '<li suggestion ng-repeat="suggestion in suggestions | filter:searchFilter | orderBy:\'toString()\' track by $index"'+
                   'index="{{$index}}" val="{{suggestion}}" ng-class="{active: '+
-                  '($index == selectedIndex)}" ng-click="select(suggestion);" onclick="window.scrollTo(0,0);"  '+
-                  'ng-bind-html="suggestion | highlight:searchParam">'+
+                  '($index == selectedIndex)}" ng-click="select(suggestion);" onclick="window.scrollTo(0,0);" >'+
+//                  'ng-bind-html="suggestion | highlight:searchParam">'+
                     '<span class="school-name">{{suggestion.name}} <span class="school-dbn">[{{suggestion.dbn}}]</span></span>' +
                     /*'<span class="school-address">{{suggestion.primary_address}}, {{suggestion.city}} {{suggestion.zip}}</span>' +*/
                   '</li>'+
@@ -241,26 +241,26 @@ app.directive('autocomplete', function(){
   }
 });
 
-app.filter('highlight', function ($sce) {
+//app.filter('highlight', function ($sce) {
+//
+//  return function (input, searchParam) {
+//
+//    if (searchParam) {
+//      var words = searchParam.split(/\ /).join('|'),
+//          exp = new RegExp("(" + words + ")", "gi");
+//
+//      if (words.length && $sce && input) {
+//        input = $sce.trustAsHtml(input.replace(exp, "<span class=\"highlight\">$1</span>"));
+//      }
+//    }
+//
+//    return input;
+//
+//  }
+//
+//});
 
-  return function (input, searchParam) {
-
-    if (searchParam) {
-      var words = searchParam.split(/\ /).join('|'),
-          exp = new RegExp("(" + words + ")", "gi");
-
-      if (words.length && $sce && input) {
-        input = $sce.trustAsHtml(input.replace(exp, "<span class=\"highlight\">$1</span>"));
-      }
-    }
-
-    return input;
-
-  }
-
-});
-
-app.directive('suggestion', function(){
+app.directive('suggestiones', function(){
   return {
     restrict: 'A',
     require: '^autocomplete', // ^look for controller on parents element

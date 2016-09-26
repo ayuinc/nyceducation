@@ -1,12 +1,25 @@
 
-angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch", "autocomplete","controllers_nyce"])
+angular.module('filters_nyce', ["ngRoute", "ngAnimate", "ngTouch", "autocomplete" , "controllers_nyce"])
+
+.filter("checkEmpty", function($rootScope){
+  return function(text) {
+    if(text == ''){
+      if ($rootScope.lenguage == "esp") {
+        return 'N/D';
+      }else{
+        return 'N/A';
+      }
+    }
+    return text;
+  }
+})
 
 .filter("iconPosition", function($rootScope){
     return function(text) {
         if ($rootScope.lenguage == "esp") {
           switch(text) {
           case 1:
-              return '250px';
+              return '255px';
               break;
           case 2:
               return '128px';
@@ -34,6 +47,18 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
               break;
           case 10:
               return '193px';
+              break;
+          case 11:
+              return '290px';
+              break;
+          case 12:
+              return '275px';
+              break;
+          case 13:
+              return '255px';
+              break;
+          case 14:
+              return '141px';
               break;
           }
 
@@ -70,6 +95,18 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
           case 10:
               return '139px';
               break;
+          case 11:
+              return '220px';
+              break;
+          case 12:
+              return '217px';
+              break;
+          case 13:
+              return '207px';
+              break;
+          case 14:
+              return '91px';
+              break;
           }
 
         };
@@ -97,6 +134,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Avg.'){ return "Promedio";}
             else if (text == 'Pre - K'){ return "Pre - Kínder";}
             else if (text == 'K'){ return "Kínder";}
+            else if (text == 'All Grades'){ return "Todos los grados";}
             else if (text == '1st'){ return "1.º";}
             else if (text == '2nd'){ return "2.º";}
             else if (text == '3rd'){ return "3.º";}
@@ -109,6 +147,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == '10th'){ return "10.º";}
             else if (text == '11th'){ return "11.º";}
             else if (text == '12th'){ return "12.º";}
+
         }else{ return text; };
     }
 })
@@ -136,9 +175,9 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Search'){ return "Buscar";}
             else if (text == 'Profile'){ return "Perfil";}
             else if (text == 'Demographics'){ return "Demografía";}
-            else if (text == 'ClassSize_Enrollment'){ return "Tam. de Clase / Inscripción";}
             else if (text == 'Enrollment'){ return "Inscripción";}
             else if (text == 'Admissions'){ return "Admisiones";}
+            else if (text == 'Class Size / Enrollment'){ return "Tamaño de Clase / Inscripción";}
             else if (text == 'Test Scores'){ return "Puntajes en los exámenes";}
             else if (text == 'Evaluations'){ return "Evaluaciones";}
             else if (text == 'Survey Results'){ return "Resultados de la encuesta";}
@@ -178,13 +217,17 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Ethnicity'){ return "Grupos étnicos";}
             else if (text == 'Asian'){ return "Asiáticos";}
             else if (text == 'Black'){ return "Negros";}
+            else if (text == 'Hispanic'){ return "Latinos";}
             else if (text == 'Latino'){ return "Latinos";}
             else if (text == 'White'){ return "Blancos";}
             else if (text == 'Other'){ return "Otros";}
-            else if (text == 'Status'){ return "Estatus";}
+            else if (text == 'Status'){ return "Estado";}
             else if (text == 'Free / Reduced Lunch'){ return "Almuerzo gratuito o a precio reducido";}
             else if (text == 'Students with Disabilities'){ return "Estudiantes con discapacidades";}
             else if (text == 'English Language Learners'){ return "Estudiantes que aprenden inglés";}
+            else if (text == 'All Students'){ return "Todos los estudiantes";}
+            else if (text == "SWD") { return "SWD"; }
+            else if (text == "No SWD") { return "No SWD"; }
         }else{ return text; };
     }
 })
@@ -214,6 +257,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'No. Students'){ return "No. de estudiantes";}
             else if (text == 'Attendance Rate'){ return "Tasa de asistencia";}
             else if (text == 'Attendance'){ return "Asistencia a clases";}
+            else if (text == 'Class Size'){ return "Tamaño de clase";}
         }else{ return text; };
     }
 })
@@ -266,6 +310,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
         if ($rootScope.lenguage == "esp") {
             if (text == 'Evaluations'){ return "Evaluaciones";}
             else if (text == 'Progress Report'){ return "Informe de progreso";}
+            else if (text == 'Closing Gap'){ return "Cierre de brecha";}
             else if (text == 'Overall'){ return "General";}
             else if (text == 'Performance'){ return "Rendimiento";}
             else if (text == 'Progress'){ return "Progreso";}
@@ -280,6 +325,8 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Well Developed'){ return "Bien desarrollada";}
             else if (text == 'Developing'){ return "En desarrollo";}
             else if (text == 'Underdeveloped'){ return "Poco desarrollada";}
+            else if (text == 'Assessment'){ return "Evaluación";}
+            else if (text == 'Career Readiness'){ return "Career Readiness";}
             // else if (text == "'Proficient"){ return "Competente";}
             // else if (text == "'Well Developed"){ return "'Bien desarrollada";}
             // else if (text == "'Developing"){ return "En desarrollo";}
@@ -305,6 +352,7 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'Very satisfied'){ return "Muy satisfecho";}
             else if (text == 'Satisfied'){ return "Satisfecho";}
             else if (text == 'Categories'){ return "Categorías";}
+            else if (text == 'Categories (Satisfaction Rate)'){ return "Categorías (Tasa de satisfacción)";}
             else if (text == 'Safety and Respect'){ return "Seguridad y respeto";}
             else if (text == 'Engagement'){ return "Participación";}
             else if (text == 'Communication'){ return "Comunicación";}
@@ -398,6 +446,18 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
             else if (text == 'This is the highest rating a school can earn on the Quality Review.  It indicates highly effective teaching and learning practice, strategic school management, and an excellent quality learning environment.'){ return "Es la calificación más alta que puede obtener una escuela en la Revisión de calidad.  Indica prácticas de enseñanza y aprendizaje sólidas altamente eficaces, manejo estratégico de la escuela y un entorno de aprendizaje de excelente calidad.";}
             else if (text == 'The first school year that the school was open.'){ return "El primer año de funcionamiento de la escuela.";}
 
+            else if (text == 'The degree to which teachers participate in opportunities to develop, grow, and contribute to the continuous improvement of the school community. '){ return 'The degree to which teachers participate in opportunities to develop, grow, and contribute to the continuous improvement of the school community. '; }
+            else if (text == 'The degree to which school leadership inspires the school community with a clear instructional vision and effectively distributes leadership to realize this vision.'){ return 'The degree to which school leadership inspires the school community with a clear instructional vision and effectively distributes leadership to realize this vision.'; }
+            else if (text == 'The degree to which curriculum and instruction are designed to engage students, foster critical-thinking skills, and are aligned to the Common Core.'){ return 'The degree to which curriculum and instruction are designed to engage students, foster critical-thinking skills, and are aligned to the Common Core.'; }
+            else if (text == 'The degree to which the school forms effective partnerships with families and outside organizations to improve the school.'){ return 'The degree to which the school forms effective partnerships with families and outside organizations to improve the school.'; }
+            else if (text == 'The degree to which the school establishes a culture where students feel safe, challenged to grow, and supported to meet high expectations.'){ return 'The degree to which the school establishes a culture where students feel safe, challenged to grow, and supported to meet high expectations.'; }
+            else if (text == 'The degree to which relationships between administrators, educators, students, and families are based on trust and respect.'){ return 'The degree to which relationships between administrators, educators, students, and families are based on trust and respect.'; }
+            else if (text == 'The degree to which curriculum and instruction are designed to engage students, foster critical-thinking skills, and are aligned to the Common Core.'){ return "The degree to which curriculum and instruction are designed to engage students, foster critical-thinking skills, and are aligned to the Common Core.";}
+            else if (text == 'Assessment'){ return "Evaluación"; }
+
+            else if (text == 'Average class size is calculated by dividing the number of students by the number of sections as determined by each student’s official class (e.g. homeroom/advisory) from the Automate the Schools (ATS) system.'){ return "Average class size is calculated by dividing the number of students by the number of sections as determined by each student’s official class (e.g. homeroom/advisory) from the Automate the Schools (ATS) system."; }
+            else if (text == 'Average class size is calculated by the average number of students in each section of course courses (English, Math, Science and Social Studies) from the STARS system.'){ return "Average class size is calculated by the average number of students in each section of course courses (English, Math, Science and Social Studies) from the STARS system."; }
+
         }else{ return text; };
     }
 })
@@ -469,21 +529,49 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
 .filter("translateSurveyQuestion", function($rootScope){
     return function(text) {
         if ($rootScope.lenguage == "esp") {
-            if (text == 'At my school, I am safe in the hallways, bathrooms, locker rooms, and cafeteria.'){ return "En mi escuela, no corro peligro en los pasillos, baños, vestuarios ni en el comedor escolar.";}
-            else if (text == 'Most of the teaching staff at my school make me excited about learning.'){ return "La mayor parte del personal docente de mi escuela, me motiva a aprender.";}
-            else if (text == 'I feel welcome at my school.'){ return "Me siento bien recibido en mi escuela.";}
-            else if (text == 'Most adults at my school care about me.'){ return "Los adultos de mi escuela se preocupan por mí.";}
-            else if (text == 'Most students at my school respect students who get good grades.'){ return "La mayoría de los estudiantes de mi escuela, respetan a los alumnos que obtienen buenas calificaciones.";}
-            else if (text == 'I would recommend my school to parents seeking a place for their child.'){ return "Yo les recomendaría mi escuela a los padres que estén buscando una para su hijo.";}
-            else if (text == 'At my school, adults treat students with respect.'){ return "En mi escuela, los adultos tratan a los estudiantes con respeto.";}
-            else if (text == 'School leaders place a high priority on the quality of teaching.'){ return "Para las directivas de las escuelas, la calidad de la enseñanza, tiene gran prioridad.";}
-            else if (text == 'Students are often harassed or bullied in school.'){ return "Frecuentemente, los estudiantes son acosados o víctimas de bullying en la escuela.";}
-            else if (text == 'My school communicates effectively with parents about their child’s progress.'){ return "Mi escuela tiene una comunicación eficaz con los padres, acerca del progreso de sus hijos.";}
-            else if (text == 'My child is safe at school.'){ return "Mi hijo se siente seguro en la escuela.";}
-            else if (text == 'My child’s school is responsive to parent feedback.'){ return "La escuela de mi hijo tiene en cuenta la opinión de los padres.";}
-            else if (text == 'My child’s school keeps me informed about my child’s academic progress.'){ return "La escuela de mi hijo me mantiene informado con respecto al progreso académico de mi hijo.";}
-            else if (text == 'I would recommend this school to other parents.'){ return "Recomendaría esta escuela a otros padres.";}
-            else if (text == 'I am satisfied or very satisfied with the education my child has received this year.'){ return "Me encuentro satisfecho o muy satisfecho con la educación que hijo ha recibido este año.";}
+          if (text == 'At my school, I am safe in the hallways, bathrooms, locker rooms, and cafeteria.'){ return "En mi escuela, no corro peligro en los pasillos, baños, vestuarios ni en el comedor escolar.";}
+          else if (text == 'Most of the teaching staff at my school make me excited about learning.'){ return "La mayor parte del personal docente de mi escuela, me motiva a aprender.";}
+          else if (text == 'I feel welcome at my school.'){ return "Me siento bien recibido en mi escuela.";}
+          else if (text == 'Most adults at my school care about me.'){ return "Los adultos de mi escuela se preocupan por mí.";}
+          else if (text == 'Most students at my school respect students who get good grades.'){ return "La mayoría de los estudiantes de mi escuela, respetan a los alumnos que obtienen buenas calificaciones.";}
+          else if (text == 'I would recommend my school to parents seeking a place for their child.'){ return "Yo les recomendaría mi escuela a los padres que estén buscando una para su hijo.";}
+          else if (text == 'At my school, adults treat students with respect.'){ return "En mi escuela, los adultos tratan a los estudiantes con respeto.";}
+          else if (text == 'School leaders place a high priority on the quality of teaching.'){ return "Para las directivas de las escuelas, la calidad de la enseñanza, tiene gran prioridad.";}
+          else if (text == 'Students are often harassed or bullied in school.'){ return "Frecuentemente, los estudiantes son acosados o víctimas de bullying en la escuela.";}
+          else if (text == 'My school communicates effectively with parents about their child’s progress.'){ return "Mi escuela tiene una comunicación eficaz con los padres, acerca del progreso de sus hijos.";}
+          else if (text == 'My child is safe at school.'){ return "Mi hijo se siente seguro en la escuela.";}
+          else if (text == 'My child’s school is responsive to parent feedback.'){ return "La escuela de mi hijo tiene en cuenta la opinión de los padres.";}
+          else if (text == 'My child’s school keeps me informed about my child’s academic progress.'){ return "La escuela de mi hijo me mantiene informado con respecto al progreso académico de mi hijo.";}
+          else if (text == 'I would recommend this school to other parents.'){ return "Recomendaría esta escuela a otros padres.";}
+          else if (text == 'I am satisfied or very satisfied with the education my child has received this year.'){ return "Me encuentro satisfecho o muy satisfecho con la educación que hijo ha recibido este año.";}
+
+          // Students
+          else if( text == "How many of the students in your class(es) try hard to get good grades" ) { return "How many of the students in your class(es) try hard to get good grades"; }
+          else if( text == "Think about the class that you attend first on Mondays. In that class, to what extent are you challenged" ) { return "Think about the class that you attend first on Mondays. In that class, to what extent are you challenged"; }
+          else if( text == "How much do you agree with the following statements? In my classes, my teachers expect students to work hard" ) { return "How much do you agree with the following statements? In my classes, my teachers expect students to work hard"; }
+          else if( text == "How much do you agree with the following statements? Students in this school get to know each other really well" ) { return "How much do you agree with the following statements? Students in this school get to know each other really well"; }
+          else if( text == "How much do you agree with the following statements? I'm learning a lot in my classes at this school" ) { return "How much do you agree with the following statements? I'm learning a lot in my classes at this school"; }
+          else if( text == "How much do you agree with the following statements? This school offers a wide enough variety of programs, classes and activities to keep me interested in school" ) { return "How much do you agree with the following statements? This school offers a wide enough variety of programs, classes and activities to keep me interested in school"; }
+          else if( text == "How much do you agree with the following statements? Most students at this school treat each other with respect" ) { return "How much do you agree with the following statements? Most students at this school treat each other with respect"; }
+          else if( text == "How much do you agree with the following statements? At this school students harass or bully other students" ) { return "How much do you agree with the following statements? At this school students harass or bully other students"; }
+          else if( text == "How much do you agree with the following statements? At this school students drink alcohol, use illegal drugs, or abuse prescription drugs while at school" ) { return "How much do you agree with the following statements? At this school students drink alcohol, use illegal drugs, or abuse prescription drugs while at school"; }
+
+          // Teachers
+          else if( text == "The Principal at this school (not Assistant Principal(s)) sets high standards for student learning" ){ return "The Principal at this school (not Assistant Principal(s)) sets high standards for student learning"; }
+          else if( text == "At this school there is an expectation that teachers communicate regularly with parents/guardians" ){ return "At this school there is an expectation that teachers communicate regularly with parents/guardians"; }
+          else if( text == "I wouldn't want to work in any other school" ){ return "I wouldn't want to work in any other school"; }
+          else if( text == "This school sets high standards for academic performance" ){ return "This school sets high standards for academic performance"; }
+          else if( text == "I would recommend this school to parents/guardians seeking a place for their child" ){ return "I would recommend this school to parents/guardians seeking a place for their child"; }
+          else if( text == "This school educates students with disabilities in the least restrictive environment." ){ return "This school educates students with disabilities in the least restrictive environment."; }
+
+          // Parents 
+          else if (text == "Teachers communicate regularly with parents/guardians"){ return "Teachers communicate regularly with parents/guardians"; }
+          else if (text == "At this school my child is safe"){ return "At this school my child is safe"; }
+          else if (text == "How satisfied are you with the following? The response I get when I contact this school"){ return "How satisfied are you with the following? The response I get when I contact this school"; }
+          else if (text == "How satisfied are you with the following? The education my child has received this year"){ return "How satisfied are you with the following? The education my child has received this year"; }
+          else if (text == "How satisfied are you with the following? The overall quality of my child's teachers this year"){ return "How satisfied are you with the following? The overall quality of my child's teachers this year"; }
+          else if (text == "This school works to achieve the goals on my child's Individual Education Program (IEP)"){ return "This school works to achieve the goals on my child's Individual Education Program (IEP)"; }
+
         }else{ return text; };
     }
 })
@@ -499,9 +587,9 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
 
 .filter("filtraCeros", function(){
     return function(text) {
-
-        if (text == null || text == "0.00" || text == "0" || text == ""){ return "borrar";}
-
+        if (text == null || text == "0.00" || text == "0" || text == ""){
+          return "borrar";
+        }
     }
 })
 
@@ -544,20 +632,20 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
 .filter("filternulltext", function($rootScope){
     return function(text) {
 
-        // if (text == null || text == ''){
-        //   return "0";
-        // }else if (text == "N/A"){
+        if (text == null || text == ''){
+          return "0";
+        }else if (text == "N/A"){
+          return '';
+        }
+        // if (text === null || text === ''){
+        //   if ($rootScope.lenguage == "esp") {
+        //     return "No disponible para el año seleccionado";
+        //   } else {
+        //     return "Unavailable for the selected year";
+        //   }
+        // } else {
         //   return;
         // }
-        if (text === null || text === ''){
-          if ($rootScope.lenguage == "esp") {
-            return "No disponible para el año seleccionado";
-          } else {
-            return "Unavailable for the selected year";
-          }
-        } else {
-          return;
-        }
     }
 })
 
@@ -569,13 +657,12 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
 
 .filter("filterpercent", function(){
     return function(text) {
-
-        if (text == null || text == ''){
-          return;
-        }else {
-          return "%";
-        }
-
+        return "%";
+        // if (text == null || text == ''){
+        //   return;
+        // }else {
+        //   return "%";
+        // }
     }
 })
 
@@ -613,17 +700,12 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
 
 .filter("filtraRank", function( $rootScope, DatosSchool ){
 
-
     return function(text) {
-
-
         if ( (text >= 1) && (text < 25 )){ return '25';}
         else if ( (text >= 25) && (text < 50 )){ return '50';}
         else if ( (text >= 50) && (text < 75 )){ return '75';}
         else if ( (text >= 75) && (text <= 100 )){ return "100";}
         else { return "n";}
-
-
     }
 })
 
@@ -633,6 +715,8 @@ angular.module('filters_nyce', ["mm.foundation","ngRoute", "ngAnimate", "ngTouch
 
 
     return function(text) {
+      // No retornará nada por que tienen que mostrarse siempre los 3
+      // return;
 
     var who = $rootScope.survey_var;
 
@@ -737,14 +821,14 @@ else {
 
 .filter("redondea_sp", function(){
     return function(text) {
+      return text;
 
-if (text == "0.00" || text == "0" || text == ""){
-    return "Unavailable for the selected year";
-}
-else {
-    return text;
-}
-
+      // if (text == "0.00" || text == "0" || text == ""){
+      //     return "Unavailable for the selected year";
+      // }
+      // else {
+      //     return text;
+      // }
     }
 })
 
@@ -811,6 +895,15 @@ if (text == "2011" || text == "2012"){
 })
 
 .filter("escalaPrEnvironmentElem", function(){
+    return function(text) {
+        var num = parseFloat(text);
+        var val = (num*100)/(15);
+        return val;
+    }
+})
+
+
+.filter("escalaPr100", function(){
     return function(text) {
         var num = parseFloat(text);
         var val = (num*100)/(15);
